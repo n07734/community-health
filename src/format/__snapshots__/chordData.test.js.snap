@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`formatChordData: Five users with equal contributions 1`] = `
+{
+  'matrix': [
+    [
+      0,
+      10,
+      10,
+      10,
+      10,
+    ],
+    [
+      10,
+      0,
+      10,
+      10,
+      10,
+    ],
+    [
+      10,
+      10,
+      0,
+      10,
+      10,
+    ],
+    [
+      10,
+      10,
+      10,
+      0,
+      10,
+    ],
+    [
+      10,
+      10,
+      10,
+      10,
+      0,
+    ],
+  ],
+  'names': [
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+  ],
+}
+`;

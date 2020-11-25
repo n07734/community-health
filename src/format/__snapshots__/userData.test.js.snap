@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`formatUserData: Basic PR data transfers to result 1`] = `
+[
+  {
+    'age': 0,
+    'approvalsByUser': {},
+    'approvalsGiven': 0,
+    'approvalsReceived': 1,
+    'author': 'bob',
+    'codeCommentsGiven': 0,
+    'codeCommentsReceived': 3,
+    'commentsByUser': {},
+    'commentsGiven': 0,
+    'commentsReceived': 2,
+    'generalCommentsGiven': 0,
+    'generalCommentsReceived': 4,
+    'prAges': [
+      0,
+    ],
+    'prSize': 0,
+    'prSizes': [
+      0,
+    ],
+    'totalPRs': 1,
+    'uniquePRsContributedTo': 0,
+    'user': 'bob',
+  },
+]
+`;
+
+exports[`formatUserData: PR data from two authors with no contributors to match snapshot 1`] = `
+[
+  {
+    'age': 0,
+    'approvalsByUser': {},
+    'approvalsGiven': 0,
+    'approvalsReceived': 0,
+    'author': 'bob',
+    'codeCommentsGiven': 0,
+    'codeCommentsReceived': 0,
+    'commentsByUser': {},
+    'commentsGiven': 0,
+    'commentsReceived': 0,
+    'generalCommentsGiven': 0,
+    'generalCommentsReceived': 0,
+    'prAges': [
+      0,
+      0,
+    ],
+    'prSize': 0,
+    'prSizes': [
+      0,
+      0,
+    ],
+    'totalPRs': 2,
+    'uniquePRsContributedTo': 0,
+    'user': 'bob',
+  },
+  {
+    'age': 0,
+    'approvalsByUser': {},
+    'approvalsGiven': 0,
+    'approvalsReceived': 0,
+    'author': 'smith',
+    'codeCommentsGiven': 0,
+    'codeCommentsReceived': 0,
+    'commentsByUser': {},
+    'commentsGiven': 0,
+    'commentsReceived': 0,
+    'generalCommentsGiven': 0,
+    'generalCommentsReceived': 0,
+    'prAges': [
+      0,
+    ],
+    'prSize': 0,
+    'prSizes': [
+      0,
+    ],
+    'totalPRs': 1,
+    'uniquePRsContributedTo': 0,
+    'user': 'smith',
+  },
+]
+`;

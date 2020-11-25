@@ -1,0 +1,38 @@
+import React from 'react'
+import { SnackbarContent } from '@material-ui/core'
+import { Warning } from '@material-ui/icons'
+import classNames from 'classnames'
+
+import amber from '@material-ui/core/colors/amber'
+import { withStyles } from '@material-ui/core/styles'
+
+const infoStyles = theme => ({
+    warning: {
+        backgroundColor: amber[700],
+        marginBottom: theme.spacing.x.meduim,
+    },
+    icon: {
+        fontSize: 20,
+    },
+    iconVariant: {
+        opacity: 0.9,
+        marginRight: theme.spacing.y.medium,
+    },
+    message: {
+        display: 'flex',
+        alignItems: 'center',
+    },
+})
+
+const WarningRaw = ({ classes = {}, className = '' } = {}) => (<>
+    <SnackbarContent
+        className={classNames(classes.warning, className)}
+        message={
+            <span className={classes.message}>
+                <Warning className={classNames(classes.icon, classes.iconVariant)} />Warning using demo data, fill in form to get real data from gitHub
+            </span>
+        }
+    />
+</>)
+
+export default withStyles(infoStyles)(WarningRaw)

@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fillData: fillType pullRequestReviewComments adds review comments 1`] = `
+[
+  {
+    'node': {
+      'comments': {
+        'edges': [
+          'reviewComment1',
+          'reviewComment2',
+        ],
+      },
+      'id': 'id',
+    },
+  },
+  {
+    'node': {
+      'comments': {
+        'edges': [
+          'reviewComment1',
+          'reviewComment2',
+        ],
+      },
+      'id': 'id',
+    },
+  },
+]
+`;
+
+exports[`fillData: fillType pullRequests adds comments and reviews 1`] = `
+{
+  'data': {
+    'repository': {
+      'pullRequests': {
+        'edges': [
+          {
+            'node': {
+              'comments': {
+                'edges': [
+                  'comment1',
+                  'comment2',
+                ],
+              },
+              'id': 'id',
+              'reviews': {
+                'edges': [
+                  {
+                    'node': {
+                      'comments': {
+                        'edges': [
+                          'reviewComment1',
+                          'reviewComment2',
+                        ],
+                      },
+                    },
+                  },
+                  {
+                    'node': {
+                      'comments': {
+                        'edges': [
+                          'reviewComment1',
+                          'reviewComment2',
+                        ],
+                      },
+                    },
+                  },
+                ],
+              },
+            },
+          },
+        ],
+      },
+    },
+  },
+}
+`;
