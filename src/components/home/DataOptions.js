@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import _get from 'lodash/get'
 
-
 import {
     TextField,
 } from '@material-ui/core'
@@ -24,7 +23,6 @@ import {
     getPreFetchedData,
     toggleTheme,
 } from '../../state/actions'
-
 
 const buttonText = (fetching, preFetchedRepo, pullRequests = []) => [
     fetching && 'fetching',
@@ -125,13 +123,11 @@ const FetchForm = (props) => {
                 {
                     [
                         'react',
-                        'angular',
                         'vue',
                         'TypeScript',
                         'material-ui',
-                        'nivo',
-                        'd3',
                         'node',
+                        'deno',
                         'vscode',
                         'electron',
                         'kotlin',
@@ -190,7 +186,7 @@ const mapDispatchToProps = dispatch => ({
     themeToggle: (x) => dispatch(toggleTheme(x)),
 })
 
-const styles = theme => ({
+const styles = () => ({
     form: {
         display: 'grid',
         gridTemplateColumns: 'repeat(4, max-content)',

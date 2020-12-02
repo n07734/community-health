@@ -1,7 +1,6 @@
 module.exports = {
     user: '',
     fetches: {
-        token: '9bbabd5c0d909c4af7bb2d805f625d4282dc8379',
         org: 'd3',
         repo: 'd3',
         prPagination: {
@@ -17,10 +16,7 @@ module.exports = {
             hasNextPage: true,
         },
     },
-    fetching: false,
-    error: '',
     preFetchedRepo: 'd3',
-    repoInfo: {},
     pullRequests: [
         {
             repo: 'd3',
@@ -4907,5 +4903,4 @@ module.exports = {
             releaseType: 'PATCH',
         },
     ],
-    themeType: 'dark',
-}
+};

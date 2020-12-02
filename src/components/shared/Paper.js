@@ -5,9 +5,9 @@ import classNames from 'classnames'
 
 const styles = theme => ({
     root: {
-        padding: `${theme.spacing.x.large} ${theme.spacing.y.large}`,
+        padding: `${theme.spacing.y.large} ${theme.spacing.y.large} 0 ${theme.spacing.y.large}`,
         backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'bottom left',
+        backgroundPosition: 'top left',
         backgroundSize: '100% 20px',
         backgroundImage: `linear-gradient(${theme.palette.shadow}, rgba(0,0,0,0))`,
         position: 'relative',
@@ -16,6 +16,9 @@ const styles = theme => ({
         flexWrap: 'wrap',
         justifyContent: 'space-evenly',
 
+    },
+    'bg-none': {
+        background: 'none'
     },
     'justify': {
         justifyContent: 'space-between',

@@ -1,15 +1,19 @@
 ## TODO:
 Bugs:
-Slow theme change, actions fixed but render is slow
+Solve too many 500 errors on inital calls, also add a better error message
+Add graph for number of prs merged
+Add version line filtering when too noisy 
+add repo description from api call data
+org and repo from fetched data
+saved data have last page fetch info so can be filled in later
+strip empty and zero fields 
+Month 01 looks odd
+remove preFetchedRepo key?
 
 V1
 comp top x peers?
 clear fetch error on fetch attempt
 combine requests into one request, prove filling is working
-get repo data
-Update Data and add repo descriptions
-Get approval to open source this personaly, sent email.
-
 Get someone to review the words
 
 Next

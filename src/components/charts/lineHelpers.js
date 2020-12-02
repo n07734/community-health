@@ -104,9 +104,9 @@ const formatGraphMarkers = (markers, theme, lineData) => {
         .map((item) => ({
             axis: 'x',
             value: new Date(item.date).getTime(),
-            legend: item.releaseType === 'PATCH'
-                ? ''
-                : item.description,
+            legend: item.releaseType === 'MAJOR'
+                ? item.description
+                : '',
             ...(theme.charts.markers[markerType(item.releaseType)] || {}),
         }))
 

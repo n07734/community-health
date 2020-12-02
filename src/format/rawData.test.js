@@ -258,6 +258,7 @@ describe('formatReleases:', () => {
             { name: '1.0.0' },
             { name: '1.1.0' },
             { name: '1.1.1' },
+            { name: '5.0.0-alpha.7' },
         ]))
 
         const expected = [
@@ -275,6 +276,12 @@ describe('formatReleases:', () => {
             {
                 date: '2020',
                 description: '1.1.1',
+                releaseType: 'PATCH',
+
+            },
+            {
+                date: '2020',
+                description: '5.0.0-alpha.7',
                 releaseType: 'PATCH',
 
             },

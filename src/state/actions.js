@@ -84,6 +84,13 @@ const updateUsersData = (dispatch, getState) => {
     })
 }
 
+const formatApiRepoInfo = ({ fetches: { repo, org, description = '' } = {}, sdlc = '' } = {} ) => ({
+    repo,
+    org,
+    description,
+    sdlc,
+})
+
 const getAPIData = () => (dispatch, getState) => {
     const state = getState()
 
@@ -101,6 +108,11 @@ const getAPIData = () => (dispatch, getState) => {
             dispatch({
                 type: types.ADD_PRS,
                 payload: formatPullRequests(rawData),
+            })
+
+            dispatch({
+                type: types.ADD_REPO_INFO,
+                payload: formatApiRepoInfo(rawData),
             })
 
             dispatch(updateUsersData)
@@ -127,93 +139,53 @@ const getAPIData = () => (dispatch, getState) => {
         })
 }
 
-const formatRepoInfo = ({ repo, org, description, sdlc } = {}) => ({
-    repo,
-    org,
-    description,
-    sdlc,
-})
-
 const getPreFetchedData = (repo = 'nivo') => (dispatch) => {
-    const jsData = ['d3', 'react', 'angular', 'TypeScript', 'nivo', 'vue']
+    const repoData = require(`../prefetchedData/${repo}`)
 
-    if (jsData.some(x => x === repo)) {
-        const repoData = require(`../prefetchedData/${repo}`)
-        const {
-            preFetchedRepo = '',
-            pullRequests = [],
-            usersData= [],
-            issues = [],
-            releases = [],
-        } = repoData
+    const {
+        preFetchedRepo = '',
+        pullRequests = [],
+        usersData= [],
+        issues = [],
+        releases = [],
+    } = repoData
 
+    clearData(dispatch)
 
-        clearData(dispatch)
+    dispatch({
+        type: types.PREFETCHED_REPO,
+        payload: preFetchedRepo,
+    })
 
-        dispatch({
-            type: types.PREFETCHED_REPO,
-            payload: preFetchedRepo,
-        })
+    dispatch({
+        type: types.ADD_REPO_INFO,
+        payload: formatApiRepoInfo(repoData),
+    })
 
-        dispatch({
-            type: types.ADD_REPO_INFO,
-            payload: formatRepoInfo(repoData),
-        })
+    dispatch({
+        type: types.ADD_PRS,
+        payload: pullRequests,
+    })
+    dispatch({
+        type: types.ADD_USERS_DATA,
+        payload: usersData.length
+            ? usersData
+            : formatUserData(pullRequests),
+    })
 
-        dispatch({
-            type: types.ADD_PRS,
-            payload: pullRequests,
-        })
-        dispatch({
-            type: types.ADD_USERS_DATA,
-            payload: usersData.length
-                ? usersData
-                : formatUserData(pullRequests),
-        })
+    dispatch({
+        type: types.ADD_ISSUES,
+        payload: issues,
+    })
 
-        dispatch({
-            type: types.ADD_ISSUES,
-            payload: issues,
-        })
+    dispatch({
+        type: types.ADD_RELEASES,
+        payload: releases,
+    })
 
-        dispatch({
-            type: types.ADD_RELEASES,
-            payload: releases,
-        })
-
-        dispatch({
-            type: types.FETCH_END,
-        })
-    } else {
-        const rawData = require(`../prefetchedData/${repo}.json`)
-
-        clearData(dispatch)
-        const prs = formatPullRequests(rawData)
-
-        dispatch({
-            type: types.PREFETCHED_REPO,
-            payload: repo,
-        })
-
-        dispatch({
-            type: types.ADD_PRS,
-            payload: prs,
-        })
-        dispatch({
-            type: types.ADD_USERS_DATA,
-            payload: formatUserData(prs),
-        })
-
-        dispatch({
-            type: types.ADD_ISSUES,
-            payload: formatIssues(rawData),
-        })
-
-        dispatch({
-            type: types.ADD_RELEASES,
-            payload: formatReleases(rawData),
-        })
-    }
+    dispatch({
+        type: types.FETCH_END,
+    })
 }
 
 export {

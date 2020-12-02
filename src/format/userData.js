@@ -46,7 +46,6 @@ const formatUserData = (data = []) => {
 
             return Object.assign(acc, { [key]: updated })
         }, {})
-
     const userData = data
         .reduce((acc, prData) => {
             const {

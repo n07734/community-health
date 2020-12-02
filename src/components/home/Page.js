@@ -9,7 +9,7 @@ import PageWrapper from './PageWrapper'
 
 const Page = () => (
     <PageWrapper>
-        <Paper>
+        <Paper className="bg-none">
             <ChartDescription
                 title={(
                     <H level={1}>Code Contribution Health</H>

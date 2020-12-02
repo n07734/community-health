@@ -4,6 +4,7 @@ import {
     major,
     minor,
     patch,
+    prerelease,
 } from 'semver'
 
 const formatCommenters = items => items
@@ -177,10 +178,13 @@ const getReleaseType = (tag) => {
         const majorV = major(tag)
         const minorV = minor(tag)
         const patchV = patch(tag)
+        const prereleaseV = prerelease(tag)
+    
+        console.log('majorV, minorV, patchV', majorV, minorV, patchV, prereleaseV)
 
         const releaseType = [
-            majorV && minorV === 0 && patchV === 0 && 'MAJOR',
-            minorV && patchV === 0 && 'MINOR',
+            !prereleaseV && majorV && minorV === 0 && patchV === 0 && 'MAJOR',
+            !prereleaseV && minorV && patchV === 0 && 'MINOR',
             'PATCH',
         ].find(Boolean)
 

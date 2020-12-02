@@ -13,7 +13,6 @@ const App = ({ getPreFetchedData, themeType, setUser } = {}) => {
         const quertString = _get(window, 'location.search', '')
         const [, urlRepo] = (quertString.match(/repo=([^&]+)/) || [])
         getPreFetchedData(urlRepo || 'react')
-        // setUser('gaearon')
     }, [])
 
     return (
