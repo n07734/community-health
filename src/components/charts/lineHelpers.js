@@ -1,4 +1,4 @@
-import _max from 'lodash/max'
+import { apply } from 'ramda'
 import batchBy from './batchBy'
 
 
@@ -13,7 +13,7 @@ const getMaxYValue = (data) => {
             return acc
         }, [])
 
-    const maxValue = _max(allValues)
+    const maxValue = apply(Math.max, allValues)
 
     return maxValue
 }

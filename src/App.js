@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { MuiThemeProvider } from '@material-ui/core/styles'
-import _get from 'lodash/get'
+import { pathOr } from 'ramda'
 
 import theme from './theme'
 import Page from './components/home/Page'
@@ -10,10 +10,10 @@ import * as actions from './state/actions'
 
 const App = ({ getPreFetchedData, themeType, setUser } = {}) => {
     useEffect(() => {
-        const quertString = _get(window, 'location.search', '')
+        const quertString = pathOr('', ['location', 'search'],window)
         const [, urlRepo] = (quertString.match(/repo=([^&]+)/) || [])
         getPreFetchedData(urlRepo || 'react')
-    }, [])
+    }, [getPreFetchedData])
 
     return (
         <MuiThemeProvider theme={theme(themeType)}>

@@ -1,5 +1,5 @@
 import React from 'react'
-import _filter from 'lodash/filter'
+import { filter } from 'ramda'
 import { ResponsiveBar as NivoBar } from '@nivo/bar'
 
 import ChartHeading from './ChartHeading'
@@ -15,7 +15,7 @@ const Bar = styledCharts(({
     classes,
     theme,
 } = {}) => {
-    const trimmedData = _filter(data, item => bars.some(x => item[x.dataKey]))
+    const trimmedData = filter(item => bars.some(x => item[x.dataKey]), data)
 
 
     const byPropDesc = prop => (a, b) =>

@@ -29,7 +29,7 @@ const IssuesTrends = ({
                 intro="This is to help show the issue trends"
             >
                 <div>
-                    <P>Bugs in this graph are issues that have a title or a label that contains the word bug</P>
+                    <P>Bugs in this graph are issues that have a title or a label that contains the word 'bug'</P>
                     <UL>
                         <LI>What happens when there is a new release?</LI>
                         <LI>Is the bug count raising? If so then why?</LI>

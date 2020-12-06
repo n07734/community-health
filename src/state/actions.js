@@ -140,7 +140,7 @@ const getAPIData = () => (dispatch, getState) => {
 }
 
 const getPreFetchedData = (repo = 'nivo') => (dispatch) => {
-    const repoData = require(`../prefetchedData/${repo}`)
+    const repoData = require(`../prefetchedData/${repo}.json`)
 
     const {
         preFetchedRepo = '',

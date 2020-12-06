@@ -1,5 +1,5 @@
 import React from 'react'
-import _get from 'lodash/get'
+import { pathOr, propOr } from 'ramda'
 import { ResponsiveLine as NivoLine } from '@nivo/line'
 import { TableTooltip } from '@nivo/tooltip'
 
@@ -42,7 +42,7 @@ const ToolTip = convertedRightLines => data => {
         }}
     />
 
-    const points = _get(data, 'slice.points', [])
+    const points = pathOr([], ['slice', 'points'], data)
     return (
         <TableTooltip
             rows={
@@ -102,7 +102,7 @@ const Line = styledCharts(({
 
     const formattedMarkers = formatGraphMarkers(markers, theme, lineData)
 
-    const hasData = (items) => items.some(x => _get(x, 'data', []).length)
+    const hasData = (items) => items.some(x => propOr([], 'data', x).length)
 
     return hasData(lineData) && (
         <div className={classes.chartComponentWrap}>

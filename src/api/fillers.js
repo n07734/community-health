@@ -1,4 +1,4 @@
-import _get from 'lodash/get'
+import { pathOr, propOr } from 'ramda'
 import batch from './batch'
 
 import {
@@ -81,14 +81,14 @@ const fillData = apiCall => {
     }
 
     const getQueryInfo = key => data => ({
-        nodeId: _get(data, 'node.id', ''),
-        cursor: _get(data, `node.${key}.pageInfo.endCursor`, ''),
-        hasNextPage: _get(data, `node.${key}.pageInfo.hasNextPage`, false),
+        nodeId: pathOr('', ['node', 'id'], data),
+        cursor: pathOr('', ['node', key, 'pageInfo', 'endCursor'], data),
+        hasNextPage: pathOr(false, ['node', key, 'pageInfo', 'hasNextPage'], data),
     })
 
     const allPullRequestReviewsComments = async(data = []) => {
         const getAllReviewComments = async(review) => {
-            const currentReviewComments = _get(review, 'node.comments.edges', [])
+            const currentReviewComments = pathOr([], ['node', 'comments', 'edges'], review)
             const reviewCommentsQueryInfo = getQueryInfo('comments')(review)
 
             const allReviewComments = await recursiveFiller(reviewCommentsQuery)(reviewCommentsQueryInfo)(currentReviewComments)
@@ -102,16 +102,16 @@ const fillData = apiCall => {
     }
 
     const pullRequestsReviews = async(data) => {
-        const pullRequests = _get(data, 'data.repository.pullRequests.edges', [])
+        const pullRequests = pathOr([], ['data', 'repository', 'pullRequests', 'edges'], data)
 
         const getAllPullRequestReviews = async (pullRequest) => {
-            const currentReviews = _get(pullRequest, 'node.reviews.edges', [])
+            const currentReviews = pathOr([], ['node','reviews','edges'], pullRequest)
             const reviewsQueryInfo = getQueryInfo('reviews')(pullRequest)
 
             const allReviews = await recursiveFiller(reviewsQuery)(reviewsQueryInfo)(currentReviews)
 
             return {
-                nodeId: _get(pullRequest, 'node.id', ''),
+                nodeId: pathOr('', ['node', 'id'], pullRequest),
                 results: { edges: allReviews },
             }
         }
@@ -121,12 +121,14 @@ const fillData = apiCall => {
             const updatedpullRequestsData = updatePullRequests(data)('reviews')(allPullRequestsReviews)
 
             return {
-                data: Object.assign(_get(data, 'data', {}),
+                data: Object.assign(propOr({}, 'data', data),
                     {
-                        repository: Object.assign(_get(data, 'data.repository',
+                        repository: Object.assign(pathOr(
                             {
                                 pullRequests: updatedpullRequestsData,
-                            }
+                            },
+                            ['data', 'repository'],
+                            data,
                         )),
                     }
                 ),
@@ -135,12 +137,12 @@ const fillData = apiCall => {
     }
 
     const updatePullRequests = data =>  key => pullRequestsItems => {
-        const pullRequestsData = _get(data, 'data.repository.pullRequests', {})
-        const currentPullRequests = _get(data, 'data.repository.pullRequests.edges', [])
+        const pullRequestsData = pathOr({}, ['data', 'repository', 'pullRequests'], data)
+        const currentPullRequests = pathOr([], ['data', 'repository', 'pullRequests', 'edges'], data)
 
         const mergedPullRequests = currentPullRequests
             .map((currentPullRequest) => {
-                const nodeId = _get(currentPullRequest, 'node.id', '')
+                const nodeId = pathOr('', ['node', 'id'], currentPullRequest)
                 const item = pullRequestsItems
                     .find(x => x.nodeId === nodeId)
 
@@ -154,16 +156,16 @@ const fillData = apiCall => {
     }
 
     const pullRequestsComments = async(data) => {
-        const pullRequests = _get(data, 'data.repository.pullRequests.edges', [])
+        const pullRequests = pathOr([], ['data', 'repository', 'pullRequests', 'edges'], data)
 
         const getAllPullRequestComments = async (pullRequest) => {
-            const currentComments = _get(pullRequest, 'node.comments.edges', [])
+            const currentComments = pathOr([], ['node', 'comments', 'edges'], pullRequest)
             const commentsQueryInfo = getQueryInfo('comments')(pullRequest)
 
             const allComments = await recursiveFiller(commentsQuery)(commentsQueryInfo)(currentComments)
 
             return {
-                nodeId: _get(pullRequest, 'node.id', ''),
+                nodeId: pathOr('', ['node','id'], pullRequest),
                 results: { edges: allComments },
             }
         }
@@ -174,12 +176,14 @@ const fillData = apiCall => {
             const updatedpullRequestsData = updatePullRequests(data)('comments')(allPullRequestsComments)
 
             return {
-                data: Object.assign(_get(data, 'data', {}),
+                data: Object.assign(propOr({}, 'data', data),
                     {
-                        repository: Object.assign(_get(data, 'data.repository',
+                        repository: Object.assign(pathOr(
                             {
                                 pullRequests: updatedpullRequestsData,
-                            }
+                            },
+                            ['data', 'repository'],
+                            data
                         )),
                     }
                 ),

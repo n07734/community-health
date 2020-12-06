@@ -1,4 +1,5 @@
-import _get from 'lodash/get'
+import { pathOr } from 'ramda'
+
 import types from '../state/types'
 
 const cursorQ = (cursor, key = 'after') => cursor
@@ -130,13 +131,13 @@ const releasesQuery = ({
     }`,
     resultInfo: (data) => ({
         rawData: data,
-        results: _get(data, 'data.repository.releases.edges', []),
-        hasNextPage: _get(data, 'data.repository.releases.pageInfo.hasNextPage', false),
+        results: pathOr([], ['data', 'repository', 'releases', 'edges'], data),
+        hasNextPage: pathOr(false, ['data', 'repository', 'releases', 'pageInfo', 'hasNextPage'], data),
         nextArgs: {
             repo,
             org,
-            nodeId: _get(data, 'data.repository.id', ''),
-            cursor: _get(data, 'data.repository.releases.pageInfo.endCursor', ''),
+            nodeId: pathOr('', ['data', 'repository', 'id'], data),
+            cursor: pathOr('', ['data', 'repository', 'releases', 'pageInfo', 'endCursor'], data),
         },
     }),
     token,
@@ -162,13 +163,13 @@ const issuesQuery = ({
     }`,
     resultInfo: (data) => ({
         rawData: data,
-        results: _get(data, 'data.repository.issues.edges', []),
-        hasNextPage: _get(data, 'data.repository.issues.pageInfo.hasNextPage', false),
+        results: pathOr([], ['data', 'repository', 'issues', 'edges'], data),
+        hasNextPage: pathOr(false, ['data', 'repository', 'issues', 'pageInfo', 'hasNextPage'], data),
         nextArgs: {
             repo,
             org,
-            nodeId: _get(data, 'data.repository.id', ''),
-            cursor: _get(data, 'data.repository.issues.pageInfo.endCursor', ''),
+            nodeId: pathOr('', ['data', 'repository', 'id'], data),
+            cursor: pathOr('', ['data', 'repository', 'issues', 'pageInfo', 'endCursor'], data),
         },
     }),
     token,
@@ -194,13 +195,13 @@ const prQuery = ({
       }`,
     resultInfo: (data) => ({
         rawData: data,
-        results: _get(data, 'data.repository.pullRequests.edges', []),
-        hasNextPage: _get(data, 'data.repository.pullRequests.pageInfo.hasNextPage', false),
+        results: pathOr([], ['data', 'repository', 'pullRequests', 'edges'], data),
+        hasNextPage: pathOr(false, ['data', 'repository', 'pullRequests', 'pageInfo', 'hasNextPage'], data),
         nextArgs: {
             repo,
             org,
-            nodeId: _get(data, 'data.repository.id', ''),
-            cursor: _get(data, 'data.repository.pullRequests.pageInfo.endCursor', ''),
+            nodeId: pathOr('', ['data', 'repository', 'id'], data),
+            cursor: pathOr('', ['data', 'repository', 'pullRequests', 'pageInfo', 'endCursor'], data),
         },
     }),
     fillerType: 'pullRequests',
@@ -247,7 +248,6 @@ const batchedQuery = ({
             'releases',
         ]
 
-
         const actions = {
             pullRequests: types.SET_PR_PAGINATION,
             issues: types.SET_ISSUES_PAGINATION,
@@ -256,13 +256,13 @@ const batchedQuery = ({
 
         const nextPageInfo = resultTypes
             .map((type) => ({
-                hasNextPage: _get(data, `data.repository.${type}.pageInfo.hasNextPage`, false),
-                cursor: _get(data, `data.repository.${type}.pageInfo.endCursor`, ''),
+                hasNextPage: pathOr(false, ['data', 'repository', type, 'pageInfo', 'hasNextPage'], data),
+                cursor: pathOr('', ['data', 'repository', type, 'pageInfo', 'endCursor'], data),
                 cursorAction: actions[type],
             }))
 
         const hasNextPage = resultTypes
-            .some(type => _get(data, `data.repository.${type}.pageInfo.hasNextPage`, false))
+            .some(type => pathOr(false, ['data', 'repository', type, 'pageInfo', 'hasNextPage'], data))
 
         return {
             hasNextPage,
@@ -289,11 +289,11 @@ const commentsQuery = ({ nodeId, cursor }) => ({
     }`,
     resultInfo: (data) => ({
         rawData: data,
-        results: _get(data, 'data.node.comments.edges', []),
-        hasNextPage: _get(data, 'data.node.comments.pageInfo.hasNextPage', false),
+        results: pathOr([], ['data', 'node', 'comments', 'edges'], data),
+        hasNextPage: pathOr(false, ['data', 'node', 'comments', 'pageInfo', 'hasNextPage'], data),
         nextArgs: {
-            nodeId: _get(data, 'data.node.id', ''),
-            cursor: _get(data, 'data.node.comments.pageInfo.endCursor', ''),
+            nodeId: pathOr('', ['data', 'node', 'id'], data),
+            cursor: pathOr('', ['data', 'node', 'comments', 'pageInfo', 'endCursor'], data),
         },
     }),
 })
@@ -309,11 +309,11 @@ const reviewsQuery = ({ nodeId, cursor }) => ({
     }`,
     resultInfo: (data) => ({
         rawData: data,
-        results: _get(data, 'data.node.reviews.edges', []),
-        hasNextPage: _get(data, 'data.node.reviews.pageInfo.hasNextPage', false),
+        results: pathOr([], ['data', 'node', 'reviews', 'edges'], data),
+        hasNextPage: pathOr(false, ['data', 'node', 'reviews', 'pageInfo', 'hasNextPage'], data),
         nextArgs: {
-            nodeId: _get(data, 'data.node.id', ''),
-            cursor: _get(data, 'data.node.reviews.pageInfo.endCursor', ''),
+            nodeId: pathOr('', ['data', 'node', 'id'], data),
+            cursor: pathOr('', ['data', 'node', 'reviews', 'pageInfo', 'endCursor'], data),
         },
     }),
     fillerType: 'pullRequestReviewComments',
@@ -330,11 +330,11 @@ const reviewCommentsQuery = ({ nodeId, cursor }) => ({
     }`,
     resultInfo: (data) => ({
         rawData: data,
-        results: _get(data, 'data.node.comments.edges', []),
-        hasNextPage: _get(data, 'data.node.comments.pageInfo.hasNextPage', false),
+        results: pathOr([], ['data', 'node', 'comments', 'edges'], data),
+        hasNextPage: pathOr(false, ['data', 'node', 'comments', 'pageInfo', 'hasNextPage'], data),
         nextArgs: {
-            nodeId: _get(data, 'data.node.id', ''),
-            cursor: _get(data, 'data.node.comments.pageInfo.endCursor', ''),
+            nodeId: pathOr('', ['data', 'node', 'id'], data),
+            cursor: pathOr('', ['data', 'node', 'comments', 'pageInfo', 'endCursor'], data),
         },
     }),
 })

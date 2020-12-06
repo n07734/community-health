@@ -1,3 +1,5 @@
+const { path, prop } = require('ramda');
+
 const getNameList = (data, key) => {
     const scoredData = data
         .reduce((acc, userData) => {
@@ -48,16 +50,16 @@ const getNameList = (data, key) => {
 }
 
 const getMatrix = (data, key, showNames, otherAppened) => {
-    const otherTotal = (ignoreNames, data) => Object.entries(data)
+    const otherTotal = (ignoreNames, data = {}) => Object.entries(data)
         .reduce((acc, [name, value]) => ignoreNames.some(x => x === name)
             ? acc
             : acc + value, 0)
 
     const martixRow = (item) => [
-        ...showNames.map(x => item[key][x] || 0),
+        ...showNames.map(x => path([key, x], item) || 0),
         ...(
             otherAppened
-                ? [otherTotal(showNames, item[key])]
+                ? [otherTotal(showNames, prop(key, item))]
                 : []
         ),
     ]

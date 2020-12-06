@@ -16,18 +16,16 @@ const PullRequestTrends = ({
             intro='This section shows contribution trends over time and how releases impact them.'
         >
             <div>
-                <P>Here are some things to look out for.</P>
+
+                <P>Virtical lines are releases: Green is a Major release, solid purple is Minor and dotted purple is Patch or Alpha</P>
+                <P>These are general questions meant to help teams find useful data and promote healthy discussions around their contributions. Team context is needed to have a clear understanding of the data.</P>
                 <UL>
-                    <LI>Are there any/enough comments? It may be a sign that the code is not getting properly reviewed if there are not many comments.</LI>
+                    <LI>Are there any/enough comments? To few comments may be a sign that the code is not getting fully reviewed.</LI>
                     <LI>Are all PRs are being approved? If not then how do you know they are getting properly reviewed?</LI>
-                    <LI>Are there many large PRs? Generally the bigger the PR the lower the quality of the review will.</LI>
-                    <LI>Do Comment and PR size lines follow a similar pattern? If not then some PRs may not be getting reviewed equally.</LI>
-                    <LI>Do the PR age and size lines have a similar pattern? If not then maybe there are some large PRs that got approved with insufficient reviews.</LI>
+                    <LI>Are there many large PRs? Generally the bigger the PR the lower the quality of the review will be.</LI>
                     <LI>How are the trends changing during a feature lifecycle?</LI>
                     <LI>What are the outliers and why?</LI>
-                    <LI>What are the addition and deletion trends?</LI>
                 </UL>
-                <P>These are general questions meant to help teams find useful data and promote healthy discussions around their contributions. Team context is needed to have a clear understanding of the data.</P>
             </div>
         </ChartDescription>
         <Line

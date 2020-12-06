@@ -73,39 +73,6 @@ const radialChartsContributions = ({ maxValues = {}, users = [] }) => {
     return radarData
 }
 
-// const radialChartsPRs = ({ maxValues={}, users=[] }) => {
-//     const items = [
-//         { area: 'Merged PRs', key: 'totalPRs' },
-//         { area: 'PR size', key: 'prSize', ignoreInSort: true },
-//         // { area: 'PR age', key: 'age' },
-//         { area: 'PR comments', key: 'generalCommentsReceived' },
-//         { area: 'Code comments', key: 'codeCommentsReceived' },
-//     ]
-
-//     const makeRadarData = (items, maxValues, useData) => items
-//         .map(item => ({
-//             ...item,
-//             key: item.key,
-//             value: ((useData[item.key] || 0) / (maxValues[item.key] || 0)) * 100,
-//             valueOriginal: useData[item.key] || 0,
-//         }))
-
-
-//     const radarData = users
-//         .slice(0, 6)
-//         .map(user => {
-//             const radarData = makeRadarData(items, maxValues, user)
-
-//             return {
-//                 title: user.author,
-//                 data: radarData,
-//                 keys: ['value'],
-//             }
-//         })
-
-//     return radarData
-// }
-
 const UserTrends = ({
     usersData = [],
 } = {}) => {
@@ -125,12 +92,12 @@ const UserTrends = ({
                 intro="This section shows how given and received metrics compare for the top contributors."
             >
                 <div>
+                    <P>Again, these are general questions meant to help teams look for useful data and promote healthy discussions around team contributions. Team context is needed to have a clear understanding of the data.</P>
                     <UL>
                         <LI>What is more discussed the "What"(PR comments) or the "How"(code comments)?</LI>
                         <LI>Is there a healthy level of giving and receiving of comments and approvals?</LI>
                         <LI>What are the outliers and why?</LI>
                     </UL>
-                    <P>Again, these are general questions meant to help teams look for useful data and promote healthy discussions around team contributions. Team context is needed to have a clear understanding of the data.</P>
                 </div>
             </ChartDescription>
             {
@@ -138,25 +105,6 @@ const UserTrends = ({
                     && contributionsRadar
                         .map((info, i) => <Radar key={i} {...info} />)
             }
-
-            {/* <ChartDescription
-                title="Pull requests"
-                intro="This section shows how people contribute to individuals Pull Requests."
-            >
-                <div>
-                    <UL>
-                        <LI>What is more discussed the "What"(PR comments) or the "How"(code comments)?</LI>
-                        <LI>What are the outliers and why?</LI>
-                        <LI>Are people doing similar sized PRs?</LI>
-                    </UL>
-                    <P>Again, these are general questions meant to help teams look for useful data and promote healthy discussions around team contributions. Team context is needed to have a clear understanding of the data.</P>
-                </div>
-            </ChartDescription>
-            {
-                prRadars.length
-                    && prRadars
-                        .map((info, i) => <Radar key={i} {...info} />)
-            } */}
         </Paper>
     )
 }

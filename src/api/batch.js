@@ -1,4 +1,4 @@
-import _chunk from 'lodash/chunk'
+import { splitEvery } from 'ramda'
 
 // Runs each batch synchronously and the items in a batch asynchronously
 const runBatchQueue = (batches, job, resolved = []) => new Promise((resolve, reject) => {
@@ -17,7 +17,7 @@ const runBatchQueue = (batches, job, resolved = []) => new Promise((resolve, rej
 
 // Takes an array of arguments for the job and runs them in batches
 const batch = (argsList = [], job, batchSize = 2) => {
-    const batches = _chunk(argsList, batchSize)
+    const batches = splitEvery(batchSize, argsList)
 
     return argsList.length
         ? runBatchQueue(batches, job)

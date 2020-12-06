@@ -1,24 +1,21 @@
 ## TODO:
 Bugs:
+Don't store token in redux
 Solve too many 500 errors on inital calls, also add a better error message
-Add graph for number of prs merged
-Add version line filtering when too noisy 
-add repo description from api call data
-org and repo from fetched data
-saved data have last page fetch info so can be filled in later
-strip empty and zero fields 
 Month 01 looks odd
-remove preFetchedRepo key?
-
-V1
-comp top x peers?
 clear fetch error on fetch attempt
-combine requests into one request, prove filling is working
-Get someone to review the words
 
 Next
+have report export feature
+more ramda
+saved data have last page fetch info so can be filled in later (auto fill form feilds)
+get org and repo from fetched data
+add repo description from api call data
+Add graph for number of prs merged
 Move colours to single file
+strip empty and zero fields 
 More performance checks
+remove preFetchedRepo key
 Improve marker styles, text overlaps atm
 Trim to tp99
 Add tests for react components
@@ -35,6 +32,7 @@ Facet by time for larger datasets
 Figure out how to show tc39 data
 
 "Backlog"
+logarithmic y scale 
 Add show all button for user trends
 Graph of PRs that got approved supper fast
 Grouped data graphs page

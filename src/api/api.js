@@ -1,6 +1,6 @@
 // TODO: Think more about if this should maintain github api data structures
 // TODO: add tests
-import _get from 'lodash/get'
+import { pathOr, propOr } from 'ramda'
 import fillData from './fillers'
 
 import types from '../state/types'
@@ -106,7 +106,7 @@ const api = state => queryInfo => dispatch => {
         hasMoreResults,
     } = queryInfo(state)
 
-    const token = _get(state, 'fetches.token', '')
+    const token = pathOr('', ['fetches', 'token'], state)
     const apiCallWithToken = apiCall(token)
 
     const { isValid: isValidRequest, error = {}} = validateRequest(state)
@@ -137,12 +137,12 @@ const api = state => queryInfo => dispatch => {
             && dispatch({
                 type: cursorAction,
                 payload: {
-                    cursor: _get(result, 'nextArgs.cursor', ''),
-                    hasNextPage: _get(result, 'hasNextPage', false),
+                    cursor: pathOr('', ['nextArgs', 'cursor'], result),
+                    hasNextPage: propOr(false, 'hasNextPage', result),
                 },
             })
 
-        const nextPageInfo = _get(result, 'nextPageInfo', [])
+        const nextPageInfo = pathOr([], 'nextPageInfo', result)
         nextPageInfo
             .map(pageInfo => dispatch({
                 type: pageInfo.cursorAction,

@@ -21,4 +21,6 @@ const styles = () => ({
     },
 })
 
-export default (Chart) => withStyles(styles, { withTheme: true })(Chart)
+const styledCharts = (Chart) => withStyles(styles, { withTheme: true })(Chart)
+
+export default styledCharts

@@ -18,14 +18,13 @@ const TeamTrends = ({
                 intro="This section shows the team's contribution dynamics"
             >
                 <div>
+                    <P>Again, these are general questions meant to help teams look for useful data and promote healthy discussions around team contributions. Team context is needed to have a clear understanding of the data.</P>
                     <UL>
-                        <LI>Is there a healthy distribution of contributions across the team? Does not need to be even but should not be too bunched up.</LI>
+                        <LI>Is there a healthy distribution of contributions across the team? Does not need to be even but should not be dependent on just a few people.</LI>
                         <LI>What would happen if the top one or two contributors left or went on holiday?</LI>
-                        <LI>Is everyone giving and receiving contributions?</LI>
-                        <LI>Are there enough people in team approving PRs? Only one or two people doing this can be a bottleneck.</LI>
+                        <LI>Are there enough people in team approving PRs? Only one or two people are doing this it can be a bottleneck.</LI>
                         <LI>What are the outliers and why?</LI>
                     </UL>
-                    <P>Again, these are general questions meant to help teams look for useful data and promote healthy discussions around team contributions. Team context is needed to have a clear understanding of the data.</P>
                     <P>Note: The Users in the graphs are people who have opened PRs to the repo. This can mean that the received metrics can be higher than given as people who have not opened PRs could have contributed.</P>
                 </div>
             </ChartDescription>

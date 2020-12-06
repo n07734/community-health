@@ -1,4 +1,4 @@
-import _get from 'lodash/get'
+import { path, pathOr, propOr } from 'ramda'
 import differenceInDays from 'date-fns/difference_in_days'
 import {
     major,
@@ -9,7 +9,7 @@ import {
 
 const formatCommenters = items => items
     .reduce((acc, item) => {
-        const user = _get(item, 'node.author.login')
+        const user = path(['node', 'author', 'login'], item)
         const userCount = (acc[user] || 0) + 1
 
         return Object.assign(acc, { [user]: userCount })
@@ -32,15 +32,15 @@ const mergeCommenters = (left = {}) => (right = {}) => {
     return mergedObject
 }
 
-const filterByUser = user => item => _get(item, 'node.author.login') !== user
+const filterByUser = user => item => path(['node', 'author', 'login'], item) !== user
 
 const formatCodeComments = (data) => {
-    const author = _get(data, 'node.author.login', '')
-    const allReviews = _get(data, 'node.reviews.edges', [])
+    const author = pathOr('', ['node', 'author', 'login'], data)
+    const allReviews = pathOr([], ['node', 'reviews', 'edges'], data)
 
     const allCodeComments = allReviews
         .reduce((acc, review) => {
-            const comments = _get(review, 'node.comments.edges', [])
+            const comments = pathOr([], ['node', 'comments', 'edges'], review)
                 .filter(filterByUser(author))
 
             acc.push(...comments)
@@ -55,8 +55,8 @@ const formatCodeComments = (data) => {
 }
 
 const formatGeneralComments = (data) => {
-    const author = _get(data, 'node.author.login', '')
-    const comments = _get(data, 'node.comments.edges', [])
+    const author = pathOr('', ['node', 'author', 'login'], data)
+    const comments = pathOr([], ['node', 'comments', 'edges'], data)
         .filter(filterByUser(author))
 
     return {
@@ -66,9 +66,9 @@ const formatGeneralComments = (data) => {
 }
 
 const formatApprovals = (data) => {
-    const reviews = _get(data, 'node.reviews.edges', [])
+    const reviews = pathOr([], ['node', 'reviews', 'edges'], data)
     const ghApprovals = reviews
-        .filter(x => _get(x, 'node.state') === 'APPROVED')
+        .filter(x => path(['node', 'state'], x) === 'APPROVED')
 
     const ghApprovers = formatCommenters(ghApprovals)
 
@@ -97,7 +97,7 @@ const prData = (data) => {
 
         createdAt = '',
         mergedAt = '',
-    } = _get(data, 'node', {})
+    } = propOr({}, 'node', data)
 
     const {
         codeComments = 0,
@@ -145,31 +145,31 @@ const prData = (data) => {
     return prInfo
 }
 
-const formatPullRequests = data =>  _get(data, 'data.repository.pullRequests.edges', [])
+const formatPullRequests = data =>  pathOr([], ['data', 'repository', 'pullRequests', 'edges'], data)
     .map(prData)
 
 const formatRepo = (data) => ({
-    name: _get(data, 'data.repository.name', ''),
-    org: _get(data, 'data.repository.owner.login', ''),
+    name: pathOr('', ['data', 'repository', 'name'], data),
+    org: pathOr('', ['data', 'repository', 'owner', 'login'], data),
     pullRequests: formatPullRequests(data),
 })
 
 const formatIssue = (data) => {
-    const createdAt = _get(data, 'node.createdAt', '')
-    const closedAt = _get(data, 'node.closedAt', '')
-    const title = _get(data, 'node.title', '')
-    const labels = _get(data, 'node.labels.edges', [])
+    const createdAt = pathOr('', ['node', 'createdAt'], data)
+    const closedAt = pathOr('', ['node', 'closedAt'], data)
+    const title = pathOr('', ['node', 'title'], data)
+    const labels = pathOr([], ['node', 'labels', 'edges'], data)
 
     return {
         createdAt,
         mergedAt: createdAt,
         closedAt,
-        isBug: /bug/i.test(title) || labels.some(x => /bug/i.test(_get(x, 'node.name'))),
+        isBug: /bug/i.test(title) || labels.some(x => /bug/i.test(path(['node', 'name'], x))),
     }
 }
 
 const formatIssues = data =>
-    _get(data, 'data.repository.issues.edges', [])
+    pathOr([], ['data', 'repository', 'issues', 'edges'], data)
         .map(formatIssue)
 
 
@@ -180,8 +180,6 @@ const getReleaseType = (tag) => {
         const patchV = patch(tag)
         const prereleaseV = prerelease(tag)
     
-        console.log('majorV, minorV, patchV', majorV, minorV, patchV, prereleaseV)
-
         const releaseType = [
             !prereleaseV && majorV && minorV === 0 && patchV === 0 && 'MAJOR',
             !prereleaseV && minorV && patchV === 0 && 'MINOR',
@@ -195,8 +193,8 @@ const getReleaseType = (tag) => {
 }
 
 const formatRelease = (data) => {
-    const createdAt = _get(data, 'node.createdAt', '')
-    const tag = _get(data, 'node.tag.name', '')
+    const createdAt = pathOr('', ['node', 'createdAt'], data)
+    const tag = pathOr('', ['node', 'tag', 'name'], data)
 
     const releaseType = getReleaseType(tag)
 
@@ -208,7 +206,7 @@ const formatRelease = (data) => {
 }
 
 const formatReleases = data =>
-    _get(data, 'data.repository.releases.edges', [])
+    pathOr([], ['data', 'repository', 'releases', 'edges'], data)
         .map(formatRelease)
 
 export {

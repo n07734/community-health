@@ -1,4 +1,4 @@
-export default {
+const types = {
     SET_USER: 'SET_USER',
     CLEAR_USER: 'CLEAR_USER',
     STORE_ORG: 'STORE_ORG',
@@ -25,3 +25,5 @@ export default {
     ADD_USERS_DATA: 'ADD_USERS_DATA',
     CLEAR_USERS_DATA: 'CLEAR_USERS_DATA',
 }
+
+export default types

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import _get from 'lodash/get'
+import { pathOr } from 'ramda'
 
 import {
     TextField,
@@ -56,10 +56,10 @@ const FetchForm = (props) => {
             >
                 <P>To generate a token you need to:</P>
                 <OL>
-                    <LI>Go to ....</LI>
+                    <LI>Go to your GitHub <a className={classes.link} href="https://github.com/settings/tokens">tokens</a> page</LI>
                     <LI>Click on 'generate new token'</LI>
                     <LI>Choose the settings 'repo' (all) and 'read:org', click 'Generate token'</LI>
-                    <LI>Copy the generated token</LI>
+                    <LI>Use that token here</LI>
                 </OL>
             </ChartDescription>
 
@@ -167,7 +167,7 @@ const mapDispatchToProps = dispatch => ({
         }
         const action = actions[key]
 
-        const value = _get(event, 'target.value', '')
+        const value = pathOr('', ['target', 'value'], event)
         const isDirty = /[^\w-.]/.test(value)
 
         !isDirty && action
@@ -186,13 +186,16 @@ const mapDispatchToProps = dispatch => ({
     themeToggle: (x) => dispatch(toggleTheme(x)),
 })
 
-const styles = () => ({
+const styles = theme => ({
     form: {
         display: 'grid',
         gridTemplateColumns: 'repeat(4, max-content)',
         marginBottom: '1rem',
         columnGap: '8px',
         rowGap: '8px', // BUG: theme.spacing.unit does not have px for row but does for column, odd
+    },
+    link: {
+        color: theme.palette.link,
     },
     fullRow: {
         gridColumn:'1 / -1',
