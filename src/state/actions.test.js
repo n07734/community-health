@@ -87,6 +87,7 @@ describe('getAPIData:', () => {
             types.CLEAR_FETCH_ERROR,
             types.FETCH_END,
             types.ADD_PRS,
+            types.ADD_REPO_INFO,
             types.ADD_USERS_DATA,
             types.ADD_RELEASES,
             types.ADD_ISSUES,
@@ -143,7 +144,7 @@ describe('getPreFetchedData:', () => {
 
     it('Triggers dispatches in correct order', () => {
         const dispatch = jest.fn()
-        getPreFetchedData('angular')(dispatch)
+        getPreFetchedData('vue')(dispatch)
 
         const dispatchOrder = [
             types.CLEAR_USER,
@@ -159,6 +160,7 @@ describe('getPreFetchedData:', () => {
             types.ADD_USERS_DATA,
             types.ADD_ISSUES,
             types.ADD_RELEASES,
+            types.FETCH_END,
         ]
 
         const mockedCalls = dispatch.mock.calls

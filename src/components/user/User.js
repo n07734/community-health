@@ -240,7 +240,6 @@ const UserView = ({
     classes,
 } = {}) => {
     const radarData = formatRadarData(usersData, user)
-    console.log('-=-=-= radarData', radarData)
     const radars = userRadars(radarData, user)
     const bars = userBars(radarData)
     const graphs = userGraphs(pullRequests, releases, user)

@@ -135,7 +135,7 @@ describe('queries:', () => {
                     expect(fillerType).toEqual(expectFillerType)
                 })
 
-                it('resultInfo ', () => {
+                it('resultInfo', () => {
                     const data = makeRawData(rawDataArgs)
 
                     const {
