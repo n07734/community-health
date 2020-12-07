@@ -16,6 +16,7 @@ exports[`formatRadarData: averagedData 1`] = `
   'uniquePRsApproved': 2,
   'uniquePRsContributedTo': 2,
   'user': 'Peers',
+  'userCount': 2,
 }
 `;
 
@@ -35,6 +36,7 @@ exports[`formatRadarData: filter author 1`] = `
   'uniquePRsApproved': 0,
   'uniquePRsContributedTo': 0,
   'user': 'Peers',
+  'userCount': 1,
 }
 `;
 

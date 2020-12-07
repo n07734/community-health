@@ -49,11 +49,13 @@ const formatRadarData = (userData, filterAuthor) => {
             return bTotal - aTotal
         })
 
-    const length = sortedUsers.length
-    const p10 = Math.ceil(length / 100 * 10)
-    const topUsers = sortedUsers.slice(0, p10 < 10 ? 6 : 0)
+    const p10 = Math.ceil(sortedUsers.length / 100 * 10)
+    const topUsers = p10 > 10
+        ? sortedUsers.slice(0, p10)
+        : sortedUsers
 
     const totalled = topUsers
+        .filter(x => !filterAuthor || x.author !== filterAuthor)
         .reduce((total, user) => {
             const addedUser = Object.entries(user)
                 .filter(([, value]) => !Array.isArray(value) && /^\d+$/.test(value) && value > 0)
@@ -62,11 +64,12 @@ const formatRadarData = (userData, filterAuthor) => {
             return Object.assign(total, addedUser)
         }, {})
 
+    const userCount = topUsers.length
     const averagedData = Object.entries(totalled)
         .reduce((acc, [key, value], i) =>
             Object.assign(
-                acc, { [key]: Math.round(value / topUsers.length), userCount: i+1 }
-            ), { ...defaultValues, user: 'Peers' }
+                acc, { [key]: Math.round(value / userCount) }
+            ), { ...defaultValues, user: 'Peers', userCount }
         )
 
     const usersData = userData
