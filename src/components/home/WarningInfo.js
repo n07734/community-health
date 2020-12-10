@@ -9,14 +9,14 @@ import { withStyles } from '@material-ui/core/styles'
 const infoStyles = theme => ({
     warning: {
         backgroundColor: amber[700],
-        marginBottom: theme.spacing.x.meduim,
+        marginBottom: theme.mySpacing.x.meduim,
     },
     icon: {
         fontSize: 20,
     },
     iconVariant: {
         opacity: 0.9,
-        marginRight: theme.spacing.y.medium,
+        marginRight: theme.mySpacing.y.medium,
     },
     message: {
         display: 'flex',

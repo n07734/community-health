@@ -2,6 +2,7 @@ import React from 'react'
 import { pathOr, propOr } from 'ramda'
 import { ResponsiveLine as NivoLine } from '@nivo/line'
 import { TableTooltip } from '@nivo/tooltip'
+import { useTheme } from '@material-ui/core/styles';
 
 import ChartHeading from './ChartHeading'
 import styledCharts from './styledCharts'
@@ -62,8 +63,8 @@ const Line = styledCharts(({
     data = [],
     markers = [],
     classes,
-    theme,
 } = {}) => {
+    const theme = useTheme();
     // TODO: function to see time gap in data to help format date e.g. should add year
     const leftAxis = data
         .find(({ xAxis } = {}) => xAxis === 'left') || { data: [], lines: [] }

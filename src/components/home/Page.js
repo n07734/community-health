@@ -6,10 +6,12 @@ import Paper from '../shared/Paper'
 import DataOptions from './DataOptions'
 import Visualisation from './Visualisation'
 import PageWrapper from './PageWrapper'
+import Links from './Links'
 
 const Page = () => (
     <PageWrapper>
         <Paper className="bg-none">
+            <Links />
             <ChartDescription
                 title={(
                     <H level={1}>Code Contribution Health</H>

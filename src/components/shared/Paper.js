@@ -5,7 +5,7 @@ import classNames from 'classnames'
 
 const styles = theme => ({
     root: {
-        padding: `${theme.spacing.y.large} ${theme.spacing.y.large} 0 ${theme.spacing.y.large}`,
+        padding: `${theme.mySpacing.y.large} ${theme.mySpacing.y.large} 0 ${theme.mySpacing.y.large}`,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'top left',
         backgroundSize: '100% 20px',

@@ -29,8 +29,8 @@ const Button = ({
 
 const styles = theme => ({
     root: {
-        marginRight: theme.spacing.x.small,
-        marginBottom: theme.spacing.y.small,
+        marginRight: theme.mySpacing.x.small,
+        marginBottom: theme.mySpacing.y.small,
     },
 })
 export default withStyles(styles)(Button)

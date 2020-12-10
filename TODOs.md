@@ -1,12 +1,14 @@
 ## TODO:
 Bugs:
-Don't store token in redux
-Solve too many 500 errors on inital calls, also add a better error message
+Too many 500 errors on inital calls, also add a better error message
 Month 01 looks odd
-clear fetch error on fetch attempt
+Clear fetch error on new fetch attempt
+
+Current:
+Don't store token in redux
 
 Next
-have report export feature
+Make report export feature
 more ramda
 saved data have last page fetch info so can be filled in later (auto fill form feilds)
 get org and repo from fetched data

@@ -336,7 +336,7 @@ const styles = theme => ({
         flexBasis: '100%',
     },
     topButton: {
-        marginLeft: theme.spacing.y.large,
+        marginLeft: theme.mySpacing.y.large,
     },
 })
 

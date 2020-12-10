@@ -1,5 +1,6 @@
 import React from 'react'
 import { Chord as NivoChord } from '@nivo/chord'
+import { useTheme } from '@material-ui/core/styles';
 
 import ChartHeading from './ChartHeading'
 import formatChordData from '../../format/chordData'
@@ -11,8 +12,8 @@ const Chord = styledCharts(({
     data = [],
     dataKey = '',
     classes,
-    theme,
 } = {}) => {
+    const theme = useTheme();
     const {
         names,
         matrix,

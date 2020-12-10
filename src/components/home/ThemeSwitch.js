@@ -15,8 +15,8 @@ const styles = theme => ({
     root: {
         color: theme.typography.body1.color,
         position: 'absolute',
-        top: theme.spacing.x.medium,
-        right: theme.spacing.y.large,
+        top: theme.mySpacing.x.medium,
+        right: theme.mySpacing.y.large,
         '& span': {
             color: theme.palette.switch,
         },

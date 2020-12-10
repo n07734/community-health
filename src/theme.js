@@ -66,11 +66,16 @@ const theme =  (type = 'light') => createMuiTheme({
             fontWeight: '400',
             fontFamily,
         },
+
         groupedCharts: {
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'space-evenly',
         },
+        iconHover: ({
+            light: '#d65287',
+            dark: '#e82573',
+        })[type],
         text: {
             primary: themeColor(type),
         },
@@ -89,7 +94,7 @@ const theme =  (type = 'light') => createMuiTheme({
         switch: themeColor(type),
     },
     typography: { useNextVariants: true },
-    spacing,
+    mySpacing: spacing,
     copy: {
         body: {
             ...defaultCopy(type),

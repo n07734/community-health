@@ -1,6 +1,7 @@
 import React from 'react'
 import { filter } from 'ramda'
 import { ResponsiveBar as NivoBar } from '@nivo/bar'
+import { useTheme } from '@material-ui/core/styles';
 
 import ChartHeading from './ChartHeading'
 import styledCharts from './styledCharts'
@@ -13,8 +14,8 @@ const Bar = styledCharts(({
     indexBy = 'user',
     max = 20,
     classes,
-    theme,
 } = {}) => {
+    const theme = useTheme();
     const trimmedData = filter(item => bars.some(x => item[x.dataKey]), data)
 
 

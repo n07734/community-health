@@ -33,7 +33,7 @@ const styles = theme => ({
     },
     copy: {
         margin: 0,
-        marginLeft: theme.spacing.y.medium,
+        marginLeft: theme.mySpacing.y.medium,
         padding: 0,
         color: '#000',
     },

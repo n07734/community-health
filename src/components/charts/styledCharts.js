@@ -1,6 +1,5 @@
 import { withStyles } from '@material-ui/core/styles'
 
-
 const styles = () => ({
     centerHeading: {
         textAlign: 'center',
@@ -21,6 +20,6 @@ const styles = () => ({
     },
 })
 
-const styledCharts = (Chart) => withStyles(styles, { withTheme: true })(Chart)
+const styledCharts = (Chart) => withStyles(styles)(Chart)
 
 export default styledCharts

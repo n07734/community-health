@@ -1,5 +1,6 @@
 import React from 'react'
 import { Radar as NivoRadar } from '@nivo/radar'
+import { useTheme } from '@material-ui/core/styles';
 
 import ChartHeading from './ChartHeading'
 import styledCharts from './styledCharts'
@@ -14,8 +15,8 @@ const Radar = styledCharts(({
     width = 450,
     height = 310,
     classes,
-    theme,
 } = {}) => {
+    const theme = useTheme();
     const toolTipValues = data
         .reduce((acc, item) => acc.concat(
             keys
