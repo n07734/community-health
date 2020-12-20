@@ -1,13 +1,13 @@
 import { createMuiTheme } from '@material-ui/core/styles'
 
 const themeColor = type => ({
-    light: '#333',
+    light: '#232023',
     dark: '#eee',
 })[type]
 
 const themeColorBg = type => ({
     light: '#fff',
-    dark: '#333',
+    dark: '#232023',
 })[type]
 
 const fontFamily = '"Roboto", "Helvetica", "Arial", sans-serif'

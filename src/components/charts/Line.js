@@ -108,10 +108,10 @@ const Line = styledCharts(({
     return hasData(lineData) && (
         <div className={classes.chartComponentWrap}>
             <div className={classes.headingWrap}>
-                <ChartHeading items={leftHeadingItems} />
+                <ChartHeading type='line' items={leftHeadingItems} />
                 {
                     rightHeadingItems
-                    && <ChartHeading items={rightHeadingItems} />
+                    && <ChartHeading type='line' items={rightHeadingItems} />
                 }
             </div>
 
