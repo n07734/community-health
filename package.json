@@ -1,5 +1,6 @@
 {
   "name": "community-health",
+  "homepage": "https://n07734.github.io/community-health/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
