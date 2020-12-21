@@ -20,7 +20,7 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
-          GITHUB_TOKEN: ${{ secrets.PAGES_DEPLOY }}
+          ACCESS_TOKEN: ${{ secrets.PAGES_DEPLOY }}
           BRANCH: gh-pages
           FOLDER: build
           CLEAN: true
