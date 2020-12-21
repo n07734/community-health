@@ -4,6 +4,13 @@ import { H, P } from '../shared/StyledTags'
 import ChartDescription from '../shared/ChartDescription'
 import Paper from '../shared/Paper'
 
+const Sdlc = ({ sdlc }) => (
+    <>
+        <H level={4}>Software Delivery Life Cycle (SDLC):</H>
+        <P>{sdlc}</P>
+    </>
+)
+
 const RepoDescription = ({ repoInfo } = {}) => {
     const {
         org,
@@ -11,7 +18,6 @@ const RepoDescription = ({ repoInfo } = {}) => {
         description = 'Unknown',
         sdlc,
     } = repoInfo
-    // colors = { ['#1f77b4', '#e82573']}
 
     return repo && org
         ? (
@@ -34,8 +40,10 @@ const RepoDescription = ({ repoInfo } = {}) => {
                     )}
                     intro={description}
                 >
-                    <H level={4}>Software Delivery Life Cycle (SDLC):</H>
-                    <P>{sdlc || 'Unknown'}</P>
+                    {
+                        sdlc && sdlc !== 'Unkown'
+                            && <Sdlc sdlc={sdlc} />
+                    }
                 </ChartDescription>
             </Paper>
         )

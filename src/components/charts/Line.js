@@ -139,6 +139,7 @@ const Line = styledCharts(({
                         format: '%b %d',
                         tickSize: 0,
                         tickPadding: 10,
+                        tickRotation: -45,
 
                     }}
                     axisLeft={{

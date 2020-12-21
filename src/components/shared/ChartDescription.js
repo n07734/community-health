@@ -22,19 +22,21 @@ const ChartDescription = ({
                     : title
             }
             <P>
-                {intro} <a
-                    className={classes.link}
-                    href="#desc"
-                    onClick={(e) => {
-                        e.preventDefault()
-                        setCount(!toggle)
-                    }}>
-                    {
-                        toggle
-                            ? 'See less'
-                            : 'See more'
-                    }
-                </a>
+                {intro} { 
+                    children && <a
+                        className={classes.link}
+                        href="#desc"
+                        onClick={(e) => {
+                            e.preventDefault()
+                            setCount(!toggle)
+                        }}>
+                        {
+                            toggle
+                                ? 'See less'
+                                : 'See more'
+                        }
+                    </a>
+                }
             </P>
             <Collapse in={toggle}>
                 {children}
