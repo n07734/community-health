@@ -49,9 +49,9 @@ const FetchForm = (props) => {
             <ChartDescription
                 className={classes.formDescription}
                 title=""
-                intro="If you want to see data from a particular repository please fill in the fields bellow"
+                intro="If you want to see data from a repository please fill in the fields bellow"
             >
-                <P>To generate a token you need to:</P>
+                <P>*Token is required for GitHub GraphQL API calls, to generate a token you need to:</P>
                 <OL>
                     <LI>Go to your GitHub <a className={classes.link} href="https://github.com/settings/tokens">tokens</a> page</LI>
                     <LI>Click on 'generate new token'</LI>
@@ -74,7 +74,7 @@ const FetchForm = (props) => {
                 <TextField
                     variant="outlined"
                     className={classes.child}
-                    label="Token"
+                    label="Token*"
                     margin="normal"
                     value={token}
                     onChange={setValue('token')}
@@ -189,6 +189,10 @@ const styles = theme => ({
         marginBottom: '1rem',
         columnGap: '8px',
         rowGap: '8px', // BUG: theme.spacing.unit does not have px for row but does for column, odd
+        '@media (max-width: 768px)': {
+            gridTemplateColumns: 'repeat(1, 1fr)',
+            gridAutoRows: '1fr'
+        }
     },
     link: {
         color: theme.palette.link,
