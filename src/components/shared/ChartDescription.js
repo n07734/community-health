@@ -17,7 +17,7 @@ const ChartDescription = ({
     return (
         <div className={`${classes.root} ${className}`}>
             {
-                typeof title && title === 'string'
+               title && typeof title === 'string'
                     ? <H level={2} >{title}</H>
                     : title
             }
