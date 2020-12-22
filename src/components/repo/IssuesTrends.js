@@ -44,13 +44,15 @@ const IssuesTrends = ({
                         lines: [
                             {
                                 label: 'Issues',
-                                color: 'green',
+                                pointColor: 'rgba(31, 119, 180, 1)',
+                                color: 'rgba(31, 119, 180, 0.5)',
                                 dataKey: 'issue',
                                 groupMath: 'count',
                             },
                             {
                                 label: 'Bugs',
-                                color: 'red',
+                                pointColor: 'rgba(232, 37, 115, 1)',
+                                color: 'rgba(232, 37, 115, 0.5)',
                                 dataKey: 'bug',
                                 groupMath: 'count',
                             },

@@ -38,12 +38,14 @@ const PullRequestTrends = ({
                         lines: [
                             {
                                 label: 'Comments',
-                                color: '#1f77b4',
+                                pointColor: 'rgba(31, 119, 180, 1)',
+                                color: 'rgba(31, 119, 180, 0.5)',
                                 dataKey: 'comments',
                             },
                             {
                                 label: 'Approvals',
-                                color: '#e82573',
+                                pointColor: 'rgba(232, 37, 115, 1)',
+                                color: 'rgba(232, 37, 115, 0.5)',
                                 dataKey: 'approvals',
                             },
                         ],
@@ -54,7 +56,8 @@ const PullRequestTrends = ({
                         lines: [
                             {
                                 label: 'PR Size',
-                                color: type === 'dark' ? '#e2e2e2' : '#777',
+                                pointColor: type === 'dark' ? 'rgba(226, 226, 226, 1)' : 'rgba(119, 119, 119, 1)',
+                                color: type === 'dark' ? 'rgba(226, 226, 226, 0.5)' : 'rgba(119, 119, 119, 0.5)',
                                 dataKey: 'prSize',
                             },
                         ],
@@ -71,7 +74,8 @@ const PullRequestTrends = ({
                         lines: [
                             {
                                 label: 'Age (days)',
-                                color: '#e82573',
+                                pointColor: 'rgba(232, 37, 115, 1)',
+                                color: 'rgba(232, 37, 115, 0.5)',
                                 dataKey: 'age',
                             },
                         ],
@@ -82,7 +86,8 @@ const PullRequestTrends = ({
                         lines: [
                             {
                                 label: 'PR Size',
-                                color: type === 'dark' ? '#e2e2e2' : '#777',
+                                pointColor: type === 'dark' ? 'rgba(226, 226, 226, 1)' : 'rgba(119, 119, 119, 1)',
+                                color: type === 'dark' ? 'rgba(226, 226, 226, 0.5)' : 'rgba(119, 119, 119, 0.5)',
                                 dataKey: 'prSize',
                             },
                         ],
@@ -99,12 +104,14 @@ const PullRequestTrends = ({
                         lines: [
                             {
                                 label: 'Additions',
-                                color: 'green',
+                                pointColor: 'rgba(31, 119, 180, 1)',
+                                color: 'rgba(31, 119, 180, 0.5)',
                                 dataKey: 'additions',
                             },
                             {
                                 label: 'Deletions',
-                                color: 'red',
+                                pointColor: 'rgba(232, 37, 115, 1)',
+                                color: 'rgba(232, 37, 115, 0.5)',
                                 dataKey: 'deletions',
                             },
                         ],

@@ -111,7 +111,7 @@ const Line = styledCharts(({
                 <ChartHeading type='line' items={leftHeadingItems} />
                 {
                     rightHeadingItems
-                    && <ChartHeading type='line' items={rightHeadingItems} />
+                        && <ChartHeading type='line' items={rightHeadingItems} />
                 }
             </div>
 
@@ -123,6 +123,8 @@ const Line = styledCharts(({
                         ...leftAxis.lines.map(x => x.color),
                         ...rightAxis.lines.map(x => x.color),
                     ]}
+                    pointColor={({ pointColor, color}) => (pointColor || color)}
+                    lineWidth={1}
                     curve='monotoneX'
                     animate={false}
                     xScale={{
