@@ -119,11 +119,8 @@ const Line = styledCharts(({
                 <NivoLine
                     margin={{ top: 14, right: 50, bottom: 50, left: 50 }}
                     data={lineData}
-                    colors={[
-                        ...leftAxis.lines.map(x => x.color),
-                        ...rightAxis.lines.map(x => x.color),
-                    ]}
-                    pointColor={({ pointColor, color}) => (pointColor || color)}
+                    colors={({ lineColor }) => lineColor}
+                    pointColor={({pointColor}) => pointColor}
                     lineWidth={1}
                     curve='monotoneX'
                     animate={false}
