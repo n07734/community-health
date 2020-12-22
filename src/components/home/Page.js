@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import { H, P } from '../shared/StyledTags'
 import ChartDescription from '../shared/ChartDescription'
@@ -7,11 +8,14 @@ import DataOptions from './DataOptions'
 import Visualisation from './Visualisation'
 import PageWrapper from './PageWrapper'
 import Links from './Links'
+import ThemeSwitch from './ThemeSwitch'
+import { toggleTheme } from '../../state/actions'
 
-const Page = () => (
+const Page = ({ themeToggle }) => (
     <PageWrapper>
         <Paper className="bg-none">
             <Links />
+            <ThemeSwitch color="primary" onChange={themeToggle} />
             <ChartDescription
                 title={(
                     <H level={1}>Code Contribution Health</H>
@@ -33,5 +37,10 @@ const Page = () => (
     </PageWrapper>
 )
 
-export default Page
+const mapDispatchToProps = dispatch => ({
+    themeToggle: (x) => dispatch(toggleTheme(x)),
+})
+
+export default connect(() => {}, mapDispatchToProps)(Page)
+
 

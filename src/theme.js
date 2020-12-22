@@ -46,6 +46,7 @@ const spacing = {
 }
 
 const theme =  (type = 'light') => createMuiTheme({
+    type,
     palette: {
         type,
         secondary: {

@@ -7,7 +7,6 @@ import {
 } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 
-import ThemeSwitch from './ThemeSwitch'
 import Paper from '../shared/Paper'
 import Button from '../shared/Button'
 import ChartDescription from '../shared/ChartDescription'
@@ -21,7 +20,6 @@ import {
     storeRepo,
     getAPIData,
     getPreFetchedData,
-    toggleTheme,
 } from '../../state/actions'
 
 const buttonText = (fetching, preFetchedRepo, pullRequests = []) => [
@@ -44,14 +42,13 @@ const FetchForm = (props) => {
         classes,
         preFetchedRepo,
         getPreFetchedRepo,
-        themeToggle,
     } = props
 
     return (
         <Paper className={classes.dataPaper} >
             <ChartDescription
                 className={classes.formDescription}
-                title={<ThemeSwitch color="primary" onChange={themeToggle} />}
+                title=""
                 intro="If you want to see data from a particular repository please fill in the fields bellow"
             >
                 <P>To generate a token you need to:</P>
@@ -183,7 +180,6 @@ const mapDispatchToProps = dispatch => ({
 
     getData: (x) => dispatch(getAPIData(x)),
     getPreFetchedRepo: (x) => dispatch(getPreFetchedData(x)),
-    themeToggle: (x) => dispatch(toggleTheme(x)),
 })
 
 const styles = theme => ({

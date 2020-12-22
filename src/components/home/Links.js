@@ -1,6 +1,5 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles';
-
 import TwitterIcon from '@material-ui/icons/Twitter';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
@@ -21,7 +20,7 @@ const styles = theme => ({
     wrapper: {
         position: 'absolute',
         top: theme.mySpacing.x.small,
-        right: theme.mySpacing.y.small,
+        right: '3.5rem',
         '& a:first-of-type': {
             marginRight: theme.mySpacing.x.small
         },
