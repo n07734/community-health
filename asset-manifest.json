@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/community-health/static/js/main.be1bf007.chunk.js",
-    "main.js.map": "/community-health/static/js/main.be1bf007.chunk.js.map",
+    "main.js": "/community-health/static/js/main.140fba4d.chunk.js",
+    "main.js.map": "/community-health/static/js/main.140fba4d.chunk.js.map",
     "runtime-main.js": "/community-health/static/js/runtime-main.d0f800ff.js",
     "runtime-main.js.map": "/community-health/static/js/runtime-main.d0f800ff.js.map",
-    "static/js/2.f1f0d95d.chunk.js": "/community-health/static/js/2.f1f0d95d.chunk.js",
-    "static/js/2.f1f0d95d.chunk.js.map": "/community-health/static/js/2.f1f0d95d.chunk.js.map",
+    "static/js/2.e09e6c86.chunk.js": "/community-health/static/js/2.e09e6c86.chunk.js",
+    "static/js/2.e09e6c86.chunk.js.map": "/community-health/static/js/2.e09e6c86.chunk.js.map",
     "index.html": "/community-health/index.html",
-    "static/js/2.f1f0d95d.chunk.js.LICENSE.txt": "/community-health/static/js/2.f1f0d95d.chunk.js.LICENSE.txt"
+    "static/js/2.e09e6c86.chunk.js.LICENSE.txt": "/community-health/static/js/2.e09e6c86.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d0f800ff.js",
-    "static/js/2.f1f0d95d.chunk.js",
-    "static/js/main.be1bf007.chunk.js"
+    "static/js/2.e09e6c86.chunk.js",
+    "static/js/main.140fba4d.chunk.js"
   ]
 }
