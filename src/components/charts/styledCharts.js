@@ -12,7 +12,7 @@ const styles = () => ({
     chartComponentWrap: {
         width: '100%',
         maxWidth: '1200px',
-        margin: '0 1rem 1rem 1rem',
+        margin: '0 0 1rem 0',
     },
     chartWrap: {
         width: '100%',
@@ -36,6 +36,9 @@ const styles = () => ({
             },
             '& svg path': {
                 opacity: '1'
+            },
+            '& svg text': {
+                fontSize: '10px !important'
             },
         },  
     },
