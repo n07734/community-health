@@ -5,7 +5,15 @@ const styles = theme => ({
     p: theme.copy.body,
     h1: theme.copy.h1,
     h2: theme.copy.h2,
-    h3: theme.copy.h3,
+    h3: {
+        ...theme.copy.h3,
+        '@media (max-width: 768px)': {
+            fontSize: '1.8rem'
+        },
+        '@media (max-width: 668px)': {
+            fontSize: '1.3rem'
+        }, 
+    },
     h4: theme.copy.h4,
     list: theme.copy.list,
     listItem: theme.copy.listItem,

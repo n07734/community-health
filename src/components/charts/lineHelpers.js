@@ -61,15 +61,14 @@ const formatLineData = (data, dataKey, averageBy = 'sum') => {
 }
 
 const formatLinesData = (axix) => axix.lines
-    .map(({ label, lineColor, color, dataKey, groupMath, data: lineData }) => {
+    .map(({ label, color, dataKey, groupMath, data: lineData }) => {
         const data = lineData || axix.data || []
         const formattedData = formatLineData(data, dataKey, groupMath)
 
         return formattedData.length
             && ({
                 id: label,
-                lineColor,
-                pointColor: color,
+                color,
                 data: formattedData,
             })
     })

@@ -17,6 +17,27 @@ const styles = () => ({
     chartWrap: {
         width: '100%',
         height: '500px',
+        '& svg path': {
+            opacity: '0.7'
+        },
+        '@media (max-width: 768px)': {
+            height: '350px',
+            '& svg g line': {
+                opacity: '0.2'
+            },
+            '& svg g line:first-child': {
+                opacity: '1'
+            },
+        },
+        '@media (max-width: 668px)': {
+            height: '300px',
+            '& svg g circle': {
+                display: 'none'
+            },
+            '& svg path': {
+                opacity: '1'
+            },
+        },  
     },
 })
 
