@@ -14,6 +14,15 @@ const styles = () => ({
         maxWidth: '1200px',
         margin: '0 0 1rem 0',
     },
+    chordWrap: {
+        width: '100%',
+        height: '370px',
+        '@media (max-width: 668px)': {
+            '& svg text': {
+                fontSize: '10px !important'
+            },
+        },
+    },
     chartWrap: {
         width: '100%',
         height: '500px',
