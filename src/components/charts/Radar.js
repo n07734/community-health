@@ -12,8 +12,8 @@ const Radar = styledCharts(({
     titleItems = [],
     data = [],
     keys = [],
-    width = 450,
-    height = 310,
+    width = 410,
+    height = 300,
     classes,
 } = {}) => {
     const theme = useTheme();
