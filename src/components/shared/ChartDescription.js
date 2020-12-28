@@ -9,6 +9,7 @@ const ChartDescription = ({
     title,
     intro,
     children,
+    expandText = 'See more',
     className,
     classes,
 } = {}) => {
@@ -33,7 +34,7 @@ const ChartDescription = ({
                         {
                             toggle
                                 ? 'See less'
-                                : 'See more'
+                                : expandText
                         }
                     </a>
                 }

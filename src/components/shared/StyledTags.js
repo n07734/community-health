@@ -3,8 +3,24 @@ import { withStyles } from '@material-ui/core/styles'
 
 const styles = theme => ({
     p: theme.copy.body,
-    h1: theme.copy.h1,
-    h2: theme.copy.h2,
+    h1: {
+        ...theme.copy.h1,
+        '@media (max-width: 768px)': {
+            fontSize: '3.5rem'
+        },
+        '@media (max-width: 668px)': {
+            fontSize: '3rem'
+        },
+    },
+    h2: {
+        ...theme.copy.h2,
+        '@media (max-width: 768px)': {
+            fontSize: '3rem'
+        },
+        '@media (max-width: 668px)': {
+            fontSize: '2.5rem'
+        },
+    },
     h3: {
         ...theme.copy.h3,
         '@media (max-width: 768px)': {
@@ -12,7 +28,7 @@ const styles = theme => ({
         },
         '@media (max-width: 668px)': {
             fontSize: '1.3rem'
-        }, 
+        },
     },
     h4: theme.copy.h4,
     list: theme.copy.list,

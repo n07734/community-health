@@ -49,98 +49,69 @@ const FetchForm = (props) => {
             <ChartDescription
                 className={classes.formDescription}
                 title=""
-                intro="If you want to see data from a repository please fill in the fields bellow"
+                expandText="go here"
+                intro="To get data for other repositories, "
             >
-                <P>*Token is required for GitHub GraphQL API calls, to generate a token you need to:</P>
                 <OL>
-                    <LI>Go to your GitHub <a className={classes.link} href="https://github.com/settings/tokens">tokens</a> page</LI>
+                    <LI>*Token is required for GitHub GraphQL API calls, go to your GitHub <a className={classes.link} href="https://github.com/settings/tokens">tokens</a> page</LI>
                     <LI>Click on 'generate new token'</LI>
                     <LI>Choose the settings 'repo' (all) and 'read:org', click 'Generate token'</LI>
                     <LI>Use that token here</LI>
                 </OL>
-            </ChartDescription>
+                <form
+                    className={classes.form}
+                    onSubmit={
+                        (e) => {
+                            e.preventDefault()
 
-            <form
-                className={classes.form}
-                onSubmit={
-                    (e) => {
-                        e.preventDefault()
-
-                        !fetching
-                            && getData()
+                            !fetching
+                                && getData()
+                        }
                     }
-                }
-            >
-                <TextField
-                    variant="outlined"
-                    className={classes.child}
-                    label="Token*"
-                    margin="normal"
-                    value={token}
-                    onChange={setValue('token')}
-                />
-                <TextField
-                    variant="outlined"
-                    className={classes.child}
-                    label="Organisation"
-                    margin="normal"
-                    value={org}
-                    onChange={setValue('org')}
-                />
+                >
+                    <TextField
+                        variant="outlined"
+                        className={classes.child}
+                        label="Token*"
+                        margin="normal"
+                        value={token}
+                        onChange={setValue('token')}
+                    />
+                    <TextField
+                        variant="outlined"
+                        className={classes.child}
+                        label="Organisation"
+                        margin="normal"
+                        value={org}
+                        onChange={setValue('org')}
+                    />
 
-                <TextField
-                    variant="outlined"
-                    className={classes.child}
-                    label="Repository"
-                    margin="normal"
-                    value={repo}
-                    onChange={setValue('repo')}
-                />
+                    <TextField
+                        variant="outlined"
+                        className={classes.child}
+                        label="Repository"
+                        margin="normal"
+                        value={repo}
+                        onChange={setValue('repo')}
+                    />
 
-                <Button
-                    className={classes.child}
-                    type={fetching ? 'disabled' : 'submit'}
-                    variant="contained"
-                    color="primary"
-                    value={buttonText(fetching, preFetchedRepo, pullRequests)}
-                />
+                    <Button
+                        className={classes.child}
+                        type={fetching ? 'disabled' : 'submit'}
+                        variant="contained"
+                        color="primary"
+                        value={buttonText(fetching, preFetchedRepo, pullRequests)}
+                    />
 
-                {
-                    error
-                        && <Message
-                            error={error}
-                            className={classes.fullRow}
-                        />
-                }
-            </form>
-            <div className={classes.preFetched}>
-                <P>
-                    Or take a look at contribution data from some popular Open Source repositories{preFetchedRepo}
-                </P>
-                {
-                    [
-                        'react',
-                        'vue',
-                        'TypeScript',
-                        'material-ui',
-                        'node',
-                        'deno',
-                        'vscode',
-                        'electron',
-                        'kotlin',
-                        'swift',
-                    ]
-                        .map((repo, i) => <Button
-                            value={repo}
-                            key={i}
-                            color={preFetchedRepo === repo ? 'primary' : 'secondary'}
-                            onClick={(e) => {
-                                e.preventDefault()
-                                getPreFetchedRepo(repo)
-                            }}
-                        />)
-                }
-            </div>
+                    {
+                        error
+                            && <Message
+                                error={error}
+                                className={classes.fullRow}
+                            />
+                    }
+                </form>
+            </ChartDescription>
         </Paper>
     )
 }
