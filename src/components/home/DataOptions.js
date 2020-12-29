@@ -112,6 +112,34 @@ const FetchForm = (props) => {
                     }
                 </form>
             </ChartDescription>
+            <div className={classes.preFetched}>
+                 <P>
+                     Or take a look at contribution data from some popular Open Source repositories{preFetchedRepo}
+                 </P>
+                 {
+                     [
+                         'react',
+                         'vue',
+                         'TypeScript',
+                         'material-ui',
+                         'node',
+                         'deno',
+                         'vscode',
+                         'electron',
+                         'kotlin',
+                         'swift',
+                     ]
+                         .map((repo, i) => <Button
+                             value={repo}
+                             key={i}
+                             color={preFetchedRepo === repo ? 'primary' : 'secondary'}
+                             onClick={(e) => {
+                                 e.preventDefault()
+                                 getPreFetchedRepo(repo)
+                             }}
+                         />)
+                 }
+             </div>
         </Paper>
     )
 }
