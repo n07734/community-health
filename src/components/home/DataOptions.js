@@ -10,7 +10,7 @@ import { withStyles } from '@material-ui/core/styles'
 import Paper from '../shared/Paper'
 import Button from '../shared/Button'
 import ChartDescription from '../shared/ChartDescription'
-import { OL, LI } from '../shared/StyledTags'
+import { P, OL, LI } from '../shared/StyledTags'
 import Message from './Message'
 
 import types from '../../state/types'
@@ -41,6 +41,7 @@ const FetchForm = (props) => {
         pullRequests = [],
         classes,
         preFetchedRepo,
+        getPreFetchedRepo,
     } = props
 
     return (
@@ -111,6 +112,34 @@ const FetchForm = (props) => {
                     }
                 </form>
             </ChartDescription>
+            <div className={classes.preFetched}>
+                 <P>
+                     Or take a look at contribution data from some popular Open Source repositories{preFetchedRepo}
+                 </P>
+                 {
+                     [
+                         'react',
+                         'vue',
+                         'TypeScript',
+                         'material-ui',
+                         'node',
+                         'deno',
+                         'vscode',
+                         'electron',
+                         'kotlin',
+                         'swift',
+                     ]
+                         .map((repo, i) => <Button
+                             value={repo}
+                             key={i}
+                             color={preFetchedRepo === repo ? 'primary' : 'secondary'}
+                             onClick={(e) => {
+                                 e.preventDefault()
+                                 getPreFetchedRepo(repo)
+                             }}
+                         />)
+                 }
+             </div>
         </Paper>
     )
 }
