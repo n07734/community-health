@@ -10,7 +10,7 @@ import { withStyles } from '@material-ui/core/styles'
 import Paper from '../shared/Paper'
 import Button from '../shared/Button'
 import ChartDescription from '../shared/ChartDescription'
-import { P, OL, LI } from '../shared/StyledTags'
+import { OL, LI } from '../shared/StyledTags'
 import Message from './Message'
 
 import types from '../../state/types'
@@ -41,7 +41,6 @@ const FetchForm = (props) => {
         pullRequests = [],
         classes,
         preFetchedRepo,
-        getPreFetchedRepo,
     } = props
 
     return (
