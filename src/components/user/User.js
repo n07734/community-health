@@ -69,8 +69,8 @@ const userRadars = (
                 { label: 'Peers', color: colourB },
             ],
             keys: [userName, 'peers'],
-            width: 600,
-            height: 435,
+            width: 400,
+            height: 235,
         },
     ]
 

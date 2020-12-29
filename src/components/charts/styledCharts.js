@@ -18,6 +18,8 @@ const styles = () => ({
         width: '450px',
         height: '450px',
         '@media (max-width: 668px)': {
+            width: '370px',
+            height: '370px',
             '& svg text': {
                 fontSize: '10px !important'
             },
