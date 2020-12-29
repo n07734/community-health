@@ -11,9 +11,13 @@ import * as actions from './state/actions'
 const App = ({ getPreFetchedData, themeType, setUser } = {}) => {
     useEffect(() => {
         const quertString = pathOr('', ['location', 'search'],window)
-        const [, urlRepo] = (quertString.match(/repo=([^&]+)/) || [])
-        getPreFetchedData(urlRepo || 'react')
-    }, [getPreFetchedData])
+        const urlParams = new URLSearchParams(quertString);
+        const repo = urlParams.get('repo') || 'react';
+        const user = urlParams.get('user') || '';
+
+        getPreFetchedData(repo)
+        setUser(user)
+    }, [getPreFetchedData, setUser])
 
     return (
         <MuiThemeProvider theme={theme(themeType)}>
