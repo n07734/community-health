@@ -50,7 +50,7 @@ const IssuesTrends = ({
                             },
                             {
                                 label: 'Bugs',
-                                color: '#1f77b4',
+                                color: '#e82573',
                                 dataKey: 'bug',
                                 groupMath: 'count',
                             },
