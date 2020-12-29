@@ -15,8 +15,8 @@ const styles = () => ({
         margin: '0 0 1rem 0',
     },
     chordWrap: {
-        width: '100%',
-        height: '370px',
+        width: '450px',
+        height: '450px',
         '@media (max-width: 668px)': {
             '& svg text': {
                 fontSize: '10px !important'
