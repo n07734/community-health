@@ -142,7 +142,7 @@ const api = state => queryInfo => dispatch => {
                 },
             })
 
-        const nextPageInfo = pathOr([], 'nextPageInfo', result)
+        const nextPageInfo = propOr([], 'nextPageInfo', result)
         nextPageInfo
             .map(pageInfo => dispatch({
                 type: pageInfo.cursorAction,
