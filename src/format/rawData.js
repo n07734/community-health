@@ -1,4 +1,4 @@
-import { path, pathOr, propOr } from 'ramda'
+import { path, pathOr } from 'ramda'
 import differenceInDays from 'date-fns/difference_in_days'
 import {
     major,
@@ -79,25 +79,15 @@ const formatApprovals = (data) => {
 }
 
 const prData = (data) => {
-    const {
-        repository: {
-            name: repo = '',
-            owner: {
-                login: org = '',
-            } = {},
-        } = {},
-        author: {
-            login: author = '',
-        } = {},
-        url = '',
-
-        additions = 0,
-        deletions = 0,
-        changedFiles = 0,
-
-        createdAt = '',
-        mergedAt = '',
-    } = propOr({}, 'node', data)
+    const org = pathOr('', ['node', 'repository', 'owner', 'login'], data)
+    const repo = pathOr('', ['node', 'repository', 'name'], data)
+    const author = pathOr('', ['node', 'author', 'login'], data)
+    const url = pathOr('', ['node', 'url'], data)
+    const additions = pathOr(0, ['node', 'additions'], data)
+    const deletions = pathOr(0, ['node', 'deletions'], data)
+    const changedFiles = pathOr(0, ['node', 'changedFiles'], data)
+    const createdAt = pathOr('', ['node', 'createdAt'], data)
+    const mergedAt = pathOr('', ['node', 'mergedAt'], data)
 
     const {
         codeComments = 0,

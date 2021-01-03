@@ -128,6 +128,7 @@ const api = state => queryInfo => dispatch => {
             })
 
         const result = resultInfo(response)
+
         // TODO: FILLERS HERE SORT OUT RAW and filled data
         // pass in fillers
         const fullData = await fillData(apiCallWithToken)(fillerType)(response)
@@ -158,10 +159,10 @@ const api = state => queryInfo => dispatch => {
     const rejecter = (error = {}) => {
         const status = error.status
         const errorMessage = [
-            (/ENOTFOUND|ECONNRESET/.test(error.code) || triggeredAbuseRate(error) )
+            (/ENOTFOUND|ECONNRESET/.test(error.code) || triggeredAbuseRate(error) || status === 503)
                 && {
                     level: 'warn',
-                    message: 'You may have triggered the api\'s abuse detection, please wait a few minutes before trying again',
+                    message: 'You may have triggered the api\'s abuse detection, please wait a minute before trying again',
                 },
             status === 401
                 && {
