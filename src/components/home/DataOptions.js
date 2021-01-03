@@ -116,9 +116,8 @@ const FetchForm = (props) => {
                 {
                     !fetching
                         && !preFetchedRepo
-                        && pullRequests.length
+                        && pullRequests.length > 0
                         && <P><a className={classes.link} {...getDownloadInfo()}>Download report data</a></P>
-                        || undefined
                 }
             </ChartDescription>
             <div className={classes.preFetched}>

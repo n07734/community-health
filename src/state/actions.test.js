@@ -144,7 +144,7 @@ describe('getPreFetchedData:', () => {
 
     it('Triggers dispatches in correct order', () => {
         const dispatch = jest.fn()
-        getPreFetchedData('vue')(dispatch)
+        getPreFetchedData('vue-next')(dispatch)
 
         const dispatchOrder = [
             types.CLEAR_USER,
