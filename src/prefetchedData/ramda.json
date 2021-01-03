@@ -1,0 +1,2414 @@
+{
+  "fetches": {
+    "org": "ramda",
+    "repo": "ramda",
+    "prPagination": {
+      "cursor": "Y3Vyc29yOnYyOpK5MjAxOC0xMS0yNlQyMjozNDoyNSswMDowMM4N7kWl",
+      "hasNextPage": true
+    },
+    "releasesPagination": {
+      "cursor": "Y3Vyc29yOnYyOpK5MjAxNC0wOS0wMVQyMjozMzowNSswMTowMM4ACBCw"
+    },
+    "issuesPagination": {
+      "cursor": "Y3Vyc29yOnYyOpK5MjAyMC0wMS0yM1QxNjo1OTozMCswMDowMM4hCbbh",
+      "hasNextPage": true
+    }
+  },
+  "pullRequests": [
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "carlosmori",
+      "url": "https://github.com/ramda/ramda/pull/3119",
+      "additions": 1,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2020-12-14T14:38:02Z",
+      "mergedAt": "2020-12-15T20:16:18Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "CrossEye": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "customcommander",
+      "url": "https://github.com/ramda/ramda/pull/3109",
+      "additions": 2,
+      "deletions": 2,
+      "changedFiles": 1,
+      "prSize": 4,
+      "createdAt": "2020-11-13T19:16:36Z",
+      "mergedAt": "2020-11-13T20:35:46Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "daniel7grant",
+      "url": "https://github.com/ramda/ramda/pull/3107",
+      "additions": 209,
+      "deletions": 1,
+      "changedFiles": 7,
+      "prSize": 210,
+      "createdAt": "2020-11-09T23:51:01Z",
+      "mergedAt": "2020-11-13T01:04:01Z",
+      "age": 3,
+      "approvals": 1,
+      "approvers": {
+        "CrossEye": 1
+      },
+      "generalComments": 10,
+      "generalCommenters": {
+        "semmel": 1,
+        "CrossEye": 6,
+        "hitmands": 3
+      },
+      "codeComments": 5,
+      "codeCommenters": {
+        "CrossEye": 3,
+        "hitmands": 2
+      },
+      "comments": 15,
+      "commenters": {
+        "semmel": 1,
+        "CrossEye": 9,
+        "hitmands": 5
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "cviejo",
+      "url": "https://github.com/ramda/ramda/pull/3096",
+      "additions": 1,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2020-10-09T10:33:15Z",
+      "mergedAt": "2020-10-09T19:12:45Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "Bradcomp": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "CrossEye": 1,
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "adispring",
+      "url": "https://github.com/ramda/ramda/pull/3088",
+      "additions": 5,
+      "deletions": 4,
+      "changedFiles": 1,
+      "prSize": 9,
+      "createdAt": "2020-09-22T08:29:56Z",
+      "mergedAt": "2020-09-22T21:55:48Z",
+      "age": 1,
+      "approvals": 2,
+      "approvers": {
+        "Bradcomp": 1,
+        "CrossEye": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "orthanc",
+      "url": "https://github.com/ramda/ramda/pull/3085",
+      "additions": 4,
+      "deletions": 3,
+      "changedFiles": 1,
+      "prSize": 7,
+      "createdAt": "2020-09-15T20:07:37Z",
+      "mergedAt": "2020-09-17T16:17:05Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "rafpaf",
+      "url": "https://github.com/ramda/ramda/pull/3083",
+      "additions": 1,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2020-09-13T15:19:53Z",
+      "mergedAt": "2020-09-14T01:37:31Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "adispring",
+      "url": "https://github.com/ramda/ramda/pull/3081",
+      "additions": 12,
+      "changedFiles": 2,
+      "prSize": 12,
+      "createdAt": "2020-09-02T16:13:57Z",
+      "mergedAt": "2020-09-02T20:06:05Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "Bradcomp",
+      "url": "https://github.com/ramda/ramda/pull/3080",
+      "additions": 2,
+      "deletions": 1,
+      "changedFiles": 2,
+      "prSize": 3,
+      "createdAt": "2020-08-26T17:27:57Z",
+      "mergedAt": "2020-08-26T18:57:46Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "burak-yildirim",
+      "url": "https://github.com/ramda/ramda/pull/3073",
+      "additions": 1,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2020-08-16T18:22:17Z",
+      "mergedAt": "2020-08-17T13:21:31Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "Bradcomp",
+      "url": "https://github.com/ramda/ramda/pull/3069",
+      "additions": 7,
+      "deletions": 5,
+      "changedFiles": 2,
+      "prSize": 12,
+      "createdAt": "2020-08-05T23:54:37Z",
+      "mergedAt": "2020-08-17T13:37:26Z",
+      "age": 11,
+      "approvals": 1,
+      "approvers": {
+        "CrossEye": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "andykao1213",
+      "url": "https://github.com/ramda/ramda/pull/3067",
+      "additions": 30,
+      "deletions": 3,
+      "changedFiles": 2,
+      "prSize": 33,
+      "createdAt": "2020-08-01T14:50:38Z",
+      "mergedAt": "2020-08-17T13:19:56Z",
+      "age": 15,
+      "approvals": 2,
+      "approvers": {
+        "Bradcomp": 1,
+        "Cameri": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "Cameri": 2
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "Bradcomp": 1
+      },
+      "comments": 3,
+      "commenters": {
+        "Cameri": 2,
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "sebastienfilion",
+      "url": "https://github.com/ramda/ramda/pull/3054",
+      "additions": 19,
+      "changedFiles": 3,
+      "prSize": 19,
+      "createdAt": "2020-07-01T00:35:15Z",
+      "mergedAt": "2020-08-17T13:30:32Z",
+      "age": 47,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "t8": 1
+      },
+      "codeComments": 4,
+      "codeCommenters": {
+        "Bradcomp": 1,
+        "CrossEye": 2,
+        "t8": 1
+      },
+      "comments": 5,
+      "commenters": {
+        "t8": 2,
+        "Bradcomp": 1,
+        "CrossEye": 2
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "sebastienfilion",
+      "url": "https://github.com/ramda/ramda/pull/3053",
+      "additions": 5,
+      "changedFiles": 1,
+      "prSize": 5,
+      "createdAt": "2020-07-01T00:09:45Z",
+      "mergedAt": "2020-07-01T18:41:24Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "CrossEye": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "hitmands": 2,
+        "CrossEye": 1
+      },
+      "comments": 3,
+      "commenters": {
+        "hitmands": 2,
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "sebastienfilion",
+      "url": "https://github.com/ramda/ramda/pull/3052",
+      "additions": 5,
+      "deletions": 5,
+      "changedFiles": 2,
+      "prSize": 10,
+      "createdAt": "2020-06-30T23:56:19Z",
+      "mergedAt": "2020-07-01T14:58:43Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "benbryant0",
+      "url": "https://github.com/ramda/ramda/pull/3050",
+      "additions": 77,
+      "deletions": 92,
+      "changedFiles": 3,
+      "prSize": 169,
+      "createdAt": "2020-06-29T21:56:03Z",
+      "mergedAt": "2020-09-23T20:50:08Z",
+      "age": 85,
+      "approvals": 2,
+      "approvers": {
+        "hitmands": 1,
+        "Bradcomp": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "CrossEye": 1,
+        "Bradcomp": 1
+      },
+      "codeComments": 4,
+      "codeCommenters": {
+        "hitmands": 4
+      },
+      "comments": 6,
+      "commenters": {
+        "CrossEye": 1,
+        "Bradcomp": 1,
+        "hitmands": 4
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "benbryant0",
+      "url": "https://github.com/ramda/ramda/pull/3048",
+      "additions": 3,
+      "deletions": 4,
+      "changedFiles": 1,
+      "prSize": 7,
+      "createdAt": "2020-06-29T00:57:20Z",
+      "mergedAt": "2020-06-29T15:12:59Z",
+      "age": 1,
+      "approvals": 2,
+      "approvers": {
+        "CrossEye": 1,
+        "hitmands": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "hejhi",
+      "url": "https://github.com/ramda/ramda/pull/3047",
+      "additions": 68,
+      "changedFiles": 3,
+      "prSize": 68,
+      "createdAt": "2020-06-27T21:52:05Z",
+      "mergedAt": "2020-07-22T13:56:22Z",
+      "age": 24,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      },
+      "generalComments": 10,
+      "generalCommenters": {
+        "CrossEye": 9,
+        "Bradcomp": 1
+      },
+      "codeComments": 24,
+      "codeCommenters": {
+        "CrossEye": 15,
+        "Bradcomp": 8,
+        "aaditmshah": 1
+      },
+      "comments": 34,
+      "commenters": {
+        "CrossEye": 24,
+        "Bradcomp": 9,
+        "aaditmshah": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "hitmands",
+      "url": "https://github.com/ramda/ramda/pull/3046",
+      "additions": 708,
+      "changedFiles": 1,
+      "prSize": 708,
+      "createdAt": "2020-06-25T13:42:49Z",
+      "mergedAt": "2020-06-25T21:48:31Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "hitmands",
+      "url": "https://github.com/ramda/ramda/pull/3044",
+      "additions": 9,
+      "deletions": 10,
+      "changedFiles": 2,
+      "prSize": 19,
+      "createdAt": "2020-06-17T20:06:24Z",
+      "mergedAt": "2020-06-18T03:00:28Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "sebastienfilion",
+      "url": "https://github.com/ramda/ramda/pull/3042",
+      "additions": 953,
+      "deletions": 947,
+      "changedFiles": 300,
+      "prSize": 1900,
+      "createdAt": "2020-06-16T13:36:10Z",
+      "mergedAt": "2020-06-19T15:27:42Z",
+      "age": 3,
+      "approvals": 1,
+      "approvers": {
+        "hitmands": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "Bradcomp": 2,
+        "CrossEye": 2,
+        "hitmands": 1
+      },
+      "comments": 5,
+      "commenters": {
+        "Bradcomp": 2,
+        "CrossEye": 2,
+        "hitmands": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "customcommander",
+      "url": "https://github.com/ramda/ramda/pull/3039",
+      "additions": 21,
+      "deletions": 18,
+      "changedFiles": 13,
+      "prSize": 39,
+      "createdAt": "2020-06-14T06:25:12Z",
+      "mergedAt": "2020-06-16T14:47:08Z",
+      "age": 2,
+      "approvals": 2,
+      "approvers": {
+        "CrossEye": 1,
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "forrest-akin",
+      "url": "https://github.com/ramda/ramda/pull/3037",
+      "additions": 152,
+      "changedFiles": 6,
+      "prSize": 152,
+      "createdAt": "2020-06-11T19:43:19Z",
+      "mergedAt": "2020-06-16T19:29:09Z",
+      "age": 4,
+      "approvals": 2,
+      "approvers": {
+        "Bradcomp": 1,
+        "CrossEye": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "CrossEye": 2
+      },
+      "codeComments": 19,
+      "codeCommenters": {
+        "davidchambers": 8,
+        "CrossEye": 7,
+        "customcommander": 3,
+        "Bradcomp": 1
+      },
+      "comments": 21,
+      "commenters": {
+        "CrossEye": 9,
+        "davidchambers": 8,
+        "customcommander": 3,
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "hitmands",
+      "url": "https://github.com/ramda/ramda/pull/3033",
+      "additions": 1510,
+      "deletions": 201,
+      "changedFiles": 7,
+      "prSize": 1711,
+      "createdAt": "2020-05-31T15:59:01Z",
+      "mergedAt": "2020-06-03T17:51:52Z",
+      "age": 3,
+      "approvals": 2,
+      "approvers": {
+        "Bradcomp": 1,
+        "CrossEye": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "codeComments": 3,
+      "codeCommenters": {
+        "customcommander": 1,
+        "Bradcomp": 1,
+        "CrossEye": 1
+      },
+      "comments": 4,
+      "commenters": {
+        "CrossEye": 2,
+        "customcommander": 1,
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "joshtch",
+      "url": "https://github.com/ramda/ramda/pull/3031",
+      "additions": 34,
+      "deletions": 6,
+      "changedFiles": 2,
+      "prSize": 40,
+      "createdAt": "2020-05-20T07:36:06Z",
+      "mergedAt": "2020-06-22T19:11:07Z",
+      "age": 33,
+      "approvals": 2,
+      "approvers": {
+        "CrossEye": 1,
+        "Bradcomp": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "Bradcomp": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "klequis",
+      "url": "https://github.com/ramda/ramda/pull/3025",
+      "additions": 3,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 4,
+      "createdAt": "2020-05-11T18:05:26Z",
+      "mergedAt": "2020-05-11T23:04:55Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "timgates42",
+      "url": "https://github.com/ramda/ramda/pull/3014",
+      "additions": 1,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2020-04-18T21:03:37Z",
+      "mergedAt": "2020-04-20T23:09:51Z",
+      "age": 2,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "CrossEye": 1,
+        "Bradcomp": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "CrossEye": 1,
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "richlloydmiles",
+      "url": "https://github.com/ramda/ramda/pull/3013",
+      "additions": 1,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2020-04-15T09:28:29Z",
+      "mergedAt": "2020-04-15T12:56:28Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "orlovedev",
+      "url": "https://github.com/ramda/ramda/pull/3011",
+      "additions": 1,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2020-04-14T07:34:41Z",
+      "mergedAt": "2020-04-14T19:42:35Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "adispring",
+      "url": "https://github.com/ramda/ramda/pull/3005",
+      "additions": 2,
+      "deletions": 2,
+      "changedFiles": 2,
+      "prSize": 4,
+      "createdAt": "2020-04-06T09:30:03Z",
+      "mergedAt": "2020-04-08T15:36:46Z",
+      "age": 2,
+      "approvals": 1,
+      "approvers": {
+        "CrossEye": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "CrossEye": 2,
+        "Bradcomp": 2
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "Bradcomp": 1
+      },
+      "comments": 5,
+      "commenters": {
+        "CrossEye": 2,
+        "Bradcomp": 3
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "krzysztofpniak",
+      "url": "https://github.com/ramda/ramda/pull/3002",
+      "additions": 10,
+      "deletions": 2,
+      "changedFiles": 3,
+      "prSize": 12,
+      "createdAt": "2020-03-27T19:58:50Z",
+      "mergedAt": "2020-03-29T17:10:58Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "Andarist",
+      "url": "https://github.com/ramda/ramda/pull/2999",
+      "additions": 20,
+      "deletions": 5,
+      "changedFiles": 2,
+      "prSize": 25,
+      "createdAt": "2020-03-26T21:18:40Z",
+      "mergedAt": "2020-03-31T15:19:33Z",
+      "age": 4,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "Bradcomp": 3,
+        "CrossEye": 2
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "Bradcomp": 1
+      },
+      "comments": 6,
+      "commenters": {
+        "Bradcomp": 4,
+        "CrossEye": 2
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "Bradcomp",
+      "url": "https://github.com/ramda/ramda/pull/2994",
+      "additions": 20,
+      "deletions": 89,
+      "changedFiles": 7,
+      "prSize": 109,
+      "createdAt": "2020-03-08T18:42:31Z",
+      "mergedAt": "2020-03-08T18:47:19Z",
+      "age": 1
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "wirecobweb",
+      "url": "https://github.com/ramda/ramda/pull/2990",
+      "additions": 2,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2020-02-27T21:38:05Z",
+      "mergedAt": "2020-02-28T14:32:22Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "adispring",
+      "url": "https://github.com/ramda/ramda/pull/2989",
+      "additions": 3,
+      "deletions": 3,
+      "changedFiles": 3,
+      "prSize": 6,
+      "createdAt": "2020-02-20T14:51:16Z",
+      "mergedAt": "2020-02-21T22:33:59Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "Bradcomp": 1,
+        "CrossEye": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "Bradcomp": 1,
+        "CrossEye": 2
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "ku8ar",
+      "url": "https://github.com/ramda/ramda/pull/2986",
+      "additions": 8,
+      "changedFiles": 2,
+      "prSize": 8,
+      "createdAt": "2020-02-18T18:25:50Z",
+      "mergedAt": "2020-02-19T18:51:43Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "ku8ar",
+      "url": "https://github.com/ramda/ramda/pull/2984",
+      "additions": 37,
+      "deletions": 1,
+      "changedFiles": 5,
+      "prSize": 38,
+      "createdAt": "2020-02-15T10:15:35Z",
+      "mergedAt": "2020-02-16T02:50:32Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "adispring",
+      "url": "https://github.com/ramda/ramda/pull/2981",
+      "additions": 8,
+      "deletions": 6,
+      "changedFiles": 2,
+      "prSize": 14,
+      "createdAt": "2020-02-13T01:37:37Z",
+      "mergedAt": "2020-02-13T02:43:48Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "adispring",
+      "url": "https://github.com/ramda/ramda/pull/2979",
+      "additions": 2,
+      "deletions": 2,
+      "changedFiles": 1,
+      "prSize": 4,
+      "createdAt": "2020-02-12T06:46:09Z",
+      "mergedAt": "2020-02-13T01:03:33Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "ryanbas21",
+      "url": "https://github.com/ramda/ramda/pull/2968",
+      "additions": 2,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 3,
+      "createdAt": "2020-02-02T01:08:24Z",
+      "mergedAt": "2020-02-02T20:01:48Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "adispring",
+      "url": "https://github.com/ramda/ramda/pull/2963",
+      "additions": 14,
+      "deletions": 10,
+      "changedFiles": 2,
+      "prSize": 24,
+      "createdAt": "2020-01-26T10:33:23Z",
+      "mergedAt": "2020-01-28T18:31:58Z",
+      "age": 2,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "ku8ar",
+      "url": "https://github.com/ramda/ramda/pull/2962",
+      "additions": 76,
+      "deletions": 4,
+      "changedFiles": 4,
+      "prSize": 80,
+      "createdAt": "2020-01-25T16:11:54Z",
+      "mergedAt": "2020-02-04T00:19:01Z",
+      "age": 9,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "CrossEye": 1,
+        "Bradcomp": 1,
+        "masoud-msk": 1
+      },
+      "codeComments": 4,
+      "codeCommenters": {
+        "Bradcomp": 2,
+        "datenreisender": 1,
+        "CrossEye": 1
+      },
+      "comments": 7,
+      "commenters": {
+        "CrossEye": 2,
+        "Bradcomp": 3,
+        "masoud-msk": 1,
+        "datenreisender": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "adispring",
+      "url": "https://github.com/ramda/ramda/pull/2959",
+      "additions": 2,
+      "deletions": 2,
+      "changedFiles": 1,
+      "prSize": 4,
+      "createdAt": "2020-01-22T08:20:22Z",
+      "mergedAt": "2020-01-24T01:17:17Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "adispring",
+      "url": "https://github.com/ramda/ramda/pull/2958",
+      "additions": 13,
+      "deletions": 8,
+      "changedFiles": 1,
+      "prSize": 21,
+      "createdAt": "2020-01-21T23:48:24Z",
+      "mergedAt": "2020-01-22T00:40:25Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "josh-byster",
+      "url": "https://github.com/ramda/ramda/pull/2956",
+      "additions": 2,
+      "changedFiles": 2,
+      "prSize": 2,
+      "createdAt": "2020-01-08T10:31:51Z",
+      "mergedAt": "2020-01-09T23:00:20Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "adispring",
+      "url": "https://github.com/ramda/ramda/pull/2944",
+      "additions": 2,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 3,
+      "createdAt": "2019-12-27T03:48:18Z",
+      "mergedAt": "2019-12-27T13:22:02Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "adispring",
+      "url": "https://github.com/ramda/ramda/pull/2939",
+      "additions": 5,
+      "deletions": 2,
+      "changedFiles": 1,
+      "prSize": 7,
+      "createdAt": "2019-12-20T02:58:10Z",
+      "mergedAt": "2019-12-20T13:06:03Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "wojpawlik",
+      "url": "https://github.com/ramda/ramda/pull/2935",
+      "additions": 1,
+      "deletions": 2,
+      "changedFiles": 1,
+      "prSize": 3,
+      "createdAt": "2019-12-12T12:28:28Z",
+      "mergedAt": "2019-12-13T00:45:31Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "mudit56",
+      "url": "https://github.com/ramda/ramda/pull/2932",
+      "additions": 2,
+      "deletions": 3,
+      "changedFiles": 1,
+      "prSize": 5,
+      "createdAt": "2019-12-11T12:46:25Z",
+      "mergedAt": "2019-12-11T23:49:26Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "Bradcomp": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "CrossEye": 1,
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "wojpawlik",
+      "url": "https://github.com/ramda/ramda/pull/2928",
+      "additions": 2118,
+      "deletions": 326,
+      "changedFiles": 3,
+      "prSize": 2444,
+      "createdAt": "2019-11-25T14:27:39Z",
+      "mergedAt": "2019-12-03T00:42:43Z",
+      "age": 7,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "vasinkevych",
+      "url": "https://github.com/ramda/ramda/pull/2927",
+      "additions": 1,
+      "changedFiles": 1,
+      "prSize": 1,
+      "createdAt": "2019-11-24T12:18:04Z",
+      "mergedAt": "2019-11-25T18:32:03Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "hitmands",
+      "url": "https://github.com/ramda/ramda/pull/2925",
+      "additions": 108,
+      "changedFiles": 3,
+      "prSize": 108,
+      "createdAt": "2019-11-22T08:01:31Z",
+      "mergedAt": "2019-12-11T18:00:03Z",
+      "age": 19,
+      "approvals": 2,
+      "approvers": {
+        "CrossEye": 1,
+        "Bradcomp": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "Bradcomp": 2,
+        "CrossEye": 1
+      },
+      "codeComments": 12,
+      "codeCommenters": {
+        "CrossEye": 8,
+        "Bradcomp": 4
+      },
+      "comments": 15,
+      "commenters": {
+        "Bradcomp": 6,
+        "CrossEye": 9
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "adispring",
+      "url": "https://github.com/ramda/ramda/pull/2922",
+      "additions": 5,
+      "deletions": 3,
+      "changedFiles": 5,
+      "prSize": 8,
+      "createdAt": "2019-11-20T14:34:46Z",
+      "mergedAt": "2019-12-20T13:07:35Z",
+      "age": 29,
+      "generalComments": 2,
+      "generalCommenters": {
+        "CrossEye": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "CrossEye": 2
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "estaub",
+      "url": "https://github.com/ramda/ramda/pull/2920",
+      "additions": 1,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2019-11-18T15:30:49Z",
+      "mergedAt": "2019-11-18T18:32:21Z",
+      "age": 1,
+      "generalComments": 3,
+      "generalCommenters": {
+        "CrossEye": 2,
+        "Bradcomp": 1
+      },
+      "comments": 3,
+      "commenters": {
+        "CrossEye": 2,
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "ni-ko-o-kin",
+      "url": "https://github.com/ramda/ramda/pull/2919",
+      "additions": 4,
+      "deletions": 4,
+      "changedFiles": 4,
+      "prSize": 8,
+      "createdAt": "2019-11-18T09:52:41Z",
+      "mergedAt": "2019-11-18T14:26:19Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "CrossEye": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "CrossEye": 2
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "adispring",
+      "url": "https://github.com/ramda/ramda/pull/2917",
+      "additions": 2,
+      "changedFiles": 2,
+      "prSize": 2,
+      "createdAt": "2019-11-18T01:45:32Z",
+      "mergedAt": "2019-11-18T12:22:00Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "Bradcomp": 1,
+        "CrossEye": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "Bradcomp": 1,
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "gravitypersists",
+      "url": "https://github.com/ramda/ramda/pull/2916",
+      "additions": 1,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2019-11-13T19:58:56Z",
+      "mergedAt": "2019-11-14T15:55:27Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "adispring",
+      "url": "https://github.com/ramda/ramda/pull/2914",
+      "additions": 1,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2019-11-11T04:38:45Z",
+      "mergedAt": "2019-11-11T15:58:52Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "mapkts",
+      "url": "https://github.com/ramda/ramda/pull/2900",
+      "deletions": 5,
+      "changedFiles": 1,
+      "prSize": 5,
+      "createdAt": "2019-10-02T09:41:18Z",
+      "mergedAt": "2019-10-03T12:32:05Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "CrossEye": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "CrossEye": 2
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "prog1dev",
+      "url": "https://github.com/ramda/ramda/pull/2899",
+      "additions": 1,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2019-10-01T21:21:57Z",
+      "mergedAt": "2019-10-18T18:27:12Z",
+      "age": 16,
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "mapkts",
+      "url": "https://github.com/ramda/ramda/pull/2898",
+      "additions": 18,
+      "deletions": 8,
+      "changedFiles": 2,
+      "prSize": 26,
+      "createdAt": "2019-09-28T10:40:32Z",
+      "mergedAt": "2019-09-29T22:19:00Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "CrossEye": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "CrossEye": 2
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "rgeraldporter",
+      "url": "https://github.com/ramda/ramda/pull/2897",
+      "additions": 2,
+      "deletions": 2,
+      "changedFiles": 1,
+      "prSize": 4,
+      "createdAt": "2019-09-26T18:35:25Z",
+      "mergedAt": "2019-09-29T00:00:33Z",
+      "age": 2,
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "Tworley96",
+      "url": "https://github.com/ramda/ramda/pull/2888",
+      "additions": 89,
+      "deletions": 20,
+      "changedFiles": 7,
+      "prSize": 109,
+      "createdAt": "2019-08-30T22:54:56Z",
+      "mergedAt": "2020-03-05T01:01:26Z",
+      "age": 187,
+      "generalComments": 4,
+      "generalCommenters": {
+        "CrossEye": 3,
+        "Bradcomp": 1
+      },
+      "codeComments": 2,
+      "codeCommenters": {
+        "Bradcomp": 2
+      },
+      "comments": 6,
+      "commenters": {
+        "CrossEye": 3,
+        "Bradcomp": 3
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "canytra",
+      "url": "https://github.com/ramda/ramda/pull/2885",
+      "additions": 57,
+      "deletions": 12,
+      "changedFiles": 5,
+      "prSize": 69,
+      "createdAt": "2019-08-20T02:06:48Z",
+      "mergedAt": "2019-08-21T18:07:26Z",
+      "age": 1,
+      "approvals": 2,
+      "approvers": {
+        "CrossEye": 1,
+        "Bradcomp": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "codeComments": 2,
+      "codeCommenters": {
+        "CrossEye": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "CrossEye": 3
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "mudit56",
+      "url": "https://github.com/ramda/ramda/pull/2884",
+      "additions": 50,
+      "changedFiles": 3,
+      "prSize": 50,
+      "createdAt": "2019-08-19T18:30:24Z",
+      "mergedAt": "2019-08-21T18:02:48Z",
+      "age": 1,
+      "approvals": 2,
+      "approvers": {
+        "CrossEye": 1,
+        "Bradcomp": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "buzzdecafe": 1,
+        "CrossEye": 4
+      },
+      "codeComments": 10,
+      "codeCommenters": {
+        "CrossEye": 7,
+        "Bradcomp": 3
+      },
+      "comments": 15,
+      "commenters": {
+        "buzzdecafe": 1,
+        "CrossEye": 11,
+        "Bradcomp": 3
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "nishino-tsukasa",
+      "url": "https://github.com/ramda/ramda/pull/2882",
+      "additions": 2,
+      "deletions": 2,
+      "changedFiles": 1,
+      "prSize": 4,
+      "createdAt": "2019-08-16T15:07:40Z",
+      "mergedAt": "2019-08-19T18:01:45Z",
+      "age": 3,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "Bradcomp": 1,
+        "CrossEye": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "Bradcomp": 1,
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "nabati",
+      "url": "https://github.com/ramda/ramda/pull/2871",
+      "additions": 1,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2019-07-29T12:40:01Z",
+      "mergedAt": "2019-07-29T13:26:00Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "DanielRX",
+      "url": "https://github.com/ramda/ramda/pull/2862",
+      "additions": 9,
+      "deletions": 3,
+      "changedFiles": 1,
+      "prSize": 12,
+      "createdAt": "2019-07-16T18:53:55Z",
+      "mergedAt": "2019-07-17T13:51:37Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "CrossEye": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "codeComments": 2,
+      "codeCommenters": {
+        "CrossEye": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "CrossEye": 3
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "DanielFGray",
+      "url": "https://github.com/ramda/ramda/pull/2852",
+      "additions": 42,
+      "changedFiles": 3,
+      "prSize": 42,
+      "createdAt": "2019-06-22T22:14:10Z",
+      "mergedAt": "2019-10-18T18:39:49Z",
+      "age": 117,
+      "approvals": 2,
+      "approvers": {
+        "CrossEye": 1,
+        "Bradcomp": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "codeComments": 15,
+      "codeCommenters": {
+        "CrossEye": 11,
+        "Bradcomp": 3,
+        "davidchambers": 1
+      },
+      "comments": 16,
+      "commenters": {
+        "CrossEye": 12,
+        "Bradcomp": 3,
+        "davidchambers": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "lilywang711",
+      "url": "https://github.com/ramda/ramda/pull/2848",
+      "deletions": 4,
+      "changedFiles": 1,
+      "prSize": 4,
+      "createdAt": "2019-06-17T06:47:04Z",
+      "mergedAt": "2019-06-18T16:29:05Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "CrossEye": 1,
+        "Bradcomp": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "CrossEye": 1,
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "kibertoad",
+      "url": "https://github.com/ramda/ramda/pull/2845",
+      "additions": 251,
+      "deletions": 129,
+      "changedFiles": 2,
+      "prSize": 380,
+      "createdAt": "2019-06-11T12:51:41Z",
+      "mergedAt": "2019-07-18T14:26:11Z",
+      "age": 37,
+      "generalComments": 5,
+      "generalCommenters": {
+        "Bradcomp": 3,
+        "CrossEye": 2
+      },
+      "comments": 5,
+      "commenters": {
+        "Bradcomp": 3,
+        "CrossEye": 2
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "itboos",
+      "url": "https://github.com/ramda/ramda/pull/2837",
+      "additions": 1,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2019-05-29T15:57:41Z",
+      "mergedAt": "2019-06-04T15:43:36Z",
+      "age": 5,
+      "generalComments": 2,
+      "generalCommenters": {
+        "CrossEye": 1,
+        "Bradcomp": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "CrossEye": 1,
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "CrossEye",
+      "url": "https://github.com/ramda/ramda/pull/2835",
+      "additions": 58,
+      "deletions": 677,
+      "changedFiles": 15,
+      "prSize": 735,
+      "createdAt": "2019-05-27T23:26:10Z",
+      "mergedAt": "2019-05-28T19:18:42Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "anka-213": 1,
+        "dcm": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "anka-213": 1,
+        "dcm": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "kibertoad",
+      "url": "https://github.com/ramda/ramda/pull/2832",
+      "additions": 1417,
+      "deletions": 1069,
+      "changedFiles": 3,
+      "prSize": 2486,
+      "createdAt": "2019-05-23T22:40:00Z",
+      "mergedAt": "2019-05-26T05:29:10Z",
+      "age": 2,
+      "generalComments": 3,
+      "generalCommenters": {
+        "Bradcomp": 2,
+        "CrossEye": 1
+      },
+      "comments": 3,
+      "commenters": {
+        "Bradcomp": 2,
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "kibertoad",
+      "url": "https://github.com/ramda/ramda/pull/2829",
+      "additions": 3757,
+      "deletions": 2916,
+      "changedFiles": 5,
+      "prSize": 6673,
+      "createdAt": "2019-05-20T22:05:47Z",
+      "mergedAt": "2019-05-23T22:03:42Z",
+      "age": 2,
+      "generalComments": 3,
+      "generalCommenters": {
+        "CrossEye": 2,
+        "Bradcomp": 1
+      },
+      "comments": 3,
+      "commenters": {
+        "CrossEye": 2,
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "kibertoad",
+      "url": "https://github.com/ramda/ramda/pull/2828",
+      "additions": 1,
+      "changedFiles": 1,
+      "prSize": 1,
+      "createdAt": "2019-05-20T21:49:31Z",
+      "mergedAt": "2019-05-23T22:02:52Z",
+      "age": 3,
+      "generalComments": 3,
+      "generalCommenters": {
+        "CrossEye": 2,
+        "Bradcomp": 1
+      },
+      "comments": 3,
+      "commenters": {
+        "CrossEye": 2,
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "LorneCurrie",
+      "url": "https://github.com/ramda/ramda/pull/2825",
+      "additions": 7,
+      "changedFiles": 1,
+      "prSize": 7,
+      "createdAt": "2019-05-14T21:05:04Z",
+      "mergedAt": "2019-05-15T20:26:27Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "Bradcomp": 1,
+        "CrossEye": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "Bradcomp": 1,
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "salis010",
+      "url": "https://github.com/ramda/ramda/pull/2821",
+      "additions": 1,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2019-05-13T16:07:09Z",
+      "mergedAt": "2019-05-13T17:05:26Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "alireza-bonab",
+      "url": "https://github.com/ramda/ramda/pull/2806",
+      "additions": 1,
+      "changedFiles": 1,
+      "prSize": 1,
+      "createdAt": "2019-04-03T14:24:50Z",
+      "mergedAt": "2019-04-10T21:11:50Z",
+      "age": 7,
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "bensbigolbeard",
+      "url": "https://github.com/ramda/ramda/pull/2795",
+      "additions": 27,
+      "deletions": 4,
+      "changedFiles": 2,
+      "prSize": 31,
+      "createdAt": "2019-03-08T20:35:21Z",
+      "mergedAt": "2019-06-17T18:51:38Z",
+      "age": 100,
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "WaldoJeffers",
+      "url": "https://github.com/ramda/ramda/pull/2793",
+      "additions": 6,
+      "changedFiles": 6,
+      "prSize": 6,
+      "createdAt": "2019-03-02T22:26:21Z",
+      "mergedAt": "2019-03-05T17:14:08Z",
+      "age": 2,
+      "generalComments": 2,
+      "generalCommenters": {
+        "CrossEye": 1,
+        "Bradcomp": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "CrossEye": 1,
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "vlasy",
+      "url": "https://github.com/ramda/ramda/pull/2792",
+      "additions": 1,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2019-02-26T14:41:28Z",
+      "mergedAt": "2019-02-26T16:18:02Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "rjhilgefort",
+      "url": "https://github.com/ramda/ramda/pull/2791",
+      "additions": 8,
+      "deletions": 3,
+      "changedFiles": 2,
+      "prSize": 11,
+      "createdAt": "2019-02-26T06:10:29Z",
+      "mergedAt": "2019-03-01T15:48:57Z",
+      "age": 3,
+      "approvals": 2,
+      "approvers": {
+        "Bradcomp": 1,
+        "CrossEye": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "CrossEye": 2
+      },
+      "codeComments": 2,
+      "codeCommenters": {
+        "CrossEye": 1,
+        "Bradcomp": 1
+      },
+      "comments": 4,
+      "commenters": {
+        "CrossEye": 3,
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "bolasblack",
+      "url": "https://github.com/ramda/ramda/pull/2787",
+      "additions": 161,
+      "deletions": 37,
+      "changedFiles": 9,
+      "prSize": 198,
+      "createdAt": "2019-02-16T04:20:43Z",
+      "mergedAt": "2020-06-26T01:06:19Z",
+      "age": 495,
+      "approvals": 2,
+      "approvers": {
+        "Bradcomp": 1,
+        "CrossEye": 1
+      },
+      "generalComments": 7,
+      "generalCommenters": {
+        "CrossEye": 7
+      },
+      "codeComments": 5,
+      "codeCommenters": {
+        "CrossEye": 5
+      },
+      "comments": 12,
+      "commenters": {
+        "CrossEye": 12
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "guysaar223",
+      "url": "https://github.com/ramda/ramda/pull/2786",
+      "additions": 2,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2019-02-10T13:44:50Z",
+      "mergedAt": "2019-08-29T19:03:41Z",
+      "age": 200,
+      "generalComments": 6,
+      "generalCommenters": {
+        "CrossEye": 3,
+        "FredyC": 3
+      },
+      "comments": 6,
+      "commenters": {
+        "CrossEye": 3,
+        "FredyC": 3
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "tmcw",
+      "url": "https://github.com/ramda/ramda/pull/2772",
+      "additions": 14,
+      "deletions": 14,
+      "changedFiles": 4,
+      "prSize": 28,
+      "createdAt": "2019-01-23T19:15:35Z",
+      "mergedAt": "2019-01-25T20:53:29Z",
+      "age": 2,
+      "approvals": 1,
+      "approvers": {
+        "CrossEye": 1
+      },
+      "generalComments": 6,
+      "generalCommenters": {
+        "CrossEye": 2,
+        "Bradcomp": 1,
+        "mbostock": 2,
+        "vukhanhtruong": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 7,
+      "commenters": {
+        "CrossEye": 3,
+        "Bradcomp": 1,
+        "mbostock": 2,
+        "vukhanhtruong": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "colepeters",
+      "url": "https://github.com/ramda/ramda/pull/2768",
+      "additions": 1,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2019-01-17T23:36:48Z",
+      "mergedAt": "2019-01-18T02:34:43Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "willheslam",
+      "url": "https://github.com/ramda/ramda/pull/2765",
+      "additions": 1,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2019-01-17T10:04:09Z",
+      "mergedAt": "2019-01-18T01:42:27Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "ipanasenko",
+      "url": "https://github.com/ramda/ramda/pull/2764",
+      "additions": 1,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2019-01-16T13:53:47Z",
+      "mergedAt": "2019-01-16T16:14:08Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "wojpawlik",
+      "url": "https://github.com/ramda/ramda/pull/2759",
+      "additions": 4,
+      "deletions": 3,
+      "changedFiles": 1,
+      "prSize": 7,
+      "createdAt": "2019-01-09T21:10:00Z",
+      "mergedAt": "2019-01-16T00:19:38Z",
+      "age": 6,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "Beraliv",
+      "url": "https://github.com/ramda/ramda/pull/2757",
+      "additions": 32,
+      "deletions": 2,
+      "changedFiles": 2,
+      "prSize": 34,
+      "createdAt": "2019-01-08T15:34:23Z",
+      "mergedAt": "2019-01-09T00:41:55Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "Bradcomp": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "CrossEye": 1,
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "minaseem",
+      "url": "https://github.com/ramda/ramda/pull/2742",
+      "additions": 90,
+      "deletions": 25,
+      "changedFiles": 5,
+      "prSize": 115,
+      "createdAt": "2018-12-12T20:33:15Z",
+      "mergedAt": "2019-02-09T19:11:08Z",
+      "age": 58,
+      "approvals": 1,
+      "approvers": {
+        "CrossEye": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "CrossEye": 3,
+        "Bradcomp": 1
+      },
+      "comments": 4,
+      "commenters": {
+        "CrossEye": 3,
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "char0n",
+      "url": "https://github.com/ramda/ramda/pull/2739",
+      "additions": 37,
+      "deletions": 3,
+      "changedFiles": 3,
+      "prSize": 40,
+      "createdAt": "2018-12-08T20:25:09Z",
+      "mergedAt": "2018-12-19T16:40:24Z",
+      "age": 10,
+      "approvals": 1,
+      "approvers": {
+        "CrossEye": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "CrossEye": 2,
+        "Bradcomp": 1
+      },
+      "codeComments": 3,
+      "codeCommenters": {
+        "CrossEye": 3
+      },
+      "comments": 6,
+      "commenters": {
+        "CrossEye": 5,
+        "Bradcomp": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "franzwong",
+      "url": "https://github.com/ramda/ramda/pull/2734",
+      "additions": 17,
+      "deletions": 15,
+      "changedFiles": 6,
+      "prSize": 32,
+      "createdAt": "2018-12-04T01:32:04Z",
+      "mergedAt": "2018-12-06T05:24:36Z",
+      "age": 2,
+      "approvals": 1,
+      "approvers": {
+        "CrossEye": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "codeComments": 2,
+      "codeCommenters": {
+        "CrossEye": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "CrossEye": 3
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "CrossEye",
+      "url": "https://github.com/ramda/ramda/pull/2730",
+      "additions": 1,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2018-11-30T17:00:16Z",
+      "mergedAt": "2019-01-15T17:59:55Z",
+      "age": 46
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "Andarist",
+      "url": "https://github.com/ramda/ramda/pull/2728",
+      "additions": 2,
+      "deletions": 2,
+      "changedFiles": 1,
+      "prSize": 4,
+      "createdAt": "2018-11-29T10:18:50Z",
+      "mergedAt": "2018-11-29T21:13:39Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "CrossEye": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "CrossEye": 1
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "Andarist",
+      "url": "https://github.com/ramda/ramda/pull/2724",
+      "additions": 107,
+      "deletions": 63,
+      "changedFiles": 3,
+      "prSize": 170,
+      "createdAt": "2018-11-28T12:57:21Z",
+      "mergedAt": "2018-11-28T20:56:11Z",
+      "age": 1,
+      "generalComments": 7,
+      "generalCommenters": {
+        "CrossEye": 4,
+        "paldepind": 1,
+        "Bradcomp": 2
+      },
+      "comments": 7,
+      "commenters": {
+        "CrossEye": 4,
+        "paldepind": 1,
+        "Bradcomp": 2
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "CrossEye",
+      "url": "https://github.com/ramda/ramda/pull/2722",
+      "additions": 5,
+      "deletions": 4,
+      "changedFiles": 1,
+      "prSize": 9,
+      "createdAt": "2018-11-28T01:11:39Z",
+      "mergedAt": "2018-11-28T01:17:39Z",
+      "age": 1
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "screendriver",
+      "url": "https://github.com/ramda/ramda/pull/2720",
+      "additions": 6,
+      "deletions": 6,
+      "changedFiles": 5,
+      "prSize": 12,
+      "createdAt": "2018-11-27T11:23:04Z",
+      "mergedAt": "2018-11-27T12:56:08Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "CrossEye": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "CrossEye": 2
+      }
+    },
+    {
+      "repo": "ramda",
+      "org": "ramda",
+      "author": "tommmyy",
+      "url": "https://github.com/ramda/ramda/pull/2718",
+      "additions": 8,
+      "deletions": 6,
+      "changedFiles": 1,
+      "prSize": 14,
+      "createdAt": "2018-11-26T22:34:25Z",
+      "mergedAt": "2019-01-16T00:23:21Z",
+      "age": 50,
+      "approvals": 1,
+      "approvers": {
+        "Bradcomp": 1
+      },
+      "codeComments": 4,
+      "codeCommenters": {
+        "Bradcomp": 2,
+        "CrossEye": 2
+      },
+      "comments": 4,
+      "commenters": {
+        "Bradcomp": 2,
+        "CrossEye": 2
+      }
+    }
+  ],
+  "preFetchedRepo": "ramda"
+}

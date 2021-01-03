@@ -3,14 +3,1483 @@
     "org": "nodejs",
     "repo": "node",
     "prPagination": {
-      "cursor": "Y3Vyc29yOnYyOpK5MjAxOS0xMC0xNlQxNzo0MzozMyswMTowMM4TmfG2"
+      "cursor": "Y3Vyc29yOnYyOpK5MjAxOS0xMi0wMlQyMDoyNjo1OCswMDowMM4UvXon",
+      "hasNextPage": true
     },
     "issuesPagination": {
-      "cursor": "Y3Vyc29yOnYyOpK5MjAyMC0wNy0xNVQxOTo0NDowNyswMTowMM4nMbrc"
+      "cursor": "Y3Vyc29yOnYyOpK5MjAyMC0wOC0xM1QwOTo0Njo0MCswMTowMM4obYUT",
+      "hasNextPage": true
     }
   },
-  "preFetchedRepo": "node",
   "pullRequests": [
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "puzpuzpuz",
+      "url": "https://github.com/nodejs/node/pull/36705",
+      "additions": 15,
+      "deletions": 10,
+      "changedFiles": 1,
+      "prSize": 25,
+      "createdAt": "2020-12-31T07:48:55Z",
+      "mergedAt": "2021-01-02T13:41:51Z",
+      "age": 2,
+      "approvals": 3,
+      "approvers": {
+        "jasnell": 1,
+        "Flarna": 1,
+        "Trott": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "Trott": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "Flarna": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "Trott": 1,
+        "Flarna": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "kevinoid",
+      "url": "https://github.com/nodejs/node/pull/36653",
+      "additions": 14,
+      "deletions": 8,
+      "changedFiles": 1,
+      "prSize": 22,
+      "createdAt": "2020-12-28T00:27:40Z",
+      "mergedAt": "2021-01-02T18:10:49Z",
+      "age": 5,
+      "approvals": 2,
+      "approvers": {
+        "Trott": 1,
+        "ronag": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "Trott": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "Trott": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36644",
+      "additions": 53,
+      "deletions": 23,
+      "changedFiles": 3,
+      "prSize": 76,
+      "createdAt": "2020-12-27T17:45:42Z",
+      "mergedAt": "2020-12-30T15:55:41Z",
+      "age": 2,
+      "approvals": 2,
+      "approvers": {
+        "benjamingr": 1,
+        "watilde": 1
+      },
+      "generalComments": 9,
+      "generalCommenters": {
+        "nodejs-github-bot": 3,
+        "benjamingr": 6
+      },
+      "comments": 9,
+      "commenters": {
+        "nodejs-github-bot": 3,
+        "benjamingr": 6
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "dr-js",
+      "url": "https://github.com/nodejs/node/pull/36641",
+      "additions": 9,
+      "changedFiles": 1,
+      "prSize": 9,
+      "createdAt": "2020-12-27T13:04:53Z",
+      "mergedAt": "2020-12-30T15:21:53Z",
+      "age": 3,
+      "approvals": 2,
+      "approvers": {
+        "aduh95": 1,
+        "ronag": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "targos": 1,
+        "ronag": 1,
+        "aduh95": 1
+      },
+      "codeComments": 3,
+      "codeCommenters": {
+        "targos": 1,
+        "RaisinTen": 1,
+        "aduh95": 1
+      },
+      "comments": 6,
+      "commenters": {
+        "targos": 2,
+        "ronag": 1,
+        "aduh95": 2,
+        "RaisinTen": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36631",
+      "additions": 19,
+      "deletions": 18,
+      "changedFiles": 1,
+      "prSize": 37,
+      "createdAt": "2020-12-25T14:26:33Z",
+      "mergedAt": "2020-12-27T14:33:52Z",
+      "age": 2,
+      "approvals": 2,
+      "approvers": {
+        "benjamingr": 1,
+        "lpinca": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Lxxyx",
+      "url": "https://github.com/nodejs/node/pull/36630",
+      "deletions": 9,
+      "changedFiles": 1,
+      "prSize": 9,
+      "createdAt": "2020-12-25T14:24:44Z",
+      "mergedAt": "2020-12-27T14:59:10Z",
+      "age": 2,
+      "approvals": 4,
+      "approvers": {
+        "benjamingr": 1,
+        "lpinca": 1,
+        "addaleax": 1,
+        "Trott": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "nodejs-github-bot": 1,
+        "Trott": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "nodejs-github-bot": 1,
+        "Trott": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Lxxyx",
+      "url": "https://github.com/nodejs/node/pull/36628",
+      "additions": 17,
+      "changedFiles": 1,
+      "prSize": 17,
+      "createdAt": "2020-12-25T13:52:12Z",
+      "mergedAt": "2020-12-28T05:05:04Z",
+      "age": 2,
+      "approvals": 2,
+      "approvers": {
+        "Trott": 1,
+        "aduh95": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "nodejs-github-bot": 1,
+        "Trott": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "nodejs-github-bot": 1,
+        "Trott": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36626",
+      "additions": 14,
+      "deletions": 6,
+      "changedFiles": 1,
+      "prSize": 20,
+      "createdAt": "2020-12-25T13:11:07Z",
+      "mergedAt": "2020-12-27T14:31:10Z",
+      "age": 2,
+      "approvals": 2,
+      "approvers": {
+        "aduh95": 1,
+        "cclauss": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "nodejs-github-bot": 2
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "cclauss": 1
+      },
+      "comments": 3,
+      "commenters": {
+        "nodejs-github-bot": 2,
+        "cclauss": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36625",
+      "additions": 5,
+      "changedFiles": 1,
+      "prSize": 5,
+      "createdAt": "2020-12-25T00:16:22Z",
+      "mergedAt": "2020-12-27T04:31:38Z",
+      "age": 2,
+      "approvals": 3,
+      "approvers": {
+        "aduh95": 1,
+        "Lxxyx": 1,
+        "benjamingr": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "nodejs-github-bot": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "nodejs-github-bot": 2
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36624",
+      "createdAt": "2020-12-24T23:53:52Z",
+      "mergedAt": "2020-12-27T04:29:23Z",
+      "age": 2,
+      "approvals": 2,
+      "approvers": {
+        "aduh95": 1,
+        "targos": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "nodejs-github-bot": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "nodejs-github-bot": 2
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "mcollina",
+      "url": "https://github.com/nodejs/node/pull/36618",
+      "additions": 16,
+      "deletions": 3,
+      "changedFiles": 3,
+      "prSize": 19,
+      "createdAt": "2020-12-24T15:29:15Z",
+      "mergedAt": "2020-12-29T00:48:59Z",
+      "age": 4,
+      "approvals": 8,
+      "approvers": {
+        "ronag": 1,
+        "Trott": 1,
+        "richardlau": 2,
+        "lpinca": 1,
+        "benjamingr": 1,
+        "targos": 2
+      },
+      "generalComments": 12,
+      "generalCommenters": {
+        "nodejs-github-bot": 8,
+        "targos": 1,
+        "github-actions": 2,
+        "aduh95": 1
+      },
+      "codeComments": 2,
+      "codeCommenters": {
+        "targos": 2
+      },
+      "comments": 14,
+      "commenters": {
+        "nodejs-github-bot": 8,
+        "targos": 3,
+        "github-actions": 2,
+        "aduh95": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36611",
+      "additions": 6,
+      "deletions": 7,
+      "changedFiles": 3,
+      "prSize": 13,
+      "createdAt": "2020-12-23T13:29:54Z",
+      "mergedAt": "2020-12-27T04:02:01Z",
+      "age": 3,
+      "approvals": 4,
+      "approvers": {
+        "targos": 1,
+        "mhdawson": 1,
+        "richardlau": 1,
+        "benjamingr": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36606",
+      "additions": 4,
+      "deletions": 2,
+      "changedFiles": 1,
+      "prSize": 6,
+      "createdAt": "2020-12-22T16:49:48Z",
+      "mergedAt": "2020-12-25T12:29:22Z",
+      "age": 2,
+      "approvals": 2,
+      "approvers": {
+        "aduh95": 1,
+        "lpinca": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "richardlau": 1,
+        "nodejs-github-bot": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "richardlau": 1,
+        "nodejs-github-bot": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Lxxyx",
+      "url": "https://github.com/nodejs/node/pull/36604",
+      "additions": 13,
+      "deletions": 22,
+      "changedFiles": 2,
+      "prSize": 35,
+      "createdAt": "2020-12-22T15:24:42Z",
+      "mergedAt": "2020-12-27T14:38:44Z",
+      "age": 4,
+      "approvals": 4,
+      "approvers": {
+        "benjamingr": 1,
+        "Trott": 1,
+        "juanarbol": 1,
+        "richardlau": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "nodejs-github-bot": 3,
+        "Trott": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "lpinca": 1
+      },
+      "comments": 5,
+      "commenters": {
+        "nodejs-github-bot": 3,
+        "Trott": 1,
+        "lpinca": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "ExE-Boss",
+      "url": "https://github.com/nodejs/node/pull/36601",
+      "additions": 6,
+      "changedFiles": 1,
+      "prSize": 6,
+      "createdAt": "2020-12-22T12:59:14Z",
+      "mergedAt": "2020-12-25T14:42:07Z",
+      "age": 3,
+      "approvals": 2,
+      "approvers": {
+        "Trott": 1,
+        "aduh95": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "Trott": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "RaisinTen": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "Trott": 1,
+        "RaisinTen": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Lxxyx",
+      "url": "https://github.com/nodejs/node/pull/36599",
+      "createdAt": "2020-12-22T12:44:19Z",
+      "mergedAt": "2020-12-24T15:12:24Z",
+      "age": 2,
+      "approvals": 3,
+      "approvers": {
+        "aduh95": 1,
+        "lpinca": 1,
+        "Trott": 1
+      },
+      "generalComments": 7,
+      "generalCommenters": {
+        "RaisinTen": 1,
+        "nodejs-github-bot": 3,
+        "lpinca": 2,
+        "Trott": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "RaisinTen": 1
+      },
+      "comments": 8,
+      "commenters": {
+        "RaisinTen": 2,
+        "nodejs-github-bot": 3,
+        "lpinca": 2,
+        "Trott": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "targos",
+      "url": "https://github.com/nodejs/node/pull/36597",
+      "additions": 30258,
+      "deletions": 12263,
+      "changedFiles": 1335,
+      "prSize": 42521,
+      "createdAt": "2020-12-22T08:33:49Z",
+      "mergedAt": "2020-12-22T18:55:04Z",
+      "age": 1,
+      "approvals": 4,
+      "approvers": {
+        "whiteslack": 1,
+        "ZYSzys": 1,
+        "richardlau": 2
+      },
+      "generalComments": 7,
+      "generalCommenters": {
+        "nodejs-github-bot": 3,
+        "richardlau": 2,
+        "ExE-Boss": 1,
+        "addaleax": 1
+      },
+      "comments": 7,
+      "commenters": {
+        "nodejs-github-bot": 3,
+        "richardlau": 2,
+        "ExE-Boss": 1,
+        "addaleax": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "BethGriggs",
+      "url": "https://github.com/nodejs/node/pull/36555",
+      "additions": 21,
+      "deletions": 58,
+      "changedFiles": 4,
+      "prSize": 79,
+      "createdAt": "2020-12-17T19:03:11Z",
+      "mergedAt": "2020-12-17T23:13:35Z",
+      "age": 1,
+      "approvals": 2,
+      "approvers": {
+        "richardlau": 1,
+        "MylesBorins": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "nodejs-github-bot": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "nodejs-github-bot": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "PoojaDurgad",
+      "url": "https://github.com/nodejs/node/pull/36552",
+      "additions": 14,
+      "deletions": 7,
+      "changedFiles": 1,
+      "prSize": 21,
+      "createdAt": "2020-12-17T15:05:59Z",
+      "mergedAt": "2020-12-28T22:17:46Z",
+      "age": 11,
+      "approvals": 2,
+      "approvers": {
+        "aduh95": 1,
+        "Trott": 1
+      },
+      "generalComments": 7,
+      "generalCommenters": {
+        "Trott": 3,
+        "nodejs-github-bot": 3,
+        "aduh95": 1
+      },
+      "codeComments": 2,
+      "codeCommenters": {
+        "aduh95": 2
+      },
+      "comments": 9,
+      "commenters": {
+        "Trott": 3,
+        "nodejs-github-bot": 3,
+        "aduh95": 3
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36551",
+      "createdAt": "2020-12-17T13:54:49Z",
+      "mergedAt": "2020-12-22T15:12:17Z",
+      "age": 5,
+      "approvals": 4,
+      "approvers": {
+        "richardlau": 1,
+        "aduh95": 1,
+        "lpinca": 1,
+        "watilde": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "nodejs-github-bot": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "nodejs-github-bot": 2
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "danbev",
+      "url": "https://github.com/nodejs/node/pull/36548",
+      "additions": 29,
+      "changedFiles": 1,
+      "prSize": 29,
+      "createdAt": "2020-12-17T07:47:21Z",
+      "mergedAt": "2020-12-24T15:18:52Z",
+      "age": 7,
+      "approvals": 2,
+      "approvers": {
+        "Trott": 1,
+        "joyeecheung": 1
+      },
+      "generalComments": 8,
+      "generalCommenters": {
+        "nodejs-github-bot": 4,
+        "Trott": 4
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "joyeecheung": 1
+      },
+      "comments": 9,
+      "commenters": {
+        "nodejs-github-bot": 4,
+        "Trott": 4,
+        "joyeecheung": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36545",
+      "additions": 81,
+      "deletions": 81,
+      "changedFiles": 1,
+      "prSize": 162,
+      "createdAt": "2020-12-17T01:21:12Z",
+      "mergedAt": "2020-12-21T13:45:41Z",
+      "age": 4,
+      "approvals": 3,
+      "approvers": {
+        "Lxxyx": 1,
+        "lpinca": 1,
+        "mhdawson": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "richardlau",
+      "url": "https://github.com/nodejs/node/pull/36541",
+      "additions": 7184,
+      "deletions": 5659,
+      "changedFiles": 666,
+      "prSize": 12843,
+      "createdAt": "2020-12-16T15:55:10Z",
+      "mergedAt": "2020-12-22T16:18:58Z",
+      "age": 6,
+      "approvals": 1,
+      "approvers": {
+        "mhdawson": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "nodejs-github-bot": 2,
+        "mhdawson": 3
+      },
+      "comments": 5,
+      "commenters": {
+        "nodejs-github-bot": 2,
+        "mhdawson": 3
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "aduh95",
+      "url": "https://github.com/nodejs/node/pull/36532",
+      "additions": 33,
+      "deletions": 9,
+      "changedFiles": 7,
+      "prSize": 42,
+      "createdAt": "2020-12-15T17:21:16Z",
+      "mergedAt": "2020-12-27T23:09:50Z",
+      "age": 12,
+      "approvals": 1,
+      "approvers": {
+        "Trott": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "mscdex": 1,
+        "Trott": 1,
+        "nodejs-github-bot": 1,
+        "github-actions": 1
+      },
+      "codeComments": 2,
+      "codeCommenters": {
+        "ExE-Boss": 2
+      },
+      "comments": 6,
+      "commenters": {
+        "mscdex": 1,
+        "Trott": 1,
+        "nodejs-github-bot": 1,
+        "github-actions": 1,
+        "ExE-Boss": 2
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36525",
+      "createdAt": "2020-12-15T12:42:37Z",
+      "mergedAt": "2020-12-17T13:20:40Z",
+      "age": 2,
+      "approvals": 2,
+      "approvers": {
+        "targos": 1,
+        "aduh95": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "nodejs-github-bot": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "nodejs-github-bot": 2
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36514",
+      "createdAt": "2020-12-14T16:35:40Z",
+      "mergedAt": "2020-12-17T13:06:25Z",
+      "age": 2,
+      "approvals": 7,
+      "approvers": {
+        "targos": 1,
+        "jasnell": 1,
+        "gireeshpunathil": 1,
+        "benjamingr": 1,
+        "richardlau": 1,
+        "joyeecheung": 1,
+        "DerekNonGeneric": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "targos",
+      "url": "https://github.com/nodejs/node/pull/36507",
+      "additions": 4,
+      "deletions": 1,
+      "changedFiles": 3,
+      "prSize": 5,
+      "createdAt": "2020-12-14T07:26:48Z",
+      "mergedAt": "2020-12-18T20:39:08Z",
+      "age": 4,
+      "approvals": 6,
+      "approvers": {
+        "gireeshpunathil": 1,
+        "addaleax": 1,
+        "aduh95": 1,
+        "jasnell": 1,
+        "Trott": 1,
+        "whiteslack": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "Trott": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "Trott": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36498",
+      "additions": 4,
+      "deletions": 3,
+      "changedFiles": 1,
+      "prSize": 7,
+      "createdAt": "2020-12-13T13:23:13Z",
+      "mergedAt": "2020-12-16T13:22:40Z",
+      "age": 2,
+      "approvals": 2,
+      "approvers": {
+        "targos": 1,
+        "jasnell": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "nodejs-github-bot": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "nodejs-github-bot": 2
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36496",
+      "deletions": 2,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2020-12-12T18:43:20Z",
+      "mergedAt": "2020-12-15T11:41:17Z",
+      "age": 2,
+      "approvals": 3,
+      "approvers": {
+        "Flarna": 1,
+        "targos": 1,
+        "lpinca": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "nodejs-github-bot": 3
+      },
+      "comments": 3,
+      "commenters": {
+        "nodejs-github-bot": 3
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "BethGriggs",
+      "url": "https://github.com/nodejs/node/pull/36476",
+      "additions": 26822,
+      "deletions": 12153,
+      "changedFiles": 808,
+      "prSize": 38975,
+      "createdAt": "2020-12-10T21:01:55Z",
+      "mergedAt": "2020-12-15T23:44:55Z",
+      "age": 5,
+      "approvals": 2,
+      "approvers": {
+        "MylesBorins": 1,
+        "richardlau": 1
+      },
+      "generalComments": 7,
+      "generalCommenters": {
+        "nodejs-github-bot": 5,
+        "richardlau": 1,
+        "vecerek": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "richardlau": 1
+      },
+      "comments": 8,
+      "commenters": {
+        "nodejs-github-bot": 5,
+        "richardlau": 2,
+        "vecerek": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36466",
+      "additions": 3,
+      "deletions": 44,
+      "changedFiles": 1,
+      "prSize": 47,
+      "createdAt": "2020-12-10T05:36:16Z",
+      "mergedAt": "2020-12-14T13:43:06Z",
+      "age": 4,
+      "approvals": 5,
+      "approvers": {
+        "aduh95": 1,
+        "fhinkel": 1,
+        "watilde": 1,
+        "BridgeAR": 1,
+        "jasnell": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "nodejs-github-bot": 1
+      },
+      "codeComments": 2,
+      "codeCommenters": {
+        "ExE-Boss": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "nodejs-github-bot": 1,
+        "ExE-Boss": 2
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36457",
+      "additions": 2,
+      "deletions": 2,
+      "changedFiles": 1,
+      "prSize": 4,
+      "createdAt": "2020-12-09T14:59:12Z",
+      "mergedAt": "2020-12-15T11:41:18Z",
+      "age": 5,
+      "approvals": 3,
+      "approvers": {
+        "aymen94": 1,
+        "HarshithaKP": 1,
+        "watilde": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "RaisinTen",
+      "url": "https://github.com/nodejs/node/pull/36455",
+      "additions": 12,
+      "deletions": 17,
+      "changedFiles": 1,
+      "prSize": 29,
+      "createdAt": "2020-12-09T13:45:59Z",
+      "mergedAt": "2020-12-22T15:34:18Z",
+      "age": 13,
+      "approvals": 4,
+      "approvers": {
+        "aduh95": 2,
+        "Trott": 1,
+        "jasnell": 1
+      },
+      "generalComments": 6,
+      "generalCommenters": {
+        "targos": 1,
+        "jasnell": 1,
+        "nodejs-github-bot": 1,
+        "Trott": 3
+      },
+      "codeComments": 17,
+      "codeCommenters": {
+        "aduh95": 17
+      },
+      "comments": 23,
+      "commenters": {
+        "targos": 1,
+        "jasnell": 1,
+        "nodejs-github-bot": 1,
+        "Trott": 3,
+        "aduh95": 17
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36448",
+      "additions": 3,
+      "deletions": 3,
+      "changedFiles": 1,
+      "prSize": 6,
+      "createdAt": "2020-12-08T18:57:58Z",
+      "mergedAt": "2020-12-13T13:40:52Z",
+      "age": 4,
+      "approvals": 4,
+      "approvers": {
+        "lpinca": 1,
+        "jasnell": 1,
+        "addaleax": 1,
+        "codebytere": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "danielleadams",
+      "url": "https://github.com/nodejs/node/pull/36435",
+      "additions": 112938,
+      "deletions": 71408,
+      "changedFiles": 2339,
+      "prSize": 184346,
+      "createdAt": "2020-12-07T20:44:48Z",
+      "mergedAt": "2020-12-09T11:20:45Z",
+      "age": 1,
+      "approvals": 2,
+      "approvers": {
+        "richardlau": 1,
+        "codebytere": 1
+      },
+      "generalComments": 7,
+      "generalCommenters": {
+        "nodejs-github-bot": 7
+      },
+      "comments": 7,
+      "commenters": {
+        "nodejs-github-bot": 7
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "shootermv",
+      "url": "https://github.com/nodejs/node/pull/36429",
+      "additions": 11,
+      "changedFiles": 1,
+      "prSize": 11,
+      "createdAt": "2020-12-07T14:48:14Z",
+      "mergedAt": "2020-12-10T13:38:50Z",
+      "age": 2,
+      "approvals": 2,
+      "approvers": {
+        "benjamingr": 1,
+        "Trott": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "benjamingr": 1,
+        "nodejs-github-bot": 1,
+        "Trott": 2
+      },
+      "codeComments": 3,
+      "codeCommenters": {
+        "benjamingr": 2,
+        "Trott": 1
+      },
+      "comments": 7,
+      "commenters": {
+        "benjamingr": 3,
+        "nodejs-github-bot": 1,
+        "Trott": 3
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "iam-frankqiu",
+      "url": "https://github.com/nodejs/node/pull/36420",
+      "additions": 3,
+      "deletions": 2,
+      "changedFiles": 1,
+      "prSize": 5,
+      "createdAt": "2020-12-07T03:34:00Z",
+      "mergedAt": "2020-12-21T14:06:03Z",
+      "age": 14,
+      "approvals": 5,
+      "approvers": {
+        "gireeshpunathil": 1,
+        "jasnell": 1,
+        "BethGriggs": 1,
+        "joyeecheung": 1,
+        "Trott": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "Trott": 1
+      },
+      "codeComments": 2,
+      "codeCommenters": {
+        "Trott": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "Trott": 3
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36415",
+      "additions": 1,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2020-12-06T16:21:00Z",
+      "mergedAt": "2020-12-09T13:17:48Z",
+      "age": 2,
+      "approvals": 5,
+      "approvers": {
+        "aduh95": 1,
+        "targos": 1,
+        "lpinca": 1,
+        "Flarna": 1,
+        "jasnell": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "nodejs-github-bot": 5
+      },
+      "comments": 5,
+      "commenters": {
+        "nodejs-github-bot": 5
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "addaleax",
+      "url": "https://github.com/nodejs/node/pull/36413",
+      "additions": 4,
+      "changedFiles": 2,
+      "prSize": 4,
+      "createdAt": "2020-12-06T15:41:12Z",
+      "mergedAt": "2020-12-08T14:57:10Z",
+      "age": 1,
+      "approvals": 6,
+      "approvers": {
+        "cjihrig": 1,
+        "devsnek": 1,
+        "benjamingr": 1,
+        "gireeshpunathil": 1,
+        "jasnell": 1,
+        "Trott": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "nodejs-github-bot": 3,
+        "jasnell": 1,
+        "Trott": 1
+      },
+      "comments": 5,
+      "commenters": {
+        "nodejs-github-bot": 3,
+        "jasnell": 1,
+        "Trott": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Lxxyx",
+      "url": "https://github.com/nodejs/node/pull/36405",
+      "additions": 43,
+      "changedFiles": 1,
+      "prSize": 43,
+      "createdAt": "2020-12-06T08:39:00Z",
+      "mergedAt": "2020-12-14T14:04:09Z",
+      "age": 8,
+      "approvals": 3,
+      "approvers": {
+        "targos": 1,
+        "Trott": 1,
+        "mhdawson": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "nodejs-github-bot": 1,
+        "Trott": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "nodejs-github-bot": 1,
+        "Trott": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36399",
+      "additions": 32,
+      "changedFiles": 1,
+      "prSize": 32,
+      "createdAt": "2020-12-05T17:52:21Z",
+      "mergedAt": "2020-12-08T14:54:31Z",
+      "age": 2,
+      "approvals": 5,
+      "approvers": {
+        "addaleax": 1,
+        "targos": 1,
+        "aduh95": 1,
+        "watilde": 1,
+        "jasnell": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "nodejs-github-bot": 1,
+        "jasnell": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "nodejs-github-bot": 1,
+        "jasnell": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36386",
+      "additions": 5,
+      "deletions": 11,
+      "changedFiles": 1,
+      "prSize": 16,
+      "createdAt": "2020-12-04T13:47:16Z",
+      "mergedAt": "2020-12-04T16:20:26Z",
+      "age": 1,
+      "approvals": 3,
+      "approvers": {
+        "BethGriggs": 1,
+        "designMoreWeb": 1,
+        "richardlau": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "nodejs-github-bot": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "nodejs-github-bot": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Lxxyx",
+      "url": "https://github.com/nodejs/node/pull/36379",
+      "additions": 18,
+      "changedFiles": 2,
+      "prSize": 18,
+      "createdAt": "2020-12-04T05:28:13Z",
+      "mergedAt": "2020-12-15T13:27:26Z",
+      "age": 11,
+      "approvals": 6,
+      "approvers": {
+        "Himself65": 1,
+        "aduh95": 1,
+        "Trott": 1,
+        "mhdawson": 1,
+        "mcollina": 1,
+        "addaleax": 1
+      },
+      "generalComments": 7,
+      "generalCommenters": {
+        "aduh95": 2,
+        "Trott": 1,
+        "nodejs-github-bot": 3,
+        "github-actions": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "Trott": 1
+      },
+      "comments": 8,
+      "commenters": {
+        "aduh95": 2,
+        "Trott": 2,
+        "nodejs-github-bot": 3,
+        "github-actions": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "mcgitty",
+      "url": "https://github.com/nodejs/node/pull/36370",
+      "additions": 6,
+      "changedFiles": 1,
+      "prSize": 6,
+      "createdAt": "2020-12-03T19:43:15Z",
+      "mergedAt": "2020-12-26T13:07:36Z",
+      "age": 22,
+      "approvals": 2,
+      "approvers": {
+        "Trott": 1,
+        "PoojaDurgad": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "aduh95": 1
+      },
+      "codeComments": 2,
+      "codeCommenters": {
+        "Trott": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "aduh95": 1,
+        "Trott": 2
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "kaizhu256",
+      "url": "https://github.com/nodejs/node/pull/36361",
+      "additions": 7,
+      "deletions": 2,
+      "changedFiles": 1,
+      "prSize": 9,
+      "createdAt": "2020-12-03T09:10:51Z",
+      "mergedAt": "2020-12-12T13:27:30Z",
+      "age": 9,
+      "approvals": 5,
+      "approvers": {
+        "aduh95": 1,
+        "benjamingr": 1,
+        "lpinca": 1,
+        "mmarchini": 1,
+        "Trott": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "Trott": 3
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "Trott": 1
+      },
+      "comments": 4,
+      "commenters": {
+        "Trott": 4
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36360",
+      "additions": 2,
+      "deletions": 2,
+      "changedFiles": 2,
+      "prSize": 4,
+      "createdAt": "2020-12-03T07:08:48Z",
+      "mergedAt": "2020-12-07T15:32:30Z",
+      "age": 4,
+      "approvals": 5,
+      "approvers": {
+        "danbev": 1,
+        "Himself65": 1,
+        "aduh95": 1,
+        "watilde": 1,
+        "richardlau": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "nodejs-github-bot": 4
+      },
+      "comments": 4,
+      "commenters": {
+        "nodejs-github-bot": 4
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36353",
+      "additions": 43,
+      "deletions": 30,
+      "changedFiles": 1,
+      "prSize": 73,
+      "createdAt": "2020-12-02T14:01:32Z",
+      "mergedAt": "2020-12-02T17:12:39Z",
+      "age": 1,
+      "approvals": 2,
+      "approvers": {
+        "jasnell": 1,
+        "benjamingr": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "nodejs-github-bot": 3
+      },
+      "comments": 3,
+      "commenters": {
+        "nodejs-github-bot": 3
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "aduh95",
+      "url": "https://github.com/nodejs/node/pull/36348",
+      "createdAt": "2020-12-01T21:12:05Z",
+      "mergedAt": "2020-12-04T14:20:09Z",
+      "age": 2,
+      "approvals": 4,
+      "approvers": {
+        "targos": 1,
+        "antsmartian": 1,
+        "benjamingr": 1,
+        "Trott": 1
+      },
+      "generalComments": 13,
+      "generalCommenters": {
+        "nodejs-github-bot": 12,
+        "Trott": 1
+      },
+      "comments": 13,
+      "commenters": {
+        "nodejs-github-bot": 12,
+        "Trott": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "aduh95",
+      "url": "https://github.com/nodejs/node/pull/36347",
+      "additions": 26,
+      "deletions": 19,
+      "changedFiles": 1,
+      "prSize": 45,
+      "createdAt": "2020-12-01T21:10:23Z",
+      "mergedAt": "2020-12-04T14:22:58Z",
+      "age": 2,
+      "approvals": 3,
+      "approvers": {
+        "benjamingr": 1,
+        "lpinca": 1,
+        "Trott": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "benjamingr": 1,
+        "nodejs-github-bot": 3,
+        "Trott": 1
+      },
+      "comments": 5,
+      "commenters": {
+        "benjamingr": 1,
+        "nodejs-github-bot": 3,
+        "Trott": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36324",
+      "additions": 7,
+      "deletions": 6,
+      "changedFiles": 1,
+      "prSize": 13,
+      "createdAt": "2020-11-30T14:08:07Z",
+      "mergedAt": "2020-12-06T05:16:04Z",
+      "age": 5,
+      "approvals": 3,
+      "approvers": {
+        "aduh95": 1,
+        "BethGriggs": 1,
+        "lpinca": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "nodejs-github-bot": 3
+      },
+      "comments": 3,
+      "commenters": {
+        "nodejs-github-bot": 3
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "aduh95",
+      "url": "https://github.com/nodejs/node/pull/36316",
+      "additions": 89,
+      "deletions": 59,
+      "changedFiles": 1,
+      "prSize": 148,
+      "createdAt": "2020-11-29T17:54:03Z",
+      "mergedAt": "2020-12-25T18:53:57Z",
+      "age": 26,
+      "approvals": 1,
+      "approvers": {
+        "Trott": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "nodejs-github-bot": 2,
+        "github-actions": 1
+      },
+      "comments": 3,
+      "commenters": {
+        "nodejs-github-bot": 2,
+        "github-actions": 1
+      }
+    },
     {
       "repo": "node",
       "org": "nodejs",
@@ -40,6 +1509,92 @@
         "nodejs-github-bot": 3,
         "Trott": 2,
         "benjamingr": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36305",
+      "createdAt": "2020-11-28T16:35:35Z",
+      "mergedAt": "2020-12-07T15:30:21Z",
+      "age": 8,
+      "approvals": 1,
+      "approvers": {
+        "addaleax": 1
+      },
+      "generalComments": 8,
+      "generalCommenters": {
+        "nodejs-github-bot": 7,
+        "szmarczak": 1
+      },
+      "comments": 8,
+      "commenters": {
+        "nodejs-github-bot": 7,
+        "szmarczak": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/36280",
+      "additions": 1,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 2,
+      "createdAt": "2020-11-26T13:54:03Z",
+      "mergedAt": "2020-12-01T00:58:24Z",
+      "age": 4,
+      "approvals": 2,
+      "approvers": {
+        "watilde": 1,
+        "aduh95": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "nodejs-github-bot": 3
+      },
+      "comments": 3,
+      "commenters": {
+        "nodejs-github-bot": 3
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "iam-frankqiu",
+      "url": "https://github.com/nodejs/node/pull/36278",
+      "additions": 9,
+      "changedFiles": 1,
+      "prSize": 9,
+      "createdAt": "2020-11-26T12:25:10Z",
+      "mergedAt": "2020-12-15T23:31:04Z",
+      "age": 19,
+      "approvals": 3,
+      "approvers": {
+        "aduh95": 1,
+        "Trott": 1,
+        "mhdawson": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "Trott": 2,
+        "aduh95": 3
+      },
+      "codeComments": 6,
+      "codeCommenters": {
+        "Trott": 1,
+        "jasnell": 2,
+        "aduh95": 2,
+        "mhdawson": 1
+      },
+      "comments": 11,
+      "commenters": {
+        "Trott": 3,
+        "aduh95": 5,
+        "jasnell": 2,
+        "mhdawson": 1
       }
     },
     {
@@ -214,6 +1769,36 @@
         "github-actions": 1,
         "aduh95": 11,
         "targos": 3
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "davedoesdev",
+      "url": "https://github.com/nodejs/node/pull/36241",
+      "additions": 48,
+      "deletions": 1,
+      "changedFiles": 2,
+      "prSize": 49,
+      "createdAt": "2020-11-23T23:40:14Z",
+      "mergedAt": "2020-12-01T14:48:15Z",
+      "age": 7,
+      "approvals": 2,
+      "approvers": {
+        "mcollina": 1,
+        "Trott": 1
+      },
+      "generalComments": 8,
+      "generalCommenters": {
+        "Trott": 3,
+        "nodejs-github-bot": 3,
+        "mcollina": 2
+      },
+      "comments": 8,
+      "commenters": {
+        "Trott": 3,
+        "nodejs-github-bot": 3,
+        "mcollina": 2
       }
     },
     {
@@ -423,6 +2008,39 @@
     {
       "repo": "node",
       "org": "nodejs",
+      "author": "lxdicted",
+      "url": "https://github.com/nodejs/node/pull/36207",
+      "additions": 143,
+      "deletions": 56,
+      "changedFiles": 14,
+      "prSize": 199,
+      "createdAt": "2020-11-21T09:09:56Z",
+      "mergedAt": "2020-12-16T13:49:41Z",
+      "age": 25,
+      "approvals": 3,
+      "approvers": {
+        "mcollina": 1,
+        "codebytere": 1,
+        "Trott": 1
+      },
+      "generalComments": 14,
+      "generalCommenters": {
+        "nodejs-github-bot": 7,
+        "Trott": 7
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "Trott": 1
+      },
+      "comments": 15,
+      "commenters": {
+        "nodejs-github-bot": 7,
+        "Trott": 8
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
       "author": "devsnek",
       "url": "https://github.com/nodejs/node/pull/36197",
       "additions": 1,
@@ -488,6 +2106,36 @@
     {
       "repo": "node",
       "org": "nodejs",
+      "author": "aduh95",
+      "url": "https://github.com/nodejs/node/pull/36194",
+      "additions": 147,
+      "deletions": 88,
+      "changedFiles": 8,
+      "prSize": 235,
+      "createdAt": "2020-11-20T14:35:35Z",
+      "mergedAt": "2020-12-29T15:07:02Z",
+      "age": 39,
+      "approvals": 2,
+      "approvers": {
+        "jasnell": 1,
+        "Trott": 1
+      },
+      "generalComments": 9,
+      "generalCommenters": {
+        "nodejs-github-bot": 6,
+        "Trott": 2,
+        "mscdex": 1
+      },
+      "comments": 9,
+      "commenters": {
+        "nodejs-github-bot": 6,
+        "Trott": 2,
+        "mscdex": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
       "author": "Trott",
       "url": "https://github.com/nodejs/node/pull/36175",
       "additions": 1,
@@ -533,6 +2181,34 @@
       "commenters": {
         "nodejs-github-bot": 1,
         "github-actions": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "aduh95",
+      "url": "https://github.com/nodejs/node/pull/36166",
+      "additions": 33,
+      "deletions": 25,
+      "changedFiles": 1,
+      "prSize": 58,
+      "createdAt": "2020-11-18T19:03:38Z",
+      "mergedAt": "2020-12-01T16:47:23Z",
+      "age": 12,
+      "approvals": 2,
+      "approvers": {
+        "jasnell": 1,
+        "Trott": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "github-actions": 1,
+        "nodejs-github-bot": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "github-actions": 1,
+        "nodejs-github-bot": 2
       }
     },
     {
@@ -3051,7 +4727,7 @@
         "iansu": 1,
         "watilde": 1
       },
-      "generalComments": 8,
+      "generalComments": 9,
       "generalCommenters": {
         "watilde": 1,
         "codecov-io": 1,
@@ -3059,13 +4735,14 @@
         "Trott": 2,
         "thomasrockhu": 1,
         "nodejs-github-bot": 1,
-        "github-actions": 1
+        "github-actions": 1,
+        "BethGriggs": 1
       },
       "codeComments": 1,
       "codeCommenters": {
         "richardlau": 1
       },
-      "comments": 9,
+      "comments": 10,
       "commenters": {
         "watilde": 1,
         "codecov-io": 1,
@@ -3074,6 +4751,7 @@
         "thomasrockhu": 1,
         "nodejs-github-bot": 1,
         "github-actions": 1,
+        "BethGriggs": 1,
         "richardlau": 1
       }
     },
@@ -14653,3363 +16331,1399 @@
     {
       "repo": "node",
       "org": "nodejs",
-      "author": "devsnek",
-      "url": "https://github.com/nodejs/node/pull/30370",
-      "additions": 243,
-      "deletions": 124,
-      "changedFiles": 29,
-      "prSize": 367,
-      "createdAt": "2019-11-12T06:30:54Z",
-      "mergedAt": "2020-05-14T17:41:04Z",
-      "age": 184,
+      "author": "cjihrig",
+      "url": "https://github.com/nodejs/node/pull/31091",
+      "additions": 3,
+      "deletions": 3,
+      "changedFiles": 1,
+      "prSize": 6,
+      "createdAt": "2019-12-25T14:36:56Z",
+      "mergedAt": "2019-12-26T01:12:51Z",
+      "age": 1,
+      "approvals": 3,
+      "approvers": {
+        "addaleax": 1,
+        "targos": 1,
+        "BridgeAR": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "nodejs-github-bot": 2,
+        "BethGriggs": 1,
+        "targos": 2
+      },
+      "comments": 5,
+      "commenters": {
+        "nodejs-github-bot": 2,
+        "BethGriggs": 1,
+        "targos": 2
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/31090",
+      "additions": 39,
+      "deletions": 47,
+      "changedFiles": 1,
+      "prSize": 86,
+      "createdAt": "2019-12-25T13:02:34Z",
+      "mergedAt": "2019-12-27T14:15:21Z",
+      "age": 2,
+      "approvals": 4,
+      "approvers": {
+        "cjihrig": 1,
+        "jasnell": 1,
+        "lpinca": 1,
+        "trivikr": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/31086",
+      "additions": 2113,
+      "deletions": 2108,
+      "changedFiles": 45,
+      "prSize": 4221,
+      "createdAt": "2019-12-25T00:09:05Z",
+      "mergedAt": "2019-12-27T05:40:30Z",
+      "age": 2,
+      "approvals": 3,
+      "approvers": {
+        "addaleax": 1,
+        "nschonni": 1,
+        "BridgeAR": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "Me1000": 1
+      },
+      "codeComments": 3,
+      "codeCommenters": {
+        "marswong": 3
+      },
+      "comments": 4,
+      "commenters": {
+        "Me1000": 1,
+        "marswong": 3
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "cjihrig",
+      "url": "https://github.com/nodejs/node/pull/31077",
+      "additions": 15,
+      "changedFiles": 1,
+      "prSize": 15,
+      "createdAt": "2019-12-24T04:27:14Z",
+      "mergedAt": "2019-12-26T04:36:06Z",
+      "age": 2,
+      "approvals": 6,
+      "approvers": {
+        "gireeshpunathil": 1,
+        "BethGriggs": 1,
+        "antsmartian": 1,
+        "BridgeAR": 1,
+        "jasnell": 1,
+        "lpinca": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "gireeshpunathil": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "gireeshpunathil": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "cjihrig",
+      "url": "https://github.com/nodejs/node/pull/31076",
+      "additions": 68,
+      "deletions": 13,
+      "changedFiles": 3,
+      "prSize": 81,
+      "createdAt": "2019-12-24T03:25:58Z",
+      "mergedAt": "2019-12-26T03:27:54Z",
+      "age": 2,
       "approvals": 5,
       "approvers": {
-        "guybedford": 2,
-        "benjamingr": 1,
-        "MylesBorins": 1,
-        "frank-dspeed": 1
-      },
-      "generalComments": 44,
-      "generalCommenters": {
-        "mko-io": 2,
-        "bnoordhuis": 2,
-        "jkrems": 5,
-        "guybedford": 12,
-        "weswigham": 1,
-        "littledan": 1,
+        "gengjiawen": 1,
         "addaleax": 1,
-        "BridgeAR": 1,
-        "nodejs-github-bot": 6,
-        "lundibundi": 1,
-        "frank-dspeed": 3,
-        "tomasgvivo": 1,
-        "MylesBorins": 3,
-        "GeoffreyBooth": 3,
-        "benjamingr": 1,
-        "codebytere": 1
+        "jasnell": 1,
+        "legendecas": 1,
+        "Trott": 1
       },
-      "codeComments": 16,
+      "generalComments": 4,
+      "generalCommenters": {
+        "nodejs-github-bot": 4
+      },
+      "codeComments": 5,
       "codeCommenters": {
-        "GeoffreyBooth": 1,
-        "guybedford": 3,
-        "addaleax": 2,
-        "targos": 1,
-        "benjamingr": 5,
-        "MylesBorins": 3,
-        "frank-dspeed": 1
+        "addaleax": 4,
+        "gengjiawen": 1
       },
-      "comments": 60,
+      "comments": 9,
       "commenters": {
-        "mko-io": 2,
-        "bnoordhuis": 2,
-        "jkrems": 5,
-        "guybedford": 15,
-        "weswigham": 1,
-        "littledan": 1,
-        "addaleax": 3,
+        "nodejs-github-bot": 4,
+        "addaleax": 4,
+        "gengjiawen": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/31073",
+      "additions": 19,
+      "deletions": 19,
+      "changedFiles": 1,
+      "prSize": 38,
+      "createdAt": "2019-12-23T20:30:02Z",
+      "mergedAt": "2019-12-25T20:52:41Z",
+      "age": 2,
+      "approvals": 6,
+      "approvers": {
+        "gireeshpunathil": 1,
+        "legendecas": 1,
+        "antsmartian": 1,
+        "BethGriggs": 1,
         "BridgeAR": 1,
-        "nodejs-github-bot": 6,
-        "lundibundi": 1,
-        "frank-dspeed": 4,
-        "tomasgvivo": 1,
-        "MylesBorins": 6,
-        "GeoffreyBooth": 4,
-        "benjamingr": 6,
-        "codebytere": 1,
+        "lpinca": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/31070",
+      "createdAt": "2019-12-23T15:19:21Z",
+      "mergedAt": "2019-12-25T03:39:49Z",
+      "age": 1,
+      "approvals": 7,
+      "approvers": {
+        "shisama": 1,
+        "cjihrig": 1,
+        "richardlau": 1,
+        "MylesBorins": 1,
+        "lpinca": 1,
+        "gireeshpunathil": 1,
+        "BridgeAR": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "MylesBorins": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "MylesBorins": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "BethGriggs",
+      "url": "https://github.com/nodejs/node/pull/31069",
+      "additions": 12321,
+      "deletions": 7623,
+      "changedFiles": 407,
+      "prSize": 19944,
+      "createdAt": "2019-12-23T15:16:21Z",
+      "mergedAt": "2020-01-07T16:50:11Z",
+      "age": 15,
+      "approvals": 6,
+      "approvers": {
+        "richardlau": 1,
+        "BridgeAR": 1,
+        "hiroppy": 1,
+        "gengjiawen": 1,
+        "targos": 1,
+        "MylesBorins": 1
+      },
+      "generalComments": 10,
+      "generalCommenters": {
+        "Trott": 1,
+        "nodejs-github-bot": 7,
+        "BridgeAR": 1,
         "targos": 1
+      },
+      "comments": 10,
+      "commenters": {
+        "Trott": 1,
+        "nodejs-github-bot": 7,
+        "BridgeAR": 1,
+        "targos": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/31057",
+      "additions": 129,
+      "deletions": 131,
+      "changedFiles": 3,
+      "prSize": 260,
+      "createdAt": "2019-12-22T03:12:42Z",
+      "mergedAt": "2019-12-25T00:14:48Z",
+      "age": 2,
+      "approvals": 4,
+      "approvers": {
+        "devsnek": 1,
+        "cjihrig": 1,
+        "Qard": 1,
+        "BridgeAR": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "nodejs-github-bot": 3
+      },
+      "codeComments": 3,
+      "codeCommenters": {
+        "devsnek": 1,
+        "mscdex": 2
+      },
+      "comments": 6,
+      "commenters": {
+        "nodejs-github-bot": 3,
+        "devsnek": 1,
+        "mscdex": 2
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/31035",
+      "createdAt": "2019-12-20T14:53:53Z",
+      "mergedAt": "2019-12-20T18:34:36Z",
+      "age": 1,
+      "approvals": 5,
+      "approvers": {
+        "cjihrig": 1,
+        "richardlau": 1,
+        "gireeshpunathil": 1,
+        "BridgeAR": 1,
+        "devnexen": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "nodejs-github-bot": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "nodejs-github-bot": 2
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "MylesBorins",
+      "url": "https://github.com/nodejs/node/pull/31010",
+      "additions": 2621,
+      "deletions": 1467,
+      "changedFiles": 128,
+      "prSize": 4088,
+      "createdAt": "2019-12-17T23:26:54Z",
+      "mergedAt": "2019-12-18T18:50:19Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "nodejs-github-bot": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "nodejs-github-bot": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "richardlau",
+      "url": "https://github.com/nodejs/node/pull/30997",
+      "additions": 2,
+      "deletions": 3,
+      "changedFiles": 1,
+      "prSize": 5,
+      "createdAt": "2019-12-16T21:47:46Z",
+      "mergedAt": "2019-12-18T14:35:39Z",
+      "age": 1,
+      "approvals": 5,
+      "approvers": {
+        "lundibundi": 1,
+        "cjihrig": 1,
+        "Trott": 1,
+        "lpinca": 1,
+        "jasnell": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "nodejs-github-bot": 2,
+        "Trott": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "lundibundi": 1
+      },
+      "comments": 4,
+      "commenters": {
+        "nodejs-github-bot": 2,
+        "Trott": 1,
+        "lundibundi": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "MylesBorins",
+      "url": "https://github.com/nodejs/node/pull/30941",
+      "additions": 157965,
+      "deletions": 81356,
+      "changedFiles": 2629,
+      "prSize": 239321,
+      "createdAt": "2019-12-13T17:11:29Z",
+      "mergedAt": "2019-12-17T22:08:59Z",
+      "age": 4,
+      "approvals": 5,
+      "approvers": {
+        "Trott": 1,
+        "cjihrig": 1,
+        "BethGriggs": 1,
+        "BridgeAR": 1,
+        "gengjiawen": 1
+      },
+      "generalComments": 7,
+      "generalCommenters": {
+        "richardlau": 1,
+        "nodejs-github-bot": 5,
+        "joaocgreis": 1
+      },
+      "comments": 7,
+      "commenters": {
+        "richardlau": 1,
+        "nodejs-github-bot": 5,
+        "joaocgreis": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "MylesBorins",
+      "url": "https://github.com/nodejs/node/pull/30940",
+      "additions": 60074,
+      "deletions": 28462,
+      "changedFiles": 1036,
+      "prSize": 88536,
+      "createdAt": "2019-12-13T16:59:13Z",
+      "mergedAt": "2019-12-17T22:07:36Z",
+      "age": 4,
+      "approvals": 4,
+      "approvers": {
+        "Trott": 1,
+        "cjihrig": 1,
+        "BethGriggs": 1,
+        "BridgeAR": 1
+      },
+      "generalComments": 8,
+      "generalCommenters": {
+        "richardlau": 1,
+        "joaocgreis": 1,
+        "nodejs-github-bot": 6
+      },
+      "comments": 8,
+      "commenters": {
+        "richardlau": 1,
+        "joaocgreis": 1,
+        "nodejs-github-bot": 6
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "MylesBorins",
+      "url": "https://github.com/nodejs/node/pull/30938",
+      "additions": 54811,
+      "deletions": 25733,
+      "changedFiles": 908,
+      "prSize": 80544,
+      "createdAt": "2019-12-13T16:45:39Z",
+      "mergedAt": "2019-12-17T22:05:56Z",
+      "age": 4,
+      "approvals": 5,
+      "approvers": {
+        "Trott": 1,
+        "cjihrig": 1,
+        "BethGriggs": 1,
+        "BridgeAR": 1,
+        "gengjiawen": 1
+      },
+      "generalComments": 6,
+      "generalCommenters": {
+        "richardlau": 1,
+        "joaocgreis": 1,
+        "nodejs-github-bot": 4
+      },
+      "comments": 6,
+      "commenters": {
+        "richardlau": 1,
+        "joaocgreis": 1,
+        "nodejs-github-bot": 4
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "MylesBorins",
+      "url": "https://github.com/nodejs/node/pull/30937",
+      "additions": 34814,
+      "deletions": 8488,
+      "changedFiles": 978,
+      "prSize": 43302,
+      "createdAt": "2019-12-13T16:04:58Z",
+      "mergedAt": "2019-12-17T22:34:31Z",
+      "age": 4,
+      "approvals": 4,
+      "approvers": {
+        "Trott": 1,
+        "codebytere": 1,
+        "cjihrig": 1,
+        "richardlau": 1
+      },
+      "generalComments": 12,
+      "generalCommenters": {
+        "Trott": 2,
+        "richardlau": 2,
+        "BridgeAR": 1,
+        "joaocgreis": 1,
+        "nodejs-github-bot": 5,
+        "targos": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "richardlau": 1
+      },
+      "comments": 13,
+      "commenters": {
+        "Trott": 2,
+        "richardlau": 3,
+        "BridgeAR": 1,
+        "joaocgreis": 1,
+        "nodejs-github-bot": 5,
+        "targos": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/30935",
+      "additions": 6,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 7,
+      "createdAt": "2019-12-13T15:20:13Z",
+      "mergedAt": "2019-12-15T21:17:36Z",
+      "age": 2,
+      "approvals": 6,
+      "approvers": {
+        "devnexen": 1,
+        "BridgeAR": 1,
+        "cjihrig": 1,
+        "lpinca": 1,
+        "trivikr": 1,
+        "jasnell": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/30919",
+      "createdAt": "2019-12-12T19:25:11Z",
+      "mergedAt": "2019-12-14T21:35:51Z",
+      "age": 2,
+      "approvals": 4,
+      "approvers": {
+        "lpinca": 1,
+        "cjihrig": 1,
+        "addaleax": 1,
+        "gengjiawen": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "nodejs-github-bot": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "nodejs-github-bot": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/30899",
+      "additions": 4,
+      "deletions": 6,
+      "changedFiles": 1,
+      "prSize": 10,
+      "createdAt": "2019-12-11T15:05:47Z",
+      "mergedAt": "2019-12-13T15:26:26Z",
+      "age": 2,
+      "approvals": 4,
+      "approvers": {
+        "lpinca": 1,
+        "cjihrig": 1,
+        "BridgeAR": 1,
+        "gengjiawen": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/30887",
+      "additions": 3,
+      "deletions": 2,
+      "changedFiles": 1,
+      "prSize": 5,
+      "createdAt": "2019-12-10T16:41:11Z",
+      "mergedAt": "2019-12-12T17:11:50Z",
+      "age": 2,
+      "approvals": 3,
+      "approvers": {
+        "cjihrig": 1,
+        "BridgeAR": 1,
+        "lpinca": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/30886",
+      "additions": 3,
+      "deletions": 1,
+      "changedFiles": 1,
+      "prSize": 4,
+      "createdAt": "2019-12-10T16:40:38Z",
+      "mergedAt": "2019-12-12T17:09:32Z",
+      "age": 2,
+      "approvals": 4,
+      "approvers": {
+        "codebytere": 1,
+        "cjihrig": 1,
+        "BridgeAR": 1,
+        "lpinca": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "nodejs-github-bot": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "nodejs-github-bot": 2
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/30866",
+      "additions": 2,
+      "deletions": 3,
+      "changedFiles": 1,
+      "prSize": 5,
+      "createdAt": "2019-12-09T14:25:11Z",
+      "mergedAt": "2019-12-11T14:44:58Z",
+      "age": 2,
+      "approvals": 10,
+      "approvers": {
+        "bnoordhuis": 1,
+        "targos": 1,
+        "BethGriggs": 1,
+        "cjihrig": 1,
+        "gireeshpunathil": 1,
+        "richardlau": 1,
+        "lpinca": 1,
+        "trivikr": 1,
+        "mhdawson": 1,
+        "rvagg": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/30800",
+      "createdAt": "2019-12-05T04:16:27Z",
+      "mergedAt": "2019-12-07T17:03:39Z",
+      "age": 2,
+      "approvals": 5,
+      "approvers": {
+        "BridgeAR": 1,
+        "cjihrig": 1,
+        "lpinca": 1,
+        "jasnell": 1,
+        "trivikr": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "nodejs-github-bot": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "nodejs-github-bot": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/30789",
+      "additions": 20,
+      "deletions": 20,
+      "changedFiles": 3,
+      "prSize": 40,
+      "createdAt": "2019-12-04T07:12:13Z",
+      "mergedAt": "2019-12-06T15:12:38Z",
+      "age": 2,
+      "approvals": 5,
+      "approvers": {
+        "richardlau": 1,
+        "BridgeAR": 1,
+        "targos": 1,
+        "trivikr": 1,
+        "antsmartian": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "cjihrig",
+      "url": "https://github.com/nodejs/node/pull/30787",
+      "additions": 60,
+      "deletions": 24,
+      "changedFiles": 12,
+      "prSize": 84,
+      "createdAt": "2019-12-04T05:19:08Z",
+      "mergedAt": "2019-12-07T03:03:55Z",
+      "age": 2,
+      "approvals": 3,
+      "approvers": {
+        "Trott": 1,
+        "devsnek": 1,
+        "richardlau": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "nodejs-github-bot": 4
+      },
+      "comments": 4,
+      "commenters": {
+        "nodejs-github-bot": 4
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "cjihrig",
+      "url": "https://github.com/nodejs/node/pull/30783",
+      "additions": 535,
+      "deletions": 106,
+      "changedFiles": 26,
+      "prSize": 641,
+      "createdAt": "2019-12-04T03:24:24Z",
+      "mergedAt": "2019-12-06T16:16:04Z",
+      "age": 2,
+      "approvals": 9,
+      "approvers": {
+        "tniessen": 1,
+        "danbev": 1,
+        "richardlau": 1,
+        "santigimeno": 1,
+        "gengjiawen": 1,
+        "Trott": 1,
+        "trivikr": 1,
+        "mhdawson": 1,
+        "bnoordhuis": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "nodejs-github-bot": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "nodejs-github-bot": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/30775",
+      "createdAt": "2019-12-03T12:12:53Z",
+      "mergedAt": "2019-12-05T16:04:05Z",
+      "age": 2,
+      "approvals": 2,
+      "approvers": {
+        "gengjiawen": 1,
+        "lpinca": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "nodejs-github-bot": 3
+      },
+      "comments": 3,
+      "commenters": {
+        "nodejs-github-bot": 3
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "BridgeAR",
+      "url": "https://github.com/nodejs/node/pull/30774",
+      "additions": 22464,
+      "deletions": 3380,
+      "changedFiles": 526,
+      "prSize": 25844,
+      "createdAt": "2019-12-03T10:40:03Z",
+      "mergedAt": "2019-12-03T21:55:12Z",
+      "age": 1,
+      "approvals": 3,
+      "approvers": {
+        "targos": 1,
+        "cjihrig": 1,
+        "BethGriggs": 1
+      },
+      "generalComments": 7,
+      "generalCommenters": {
+        "nodejs-github-bot": 4,
+        "targos": 1,
+        "bricss": 1,
+        "addaleax": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "targos": 1
+      },
+      "comments": 8,
+      "commenters": {
+        "nodejs-github-bot": 4,
+        "targos": 2,
+        "bricss": 1,
+        "addaleax": 1
+      }
+    },
+    {
+      "repo": "node",
+      "org": "nodejs",
+      "author": "Trott",
+      "url": "https://github.com/nodejs/node/pull/30770",
+      "additions": 24,
+      "deletions": 2,
+      "changedFiles": 3,
+      "prSize": 26,
+      "createdAt": "2019-12-02T20:26:58Z",
+      "mergedAt": "2019-12-05T04:11:52Z",
+      "age": 2,
+      "approvals": 6,
+      "approvers": {
+        "richardlau": 1,
+        "cjihrig": 1,
+        "ZYSzys": 1,
+        "gengjiawen": 1,
+        "BridgeAR": 1,
+        "addaleax": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "nodejs-github-bot": 2
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "BridgeAR": 1
+      },
+      "comments": 3,
+      "commenters": {
+        "nodejs-github-bot": 2,
+        "BridgeAR": 1
       }
     }
   ],
-  "usersData": [
-    {
-      "author": "Trott",
-      "approvalsGiven": 172,
-      "approvalsByUser": {
-        "MylesBorins": 6,
-        "aduh95": 29,
-        "Lxxyx": 2,
-        "yashLadha": 1,
-        "jasnell": 2,
-        "devsnek": 5,
-        "lpinca": 8,
-        "juanarbol": 1,
-        "arsenalzp": 1,
-        "RaisinTen": 4,
-        "bingenito": 1,
-        "szmarczak": 1,
-        "davedoesdev": 1,
-        "mmomtchev": 2,
-        "gireeshpunathil": 2,
-        "PoojaDurgad": 8,
-        "ben-turner": 1,
-        "danbev": 1,
-        "tyankatsu0105": 1,
-        "copperwall": 2,
-        "tnir": 1,
-        "bcoe": 4,
-        "cjihrig": 28,
-        "watilde": 3,
-        "ax1": 2,
-        "BethGriggs": 1,
-        "bnb": 1,
-        "targos": 5,
-        "tniessen": 6,
-        "nschonni": 1,
-        "SimenB": 1,
-        "addaleax": 3,
-        "AasthaGupta": 1,
-        "lundibundi": 1,
-        "vbarzana": 1,
-        "NickNaso": 1,
-        "tlhunter": 1,
-        "eltociear": 1,
-        "danielleadams": 1,
-        "mlarcher": 1,
-        "DrunkenPoney": 1,
-        "clarkkozak": 1,
-        "panva": 1,
-        "SimplyLinn": 1,
-        "wjabbour": 1,
-        "schamberg97": 1,
-        "AshCripps": 1,
-        "richardlau": 9,
-        "mmarchini": 1,
-        "amilajack": 1,
-        "guybedford": 2,
-        "mhdawson": 1,
-        "Himself65": 1,
-        "codebytere": 2,
-        "ljharb": 1,
-        "KuthorX": 1,
-        "pragyandas": 1,
-        "mscdex": 1,
-        "JungMinu": 1
-      },
-      "commentsGiven": 248,
-      "commentsReceived": 542,
-      "codeCommentsGiven": 45,
-      "codeCommentsReceived": 127,
-      "generalCommentsGiven": 203,
-      "generalCommentsReceived": 415,
-      "totalPRs": 290,
-      "uniquePRsContributedTo": 179,
-      "commentsByUser": {
-        "MylesBorins": 7,
-        "aduh95": 58,
-        "Lxxyx": 1,
-        "yashLadha": 1,
-        "jasnell": 3,
-        "juanarbol": 1,
-        "arsenalzp": 6,
-        "RaisinTen": 6,
-        "bingenito": 4,
-        "szmarczak": 3,
-        "davedoesdev": 1,
-        "mmomtchev": 4,
-        "PoojaDurgad": 20,
-        "ben-turner": 1,
-        "danbev": 1,
-        "tyankatsu0105": 2,
-        "copperwall": 4,
-        "tnir": 2,
-        "bcoe": 4,
-        "watilde": 3,
-        "ax1": 2,
-        "bnb": 1,
-        "tniessen": 12,
-        "targos": 6,
-        "nschonni": 1,
-        "SimenB": 4,
-        "addaleax": 4,
-        "danielleadams": 3,
-        "AasthaGupta": 1,
-        "lundibundi": 1,
-        "vbarzana": 1,
-        "NickNaso": 1,
-        "tlhunter": 3,
-        "eltociear": 1,
-        "mlarcher": 1,
-        "DrunkenPoney": 2,
-        "clarkkozak": 1,
-        "panva": 1,
-        "SimplyLinn": 1,
-        "wjabbour": 1,
-        "schamberg97": 3,
-        "devsnek": 6,
-        "AshCripps": 1,
-        "mmarchini": 1,
-        "amilajack": 1,
-        "guybedford": 3,
-        "mhdawson": 1,
-        "Himself65": 1,
-        "codebytere": 7,
-        "ljharb": 10,
-        "BlackYoup": 2,
-        "phillipj": 2,
-        "KuthorX": 3,
-        "cjihrig": 8,
-        "pragyandas": 7,
-        "mscdex": 5,
-        "BethGriggs": 1,
-        "richardlau": 6
-      },
-      "user": "Trott",
-      "uniquePRsApproved": 166,
-      "approvalsReceived": 1102,
-      "prSizes": [
-        2,
-        24,
-        19,
-        20,
-        2,
-        4,
-        9,
-        3,
-        11,
-        0,
-        2,
-        448,
-        2,
-        4,
-        1,
-        2,
-        5,
-        44,
-        2,
-        3,
-        2,
-        2,
-        0,
-        3,
-        2,
-        125,
-        4,
-        40,
-        4,
-        9,
-        19,
-        2,
-        2,
-        180,
-        1,
-        94,
-        70,
-        2,
-        0,
-        2,
-        2,
-        2,
-        16,
-        11,
-        143,
-        4,
-        4,
-        20,
-        4,
-        1243,
-        16,
-        52,
-        70,
-        36,
-        18,
-        31,
-        2,
-        13,
-        39,
-        6,
-        30,
-        51,
-        6,
-        14,
-        5,
-        18,
-        6,
-        128,
-        4,
-        10,
-        0,
-        4,
-        4,
-        2,
-        13,
-        8,
-        6,
-        6,
-        16,
-        58,
-        96,
-        5,
-        7,
-        2,
-        2,
-        2,
-        2,
-        5,
-        14,
-        12,
-        9,
-        12,
-        2,
-        2,
-        2,
-        42,
-        14,
-        2,
-        2,
-        0,
-        0,
-        2,
-        3,
-        12,
-        2,
-        4,
-        4,
-        0,
-        3,
-        18,
-        11,
-        17,
-        2,
-        2,
-        2,
-        51,
-        204,
-        4,
-        13,
-        18,
-        3,
-        32,
-        8,
-        6,
-        0,
-        6,
-        7,
-        4,
-        16,
-        8,
-        6,
-        18,
-        8,
-        97,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1478,
-        0,
-        0,
-        0,
-        1652,
-        0,
-        0,
-        0,
-        364,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        403,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2813,
-        0,
-        0,
-        0,
-        0,
-        2465,
-        0,
-        0,
-        0,
-        0,
-        421,
-        386,
-        0,
-        0,
-        0,
-        8,
-        11892,
-        44,
-        41,
-        621,
-        3,
-        2,
-        4,
-        27,
-        1,
-        12,
-        9,
-        27,
-        37,
-        19,
-        6,
-        9,
-        47,
-        85,
-        20,
-        12,
-        6,
-        11,
-        72,
-        0,
-        0,
-        15,
-        22,
-        4,
-        4,
-        4,
-        9,
-        4,
-        0,
-        34,
-        40,
-        0,
-        6,
-        29,
-        14,
-        0,
-        4,
-        4,
-        10,
-        7,
-        1,
-        6,
-        22,
-        20,
-        129,
-        5,
-        63,
-        19,
-        1,
-        178,
-        0,
-        0,
-        99,
-        86,
-        4221,
-        38,
-        0,
-        260,
-        0,
-        7,
-        0,
-        10,
-        5,
-        4,
-        5,
-        0,
-        40,
-        0,
-        26,
-        8,
-        112,
-        0,
-        16,
-        3,
-        0,
-        0,
-        6,
-        0,
-        12,
-        2,
-        7,
-        0,
-        0,
-        9,
-        0,
-        88,
-        4,
-        10,
-        212,
-        0,
-        15,
-        0,
-        9,
-        4,
-        0,
-        0,
-        16,
-        3,
-        95,
-        60,
-        0,
-        540,
-        4,
-        0
-      ],
-      "prSize": 117,
-      "prAges": [
-        2,
-        2,
-        2,
-        3,
-        2,
-        2,
-        3,
-        2,
-        2,
-        3,
-        2,
-        7,
-        1,
-        2,
-        2,
-        2,
-        2,
-        2,
-        3,
-        1,
-        8,
-        2,
-        2,
-        4,
-        7,
-        4,
-        3,
-        8,
-        2,
-        2,
-        2,
-        2,
-        4,
-        2,
-        1,
-        2,
-        7,
-        1,
-        2,
-        5,
-        2,
-        2,
-        7,
-        2,
-        2,
-        2,
-        2,
-        7,
-        3,
-        3,
-        2,
-        3,
-        2,
-        3,
-        2,
-        2,
-        2,
-        2,
-        3,
-        2,
-        3,
-        8,
-        3,
-        2,
-        2,
-        2,
-        2,
-        2,
-        4,
-        2,
-        2,
-        2,
-        1,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        1,
-        2,
-        2,
-        2,
-        3,
-        2,
-        2,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        1,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        3,
-        2,
-        2,
-        2,
-        2,
-        2,
-        4,
-        2,
-        2,
-        2,
-        2,
-        7,
-        3,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        4,
-        7,
-        11,
-        2,
-        2,
-        5,
-        2,
-        2,
-        2,
-        2,
-        8,
-        2,
-        6,
-        2,
-        2,
-        4,
-        10,
-        2,
-        1,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        3,
-        2,
-        2,
-        2,
-        67,
-        2,
-        4,
-        3,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        3,
-        2,
-        3,
-        2,
-        2,
-        2,
-        6,
-        3,
-        28,
-        1,
-        2,
-        2,
-        2,
-        2,
-        2,
-        4,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        7,
-        2,
-        2,
-        2,
-        7,
-        2,
-        3,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        7,
-        2,
-        2,
-        2,
-        5,
-        5,
-        2,
-        2,
-        2,
-        2,
-        2,
-        1,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        1,
-        1,
-        2,
-        2,
-        2,
-        2,
-        1,
-        2,
-        1,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        1,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        1,
-        2,
-        2,
-        2,
-        2,
-        1,
-        2,
-        2,
-        2,
-        2,
-        2,
-        1,
-        2
-      ],
-      "age": 3
-    },
-    {
-      "author": "cjihrig",
-      "approvalsGiven": 126,
-      "approvalsByUser": {
-        "devsnek": 9,
-        "lpinca": 6,
-        "Trott": 61,
-        "targos": 7,
-        "gireeshpunathil": 3,
-        "tniessen": 5,
-        "addaleax": 2,
-        "codebytere": 5,
-        "BethGriggs": 3,
-        "danielleadams": 1,
-        "evanlucas": 2,
-        "richardlau": 8,
-        "gengjiawen": 2,
-        "mmarchini": 1,
-        "bnoordhuis": 1,
-        "MylesBorins": 7,
-        "mscdex": 1,
-        "BridgeAR": 1,
-        "JungMinu": 1
-      },
-      "commentsGiven": 15,
-      "commentsReceived": 228,
-      "codeCommentsGiven": 8,
-      "codeCommentsReceived": 33,
-      "generalCommentsGiven": 7,
-      "generalCommentsReceived": 195,
-      "totalPRs": 64,
-      "uniquePRsContributedTo": 127,
-      "commentsByUser": {
-        "gireeshpunathil": 5,
-        "BethGriggs": 2,
-        "MylesBorins": 1,
-        "richardlau": 1,
-        "devsnek": 3,
-        "Trott": 2,
-        "codebytere": 1
-      },
-      "user": "cjihrig",
-      "uniquePRsApproved": 126,
-      "approvalsReceived": 281,
-      "prSizes": [
-        3779,
-        28,
-        13,
-        60,
-        5964,
-        87,
-        2,
-        1434,
-        922,
-        19,
-        428,
-        7,
-        4,
-        14,
-        12,
-        1109,
-        116,
-        70,
-        4468,
-        883,
-        188,
-        9,
-        2261,
-        56,
-        1,
-        53,
-        5,
-        125,
-        349,
-        4,
-        4492,
-        17,
-        2,
-        18,
-        7,
-        6,
-        65,
-        2,
-        68,
-        3,
-        6,
-        10,
-        40,
-        5,
-        9,
-        13,
-        27,
-        8,
-        8,
-        12,
-        13,
-        6,
-        15,
-        81,
-        84,
-        641,
-        4,
-        110,
-        4577,
-        94,
-        2,
-        38,
-        5609,
-        1515
-      ],
-      "prSize": 626,
-      "prAges": [
-        6,
-        2,
-        2,
-        2,
-        2,
-        2,
-        9,
-        7,
-        8,
-        2,
-        7,
-        3,
-        1,
-        2,
-        1,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        4,
-        27,
-        2,
-        5,
-        18,
-        2,
-        2,
-        2,
-        2,
-        4,
-        3,
-        1,
-        2,
-        2,
-        3,
-        1,
-        2,
-        2,
-        2,
-        2,
-        161,
-        4,
-        2,
-        3,
-        2,
-        2,
-        1,
-        2,
-        1,
-        1,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        19,
-        1,
-        3,
-        2,
-        3
-      ],
-      "age": 6
-    },
-    {
-      "author": "richardlau",
-      "approvalsGiven": 144,
-      "approvalsByUser": {
-        "aduh95": 6,
-        "Trott": 64,
-        "codebytere": 6,
-        "RaisinTen": 1,
-        "danielleadams": 4,
-        "bingenito": 1,
-        "gireeshpunathil": 3,
-        "ax1": 1,
-        "BethGriggs": 11,
-        "PoojaDurgad": 1,
-        "bcoe": 2,
-        "addaleax": 3,
-        "lundibundi": 1,
-        "lpinca": 1,
-        "watilde": 1,
-        "tlhunter": 1,
-        "eltociear": 1,
-        "mlarcher": 1,
-        "ruyadorno": 4,
-        "targos": 6,
-        "schamberg97": 1,
-        "AshCripps": 2,
-        "mhdawson": 1,
-        "tniessen": 1,
-        "cjihrig": 15,
-        "devsnek": 1,
-        "mmarchini": 1,
-        "bnoordhuis": 1,
-        "MylesBorins": 1,
-        "JungMinu": 1
-      },
-      "commentsGiven": 124,
-      "commentsReceived": 122,
-      "codeCommentsGiven": 48,
-      "codeCommentsReceived": 17,
-      "generalCommentsGiven": 76,
-      "generalCommentsReceived": 105,
-      "totalPRs": 30,
-      "uniquePRsContributedTo": 161,
-      "commentsByUser": {
-        "bingenito": 2,
-        "davedoesdev": 1,
-        "mmomtchev": 2,
-        "gireeshpunathil": 1,
-        "PoojaDurgad": 2,
-        "aduh95": 4,
-        "bcoe": 2,
-        "danielleadams": 6,
-        "MylesBorins": 13,
-        "codebytere": 11,
-        "Trott": 36,
-        "AshCripps": 1,
-        "mhdawson": 1,
-        "addaleax": 3,
-        "BethGriggs": 15,
-        "ljharb": 2,
-        "ruyadorno": 1,
-        "cjihrig": 5,
-        "targos": 9,
-        "devsnek": 3,
-        "mscdex": 4
-      },
-      "user": "richardlau",
-      "uniquePRsApproved": 135,
-      "approvalsReceived": 137,
-      "prSizes": [
-        5,
-        48,
-        11796,
-        412,
-        101668,
-        6,
-        3,
-        135457,
-        2,
-        2,
-        6,
-        4,
-        10,
-        159,
-        151,
-        3,
-        5,
-        7,
-        31,
-        10,
-        12,
-        6,
-        5,
-        4,
-        20,
-        4,
-        38,
-        33,
-        4,
-        37
-      ],
-      "prSize": 8332,
-      "prAges": [
-        1,
-        5,
-        19,
-        1,
-        5,
-        2,
-        3,
-        19,
-        2,
-        4,
-        2,
-        2,
-        2,
-        21,
-        5,
-        2,
-        3,
-        1,
-        2,
-        2,
-        2,
-        2,
-        1,
-        2,
-        3,
-        3,
-        4,
-        3,
-        10,
-        1
-      ],
-      "age": 4
-    },
-    {
-      "author": "aduh95",
-      "approvalsGiven": 36,
-      "approvalsByUser": {
-        "MylesBorins": 2,
-        "Lxxyx": 3,
-        "Trott": 21,
-        "yashLadha": 1,
-        "jasnell": 1,
-        "devsnek": 1,
-        "RaisinTen": 1,
-        "tnir": 1,
-        "ax1": 1,
-        "richardlau": 1,
-        "targos": 1,
-        "nschonni": 1,
-        "dev-script": 1
-      },
-      "commentsGiven": 29,
-      "commentsReceived": 233,
-      "codeCommentsGiven": 21,
-      "codeCommentsReceived": 45,
-      "generalCommentsGiven": 8,
-      "generalCommentsReceived": 188,
-      "totalPRs": 33,
-      "uniquePRsContributedTo": 42,
-      "commentsByUser": {
-        "Lxxyx": 12,
-        "jasnell": 1,
-        "Trott": 5,
-        "RaisinTen": 2,
-        "MylesBorins": 3,
-        "codebytere": 1,
-        "dev-script": 1,
-        "ruyadorno": 1,
-        "targos": 2,
-        "danielleadams": 1
-      },
-      "user": "aduh95",
-      "uniquePRsApproved": 34,
-      "approvalsReceived": 92,
-      "prSizes": [
-        2,
-        0,
-        70,
-        156,
-        172,
-        10,
-        4,
-        169,
-        11,
-        8,
-        154,
-        4,
-        0,
-        25,
-        32,
-        13,
-        14,
-        1,
-        5,
-        69,
-        16,
-        74,
-        6,
-        25,
-        2,
-        28,
-        4,
-        51,
-        1043,
-        1697,
-        12,
-        1,
-        0
-      ],
-      "prSize": 118,
-      "prAges": [
-        2,
-        3,
-        3,
-        4,
-        7,
-        2,
-        2,
-        3,
-        2,
-        1,
-        6,
-        2,
-        3,
-        3,
-        3,
-        7,
-        2,
-        1,
-        1,
-        15,
-        10,
-        2,
-        2,
-        3,
-        1,
-        10,
-        9,
-        7,
-        4,
-        16,
-        9,
-        2,
-        7
-      ],
-      "age": 5
-    },
-    {
-      "author": "addaleax",
-      "approvalsGiven": 210,
-      "approvalsByUser": {
-        "devsnek": 8,
-        "RaisinTen": 5,
-        "Trott": 105,
-        "gireeshpunathil": 3,
-        "mmomtchev": 1,
-        "PoojaDurgad": 3,
-        "lpinca": 4,
-        "aduh95": 1,
-        "AasthaGupta": 1,
-        "jasnell": 1,
-        "targos": 3,
-        "watilde": 1,
-        "vbarzana": 1,
-        "ruyadorno": 1,
-        "DrunkenPoney": 1,
-        "clarkkozak": 1,
-        "gengjiawen": 2,
-        "SimplyLinn": 1,
-        "wjabbour": 1,
-        "schamberg97": 1,
-        "guybedford": 2,
-        "Himself65": 1,
-        "tniessen": 4,
-        "bcoe": 1,
-        "codebytere": 1,
-        "danielleadams": 1,
-        "richardlau": 11,
-        "evanlucas": 2,
-        "cjihrig": 37,
-        "BethGriggs": 2,
-        "pragyandas": 1,
-        "mscdex": 2
-      },
-      "commentsGiven": 130,
-      "commentsReceived": 26,
-      "codeCommentsGiven": 52,
-      "codeCommentsReceived": 5,
-      "generalCommentsGiven": 78,
-      "generalCommentsReceived": 21,
-      "totalPRs": 3,
-      "uniquePRsContributedTo": 238,
-      "commentsByUser": {
-        "RaisinTen": 5,
-        "MylesBorins": 5,
-        "gireeshpunathil": 5,
-        "Trott": 22,
-        "PoojaDurgad": 1,
-        "AasthaGupta": 2,
-        "lpinca": 3,
-        "aduh95": 2,
-        "codebytere": 11,
-        "vbarzana": 2,
-        "DrunkenPoney": 1,
-        "clarkkozak": 1,
-        "targos": 15,
-        "SimplyLinn": 1,
-        "schamberg97": 2,
-        "Himself65": 4,
-        "tniessen": 2,
-        "ljharb": 2,
-        "danielleadams": 1,
-        "ruyadorno": 1,
-        "richardlau": 3,
-        "pragyandas": 2,
-        "devsnek": 10,
-        "BethGriggs": 5,
-        "cjihrig": 17,
-        "BridgeAR": 3,
-        "mscdex": 2
-      },
-      "user": "addaleax",
-      "uniquePRsApproved": 206,
-      "approvalsReceived": 18,
-      "prSizes": [
-        19,
-        32,
-        29
-      ],
-      "prSize": 27,
-      "prAges": [
-        2,
-        3,
-        3
-      ],
-      "age": 3
-    },
-    {
-      "author": "targos",
-      "approvalsGiven": 99,
-      "approvalsByUser": {
-        "aduh95": 5,
-        "Trott": 53,
-        "devsnek": 4,
-        "lpinca": 1,
-        "danielleadams": 1,
-        "danbev": 1,
-        "richardlau": 10,
-        "BethGriggs": 5,
-        "gengjiawen": 3,
-        "codebytere": 4,
-        "mscdex": 1,
-        "cjihrig": 6,
-        "BridgeAR": 3,
-        "mmarchini": 1,
-        "bnoordhuis": 1
-      },
-      "commentsGiven": 73,
-      "commentsReceived": 143,
-      "codeCommentsGiven": 19,
-      "codeCommentsReceived": 5,
-      "generalCommentsGiven": 54,
-      "generalCommentsReceived": 138,
-      "totalPRs": 12,
-      "uniquePRsContributedTo": 129,
-      "commentsByUser": {
-        "Lxxyx": 3,
-        "aduh95": 5,
-        "danielleadams": 1,
-        "Trott": 4,
-        "RaisinTen": 1,
-        "richardlau": 5,
-        "bcoe": 1,
-        "codebytere": 8,
-        "ruyadorno": 2,
-        "BethGriggs": 10,
-        "phillipj": 1,
-        "cjihrig": 9,
-        "devsnek": 5,
-        "gengjiawen": 1,
-        "MylesBorins": 6,
-        "mscdex": 5,
-        "BridgeAR": 6
-      },
-      "user": "targos",
-      "uniquePRsApproved": 99,
-      "approvalsReceived": 54,
-      "prSizes": [
-        149702,
-        68119,
-        0,
-        2,
-        0,
-        16767,
-        135825,
-        57153,
-        26420,
-        17275,
-        15553,
-        79666
-      ],
-      "prSize": 47207,
-      "prAges": [
-        1,
-        27,
-        1,
-        2,
-        2,
-        1,
-        25,
-        5,
-        1,
-        8,
-        1,
-        21
-      ],
-      "age": 8
-    },
-    {
-      "author": "lpinca",
-      "approvalsGiven": 195,
-      "approvalsByUser": {
-        "aduh95": 5,
-        "Trott": 136,
-        "yashLadha": 1,
-        "devsnek": 2,
-        "PoojaDurgad": 3,
-        "watilde": 1,
-        "ax1": 1,
-        "gireeshpunathil": 1,
-        "cjihrig": 26,
-        "targos": 1,
-        "clarkkozak": 1,
-        "panva": 1,
-        "AshCripps": 1,
-        "amilajack": 1,
-        "tniessen": 3,
-        "lundibundi": 1,
-        "richardlau": 8,
-        "evanlucas": 1,
-        "mscdex": 1
-      },
-      "commentsGiven": 26,
-      "commentsReceived": 31,
-      "codeCommentsGiven": 13,
-      "codeCommentsReceived": 3,
-      "generalCommentsGiven": 13,
-      "generalCommentsReceived": 28,
-      "totalPRs": 9,
-      "uniquePRsContributedTo": 200,
-      "commentsByUser": {
-        "Trott": 9,
-        "MylesBorins": 1,
-        "PoojaDurgad": 5,
-        "dev-script": 1,
-        "ruyadorno": 3,
-        "aduh95": 2,
-        "lundibundi": 2,
-        "BethGriggs": 1,
-        "cjihrig": 2
-      },
-      "user": "lpinca",
-      "uniquePRsApproved": 195,
-      "approvalsReceived": 48,
-      "prSizes": [
-        2,
-        21,
-        13,
-        9,
-        0,
-        6,
-        24,
-        3,
-        10
-      ],
-      "prSize": 10,
-      "prAges": [
-        3,
-        3,
-        4,
-        3,
-        5,
-        2,
-        2,
-        2,
-        2
-      ],
-      "age": 3
-    },
-    {
-      "author": "devsnek",
-      "approvalsGiven": 17,
-      "approvalsByUser": {
-        "SimenB": 1,
-        "Trott": 5,
-        "addaleax": 1,
-        "phillipj": 1,
-        "evanlucas": 1,
-        "cjihrig": 5,
-        "gengjiawen": 1,
-        "mmarchini": 1,
-        "richardlau": 1
-      },
-      "commentsGiven": 13,
-      "commentsReceived": 199,
-      "codeCommentsGiven": 4,
-      "codeCommentsReceived": 57,
-      "generalCommentsGiven": 9,
-      "generalCommentsReceived": 142,
-      "totalPRs": 17,
-      "uniquePRsContributedTo": 24,
-      "commentsByUser": {
-        "SimenB": 1,
-        "Trott": 3,
-        "mmarchini": 1,
-        "codebytere": 3,
-        "MylesBorins": 1,
-        "cjihrig": 1,
-        "mscdex": 3
-      },
-      "user": "devsnek",
-      "approvalsReceived": 71,
-      "prSizes": [
-        2,
-        2,
-        74,
-        311,
-        14,
-        32,
-        259,
-        17,
-        8,
-        115,
-        93,
-        203,
-        17,
-        94,
-        172,
-        79,
-        367
-      ],
-      "prSize": 109,
-      "prAges": [
-        2,
-        1,
-        1,
-        4,
-        3,
-        2,
-        9,
-        2,
-        2,
-        1,
-        3,
-        3,
-        21,
-        19,
-        3,
-        1,
-        184
-      ],
-      "age": 15,
-      "uniquePRsApproved": 17
-    },
-    {
-      "author": "BethGriggs",
-      "approvalsGiven": 53,
-      "approvalsByUser": {
-        "codebytere": 5,
-        "danielleadams": 4,
-        "richardlau": 12,
-        "gireeshpunathil": 1,
-        "ruyadorno": 2,
-        "targos": 5,
-        "mmarchini": 1,
-        "Trott": 10,
-        "cjihrig": 2,
-        "BridgeAR": 3,
-        "bnoordhuis": 1,
-        "MylesBorins": 6,
-        "devsnek": 1
-      },
-      "commentsGiven": 20,
-      "commentsReceived": 157,
-      "codeCommentsGiven": 6,
-      "codeCommentsReceived": 14,
-      "generalCommentsGiven": 14,
-      "generalCommentsReceived": 143,
-      "totalPRs": 9,
-      "uniquePRsContributedTo": 56,
-      "commentsByUser": {
-        "danielleadams": 7,
-        "richardlau": 2,
-        "codebytere": 4,
-        "targos": 1,
-        "MylesBorins": 2,
-        "BridgeAR": 3,
-        "cjihrig": 1
-      },
-      "user": "BethGriggs",
-      "uniquePRsApproved": 52,
-      "approvalsReceived": 44,
-      "prSizes": [
-        1968,
-        1233,
-        314,
-        27745,
-        20,
-        429,
-        506437,
-        434,
-        19944
-      ],
-      "prSize": 62058,
-      "prAges": [
-        1,
-        48,
-        3,
-        1,
-        1,
-        41,
-        40,
-        2,
-        15
-      ],
-      "age": 17
-    },
-    {
-      "author": "MylesBorins",
-      "approvalsGiven": 22,
-      "approvalsByUser": {
-        "targos": 1,
-        "richardlau": 3,
-        "aduh95": 1,
-        "ruyadorno": 2,
-        "Himself65": 1,
-        "Trott": 8,
-        "codebytere": 2,
-        "devsnek": 3,
-        "BethGriggs": 1
-      },
-      "commentsGiven": 77,
-      "commentsReceived": 134,
-      "codeCommentsGiven": 5,
-      "codeCommentsReceived": 14,
-      "generalCommentsGiven": 72,
-      "generalCommentsReceived": 120,
-      "totalPRs": 16,
-      "uniquePRsContributedTo": 50,
-      "commentsByUser": {
-        "targos": 6,
-        "mmomtchev": 1,
-        "BethGriggs": 8,
-        "addaleax": 2,
-        "danielleadams": 6,
-        "aduh95": 2,
-        "codebytere": 13,
-        "Trott": 7,
-        "Himself65": 4,
-        "richardlau": 3,
-        "devsnek": 11,
-        "ruyadorno": 1,
-        "cjihrig": 1,
-        "GeoffreyBooth": 2,
-        "mscdex": 2,
-        "BridgeAR": 8
-      },
-      "user": "MylesBorins",
-      "approvalsReceived": 38,
-      "prSizes": [
-        21,
-        12922,
-        103,
-        6755,
-        7440,
-        121627,
-        405246,
-        36314,
-        3179,
-        0,
-        4088,
-        239321,
-        88536,
-        80544,
-        43302,
-        2349
-      ],
-      "prSize": 65734,
-      "prAges": [
-        1,
-        20,
-        2,
-        1,
-        1,
-        7,
-        7,
-        1,
-        1,
-        3,
-        1,
-        4,
-        4,
-        4,
-        4,
-        1
-      ],
-      "age": 4,
-      "uniquePRsApproved": 22
-    },
-    {
-      "author": "jasnell",
-      "approvalsGiven": 150,
-      "approvalsByUser": {
-        "Trott": 79,
-        "yashLadha": 1,
-        "aduh95": 8,
-        "RaisinTen": 1,
-        "watilde": 1,
-        "mmomtchev": 1,
-        "tniessen": 1,
-        "gireeshpunathil": 1,
-        "PoojaDurgad": 1,
-        "lpinca": 5,
-        "lundibundi": 1,
-        "panva": 1,
-        "addaleax": 2,
-        "BlackYoup": 1,
-        "phillipj": 1,
-        "richardlau": 8,
-        "cjihrig": 25,
-        "devsnek": 6,
-        "mscdex": 5,
-        "JungMinu": 1
-      },
-      "commentsGiven": 66,
-      "commentsReceived": 8,
-      "codeCommentsGiven": 28,
-      "generalCommentsGiven": 38,
-      "generalCommentsReceived": 8,
-      "totalPRs": 2,
-      "uniquePRsContributedTo": 163,
-      "commentsByUser": {
-        "MylesBorins": 1,
-        "lpinca": 2,
-        "Trott": 26,
-        "addaleax": 10,
-        "cjihrig": 8,
-        "devsnek": 12,
-        "richardlau": 1,
-        "mscdex": 2,
-        "BethGriggs": 4
-      },
-      "user": "jasnell",
-      "uniquePRsApproved": 150,
-      "approvalsReceived": 10,
-      "prSizes": [
-        4,
-        18
-      ],
-      "prSize": 11,
-      "prAges": [
-        1,
-        2
-      ],
-      "age": 2
-    },
-    {
-      "author": "codebytere",
-      "approvalsGiven": 32,
-      "approvalsByUser": {
-        "jasnell": 1,
-        "MylesBorins": 3,
-        "Trott": 8,
-        "richardlau": 7,
-        "targos": 5,
-        "aduh95": 1,
-        "bcoe": 1,
-        "lundibundi": 1,
-        "phillipj": 1,
-        "BethGriggs": 2,
-        "BridgeAR": 2
-      },
-      "commentsGiven": 11,
-      "commentsReceived": 149,
-      "codeCommentsGiven": 1,
-      "codeCommentsReceived": 11,
-      "generalCommentsGiven": 10,
-      "generalCommentsReceived": 138,
-      "totalPRs": 12,
-      "uniquePRsContributedTo": 40,
-      "commentsByUser": {
-        "Trott": 1,
-        "richardlau": 1,
-        "cjihrig": 4,
-        "GeoffreyBooth": 1,
-        "BethGriggs": 1,
-        "mscdex": 1,
-        "devsnek": 2
-      },
-      "user": "codebytere",
-      "uniquePRsApproved": 31,
-      "approvalsReceived": 31,
-      "prSizes": [
-        17220,
-        135657,
-        14,
-        4819,
-        23485,
-        116309,
-        28215,
-        37568,
-        490105,
-        7809,
-        118700,
-        22469
-      ],
-      "prSize": 83531,
-      "prAges": [
-        1,
-        8,
-        1,
-        1,
-        8,
-        2,
-        8,
-        1,
-        22,
-        3,
-        1,
-        5
-      ],
-      "age": 5
-    },
-    {
-      "author": "BridgeAR",
-      "approvalsGiven": 93,
-      "approvalsByUser": {
-        "mlarcher": 1,
-        "Trott": 56,
-        "richardlau": 8,
-        "cjihrig": 15,
-        "targos": 3,
-        "BethGriggs": 4,
-        "MylesBorins": 4,
-        "mscdex": 1,
-        "codebytere": 1
-      },
-      "commentsGiven": 45,
-      "commentsReceived": 49,
-      "codeCommentsGiven": 23,
-      "codeCommentsReceived": 5,
-      "generalCommentsGiven": 22,
-      "generalCommentsReceived": 44,
-      "totalPRs": 4,
-      "uniquePRsContributedTo": 104,
-      "commentsByUser": {
-        "mlarcher": 2,
-        "ljharb": 2,
-        "mscdex": 7,
-        "cjihrig": 3,
-        "codebytere": 2,
-        "richardlau": 1,
-        "targos": 9,
-        "BethGriggs": 3,
-        "MylesBorins": 9,
-        "Trott": 4,
-        "devsnek": 3
-      },
-      "user": "BridgeAR",
-      "uniquePRsApproved": 92,
-      "approvalsReceived": 10,
-      "prSizes": [
-        7963,
-        24712,
-        25844,
-        161521
-      ],
-      "prSize": 55010,
-      "prAges": [
-        1,
-        1,
-        1,
-        2
-      ],
-      "age": 1
-    },
-    {
-      "author": "mscdex",
-      "commentsGiven": 29,
-      "commentsReceived": 81,
-      "codeCommentsGiven": 13,
-      "codeCommentsReceived": 25,
-      "generalCommentsGiven": 16,
-      "generalCommentsReceived": 56,
-      "totalPRs": 8,
-      "uniquePRsContributedTo": 17,
-      "commentsByUser": {
-        "aduh95": 3,
-        "PoojaDurgad": 1,
-        "dev-script": 1,
-        "schamberg97": 1,
-        "Trott": 8,
-        "ljharb": 4,
-        "BlackYoup": 2,
-        "phillipj": 3,
-        "cjihrig": 1,
-        "devsnek": 5
-      },
-      "user": "mscdex",
-      "approvalsReceived": 20,
-      "prSizes": [
-        73,
-        61,
-        141,
-        8,
-        54,
-        83,
-        31,
-        51110
-      ],
-      "prSize": 6445,
-      "prAges": [
-        2,
-        12,
-        77,
-        18,
-        5,
-        6,
-        2,
-        20
-      ],
-      "age": 18
-    },
-    {
-      "author": "gireeshpunathil",
-      "approvalsGiven": 70,
-      "approvalsByUser": {
-        "codebytere": 1,
-        "lpinca": 5,
-        "Trott": 42,
-        "arsenalzp": 1,
-        "tnir": 1,
-        "aduh95": 2,
-        "ax1": 1,
-        "richardlau": 2,
-        "BethGriggs": 1,
-        "lundibundi": 1,
-        "eltociear": 1,
-        "schamberg97": 1,
-        "amilajack": 1,
-        "cjihrig": 7,
-        "targos": 1,
-        "MylesBorins": 1,
-        "JungMinu": 1
-      },
-      "commentsGiven": 18,
-      "commentsReceived": 20,
-      "codeCommentsGiven": 6,
-      "codeCommentsReceived": 6,
-      "generalCommentsGiven": 12,
-      "generalCommentsReceived": 14,
-      "totalPRs": 3,
-      "uniquePRsContributedTo": 74,
-      "commentsByUser": {
-        "Trott": 15,
-        "cjihrig": 2,
-        "BethGriggs": 1
-      },
-      "user": "gireeshpunathil",
-      "uniquePRsApproved": 70,
-      "approvalsReceived": 15,
-      "prSizes": [
-        10,
-        6,
-        35
-      ],
-      "prSize": 17,
-      "prAges": [
-        9,
-        4,
-        3
-      ],
-      "age": 5
-    },
-    {
-      "author": "tniessen",
-      "approvalsGiven": 41,
-      "approvalsByUser": {
-        "ben-turner": 1,
-        "RaisinTen": 1,
-        "jasnell": 1,
-        "vbarzana": 1,
-        "Trott": 26,
-        "panva": 1,
-        "richardlau": 2,
-        "cjihrig": 4,
-        "devsnek": 3,
-        "codebytere": 1
-      },
-      "commentsGiven": 9,
-      "commentsReceived": 22,
-      "codeCommentsGiven": 3,
-      "codeCommentsReceived": 5,
-      "generalCommentsGiven": 6,
-      "generalCommentsReceived": 17,
-      "totalPRs": 6,
-      "uniquePRsContributedTo": 43,
-      "commentsByUser": {
-        "targos": 1,
-        "vbarzana": 1,
-        "devsnek": 5,
-        "richardlau": 2
-      },
-      "user": "tniessen",
-      "uniquePRsApproved": 40,
-      "approvalsReceived": 24,
-      "prSizes": [
-        80,
-        3,
-        3,
-        13,
-        15,
-        7
-      ],
-      "prSize": 20,
-      "prAges": [
-        2,
-        2,
-        2,
-        5,
-        2,
-        2
-      ],
-      "age": 3
-    },
-    {
-      "author": "mmarchini",
-      "approvalsGiven": 23,
-      "approvalsByUser": {
-        "lundibundi": 3,
-        "Trott": 10,
-        "devsnek": 1,
-        "AshCripps": 1,
-        "richardlau": 2,
-        "ljharb": 1,
-        "phillipj": 1,
-        "BethGriggs": 1,
-        "cjihrig": 1,
-        "gengjiawen": 1,
-        "targos": 1
-      },
-      "commentsGiven": 49,
-      "commentsReceived": 5,
-      "codeCommentsGiven": 6,
-      "generalCommentsGiven": 43,
-      "generalCommentsReceived": 5,
-      "totalPRs": 2,
-      "uniquePRsContributedTo": 32,
-      "commentsByUser": {
-        "lundibundi": 5,
-        "mlarcher": 1,
-        "devsnek": 6,
-        "Trott": 2,
-        "BethGriggs": 3,
-        "ljharb": 9,
-        "codebytere": 5,
-        "phillipj": 16,
-        "richardlau": 1,
-        "mscdex": 1
-      },
-      "user": "mmarchini",
-      "uniquePRsApproved": 22,
-      "approvalsReceived": 10,
-      "prSizes": [
-        26,
-        2
-      ],
-      "prSize": 14,
-      "prAges": [
-        3,
-        2
-      ],
-      "age": 3
-    },
-    {
-      "author": "gengjiawen",
-      "approvalsGiven": 59,
-      "approvalsByUser": {
-        "devsnek": 1,
-        "aduh95": 2,
-        "MylesBorins": 4,
-        "richardlau": 13,
-        "BethGriggs": 3,
-        "targos": 6,
-        "Trott": 9,
-        "cjihrig": 17,
-        "NickNaso": 1,
-        "mmarchini": 1,
-        "codebytere": 1,
-        "BridgeAR": 1
-      },
-      "commentsGiven": 10,
-      "commentsReceived": 2,
-      "codeCommentsGiven": 2,
-      "generalCommentsGiven": 8,
-      "generalCommentsReceived": 2,
-      "totalPRs": 4,
-      "uniquePRsContributedTo": 60,
-      "commentsByUser": {
-        "targos": 2,
-        "aduh95": 1,
-        "danielleadams": 2,
-        "mmarchini": 2,
-        "cjihrig": 3
-      },
-      "user": "gengjiawen",
-      "uniquePRsApproved": 59,
-      "approvalsReceived": 11,
-      "prSizes": [
-        1,
-        2,
-        2,
-        2
-      ],
-      "prSize": 2,
-      "prAges": [
-        1,
-        1,
-        1,
-        1
-      ],
-      "age": 1
-    },
-    {
-      "author": "ljharb",
-      "commentsGiven": 14,
-      "commentsReceived": 54,
-      "codeCommentsGiven": 1,
-      "codeCommentsReceived": 20,
-      "generalCommentsGiven": 13,
-      "generalCommentsReceived": 34,
-      "totalPRs": 2,
-      "uniquePRsContributedTo": 9,
-      "commentsByUser": {
-        "codebytere": 2,
-        "targos": 2,
-        "richardlau": 1,
-        "Trott": 2,
-        "BethGriggs": 2,
-        "GeoffreyBooth": 1,
-        "devsnek": 4
-      },
-      "user": "ljharb",
-      "approvalsReceived": 9,
-      "prSizes": [
-        14,
-        141
-      ],
-      "prSize": 78,
-      "prAges": [
-        3,
-        15
-      ],
-      "age": 9
-    },
-    {
-      "author": "watilde",
-      "approvalsGiven": 51,
-      "approvalsByUser": {
-        "lpinca": 2,
-        "Trott": 33,
-        "arsenalzp": 1,
-        "tyankatsu0105": 1,
-        "tnir": 1,
-        "bcoe": 3,
-        "cjihrig": 2,
-        "bnb": 1,
-        "tniessen": 1,
-        "nschonni": 1,
-        "jasnell": 1,
-        "vbarzana": 1,
-        "eltociear": 1,
-        "targos": 1,
-        "AshCripps": 1
-      },
-      "commentsGiven": 3,
-      "commentsReceived": 9,
-      "generalCommentsGiven": 3,
-      "generalCommentsReceived": 9,
-      "totalPRs": 3,
-      "uniquePRsContributedTo": 51,
-      "commentsByUser": {
-        "bcoe": 1,
-        "BethGriggs": 2
-      },
-      "user": "watilde",
-      "uniquePRsApproved": 50,
-      "approvalsReceived": 10,
-      "prSizes": [
-        6,
-        4,
-        9
-      ],
-      "prSize": 6,
-      "prAges": [
-        2,
-        3,
-        2
-      ],
-      "age": 2
-    },
-    {
-      "author": "lundibundi",
-      "approvalsGiven": 31,
-      "approvalsByUser": {
-        "aduh95": 1,
-        "Trott": 23,
-        "mlarcher": 1,
-        "phillipj": 1,
-        "cjihrig": 2,
-        "richardlau": 3
-      },
-      "commentsGiven": 21,
-      "commentsReceived": 9,
-      "codeCommentsGiven": 16,
-      "generalCommentsGiven": 5,
-      "generalCommentsReceived": 9,
-      "totalPRs": 2,
-      "uniquePRsContributedTo": 32,
-      "commentsByUser": {
-        "aduh95": 1,
-        "mlarcher": 2,
-        "Trott": 10,
-        "phillipj": 3,
-        "cjihrig": 1,
-        "richardlau": 3,
-        "devsnek": 1
-      },
-      "user": "lundibundi",
-      "uniquePRsApproved": 30,
-      "approvalsReceived": 12,
-      "prSizes": [
-        12,
-        11
-      ],
-      "prSize": 12,
-      "prAges": [
-        2,
-        2
-      ],
-      "age": 2
-    },
-    {
-      "author": "danielleadams",
-      "commentsReceived": 47,
-      "codeCommentsReceived": 4,
-      "generalCommentsReceived": 43,
-      "totalPRs": 4,
-      "user": "danielleadams",
-      "approvalsReceived": 15,
-      "prSizes": [
-        2912,
-        55490,
-        10,
-        8783
-      ],
-      "prSize": 16799,
-      "prAges": [
-        1,
-        1,
-        3,
-        7
-      ],
-      "age": 3
-    },
-    {
-      "author": "guybedford",
-      "approvalsGiven": 14,
-      "approvalsByUser": {
-        "aduh95": 2,
-        "Trott": 7,
-        "devsnek": 4,
-        "GeoffreyBooth": 1
-      },
-      "commentsGiven": 33,
-      "commentsReceived": 8,
-      "codeCommentsGiven": 8,
-      "generalCommentsGiven": 25,
-      "generalCommentsReceived": 8,
-      "totalPRs": 2,
-      "uniquePRsContributedTo": 17,
-      "commentsByUser": {
-        "aduh95": 3,
-        "Trott": 1,
-        "codebytere": 2,
-        "devsnek": 26,
-        "targos": 1
-      },
-      "user": "guybedford",
-      "uniquePRsApproved": 13,
-      "approvalsReceived": 6,
-      "prSizes": [
-        32,
-        6
-      ],
-      "prSize": 19,
-      "prAges": [
-        2,
-        3
-      ],
-      "age": 3
-    },
-    {
-      "author": "bnoordhuis",
-      "approvalsGiven": 26,
-      "approvalsByUser": {
-        "Trott": 8,
-        "richardlau": 3,
-        "cjihrig": 14,
-        "mscdex": 1
-      },
-      "commentsGiven": 29,
-      "commentsReceived": 1,
-      "codeCommentsGiven": 24,
-      "generalCommentsGiven": 5,
-      "generalCommentsReceived": 1,
-      "totalPRs": 1,
-      "uniquePRsContributedTo": 29,
-      "commentsByUser": {
-        "Trott": 4,
-        "devsnek": 14,
-        "richardlau": 1,
-        "cjihrig": 5,
-        "mscdex": 5
-      },
-      "user": "bnoordhuis",
-      "uniquePRsApproved": 25,
-      "approvalsReceived": 5,
-      "prSizes": [
-        0
-      ],
-      "prAges": [
-        1
-      ],
-      "age": 1
-    },
-    {
-      "author": "RaisinTen",
-      "commentsReceived": 41,
-      "codeCommentsReceived": 7,
-      "generalCommentsReceived": 34,
-      "totalPRs": 4,
-      "user": "RaisinTen",
-      "approvalsReceived": 14,
-      "prSizes": [
-        0,
-        38,
-        350,
-        0
-      ],
-      "prSize": 97,
-      "prAges": [
-        6,
-        2,
-        21,
-        24
-      ],
-      "age": 13
-    },
-    {
-      "author": "PoojaDurgad",
-      "commentsReceived": 35,
-      "codeCommentsReceived": 14,
-      "generalCommentsReceived": 21,
-      "totalPRs": 7,
-      "user": "PoojaDurgad",
-      "approvalsReceived": 20,
-      "prSizes": [
-        0,
-        15,
-        6,
-        2,
-        2,
-        3,
-        6
-      ],
-      "prSize": 5,
-      "prAges": [
-        27,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2
-      ],
-      "age": 6
-    },
-    {
-      "author": "mhdawson",
-      "approvalsGiven": 42,
-      "approvalsByUser": {
-        "jasnell": 1,
-        "Trott": 21,
-        "MylesBorins": 1,
-        "aduh95": 1,
-        "lpinca": 1,
-        "addaleax": 1,
-        "NickNaso": 1,
-        "mlarcher": 1,
-        "Flarna": 1,
-        "mmarchini": 1,
-        "amilajack": 1,
-        "guybedford": 1,
-        "BethGriggs": 3,
-        "phillipj": 1,
-        "cjihrig": 3,
-        "richardlau": 2,
-        "codebytere": 1
-      },
-      "commentsGiven": 4,
-      "commentsReceived": 2,
-      "codeCommentsGiven": 1,
-      "generalCommentsGiven": 3,
-      "generalCommentsReceived": 2,
-      "totalPRs": 1,
-      "uniquePRsContributedTo": 43,
-      "commentsByUser": {
-        "Trott": 3,
-        "BethGriggs": 1
-      },
-      "user": "mhdawson",
-      "uniquePRsApproved": 42,
-      "approvalsReceived": 4,
-      "prSizes": [
-        10
-      ],
-      "prSize": 10,
-      "prAges": [
-        2
-      ],
-      "age": 2
-    },
-    {
-      "author": "mmomtchev",
-      "commentsGiven": 2,
-      "commentsReceived": 32,
-      "codeCommentsGiven": 1,
-      "codeCommentsReceived": 2,
-      "generalCommentsGiven": 1,
-      "generalCommentsReceived": 30,
-      "totalPRs": 2,
-      "uniquePRsContributedTo": 1,
-      "commentsByUser": {
-        "Trott": 2
-      },
-      "user": "mmomtchev",
-      "approvalsReceived": 8,
-      "prSizes": [
-        44,
-        63
-      ],
-      "prSize": 54,
-      "prAges": [
-        1,
-        16
-      ],
-      "age": 9
-    },
-    {
-      "author": "Himself65",
-      "approvalsGiven": 17,
-      "approvalsByUser": {
-        "juanarbol": 1,
-        "lpinca": 1,
-        "eltociear": 1,
-        "Trott": 3,
-        "AshCripps": 1,
-        "addaleax": 1,
-        "phillipj": 1,
-        "richardlau": 2,
-        "mscdex": 1,
-        "cjihrig": 4,
-        "gengjiawen": 1
-      },
-      "commentsGiven": 3,
-      "commentsReceived": 13,
-      "codeCommentsGiven": 3,
-      "generalCommentsReceived": 13,
-      "totalPRs": 1,
-      "uniquePRsContributedTo": 18,
-      "commentsByUser": {
-        "mscdex": 3
-      },
-      "user": "Himself65",
-      "uniquePRsApproved": 17,
-      "approvalsReceived": 4,
-      "prSizes": [
-        51
-      ],
-      "prSize": 51,
-      "prAges": [
-        2
-      ],
-      "age": 2
-    },
-    {
-      "author": "bcoe",
-      "approvalsGiven": 6,
-      "approvalsByUser": {
-        "Trott": 3,
-        "aduh95": 1,
-        "cjihrig": 2
-      },
-      "commentsGiven": 2,
-      "commentsReceived": 16,
-      "codeCommentsReceived": 2,
-      "generalCommentsGiven": 2,
-      "generalCommentsReceived": 14,
-      "totalPRs": 3,
-      "uniquePRsContributedTo": 6,
-      "commentsByUser": {
-        "aduh95": 2
-      },
-      "user": "bcoe",
-      "approvalsReceived": 13,
-      "prSizes": [
-        13,
-        61,
-        50
-      ],
-      "prSize": 41,
-      "prAges": [
-        1,
-        2,
-        2
-      ],
-      "age": 2,
-      "uniquePRsApproved": 6
-    },
-    {
-      "author": "ruyadorno",
-      "approvalsGiven": 1,
-      "approvalsByUser": {
-        "danielleadams": 1
-      },
-      "commentsGiven": 4,
-      "commentsReceived": 23,
-      "codeCommentsReceived": 1,
-      "generalCommentsGiven": 4,
-      "generalCommentsReceived": 22,
-      "totalPRs": 2,
-      "uniquePRsContributedTo": 5,
-      "commentsByUser": {
-        "Trott": 4
-      },
-      "user": "ruyadorno",
-      "approvalsReceived": 9,
-      "prSizes": [
-        1621,
-        15380
-      ],
-      "prSize": 8501,
-      "prAges": [
-        1,
-        1
-      ],
-      "age": 1,
-      "uniquePRsApproved": 1
-    },
-    {
-      "author": "phillipj",
-      "commentsReceived": 29,
-      "codeCommentsReceived": 3,
-      "generalCommentsReceived": 26,
-      "totalPRs": 1,
-      "user": "phillipj",
-      "approvalsReceived": 7,
-      "prSizes": [
-        0
-      ],
-      "prAges": [
-        35
-      ],
-      "age": 35
-    },
-    {
-      "author": "Flarna",
-      "approvalsGiven": 21,
-      "approvalsByUser": {
-        "devsnek": 2,
-        "Trott": 11,
-        "lpinca": 1,
-        "NickNaso": 1,
-        "tniessen": 1,
-        "addaleax": 1,
-        "BethGriggs": 1,
-        "targos": 1,
-        "cjihrig": 1,
-        "gengjiawen": 1
-      },
-      "commentsGiven": 8,
-      "commentsReceived": 1,
-      "generalCommentsGiven": 8,
-      "generalCommentsReceived": 1,
-      "totalPRs": 1,
-      "uniquePRsContributedTo": 25,
-      "commentsByUser": {
-        "Trott": 2,
-        "richardlau": 1,
-        "ljharb": 2,
-        "codebytere": 2,
-        "targos": 1
-      },
-      "user": "Flarna",
-      "uniquePRsApproved": 21,
-      "approvalsReceived": 3,
-      "prSizes": [
-        18
-      ],
-      "prSize": 18,
-      "prAges": [
-        2
-      ],
-      "age": 2
-    },
-    {
-      "author": "GeoffreyBooth",
-      "approvalsGiven": 7,
-      "approvalsByUser": {
-        "Trott": 5,
-        "aduh95": 1,
-        "Himself65": 1
-      },
-      "commentsGiven": 16,
-      "commentsReceived": 8,
-      "codeCommentsGiven": 8,
-      "codeCommentsReceived": 1,
-      "generalCommentsGiven": 8,
-      "generalCommentsReceived": 7,
-      "totalPRs": 1,
-      "uniquePRsContributedTo": 10,
-      "commentsByUser": {
-        "aduh95": 3,
-        "Trott": 7,
-        "codebytere": 2,
-        "devsnek": 4
-      },
-      "user": "GeoffreyBooth",
-      "uniquePRsApproved": 7,
-      "approvalsReceived": 2,
-      "prSizes": [
-        6
-      ],
-      "prSize": 6,
-      "prAges": [
-        2
-      ],
-      "age": 2
-    },
-    {
-      "author": "Lxxyx",
-      "commentsReceived": 24,
-      "codeCommentsReceived": 14,
-      "generalCommentsReceived": 10,
-      "totalPRs": 2,
-      "user": "Lxxyx",
-      "approvalsReceived": 8,
-      "prSizes": [
-        20,
-        0
-      ],
-      "prSize": 10,
-      "prAges": [
-        3,
-        3
-      ],
-      "age": 3
-    },
-    {
-      "author": "rvagg",
-      "approvalsGiven": 1,
-      "approvalsByUser": {
-        "Trott": 1
-      },
-      "commentsGiven": 27,
-      "commentsReceived": 1,
-      "codeCommentsGiven": 1,
-      "generalCommentsGiven": 26,
-      "generalCommentsReceived": 1,
-      "totalPRs": 1,
-      "uniquePRsContributedTo": 14,
-      "commentsByUser": {
-        "Trott": 4,
-        "codebytere": 4,
-        "MylesBorins": 7,
-        "BethGriggs": 4,
-        "cjihrig": 2,
-        "devsnek": 3,
-        "BridgeAR": 1,
-        "targos": 2
-      },
-      "user": "rvagg",
-      "approvalsReceived": 1,
-      "prSizes": [
-        80
-      ],
-      "prSize": 80,
-      "prAges": [
-        3
-      ],
-      "age": 3,
-      "uniquePRsApproved": 1
-    },
-    {
-      "author": "juanarbol",
-      "approvalsGiven": 14,
-      "approvalsByUser": {
-        "Trott": 5,
-        "tnir": 1,
-        "cjihrig": 6,
-        "richardlau": 1,
-        "addaleax": 1
-      },
-      "commentsGiven": 5,
-      "commentsReceived": 5,
-      "generalCommentsGiven": 5,
-      "generalCommentsReceived": 5,
-      "totalPRs": 1,
-      "uniquePRsContributedTo": 17,
-      "commentsByUser": {
-        "aduh95": 1,
-        "targos": 2,
-        "cjihrig": 2
-      },
-      "user": "juanarbol",
-      "uniquePRsApproved": 14,
-      "approvalsReceived": 2,
-      "prSizes": [
-        0
-      ],
-      "prAges": [
-        12
-      ],
-      "age": 12
-    },
-    {
-      "author": "AshCripps",
-      "approvalsGiven": 4,
-      "approvalsByUser": {
-        "mhdawson": 1,
-        "evanlucas": 1,
-        "cjihrig": 1,
-        "rvagg": 1
-      },
-      "commentsGiven": 10,
-      "commentsReceived": 2,
-      "codeCommentsReceived": 1,
-      "generalCommentsGiven": 10,
-      "generalCommentsReceived": 1,
-      "totalPRs": 1,
-      "uniquePRsContributedTo": 10,
-      "commentsByUser": {
-        "evanlucas": 1,
-        "codebytere": 5,
-        "BethGriggs": 2,
-        "MylesBorins": 2
-      },
-      "user": "AshCripps",
-      "approvalsReceived": 8,
-      "prSizes": [
-        7
-      ],
-      "prSize": 7,
-      "prAges": [
-        2
-      ],
-      "age": 2,
-      "uniquePRsApproved": 4
-    },
-    {
-      "author": "nschonni",
-      "approvalsGiven": 6,
-      "approvalsByUser": {
-        "aduh95": 1,
-        "Trott": 5
-      },
-      "commentsGiven": 10,
-      "commentsReceived": 3,
-      "codeCommentsGiven": 6,
-      "generalCommentsGiven": 4,
-      "generalCommentsReceived": 3,
-      "totalPRs": 1,
-      "uniquePRsContributedTo": 10,
-      "commentsByUser": {
-        "aduh95": 5,
-        "Trott": 5
-      },
-      "user": "nschonni",
-      "approvalsReceived": 3,
-      "prSizes": [
-        0
-      ],
-      "prAges": [
-        19
-      ],
-      "age": 19,
-      "uniquePRsApproved": 6
-    },
-    {
-      "author": "evanlucas",
-      "approvalsGiven": 5,
-      "approvalsByUser": {
-        "Trott": 4,
-        "cjihrig": 1
-      },
-      "commentsReceived": 3,
-      "generalCommentsReceived": 3,
-      "totalPRs": 2,
-      "uniquePRsContributedTo": 5,
-      "user": "evanlucas",
-      "uniquePRsApproved": 5,
-      "approvalsReceived": 8,
-      "prSizes": [
-        85222,
-        10
-      ],
-      "prSize": 42616,
-      "prAges": [
-        49,
-        15
-      ],
-      "age": 32
-    },
-    {
-      "author": "davedoesdev",
-      "commentsReceived": 10,
-      "codeCommentsReceived": 2,
-      "generalCommentsReceived": 8,
-      "totalPRs": 1,
-      "user": "davedoesdev",
-      "approvalsReceived": 4,
-      "prSizes": [
-        41
-      ],
-      "prSize": 41,
-      "prAges": [
-        2
-      ],
-      "age": 2
-    },
-    {
-      "author": "danbev",
-      "approvalsGiven": 7,
-      "approvalsByUser": {
-        "mhdawson": 1,
-        "BethGriggs": 1,
-        "devsnek": 1,
-        "richardlau": 1,
-        "cjihrig": 2,
-        "Trott": 1
-      },
-      "commentsGiven": 1,
-      "commentsReceived": 3,
-      "codeCommentsGiven": 1,
-      "generalCommentsReceived": 3,
-      "totalPRs": 1,
-      "uniquePRsContributedTo": 7,
-      "commentsByUser": {
-        "cjihrig": 1
-      },
-      "user": "danbev",
-      "approvalsReceived": 3,
-      "prSizes": [
-        6
-      ],
-      "prSize": 6,
-      "prAges": [
-        2
-      ],
-      "age": 2,
-      "uniquePRsApproved": 7
-    },
-    {
-      "author": "arsenalzp",
-      "commentsReceived": 9,
-      "codeCommentsReceived": 2,
-      "generalCommentsReceived": 7,
-      "totalPRs": 1,
-      "user": "arsenalzp",
-      "approvalsReceived": 4,
-      "prSizes": [
-        4
-      ],
-      "prSize": 4,
-      "prAges": [
-        2
-      ],
-      "age": 2
-    },
-    {
-      "author": "tyankatsu0105",
-      "commentsReceived": 6,
-      "generalCommentsReceived": 6,
-      "totalPRs": 1,
-      "user": "tyankatsu0105",
-      "approvalsReceived": 7,
-      "prSizes": [
-        6
-      ],
-      "prSize": 6,
-      "prAges": [
-        2
-      ],
-      "age": 2
-    },
-    {
-      "author": "BlackYoup",
-      "commentsReceived": 9,
-      "codeCommentsReceived": 2,
-      "generalCommentsReceived": 7,
-      "totalPRs": 1,
-      "user": "BlackYoup",
-      "approvalsReceived": 3,
-      "prSizes": [
-        37
-      ],
-      "prSize": 37,
-      "prAges": [
-        24
-      ],
-      "age": 24
-    },
-    {
-      "author": "pragyandas",
-      "commentsReceived": 10,
-      "codeCommentsReceived": 3,
-      "generalCommentsReceived": 7,
-      "totalPRs": 1,
-      "user": "pragyandas",
-      "approvalsReceived": 2,
-      "prSizes": [
-        0
-      ],
-      "prAges": [
-        21
-      ],
-      "age": 21
-    },
-    {
-      "author": "bingenito",
-      "commentsReceived": 9,
-      "generalCommentsReceived": 9,
-      "totalPRs": 1,
-      "user": "bingenito",
-      "approvalsReceived": 2,
-      "prSizes": [
-        0
-      ],
-      "prAges": [
-        6
-      ],
-      "age": 6
-    },
-    {
-      "author": "mlarcher",
-      "commentsReceived": 6,
-      "codeCommentsReceived": 3,
-      "generalCommentsReceived": 3,
-      "totalPRs": 1,
-      "user": "mlarcher",
-      "approvalsReceived": 5,
-      "prSizes": [
-        7
-      ],
-      "prSize": 7,
-      "prAges": [
-        6
-      ],
-      "age": 6
-    },
-    {
-      "author": "szmarczak",
-      "commentsGiven": 1,
-      "commentsReceived": 7,
-      "codeCommentsReceived": 2,
-      "generalCommentsGiven": 1,
-      "generalCommentsReceived": 5,
-      "totalPRs": 1,
-      "uniquePRsContributedTo": 1,
-      "commentsByUser": {
-        "RaisinTen": 1
-      },
-      "user": "szmarczak",
-      "approvalsReceived": 2,
-      "prSizes": [
-        69
-      ],
-      "prSize": 69,
-      "prAges": [
-        5
-      ],
-      "age": 5
-    },
-    {
-      "author": "eltociear",
-      "commentsReceived": 3,
-      "generalCommentsReceived": 3,
-      "totalPRs": 1,
-      "user": "eltociear",
-      "approvalsReceived": 7,
-      "prSizes": [
-        2
-      ],
-      "prSize": 2,
-      "prAges": [
-        2
-      ],
-      "age": 2
-    },
-    {
-      "author": "schamberg97",
-      "commentsReceived": 6,
-      "codeCommentsReceived": 4,
-      "generalCommentsReceived": 2,
-      "totalPRs": 1,
-      "user": "schamberg97",
-      "approvalsReceived": 4,
-      "prSizes": [
-        19
-      ],
-      "prSize": 19,
-      "prAges": [
-        2
-      ],
-      "age": 2
-    },
-    {
-      "author": "tnir",
-      "commentsReceived": 3,
-      "generalCommentsReceived": 3,
-      "totalPRs": 1,
-      "user": "tnir",
-      "approvalsReceived": 6,
-      "prSizes": [
-        2
-      ],
-      "prSize": 2,
-      "prAges": [
-        4
-      ],
-      "age": 4
-    },
-    {
-      "author": "SimenB",
-      "commentsReceived": 6,
-      "codeCommentsReceived": 2,
-      "generalCommentsReceived": 4,
-      "totalPRs": 1,
-      "user": "SimenB",
-      "approvalsReceived": 3,
-      "prSizes": [
-        9
-      ],
-      "prSize": 9,
-      "prAges": [
-        6
-      ],
-      "age": 6
-    },
-    {
-      "author": "vbarzana",
-      "commentsReceived": 4,
-      "codeCommentsReceived": 2,
-      "generalCommentsReceived": 2,
-      "totalPRs": 1,
-      "user": "vbarzana",
-      "approvalsReceived": 5,
-      "prSizes": [
-        2
-      ],
-      "prSize": 2,
-      "prAges": [
-        2
-      ],
-      "age": 2
-    },
-    {
-      "author": "NickNaso",
-      "approvalsGiven": 2,
-      "approvalsByUser": {
-        "Trott": 2
-      },
-      "commentsReceived": 2,
-      "generalCommentsReceived": 2,
-      "totalPRs": 1,
-      "uniquePRsContributedTo": 2,
-      "user": "NickNaso",
-      "approvalsReceived": 5,
-      "prSizes": [
-        9
-      ],
-      "prSize": 9,
-      "prAges": [
-        2
-      ],
-      "age": 2,
-      "uniquePRsApproved": 2
-    },
-    {
-      "author": "amilajack",
-      "commentsReceived": 2,
-      "codeCommentsReceived": 1,
-      "generalCommentsReceived": 1,
-      "totalPRs": 1,
-      "user": "amilajack",
-      "approvalsReceived": 7,
-      "prSizes": [
-        2
-      ],
-      "prSize": 2,
-      "prAges": [
-        3
-      ],
-      "age": 3
-    },
-    {
-      "author": "yashLadha",
-      "approvalsGiven": 1,
-      "approvalsByUser": {
-        "watilde": 1
-      },
-      "commentsReceived": 3,
-      "generalCommentsReceived": 3,
-      "totalPRs": 1,
-      "uniquePRsContributedTo": 1,
-      "user": "yashLadha",
-      "approvalsReceived": 4,
-      "prSizes": [
-        5
-      ],
-      "prSize": 5,
-      "prAges": [
-        4
-      ],
-      "age": 4,
-      "uniquePRsApproved": 1
-    },
-    {
-      "author": "ax1",
-      "commentsReceived": 2,
-      "generalCommentsReceived": 2,
-      "totalPRs": 1,
-      "user": "ax1",
-      "approvalsReceived": 6,
-      "prSizes": [
-        2
-      ],
-      "prSize": 2,
-      "prAges": [
-        2
-      ],
-      "age": 2
-    },
-    {
-      "author": "copperwall",
-      "commentsReceived": 4,
-      "codeCommentsReceived": 1,
-      "generalCommentsReceived": 3,
-      "totalPRs": 1,
-      "user": "copperwall",
-      "approvalsReceived": 3,
-      "prSizes": [
-        0
-      ],
-      "prAges": [
-        2
-      ],
-      "age": 2
-    },
-    {
-      "author": "AasthaGupta",
-      "commentsReceived": 5,
-      "generalCommentsReceived": 5,
-      "totalPRs": 1,
-      "user": "AasthaGupta",
-      "approvalsReceived": 2,
-      "prSizes": [
-        18
-      ],
-      "prSize": 18,
-      "prAges": [
-        3
-      ],
-      "age": 3
-    },
-    {
-      "author": "DrunkenPoney",
-      "commentsReceived": 4,
-      "generalCommentsReceived": 4,
-      "totalPRs": 1,
-      "user": "DrunkenPoney",
-      "approvalsReceived": 3,
-      "prSizes": [
-        35
-      ],
-      "prSize": 35,
-      "prAges": [
-        2
-      ],
-      "age": 2
-    },
-    {
-      "author": "JungMinu",
-      "totalPRs": 1,
-      "user": "JungMinu",
-      "approvalsReceived": 7,
-      "prSizes": [
-        6
-      ],
-      "prSize": 6,
-      "prAges": [
-        1
-      ],
-      "age": 1
-    },
-    {
-      "author": "clarkkozak",
-      "commentsReceived": 3,
-      "codeCommentsReceived": 1,
-      "generalCommentsReceived": 2,
-      "totalPRs": 1,
-      "user": "clarkkozak",
-      "approvalsReceived": 3,
-      "prSizes": [
-        14
-      ],
-      "prSize": 14,
-      "prAges": [
-        4
-      ],
-      "age": 4
-    },
-    {
-      "author": "KuthorX",
-      "commentsReceived": 5,
-      "generalCommentsReceived": 5,
-      "totalPRs": 1,
-      "user": "KuthorX",
-      "approvalsReceived": 1,
-      "prSizes": [
-        190
-      ],
-      "prSize": 190,
-      "prAges": [
-        59
-      ],
-      "age": 59
-    },
-    {
-      "author": "bnb",
-      "approvalsGiven": 1,
-      "approvalsByUser": {
-        "Trott": 1
-      },
-      "commentsGiven": 1,
-      "commentsReceived": 1,
-      "generalCommentsGiven": 1,
-      "generalCommentsReceived": 1,
-      "totalPRs": 1,
-      "uniquePRsContributedTo": 2,
-      "commentsByUser": {
-        "Trott": 1
-      },
-      "user": "bnb",
-      "approvalsReceived": 2,
-      "prSizes": [
-        22
-      ],
-      "prSize": 22,
-      "prAges": [
-        2
-      ],
-      "age": 2,
-      "uniquePRsApproved": 1
-    },
-    {
-      "author": "tlhunter",
-      "commentsReceived": 3,
-      "generalCommentsReceived": 3,
-      "totalPRs": 1,
-      "user": "tlhunter",
-      "approvalsReceived": 2,
-      "prSizes": [
-        2
-      ],
-      "prSize": 2,
-      "prAges": [
-        1
-      ],
-      "age": 1
-    },
-    {
-      "author": "panva",
-      "commentsReceived": 1,
-      "generalCommentsReceived": 1,
-      "totalPRs": 1,
-      "user": "panva",
-      "approvalsReceived": 4,
-      "prSizes": [
-        2
-      ],
-      "prSize": 2,
-      "prAges": [
-        4
-      ],
-      "age": 4
-    },
-    {
-      "author": "dev-script",
-      "commentsReceived": 3,
-      "generalCommentsReceived": 3,
-      "totalPRs": 1,
-      "user": "dev-script",
-      "approvalsReceived": 1,
-      "prSizes": [
-        2
-      ],
-      "prSize": 2,
-      "prAges": [
-        43
-      ],
-      "age": 43
-    },
-    {
-      "author": "SimplyLinn",
-      "commentsReceived": 2,
-      "codeCommentsReceived": 1,
-      "generalCommentsReceived": 1,
-      "totalPRs": 1,
-      "user": "SimplyLinn",
-      "approvalsReceived": 2,
-      "prSizes": [
-        4
-      ],
-      "prSize": 4,
-      "prAges": [
-        8
-      ],
-      "age": 8
-    },
-    {
-      "author": "ben-turner",
-      "commentsReceived": 1,
-      "generalCommentsReceived": 1,
-      "totalPRs": 1,
-      "user": "ben-turner",
-      "approvalsReceived": 2,
-      "prSizes": [
-        5
-      ],
-      "prSize": 5,
-      "prAges": [
-        2
-      ],
-      "age": 2
-    },
-    {
-      "author": "wjabbour",
-      "commentsReceived": 1,
-      "generalCommentsReceived": 1,
-      "totalPRs": 1,
-      "user": "wjabbour",
-      "approvalsReceived": 2,
-      "prSizes": [
-        17
-      ],
-      "prSize": 17,
-      "prAges": [
-        2
-      ],
-      "age": 2
-    }
-  ],
   "issues": [
+    {
+      "createdAt": "2021-01-02T22:01:58Z",
+      "mergedAt": "2021-01-02T22:01:58Z"
+    },
+    {
+      "createdAt": "2021-01-02T21:20:01Z",
+      "mergedAt": "2021-01-02T21:20:01Z"
+    },
+    {
+      "createdAt": "2021-01-02T16:27:44Z",
+      "mergedAt": "2021-01-02T16:27:44Z"
+    },
+    {
+      "createdAt": "2021-01-02T08:55:53Z",
+      "mergedAt": "2021-01-02T08:55:53Z"
+    },
+    {
+      "createdAt": "2021-01-02T03:45:34Z",
+      "mergedAt": "2021-01-02T03:45:34Z"
+    },
+    {
+      "createdAt": "2021-01-01T15:03:13Z",
+      "mergedAt": "2021-01-01T15:03:13Z"
+    },
+    {
+      "createdAt": "2020-12-31T22:54:39Z",
+      "mergedAt": "2020-12-31T22:54:39Z",
+      "closedAt": "2021-01-01T01:09:02Z"
+    },
+    {
+      "createdAt": "2020-12-31T22:52:57Z",
+      "mergedAt": "2020-12-31T22:52:57Z",
+      "closedAt": "2021-01-01T03:03:04Z"
+    },
+    {
+      "createdAt": "2020-12-31T20:54:37Z",
+      "mergedAt": "2020-12-31T20:54:37Z",
+      "closedAt": "2020-12-31T21:38:56Z"
+    },
+    {
+      "createdAt": "2020-12-31T18:51:58Z",
+      "mergedAt": "2020-12-31T18:51:58Z"
+    },
+    {
+      "createdAt": "2020-12-31T14:45:48Z",
+      "mergedAt": "2020-12-31T14:45:48Z",
+      "closedAt": "2021-01-01T18:19:07Z"
+    },
+    {
+      "createdAt": "2020-12-31T11:38:18Z",
+      "mergedAt": "2020-12-31T11:38:18Z",
+      "closedAt": "2020-12-31T14:34:26Z"
+    },
+    {
+      "createdAt": "2020-12-31T06:55:29Z",
+      "mergedAt": "2020-12-31T06:55:29Z"
+    },
+    {
+      "createdAt": "2020-12-31T03:20:24Z",
+      "mergedAt": "2020-12-31T03:20:24Z"
+    },
+    {
+      "createdAt": "2020-12-30T19:57:15Z",
+      "mergedAt": "2020-12-30T19:57:15Z"
+    },
+    {
+      "createdAt": "2020-12-30T17:13:05Z",
+      "mergedAt": "2020-12-30T17:13:05Z"
+    },
+    {
+      "createdAt": "2020-12-30T16:02:55Z",
+      "mergedAt": "2020-12-30T16:02:55Z"
+    },
+    {
+      "createdAt": "2020-12-30T15:52:53Z",
+      "mergedAt": "2020-12-30T15:52:53Z"
+    },
+    {
+      "createdAt": "2020-12-30T14:11:16Z",
+      "mergedAt": "2020-12-30T14:11:16Z"
+    },
+    {
+      "createdAt": "2020-12-30T12:54:04Z",
+      "mergedAt": "2020-12-30T12:54:04Z",
+      "closedAt": "2020-12-30T14:34:16Z"
+    },
+    {
+      "createdAt": "2020-12-30T12:53:29Z",
+      "mergedAt": "2020-12-30T12:53:29Z",
+      "closedAt": "2020-12-30T14:33:15Z"
+    },
+    {
+      "createdAt": "2020-12-30T09:36:57Z",
+      "mergedAt": "2020-12-30T09:36:57Z"
+    },
+    {
+      "createdAt": "2020-12-30T03:02:57Z",
+      "mergedAt": "2020-12-30T03:02:57Z",
+      "closedAt": "2020-12-30T03:15:57Z"
+    },
+    {
+      "createdAt": "2020-12-29T16:38:23Z",
+      "mergedAt": "2020-12-29T16:38:23Z"
+    },
+    {
+      "createdAt": "2020-12-29T12:25:29Z",
+      "mergedAt": "2020-12-29T12:25:29Z"
+    },
+    {
+      "createdAt": "2020-12-29T12:23:33Z",
+      "mergedAt": "2020-12-29T12:23:33Z"
+    },
+    {
+      "createdAt": "2020-12-29T09:46:04Z",
+      "mergedAt": "2020-12-29T09:46:04Z"
+    },
+    {
+      "createdAt": "2020-12-28T21:23:55Z",
+      "mergedAt": "2020-12-28T21:23:55Z",
+      "isBug": true
+    },
+    {
+      "createdAt": "2020-12-28T15:26:05Z",
+      "mergedAt": "2020-12-28T15:26:05Z"
+    },
+    {
+      "createdAt": "2020-12-28T08:56:33Z",
+      "mergedAt": "2020-12-28T08:56:33Z"
+    },
+    {
+      "createdAt": "2020-12-28T05:33:33Z",
+      "mergedAt": "2020-12-28T05:33:33Z",
+      "isBug": true
+    },
+    {
+      "createdAt": "2020-12-28T01:38:20Z",
+      "mergedAt": "2020-12-28T01:38:20Z"
+    },
+    {
+      "createdAt": "2020-12-28T00:42:46Z",
+      "mergedAt": "2020-12-28T00:42:46Z",
+      "closedAt": "2020-12-30T16:05:23Z"
+    },
+    {
+      "createdAt": "2020-12-27T21:13:27Z",
+      "mergedAt": "2020-12-27T21:13:27Z",
+      "closedAt": "2020-12-27T21:57:12Z"
+    },
+    {
+      "createdAt": "2020-12-27T15:52:19Z",
+      "mergedAt": "2020-12-27T15:52:19Z",
+      "closedAt": "2020-12-30T16:56:28Z"
+    },
+    {
+      "createdAt": "2020-12-26T16:45:30Z",
+      "mergedAt": "2020-12-26T16:45:30Z"
+    },
+    {
+      "createdAt": "2020-12-26T15:58:18Z",
+      "mergedAt": "2020-12-26T15:58:18Z",
+      "closedAt": "2020-12-26T17:17:03Z"
+    },
+    {
+      "createdAt": "2020-12-26T13:44:03Z",
+      "mergedAt": "2020-12-26T13:44:03Z"
+    },
+    {
+      "createdAt": "2020-12-25T13:29:22Z",
+      "mergedAt": "2020-12-25T13:29:22Z"
+    },
+    {
+      "createdAt": "2020-12-24T18:57:25Z",
+      "mergedAt": "2020-12-24T18:57:25Z",
+      "closedAt": "2020-12-24T19:20:53Z"
+    },
+    {
+      "createdAt": "2020-12-24T18:06:18Z",
+      "mergedAt": "2020-12-24T18:06:18Z",
+      "isBug": true
+    },
+    {
+      "createdAt": "2020-12-24T17:25:42Z",
+      "mergedAt": "2020-12-24T17:25:42Z",
+      "closedAt": "2020-12-24T18:07:09Z"
+    },
+    {
+      "createdAt": "2020-12-24T10:45:41Z",
+      "mergedAt": "2020-12-24T10:45:41Z",
+      "closedAt": "2020-12-27T13:05:51Z",
+      "isBug": true
+    },
+    {
+      "createdAt": "2020-12-24T06:20:27Z",
+      "mergedAt": "2020-12-24T06:20:27Z"
+    },
+    {
+      "createdAt": "2020-12-24T05:01:02Z",
+      "mergedAt": "2020-12-24T05:01:02Z",
+      "closedAt": "2020-12-29T00:48:59Z",
+      "isBug": true
+    },
+    {
+      "createdAt": "2020-12-23T20:00:45Z",
+      "mergedAt": "2020-12-23T20:00:45Z"
+    },
+    {
+      "createdAt": "2020-12-22T16:01:24Z",
+      "mergedAt": "2020-12-22T16:01:24Z"
+    },
+    {
+      "createdAt": "2020-12-22T11:46:37Z",
+      "mergedAt": "2020-12-22T11:46:37Z",
+      "closedAt": "2020-12-24T15:12:17Z"
+    },
+    {
+      "createdAt": "2020-12-21T23:23:45Z",
+      "mergedAt": "2020-12-21T23:23:45Z"
+    },
+    {
+      "createdAt": "2020-12-21T14:40:26Z",
+      "mergedAt": "2020-12-21T14:40:26Z",
+      "closedAt": "2020-12-21T14:48:29Z"
+    },
+    {
+      "createdAt": "2020-12-21T13:35:07Z",
+      "mergedAt": "2020-12-21T13:35:07Z"
+    },
+    {
+      "createdAt": "2020-12-21T02:37:16Z",
+      "mergedAt": "2020-12-21T02:37:16Z",
+      "closedAt": "2020-12-21T04:27:37Z"
+    },
+    {
+      "createdAt": "2020-12-21T02:36:46Z",
+      "mergedAt": "2020-12-21T02:36:46Z",
+      "closedAt": "2020-12-21T04:27:19Z"
+    },
+    {
+      "createdAt": "2020-12-20T05:37:28Z",
+      "mergedAt": "2020-12-20T05:37:28Z"
+    },
+    {
+      "createdAt": "2020-12-19T23:19:10Z",
+      "mergedAt": "2020-12-19T23:19:10Z",
+      "closedAt": "2020-12-20T01:11:56Z"
+    },
+    {
+      "createdAt": "2020-12-19T13:56:43Z",
+      "mergedAt": "2020-12-19T13:56:43Z"
+    },
+    {
+      "createdAt": "2020-12-19T06:32:23Z",
+      "mergedAt": "2020-12-19T06:32:23Z"
+    },
+    {
+      "createdAt": "2020-12-19T03:57:58Z",
+      "mergedAt": "2020-12-19T03:57:58Z"
+    },
+    {
+      "createdAt": "2020-12-19T03:20:42Z",
+      "mergedAt": "2020-12-19T03:20:42Z"
+    },
+    {
+      "createdAt": "2020-12-18T20:07:51Z",
+      "mergedAt": "2020-12-18T20:07:51Z"
+    },
+    {
+      "createdAt": "2020-12-18T20:00:53Z",
+      "mergedAt": "2020-12-18T20:00:53Z"
+    },
+    {
+      "createdAt": "2020-12-18T19:02:12Z",
+      "mergedAt": "2020-12-18T19:02:12Z"
+    },
+    {
+      "createdAt": "2020-12-18T16:13:09Z",
+      "mergedAt": "2020-12-18T16:13:09Z"
+    },
+    {
+      "createdAt": "2020-12-18T05:37:23Z",
+      "mergedAt": "2020-12-18T05:37:23Z",
+      "closedAt": "2020-12-31T20:31:26Z",
+      "isBug": true
+    },
+    {
+      "createdAt": "2020-12-18T01:38:52Z",
+      "mergedAt": "2020-12-18T01:38:52Z"
+    },
+    {
+      "createdAt": "2020-12-17T12:03:40Z",
+      "mergedAt": "2020-12-17T12:03:40Z",
+      "closedAt": "2020-12-17T23:40:53Z",
+      "isBug": true
+    },
+    {
+      "createdAt": "2020-12-17T03:43:18Z",
+      "mergedAt": "2020-12-17T03:43:18Z"
+    },
+    {
+      "createdAt": "2020-12-16T23:20:32Z",
+      "mergedAt": "2020-12-16T23:20:32Z",
+      "closedAt": "2020-12-20T09:28:51Z",
+      "isBug": true
+    },
+    {
+      "createdAt": "2020-12-15T19:33:35Z",
+      "mergedAt": "2020-12-15T19:33:35Z"
+    },
+    {
+      "createdAt": "2020-12-15T16:52:19Z",
+      "mergedAt": "2020-12-15T16:52:19Z",
+      "isBug": true
+    },
+    {
+      "createdAt": "2020-12-15T16:06:47Z",
+      "mergedAt": "2020-12-15T16:06:47Z",
+      "closedAt": "2020-12-16T14:59:08Z"
+    },
+    {
+      "createdAt": "2020-12-15T04:51:26Z",
+      "mergedAt": "2020-12-15T04:51:26Z",
+      "isBug": true
+    },
+    {
+      "createdAt": "2020-12-14T16:39:52Z",
+      "mergedAt": "2020-12-14T16:39:52Z",
+      "isBug": true
+    },
+    {
+      "createdAt": "2020-12-14T16:36:13Z",
+      "mergedAt": "2020-12-14T16:36:13Z"
+    },
+    {
+      "createdAt": "2020-12-14T16:31:22Z",
+      "mergedAt": "2020-12-14T16:31:22Z",
+      "closedAt": "2020-12-16T10:36:32Z"
+    },
+    {
+      "createdAt": "2020-12-14T13:49:43Z",
+      "mergedAt": "2020-12-14T13:49:43Z",
+      "closedAt": "2020-12-22T14:57:38Z"
+    },
+    {
+      "createdAt": "2020-12-14T08:47:38Z",
+      "mergedAt": "2020-12-14T08:47:38Z",
+      "closedAt": "2020-12-14T09:10:17Z"
+    },
+    {
+      "createdAt": "2020-12-14T01:49:48Z",
+      "mergedAt": "2020-12-14T01:49:48Z",
+      "closedAt": "2020-12-19T23:03:11Z"
+    },
+    {
+      "createdAt": "2020-12-13T14:33:17Z",
+      "mergedAt": "2020-12-13T14:33:17Z",
+      "closedAt": "2020-12-29T00:45:34Z"
+    },
+    {
+      "createdAt": "2020-12-13T08:58:01Z",
+      "mergedAt": "2020-12-13T08:58:01Z",
+      "closedAt": "2020-12-13T09:06:33Z"
+    },
+    {
+      "createdAt": "2020-12-12T16:10:13Z",
+      "mergedAt": "2020-12-12T16:10:13Z",
+      "closedAt": "2020-12-12T17:18:35Z"
+    },
+    {
+      "createdAt": "2020-12-12T15:54:48Z",
+      "mergedAt": "2020-12-12T15:54:48Z",
+      "closedAt": "2020-12-13T11:46:28Z"
+    },
+    {
+      "createdAt": "2020-12-12T13:45:04Z",
+      "mergedAt": "2020-12-12T13:45:04Z"
+    },
+    {
+      "createdAt": "2020-12-12T09:14:33Z",
+      "mergedAt": "2020-12-12T09:14:33Z",
+      "isBug": true
+    },
+    {
+      "createdAt": "2020-12-11T17:26:12Z",
+      "mergedAt": "2020-12-11T17:26:12Z",
+      "closedAt": "2020-12-12T17:37:10Z"
+    },
+    {
+      "createdAt": "2020-12-11T17:14:32Z",
+      "mergedAt": "2020-12-11T17:14:32Z",
+      "closedAt": "2020-12-12T17:58:27Z"
+    },
+    {
+      "createdAt": "2020-12-11T16:41:58Z",
+      "mergedAt": "2020-12-11T16:41:58Z"
+    },
+    {
+      "createdAt": "2020-12-10T15:41:40Z",
+      "mergedAt": "2020-12-10T15:41:40Z"
+    },
+    {
+      "createdAt": "2020-12-10T12:22:15Z",
+      "mergedAt": "2020-12-10T12:22:15Z",
+      "closedAt": "2020-12-10T14:04:26Z",
+      "isBug": true
+    },
+    {
+      "createdAt": "2020-12-10T11:54:29Z",
+      "mergedAt": "2020-12-10T11:54:29Z"
+    },
+    {
+      "createdAt": "2020-12-10T10:12:29Z",
+      "mergedAt": "2020-12-10T10:12:29Z",
+      "closedAt": "2020-12-10T14:43:36Z"
+    },
+    {
+      "createdAt": "2020-12-10T02:10:16Z",
+      "mergedAt": "2020-12-10T02:10:16Z",
+      "closedAt": "2020-12-18T15:12:44Z"
+    },
+    {
+      "createdAt": "2020-12-09T23:37:18Z",
+      "mergedAt": "2020-12-09T23:37:18Z"
+    },
+    {
+      "createdAt": "2020-12-09T22:01:41Z",
+      "mergedAt": "2020-12-09T22:01:41Z"
+    },
+    {
+      "createdAt": "2020-12-09T20:27:27Z",
+      "mergedAt": "2020-12-09T20:27:27Z"
+    },
+    {
+      "createdAt": "2020-12-09T13:03:18Z",
+      "mergedAt": "2020-12-09T13:03:18Z"
+    },
+    {
+      "createdAt": "2020-12-08T21:19:23Z",
+      "mergedAt": "2020-12-08T21:19:23Z"
+    },
+    {
+      "createdAt": "2020-12-08T13:20:44Z",
+      "mergedAt": "2020-12-08T13:20:44Z",
+      "closedAt": "2020-12-28T11:44:03Z"
+    },
+    {
+      "createdAt": "2020-12-08T04:06:15Z",
+      "mergedAt": "2020-12-08T04:06:15Z"
+    },
+    {
+      "createdAt": "2020-12-08T00:42:40Z",
+      "mergedAt": "2020-12-08T00:42:40Z",
+      "closedAt": "2020-12-15T13:40:45Z"
+    },
+    {
+      "createdAt": "2020-12-07T05:53:13Z",
+      "mergedAt": "2020-12-07T05:53:13Z",
+      "closedAt": "2020-12-07T06:41:11Z"
+    },
+    {
+      "createdAt": "2020-12-06T19:51:30Z",
+      "mergedAt": "2020-12-06T19:51:30Z",
+      "closedAt": "2020-12-07T09:06:23Z"
+    },
+    {
+      "createdAt": "2020-12-06T15:19:03Z",
+      "mergedAt": "2020-12-06T15:19:03Z"
+    },
+    {
+      "createdAt": "2020-12-06T00:09:31Z",
+      "mergedAt": "2020-12-06T00:09:31Z",
+      "isBug": true
+    },
+    {
+      "createdAt": "2020-12-05T22:45:21Z",
+      "mergedAt": "2020-12-05T22:45:21Z"
+    },
+    {
+      "createdAt": "2020-12-05T20:53:58Z",
+      "mergedAt": "2020-12-05T20:53:58Z",
+      "closedAt": "2020-12-06T13:19:53Z"
+    },
+    {
+      "createdAt": "2020-12-05T00:28:08Z",
+      "mergedAt": "2020-12-05T00:28:08Z",
+      "closedAt": "2020-12-05T19:02:45Z"
+    },
+    {
+      "createdAt": "2020-12-05T00:26:10Z",
+      "mergedAt": "2020-12-05T00:26:10Z"
+    },
+    {
+      "createdAt": "2020-12-04T07:30:49Z",
+      "mergedAt": "2020-12-04T07:30:49Z",
+      "closedAt": "2020-12-07T15:18:50Z"
+    },
+    {
+      "createdAt": "2020-12-04T06:22:44Z",
+      "mergedAt": "2020-12-04T06:22:44Z",
+      "closedAt": "2020-12-04T19:26:38Z"
+    },
+    {
+      "createdAt": "2020-12-04T05:44:39Z",
+      "mergedAt": "2020-12-04T05:44:39Z"
+    },
+    {
+      "createdAt": "2020-12-04T02:38:45Z",
+      "mergedAt": "2020-12-04T02:38:45Z",
+      "closedAt": "2020-12-04T02:44:33Z"
+    },
+    {
+      "createdAt": "2020-12-04T02:27:57Z",
+      "mergedAt": "2020-12-04T02:27:57Z",
+      "closedAt": "2020-12-04T19:53:33Z"
+    },
+    {
+      "createdAt": "2020-12-03T23:18:31Z",
+      "mergedAt": "2020-12-03T23:18:31Z",
+      "closedAt": "2020-12-04T14:20:44Z"
+    },
+    {
+      "createdAt": "2020-12-03T23:13:59Z",
+      "mergedAt": "2020-12-03T23:13:59Z",
+      "closedAt": "2020-12-06T13:23:26Z"
+    },
+    {
+      "createdAt": "2020-12-03T16:31:39Z",
+      "mergedAt": "2020-12-03T16:31:39Z",
+      "closedAt": "2020-12-14T14:37:10Z"
+    },
+    {
+      "createdAt": "2020-12-03T10:34:30Z",
+      "mergedAt": "2020-12-03T10:34:30Z",
+      "closedAt": "2020-12-13T21:16:38Z"
+    },
+    {
+      "createdAt": "2020-12-02T06:38:06Z",
+      "mergedAt": "2020-12-02T06:38:06Z"
+    },
+    {
+      "createdAt": "2020-12-02T05:13:53Z",
+      "mergedAt": "2020-12-02T05:13:53Z",
+      "closedAt": "2020-12-02T11:02:44Z"
+    },
+    {
+      "createdAt": "2020-12-01T21:42:14Z",
+      "mergedAt": "2020-12-01T21:42:14Z"
+    },
+    {
+      "createdAt": "2020-12-01T13:52:06Z",
+      "mergedAt": "2020-12-01T13:52:06Z"
+    },
+    {
+      "createdAt": "2020-12-01T09:08:39Z",
+      "mergedAt": "2020-12-01T09:08:39Z",
+      "closedAt": "2020-12-16T18:39:50Z"
+    },
+    {
+      "createdAt": "2020-12-01T09:05:23Z",
+      "mergedAt": "2020-12-01T09:05:23Z",
+      "closedAt": "2020-12-01T10:58:52Z"
+    },
+    {
+      "createdAt": "2020-12-01T01:15:38Z",
+      "mergedAt": "2020-12-01T01:15:38Z"
+    },
     {
       "createdAt": "2020-11-30T19:23:56Z",
       "mergedAt": "2020-11-30T19:23:56Z",
@@ -18025,7 +17739,8 @@
     },
     {
       "createdAt": "2020-11-30T10:52:28Z",
-      "mergedAt": "2020-11-30T10:52:28Z"
+      "mergedAt": "2020-11-30T10:52:28Z",
+      "closedAt": "2020-12-12T23:00:18Z"
     },
     {
       "createdAt": "2020-11-29T03:51:39Z",
@@ -18034,7 +17749,8 @@
     },
     {
       "createdAt": "2020-11-28T11:30:00Z",
-      "mergedAt": "2020-11-28T11:30:00Z"
+      "mergedAt": "2020-11-28T11:30:00Z",
+      "closedAt": "2020-12-15T13:27:25Z"
     },
     {
       "createdAt": "2020-11-28T11:20:27Z",
@@ -18057,7 +17773,8 @@
     },
     {
       "createdAt": "2020-11-27T09:20:41Z",
-      "mergedAt": "2020-11-27T09:20:41Z"
+      "mergedAt": "2020-11-27T09:20:41Z",
+      "closedAt": "2020-12-09T23:48:56Z"
     },
     {
       "createdAt": "2020-11-27T09:05:35Z",
@@ -18079,7 +17796,8 @@
     },
     {
       "createdAt": "2020-11-26T11:19:44Z",
-      "mergedAt": "2020-11-26T11:19:44Z"
+      "mergedAt": "2020-11-26T11:19:44Z",
+      "closedAt": "2020-12-28T11:52:08Z"
     },
     {
       "createdAt": "2020-11-26T09:24:37Z",
@@ -18088,7 +17806,8 @@
     },
     {
       "createdAt": "2020-11-25T20:33:05Z",
-      "mergedAt": "2020-11-25T20:33:05Z"
+      "mergedAt": "2020-11-25T20:33:05Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-11-25T19:22:19Z",
@@ -18102,7 +17821,8 @@
     },
     {
       "createdAt": "2020-11-24T20:47:27Z",
-      "mergedAt": "2020-11-24T20:47:27Z"
+      "mergedAt": "2020-11-24T20:47:27Z",
+      "closedAt": "2020-12-06T15:26:32Z"
     },
     {
       "createdAt": "2020-11-24T19:12:13Z",
@@ -18115,7 +17835,8 @@
     },
     {
       "createdAt": "2020-11-24T11:18:59Z",
-      "mergedAt": "2020-11-24T11:18:59Z"
+      "mergedAt": "2020-11-24T11:18:59Z",
+      "closedAt": "2020-12-07T19:36:08Z"
     },
     {
       "createdAt": "2020-11-24T06:58:16Z",
@@ -18129,7 +17850,8 @@
     {
       "createdAt": "2020-11-23T21:06:26Z",
       "mergedAt": "2020-11-23T21:06:26Z",
-      "closedAt": "2020-11-27T17:47:53Z"
+      "closedAt": "2020-11-27T17:47:53Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-11-23T21:04:17Z",
@@ -18222,7 +17944,8 @@
     },
     {
       "createdAt": "2020-11-17T19:01:13Z",
-      "mergedAt": "2020-11-17T19:01:13Z"
+      "mergedAt": "2020-11-17T19:01:13Z",
+      "closedAt": "2020-12-12T20:58:11Z"
     },
     {
       "createdAt": "2020-11-17T17:16:08Z",
@@ -18322,7 +18045,8 @@
     },
     {
       "createdAt": "2020-11-11T07:33:44Z",
-      "mergedAt": "2020-11-11T07:33:44Z"
+      "mergedAt": "2020-11-11T07:33:44Z",
+      "closedAt": "2020-12-21T14:04:23Z"
     },
     {
       "createdAt": "2020-11-11T06:42:33Z",
@@ -18343,7 +18067,8 @@
     },
     {
       "createdAt": "2020-11-10T19:03:41Z",
-      "mergedAt": "2020-11-10T19:03:41Z"
+      "mergedAt": "2020-11-10T19:03:41Z",
+      "closedAt": "2020-12-02T14:55:21Z"
     },
     {
       "createdAt": "2020-11-10T17:58:16Z",
@@ -18361,7 +18086,8 @@
     },
     {
       "createdAt": "2020-11-09T21:42:30Z",
-      "mergedAt": "2020-11-09T21:42:30Z"
+      "mergedAt": "2020-11-09T21:42:30Z",
+      "closedAt": "2020-12-18T15:42:20Z"
     },
     {
       "createdAt": "2020-11-09T20:38:45Z",
@@ -18423,7 +18149,8 @@
     },
     {
       "createdAt": "2020-11-07T13:12:08Z",
-      "mergedAt": "2020-11-07T13:12:08Z"
+      "mergedAt": "2020-11-07T13:12:08Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-11-07T12:43:06Z",
@@ -18433,10 +18160,6 @@
     {
       "createdAt": "2020-11-07T06:40:09Z",
       "mergedAt": "2020-11-07T06:40:09Z"
-    },
-    {
-      "createdAt": "2020-11-06T20:44:02Z",
-      "mergedAt": "2020-11-06T20:44:02Z"
     },
     {
       "createdAt": "2020-11-06T19:29:52Z",
@@ -18466,21 +18189,19 @@
       "closedAt": "2020-11-07T15:23:50Z"
     },
     {
-      "createdAt": "2020-11-05T22:17:44Z",
-      "mergedAt": "2020-11-05T22:17:44Z"
-    },
-    {
       "createdAt": "2020-11-05T20:25:57Z",
       "mergedAt": "2020-11-05T20:25:57Z",
       "closedAt": "2020-11-11T14:09:34Z"
     },
     {
       "createdAt": "2020-11-05T18:49:10Z",
-      "mergedAt": "2020-11-05T18:49:10Z"
+      "mergedAt": "2020-11-05T18:49:10Z",
+      "closedAt": "2020-12-12T01:58:48Z"
     },
     {
       "createdAt": "2020-11-05T07:55:41Z",
-      "mergedAt": "2020-11-05T07:55:41Z"
+      "mergedAt": "2020-11-05T07:55:41Z",
+      "closedAt": "2020-12-29T06:49:50Z"
     },
     {
       "createdAt": "2020-11-04T23:38:10Z",
@@ -18542,7 +18263,8 @@
     {
       "createdAt": "2020-11-03T01:20:41Z",
       "mergedAt": "2020-11-03T01:20:41Z",
-      "closedAt": "2020-11-05T20:38:41Z"
+      "closedAt": "2020-11-05T20:38:41Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-11-03T00:55:44Z",
@@ -18551,7 +18273,8 @@
     },
     {
       "createdAt": "2020-11-02T19:11:07Z",
-      "mergedAt": "2020-11-02T19:11:07Z"
+      "mergedAt": "2020-11-02T19:11:07Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-11-02T18:27:06Z",
@@ -18561,7 +18284,8 @@
     {
       "createdAt": "2020-11-02T15:53:07Z",
       "mergedAt": "2020-11-02T15:53:07Z",
-      "closedAt": "2020-11-04T13:13:36Z"
+      "closedAt": "2020-11-04T13:13:36Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-11-02T13:21:23Z",
@@ -18595,12 +18319,14 @@
     },
     {
       "createdAt": "2020-10-31T15:27:42Z",
-      "mergedAt": "2020-10-31T15:27:42Z"
+      "mergedAt": "2020-10-31T15:27:42Z",
+      "closedAt": "2020-12-21T14:34:51Z"
     },
     {
       "createdAt": "2020-10-31T15:25:04Z",
       "mergedAt": "2020-10-31T15:25:04Z",
-      "closedAt": "2020-11-04T15:56:29Z"
+      "closedAt": "2020-11-04T15:56:29Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-10-31T10:48:47Z",
@@ -18635,7 +18361,8 @@
     },
     {
       "createdAt": "2020-10-30T14:14:01Z",
-      "mergedAt": "2020-10-30T14:14:01Z"
+      "mergedAt": "2020-10-30T14:14:01Z",
+      "closedAt": "2020-12-07T15:30:13Z"
     },
     {
       "createdAt": "2020-10-30T12:29:31Z",
@@ -18656,7 +18383,8 @@
     },
     {
       "createdAt": "2020-10-29T19:26:18Z",
-      "mergedAt": "2020-10-29T19:26:18Z"
+      "mergedAt": "2020-10-29T19:26:18Z",
+      "closedAt": "2020-12-12T23:16:16Z"
     },
     {
       "createdAt": "2020-10-29T19:15:09Z",
@@ -18664,12 +18392,9 @@
       "closedAt": "2020-11-07T13:18:00Z"
     },
     {
-      "createdAt": "2020-10-29T16:52:37Z",
-      "mergedAt": "2020-10-29T16:52:37Z"
-    },
-    {
       "createdAt": "2020-10-29T12:48:55Z",
-      "mergedAt": "2020-10-29T12:48:55Z"
+      "mergedAt": "2020-10-29T12:48:55Z",
+      "closedAt": "2020-12-07T12:35:19Z"
     },
     {
       "createdAt": "2020-10-29T12:02:21Z",
@@ -18687,7 +18412,9 @@
     },
     {
       "createdAt": "2020-10-28T16:30:43Z",
-      "mergedAt": "2020-10-28T16:30:43Z"
+      "mergedAt": "2020-10-28T16:30:43Z",
+      "closedAt": "2020-12-27T12:39:06Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-10-28T14:35:57Z",
@@ -18751,7 +18478,8 @@
     {
       "createdAt": "2020-10-26T15:28:07Z",
       "mergedAt": "2020-10-26T15:28:07Z",
-      "closedAt": "2020-10-30T11:08:14Z"
+      "closedAt": "2020-10-30T11:08:14Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-10-26T14:54:36Z",
@@ -18864,7 +18592,8 @@
     },
     {
       "createdAt": "2020-10-21T09:49:35Z",
-      "mergedAt": "2020-10-21T09:49:35Z"
+      "mergedAt": "2020-10-21T09:49:35Z",
+      "closedAt": "2020-12-28T11:51:31Z"
     },
     {
       "createdAt": "2020-10-21T07:59:50Z",
@@ -18872,7 +18601,9 @@
     },
     {
       "createdAt": "2020-10-21T07:05:26Z",
-      "mergedAt": "2020-10-21T07:05:26Z"
+      "mergedAt": "2020-10-21T07:05:26Z",
+      "closedAt": "2020-12-12T20:58:11Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-10-20T16:23:37Z",
@@ -18929,7 +18660,8 @@
     {
       "createdAt": "2020-10-16T20:43:55Z",
       "mergedAt": "2020-10-16T20:43:55Z",
-      "closedAt": "2020-10-24T14:26:55Z"
+      "closedAt": "2020-10-24T14:26:55Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-10-16T20:35:12Z",
@@ -18939,11 +18671,13 @@
     {
       "createdAt": "2020-10-16T20:03:18Z",
       "mergedAt": "2020-10-16T20:03:18Z",
-      "closedAt": "2020-10-24T21:55:10Z"
+      "closedAt": "2020-10-24T21:55:10Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-10-16T19:30:37Z",
-      "mergedAt": "2020-10-16T19:30:37Z"
+      "mergedAt": "2020-10-16T19:30:37Z",
+      "closedAt": "2020-12-28T11:54:34Z"
     },
     {
       "createdAt": "2020-10-16T19:29:23Z",
@@ -18957,7 +18691,8 @@
     },
     {
       "createdAt": "2020-10-16T12:28:14Z",
-      "mergedAt": "2020-10-16T12:28:14Z"
+      "mergedAt": "2020-10-16T12:28:14Z",
+      "closedAt": "2020-12-23T11:12:14Z"
     },
     {
       "createdAt": "2020-10-16T11:28:27Z",
@@ -18966,7 +18701,9 @@
     },
     {
       "createdAt": "2020-10-16T10:44:32Z",
-      "mergedAt": "2020-10-16T10:44:32Z"
+      "mergedAt": "2020-10-16T10:44:32Z",
+      "closedAt": "2020-12-31T15:40:11Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-10-16T10:42:31Z",
@@ -18984,11 +18721,13 @@
     },
     {
       "createdAt": "2020-10-15T17:58:20Z",
-      "mergedAt": "2020-10-15T17:58:20Z"
+      "mergedAt": "2020-10-15T17:58:20Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-10-15T15:19:24Z",
-      "mergedAt": "2020-10-15T15:19:24Z"
+      "mergedAt": "2020-10-15T15:19:24Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-10-15T14:21:54Z",
@@ -19011,7 +18750,8 @@
     },
     {
       "createdAt": "2020-10-13T19:13:59Z",
-      "mergedAt": "2020-10-13T19:13:59Z"
+      "mergedAt": "2020-10-13T19:13:59Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-10-13T12:53:30Z",
@@ -19031,7 +18771,8 @@
     {
       "createdAt": "2020-10-12T21:01:58Z",
       "mergedAt": "2020-10-12T21:01:58Z",
-      "closedAt": "2020-10-27T10:41:30Z"
+      "closedAt": "2020-10-27T10:41:30Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-10-12T13:51:39Z",
@@ -19159,11 +18900,13 @@
     },
     {
       "createdAt": "2020-10-06T15:13:56Z",
-      "mergedAt": "2020-10-06T15:13:56Z"
+      "mergedAt": "2020-10-06T15:13:56Z",
+      "closedAt": "2020-12-27T15:49:47Z"
     },
     {
       "createdAt": "2020-10-06T15:05:37Z",
-      "mergedAt": "2020-10-06T15:05:37Z"
+      "mergedAt": "2020-10-06T15:05:37Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-10-05T21:49:52Z",
@@ -19176,7 +18919,8 @@
     },
     {
       "createdAt": "2020-10-05T15:23:18Z",
-      "mergedAt": "2020-10-05T15:23:18Z"
+      "mergedAt": "2020-10-05T15:23:18Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-10-05T11:16:45Z",
@@ -19200,7 +18944,8 @@
     {
       "createdAt": "2020-10-03T18:35:47Z",
       "mergedAt": "2020-10-03T18:35:47Z",
-      "closedAt": "2020-10-08T12:40:41Z"
+      "closedAt": "2020-10-08T12:40:41Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-10-03T03:00:59Z",
@@ -19213,7 +18958,8 @@
     },
     {
       "createdAt": "2020-10-02T22:35:02Z",
-      "mergedAt": "2020-10-02T22:35:02Z"
+      "mergedAt": "2020-10-02T22:35:02Z",
+      "closedAt": "2020-12-28T13:33:01Z"
     },
     {
       "createdAt": "2020-10-02T16:59:05Z",
@@ -19222,7 +18968,8 @@
     },
     {
       "createdAt": "2020-10-02T15:41:54Z",
-      "mergedAt": "2020-10-02T15:41:54Z"
+      "mergedAt": "2020-10-02T15:41:54Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-10-02T14:58:27Z",
@@ -19238,10 +18985,6 @@
       "mergedAt": "2020-10-02T08:51:35Z"
     },
     {
-      "createdAt": "2020-10-02T05:34:50Z",
-      "mergedAt": "2020-10-02T05:34:50Z"
-    },
-    {
       "createdAt": "2020-10-02T00:11:20Z",
       "mergedAt": "2020-10-02T00:11:20Z",
       "closedAt": "2020-10-21T12:35:34Z"
@@ -19252,7 +18995,8 @@
     },
     {
       "createdAt": "2020-10-01T15:40:22Z",
-      "mergedAt": "2020-10-01T15:40:22Z"
+      "mergedAt": "2020-10-01T15:40:22Z",
+      "closedAt": "2020-12-12T23:51:34Z"
     },
     {
       "createdAt": "2020-10-01T09:17:47Z",
@@ -19315,15 +19059,18 @@
     },
     {
       "createdAt": "2020-09-28T07:38:21Z",
-      "mergedAt": "2020-09-28T07:38:21Z"
+      "mergedAt": "2020-09-28T07:38:21Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-09-28T04:19:19Z",
-      "mergedAt": "2020-09-28T04:19:19Z"
+      "mergedAt": "2020-09-28T04:19:19Z",
+      "closedAt": "2020-12-22T10:10:20Z"
     },
     {
       "createdAt": "2020-09-28T02:01:47Z",
-      "mergedAt": "2020-09-28T02:01:47Z"
+      "mergedAt": "2020-09-28T02:01:47Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-09-27T20:29:44Z",
@@ -19422,7 +19169,8 @@
     },
     {
       "createdAt": "2020-09-24T04:46:17Z",
-      "mergedAt": "2020-09-24T04:46:17Z"
+      "mergedAt": "2020-09-24T04:46:17Z",
+      "closedAt": "2020-12-01T15:24:51Z"
     },
     {
       "createdAt": "2020-09-23T15:05:29Z",
@@ -19475,7 +19223,8 @@
     {
       "createdAt": "2020-09-22T09:33:08Z",
       "mergedAt": "2020-09-22T09:33:08Z",
-      "closedAt": "2020-10-19T14:50:14Z"
+      "closedAt": "2020-10-19T14:50:14Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-09-21T23:00:49Z",
@@ -19502,7 +19251,8 @@
     {
       "createdAt": "2020-09-19T07:49:15Z",
       "mergedAt": "2020-09-19T07:49:15Z",
-      "closedAt": "2020-09-19T14:53:43Z"
+      "closedAt": "2020-09-19T14:53:43Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-09-18T23:53:35Z",
@@ -19542,7 +19292,8 @@
     },
     {
       "createdAt": "2020-09-17T11:19:04Z",
-      "mergedAt": "2020-09-17T11:19:04Z"
+      "mergedAt": "2020-09-17T11:19:04Z",
+      "closedAt": "2020-12-04T23:52:03Z"
     },
     {
       "createdAt": "2020-09-17T06:10:09Z",
@@ -19561,12 +19312,14 @@
     },
     {
       "createdAt": "2020-09-16T18:42:25Z",
-      "mergedAt": "2020-09-16T18:42:25Z"
+      "mergedAt": "2020-09-16T18:42:25Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-09-16T16:26:17Z",
       "mergedAt": "2020-09-16T16:26:17Z",
-      "closedAt": "2020-11-16T08:59:07Z"
+      "closedAt": "2020-11-16T08:59:07Z",
+      "isBug": true
     },
     {
       "createdAt": "2020-09-16T11:11:20Z",
@@ -19663,7 +19416,8 @@
     },
     {
       "createdAt": "2020-09-12T08:23:08Z",
-      "mergedAt": "2020-09-12T08:23:08Z"
+      "mergedAt": "2020-09-12T08:23:08Z",
+      "closedAt": "2020-12-23T16:33:20Z"
     },
     {
       "createdAt": "2020-09-12T03:33:59Z",
@@ -19720,1033 +19474,29 @@
       "createdAt": "2020-09-09T18:31:36Z",
       "mergedAt": "2020-09-09T18:31:36Z",
       "closedAt": "2020-09-24T16:25:50Z"
-    },
-    {
-      "createdAt": "2020-09-09T17:30:32Z",
-      "mergedAt": "2020-09-09T17:30:32Z"
-    },
-    {
-      "createdAt": "2020-09-09T15:51:17Z",
-      "mergedAt": "2020-09-09T15:51:17Z"
-    },
-    {
-      "createdAt": "2020-09-09T08:38:06Z",
-      "mergedAt": "2020-09-09T08:38:06Z",
-      "closedAt": "2020-09-17T09:47:41Z"
-    },
-    {
-      "createdAt": "2020-09-09T05:34:19Z",
-      "mergedAt": "2020-09-09T05:34:19Z",
-      "closedAt": "2020-09-09T06:44:24Z"
-    },
-    {
-      "createdAt": "2020-09-09T04:18:24Z",
-      "mergedAt": "2020-09-09T04:18:24Z",
-      "closedAt": "2020-10-23T09:24:22Z"
-    },
-    {
-      "createdAt": "2020-09-08T16:30:50Z",
-      "mergedAt": "2020-09-08T16:30:50Z",
-      "closedAt": "2020-09-12T03:04:32Z"
-    },
-    {
-      "createdAt": "2020-09-08T16:08:14Z",
-      "mergedAt": "2020-09-08T16:08:14Z"
-    },
-    {
-      "createdAt": "2020-09-08T03:14:28Z",
-      "mergedAt": "2020-09-08T03:14:28Z",
-      "closedAt": "2020-09-10T14:57:44Z"
-    },
-    {
-      "createdAt": "2020-09-07T20:25:19Z",
-      "mergedAt": "2020-09-07T20:25:19Z",
-      "closedAt": "2020-09-08T12:45:22Z"
-    },
-    {
-      "createdAt": "2020-09-07T06:42:34Z",
-      "mergedAt": "2020-09-07T06:42:34Z",
-      "closedAt": "2020-09-07T17:30:11Z"
-    },
-    {
-      "createdAt": "2020-09-05T19:39:16Z",
-      "mergedAt": "2020-09-05T19:39:16Z"
-    },
-    {
-      "createdAt": "2020-09-05T13:55:41Z",
-      "mergedAt": "2020-09-05T13:55:41Z"
-    },
-    {
-      "createdAt": "2020-09-04T22:10:21Z",
-      "mergedAt": "2020-09-04T22:10:21Z",
-      "closedAt": "2020-09-07T16:22:26Z"
-    },
-    {
-      "createdAt": "2020-09-04T19:52:25Z",
-      "mergedAt": "2020-09-04T19:52:25Z"
-    },
-    {
-      "createdAt": "2020-09-04T07:17:23Z",
-      "mergedAt": "2020-09-04T07:17:23Z",
-      "closedAt": "2020-09-04T09:50:59Z"
-    },
-    {
-      "createdAt": "2020-09-04T05:07:05Z",
-      "mergedAt": "2020-09-04T05:07:05Z",
-      "closedAt": "2020-09-04T06:25:46Z"
-    },
-    {
-      "createdAt": "2020-09-04T05:03:43Z",
-      "mergedAt": "2020-09-04T05:03:43Z",
-      "closedAt": "2020-09-04T06:26:39Z"
-    },
-    {
-      "createdAt": "2020-09-04T03:59:11Z",
-      "mergedAt": "2020-09-04T03:59:11Z",
-      "closedAt": "2020-09-05T02:45:13Z"
-    },
-    {
-      "createdAt": "2020-09-03T18:06:15Z",
-      "mergedAt": "2020-09-03T18:06:15Z",
-      "closedAt": "2020-09-06T23:48:04Z"
-    },
-    {
-      "createdAt": "2020-09-03T13:55:00Z",
-      "mergedAt": "2020-09-03T13:55:00Z",
-      "closedAt": "2020-09-05T13:58:18Z"
-    },
-    {
-      "createdAt": "2020-09-01T18:29:36Z",
-      "mergedAt": "2020-09-01T18:29:36Z",
-      "closedAt": "2020-09-04T03:44:19Z"
-    },
-    {
-      "createdAt": "2020-09-01T14:51:34Z",
-      "mergedAt": "2020-09-01T14:51:34Z",
-      "closedAt": "2020-10-03T18:37:37Z"
-    },
-    {
-      "createdAt": "2020-09-01T11:10:05Z",
-      "mergedAt": "2020-09-01T11:10:05Z"
-    },
-    {
-      "createdAt": "2020-08-31T13:39:42Z",
-      "mergedAt": "2020-08-31T13:39:42Z",
-      "closedAt": "2020-08-31T14:45:09Z"
-    },
-    {
-      "createdAt": "2020-08-31T01:46:56Z",
-      "mergedAt": "2020-08-31T01:46:56Z"
-    },
-    {
-      "createdAt": "2020-08-30T17:34:25Z",
-      "mergedAt": "2020-08-30T17:34:25Z",
-      "closedAt": "2020-08-31T11:38:59Z"
-    },
-    {
-      "createdAt": "2020-08-29T19:44:02Z",
-      "mergedAt": "2020-08-29T19:44:02Z",
-      "closedAt": "2020-09-06T20:26:16Z"
-    },
-    {
-      "createdAt": "2020-08-29T18:14:08Z",
-      "mergedAt": "2020-08-29T18:14:08Z",
-      "closedAt": "2020-09-03T08:54:09Z"
-    },
-    {
-      "createdAt": "2020-08-29T12:58:22Z",
-      "mergedAt": "2020-08-29T12:58:22Z",
-      "closedAt": "2020-09-08T12:47:15Z"
-    },
-    {
-      "createdAt": "2020-08-29T10:40:57Z",
-      "mergedAt": "2020-08-29T10:40:57Z",
-      "closedAt": "2020-08-29T11:48:49Z"
-    },
-    {
-      "createdAt": "2020-08-29T09:02:24Z",
-      "mergedAt": "2020-08-29T09:02:24Z"
-    },
-    {
-      "createdAt": "2020-08-29T04:18:43Z",
-      "mergedAt": "2020-08-29T04:18:43Z",
-      "closedAt": "2020-08-29T10:57:00Z"
-    },
-    {
-      "createdAt": "2020-08-27T20:26:45Z",
-      "mergedAt": "2020-08-27T20:26:45Z"
-    },
-    {
-      "createdAt": "2020-08-27T10:02:49Z",
-      "mergedAt": "2020-08-27T10:02:49Z"
-    },
-    {
-      "createdAt": "2020-08-26T22:52:39Z",
-      "mergedAt": "2020-08-26T22:52:39Z",
-      "closedAt": "2020-08-27T18:49:48Z"
-    },
-    {
-      "createdAt": "2020-08-26T22:23:27Z",
-      "mergedAt": "2020-08-26T22:23:27Z",
-      "closedAt": "2020-09-05T09:14:50Z"
-    },
-    {
-      "createdAt": "2020-08-26T15:01:23Z",
-      "mergedAt": "2020-08-26T15:01:23Z",
-      "closedAt": "2020-08-26T15:24:41Z"
-    },
-    {
-      "createdAt": "2020-08-26T12:41:11Z",
-      "mergedAt": "2020-08-26T12:41:11Z"
-    },
-    {
-      "createdAt": "2020-08-26T03:45:06Z",
-      "mergedAt": "2020-08-26T03:45:06Z",
-      "closedAt": "2020-08-26T03:45:14Z"
-    },
-    {
-      "createdAt": "2020-08-25T23:21:37Z",
-      "mergedAt": "2020-08-25T23:21:37Z"
-    },
-    {
-      "createdAt": "2020-08-25T06:24:07Z",
-      "mergedAt": "2020-08-25T06:24:07Z",
-      "closedAt": "2020-08-25T09:32:34Z"
-    },
-    {
-      "createdAt": "2020-08-25T04:38:53Z",
-      "mergedAt": "2020-08-25T04:38:53Z",
-      "closedAt": "2020-08-25T19:32:22Z"
-    },
-    {
-      "createdAt": "2020-08-25T03:20:21Z",
-      "mergedAt": "2020-08-25T03:20:21Z",
-      "closedAt": "2020-08-25T03:25:19Z"
-    },
-    {
-      "createdAt": "2020-08-24T16:19:03Z",
-      "mergedAt": "2020-08-24T16:19:03Z",
-      "closedAt": "2020-08-24T16:20:21Z"
-    },
-    {
-      "createdAt": "2020-08-24T16:17:41Z",
-      "mergedAt": "2020-08-24T16:17:41Z",
-      "closedAt": "2020-08-24T16:20:23Z"
-    },
-    {
-      "createdAt": "2020-08-24T15:31:21Z",
-      "mergedAt": "2020-08-24T15:31:21Z",
-      "closedAt": "2020-08-24T15:38:25Z"
-    },
-    {
-      "createdAt": "2020-08-24T15:21:57Z",
-      "mergedAt": "2020-08-24T15:21:57Z"
-    },
-    {
-      "createdAt": "2020-08-24T11:49:31Z",
-      "mergedAt": "2020-08-24T11:49:31Z"
-    },
-    {
-      "createdAt": "2020-08-24T10:23:41Z",
-      "mergedAt": "2020-08-24T10:23:41Z",
-      "closedAt": "2020-08-27T08:08:38Z"
-    },
-    {
-      "createdAt": "2020-08-24T07:11:05Z",
-      "mergedAt": "2020-08-24T07:11:05Z",
-      "closedAt": "2020-09-20T06:07:22Z"
-    },
-    {
-      "createdAt": "2020-08-24T04:35:10Z",
-      "mergedAt": "2020-08-24T04:35:10Z"
-    },
-    {
-      "createdAt": "2020-08-24T01:16:49Z",
-      "mergedAt": "2020-08-24T01:16:49Z",
-      "closedAt": "2020-09-08T12:54:15Z"
-    },
-    {
-      "createdAt": "2020-08-23T19:35:45Z",
-      "mergedAt": "2020-08-23T19:35:45Z",
-      "closedAt": "2020-10-30T18:40:40Z"
-    },
-    {
-      "createdAt": "2020-08-23T15:02:53Z",
-      "mergedAt": "2020-08-23T15:02:53Z",
-      "closedAt": "2020-08-27T08:10:57Z"
-    },
-    {
-      "createdAt": "2020-08-22T23:04:12Z",
-      "mergedAt": "2020-08-22T23:04:12Z"
-    },
-    {
-      "createdAt": "2020-08-22T16:47:57Z",
-      "mergedAt": "2020-08-22T16:47:57Z",
-      "closedAt": "2020-09-23T13:39:03Z"
-    },
-    {
-      "createdAt": "2020-08-21T18:26:16Z",
-      "mergedAt": "2020-08-21T18:26:16Z"
-    },
-    {
-      "createdAt": "2020-08-20T21:00:14Z",
-      "mergedAt": "2020-08-20T21:00:14Z"
-    },
-    {
-      "createdAt": "2020-08-20T15:04:32Z",
-      "mergedAt": "2020-08-20T15:04:32Z",
-      "closedAt": "2020-08-24T14:32:45Z"
-    },
-    {
-      "createdAt": "2020-08-20T14:06:46Z",
-      "mergedAt": "2020-08-20T14:06:46Z"
-    },
-    {
-      "createdAt": "2020-08-20T08:07:41Z",
-      "mergedAt": "2020-08-20T08:07:41Z"
-    },
-    {
-      "createdAt": "2020-08-19T18:00:17Z",
-      "mergedAt": "2020-08-19T18:00:17Z"
-    },
-    {
-      "createdAt": "2020-08-19T16:45:55Z",
-      "mergedAt": "2020-08-19T16:45:55Z",
-      "closedAt": "2020-08-22T19:49:31Z"
-    },
-    {
-      "createdAt": "2020-08-19T13:30:42Z",
-      "mergedAt": "2020-08-19T13:30:42Z"
-    },
-    {
-      "createdAt": "2020-08-18T19:25:39Z",
-      "mergedAt": "2020-08-18T19:25:39Z"
-    },
-    {
-      "createdAt": "2020-08-18T17:09:05Z",
-      "mergedAt": "2020-08-18T17:09:05Z",
-      "closedAt": "2020-08-20T20:22:58Z"
-    },
-    {
-      "createdAt": "2020-08-18T15:55:22Z",
-      "mergedAt": "2020-08-18T15:55:22Z"
-    },
-    {
-      "createdAt": "2020-08-18T13:08:56Z",
-      "mergedAt": "2020-08-18T13:08:56Z",
-      "closedAt": "2020-08-19T11:21:21Z"
-    },
-    {
-      "createdAt": "2020-08-18T09:49:09Z",
-      "mergedAt": "2020-08-18T09:49:09Z",
-      "closedAt": "2020-09-30T15:53:44Z"
-    },
-    {
-      "createdAt": "2020-08-18T09:38:42Z",
-      "mergedAt": "2020-08-18T09:38:42Z"
-    },
-    {
-      "createdAt": "2020-08-18T07:17:19Z",
-      "mergedAt": "2020-08-18T07:17:19Z"
-    },
-    {
-      "createdAt": "2020-08-18T06:44:49Z",
-      "mergedAt": "2020-08-18T06:44:49Z"
-    },
-    {
-      "createdAt": "2020-08-18T03:03:42Z",
-      "mergedAt": "2020-08-18T03:03:42Z",
-      "closedAt": "2020-10-25T10:19:21Z"
-    },
-    {
-      "createdAt": "2020-08-18T00:19:52Z",
-      "mergedAt": "2020-08-18T00:19:52Z"
-    },
-    {
-      "createdAt": "2020-08-17T18:42:17Z",
-      "mergedAt": "2020-08-17T18:42:17Z",
-      "closedAt": "2020-08-19T19:23:57Z"
-    },
-    {
-      "createdAt": "2020-08-17T09:24:15Z",
-      "mergedAt": "2020-08-17T09:24:15Z"
-    },
-    {
-      "createdAt": "2020-08-17T07:01:03Z",
-      "mergedAt": "2020-08-17T07:01:03Z"
-    },
-    {
-      "createdAt": "2020-08-16T22:32:08Z",
-      "mergedAt": "2020-08-16T22:32:08Z",
-      "closedAt": "2020-08-17T02:17:07Z"
-    },
-    {
-      "createdAt": "2020-08-16T20:00:57Z",
-      "mergedAt": "2020-08-16T20:00:57Z",
-      "closedAt": "2020-08-16T20:19:40Z"
-    },
-    {
-      "createdAt": "2020-08-16T18:04:06Z",
-      "mergedAt": "2020-08-16T18:04:06Z"
-    },
-    {
-      "createdAt": "2020-08-16T14:07:42Z",
-      "mergedAt": "2020-08-16T14:07:42Z"
-    },
-    {
-      "createdAt": "2020-08-16T05:56:25Z",
-      "mergedAt": "2020-08-16T05:56:25Z"
-    },
-    {
-      "createdAt": "2020-08-15T14:42:06Z",
-      "mergedAt": "2020-08-15T14:42:06Z"
-    },
-    {
-      "createdAt": "2020-08-15T13:23:05Z",
-      "mergedAt": "2020-08-15T13:23:05Z",
-      "closedAt": "2020-08-15T13:30:18Z"
-    },
-    {
-      "createdAt": "2020-08-15T10:16:36Z",
-      "mergedAt": "2020-08-15T10:16:36Z",
-      "closedAt": "2020-08-17T17:20:21Z"
-    },
-    {
-      "createdAt": "2020-08-15T04:46:47Z",
-      "mergedAt": "2020-08-15T04:46:47Z",
-      "closedAt": "2020-08-15T08:38:32Z"
-    },
-    {
-      "createdAt": "2020-08-15T02:44:08Z",
-      "mergedAt": "2020-08-15T02:44:08Z",
-      "closedAt": "2020-08-15T22:08:20Z"
-    },
-    {
-      "createdAt": "2020-08-14T17:42:43Z",
-      "mergedAt": "2020-08-14T17:42:43Z",
-      "closedAt": "2020-08-15T09:30:32Z"
-    },
-    {
-      "createdAt": "2020-08-14T17:08:49Z",
-      "mergedAt": "2020-08-14T17:08:49Z",
-      "closedAt": "2020-08-15T08:34:54Z"
-    },
-    {
-      "createdAt": "2020-08-14T14:46:44Z",
-      "mergedAt": "2020-08-14T14:46:44Z",
-      "closedAt": "2020-08-15T06:57:16Z"
-    },
-    {
-      "createdAt": "2020-08-14T12:59:23Z",
-      "mergedAt": "2020-08-14T12:59:23Z",
-      "closedAt": "2020-08-14T21:19:31Z"
-    },
-    {
-      "createdAt": "2020-08-14T11:42:06Z",
-      "mergedAt": "2020-08-14T11:42:06Z",
-      "closedAt": "2020-08-14T13:29:10Z"
-    },
-    {
-      "createdAt": "2020-08-14T08:56:01Z",
-      "mergedAt": "2020-08-14T08:56:01Z",
-      "closedAt": "2020-08-17T09:54:02Z"
-    },
-    {
-      "createdAt": "2020-08-14T04:55:59Z",
-      "mergedAt": "2020-08-14T04:55:59Z",
-      "closedAt": "2020-08-16T02:41:06Z"
-    },
-    {
-      "createdAt": "2020-08-14T04:26:12Z",
-      "mergedAt": "2020-08-14T04:26:12Z"
-    },
-    {
-      "createdAt": "2020-08-14T02:48:23Z",
-      "mergedAt": "2020-08-14T02:48:23Z"
-    },
-    {
-      "createdAt": "2020-08-14T02:31:02Z",
-      "mergedAt": "2020-08-14T02:31:02Z",
-      "closedAt": "2020-08-19T21:50:02Z"
-    },
-    {
-      "createdAt": "2020-08-13T20:24:42Z",
-      "mergedAt": "2020-08-13T20:24:42Z"
-    },
-    {
-      "createdAt": "2020-08-13T14:23:20Z",
-      "mergedAt": "2020-08-13T14:23:20Z"
-    },
-    {
-      "createdAt": "2020-08-13T08:46:40Z",
-      "mergedAt": "2020-08-13T08:46:40Z",
-      "closedAt": "2020-08-13T10:31:26Z"
-    },
-    {
-      "createdAt": "2020-08-12T23:09:25Z",
-      "mergedAt": "2020-08-12T23:09:25Z",
-      "closedAt": "2020-08-17T09:54:35Z"
-    },
-    {
-      "createdAt": "2020-08-12T20:14:09Z",
-      "mergedAt": "2020-08-12T20:14:09Z"
-    },
-    {
-      "createdAt": "2020-08-12T15:56:23Z",
-      "mergedAt": "2020-08-12T15:56:23Z"
-    },
-    {
-      "createdAt": "2020-08-12T00:22:43Z",
-      "mergedAt": "2020-08-12T00:22:43Z",
-      "closedAt": "2020-08-12T02:21:11Z"
-    },
-    {
-      "createdAt": "2020-08-11T21:28:53Z",
-      "mergedAt": "2020-08-11T21:28:53Z",
-      "closedAt": "2020-08-12T17:47:33Z"
-    },
-    {
-      "createdAt": "2020-08-11T20:24:55Z",
-      "mergedAt": "2020-08-11T20:24:55Z",
-      "closedAt": "2020-08-14T02:43:26Z"
-    },
-    {
-      "createdAt": "2020-08-11T19:42:55Z",
-      "mergedAt": "2020-08-11T19:42:55Z",
-      "closedAt": "2020-08-14T10:20:26Z"
-    },
-    {
-      "createdAt": "2020-08-11T18:14:25Z",
-      "mergedAt": "2020-08-11T18:14:25Z",
-      "closedAt": "2020-08-21T13:16:39Z"
-    },
-    {
-      "createdAt": "2020-08-11T17:26:17Z",
-      "mergedAt": "2020-08-11T17:26:17Z"
-    },
-    {
-      "createdAt": "2020-08-11T15:55:35Z",
-      "mergedAt": "2020-08-11T15:55:35Z",
-      "closedAt": "2020-08-15T08:41:18Z"
-    },
-    {
-      "createdAt": "2020-08-11T09:43:38Z",
-      "mergedAt": "2020-08-11T09:43:38Z"
-    },
-    {
-      "createdAt": "2020-08-11T02:37:46Z",
-      "mergedAt": "2020-08-11T02:37:46Z"
-    },
-    {
-      "createdAt": "2020-08-10T18:51:44Z",
-      "mergedAt": "2020-08-10T18:51:44Z"
-    },
-    {
-      "createdAt": "2020-08-10T17:24:49Z",
-      "mergedAt": "2020-08-10T17:24:49Z",
-      "closedAt": "2020-08-27T15:21:18Z"
-    },
-    {
-      "createdAt": "2020-08-10T17:01:43Z",
-      "mergedAt": "2020-08-10T17:01:43Z"
-    },
-    {
-      "createdAt": "2020-08-10T13:06:13Z",
-      "mergedAt": "2020-08-10T13:06:13Z",
-      "closedAt": "2020-08-22T17:39:18Z"
-    },
-    {
-      "createdAt": "2020-08-10T10:11:07Z",
-      "mergedAt": "2020-08-10T10:11:07Z"
-    },
-    {
-      "createdAt": "2020-08-10T08:32:28Z",
-      "mergedAt": "2020-08-10T08:32:28Z",
-      "closedAt": "2020-08-10T09:22:01Z"
-    },
-    {
-      "createdAt": "2020-08-10T06:03:55Z",
-      "mergedAt": "2020-08-10T06:03:55Z",
-      "closedAt": "2020-08-10T15:55:17Z"
-    },
-    {
-      "createdAt": "2020-08-10T03:53:39Z",
-      "mergedAt": "2020-08-10T03:53:39Z"
-    },
-    {
-      "createdAt": "2020-08-10T01:46:11Z",
-      "mergedAt": "2020-08-10T01:46:11Z"
-    },
-    {
-      "createdAt": "2020-08-09T21:48:07Z",
-      "mergedAt": "2020-08-09T21:48:07Z",
-      "closedAt": "2020-08-14T09:03:30Z"
-    },
-    {
-      "createdAt": "2020-08-09T19:35:36Z",
-      "mergedAt": "2020-08-09T19:35:36Z"
-    },
-    {
-      "createdAt": "2020-08-09T18:13:25Z",
-      "mergedAt": "2020-08-09T18:13:25Z",
-      "closedAt": "2020-08-10T09:56:19Z"
-    },
-    {
-      "createdAt": "2020-08-09T14:51:48Z",
-      "mergedAt": "2020-08-09T14:51:48Z"
-    },
-    {
-      "createdAt": "2020-08-08T15:25:19Z",
-      "mergedAt": "2020-08-08T15:25:19Z"
-    },
-    {
-      "createdAt": "2020-08-08T12:49:35Z",
-      "mergedAt": "2020-08-08T12:49:35Z"
-    },
-    {
-      "createdAt": "2020-08-08T10:21:52Z",
-      "mergedAt": "2020-08-08T10:21:52Z"
-    },
-    {
-      "createdAt": "2020-08-08T09:49:58Z",
-      "mergedAt": "2020-08-08T09:49:58Z",
-      "closedAt": "2020-08-08T13:58:28Z"
-    },
-    {
-      "createdAt": "2020-08-07T12:31:04Z",
-      "mergedAt": "2020-08-07T12:31:04Z",
-      "closedAt": "2020-08-10T09:58:28Z"
-    },
-    {
-      "createdAt": "2020-08-07T12:19:06Z",
-      "mergedAt": "2020-08-07T12:19:06Z",
-      "closedAt": "2020-08-10T09:57:50Z"
-    },
-    {
-      "createdAt": "2020-08-07T12:18:15Z",
-      "mergedAt": "2020-08-07T12:18:15Z"
-    },
-    {
-      "createdAt": "2020-08-07T09:33:36Z",
-      "mergedAt": "2020-08-07T09:33:36Z"
-    },
-    {
-      "createdAt": "2020-08-07T04:41:42Z",
-      "mergedAt": "2020-08-07T04:41:42Z",
-      "closedAt": "2020-08-09T04:56:36Z"
-    },
-    {
-      "createdAt": "2020-08-07T04:14:46Z",
-      "mergedAt": "2020-08-07T04:14:46Z",
-      "closedAt": "2020-08-07T18:25:58Z"
-    },
-    {
-      "createdAt": "2020-08-06T21:11:45Z",
-      "mergedAt": "2020-08-06T21:11:45Z",
-      "closedAt": "2020-08-10T09:57:02Z"
-    },
-    {
-      "createdAt": "2020-08-06T20:03:22Z",
-      "mergedAt": "2020-08-06T20:03:22Z"
-    },
-    {
-      "createdAt": "2020-08-06T12:16:33Z",
-      "mergedAt": "2020-08-06T12:16:33Z",
-      "closedAt": "2020-08-17T09:55:28Z"
-    },
-    {
-      "createdAt": "2020-08-06T11:41:06Z",
-      "mergedAt": "2020-08-06T11:41:06Z",
-      "closedAt": "2020-08-11T11:20:51Z"
-    },
-    {
-      "createdAt": "2020-08-06T08:04:55Z",
-      "mergedAt": "2020-08-06T08:04:55Z",
-      "closedAt": "2020-08-06T13:12:40Z"
-    },
-    {
-      "createdAt": "2020-08-05T15:29:00Z",
-      "mergedAt": "2020-08-05T15:29:00Z",
-      "closedAt": "2020-08-05T19:16:13Z"
-    },
-    {
-      "createdAt": "2020-08-05T10:21:02Z",
-      "mergedAt": "2020-08-05T10:21:02Z",
-      "closedAt": "2020-08-06T09:02:12Z"
-    },
-    {
-      "createdAt": "2020-08-04T22:24:54Z",
-      "mergedAt": "2020-08-04T22:24:54Z",
-      "closedAt": "2020-08-25T14:17:22Z"
-    },
-    {
-      "createdAt": "2020-08-04T11:12:16Z",
-      "mergedAt": "2020-08-04T11:12:16Z",
-      "closedAt": "2020-08-04T18:56:38Z"
-    },
-    {
-      "createdAt": "2020-08-04T02:53:17Z",
-      "mergedAt": "2020-08-04T02:53:17Z"
-    },
-    {
-      "createdAt": "2020-08-03T17:48:21Z",
-      "mergedAt": "2020-08-03T17:48:21Z"
-    },
-    {
-      "createdAt": "2020-08-03T16:11:53Z",
-      "mergedAt": "2020-08-03T16:11:53Z"
-    },
-    {
-      "createdAt": "2020-08-03T11:21:51Z",
-      "mergedAt": "2020-08-03T11:21:51Z",
-      "closedAt": "2020-08-23T06:59:59Z"
-    },
-    {
-      "createdAt": "2020-08-03T10:32:21Z",
-      "mergedAt": "2020-08-03T10:32:21Z",
-      "closedAt": "2020-08-04T03:40:17Z"
-    },
-    {
-      "createdAt": "2020-08-03T04:41:07Z",
-      "mergedAt": "2020-08-03T04:41:07Z",
-      "closedAt": "2020-08-07T15:39:03Z"
-    },
-    {
-      "createdAt": "2020-08-03T02:37:25Z",
-      "mergedAt": "2020-08-03T02:37:25Z",
-      "closedAt": "2020-08-10T15:33:53Z"
-    },
-    {
-      "createdAt": "2020-08-02T20:16:12Z",
-      "mergedAt": "2020-08-02T20:16:12Z",
-      "closedAt": "2020-08-03T18:44:49Z"
-    },
-    {
-      "createdAt": "2020-08-02T15:33:33Z",
-      "mergedAt": "2020-08-02T15:33:33Z",
-      "closedAt": "2020-08-02T15:37:36Z"
-    },
-    {
-      "createdAt": "2020-08-01T23:34:13Z",
-      "mergedAt": "2020-08-01T23:34:13Z",
-      "closedAt": "2020-08-02T08:41:50Z"
-    },
-    {
-      "createdAt": "2020-08-01T18:38:33Z",
-      "mergedAt": "2020-08-01T18:38:33Z"
-    },
-    {
-      "createdAt": "2020-07-31T21:42:42Z",
-      "mergedAt": "2020-07-31T21:42:42Z",
-      "closedAt": "2020-08-03T12:05:25Z"
-    },
-    {
-      "createdAt": "2020-07-31T13:26:59Z",
-      "mergedAt": "2020-07-31T13:26:59Z"
-    },
-    {
-      "createdAt": "2020-07-31T13:24:29Z",
-      "mergedAt": "2020-07-31T13:24:29Z",
-      "closedAt": "2020-08-05T15:31:33Z"
-    },
-    {
-      "createdAt": "2020-07-31T09:49:34Z",
-      "mergedAt": "2020-07-31T09:49:34Z",
-      "closedAt": "2020-08-02T07:37:26Z"
-    },
-    {
-      "createdAt": "2020-07-31T07:34:56Z",
-      "mergedAt": "2020-07-31T07:34:56Z",
-      "closedAt": "2020-07-31T11:27:27Z"
-    },
-    {
-      "createdAt": "2020-07-30T22:35:55Z",
-      "mergedAt": "2020-07-30T22:35:55Z",
-      "closedAt": "2020-07-31T01:07:51Z"
-    },
-    {
-      "createdAt": "2020-07-30T21:21:56Z",
-      "mergedAt": "2020-07-30T21:21:56Z"
-    },
-    {
-      "createdAt": "2020-07-30T18:37:59Z",
-      "mergedAt": "2020-07-30T18:37:59Z",
-      "closedAt": "2020-08-06T22:02:23Z"
-    },
-    {
-      "createdAt": "2020-07-30T16:46:50Z",
-      "mergedAt": "2020-07-30T16:46:50Z",
-      "closedAt": "2020-08-10T01:40:59Z"
-    },
-    {
-      "createdAt": "2020-07-30T16:16:49Z",
-      "mergedAt": "2020-07-30T16:16:49Z",
-      "closedAt": "2020-08-17T09:57:21Z"
-    },
-    {
-      "createdAt": "2020-07-30T09:40:44Z",
-      "mergedAt": "2020-07-30T09:40:44Z",
-      "closedAt": "2020-08-01T13:05:49Z"
-    },
-    {
-      "createdAt": "2020-07-29T19:06:55Z",
-      "mergedAt": "2020-07-29T19:06:55Z",
-      "closedAt": "2020-08-03T07:28:05Z"
-    },
-    {
-      "createdAt": "2020-07-29T14:13:51Z",
-      "mergedAt": "2020-07-29T14:13:51Z",
-      "closedAt": "2020-08-01T04:15:04Z"
-    },
-    {
-      "createdAt": "2020-07-29T11:31:14Z",
-      "mergedAt": "2020-07-29T11:31:14Z",
-      "closedAt": "2020-07-29T11:36:11Z"
-    },
-    {
-      "createdAt": "2020-07-29T06:12:38Z",
-      "mergedAt": "2020-07-29T06:12:38Z",
-      "closedAt": "2020-07-29T06:13:08Z"
-    },
-    {
-      "createdAt": "2020-07-29T05:57:46Z",
-      "mergedAt": "2020-07-29T05:57:46Z",
-      "closedAt": "2020-08-01T08:15:33Z"
-    },
-    {
-      "createdAt": "2020-07-28T13:35:13Z",
-      "mergedAt": "2020-07-28T13:35:13Z"
-    },
-    {
-      "createdAt": "2020-07-27T18:36:37Z",
-      "mergedAt": "2020-07-27T18:36:37Z"
-    },
-    {
-      "createdAt": "2020-07-27T15:22:09Z",
-      "mergedAt": "2020-07-27T15:22:09Z",
-      "closedAt": "2020-07-27T15:32:26Z"
-    },
-    {
-      "createdAt": "2020-07-27T05:18:17Z",
-      "mergedAt": "2020-07-27T05:18:17Z",
-      "closedAt": "2020-08-04T08:44:14Z"
-    },
-    {
-      "createdAt": "2020-07-26T23:36:02Z",
-      "mergedAt": "2020-07-26T23:36:02Z",
-      "closedAt": "2020-07-28T09:20:27Z"
-    },
-    {
-      "createdAt": "2020-07-26T21:22:38Z",
-      "mergedAt": "2020-07-26T21:22:38Z",
-      "closedAt": "2020-07-29T07:41:21Z"
-    },
-    {
-      "createdAt": "2020-07-26T18:07:10Z",
-      "mergedAt": "2020-07-26T18:07:10Z",
-      "closedAt": "2020-08-05T11:25:20Z"
-    },
-    {
-      "createdAt": "2020-07-26T15:11:55Z",
-      "mergedAt": "2020-07-26T15:11:55Z",
-      "closedAt": "2020-08-02T08:08:40Z"
-    },
-    {
-      "createdAt": "2020-07-26T09:06:24Z",
-      "mergedAt": "2020-07-26T09:06:24Z",
-      "closedAt": "2020-08-01T08:17:38Z"
-    },
-    {
-      "createdAt": "2020-07-26T02:32:43Z",
-      "mergedAt": "2020-07-26T02:32:43Z"
-    },
-    {
-      "createdAt": "2020-07-26T00:43:08Z",
-      "mergedAt": "2020-07-26T00:43:08Z",
-      "closedAt": "2020-07-30T17:39:29Z"
-    },
-    {
-      "createdAt": "2020-07-25T10:34:05Z",
-      "mergedAt": "2020-07-25T10:34:05Z",
-      "closedAt": "2020-07-27T12:49:14Z"
-    },
-    {
-      "createdAt": "2020-07-25T04:44:20Z",
-      "mergedAt": "2020-07-25T04:44:20Z",
-      "closedAt": "2020-07-29T10:34:34Z"
-    },
-    {
-      "createdAt": "2020-07-24T17:02:44Z",
-      "mergedAt": "2020-07-24T17:02:44Z",
-      "closedAt": "2020-08-01T08:29:40Z"
-    },
-    {
-      "createdAt": "2020-07-23T22:25:14Z",
-      "mergedAt": "2020-07-23T22:25:14Z",
-      "closedAt": "2020-07-28T15:41:26Z"
-    },
-    {
-      "createdAt": "2020-07-23T17:55:51Z",
-      "mergedAt": "2020-07-23T17:55:51Z",
-      "closedAt": "2020-07-23T20:59:09Z"
-    },
-    {
-      "createdAt": "2020-07-23T12:10:19Z",
-      "mergedAt": "2020-07-23T12:10:19Z"
-    },
-    {
-      "createdAt": "2020-07-23T09:58:42Z",
-      "mergedAt": "2020-07-23T09:58:42Z",
-      "closedAt": "2020-08-01T08:36:13Z"
-    },
-    {
-      "createdAt": "2020-07-23T07:18:35Z",
-      "mergedAt": "2020-07-23T07:18:35Z",
-      "closedAt": "2020-08-01T08:22:52Z"
-    },
-    {
-      "createdAt": "2020-07-23T06:47:23Z",
-      "mergedAt": "2020-07-23T06:47:23Z",
-      "closedAt": "2020-07-23T14:12:24Z"
-    },
-    {
-      "createdAt": "2020-07-22T23:41:23Z",
-      "mergedAt": "2020-07-22T23:41:23Z"
-    },
-    {
-      "createdAt": "2020-07-22T20:02:01Z",
-      "mergedAt": "2020-07-22T20:02:01Z",
-      "closedAt": "2020-07-24T20:37:56Z"
-    },
-    {
-      "createdAt": "2020-07-22T16:37:01Z",
-      "mergedAt": "2020-07-22T16:37:01Z",
-      "closedAt": "2020-07-22T17:47:33Z"
-    },
-    {
-      "createdAt": "2020-07-22T13:44:00Z",
-      "mergedAt": "2020-07-22T13:44:00Z",
-      "closedAt": "2020-08-17T09:58:35Z"
-    },
-    {
-      "createdAt": "2020-07-22T11:12:27Z",
-      "mergedAt": "2020-07-22T11:12:27Z"
-    },
-    {
-      "createdAt": "2020-07-22T08:16:01Z",
-      "mergedAt": "2020-07-22T08:16:01Z",
-      "closedAt": "2020-08-01T08:33:58Z"
-    },
-    {
-      "createdAt": "2020-07-21T19:49:30Z",
-      "mergedAt": "2020-07-21T19:49:30Z",
-      "closedAt": "2020-07-21T19:52:10Z"
-    },
-    {
-      "createdAt": "2020-07-21T09:03:52Z",
-      "mergedAt": "2020-07-21T09:03:52Z",
-      "closedAt": "2020-07-22T13:49:42Z"
-    },
-    {
-      "createdAt": "2020-07-20T23:16:45Z",
-      "mergedAt": "2020-07-20T23:16:45Z",
-      "closedAt": "2020-07-21T09:48:15Z"
-    },
-    {
-      "createdAt": "2020-07-20T23:09:49Z",
-      "mergedAt": "2020-07-20T23:09:49Z"
-    },
-    {
-      "createdAt": "2020-07-20T21:44:03Z",
-      "mergedAt": "2020-07-20T21:44:03Z",
-      "closedAt": "2020-07-21T18:01:14Z"
-    },
-    {
-      "createdAt": "2020-07-20T16:39:27Z",
-      "mergedAt": "2020-07-20T16:39:27Z"
-    },
-    {
-      "createdAt": "2020-07-20T16:31:02Z",
-      "mergedAt": "2020-07-20T16:31:02Z",
-      "closedAt": "2020-08-08T09:25:16Z"
-    },
-    {
-      "createdAt": "2020-07-20T10:51:31Z",
-      "mergedAt": "2020-07-20T10:51:31Z",
-      "closedAt": "2020-07-20T12:52:11Z"
-    },
-    {
-      "createdAt": "2020-07-20T09:48:34Z",
-      "mergedAt": "2020-07-20T09:48:34Z"
-    },
-    {
-      "createdAt": "2020-07-20T06:42:30Z",
-      "mergedAt": "2020-07-20T06:42:30Z",
-      "closedAt": "2020-07-22T13:37:33Z"
-    },
-    {
-      "createdAt": "2020-07-19T17:57:44Z",
-      "mergedAt": "2020-07-19T17:57:44Z"
-    },
-    {
-      "createdAt": "2020-07-19T09:32:21Z",
-      "mergedAt": "2020-07-19T09:32:21Z",
-      "closedAt": "2020-07-22T17:17:36Z"
-    },
-    {
-      "createdAt": "2020-07-18T10:10:18Z",
-      "mergedAt": "2020-07-18T10:10:18Z",
-      "closedAt": "2020-07-22T07:00:03Z"
-    },
-    {
-      "createdAt": "2020-07-17T11:11:44Z",
-      "mergedAt": "2020-07-17T11:11:44Z"
-    },
-    {
-      "createdAt": "2020-07-17T10:36:27Z",
-      "mergedAt": "2020-07-17T10:36:27Z",
-      "closedAt": "2020-07-17T15:41:45Z"
-    },
-    {
-      "createdAt": "2020-07-16T18:51:22Z",
-      "mergedAt": "2020-07-16T18:51:22Z",
-      "closedAt": "2020-07-20T22:42:13Z"
-    },
-    {
-      "createdAt": "2020-07-16T18:27:13Z",
-      "mergedAt": "2020-07-16T18:27:13Z",
-      "closedAt": "2020-07-30T16:27:38Z"
-    },
-    {
-      "createdAt": "2020-07-16T18:27:13Z",
-      "mergedAt": "2020-07-16T18:27:13Z",
-      "closedAt": "2020-07-16T18:52:20Z"
-    },
-    {
-      "createdAt": "2020-07-16T18:26:46Z",
-      "mergedAt": "2020-07-16T18:26:46Z",
-      "closedAt": "2020-08-20T10:39:15Z"
-    },
-    {
-      "createdAt": "2020-07-16T12:40:57Z",
-      "mergedAt": "2020-07-16T12:40:57Z",
-      "closedAt": "2020-07-22T07:14:51Z"
-    },
-    {
-      "createdAt": "2020-07-16T05:18:47Z",
-      "mergedAt": "2020-07-16T05:18:47Z",
-      "closedAt": "2020-07-19T22:27:20Z"
-    },
-    {
-      "createdAt": "2020-07-16T03:04:21Z",
-      "mergedAt": "2020-07-16T03:04:21Z"
-    },
-    {
-      "createdAt": "2020-07-15T18:44:07Z",
-      "mergedAt": "2020-07-15T18:44:07Z"
     }
   ],
   "releases": [
+    {
+      "date": "2020-12-22T18:52:29Z",
+      "description": "v15.5.0",
+      "releaseType": "MINOR"
+    },
+    {
+      "date": "2020-12-17T22:08:26Z",
+      "description": "v14.15.3",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-12-15T23:33:44Z",
+      "description": "v14.15.2",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-12-09T11:13:37Z",
+      "description": "v15.4.0",
+      "releaseType": "MINOR"
+    },
     {
       "date": "2020-11-24T16:18:29Z",
       "description": "v12.20.0",
@@ -21722,5 +20472,6 @@
       "description": "v6.11.3",
       "releaseType": "PATCH"
     }
-  ]
+  ],
+  "preFetchedRepo": "node"
 }

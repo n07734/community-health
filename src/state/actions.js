@@ -1,17 +1,19 @@
+import {
+    assoc,
+    dissocPath,
+    path,
+    pickAll,
+    pipe
+} from 'ramda'
 import api from '../api/api'
-
 import {
     formatPullRequests,
     formatIssues,
     formatReleases,
 } from '../format/rawData'
-
-import {
-    batchedQuery,
-} from '../api/queries'
-
+import { slimObject } from '../format/lightenData'
+import { batchedQuery } from '../api/queries'
 import formatUserData from '../format/userData'
-
 import types from './types'
 
 const setUser = (user = '') => ({
@@ -188,6 +190,28 @@ const getPreFetchedData = (repo = 'nivo') => (dispatch) => {
     })
 }
 
+const getDownloadProps = (dispatch, getState) => {
+    const state = getState()
+
+    const repo = path(['fetches', 'repo'], state)
+    const getReportData = pipe(
+        pickAll(['fetches', 'repoInfo', 'pullRequests', 'userData', 'issues', 'releases']),
+        dissocPath(['fetches', 'token']),
+        assoc('preFetchedRepo', repo),
+        slimObject
+    )
+
+    const reportData = getReportData(state)
+    const json = JSON.stringify(reportData, null, 2)
+    const blob = new Blob([json], { type: "application/json" })
+    const href  = URL.createObjectURL(blob)
+
+    return {
+        href,
+        download: `${path(['fetches', 'org'], state)}-${repo}.json`,
+    }
+}
+
 export {
     setUser,
     clearUser,
@@ -197,4 +221,5 @@ export {
     getAPIData,
     getPreFetchedData,
     toggleTheme,
+    getDownloadProps,
 }

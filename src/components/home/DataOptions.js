@@ -20,6 +20,7 @@ import {
     storeRepo,
     getAPIData,
     getPreFetchedData,
+    getDownloadProps,
 } from '../../state/actions'
 
 const buttonText = (fetching, preFetchedRepo, pullRequests = []) => [
@@ -42,6 +43,7 @@ const FetchForm = (props) => {
         classes,
         preFetchedRepo,
         getPreFetchedRepo,
+        getDownloadInfo,
     } = props
 
     return (
@@ -111,6 +113,13 @@ const FetchForm = (props) => {
                             />
                     }
                 </form>
+                {
+                    !fetching
+                        && !preFetchedRepo
+                        && pullRequests.length
+                        && <P><a className={classes.link} {...getDownloadInfo()}>Download report data</a></P>
+                        || undefined
+                }
             </ChartDescription>
             <div className={classes.preFetched}>
                  <P>
@@ -119,7 +128,7 @@ const FetchForm = (props) => {
                  {
                      [
                          'react',
-                         'vue',
+                         'vue-next',
                          'TypeScript',
                          'material-ui',
                          'node',
@@ -128,6 +137,10 @@ const FetchForm = (props) => {
                          'electron',
                          'kotlin',
                          'swift',
+                         'ramda',
+                         'babel',
+                         'jest',
+                         'prettier'
                      ]
                          .map((repo, i) => <Button
                              value={repo}
@@ -178,6 +191,7 @@ const mapDispatchToProps = dispatch => ({
     },
 
     getData: (x) => dispatch(getAPIData(x)),
+    getDownloadInfo: () => dispatch(getDownloadProps),
     getPreFetchedRepo: (x) => dispatch(getPreFetchedData(x)),
 })
 
