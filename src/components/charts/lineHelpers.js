@@ -47,7 +47,7 @@ const formatBatches = batches => dataKey => averageBy => batches
         }
     })
 
-const formatLineData = (data, dataKey, averageBy = 'sum') => {
+const formatLineData = (data, dataKey, averageBy = 'average') => {
     const filteredData = data
         .filter(item => item.mergedAt && /\d+/.test(item[dataKey]))
 
