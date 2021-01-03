@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/community-health/static/js/main.1ae1ecfd.chunk.js",
-    "main.js.map": "/community-health/static/js/main.1ae1ecfd.chunk.js.map",
+    "main.js": "/community-health/static/js/main.32213f30.chunk.js",
+    "main.js.map": "/community-health/static/js/main.32213f30.chunk.js.map",
     "runtime-main.js": "/community-health/static/js/runtime-main.d0f800ff.js",
     "runtime-main.js.map": "/community-health/static/js/runtime-main.d0f800ff.js.map",
     "static/js/2.16c2ab02.chunk.js": "/community-health/static/js/2.16c2ab02.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.d0f800ff.js",
     "static/js/2.16c2ab02.chunk.js",
-    "static/js/main.1ae1ecfd.chunk.js"
+    "static/js/main.32213f30.chunk.js"
   ]
 }
