@@ -11,12 +11,11 @@ const Sdlc = ({ sdlc }) => (
     </>
 )
 
-const RepoDescription = ({ repoInfo } = {}) => {
+const RepoDescription = ({ repoInfo, preFetchedRepo } = {}) => {
     const {
         org,
         repo,
         description = 'Unknown',
-        preFetchedRepo,
         sdlc,
     } = repoInfo
 
