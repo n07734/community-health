@@ -101,11 +101,13 @@ const PullRequestTrends = ({
                                 label: 'Additions',
                                 color: '#1f77b4',
                                 dataKey: 'additions',
+                                groupMath: 'sum',
                             },
                             {
                                 label: 'Deletions',
                                 color: '#e82573',
                                 dataKey: 'deletions',
+                                groupMath: 'sum',
                             },
                         ],
                         xAxis: 'left',

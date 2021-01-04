@@ -30,7 +30,7 @@ const formatDate = (date) => {
     return `${info.getFullYear()}-${month < 10 ? `0${month}` : month}-${dayM < 10 ? `0${dayM}` : dayM}`
 }
 
-const formatBatches = batches => dataKey => averageBy => batches
+const formatBatches = batches => dataKey => groupMath => batches
     .map((batch) => {
         const value = batch
             .reduce((acc, current) => (current[dataKey] || 0) + acc, 0)
@@ -42,12 +42,12 @@ const formatBatches = batches => dataKey => averageBy => batches
         }
 
         return {
-            y: valueByTypes[averageBy],
+            y: valueByTypes[groupMath],
             x: formatDate(batch[0].mergedAt),
         }
     })
 
-const formatLineData = (data, dataKey, averageBy = 'average') => {
+const formatLineData = ({ data, dataKey, groupMath = 'average' }) => {
     const filteredData = data
         .filter(item => item.mergedAt && /\d+/.test(item[dataKey]))
 
@@ -55,7 +55,7 @@ const formatLineData = (data, dataKey, averageBy = 'average') => {
         .sort(dateSort)
 
     const batchedData = batchBy('week')('mergedAt')(sortedData)
-    const formattedData = formatBatches(batchedData)(dataKey)(averageBy)
+    const formattedData = formatBatches(batchedData)(dataKey)(groupMath)
 
     return formattedData
 }
@@ -63,7 +63,7 @@ const formatLineData = (data, dataKey, averageBy = 'average') => {
 const formatLinesData = (axix) => axix.lines
     .map(({ label, color, dataKey, groupMath, data: lineData }) => {
         const data = lineData || axix.data || []
-        const formattedData = formatLineData(data, dataKey, groupMath)
+        const formattedData = formatLineData({ data, dataKey, groupMath })
 
         return formattedData.length
             && ({
