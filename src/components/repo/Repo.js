@@ -14,8 +14,9 @@ const RepoView = ({
     issues = [],
     releases = [],
     repoInfo = {},
+    preFetchedRepo = '',
 } = {}) => <>
-    <RepoDescription repoInfo={repoInfo} />
+    <RepoDescription repoInfo={repoInfo} preFetchedRepo={preFetchedRepo} />
     <TeamTrends usersData={usersData} />
     <PullRequestTrends pullRequests={pullRequests} releases={releases}/>
     <IssuesTrends issues={issues} releases={releases}/>
@@ -29,6 +30,7 @@ const mapStateToProps = (state) => ({
     issues: state.issues,
     releases: state.releases,
     repoInfo: state.repoInfo,
+    preFetchedRepo: state.preFetchedRepo,
 })
 
 export default connect(mapStateToProps)(RepoView)
