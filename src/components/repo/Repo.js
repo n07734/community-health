@@ -16,9 +16,9 @@ const RepoView = ({
     repoInfo = {},
 } = {}) => <>
     <RepoDescription repoInfo={repoInfo} />
+    <TeamTrends usersData={usersData} />
     <PullRequestTrends pullRequests={pullRequests} releases={releases}/>
     <IssuesTrends issues={issues} releases={releases}/>
-    <TeamTrends usersData={usersData} />
     <UserTrends usersData={usersData} />
     <UserList usersData={usersData} />
 </>
