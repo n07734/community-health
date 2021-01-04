@@ -52,7 +52,7 @@ const FetchForm = (props) => {
                 className={classes.formDescription}
                 title=""
                 expandText="go here"
-                intro="To get data for other repositories, "
+                intro="To get data for any repository, "
             >
                 <OL>
                     <LI>*Token is required for GitHub GraphQL API calls, go to your GitHub <a className={classes.link} href="https://github.com/settings/tokens">tokens</a> page</LI>
@@ -122,7 +122,7 @@ const FetchForm = (props) => {
             </ChartDescription>
             <div className={classes.preFetched}>
                  <P>
-                     Or take a look at contribution data from some popular Open Source repositories{preFetchedRepo}
+                     Or take a look at contribution data from some popular Open Source repositories.
                  </P>
                  {
                      [
