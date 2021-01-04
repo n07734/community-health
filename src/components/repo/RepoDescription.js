@@ -16,10 +16,11 @@ const RepoDescription = ({ repoInfo } = {}) => {
         org,
         repo,
         description = 'Unknown',
+        preFetchedRepo,
         sdlc,
     } = repoInfo
 
-    return repo && org
+    return !preFetchedRepo && repo && org
         ? (
             <Paper>
                 <ChartDescription
