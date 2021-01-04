@@ -1,7 +1,7 @@
 {
   "fetches": {
     "org": "microsoft",
-    "repo": "typescript",
+    "repo": "TypeScript",
     "prPagination": {
       "cursor": "Y3Vyc29yOnYyOpK5MjAxOS0xMi0xOVQyMjo1OToyNyswMDowMM4VLx8u",
       "hasNextPage": true
