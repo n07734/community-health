@@ -128,7 +128,7 @@ const FetchForm = (props) => {
                      [
                          'react',
                          'vue-next',
-                         'typescript',
+                         'TypeScript',
                          'material-ui',
                          'node',
                          'deno',
