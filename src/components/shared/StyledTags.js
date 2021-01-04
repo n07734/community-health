@@ -6,25 +6,25 @@ const styles = theme => ({
     h1: {
         ...theme.copy.h1,
         '@media (max-width: 768px)': {
-            fontSize: '3.5rem'
-        },
-        '@media (max-width: 668px)': {
-            fontSize: '3rem'
-        },
-    },
-    h2: {
-        ...theme.copy.h2,
-        '@media (max-width: 768px)': {
             fontSize: '3rem'
         },
         '@media (max-width: 668px)': {
             fontSize: '2.5rem'
         },
     },
+    h2: {
+        ...theme.copy.h2,
+        '@media (max-width: 768px)': {
+            fontSize: '2.5rem'
+        },
+        '@media (max-width: 668px)': {
+            fontSize: '2rem'
+        },
+    },
     h3: {
         ...theme.copy.h3,
         '@media (max-width: 768px)': {
-            fontSize: '1.8rem'
+            fontSize: '1.5rem'
         },
         '@media (max-width: 668px)': {
             fontSize: '1.3rem'
