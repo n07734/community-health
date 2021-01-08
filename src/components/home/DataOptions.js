@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { pathOr } from 'ramda'
 
@@ -13,11 +13,11 @@ import ChartDescription from '../shared/ChartDescription'
 import { P, OL, LI } from '../shared/StyledTags'
 import Message from './Message'
 
-import types from '../../state/types'
 import {
     storeOrg,
     storeToken,
     storeRepo,
+    storeEnterpriseAPI,
     getAPIData,
     getPreFetchedData,
     getDownloadProps,
@@ -30,14 +30,26 @@ const buttonText = (fetching, preFetchedRepo, pullRequests = []) => [
     'Get data',
 ].find(Boolean)
 
+const validate = ({ key, value }) => {
+    const isValid = key === 'enterpriseAPI'
+        ? /^(https:\/\/.+\..+|^$)/.test(value)
+        : /^[\w-.]+$/.test(value)
+
+    return isValid
+}
+
+const errorValue = formInfo => key => {
+    const value = formInfo[key]
+    const isValid = validate({ key, value })
+
+    return isValid ? false : true
+}
+
 const FetchForm = (props) => {
     const {
-        setValue,
+        setValues,
         getData,
         fetching,
-        repo,
-        token,
-        org,
         error,
         pullRequests = [],
         classes,
@@ -45,6 +57,82 @@ const FetchForm = (props) => {
         getPreFetchedRepo,
         getDownloadInfo,
     } = props
+
+    const [inputError, setInputError] = useState({
+        token: false,
+        repo: false,
+        org: false,
+        enterpriseAPI: false
+    })
+
+    const [formInfo, setFormInfo] = useState({
+        token: '',
+        repo: '',
+        org: '',
+        enterpriseAPI: ''
+    })
+
+    const setValue = (key, value) => setFormInfo({
+        ...formInfo,
+        [key]: value
+    })
+
+    const inputProps = (key) => ({
+        className: classes.child,
+        error: inputError[key],
+        value: formInfo[key],
+        variant: 'outlined',
+        margin: 'normal',
+        helperText: inputError[key] && 'Invalid input',
+        onBlur: (event) => {
+            const value = pathOr('', ['target', 'value'], event)
+
+            const isValid = validate({ key, value })
+            setInputError({
+                ...inputError,
+                [key]: isValid ? false : true
+            })
+
+            isValid
+                && setValue(key, value)
+        },
+        onChange: (event) => {
+            const value = pathOr('', ['target', 'value'], event)
+            setInputError({
+                ...inputError,
+                [key]: false,
+            })
+
+            setValue(key, value)
+        },
+        onFocus: () => setInputError({
+            ...inputError,
+            [key]: false,
+        })
+    })
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+
+        const getErrorValue = errorValue(formInfo)
+        const newInputError = {
+            'token': getErrorValue('token'),
+            'org': getErrorValue('org'),
+            'repo': getErrorValue('repo'),
+            'enterpriseAPI': getErrorValue('enterpriseAPI'),
+        }
+
+        setInputError(newInputError)
+
+        const allPass = Object.values(newInputError)
+            .every(x => !x)
+
+        allPass && !fetching
+            && setValues(formInfo)
+
+        allPass && !fetching
+            && getData()
+    }
 
     return (
         <Paper className={classes.dataPaper} >
@@ -62,43 +150,36 @@ const FetchForm = (props) => {
                 </OL>
                 <form
                     className={classes.form}
-                    onSubmit={
-                        (e) => {
-                            e.preventDefault()
-
-                            !fetching
-                                && getData()
-                        }
-                    }
+                    onSubmit={handleSubmit}
                 >
                     <TextField
-                        variant="outlined"
-                        className={classes.child}
+                        {...inputProps('token')}
                         label="Token*"
-                        margin="normal"
-                        value={token}
-                        onChange={setValue('token')}
                     />
                     <TextField
-                        variant="outlined"
-                        className={classes.child}
+                        {...inputProps('org')}
                         label="Organisation"
-                        margin="normal"
-                        value={org}
-                        onChange={setValue('org')}
                     />
 
                     <TextField
-                        variant="outlined"
-                        className={classes.child}
+                        {...inputProps('repo')}
                         label="Repository"
-                        margin="normal"
-                        value={repo}
-                        onChange={setValue('repo')}
                     />
+
+                    <ChartDescription
+                        className={`${classes.formDescription} ${classes.fullRow}`}
+                        title=""
+                        expandText="add this"
+                        intro="For an enterprise GitHub repository "
+                    >
+                        <TextField
+                            {...inputProps('enterpriseAPI')}
+                            label="Enterprise API full url"
+                        />
+                    </ChartDescription>
 
                     <Button
-                        className={classes.child}
+                        className={`${classes.child} ${classes.fullRow}`}
                         type={fetching ? 'disabled' : 'submit'}
                         variant="contained"
                         color="primary"
@@ -157,9 +238,6 @@ const FetchForm = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-    token: state.token,
-    org: state.org,
-    repo: state.repo,
     fetching: state.fetching,
     error: state.error,
     pullRequests: state.pullRequests,
@@ -167,28 +245,12 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    setValue: (key) => (event) => {
-        const actions = {
-            token: storeToken,
-            org: storeOrg,
-            repo: storeRepo,
-        }
-        const action = actions[key]
-
-        const value = pathOr('', ['target', 'value'], event)
-        const isDirty = /[^\w-.]/.test(value)
-
-        !isDirty && action
-            ? dispatch(action(value))
-            : dispatch({
-                type: types.FETCH_ERROR,
-                payload: {
-                    level: 'error',
-                    message: 'Input validation error',
-                },
-            })
+    setValues: ({ token, org, repo, enterpriseAPI }) => {
+        dispatch(storeToken(token))
+        dispatch(storeOrg(org))
+        dispatch(storeRepo(repo))
+        dispatch(storeEnterpriseAPI(enterpriseAPI))
     },
-
     getData: (x) => dispatch(getAPIData(x)),
     getDownloadInfo: () => dispatch(getDownloadProps),
     getPreFetchedRepo: (x) => dispatch(getPreFetchedData(x)),
@@ -197,13 +259,18 @@ const mapDispatchToProps = dispatch => ({
 const styles = theme => ({
     form: {
         display: 'grid',
-        gridTemplateColumns: 'repeat(4, max-content)',
+        gridTemplateColumns: 'repeat(3, 1fr)',
+        gridTemplateRows: '1fr auto 1fr 1fr',
         marginBottom: '1rem',
         columnGap: '8px',
         rowGap: '8px', // BUG: theme.spacing.unit does not have px for row but does for column, odd
         '@media (max-width: 768px)': {
             gridTemplateColumns: 'repeat(1, 1fr)',
-            gridAutoRows: '1fr'
+            gridTemplateRows: 'auto',
+
+        },
+        '& button': {
+            minHeight: '3rem',
         }
     },
     link: {
@@ -220,6 +287,7 @@ const styles = theme => ({
     },
     child: {
         margin: 0,
+        width: '100%'
     },
     copy: {
         display: 'inline',

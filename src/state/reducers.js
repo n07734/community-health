@@ -22,6 +22,9 @@ const reducers = combineReducers({
         repo: (repo = '', action) => (action.type === types.STORE_REPO)
             ? action.payload
             : repo,
+        enterpriseAPI: (enterpriseAPI = '', action) => (action.type === types.STORE_ENT_URL)
+            ? action.payload
+            : enterpriseAPI,
         prPagination: (prPagination = { hasNextPage: true }, action) =>
             (action.type === types.SET_PR_PAGINATION)
                 ? action.payload

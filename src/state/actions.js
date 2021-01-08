@@ -50,6 +50,22 @@ const storeOrg = (org = '') => (dispatch, getState) => {
     })
 }
 
+const storeEnterpriseAPI = (enterpriseAPI = '') => (dispatch, getState) => {
+    const {
+        fetches: {
+            enterpriseAPI: currentEnterpriseAPI
+        },
+    } = getState()
+
+    enterpriseAPI && currentEnterpriseAPI && enterpriseAPI !== currentEnterpriseAPI
+        && clearData(dispatch)
+
+    return dispatch({
+        type: types.STORE_ENT_URL,
+        payload: enterpriseAPI,
+    })
+}
+
 const storeRepo = (repo = '') => (dispatch, getState) => {
     const {
         fetches: {
@@ -218,6 +234,7 @@ export {
     storeOrg,
     storeToken,
     storeRepo,
+    storeEnterpriseAPI,
     getAPIData,
     getPreFetchedData,
     toggleTheme,

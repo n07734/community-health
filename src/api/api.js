@@ -19,12 +19,12 @@ const parseJSON = response => new Promise((resolve, reject) => {
 
 const triggeredAbuseRate = ({ message = '' } = {}) => /You have triggered an abuse detection mechanism/.test(message)
 
-const apiCall = token => query => resolver => rejecter =>
-    fetch('https://api.github.com/graphql', {
+const apiCall = request => query => resolver => rejecter =>
+    fetch((request.enterpriseAPI || 'https://api.github.com/graphql'), {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
+            'Authorization': `Bearer ${request.token}`,
         },
         body: JSON.stringify({ query }),
     })
@@ -107,7 +107,8 @@ const api = state => queryInfo => dispatch => {
     } = queryInfo(state)
 
     const token = pathOr('', ['fetches', 'token'], state)
-    const apiCallWithToken = apiCall(token)
+    const enterpriseAPI = pathOr('', ['fetches', 'enterpriseAPI'], state)
+    const apiCallWithToken = apiCall({ enterpriseAPI, token })
 
     const { isValid: isValidRequest, error = {}} = validateRequest(state)
 
