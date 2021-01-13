@@ -52,13 +52,13 @@ const formatUserData = (data = []) => {
                 author,
                 prSize = 0,
                 age = 0,
-                approvals,
+                approvals = 0,
                 approvers = {},
-                comments,
+                comments = 0,
                 commenters = {},
-                codeComments,
+                codeComments = 0,
                 codeCommenters = {},
-                generalComments,
+                generalComments = 0,
                 generalCommenters = {},
             } = prData
 

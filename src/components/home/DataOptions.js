@@ -208,6 +208,7 @@ const FetchForm = (props) => {
                  {
                      [
                          'react',
+                         'svelte',
                          'vue-next',
                          'TypeScript',
                          'material-ui',
