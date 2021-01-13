@@ -212,6 +212,8 @@ const FetchForm = (props) => {
                          'vue-next',
                          'TypeScript',
                          'material-ui',
+                         'xstate',
+                         'react-testing-library',
                          'node',
                          'deno',
                          'vscode',

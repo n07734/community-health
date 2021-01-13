@@ -160,7 +160,12 @@ const api = state => queryInfo => dispatch => {
     const rejecter = (error = {}) => {
         const status = error.status
         const errorMessage = [
-            (/ENOTFOUND|ECONNRESET/.test(error.code) || triggeredAbuseRate(error) || status === 502)
+            (
+                /ENOTFOUND|ECONNRESET/.test(error.code)
+                    || triggeredAbuseRate(error)
+                    || status === 502
+                    || /fetch/i.test(error.message)
+            )
                 && {
                     level: 'warn',
                     message: 'You may have triggered the api\'s abuse detection, please wait a minute before trying again',

@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles'
 import { P } from '../shared/StyledTags'
 
 const variant = {
-    'warning': <WarningIcon />,
+    'warn': <WarningIcon />,
     'error': <ErrorIcon />,
 }
 
@@ -40,7 +40,7 @@ const styles = theme => ({
     error: {
         backgroundColor: '#e02e2e',
     },
-    warning: {
+    warn: {
         backgroundColor: '#dc7e09',
     },
 })
