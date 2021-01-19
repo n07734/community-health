@@ -223,7 +223,8 @@ const FetchForm = (props) => {
                          'ramda',
                          'babel',
                          'jest',
-                         'prettier'
+                         'prettier',
+                         'cypress',
                      ]
                          .map((repo, i) => <Button
                              value={repo}
