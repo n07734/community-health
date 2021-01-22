@@ -10,6 +10,7 @@ import {
     formatPullRequests,
     formatIssues,
     formatReleases,
+    formatRepoInfo,
 } from '../format/rawData'
 import { slimObject } from '../format/lightenData'
 import { batchedQuery } from '../api/queries'
@@ -102,11 +103,10 @@ const updateUsersData = (dispatch, getState) => {
     })
 }
 
-const formatApiRepoInfo = ({ fetches: { repo, org, description = '' } = {}, sdlc = '' } = {} ) => ({
+const formatApiRepoInfo = ({ fetches: { repo, org, description = '' } = {} } = {} ) => ({
     repo,
     org,
     description,
-    sdlc,
 })
 
 const getAPIData = () => (dispatch, getState) => {
@@ -130,7 +130,7 @@ const getAPIData = () => (dispatch, getState) => {
 
             dispatch({
                 type: types.ADD_REPO_INFO,
-                payload: formatApiRepoInfo(rawData),
+                payload: formatRepoInfo(rawData),
             })
 
             dispatch(updateUsersData)

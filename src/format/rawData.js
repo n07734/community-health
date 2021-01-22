@@ -32,6 +32,12 @@ const mergeCommenters = (left = {}) => (right = {}) => {
     return mergedObject
 }
 
+const formatRepoInfo = (data) => ({
+    repo: pathOr('', ['data', 'repository', 'name'], data),
+    org: pathOr('', ['data', 'repository', 'owner', 'org'], data),
+    description: pathOr('', ['data', 'repository', 'description'], data),
+})
+
 const filterByUser = user => item => path(['node', 'author', 'login'], item) !== user
 
 const formatCodeComments = (data) => {
@@ -169,7 +175,7 @@ const getReleaseType = (tag) => {
         const minorV = minor(tag)
         const patchV = patch(tag)
         const prereleaseV = prerelease(tag)
-    
+
         const releaseType = [
             !prereleaseV && majorV && minorV === 0 && patchV === 0 && 'MAJOR',
             !prereleaseV && minorV && patchV === 0 && 'MINOR',
@@ -201,6 +207,7 @@ const formatReleases = data =>
 
 export {
     formatRepo,
+    formatRepoInfo,
     formatPullRequests,
     formatIssues,
     formatReleases,

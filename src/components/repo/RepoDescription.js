@@ -1,22 +1,14 @@
 import React from 'react'
 
-import { H, P } from '../shared/StyledTags'
+import { H } from '../shared/StyledTags'
 import ChartDescription from '../shared/ChartDescription'
 import Paper from '../shared/Paper'
-
-const Sdlc = ({ sdlc }) => (
-    <>
-        <H level={4}>Software Delivery Life Cycle (SDLC):</H>
-        <P>{sdlc}</P>
-    </>
-)
 
 const RepoDescription = ({ repoInfo, preFetchedRepo } = {}) => {
     const {
         org,
         repo,
-        description = 'Unknown',
-        sdlc,
+        description,
     } = repoInfo
 
     return !preFetchedRepo && repo && org
@@ -40,10 +32,6 @@ const RepoDescription = ({ repoInfo, preFetchedRepo } = {}) => {
                     )}
                     intro={description}
                 >
-                    {
-                        sdlc && sdlc !== 'Unkown'
-                            && <Sdlc sdlc={sdlc} />
-                    }
                 </ChartDescription>
             </Paper>
         )

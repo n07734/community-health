@@ -14,7 +14,7 @@ const Page = () => (
             <Links />
             <ChartDescription
                 title={(
-                    <H level={1}>Code Contribution Health</H>
+                    <H level={1}>Code Community Health</H>
                 )}
                 intro="The aim of this tool is to help teams learn from their contribution trends. Also to see the contribution trends of popular repositories*"
             >
