@@ -1,6 +1,11 @@
 import { combineReducers } from 'redux'
 import types from './types'
 
+const saveFirstCursor = (pagination = {}, { payload }) => ({
+    ...payload,
+    first: pagination.cursor || payload.cursor
+})
+
 const reducers = combineReducers({
     user: (user = '', action) => {
         const newValue = ({
@@ -27,15 +32,15 @@ const reducers = combineReducers({
             : enterpriseAPI,
         prPagination: (prPagination = { hasNextPage: true }, action) =>
             (action.type === types.SET_PR_PAGINATION)
-                ? action.payload
+                ? saveFirstCursor(prPagination, action)
                 : prPagination,
         releasesPagination: (releasesPagination = { hasNextPage: true }, action) =>
             (action.type === types.SET_RELEASES_PAGINATION)
-                ? action.payload
+                ? saveFirstCursor(releasesPagination, action)
                 : releasesPagination,
         issuesPagination: (issuesPagination = { hasNextPage: true }, action) =>
             (action.type === types.SET_ISSUES_PAGINATION)
-                ? action.payload
+                ? saveFirstCursor(issuesPagination, action)
                 : issuesPagination,
     }),
     fetching: (fetching = false, action) => [
