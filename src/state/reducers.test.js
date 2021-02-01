@@ -16,7 +16,19 @@ const basicReducers = ({ parent, key, type }) => {
         })).toEqual('bar')
 
         expect(reducer('foo', {})).toEqual('foo')
+    })
+}
 
+const paginationReducers = ({ parent, key, type }) => {
+    it(`${key}`, () => {
+        const reducer = parent[key]
+
+        expect(reducer('foo', {
+            type: types[type],
+            payload: { cursor: 'bar' },
+        })).toEqual({cursor: 'bar', first: 'bar'})
+
+        expect(reducer('foo', {})).toEqual('foo')
     })
 }
 
@@ -55,6 +67,12 @@ describe('reducers: ', () => {
                 key: 'repo',
                 type: types.STORE_REPO,
             },
+        ]
+
+        tests
+            .forEach(basicReducers)
+
+        const testsPagination = [
             {
                 parent: fetches,
                 key: 'prPagination',
@@ -72,9 +90,21 @@ describe('reducers: ', () => {
             },
         ]
 
-        tests
-            .forEach(basicReducers)
+        testsPagination
+            .forEach(paginationReducers)
 
+        it('pagination keeps first cursor', () => {
+            const fetches = reducers.fetches.prPagination
+            expect(fetches({}, {
+                type: types.SET_PR_PAGINATION,
+                payload: { cursor: 'bar' },
+            })).toEqual({cursor: 'bar', first: 'bar'})
+
+            expect(fetches({cursor: 'bar', first: 'bar'}, {
+                type: types.SET_PR_PAGINATION,
+                payload: { cursor: 'baz' },
+            })).toEqual({cursor: 'baz', first: 'bar'})
+        })
     })
 
     it('error', () => {
