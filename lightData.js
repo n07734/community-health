@@ -40,16 +40,16 @@ const slimObject = obj => {
     return Object.keys(newObject).length && newObject
 }
 
-const light = (file) => {
+const light = (file) => new Promise((resolve, reject) => {
     const repoData = require(`./src/prefetchedData/${file}`)
     const repoLight = slimObject(repoData)
-    const data = JSON.stringify(repoLight, null, 2);
+    const data = JSON.stringify(repoLight, null, 2)
 
-    writeFile(`./src/prefetchedData/${file}.json`, data, (err) => {
-        if (err) throw err;
-        console.log('Data written to file', file);
-    });
-}
+    writeFile(`./src/prefetchedData/${file}.json`, data, (err) => err
+        ? reject(err)
+        : resolve()
+    )
+})
 
 [
     'react',
@@ -63,4 +63,4 @@ const light = (file) => {
     'kotlin',
     'swift',
 ]
-    .forEach(light);
+    .forEach(light)
