@@ -109,7 +109,8 @@ const formatApiRepoInfo = ({ fetches: { repo, org, description = '' } = {} } = {
     description,
 })
 
-const getAPIData = () => (dispatch, getState) => {
+const getAPIData = ({ appendData = false, order = 'DESC' }) => (dispatch, getState) => {
+    console.log('-=-=--getAPIData', appendData, order )
     const state = getState()
 
     dispatch({
@@ -117,9 +118,10 @@ const getAPIData = () => (dispatch, getState) => {
     })
 
     state.preFetchedRepo
+        && !appendData
         && clearData(dispatch)
 
-    return api(state)(batchedQuery)(dispatch)
+    return api(state)(batchedQuery(order))(dispatch)
         .then((rawData) => {
             dispatch({ type: types.FETCH_END })
 
@@ -161,6 +163,7 @@ const getPreFetchedData = (repo = 'nivo') => (dispatch) => {
     const repoData = require(`../prefetchedData/${repo}.json`)
 
     const {
+        fetches = {},
         preFetchedRepo = '',
         pullRequests = [],
         usersData= [],
@@ -169,6 +172,23 @@ const getPreFetchedData = (repo = 'nivo') => (dispatch) => {
     } = repoData
 
     clearData(dispatch)
+
+    const fetchesInfo = [
+        ['token', 'STORE_TOKEN'],
+        ['org', 'STORE_ORG'],
+        ['repo', 'STORE_REPO'],
+        ['enterpriseAPI', 'STORE_ENT_URL'],
+        ['prPagination', 'SET_PR_PAGINATION', {}],
+        ['releasesPagination', 'SET_RELEASES_PAGINATION', {}],
+        ['issuesPagination', 'SET_ISSUES_PAGINATION', {}]
+    ];
+
+    fetchesInfo.forEach(([payload, type, fallback = '']) => {
+        dispatch({
+            type: types[type],
+            payload: fetches[payload] || fallback,
+        })
+    });
 
     dispatch({
         type: types.PREFETCHED_REPO,

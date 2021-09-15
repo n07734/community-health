@@ -82,6 +82,8 @@ const validateRequest = state => {
     const hasArgs = [org, repo, token]
         .every(item => typeof item === 'string' && item.length > 0)
 
+    console.log('-=-=--hasArgs', hasArgs, state)
+
     return {
         isValid: hasArgs,
         error: !hasArgs
@@ -94,6 +96,7 @@ const validateRequest = state => {
 }
 
 const api = state => queryInfo => dispatch => {
+    console.log('-=-=--api')
     dispatch({
         type: types.CLEAR_FETCH_ERROR,
     })
@@ -133,7 +136,7 @@ const api = state => queryInfo => dispatch => {
         // TODO: FILLERS HERE SORT OUT RAW and filled data
         // pass in fillers
         const fullData = await fillData(apiCallWithToken)(fillerType)(response)
-
+            console.log('-=-=--fullData', fullData)
         // TODO: dispatch should not be in api call need to update this info outside
         cursorAction
             && dispatch({
@@ -158,6 +161,7 @@ const api = state => queryInfo => dispatch => {
     }
 
     const rejecter = (error = {}) => {
+        console.log('-=-=--error', error)
         const status = error.status
         const errorMessage = [
             (
@@ -191,7 +195,7 @@ const api = state => queryInfo => dispatch => {
             payload: errorMessage,
         })
     }
-
+    console.log('-=-=--isValidRequest', isValidRequest)
     return isValidRequest && hasMoreResults
         ? apiCallWithToken(query)(resolver)(rejecter)
         : Promise.resolve()

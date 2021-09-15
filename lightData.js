@@ -4,7 +4,7 @@
 const { writeFile } = require('fs')
 
 const slimValue = (value) => {
-    const newValue = (typeof value === 'string' && value.length && value) // picks defined string 
+    const newValue = (typeof value === 'string' && value.length && value) // picks defined string
         || (/^[\d.]+$/.test(`${value}`) && /^[^0]/.test(`${value}`) && value) // picks non 0 number
         || (Array.isArray(value) && value.length && slimArray(value)) // picks defined array
         || (value && Object.keys(value).length && slimObject(value)) // picks defiend object
@@ -40,16 +40,16 @@ const slimObject = obj => {
     return Object.keys(newObject).length && newObject
 }
 
-const light = (file) => {
+const light = (file) => new Promise((resolve, reject) => {
     const repoData = require(`./src/prefetchedData/${file}`)
     const repoLight = slimObject(repoData)
-    const data = JSON.stringify(repoLight, null, 2);
+    const data = JSON.stringify(repoLight, null, 2)
 
-    writeFile(`./src/prefetchedData/${file}.json`, data, (err) => {
-        if (err) throw err;
-        console.log('Data written to file', file);
-    });
-}
+    writeFile(`./src/prefetchedData/${file}.json`, data, (err) => err
+        ? reject(err)
+        : resolve()
+    )
+})
 
 [
     'react',
@@ -61,6 +61,6 @@ const light = (file) => {
     'vscode',
     'electron',
     'kotlin',
-    'swift',
+    'swift'
 ]
-    .forEach(light);
+    .forEach(light)

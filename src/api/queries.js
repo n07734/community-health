@@ -22,12 +22,12 @@ const comments = (cursor) => `
     }
 `
 
-const pullRequests = cursor => `
+const pullRequests = order => cursor => `
 pullRequests(
   first: 100
   ${cursorQ(cursor)}
   states: [MERGED]
-  orderBy: {field: CREATED_AT direction: DESC}
+  orderBy: {field: CREATED_AT direction: ${order}}
 ) {
   edges {
     node {
@@ -54,11 +54,11 @@ pullRequests(
   ${pageInfo}
 }`
 
-const issues = cursor => `
+const issues = order => cursor => `
 issues(
   ${cursorQ(cursor)}
   first: 100
-  orderBy: { field:CREATED_AT direction:DESC }
+  orderBy: { field:CREATED_AT direction: ${order} }
 ) {
   edges {
     node {
@@ -78,11 +78,11 @@ issues(
   ${pageInfo}
 }`
 
-const releases = cursor => `
+const releases = order => cursor => `
 releases(
   ${cursorQ(cursor)}
   first:100
-  orderBy:{ field:CREATED_AT direction:DESC }
+  orderBy:{ field:CREATED_AT direction: ${order} }
 ) {
   edges {
     node {
@@ -112,39 +112,6 @@ const reviews = (cursor) => `
       ${pageInfo}
     }
 `
-
-const releasesQuery = ({
-    fetches: {
-        token,
-        org,
-        repo,
-        releasesPagination: {
-            cursor,
-            hasNextPage,
-        } = {},
-    } = {},
-} = {}) => ({
-    query: `{
-        repository(name: "${repo}" owner: "${org}") {
-          ${releases(cursor)}
-        }
-    }`,
-    resultInfo: (data) => ({
-        rawData: data,
-        results: pathOr([], ['data', 'repository', 'releases', 'edges'], data),
-        hasNextPage: pathOr(false, ['data', 'repository', 'releases', 'pageInfo', 'hasNextPage'], data),
-        nextArgs: {
-            repo,
-            org,
-            nodeId: pathOr('', ['data', 'repository', 'id'], data),
-            cursor: pathOr('', ['data', 'repository', 'releases', 'pageInfo', 'endCursor'], data),
-        },
-    }),
-    token,
-    cursorAction: types.SET_RELEASES_PAGINATION,
-    hasMoreResults: hasNextPage,
-})
-
 const issuesQuery = ({
     fetches: {
         token,
@@ -177,40 +144,7 @@ const issuesQuery = ({
     hasMoreResults: hasNextPage,
 })
 
-const prQuery = ({
-    fetches: {
-        token,
-        org,
-        repo,
-        prPagination: {
-            cursor,
-            hasNextPage,
-        },
-    } = {},
-}) => ({
-    query: `{
-          repository(name: "${repo}" owner: "${org}") {
-            ${pullRequests(cursor)}
-          }
-      }`,
-    resultInfo: (data) => ({
-        rawData: data,
-        results: pathOr([], ['data', 'repository', 'pullRequests', 'edges'], data),
-        hasNextPage: pathOr(false, ['data', 'repository', 'pullRequests', 'pageInfo', 'hasNextPage'], data),
-        nextArgs: {
-            repo,
-            org,
-            nodeId: pathOr('', ['data', 'repository', 'id'], data),
-            cursor: pathOr('', ['data', 'repository', 'pullRequests', 'pageInfo', 'endCursor'], data),
-        },
-    }),
-    fillerType: 'pullRequests',
-    token,
-    cursorAction: types.SET_PR_PAGINATION,
-    hasMoreResults: hasNextPage,
-})
-
-const batchedQuery = ({
+const batchedQuery = (order = 'DESC') => ({
     fetches: {
         org,
         repo,
@@ -236,9 +170,9 @@ const batchedQuery = ({
         owner {
           org: login
         }
-        ${prHasNextPage ? pullRequests(prCursor) : ''}
-        ${issuesHasNextPage ? issues(issuesCursor) : ''}
-        ${releasesHasNextPage ? releases(releasesCursor) : ''}
+        ${prHasNextPage ? pullRequests(order)(prCursor) : ''}
+        ${issuesHasNextPage ? issues(order)(issuesCursor) : ''}
+        ${releasesHasNextPage ? releases(order)(releasesCursor) : ''}
       }
     }`,
     resultInfo: (data) => {
@@ -341,10 +275,8 @@ const reviewCommentsQuery = ({ nodeId, cursor }) => ({
 
 export {
     batchedQuery,
-    prQuery,
     reviewCommentsQuery,
     commentsQuery,
     reviewsQuery,
-    releasesQuery,
     issuesQuery,
 }
