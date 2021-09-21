@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 
-import Paper from '../../shared/Paper'
+import ChartDescription from '../../shared/ChartDescription'
 import Button from '../../shared/Button'
 import { P } from '../../shared/StyledTags'
 import styles from './styles'
@@ -83,67 +83,72 @@ const FetchForm = (props) => {
     }
 
     return (
-        <Paper className={classes.dataPaper} >
-            <div className={classes.preFetched}>
-                 <P>
-                     Or take a look at contribution data from some popular Open Source repositories.
-                 </P>
-                 {
-                     [
-                         'react',
-                         'svelte',
-                         'vue-next',
-                         'TypeScript',
-                         'material-ui',
-                         'xstate',
-                         'react-testing-library',
-                         'node',
-                         'deno',
-                         'vscode',
-                         'electron',
-                         'kotlin',
-                         'swift',
-                         'ramda',
-                         'babel',
-                         'jest',
-                         'prettier',
-                         'cypress',
-                     ]
-                         .map((repo, i) => <Button
-                             value={repo}
-                             key={i}
-                             color={preFetchedRepo === repo ? 'primary' : 'secondary'}
-                             onClick={(e) => {
-                                 e.preventDefault()
-                                 getPreFetchedRepo(repo)
-                             }}
-                         />)
-                 }
-                 {
-                     preFetchedRepo
-                        &&  <form
-                                className={classes.form}
-                                onSubmit={handleSubmit}
-                            >
-                                <TextField
-                                    {...inputProps('token')}
-                                    label="Token*"
-                                />
-                                <Button
-                                    className={`${classes.child} ${classes.fullRow}`}
-                                    type={fetching ? 'disabled' : 'submit'}
-                                    variant="contained"
-                                    color="primary"
-                                    value={buttonText(fetching, preFetchedRepo, pullRequests)}
-                                />
-                            </form>
-                 }
-                 {
-                     error
-                        && <p>TODO:{error}</p>
-                 }
-             </div>
-        </Paper>
+        <div className={classes.preFetched}>
+                <P>
+                    Or take a look at contribution data from some popular Open Source repositories.
+                </P>
+                {
+                    [
+                        'react',
+                        'svelte',
+                        'vue-next',
+                        'TypeScript',
+                        'material-ui',
+                        'xstate',
+                        'react-testing-library',
+                        'node',
+                        'deno',
+                        'vscode',
+                        'electron',
+                        'kotlin',
+                        'swift',
+                        'ramda',
+                        'babel',
+                        'jest',
+                        'prettier',
+                        'cypress',
+                    ]
+                        .map((repo, i) => <Button
+                            value={repo}
+                            key={i}
+                            color={preFetchedRepo === repo ? 'primary' : 'secondary'}
+                            onClick={(e) => {
+                                e.preventDefault()
+                                getPreFetchedRepo(repo)
+                            }}
+                        />)
+                }
+                {
+                    preFetchedRepo
+                    &&  <ChartDescription
+                        className={classes.formDescription}
+                        title=""
+                        expandText="expand this"
+                        intro={`To top up ${preFetchedRepo} data`}
+                    >
+                        <form
+                            className={classes.form}
+                            onSubmit={handleSubmit}
+                        >
+                            <TextField
+                                {...inputProps('token')}
+                                label="Token*"
+                            />
+                            <Button
+                                className={`${classes.child} ${classes.fullRow}`}
+                                type={fetching ? 'disabled' : 'submit'}
+                                variant="contained"
+                                color="primary"
+                                value={buttonText(fetching, preFetchedRepo, pullRequests)}
+                            />
+                        </form>
+                    </ChartDescription>
+                }
+                {
+                    error
+                    && <p>TODO:{error}</p>
+                }
+            </div>
     )
 }
 

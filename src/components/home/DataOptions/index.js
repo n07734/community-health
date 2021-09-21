@@ -12,6 +12,7 @@ import Button from '../../shared/Button'
 import ChartDescription from '../../shared/ChartDescription'
 import { P, OL, LI } from '../../shared/StyledTags'
 import Message from '../Message'
+import PrefetchedOptions from './PrefetchedOptions'
 import styles from './styles'
 
 import {
@@ -55,7 +56,6 @@ const FetchForm = (props) => {
         pullRequests = [],
         classes,
         preFetchedRepo,
-        getPreFetchedRepo,
         getDownloadInfo,
     } = props
 
@@ -135,11 +135,6 @@ const FetchForm = (props) => {
             && getData()
     }
 
-    const addToSavedData = () => {
-        !fetching
-            && getData({ appendData: true, order: 'ASC' })
-    }
-
     return (
         <Paper className={classes.dataPaper} >
             <ChartDescription
@@ -206,53 +201,7 @@ const FetchForm = (props) => {
                         && <P><a className={classes.link} {...getDownloadInfo()}>Download report data</a></P>
                 }
             </ChartDescription>
-            <div className={classes.preFetched}>
-                 <P>
-                     Or take a look at contribution data from some popular Open Source repositories.
-                 </P>
-                 {
-                     [
-                         'react',
-                         'svelte',
-                         'vue-next',
-                         'TypeScript',
-                         'material-ui',
-                         'xstate',
-                         'react-testing-library',
-                         'node',
-                         'deno',
-                         'vscode',
-                         'electron',
-                         'kotlin',
-                         'swift',
-                         'ramda',
-                         'babel',
-                         'jest',
-                         'prettier',
-                         'cypress',
-                     ]
-                         .map((repo, i) => <Button
-                             value={repo}
-                             key={i}
-                             color={preFetchedRepo === repo ? 'primary' : 'secondary'}
-                             onClick={(e) => {
-                                 e.preventDefault()
-                                 getPreFetchedRepo(repo)
-                             }}
-                         />)
-                 }
-                 {
-                     preFetchedRepo
-                        && <Button
-                            className={`${classes.child} ${classes.fullRow}`}
-                            type={fetching ? 'disabled' : 'submit'}
-                            variant="contained"
-                            color="primary"
-                            value={buttonText(fetching, preFetchedRepo, pullRequests)}
-                            onClick={addToSavedData}
-                        />
-                 }
-             </div>
+            <PrefetchedOptions />
         </Paper>
     )
 }
