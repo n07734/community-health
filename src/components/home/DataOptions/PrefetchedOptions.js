@@ -10,6 +10,7 @@ import { withStyles } from '@material-ui/core/styles'
 import ChartDescription from '../../shared/ChartDescription'
 import Button from '../../shared/Button'
 import { P } from '../../shared/StyledTags'
+import Message from '../Message'
 import styles from './styles'
 
 import {
@@ -46,7 +47,7 @@ const FetchForm = (props) => {
     const inputProps = () => ({
         className: classes.child,
         error: tokenError,
-        value: 'token',
+        value: formToken,
         variant: 'outlined',
         margin: 'normal',
         helperText: tokenError && 'Invalid input',
@@ -146,7 +147,10 @@ const FetchForm = (props) => {
                 }
                 {
                     error
-                    && <p>TODO:{error}</p>
+                    && <Message
+                        error={error}
+                        className={classes.fullRow}
+                    />
                 }
             </div>
     )
@@ -160,7 +164,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    setToken: ({ token }) => dispatch(storeToken(token)),
+    setToken: (token) => dispatch(storeToken(token)),
     getData: (x) => dispatch(getAPIData(x)),
     getPreFetchedRepo: (x) => dispatch(getPreFetchedData(x)),
 })
