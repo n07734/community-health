@@ -84,12 +84,16 @@ const storeRepo = (repo = '') => (dispatch, getState) => {
 }
 
 const clearData = (dispatch) => {
+    console.log('-=-=--clear data')
     dispatch({ type: types.CLEAR_USER })
     dispatch({ type: types.CLEAR_PRS })
+    dispatch({ type: types.CLEAR_PR_PAGINATION })
     dispatch({ type: types.CLEAR_REPO_INFO })
     dispatch({ type: types.CLEAR_USERS_DATA })
     dispatch({ type: types.CLEAR_RELEASES })
+    dispatch({ type: types.CLEAR_RELEASES_PAGINATION })
     dispatch({ type: types.CLEAR_ISSUES })
+    dispatch({ type: types.CLEAR_ISSUES_PAGINATION })
     dispatch({ type: types.CLEAR_FETCH_ERROR })
 }
 
@@ -109,7 +113,7 @@ const formatApiRepoInfo = ({ fetches: { repo, org, description = '' } = {} } = {
     description,
 })
 
-const getAPIData = ({ appendData = false, order = 'DESC' }) => (dispatch, getState) => {
+const getAPIData = ({ appendData = false, order = 'DESC' } = {}) => (dispatch, getState) => {
     console.log('-=-=--getAPIData', appendData, order )
     const state = getState()
 
@@ -117,11 +121,14 @@ const getAPIData = ({ appendData = false, order = 'DESC' }) => (dispatch, getSta
         type: types.FETCH_START,
     })
 
+    console.log('-=-=-- state.preFetchedRepo', state.preFetchedRepo)
+    console.log('-=-=--appendData', appendData)
+
     state.preFetchedRepo
         && !appendData
         && clearData(dispatch)
 
-    return api(state)(batchedQuery(order))(dispatch)
+    return api(getState())(batchedQuery(order))(dispatch)
         .then((rawData) => {
             dispatch({ type: types.FETCH_END })
 

@@ -137,7 +137,7 @@ const Line = styledCharts(({
                         max: maxLeftValue,
                     }}
                     axisBottom={{
-                        format: '%b %d',
+                        format: '%y/%m',
                         tickSize: 0,
                         tickPadding: 10,
                         tickRotation: -45,

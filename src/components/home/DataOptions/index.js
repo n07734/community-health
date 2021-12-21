@@ -184,7 +184,7 @@ const FetchForm = (props) => {
                         type={fetching ? 'disabled' : 'submit'}
                         variant="contained"
                         color="primary"
-                        value={buttonText(fetching, '', pullRequests)}
+                        value={buttonText(fetching, '', preFetchedRepo ? [] : pullRequests)}
                     />
                     {
                         error

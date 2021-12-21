@@ -95,6 +95,40 @@ const validateRequest = state => {
     }
 }
 
+const paginationInfo = state => dispatch => pageInfo => {
+    const {
+        cursorAction,
+        cursor,
+        hasNextPage,
+        order,
+        startCursor,
+        endCursor,
+        type,
+    } = pageInfo
+
+    const typeStateMap = {
+        pullRequests: 'prPagination',
+        issues: 'issuesPagination',
+        releases: 'releasesPagination',
+    }
+
+    const oldestDefault = order === 'DESC' ? endCursor : startCursor
+    const oldestCurrent = pathOr(oldestDefault, ['fetches', typeStateMap[type], 'oldest'], state)
+
+    const newestDefault = order === 'ASC' ? endCursor : startCursor
+    const newestCurrent = pathOr(newestDefault, ['fetches', typeStateMap[type], 'newest'], state)
+
+    dispatch({
+        type: cursorAction,
+        payload: {
+            cursor,
+            newest: order === 'ASC' ? endCursor : newestCurrent,
+            oldest: order === 'DESC' ? endCursor : oldestCurrent,
+            hasNextPage,
+        },
+    })
+}
+
 const api = state => queryInfo => dispatch => {
     console.log('-=-=--api')
     dispatch({
@@ -147,15 +181,11 @@ const api = state => queryInfo => dispatch => {
                 },
             })
 
+        // TODO: set newest and oldest based off query direction
+        // eg  newest is startCursor when desc but endCursor when asc
         const nextPageInfo = propOr([], 'nextPageInfo', result)
         nextPageInfo
-            .map(pageInfo => dispatch({
-                type: pageInfo.cursorAction,
-                payload: {
-                    cursor: pageInfo.cursor,
-                    hasNextPage: pageInfo.hasNextPage,
-                },
-            }))
+            .map(paginationInfo(state)(dispatch))
 
         return fullData
     }

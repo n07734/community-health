@@ -1,11 +1,6 @@
 import { combineReducers } from 'redux'
 import types from './types'
 
-const saveFirstCursor = (pagination = {}, { payload }) => ({
-    ...payload,
-    first: pagination.cursor || payload.cursor
-})
-
 const reducers = combineReducers({
     user: (user = '', action) => {
         const newValue = ({
@@ -30,18 +25,18 @@ const reducers = combineReducers({
         enterpriseAPI: (enterpriseAPI = '', action) => (action.type === types.STORE_ENT_URL)
             ? action.payload
             : enterpriseAPI,
-        prPagination: (prPagination = { hasNextPage: true }, action) =>
-            (action.type === types.SET_PR_PAGINATION)
-                ? saveFirstCursor(prPagination, action)
-                : prPagination,
-        releasesPagination: (releasesPagination = { hasNextPage: true }, action) =>
-            (action.type === types.SET_RELEASES_PAGINATION)
-                ? saveFirstCursor(releasesPagination, action)
-                : releasesPagination,
-        issuesPagination: (issuesPagination = { hasNextPage: true }, action) =>
-            (action.type === types.SET_ISSUES_PAGINATION)
-                ? saveFirstCursor(issuesPagination, action)
-                : issuesPagination,
+        prPagination: (pagination = { hasNextPage: true }, action) => ({
+            [types.SET_PR_PAGINATION]: action.payload,
+            [types.CLEAR_PR_PAGINATION]: { hasNextPage: true },
+        })[action.type] || pagination,
+        releasesPagination: (pagination = { hasNextPage: true }, action) => ({
+            [types.SET_RELEASES_PAGINATION]: action.payload,
+            [types.CLEAR_RELEASES_PAGINATION]: { hasNextPage: true },
+        })[action.type] || pagination,
+        issuesPagination: (pagination = { hasNextPage: true }, action) => ({
+            [types.SET_ISSUES_PAGINATION]: action.payload,
+            [types.CLEAR_ISSUES_PAGINATION]: { hasNextPage: true },
+        })[action.type] || pagination,
     }),
     fetching: (fetching = false, action) => [
         action.type === types.FETCH_START

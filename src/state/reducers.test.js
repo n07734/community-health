@@ -26,7 +26,7 @@ const paginationReducers = ({ parent, key, type }) => {
         expect(reducer('foo', {
             type: types[type],
             payload: { cursor: 'bar' },
-        })).toEqual({cursor: 'bar', first: 'bar'})
+        })).toEqual({cursor: 'bar', newest: 'bar'})
 
         expect(reducer('foo', {})).toEqual('foo')
     })
@@ -93,17 +93,17 @@ describe('reducers: ', () => {
         testsPagination
             .forEach(paginationReducers)
 
-        it('pagination keeps first cursor', () => {
+        it('pagination keeps newest cursor', () => {
             const fetches = reducers.fetches.prPagination
             expect(fetches({}, {
                 type: types.SET_PR_PAGINATION,
                 payload: { cursor: 'bar' },
-            })).toEqual({cursor: 'bar', first: 'bar'})
+            })).toEqual({cursor: 'bar', newest: 'bar'})
 
-            expect(fetches({cursor: 'bar', first: 'bar'}, {
+            expect(fetches({cursor: 'bar', newest: 'bar'}, {
                 type: types.SET_PR_PAGINATION,
                 payload: { cursor: 'baz' },
-            })).toEqual({cursor: 'baz', first: 'bar'})
+            })).toEqual({cursor: 'baz', newest: 'bar'})
         })
     })
 

@@ -192,6 +192,10 @@ const batchedQuery = (order = 'DESC') => ({
             .map((type) => ({
                 hasNextPage: pathOr(false, ['data', 'repository', type, 'pageInfo', 'hasNextPage'], data),
                 cursor: pathOr('', ['data', 'repository', type, 'pageInfo', 'endCursor'], data),
+                startCursor: pathOr('', ['data', 'repository', type, 'pageInfo', 'startCursor'], data),
+                endCursor: pathOr('', ['data', 'repository', type, 'pageInfo', 'endCursor'], data),
+                order,
+                type,
                 cursorAction: actions[type],
             }))
 
