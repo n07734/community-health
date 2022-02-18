@@ -83,8 +83,17 @@ const storeRepo = (repo = '') => (dispatch, getState) => {
     })
 }
 
-const clearData = (dispatch) => {
-    console.log('-=-=--clear data')
+const storeAmountOfData = (amountOfData = '') => (dispatch) => dispatch({
+    type: types.STORE_AMOUNT,
+    payload: amountOfData,
+})
+
+const storeSortDirection = (sortDirection = 'DESC') => (dispatch) => dispatch({
+    type: types.STORE_SORT,
+    payload: sortDirection,
+})
+
+const clearData = (dispatch, msg = 'fff') => {
     dispatch({ type: types.CLEAR_USER })
     dispatch({ type: types.CLEAR_PRS })
     dispatch({ type: types.CLEAR_PR_PAGINATION })
@@ -113,57 +122,146 @@ const formatApiRepoInfo = ({ fetches: { repo, org, description = '' } = {} } = {
     description,
 })
 
-const getAPIData = ({ appendData = false, order = 'DESC' } = {}) => (dispatch, getState) => {
-    console.log('-=-=--getAPIData', appendData, order )
-    const state = getState()
+const getErrorMessage = state => {
+    const {
+        fetches: {
+            org,
+            repo,
+            token,
+        } = {},
+    } = state
 
-    dispatch({
+    const missing = [
+        !org && 'Organisation',
+        !repo && 'Repository',
+        !token &&'GitHib token',
+    ]
+        .filter(Boolean)
+
+    const prepend = (i) => {
+        const maxIndex = missing.length - 1
+
+        return [
+            i === 0
+            && (() => 'Missing '),
+            i === maxIndex
+            && (() => ' and '),
+            i > 0
+            && (() => ', '),
+        ].find(Boolean)()
+    }
+
+    const message = missing
+        .reduce((acc, current, i) => acc + prepend(i) + current, '')
+
+    return message
+}
+
+const validateRequest = state => {
+    const {
+        fetches: {
+            org,
+            repo,
+            token,
+        } = {},
+    } = state
+
+    const hasArgs = [org, repo, token]
+        .every(item => typeof item === 'string' && item.length > 0)
+
+    return {
+        isValid: hasArgs,
+        error: !hasArgs
+            ? {
+                level: 'error',
+                message: getErrorMessage(state),
+            }
+            : null,
+    }
+}
+
+// TODO: Improve clearData logic
+const getAPIData = ({ appendData = false, } = {}) => async (dispatch, getState) => {
+    const state = getState();
+
+    const { isValid: isValidRequest, error = {}} = validateRequest(state);
+
+    !isValidRequest && dispatch({
+        type: types.FETCH_ERROR,
+        payload: error,
+    })
+
+    isValidRequest && dispatch({
+        type: types.CLEAR_FETCH_ERROR,
+    })
+
+    isValidRequest && dispatch({
         type: types.FETCH_START,
     })
 
-    console.log('-=-=-- state.preFetchedRepo', state.preFetchedRepo)
-    console.log('-=-=--appendData', appendData)
-
     state.preFetchedRepo
         && !appendData
-        && clearData(dispatch)
+        && clearData(dispatch, 'pre api')
 
-    return api(getState())(batchedQuery(order))(dispatch)
-        .then((rawData) => {
-            dispatch({ type: types.FETCH_END })
+    try {
+        const {
+            fetches,
+        } = getState();
 
-            dispatch({
-                type: types.ADD_PRS,
-                payload: formatPullRequests(rawData),
-            })
+        const { fetchInfo, results } = await api(fetches)(batchedQuery);
 
-            dispatch({
-                type: types.ADD_REPO_INFO,
-                payload: formatRepoInfo(rawData),
-            })
+        const prs = formatPullRequests(results);
+        const repoInfo = formatRepoInfo(results);
+        const releases = formatReleases(results);
+        const issues = formatIssues(results);
 
-            dispatch(updateUsersData)
-
-            dispatch({
-                type: types.ADD_RELEASES,
-                payload: formatReleases(rawData),
-            })
-
-            dispatch({
-                type: types.ADD_ISSUES,
-                payload: formatIssues(rawData),
-            })
+        dispatch({
+            type: types.ADD_PRS,
+            payload: prs,
         })
-        .catch((error = {}) => {
-            dispatch({
-                type: types.FETCH_ERROR,
-                payload: {
-                    level: 'error',
-                    message: error.message || 'Unknown error',
-                },
-            })
-            dispatch({ type: types.FETCH_END })
+
+        dispatch({
+            type: types.ADD_REPO_INFO,
+            payload: repoInfo,
         })
+
+        dispatch(updateUsersData)
+
+        dispatch({
+            type: types.ADD_RELEASES,
+            payload: releases,
+        })
+
+        dispatch({
+            type: types.ADD_ISSUES,
+            payload: issues,
+        })
+
+        dispatch({
+            type: types.SET_PR_PAGINATION,
+            payload: fetchInfo.prPagination,
+        })
+        dispatch({
+            type: types.SET_ISSUES_PAGINATION,
+            payload: fetchInfo.issuesPagination,
+        })
+        dispatch({
+            type: types.SET_RELEASES_PAGINATION,
+            payload: fetchInfo.releasesPagination,
+        })
+
+        dispatch({ type: types.FETCH_END })
+
+    } catch (error) {
+        dispatch({
+            type: types.FETCH_ERROR,
+            payload: {
+                level: 'error',
+                message: error.message || 'Unknown error',
+            },
+        })
+        dispatch({ type: types.FETCH_END })
+    }
 }
 
 const getPreFetchedData = (repo = 'nivo') => (dispatch) => {
@@ -240,6 +338,10 @@ const getDownloadProps = (dispatch, getState) => {
     const getReportData = pipe(
         pickAll(['fetches', 'repoInfo', 'pullRequests', 'userData', 'issues', 'releases']),
         dissocPath(['fetches', 'token']),
+        dissocPath(['fetches', 'amountOfData']),
+        dissocPath(['fetches', 'prPagination', 'hasNextPage']),
+        dissocPath(['fetches', 'issuesPagination', 'hasNextPage']),
+        dissocPath(['fetches', 'releasesPagination', 'hasNextPage']),
         assoc('preFetchedRepo', repo),
         slimObject
     )
@@ -262,6 +364,8 @@ export {
     storeToken,
     storeRepo,
     storeEnterpriseAPI,
+    storeAmountOfData,
+    storeSortDirection,
     getAPIData,
     getPreFetchedData,
     toggleTheme,

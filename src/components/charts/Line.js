@@ -123,7 +123,7 @@ const Line = styledCharts(({
                         ...leftAxis.lines.map(x => x.color),
                         ...rightAxis.lines.map(x => x.color),
                     ]}
-                    lineWidth={1}
+                    lineWidth={2}
                     curve='monotoneX'
                     animate={false}
                     xScale={{
@@ -141,7 +141,6 @@ const Line = styledCharts(({
                         tickSize: 0,
                         tickPadding: 10,
                         tickRotation: -45,
-
                     }}
                     axisLeft={{
                         tickSize: 0,

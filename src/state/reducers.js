@@ -22,6 +22,9 @@ const reducers = combineReducers({
         repo: (repo = '', action) => (action.type === types.STORE_REPO)
             ? action.payload
             : repo,
+        amountOfData: (amountOfData = 1, action) => (action.type === types.STORE_AMOUNT)
+            ? action.payload
+            : amountOfData,
         enterpriseAPI: (enterpriseAPI = '', action) => (action.type === types.STORE_ENT_URL)
             ? action.payload
             : enterpriseAPI,

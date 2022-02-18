@@ -31,6 +31,9 @@ const styles = () => ({
         '& svg path': {
             opacity: '0.7'
         },
+        '& svg g line': {
+            opacity: '0.6'
+        },
         '@media (max-width: 768px)': {
             height: '350px',
             '& svg g line': {
@@ -51,7 +54,7 @@ const styles = () => ({
             '& svg text': {
                 fontSize: '10px !important'
             },
-        },  
+        },
     },
 })
 

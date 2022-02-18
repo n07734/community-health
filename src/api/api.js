@@ -1,9 +1,17 @@
 // TODO: Think more about if this should maintain github api data structures
 // TODO: add tests
-import { pathOr, propOr } from 'ramda'
-import fillData from './fillers'
+import {
+    always,
+    cond,
+    propOr,
+    propEq,
+    mergeDeepRight,
+    T as alwaysTrue,
+    F as alwaysFalse,
+} from 'ramda'
 
-import types from '../state/types'
+import fillData from './fillers'
+import { compose } from 'redux'
 
 const parseJSON = response => new Promise((resolve, reject) => {
     response.json()
@@ -17,219 +25,130 @@ const parseJSON = response => new Promise((resolve, reject) => {
         })
 })
 
-const triggeredAbuseRate = ({ message = '' } = {}) => /You have triggered an abuse detection mechanism/.test(message)
+const triggeredAbuseRate = ({ message = '' }) =>/You have triggered an abuse detection mechanism/.test(message)
 
-const apiCall = request => query => resolver => rejecter =>
-    fetch((request.enterpriseAPI || 'https://api.github.com/graphql'), {
+const apiCall = fetchInfo => query =>
+    fetch((fetchInfo.enterpriseAPI || 'https://api.github.com/graphql'), {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${request.token}`,
+            'Authorization': `Bearer ${fetchInfo.token}`,
         },
         body: JSON.stringify({ query }),
     })
         .then(parseJSON)
-        .then(data => triggeredAbuseRate(data)
-            ? rejecter(data)
-            : resolver(data)
-        )
-        .catch(rejecter)
 
-const getErrorMessage = state => {
-    const {
-        fetches: {
-            org,
-            repo,
-            token,
-        } = {},
-    } = state
+const shouldGetNextPage = (hasNextPage, { amountOfData }) => cond([
+    [always(hasNextPage === false), alwaysFalse],
+    [always(hasNextPage && Number.isInteger(amountOfData) && amountOfData >= 1), alwaysTrue],
+    [always(hasNextPage && amountOfData === 'all'), alwaysTrue],
+    [alwaysTrue, alwaysFalse],
+]);
 
-    const missing = [
-        !org && 'Organisation',
-        !repo && 'Repository',
-        !token &&'GitHib token',
-    ]
-        .filter(Boolean)
+const pause = (ms = 3000) => new Promise(resolve => setTimeout(resolve, ms))
+let numRateTriggers = 0
 
-    const prepend = (i) => {
-        const maxIndex = missing.length - 1
-
-        return [
-            i === 0
-            && (() => 'Missing '),
-            i === maxIndex
-            && (() => ' and '),
-            i > 0
-            && (() => ', '),
-        ].find(Boolean)()
-    }
-
-    const message = missing
-        .reduce((acc, current, i) => acc + prepend(i) + current, '')
-
-    return message
+const pauseThenRetry = async(fetchInfo, queryInfo, results) => {
+    console.log('-=-=--paused');
+    await pause();
+    ++numRateTriggers
+    return numRateTriggers <= 10
+        ? api(fetchInfo)(queryInfo, results)
+        : {
+            level: 'error',
+            message: 'Hit rate limit too many times'
+        }
 }
 
-const validateRequest = state => {
-    const {
-        fetches: {
-            org,
-            repo,
-            token,
-        } = {},
-    } = state
-
-    const hasArgs = [org, repo, token]
-        .every(item => typeof item === 'string' && item.length > 0)
-
-    console.log('-=-=--hasArgs', hasArgs, state)
-
-    return {
-        isValid: hasArgs,
-        error: !hasArgs
-            ? {
-                level: 'error',
-                message: getErrorMessage(state),
-            }
-            : null,
-    }
-}
-
-const paginationInfo = state => dispatch => pageInfo => {
-    const {
-        cursorAction,
-        cursor,
-        hasNextPage,
-        order,
-        startCursor,
-        endCursor,
-        type,
-    } = pageInfo
-
-    const typeStateMap = {
-        pullRequests: 'prPagination',
-        issues: 'issuesPagination',
-        releases: 'releasesPagination',
-    }
-
-    const oldestDefault = order === 'DESC' ? endCursor : startCursor
-    const oldestCurrent = pathOr(oldestDefault, ['fetches', typeStateMap[type], 'oldest'], state)
-
-    const newestDefault = order === 'ASC' ? endCursor : startCursor
-    const newestCurrent = pathOr(newestDefault, ['fetches', typeStateMap[type], 'newest'], state)
-
-    dispatch({
-        type: cursorAction,
-        payload: {
-            cursor,
-            newest: order === 'ASC' ? endCursor : newestCurrent,
-            oldest: order === 'DESC' ? endCursor : oldestCurrent,
-            hasNextPage,
-        },
-    })
-}
-
-const api = state => queryInfo => dispatch => {
-    console.log('-=-=--api')
-    dispatch({
-        type: types.CLEAR_FETCH_ERROR,
-    })
-
+// TODO: Do not like dispatch here or using state
+// do this before
+const api = fetchInfo => async(queryInfo, results = []) => {
     const {
         query,
         resultInfo,
         fillerType,
-        cursorAction,
-        hasMoreResults,
-    } = queryInfo(state)
+    } = queryInfo(fetchInfo)
+    console.log('-=-=--query', query)
 
-    const token = pathOr('', ['fetches', 'token'], state)
-    const enterpriseAPI = pathOr('', ['fetches', 'enterpriseAPI'], state)
-    const apiCallWithToken = apiCall({ enterpriseAPI, token })
+    const apiCallWithToken = apiCall(fetchInfo)
+    try {
+        const result = await apiCallWithToken(query)
+        if (triggeredAbuseRate(result)) {
+            throw new Error('Abuse rate triggered');
+        }
 
-    const { isValid: isValidRequest, error = {}} = validateRequest(state)
+        const fullData = await fillData(apiCallWithToken)(fillerType)(result)
+        const updatedResults = [
+            ...results,
+            fullData
+        ]
 
-    !isValidRequest && dispatch({
-        type: types.FETCH_ERROR,
-        payload: error,
-    })
+        const {
+            hasNextPage,
+            nextPageInfo,
+        } = resultInfo(result)
 
-    // TODO: Not like this, yuck
-    const resolver = async(response = {}) => {
-        response.errors
-            && dispatch({
-                type: types.FETCH_ERROR,
-                payload: {
-                    level: 'error',
-                    message: 'Error with graphql query',
-                },
-            })
+        const updatedFetchInfo = mergeDeepRight(fetchInfo, nextPageInfo)
 
-        const result = resultInfo(response)
-
-        // TODO: FILLERS HERE SORT OUT RAW and filled data
-        // pass in fillers
-        const fullData = await fillData(apiCallWithToken)(fillerType)(response)
-            console.log('-=-=--fullData', fullData)
-        // TODO: dispatch should not be in api call need to update this info outside
-        cursorAction
-            && dispatch({
-                type: cursorAction,
-                payload: {
-                    cursor: pathOr('', ['nextArgs', 'cursor'], result),
-                    hasNextPage: propOr(false, 'hasNextPage', result),
-                },
-            })
-
-        // TODO: set newest and oldest based off query direction
-        // eg  newest is startCursor when desc but endCursor when asc
-        const nextPageInfo = propOr([], 'nextPageInfo', result)
-        nextPageInfo
-            .map(paginationInfo(state)(dispatch))
-
-        return fullData
-    }
-
-    const rejecter = (error = {}) => {
-        console.log('-=-=--error', error)
-        const status = error.status
-        const errorMessage = [
-            (
-                /ENOTFOUND|ECONNRESET/.test(error.code)
-                    || triggeredAbuseRate(error)
-                    || status === 502
-                    || /fetch/i.test(error.message)
-            )
-                && {
+        return shouldGetNextPage(hasNextPage, updatedFetchInfo)(fullData)
+            ? api(updatedFetchInfo)(queryInfo, updatedResults)
+            : {
+                fetchInfo: updatedFetchInfo,
+                results: updatedResults,
+            }
+    } catch (error) {
+        console.log('-=-=--api error', error)
+        const hasTriggeredAbuse = cond([
+            [triggeredAbuseRate, alwaysTrue],
+            [propEq('status', 500), alwaysTrue],
+            [propEq('status', 502), alwaysTrue],
+            [propEq('message', 'Abuse rate triggered'), alwaysTrue],
+            [compose(/ENOTFOUND|ECONNRESET/.test, propOr('', 'code')), alwaysTrue],
+            [compose(/fetch/i.test, propOr('', 'message')), alwaysTrue],
+            [alwaysTrue, alwaysFalse],
+        ])
+        const getErrorMessage = cond([
+            [
+                hasTriggeredAbuse,
+                always({
                     level: 'warn',
                     message: 'You may have triggered the api\'s abuse detection, please wait a minute before trying again',
-                },
-            status === 401
-                && {
+                })
+            ],
+            [
+                propEq('status', 401),
+                always({
                     level: 'error',
                     message: 'GitHub token does not have correct settings, please see README',
-                },
-            /40\d/.test(status)
-                && {
+                }),
+            ],
+            [
+                compose(/40\d/i.test, propOr('', 'status')),
+                always({
                     level: 'error',
                     message: `Auth error: ${error.message || 'UNKOWN'}`,
-                },
-            {
-                level: 'error',
-                message: `ERROR: ${error.message || 'UNKOWN'}`,
-            },
-        ].find(Boolean)
+                })
+            ],
+            [
+                alwaysTrue,
+                always({
+                    level: 'error',
+                    message: `ERROR: ${error.message || 'UNKOWN'}`,
+                })
+            ]
+        ]);
 
-        dispatch({
-            type: types.FETCH_ERROR,
-            payload: errorMessage,
-        })
+        const errorMessage = getErrorMessage(error)
+        console.log('-=-=--errorMessage', errorMessage)
+
+        return hasTriggeredAbuse(error)
+            ? pauseThenRetry(fetchInfo, queryInfo, results)
+            : {
+                ...errorMessage,
+                fetchInfo: fetchInfo,
+                results: results,
+            }
     }
-    console.log('-=-=--isValidRequest', isValidRequest)
-    return isValidRequest && hasMoreResults
-        ? apiCallWithToken(query)(resolver)(rejecter)
-        : Promise.resolve()
-
 }
 
 export default api

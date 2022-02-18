@@ -1,5 +1,11 @@
-import { path, pathOr } from 'ramda'
-import differenceInDays from 'date-fns/difference_in_days'
+import {
+    compose,
+    map,
+    flatten,
+    path,
+    pathOr
+} from 'ramda'
+import differenceInDays from 'date-fns/differenceInDays'
 import {
     major,
     minor,
@@ -32,7 +38,7 @@ const mergeCommenters = (left = {}) => (right = {}) => {
     return mergedObject
 }
 
-const formatRepoInfo = (data) => ({
+const formatRepoInfo = ([data]) => ({
     repo: pathOr('', ['data', 'repository', 'name'], data),
     org: pathOr('', ['data', 'repository', 'owner', 'org'], data),
     description: pathOr('', ['data', 'repository', 'description'], data),
@@ -85,6 +91,7 @@ const formatApprovals = (data) => {
 }
 
 const prData = (data) => {
+    console.log('-=-=--prData')
     const org = pathOr('', ['node', 'repository', 'owner', 'login'], data)
     const repo = pathOr('', ['node', 'repository', 'name'], data)
     const author = pathOr('', ['node', 'author', 'login'], data)
@@ -123,7 +130,7 @@ const prData = (data) => {
 
         createdAt,
         mergedAt,
-        age: differenceInDays(mergedAt, createdAt) || 1,
+        age: differenceInDays(new Date(mergedAt), new Date(createdAt)) || 1,
 
         approvals,
         approvers,
@@ -141,8 +148,11 @@ const prData = (data) => {
     return prInfo
 }
 
-const formatPullRequests = data =>  pathOr([], ['data', 'repository', 'pullRequests', 'edges'], data)
-    .map(prData)
+const formatPullRequests = compose(
+    map(prData),
+    flatten,
+    map(pathOr([], ['data', 'repository', 'pullRequests', 'edges'])),
+)
 
 const formatRepo = (data) => ({
     name: pathOr('', ['data', 'repository', 'name'], data),
@@ -164,10 +174,11 @@ const formatIssue = (data) => {
     }
 }
 
-const formatIssues = data =>
-    pathOr([], ['data', 'repository', 'issues', 'edges'], data)
-        .map(formatIssue)
-
+const formatIssues = compose(
+    map(formatIssue),
+    flatten,
+    map(pathOr([], ['data', 'repository', 'issues', 'edges'])),
+)
 
 const getReleaseType = (tag) => {
     try {
@@ -201,10 +212,11 @@ const formatRelease = (data) => {
     }
 }
 
-const formatReleases = data =>
-    pathOr([], ['data', 'repository', 'releases', 'edges'], data)
-        .map(formatRelease)
-
+const formatReleases = compose(
+    map(formatRelease),
+    flatten,
+    map(pathOr([], ['data', 'repository', 'releases', 'edges'])),
+)
 export {
     formatRepo,
     formatRepoInfo,

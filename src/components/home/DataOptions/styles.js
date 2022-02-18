@@ -1,7 +1,7 @@
 const styles = theme => ({
     form: {
         display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
+        gridTemplateColumns: 'repeat(2, 1fr)',
         marginBottom: '1rem',
         columnGap: '8px',
         rowGap: '8px', // BUG: theme.spacing.unit does not have px for row but does for column, odd
@@ -10,6 +10,9 @@ const styles = theme => ({
         },
         '& button': {
             minHeight: '3rem',
+        },
+        '& .tokenText' : {
+            gridColumn:'1 / -1'
         }
     },
     link: {

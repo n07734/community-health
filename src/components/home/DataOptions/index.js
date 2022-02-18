@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { pathOr } from 'ramda'
-
 import {
     TextField,
+    Select,
+    MenuItem,
 } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 
 import Paper from '../../shared/Paper'
 import Button from '../../shared/Button'
 import ChartDescription from '../../shared/ChartDescription'
-import { P, OL, LI } from '../../shared/StyledTags'
+import { P } from '../../shared/StyledTags'
 import Message from '../Message'
 import PrefetchedOptions from './PrefetchedOptions'
 import styles from './styles'
@@ -20,6 +21,8 @@ import {
     storeToken,
     storeRepo,
     storeEnterpriseAPI,
+    storeAmountOfData,
+    storeSortDirection,
     getAPIData,
     getPreFetchedData,
     getDownloadProps,
@@ -67,6 +70,8 @@ const FetchForm = (props) => {
     })
 
     const [formInfo, setFormInfo] = useState({
+        startingPoint: 'now',
+        amountOfData: 1,
         token: '',
         repo: '',
         org: '',
@@ -137,26 +142,36 @@ const FetchForm = (props) => {
 
     return (
         <Paper className={classes.dataPaper} >
+            <PrefetchedOptions />
             <ChartDescription
                 className={classes.formDescription}
                 title=""
-                expandText="go here"
-                intro="To get data for any repository, "
+                expandText="here"
+                intro="Or get community contribution health data for any repository"
             >
-                <OL>
-                    <LI>*Token is required for GitHub GraphQL API calls, go to your GitHub <a className={classes.link} href="https://github.com/settings/tokens">tokens</a> page</LI>
-                    <LI>Click on 'generate new token'</LI>
-                    <LI>Choose the settings 'repo' (all) and 'read:org', click 'Generate token'</LI>
-                    <LI>Use that token here</LI>
-                </OL>
                 <form
                     className={classes.form}
                     onSubmit={handleSubmit}
                 >
-                    <TextField
-                        {...inputProps('token')}
-                        label="Token*"
-                    />
+                    <Select
+                        value={formInfo.startingPoint}
+                        onChange={(e) => setValue('startingPoint', e.target.value)}
+                        inputProps={{ 'aria-label': 'Starting point' }}
+                        >
+                        <MenuItem value="now" >Starting from now</MenuItem>
+                        <MenuItem value="start">Starting from creation of the repo</MenuItem>
+                    </Select>
+                    <Select
+                        value={formInfo.amountOfData}
+                        onChange={(e) => setValue('amountOfData', e.target.value)}
+                        inputProps={{ 'aria-label': 'Amount of data' }}
+                        >
+                        <MenuItem value={1} default>Get 100 more PRs</MenuItem>
+                        <MenuItem value={20} >Get 2,000 more PRs</MenuItem>
+                        <MenuItem value={100} >Get 10,000 more PRs</MenuItem>
+                        <MenuItem value="all">Get it all</MenuItem>
+                    </Select>
+
                     <TextField
                         {...inputProps('org')}
                         label="Organisation"
@@ -166,6 +181,13 @@ const FetchForm = (props) => {
                         {...inputProps('repo')}
                         label="Repository"
                     />
+                    <TextField
+                        {...inputProps('token')}
+                        label="Token*"
+                    />
+                <P className="tokenText">
+                    * To create a token go to your GitHub <a className={classes.link} href="https://github.com/settings/tokens">tokens</a> page, click on 'generate new token', choose the settings 'repo' (all) and 'read:org' then click 'Generate token'.
+                </P>
 
                     <ChartDescription
                         className={`${classes.formDescription} ${classes.fullRow}`}
@@ -201,7 +223,6 @@ const FetchForm = (props) => {
                         && <P><a className={classes.link} {...getDownloadInfo()}>Download report data</a></P>
                 }
             </ChartDescription>
-            <PrefetchedOptions />
         </Paper>
     )
 }
@@ -214,11 +235,16 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    setValues: ({ token, org, repo, enterpriseAPI }) => {
+    setValues: ({ token, org, repo, enterpriseAPI, amountOfData, startingPoint }) => {
         dispatch(storeToken(token))
         dispatch(storeOrg(org))
         dispatch(storeRepo(repo))
         dispatch(storeEnterpriseAPI(enterpriseAPI))
+        dispatch(storeAmountOfData(amountOfData))
+        dispatch(storeSortDirection(startingPoint === 'now'
+            ? 'DESC'
+            : 'ASC'
+        ))
     },
     getData: (x) => dispatch(getAPIData(x)),
     getDownloadInfo: () => dispatch(getDownloadProps),

@@ -39,7 +39,7 @@ const fillData = apiCall => {
             : data
     }
 
-    const recursiveFiller = makeQuery => (queryInfo = {}) => (accumulator = []) => {
+    const recursiveFiller = makeQuery => (queryInfo = {}) => async (currentResults = []) => {
         const {
             hasNextPage: currentHasNextPage,
         } = queryInfo
@@ -50,28 +50,24 @@ const fillData = apiCall => {
             fillerType,
         } = makeQuery(queryInfo)
 
-        const resolver = async(nextResult) => {
-            const {
-                results = [],
-                hasNextPage: newHasNextPage,
-                nextArgs,
-            } = resultInfo(nextResult)
+        const newResult = currentHasNextPage
+            ? await apiCall(query)
+            : {}
 
-            const updatedData = [
-                ...accumulator,
-                ...results,
-            ]
+        const {
+            results = [],
+            hasNextPage: newHasNextPage,
+            nextArgs,
+        } = resultInfo(newResult)
 
-            return newHasNextPage
-                ? recursiveFiller(makeQuery)(nextArgs)(updatedData)
-                : await fillByType(fillerType)(updatedData)
-        }
+        const updatedData = [
+            ...currentResults,
+            ...results,
+        ]
 
-        return currentHasNextPage
-            ? apiCall(query)(resolver)((error) => {
-                throw error
-            })
-            : accumulator
+        return newHasNextPage
+            ? recursiveFiller(makeQuery)(nextArgs)(updatedData)
+            : await fillByType(fillerType)(updatedData)
     }
 
     const updateRawData = (rawData = {}) => key => newData => {
@@ -92,7 +88,6 @@ const fillData = apiCall => {
             const reviewCommentsQueryInfo = getQueryInfo('comments')(review)
 
             const allReviewComments = await recursiveFiller(reviewCommentsQuery)(reviewCommentsQueryInfo)(currentReviewComments)
-
 
             return updateRawData(review)('comments')({ edges: allReviewComments })
         }
