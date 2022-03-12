@@ -208,7 +208,7 @@ const getAPIData = ({ appendData = false, } = {}) => async (dispatch, getState) 
             fetches,
         } = getState();
 
-        const { fetchInfo, results } = await api(fetches)(batchedQuery);
+        const { fetchInfo, results } = await api(fetches, batchedQuery, dispatch);
 
         const prs = formatPullRequests(results);
         const repoInfo = formatRepoInfo(results);

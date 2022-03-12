@@ -1,4 +1,4 @@
-import { pathOr } from 'ramda'
+import { pathOr, propOr } from 'ramda'
 import format from 'date-fns/format'
 
 const cursorQ = (cursor, key = 'after') => cursor
@@ -33,6 +33,7 @@ pullRequests(
   states: [MERGED]
   orderBy: {field: CREATED_AT direction: ${order}}
 ) {
+  totalCount
   edges {
     node {
       id
@@ -64,6 +65,7 @@ issues(
   first: 100
   orderBy: { field:CREATED_AT direction: ${order} }
 ) {
+  totalCount
   edges {
     node {
       title
@@ -88,6 +90,7 @@ releases(
   first:100
   orderBy:{ field:CREATED_AT direction: ${order} }
 ) {
+  totalCount
   edges {
     node {
       id
@@ -239,6 +242,14 @@ const getPaginationByType = (oldFetchInfo, results, order) => type => {
     }
 }
 
+const getRemainingPageCount = (data) => {
+  const [ maxItems ] = ['issues', 'pullRequests', 'releases']
+    .map(type => propOr(0, ['data', 'node', type, 'totalCount']))
+    .sort((a,b) => a > b)
+
+    return Math.ceil(maxItems/100) -1
+}
+
 // Sort out hasNextpage as diff by order
 const batchedQuery = ({
     org,
@@ -282,7 +293,7 @@ const batchedQuery = ({
 
         const updatedAmountOfData = Number.isInteger(amountOfData)
             ? amountOfData - 1
-            : amountOfData;
+            : getRemainingPageCount(data);
 
         console.log('-=-=--updatedAmountOfData', updatedAmountOfData)
 

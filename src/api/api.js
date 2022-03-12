@@ -4,14 +4,16 @@ import {
     always,
     cond,
     propOr,
+    pathOr,
     propEq,
     mergeDeepRight,
     T as alwaysTrue,
     F as alwaysFalse,
 } from 'ramda'
+import { compose } from 'redux'
 
 import fillData from './fillers'
-import { compose } from 'redux'
+import types from '../state/types'
 
 const parseJSON = response => new Promise((resolve, reject) => {
     response.json()
@@ -53,22 +55,56 @@ const pauseThenRetry = async(fetchInfo, queryInfo, results) => {
     await pause();
     ++numRateTriggers
     return numRateTriggers <= 10
-        ? api(fetchInfo)(queryInfo, results)
+        ? api(fetchInfo, queryInfo, results)
         : {
             level: 'error',
             message: 'Hit rate limit too many times'
         }
 }
 
+const getTotalItemsByType = (type = '', results = []) => {
+    const [ result ] = results
+    const total = pathOr(0, ['data', 'repository', type, 'totalCount'], result)
+    return total
+}
+
+const getCurrentItemsByType = (type = '', results = []) => {
+    const total = results
+        .reduce((acc, result) => {
+            const itemCount = pathOr([], ['data', 'repository', type, 'edges'], result)
+                .length
+            return acc + itemCount
+        }, 0)
+
+    return total
+}
+
 // TODO: Do not like dispatch here or using state
 // do this before
-const api = fetchInfo => async(queryInfo, results = []) => {
+const api = async(fetchInfo, queryInfo, dispatch, results = []) => {
     const {
         query,
         resultInfo,
         fillerType,
     } = queryInfo(fetchInfo)
     console.log('-=-=--query', query)
+
+    dispatch({
+        type: types.FETCH_STATUS,
+        payload: {
+            page: results.length,
+            pagesLoaded: results.length,
+            pagesRemaining: fetchInfo.amountOfData === 'all'
+                ? 0
+                : fetchInfo.amountOfData,
+            pullRequests: getCurrentItemsByType('pullRequests', results),
+            pullRequestsTotal: getTotalItemsByType('pullRequests', results),
+            issues: getCurrentItemsByType('issues', results),
+            issuesTotal: getTotalItemsByType('issues', results),
+            releases: getCurrentItemsByType('releases', results),
+            releasesTotal: getTotalItemsByType('releases', results),
+        }
+    })
 
     const apiCallWithToken = apiCall(fetchInfo)
     try {
@@ -91,7 +127,7 @@ const api = fetchInfo => async(queryInfo, results = []) => {
         const updatedFetchInfo = mergeDeepRight(fetchInfo, nextPageInfo)
 
         return shouldGetNextPage(hasNextPage, updatedFetchInfo)(fullData)
-            ? api(updatedFetchInfo)(queryInfo, updatedResults)
+            ? api(updatedFetchInfo, queryInfo, dispatch, updatedResults)
             : {
                 fetchInfo: updatedFetchInfo,
                 results: updatedResults,
@@ -145,8 +181,8 @@ const api = fetchInfo => async(queryInfo, results = []) => {
             ? pauseThenRetry(fetchInfo, queryInfo, results)
             : {
                 ...errorMessage,
-                fetchInfo: fetchInfo,
-                results: results,
+                // fetchInfo: fetchInfo,
+                // results: results,
             }
     }
 }

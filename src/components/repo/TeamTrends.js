@@ -52,6 +52,35 @@ const TeamTrends = ({
                             <Bar
                                 data={usersData}
                                 indexBy="author"
+                                layout="horizontal"
+                                bars={[
+                                    {
+                                        dataKey: 'commentsGiven',
+                                        color: '#1f77b4',
+                                        label: 'Comments given',
+                                    },
+                                    {
+                                        dataKey: 'commentsReceived',
+                                        color: '#e82573',
+                                        label: 'Comments received',
+                                    },
+                                    {
+                                        dataKey: 'uniquePRsApproved',
+                                        color: '#1f77b4',
+                                        label: 'Approved PRs',
+                                        transformer: x => x - x - x
+                                    },
+                                    {
+                                        dataKey: 'totalPRs',
+                                        color: '#e82573',
+                                        label: 'Opened PRs',
+                                        transformer: x => x - x - x
+                                    },
+                                ]}
+                            />
+                            <Bar
+                                data={usersData}
+                                indexBy="author"
                                 bars={[
                                     {
                                         dataKey: 'uniquePRsApproved',

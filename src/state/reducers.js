@@ -49,6 +49,9 @@ const reducers = combineReducers({
         () => fetching,
     ]
         .find(Boolean)(),
+    fetchStatus: (fetchStatus = {}, action) => action.type === types.FETCH_STATUS
+        ? action.payload
+        : fetchStatus,
     error: (error = '', action) => {
         const newValue = ({
             [types.FETCH_ERROR]: () => action.payload,

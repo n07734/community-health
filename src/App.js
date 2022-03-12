@@ -5,6 +5,7 @@ import { pathOr } from 'ramda'
 
 import theme from './theme'
 import Page from './components/home/Page'
+import Loader from './components/Loader'
 
 import * as actions from './state/actions'
 
@@ -21,6 +22,7 @@ const App = ({ getPreFetchedData, themeType, setUser } = {}) => {
 
     return (
         <MuiThemeProvider theme={theme(themeType)}>
+            <Loader />
             <Page />
         </MuiThemeProvider>
     )

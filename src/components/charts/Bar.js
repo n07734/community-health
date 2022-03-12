@@ -14,6 +14,7 @@ const Bar = styledCharts(({
     indexBy = 'user',
     max = 20,
     classes,
+    layout = "vertical"
 } = {}) => {
     const theme = useTheme();
     const trimmedData = filter(item => bars.some(x => item[x.dataKey]), data)
@@ -44,6 +45,10 @@ const Bar = styledCharts(({
                     margin={{ top: 5, right: 50, bottom: 60, left: 50 }}
                     padding={0.3}
                     groupMode="grouped"
+                    layout={layout}
+                    valueFormat={(value) => layout === 'horizontal'
+                        ? `${Math.abs(value)}`
+                        : value}
                     colors={bars.map(x => x.color)}
                     axisBottom={{
                         tickSize: 0,
