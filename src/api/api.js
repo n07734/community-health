@@ -79,8 +79,6 @@ const getCurrentItemsByType = (type = '', results = []) => {
     return total
 }
 
-// TODO: Do not like dispatch here or using state
-// do this before
 const api = async(fetchInfo, queryInfo, dispatch, results = []) => {
     const {
         query,

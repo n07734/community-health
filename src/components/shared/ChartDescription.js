@@ -23,7 +23,7 @@ const ChartDescription = ({
                     : title
             }
             <P>
-                {intro} { 
+                {intro} {
                     children && <a
                         className={classes.link}
                         href="#desc"
@@ -39,7 +39,7 @@ const ChartDescription = ({
                     </a>
                 }
             </P>
-            <Collapse in={toggle}>
+            <Collapse className="wrapper" in={toggle}>
                 {children}
             </Collapse>
         </div>

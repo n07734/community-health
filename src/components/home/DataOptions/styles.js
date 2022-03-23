@@ -1,5 +1,5 @@
 const styles = theme => ({
-    form: {
+    inputGrid: {
         display: 'grid',
         gridTemplateColumns: 'repeat(2, 1fr)',
         marginBottom: '1rem',

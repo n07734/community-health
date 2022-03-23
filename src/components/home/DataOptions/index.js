@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { pathOr } from 'ramda'
+import {
+    always,
+    equals,
+    pathOr,
+    cond,
+    T as alwaysTrue
+} from 'ramda'
 import {
     TextField,
     Select,
@@ -21,6 +27,7 @@ import {
     storeToken,
     storeRepo,
     storeEnterpriseAPI,
+    storeExcludeIds,
     storeAmountOfData,
     storeSortDirection,
     getAPIData,
@@ -36,10 +43,11 @@ const buttonText = (fetching, preFetchedRepo, pullRequests = []) => [
 ].find(Boolean)
 
 const validate = ({ key, value }) => {
-    const isValid = key === 'enterpriseAPI'
-        ? /^(https:\/\/.+\..+|^$)/.test(value)
-        : /^[\w-.]+$/.test(value)
-
+    const isValid = cond([
+        [equals('enterpriseAPI'), always(/^(https:\/\/.+\..+|^$)/.test(value))],
+        [equals('excludeIds'), always(/^([\w-.,\s]+|)$/.test(value))],
+        [alwaysTrue, always(/^[\w-.]+$/.test(value))],
+    ])(key)
     return isValid
 }
 
@@ -66,7 +74,8 @@ const FetchForm = (props) => {
         token: false,
         repo: false,
         org: false,
-        enterpriseAPI: false
+        enterpriseAPI: false,
+        excludeIds: false,
     })
 
     const [formInfo, setFormInfo] = useState({
@@ -75,7 +84,8 @@ const FetchForm = (props) => {
         token: '',
         repo: '',
         org: '',
-        enterpriseAPI: ''
+        enterpriseAPI: '',
+        excludeIds: [],
     })
 
     const setValue = (key, value) => setFormInfo({
@@ -126,6 +136,7 @@ const FetchForm = (props) => {
             'org': getErrorValue('org'),
             'repo': getErrorValue('repo'),
             'enterpriseAPI': getErrorValue('enterpriseAPI'),
+            'excludeIds': getErrorValue('excludeIds'),
         }
 
         setInputError(newInputError)
@@ -150,71 +161,80 @@ const FetchForm = (props) => {
                 intro="Or get community contribution health data for any repository"
             >
                 <form
-                    className={classes.form}
                     onSubmit={handleSubmit}
                 >
-                    <Select
-                        value={formInfo.startingPoint}
-                        onChange={(e) => setValue('startingPoint', e.target.value)}
-                        inputProps={{ 'aria-label': 'Starting point' }}
-                        >
-                        <MenuItem value="now" >Starting from now</MenuItem>
-                        <MenuItem value="start">Starting from creation of the repo</MenuItem>
-                    </Select>
-                    <Select
-                        value={formInfo.amountOfData}
-                        onChange={(e) => setValue('amountOfData', e.target.value)}
-                        inputProps={{ 'aria-label': 'Amount of data' }}
-                        >
-                        <MenuItem value={1} default>Get 100 more PRs</MenuItem>
-                        <MenuItem value={20} >Get 2,000 more PRs</MenuItem>
-                        <MenuItem value={100} >Get 10,000 more PRs</MenuItem>
-                        <MenuItem value="all">Get it all</MenuItem>
-                    </Select>
+                    <div className={classes.inputGrid}>
+                        <Select
+                            value={formInfo.startingPoint}
+                            onChange={(e) => setValue('startingPoint', e.target.value)}
+                            inputProps={{ 'aria-label': 'Starting point' }}
+                            >
+                            <MenuItem value="now" >Starting from now</MenuItem>
+                            <MenuItem value="start">Starting from creation of the repo</MenuItem>
+                        </Select>
+                        <Select
+                            value={formInfo.amountOfData}
+                            onChange={(e) => setValue('amountOfData', e.target.value)}
+                            inputProps={{ 'aria-label': 'Amount of data' }}
+                            >
+                            <MenuItem value={1} default>Get 100 more PRs</MenuItem>
+                            <MenuItem value={20} >Get 2,000 more PRs</MenuItem>
+                            <MenuItem value={100} >Get 10,000 more PRs</MenuItem>
+                            <MenuItem value="all">Get it all</MenuItem>
+                        </Select>
 
-                    <TextField
-                        {...inputProps('org')}
-                        label="Organisation"
-                    />
+                        <TextField
+                            {...inputProps('org')}
+                            label="Organisation"
+                        />
 
-                    <TextField
-                        {...inputProps('repo')}
-                        label="Repository"
-                    />
-                    <TextField
-                        {...inputProps('token')}
-                        label="Token*"
-                    />
-                <P className="tokenText">
-                    * To create a token go to your GitHub <a className={classes.link} href="https://github.com/settings/tokens">tokens</a> page, click on 'generate new token', choose the settings 'repo' (all) and 'read:org' then click 'Generate token'.
-                </P>
+                        <TextField
+                            {...inputProps('repo')}
+                            label="Repository"
+                        />
+                        <TextField
+                            {...inputProps('token')}
+                            label="Token*"
+                        />
+                        <P className="tokenText">
+                            * To create a token go to your GitHub <a className={classes.link} href="https://github.com/settings/tokens">tokens</a> page, click on 'generate new token', choose the settings 'repo' (all) and 'read:org' then click 'Generate token'.
+                        </P>
+                    </div>
 
                     <ChartDescription
                         className={`${classes.formDescription} ${classes.fullRow}`}
                         title=""
                         expandText="add this"
-                        intro="For an enterprise GitHub repository "
+                        intro="Advanced options"
                     >
-                        <TextField
-                            {...inputProps('enterpriseAPI')}
-                            label="Enterprise API full url"
-                        />
+                        <div className={classes.inputGrid}>
+                            <TextField
+                                {...inputProps('excludeIds')}
+                                label="Exclude GitHub ids e.g. bots, ',' separated"
+                            />
+                            <TextField
+                                {...inputProps('enterpriseAPI')}
+                                label="Enterprise API full url"
+                            />
+                        </div>
                     </ChartDescription>
 
-                    <Button
-                        className={`${classes.child} ${classes.fullRow}`}
-                        type={fetching ? 'disabled' : 'submit'}
-                        variant="contained"
-                        color="primary"
-                        value={buttonText(fetching, '', preFetchedRepo ? [] : pullRequests)}
-                    />
-                    {
-                        error
-                            && <Message
-                                error={error}
-                                className={classes.fullRow}
-                            />
-                    }
+                    <div className={classes.inputGrid}>
+                        <Button
+                            className={`${classes.child} ${classes.fullRow}`}
+                            type={fetching ? 'disabled' : 'submit'}
+                            variant="contained"
+                            color="primary"
+                            value={buttonText(fetching, '', preFetchedRepo ? [] : pullRequests)}
+                        />
+                        {
+                            error
+                                && <Message
+                                    error={error}
+                                    className={classes.fullRow}
+                                />
+                        }
+                    </div>
                 </form>
                 {
                     !fetching
@@ -235,11 +255,12 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    setValues: ({ token, org, repo, enterpriseAPI, amountOfData, startingPoint }) => {
+    setValues: ({ token, org, repo, enterpriseAPI, excludeIds, amountOfData, startingPoint }) => {
         dispatch(storeToken(token))
         dispatch(storeOrg(org))
         dispatch(storeRepo(repo))
         dispatch(storeEnterpriseAPI(enterpriseAPI))
+        dispatch(storeExcludeIds(excludeIds))
         dispatch(storeAmountOfData(amountOfData))
         dispatch(storeSortDirection(startingPoint === 'now'
             ? 'DESC'

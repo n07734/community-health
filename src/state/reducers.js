@@ -28,6 +28,9 @@ const reducers = combineReducers({
         enterpriseAPI: (enterpriseAPI = '', action) => (action.type === types.STORE_ENT_URL)
             ? action.payload
             : enterpriseAPI,
+        excludeIds: (excludeIds = [], action) => (action.type === types.STORE_EX_IDS)
+            ? action.payload
+            : excludeIds,
         prPagination: (pagination = { hasNextPage: true }, action) => ({
             [types.SET_PR_PAGINATION]: action.payload,
             [types.CLEAR_PR_PAGINATION]: { hasNextPage: true },

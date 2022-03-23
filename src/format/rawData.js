@@ -1,9 +1,11 @@
 import {
     compose,
     map,
+    none,
     flatten,
+    filter,
     path,
-    pathOr
+    pathOr,
 } from 'ramda'
 import differenceInDays from 'date-fns/differenceInDays'
 import {
@@ -148,11 +150,12 @@ const prData = (data) => {
     return prInfo
 }
 
-const formatPullRequests = compose(
+const formatPullRequests = (exclude = [], results) => compose(
+    filter(x => none(y => y === x.author, exclude)),
     map(prData),
     flatten,
     map(pathOr([], ['data', 'repository', 'pullRequests', 'edges'])),
-)
+)(results)
 
 const formatRepo = (data) => ({
     name: pathOr('', ['data', 'repository', 'name'], data),

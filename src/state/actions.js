@@ -1,9 +1,15 @@
 import {
     assoc,
     dissocPath,
+    equals,
+    not,
+    map,
     path,
     pickAll,
-    pipe
+    pipe,
+    split,
+    trim,
+    propOr,
 } from 'ramda'
 import api from '../api/api'
 import {
@@ -64,6 +70,27 @@ const storeEnterpriseAPI = (enterpriseAPI = '') => (dispatch, getState) => {
     return dispatch({
         type: types.STORE_ENT_URL,
         payload: enterpriseAPI,
+    })
+}
+
+const storeExcludeIds = (excludeIds = '') => (dispatch, getState) => {
+    const excludeArray = pipe(
+        split(','),
+        map(trim)
+    )(excludeIds)
+
+    const {
+        fetches: {
+            excludeIds: currentExcludeIds
+        },
+    } = getState()
+
+    excludeArray.length && not(equals(currentExcludeIds, excludeArray))
+        && clearData(dispatch)
+
+    return dispatch({
+        type: types.STORE_EX_IDS,
+        payload: excludeArray,
     })
 }
 
@@ -208,12 +235,13 @@ const getAPIData = ({ appendData = false, } = {}) => async (dispatch, getState) 
             fetches,
         } = getState();
 
-        const { fetchInfo, results } = await api(fetches, batchedQuery, dispatch);
+        const { fetchInfo, results } = await api(fetches, batchedQuery, dispatch)
+        const excludeIds = propOr([], 'excludeIds', fetches)
 
-        const prs = formatPullRequests(results);
-        const repoInfo = formatRepoInfo(results);
-        const releases = formatReleases(results);
-        const issues = formatIssues(results);
+        const prs = formatPullRequests(excludeIds, results)
+        const repoInfo = formatRepoInfo(results)
+        const releases = formatReleases(results)
+        const issues = formatIssues(results)
 
         dispatch({
             type: types.ADD_PRS,
@@ -364,6 +392,7 @@ export {
     storeToken,
     storeRepo,
     storeEnterpriseAPI,
+    storeExcludeIds,
     storeAmountOfData,
     storeSortDirection,
     getAPIData,
