@@ -69,6 +69,7 @@ const theme =  (type = 'light') => createMuiTheme({
         },
 
         groupedCharts: {
+            width: '100%',
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'space-evenly',

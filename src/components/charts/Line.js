@@ -106,7 +106,7 @@ const Line = styledCharts(({
     const hasData = (items) => items.some(x => propOr([], 'data', x).length)
 
     return hasData(lineData) && (
-        <div className={classes.chartComponentWrap}>
+        <div className={classes.lineChartComponentWrap}>
             <div className={classes.headingWrap}>
                 <ChartHeading type='line' items={leftHeadingItems} />
                 {

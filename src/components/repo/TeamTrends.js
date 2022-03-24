@@ -33,89 +33,54 @@ const TeamTrends = ({
                 usersData.length > 0
                     && (
                         <>
-                            <Bar
-                                data={usersData}
-                                indexBy="author"
-                                bars={[
-                                    {
-                                        dataKey: 'commentsGiven',
-                                        color: '#1f77b4',
-                                        label: 'Comments given',
-                                    },
-                                    {
-                                        dataKey: 'commentsReceived',
-                                        color: '#e82573',
-                                        label: 'Comments received',
-                                    },
-                                ]}
-                            />
-                            <Bar
-                                data={usersData}
-                                indexBy="author"
-                                layout="horizontal"
-                                bars={[
-                                    {
-                                        dataKey: 'commentsGiven',
-                                        color: '#1f77b4',
-                                        label: 'Comments given',
-                                    },
-                                    {
-                                        dataKey: 'commentsReceived',
-                                        color: '#e82573',
-                                        label: 'Comments received',
-                                    },
-                                    {
-                                        dataKey: 'uniquePRsApproved',
-                                        color: '#1f77b4',
-                                        label: 'Approved PRs',
-                                        transformer: x => x - x - x
-                                    },
-                                    {
-                                        dataKey: 'totalPRs',
-                                        color: '#e82573',
-                                        label: 'Opened PRs',
-                                        transformer: x => x - x - x
-                                    },
-                                ]}
-                            />
-                            <Bar
-                                data={usersData}
-                                indexBy="author"
-                                bars={[
-                                    {
-                                        dataKey: 'uniquePRsApproved',
-                                        color: '#1f77b4',
-                                        label: 'Approved PRs',
-                                    },
-                                    {
-                                        dataKey: 'totalPRs',
-                                        color: '#e82573',
-                                        label: 'Opened PRs',
-                                    },
-                                ]}
-                            />
-                        <Bar
-                            data={usersData}
-                            indexBy="author"
-                            bars={[
-                                {
-                                    dataKey: 'prSize',
-                                    color: '#e82573',
-                                    label: 'Average PR size (additions + deletions)',
-                                },
-                            ]}
-                        />
                             <div className={classes.groupedCharts}>
-                                <Chord data={usersData} dataKey="commentsByUser" title="Comments given" />
-                                <Chord data={usersData} dataKey="approvalsByUser" title="Approvals given" />
+                                <Chord data={usersData} dataKey="commentsByUser" title="Comment contributions" />
+                                <Chord data={usersData} dataKey="approvalsByUser" title="Approval contributions" />
                             </div>
+                            <Bar
+                                data={usersData}
+                                indexBy="author"
+                                titlePrefix="Comments"
+                                sortBy="commentsGiven"
+                                max={7}
+                                bars={[
+                                    {
+                                        dataKey: 'commentsGiven',
+                                        color: '#1f77b4',
+                                        label: 'given',
+                                    },
+                                    {
+                                        dataKey: 'commentsReceived',
+                                        color: '#e82573',
+                                        label: 'received',
+                                    },
+                                ]}
+                            />
+                            <Bar
+                                data={usersData}
+                                indexBy="author"
+                                titlePrefix="PRs,"
+                                sortBy="uniquePRsApproved"
+                                max={7}
+                                bars={[
+                                    {
+                                        dataKey: 'uniquePRsApproved',
+                                        color: '#1f77b4',
+                                        label: 'approved',
+                                    },
+                                    {
+                                        dataKey: 'totalPRs',
+                                        color: '#e82573',
+                                        label: 'opened',
+                                    },
+                                ]}
+                            />
                         </>
                     )
             }
         </Paper>
     )
 }
-
 
 const styles = theme => ({
     groupedCharts: theme.palette.groupedCharts,

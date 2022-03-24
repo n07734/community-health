@@ -14,19 +14,18 @@ const Bar = styledCharts(({
     indexBy = 'user',
     max = 20,
     classes,
-    layout = "vertical"
+    layout = "vertical",
+    titlePrefix = ''
 } = {}) => {
     const theme = useTheme();
     const trimmedData = filter(item => bars.some(x => item[x.dataKey]), data)
 
-
     const byPropDesc = prop => (a, b) =>
-        +(a[prop] < b[prop]) || +(a[prop] === b[prop]) - 1
+        +((a[prop] || 0) < (b[prop] || 0)) || +((a[prop] || 0) === (b[prop] || 0)) - 1
 
     const sortedData = sortBy
         ? trimmedData.sort(byPropDesc(sortBy))
         : trimmedData
-
 
     const finalData = max
         ? sortedData.slice(0, max - 1)
@@ -35,8 +34,8 @@ const Bar = styledCharts(({
     const keys = bars.map(x => x.dataKey)
 
     return hasChartData(data)(keys) && (
-        <div className={classes.chartComponentWrap}>
-            <ChartHeading items={bars} />
+        <div className={classes.barChartComponentWrap}>
+            <ChartHeading text={titlePrefix} items={bars} />
             <div className={classes.chartWrap}>
                 <NivoBar
                     data={finalData}

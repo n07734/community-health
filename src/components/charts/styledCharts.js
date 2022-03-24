@@ -9,10 +9,17 @@ const styles = () => ({
         flexWrap: 'wrap',
         justifyContent: 'space-between',
     },
-    chartComponentWrap: {
-        width: '100%',
+    barChartComponentWrap: {
+        width: '50%',
         maxWidth: '1200px',
         margin: '0 0 1rem 0',
+        '@media (max-width: 950px)': {
+            width: '100%',
+        },
+    },
+    lineChartComponentWrap: {
+        width: '100%',
+        maxWidth: '1200px',
     },
     chordWrap: {
         width: '450px',

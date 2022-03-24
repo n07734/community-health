@@ -62,7 +62,7 @@ const ChartHeading = ({ className, items = [], text = '', type = '' } = {}) => {
 
     return (
         <H level={3} className={className}>
-            {text}
+            {`${text} `}
             {
                 items
                     .map((item, i) => <Fragment key={i}>

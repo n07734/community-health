@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { withStyles } from '@material-ui/core/styles'
 
 import Paper from '../shared/Paper'
 import Button from '../shared/Button'
@@ -11,12 +12,13 @@ import { setUser as setUserAction } from '../../state/actions'
 const UserList = ({
     usersData = [],
     setUser,
+    classes,
 } = {}) => <>
     <Paper className="justify">
         <H level={2} >
             User pages
         </H>
-        <div>
+        <div className={classes.allButons}>
             {
                 usersData
                     .map(({ author }, i) => (
@@ -40,4 +42,15 @@ const mapDispatchToProps = dispatch => ({
     setUser: (x) => dispatch(setUserAction(x)),
 })
 
-export default connect(() => ({}), mapDispatchToProps)(UserList)
+const styles = theme => ({
+    'allButons': {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+        '& button': {
+            flexGrow: 1
+        }
+    },
+})
+
+export default connect(() => ({}), mapDispatchToProps)(withStyles(styles)(UserList))
