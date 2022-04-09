@@ -7,7 +7,7 @@ import {
 
 const repoData = type => formatItems => (items = []) => ({
     data: {
-        repository: {
+        result: {
             [type]: {
                 edges: items
                     .map(formatItems),
@@ -29,7 +29,7 @@ describe('formatRepo:', () => {
     it('Empty call to return a basic repo', () => {
         const result = formatRepo({
             data: {
-                repository: {
+                result: {
                     name: 'REPO',
                     owner: {
                         login: 'ORG',

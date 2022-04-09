@@ -14,13 +14,23 @@ import {
     patch,
     prerelease,
 } from 'semver'
+import Sentiment from 'sentiment'
 
-const formatCommenters = items => items
+const formatCommentersObject = paths => items => items
     .reduce((acc, item) => {
-        const user = path(['node', 'author', 'login'], item)
+        const user = path(paths, item)
         const userCount = (acc[user] || 0) + 1
 
         return Object.assign(acc, { [user]: userCount })
+    }, {})
+
+const formatCommenters = formatCommentersObject(['node', 'author', 'login'])
+
+const formatSentimentsCommenters = items => items
+    .reduce((acc, {author = '', score = 0}) => {
+        const totalScore = (acc[author] || 0) + score
+
+        return Object.assign(acc, { [author]: totalScore })
     }, {})
 
 const mergeCommenters = (left = {}) => (right = {}) => {
@@ -41,41 +51,81 @@ const mergeCommenters = (left = {}) => (right = {}) => {
 }
 
 const formatRepoInfo = ([data]) => ({
-    repo: pathOr('', ['data', 'repository', 'name'], data),
-    org: pathOr('', ['data', 'repository', 'owner', 'org'], data),
-    description: pathOr('', ['data', 'repository', 'description'], data),
+    repo: pathOr('', ['data', 'result', 'name'], data),
+    org: pathOr('', ['data', 'result', 'owner', 'org'], data),
+    description: pathOr('', ['data', 'result', 'description'], data),
 })
 
-const filterByUser = user => item => path(['node', 'author', 'login'], item) !== user
+const filterByUsers = users => item => !users.includes(path(['node', 'author', 'login'], item))
 
-const formatCodeComments = (data) => {
+const getAllCodeComments = (exclude, data) => {
     const author = pathOr('', ['node', 'author', 'login'], data)
     const allReviews = pathOr([], ['node', 'reviews', 'edges'], data)
 
     const allCodeComments = allReviews
         .reduce((acc, review) => {
             const comments = pathOr([], ['node', 'comments', 'edges'], review)
-                .filter(filterByUser(author))
+                .filter(filterByUsers([...exclude, author]))
 
             acc.push(...comments)
 
             return acc
         }, [])
 
+    return allCodeComments
+}
+
+const formatSentiments = (comments = []) => {
+    const sentiment = new Sentiment();
+
+    const sentimental = comments
+        .map(comment => {
+            const body = pathOr('',['node', 'body'], comment)
+            const commentAuthor = pathOr('', ['node', 'author', 'login'], comment)
+
+            return {
+                author: commentAuthor,
+                score: sentiment.analyze(body).score,
+            }
+        })
+
     return {
-        codeComments: allCodeComments.length,
-        codeCommenters: formatCommenters(allCodeComments),
+        sentimentScore: sentimental.reduce((acc, { score = 0 } = {}) => score + acc,0),
+        sentiments: formatSentimentsCommenters(sentimental),
     }
 }
 
-const formatGeneralComments = (data) => {
+const formatCodeComments = (exclude, data) => {
+    const allCodeComments = getAllCodeComments(exclude, data)
+
+    const {
+        sentimentScore = 0,
+        sentiments = {},
+    } = formatSentiments(allCodeComments)
+
+    return {
+        codeComments: allCodeComments.length,
+        codeCommenters: formatCommenters(allCodeComments),
+        codeCommentSentimentScore: sentimentScore,
+        codeCommentSentiments: sentiments,
+    }
+}
+
+const formatGeneralComments = (exclude, data) => {
     const author = pathOr('', ['node', 'author', 'login'], data)
     const comments = pathOr([], ['node', 'comments', 'edges'], data)
-        .filter(filterByUser(author))
+        .filter(filterByUsers([...exclude, author]))
+
+    const {
+        sentimentScore = 0,
+        sentiments = {},
+    } = formatSentiments(comments)
 
     return {
         generalComments: comments.length,
         generalCommenters: formatCommenters(comments),
+        generalCommentSentimentScore: sentimentScore,
+        generalCommentSentiments: sentiments,
     }
 }
 
@@ -92,10 +142,9 @@ const formatApprovals = (data) => {
     }
 }
 
-const prData = (data) => {
-    console.log('-=-=--prData')
-    const org = pathOr('', ['node', 'repository', 'owner', 'login'], data)
-    const repo = pathOr('', ['node', 'repository', 'name'], data)
+const prData = (exclude = []) => (data = {}) => {
+    const org = pathOr('', ['node', 'result', 'owner', 'login'], data)
+    const repo = pathOr('', ['node', 'result', 'name'], data)
     const author = pathOr('', ['node', 'author', 'login'], data)
     const url = pathOr('', ['node', 'url'], data)
     const additions = pathOr(0, ['node', 'additions'], data)
@@ -107,12 +156,16 @@ const prData = (data) => {
     const {
         codeComments = 0,
         codeCommenters,
-    } = formatCodeComments(data)
+        codeCommentSentimentScore,
+        codeCommentSentiments,
+    } = formatCodeComments(exclude, data)
 
     const {
         generalComments = 0,
         generalCommenters,
-    } = formatGeneralComments(data)
+        generalCommentSentimentScore,
+        generalCommentSentiments,
+    } = formatGeneralComments(exclude, data)
 
     const {
         approvals,
@@ -139,12 +192,18 @@ const prData = (data) => {
 
         generalComments,
         generalCommenters,
+        generalCommentSentimentScore,
+        generalCommentSentiments,
 
         codeComments,
         codeCommenters,
+        codeCommentSentimentScore,
+        codeCommentSentiments,
 
         comments: codeComments + generalComments,
         commenters: mergeCommenters(generalCommenters)(codeCommenters),
+        commenterSentiments: mergeCommenters(generalCommentSentiments)(codeCommentSentiments),
+        commentsSentimentScore: generalCommentSentimentScore + codeCommentSentimentScore,
     }
 
     return prInfo
@@ -152,14 +211,16 @@ const prData = (data) => {
 
 const formatPullRequests = (exclude = [], results) => compose(
     filter(x => none(y => y === x.author, exclude)),
-    map(prData),
+    map(prData(exclude)),
     flatten,
-    map(pathOr([], ['data', 'repository', 'pullRequests', 'edges'])),
+    map(pathOr([], ['data', 'result', 'pullRequests', 'edges'])),
 )(results)
 
+
+// TODO: is this used?
 const formatRepo = (data) => ({
-    name: pathOr('', ['data', 'repository', 'name'], data),
-    org: pathOr('', ['data', 'repository', 'owner', 'login'], data),
+    name: pathOr('', ['data', 'result', 'name'], data),
+    org: pathOr('', ['data', 'result', 'owner', 'login'], data),
     pullRequests: formatPullRequests(data),
 })
 
@@ -180,7 +241,7 @@ const formatIssue = (data) => {
 const formatIssues = compose(
     map(formatIssue),
     flatten,
-    map(pathOr([], ['data', 'repository', 'issues', 'edges'])),
+    map(pathOr([], ['data', 'result', 'issues', 'edges'])),
 )
 
 const getReleaseType = (tag) => {
@@ -218,7 +279,7 @@ const formatRelease = (data) => {
 const formatReleases = compose(
     map(formatRelease),
     flatten,
-    map(pathOr([], ['data', 'repository', 'releases', 'edges'])),
+    map(pathOr([], ['data', 'result', 'releases', 'edges'])),
 )
 export {
     formatRepo,

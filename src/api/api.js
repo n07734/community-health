@@ -50,12 +50,12 @@ const shouldGetNextPage = (hasNextPage, { amountOfData }) => cond([
 const pause = (ms = 3000) => new Promise(resolve => setTimeout(resolve, ms))
 let numRateTriggers = 0
 
-const pauseThenRetry = async(fetchInfo, queryInfo, results) => {
+const pauseThenRetry = async(apiInfo, results) => {
     console.log('-=-=--paused');
     await pause();
     ++numRateTriggers
     return numRateTriggers <= 10
-        ? api(fetchInfo, queryInfo, results)
+        ? api(apiInfo, results)
         : {
             level: 'error',
             message: 'Hit rate limit too many times'
@@ -64,14 +64,14 @@ const pauseThenRetry = async(fetchInfo, queryInfo, results) => {
 
 const getTotalItemsByType = (type = '', results = []) => {
     const [ result ] = results
-    const total = pathOr(0, ['data', 'repository', type, 'totalCount'], result)
+    const total = pathOr(0, ['data', 'result', type, 'totalCount'], result)
     return total
 }
 
 const getCurrentItemsByType = (type = '', results = []) => {
     const total = results
         .reduce((acc, result) => {
-            const itemCount = pathOr([], ['data', 'repository', type, 'edges'], result)
+            const itemCount = pathOr([], ['data', 'result', type, 'edges'], result)
                 .length
             return acc + itemCount
         }, 0)
@@ -79,7 +79,7 @@ const getCurrentItemsByType = (type = '', results = []) => {
     return total
 }
 
-const api = async(fetchInfo, queryInfo, dispatch, results = []) => {
+const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
     const {
         query,
         resultInfo,
@@ -125,7 +125,7 @@ const api = async(fetchInfo, queryInfo, dispatch, results = []) => {
         const updatedFetchInfo = mergeDeepRight(fetchInfo, nextPageInfo)
 
         return shouldGetNextPage(hasNextPage, updatedFetchInfo)(fullData)
-            ? api(updatedFetchInfo, queryInfo, dispatch, updatedResults)
+            ? api({ fetchInfo: updatedFetchInfo, queryInfo, dispatch }, updatedResults)
             : {
                 fetchInfo: updatedFetchInfo,
                 results: updatedResults,
@@ -176,7 +176,7 @@ const api = async(fetchInfo, queryInfo, dispatch, results = []) => {
         console.log('-=-=--errorMessage', errorMessage)
 
         return hasTriggeredAbuse(error)
-            ? pauseThenRetry(fetchInfo, queryInfo, results)
+            ? pauseThenRetry({ fetchInfo, queryInfo, dispatch }, results)
             : {
                 ...errorMessage,
                 // fetchInfo: fetchInfo,

@@ -9,6 +9,7 @@ import styledCharts from './styledCharts'
 
 import {
     getMaxYValue,
+    getMinYValue,
     formatLinesData,
     formatGraphMarkers,
     smoothNumber,
@@ -70,6 +71,7 @@ const Line = styledCharts(({
         .find(({ xAxis } = {}) => xAxis === 'left') || { data: [], lines: [] }
     const leftLinesData = formatLinesData(leftAxis)
     const maxLeftValue = getMaxYValue(leftLinesData)
+    const minLeftValue = getMinYValue(leftLinesData)
 
     const rightAxis = data
         .find(({ xAxis } = {}) => xAxis === 'right') || { data: [], lines: [] }
@@ -133,7 +135,7 @@ const Line = styledCharts(({
                     xFormat="time:%Y-%m-%d"
                     yScale={{
                         type: 'linear',
-                        min: 0,
+                        min: minLeftValue,
                         max: maxLeftValue,
                     }}
                     axisBottom={{

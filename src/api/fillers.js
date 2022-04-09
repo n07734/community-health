@@ -97,7 +97,7 @@ const fillData = apiCall => {
     }
 
     const pullRequestsReviews = async(data) => {
-        const pullRequests = pathOr([], ['data', 'repository', 'pullRequests', 'edges'], data)
+        const pullRequests = pathOr([], ['data', 'result', 'pullRequests', 'edges'], data)
 
         const getAllPullRequestReviews = async (pullRequest) => {
             const currentReviews = pathOr([], ['node','reviews','edges'], pullRequest)
@@ -118,11 +118,11 @@ const fillData = apiCall => {
             return {
                 data: Object.assign(propOr({}, 'data', data),
                     {
-                        repository: Object.assign(pathOr(
+                        result: Object.assign(pathOr(
                             {
                                 pullRequests: updatedpullRequestsData,
                             },
-                            ['data', 'repository'],
+                            ['data', 'result'],
                             data,
                         )),
                     }
@@ -132,8 +132,8 @@ const fillData = apiCall => {
     }
 
     const updatePullRequests = data =>  key => pullRequestsItems => {
-        const pullRequestsData = pathOr({}, ['data', 'repository', 'pullRequests'], data)
-        const currentPullRequests = pathOr([], ['data', 'repository', 'pullRequests', 'edges'], data)
+        const pullRequestsData = pathOr({}, ['data', 'result', 'pullRequests'], data)
+        const currentPullRequests = pathOr([], ['data', 'result', 'pullRequests', 'edges'], data)
 
         const mergedPullRequests = currentPullRequests
             .map((currentPullRequest) => {
@@ -151,7 +151,7 @@ const fillData = apiCall => {
     }
 
     const pullRequestsComments = async(data) => {
-        const pullRequests = pathOr([], ['data', 'repository', 'pullRequests', 'edges'], data)
+        const pullRequests = pathOr([], ['data', 'result', 'pullRequests', 'edges'], data)
 
         const getAllPullRequestComments = async (pullRequest) => {
             const currentComments = pathOr([], ['node', 'comments', 'edges'], pullRequest)
@@ -173,11 +173,11 @@ const fillData = apiCall => {
             return {
                 data: Object.assign(propOr({}, 'data', data),
                     {
-                        repository: Object.assign(pathOr(
+                        result: Object.assign(pathOr(
                             {
                                 pullRequests: updatedpullRequestsData,
                             },
-                            ['data', 'repository'],
+                            ['data', 'result'],
                             data
                         )),
                     }

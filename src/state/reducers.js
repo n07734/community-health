@@ -28,6 +28,9 @@ const reducers = combineReducers({
         enterpriseAPI: (enterpriseAPI = '', action) => (action.type === types.STORE_ENT_URL)
             ? action.payload
             : enterpriseAPI,
+        userIds: (userIds = [], action) => (action.type === types.STORE_USER_IDS)
+            ? action.payload
+            : userIds,
         excludeIds: (excludeIds = [], action) => (action.type === types.STORE_EX_IDS)
             ? action.payload
             : excludeIds,

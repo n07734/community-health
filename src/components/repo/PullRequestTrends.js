@@ -37,6 +37,23 @@ const PullRequestTrends = ({
                     {
                         lines: [
                             {
+                                label: 'Sentiment score',
+                                color: '#1f77b4',
+                                dataKey: 'commentsSentimentScore',
+                            }
+                        ],
+                        xAxis: 'left',
+                        data: pullRequests,
+                    },
+                ]}
+            />
+
+            <Line
+                markers={releases}
+                data={[
+                    {
+                        lines: [
+                            {
                                 label: 'Comments',
                                 color: '#1f77b4',
                                 dataKey: 'comments',

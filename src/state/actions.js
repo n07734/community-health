@@ -2,6 +2,7 @@ import {
     assoc,
     dissocPath,
     equals,
+    filter,
     not,
     map,
     path,
@@ -12,6 +13,7 @@ import {
     propOr,
 } from 'ramda'
 import api from '../api/api'
+import getUsersData from '../api/getUsersData'
 import {
     formatPullRequests,
     formatIssues,
@@ -73,11 +75,32 @@ const storeEnterpriseAPI = (enterpriseAPI = '') => (dispatch, getState) => {
     })
 }
 
+const userIdsFromString = pipe(
+    split(','),
+    map(trim),
+    filter(Boolean)
+)
+
+const storeUserIds = (userIds = '') => (dispatch, getState) => {
+    const userIdsArray = userIdsFromString(userIds)
+
+    const {
+        fetches: {
+            userIds: currentUserIds = []
+        },
+    } = getState()
+
+    not(equals(currentUserIds, userIdsArray))
+        && clearData(dispatch)
+
+    return dispatch({
+        type: types.STORE_USER_IDS,
+        payload: userIdsArray,
+    })
+}
+
 const storeExcludeIds = (excludeIds = '') => (dispatch, getState) => {
-    const excludeArray = pipe(
-        split(','),
-        map(trim)
-    )(excludeIds)
+    const excludeArray = userIdsFromString(excludeIds)
 
     const {
         fetches: {
@@ -208,7 +231,7 @@ const validateRequest = state => {
 }
 
 // TODO: Improve clearData logic
-const getAPIData = ({ appendData = false, } = {}) => async (dispatch, getState) => {
+const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) => {
     const state = getState();
 
     const { isValid: isValidRequest, error = {}} = validateRequest(state);
@@ -234,8 +257,11 @@ const getAPIData = ({ appendData = false, } = {}) => async (dispatch, getState) 
         const {
             fetches,
         } = getState();
+        const userIds = propOr([], 'userIds', fetches)
 
-        const { fetchInfo, results } = await api(fetches, batchedQuery, dispatch)
+        const { fetchInfo, results } = userIds.length
+            ? await getUsersData(fetches, dispatch)
+            : await api({ fetchInfo: fetches, queryInfo: batchedQuery, dispatch })
         const excludeIds = propOr([], 'excludeIds', fetches)
 
         const prs = formatPullRequests(excludeIds, results)
@@ -281,6 +307,7 @@ const getAPIData = ({ appendData = false, } = {}) => async (dispatch, getState) 
         dispatch({ type: types.FETCH_END })
 
     } catch (error) {
+        console.log('-=-=--api data error', error)
         dispatch({
             type: types.FETCH_ERROR,
             payload: {
@@ -392,6 +419,7 @@ export {
     storeToken,
     storeRepo,
     storeEnterpriseAPI,
+    storeUserIds,
     storeExcludeIds,
     storeAmountOfData,
     storeSortDirection,

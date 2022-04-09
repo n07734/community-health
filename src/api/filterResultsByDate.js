@@ -14,7 +14,7 @@ const getUntilDate = ({order = 'DESC', amountOfData}, data) => {
     // get first item from each result, sort then use that as base date to calculate from
     const changeBy = { months: amountOfData }
 
-    const allPrs = pathOr([], ['data', 'repository', 'pullRequests', 'edges'], data)
+    const allPrs = pathOr([], ['data', 'result', 'pullRequests', 'edges'], data)
 
     const sortedPRs = allPrs.sort(dateSort(order))
 

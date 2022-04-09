@@ -1,21 +1,32 @@
 import { apply } from 'ramda'
 import batchBy from './batchBy'
 
+const getAllYValues = data => data
+    .reduce((acc, { data }) => {
+        const values = data
+            .map(x => x.y)
+
+        acc.push(...values)
+
+        return acc
+    }, [])
 
 const getMaxYValue = (data) => {
-    const allValues = data
-        .reduce((acc, { data }) => {
-            const values = data
-                .map(x => x.y)
-
-            acc.push(...values)
-
-            return acc
-        }, [])
+    const allValues = getAllYValues(data)
 
     const maxValue = apply(Math.max, allValues)
 
     return maxValue
+}
+
+const getMinYValue = (data) => {
+    const allValues = getAllYValues(data)
+
+    const minValue = apply(Math.min, allValues)
+
+    return minValue > 0
+        ? 0
+        : minValue
 }
 
 const dateSort = (
@@ -149,6 +160,7 @@ const smoothNumber = (ruffledNumber) => {
 
 export {
     getMaxYValue,
+    getMinYValue,
     formatLinesData,
     formatGraphMarkers,
     smoothNumber,

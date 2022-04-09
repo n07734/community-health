@@ -1,4 +1,4 @@
-import { pathOr, propOr } from 'ramda'
+import { pathOr } from 'ramda'
 import format from 'date-fns/format'
 
 const cursorQ = (cursor, key = 'after') => cursor
@@ -220,7 +220,7 @@ const getPaginationByType = (oldFetchInfo, results, order) => type => {
         hasNextPage = false,
         startCursor,
         endCursor,
-    } = pathOr({}, ['data', 'repository', type, 'pageInfo'], results)
+    } = pathOr({}, ['data', 'result', type, 'pageInfo'], results)
 
     const typeStateMap = {
         pullRequests: 'prPagination',
@@ -234,7 +234,8 @@ const getPaginationByType = (oldFetchInfo, results, order) => type => {
     const newestDefault = order === 'ASC' ? endCursor : startCursor
     const newestCurrent = pathOr(newestDefault, [typeStateMap[type], 'newest'], oldFetchInfo)
 
-    // TODO: dont clear if undefined cursor
+    // TODO: Dont clear if undefined cursor
+    // TODO: add hasPrevPage
     return {
         newest: order === 'ASC' &&  endCursor ? endCursor : newestCurrent,
         oldest: order === 'DESC' && endCursor ? endCursor : oldestCurrent,
@@ -244,11 +245,72 @@ const getPaginationByType = (oldFetchInfo, results, order) => type => {
 
 const getRemainingPageCount = (data) => {
   const [ maxItems ] = ['issues', 'pullRequests', 'releases']
-    .map(type => propOr(0, ['data', 'node', type, 'totalCount']))
+    .map(type => pathOr(0, ['data', 'result', type, 'totalCount'], data))
     .sort((a,b) => a > b)
+
+    console.log('-=-=--maxItems', maxItems)
 
     return Math.ceil(maxItems/100) -1
 }
+
+const userQuery = ({
+  user,
+  order = 'DESC',
+  amountOfData,
+  issuesPagination = {},
+  prPagination = {},
+}) => ({
+  query: `{
+    result: user(login: "${user}") {
+      login
+      ${prPagination.hasNextPage ? pullRequests(order)(prPagination) : ''}
+      ${issuesPagination.hasNextPage ? issues(order)(issuesPagination) : ''}
+    }
+  }`,
+  order,
+  resultInfo: (data) => {
+      const resultTypes = [
+          ['prPagination', 'pullRequests'],
+          ['issuesPagination', 'issues'],
+      ]
+
+      const byType = getPaginationByType(
+          {
+              issuesPagination,
+              prPagination,
+          },
+          data,
+          order
+      )
+
+      console.log('-=-=--data', data)
+      console.log('-=-=--amountOfData', amountOfData)
+
+      const updatedAmountOfData = Number.isInteger(amountOfData)
+          ? amountOfData - 1
+          : getRemainingPageCount(data);
+
+      console.log('-=-=--updatedAmountOfData, amountOfData', updatedAmountOfData, amountOfData)
+
+      const nextPageInfo = {}
+      resultTypes
+          .forEach(([key, type]) => nextPageInfo[key] = byType(type))
+      console.log('-=-=--nextPageInfo', nextPageInfo)
+      return {
+          hasNextPage: Object.values(nextPageInfo).some(({ hasNextPage } ) => hasNextPage !== false),
+          nextPageInfo: {
+            ...nextPageInfo,
+            amountOfData: updatedAmountOfData,
+          },
+      }
+  },
+  fillerType: 'batchedQuery',
+  hasMoreResults: [
+      prPagination.hasNextPage,
+      issuesPagination.hasNextPage,
+  ]
+      .some(x => x !== false),
+})
 
 // Sort out hasNextpage as diff by order
 const batchedQuery = ({
@@ -261,7 +323,7 @@ const batchedQuery = ({
     prPagination = {},
 }) => ({
     query: `{
-      repository(name: "${repo}" owner: "${org}") {
+      result: repository(name: "${repo}" owner: "${org}") {
         id
         description
         name
@@ -291,11 +353,14 @@ const batchedQuery = ({
             order
         )
 
+        console.log('-=-=--data', data)
+        console.log('-=-=--amountOfData', amountOfData)
+
         const updatedAmountOfData = Number.isInteger(amountOfData)
             ? amountOfData - 1
             : getRemainingPageCount(data);
 
-        console.log('-=-=--updatedAmountOfData', updatedAmountOfData)
+        console.log('-=-=--updatedAmountOfData, amountOfData', updatedAmountOfData, amountOfData)
 
         const nextPageInfo = resultTypes
             .reduce((acc,[key, type]) => ({
@@ -382,6 +447,7 @@ const reviewCommentsQuery = ({ nodeId, cursor }) => ({
 })
 
 export {
+    userQuery,
     batchedQuery,
     reviewCommentsQuery,
     commentsQuery,
