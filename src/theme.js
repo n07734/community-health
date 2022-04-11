@@ -1,4 +1,4 @@
-import { createMuiTheme } from '@material-ui/core/styles'
+import { createTheme } from '@material-ui/core/styles'
 
 const themeColor = type => ({
     light: '#232023',
@@ -45,7 +45,7 @@ const spacing = {
     },
 }
 
-const theme =  (type = 'light') => createMuiTheme({
+const theme =  (type = 'light') => createTheme({
     type,
     palette: {
         type,
@@ -149,6 +149,7 @@ const theme =  (type = 'light') => createMuiTheme({
                 text: { fill: themeColor(type) },
             },
         },
+        legendsTextFill: themeColor(type),
         dotColor: themeColor(type),
         tooltip: {
             fontFamily,
@@ -158,11 +159,6 @@ const theme =  (type = 'light') => createMuiTheme({
                 color: themeColor(type),
                 boxShadow: `0 1px 2px ${themeColor(type)}`,
             },
-        },
-        ledgend: {
-            fontFamily,
-            fontSize,
-            fill: themeColor(type),
         },
         grid: {
             line: {

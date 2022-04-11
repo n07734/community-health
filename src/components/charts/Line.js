@@ -63,6 +63,7 @@ const Line = styledCharts(({
     title,
     data = [],
     markers = [],
+    showLegends = false,
     classes,
 } = {}) => {
     const theme = useTheme();
@@ -96,10 +97,32 @@ const Line = styledCharts(({
         .filter(Boolean)
 
     const leftHeadingItems = title
-        ? [title]
+        ? []
         : leftAxis.lines
 
     const rightHeadingItems = rightAxis.lines
+
+    const legends = showLegends
+        ? [
+            {
+                anchor: 'top-right',
+                direction: 'column',
+                justify: false,
+                translateX: -10,
+                translateY: 10,
+                itemsSpacing: 0,
+                itemDirection: 'right-to-left',
+                itemWidth: 80,
+                itemHeight: 20,
+                itemOpacity: 0.75,
+                symbolSize: 12,
+                symbolShape: 'square',
+                symbolBorderColor: 'rgba(0, 0, 0, .9)',
+                toggleSerie: true,
+                itemTextColor: theme.palette.text.primary,
+            }
+        ]
+        : []
 
     const lineData = leftLinesData.concat(convertedRightLines)
 
@@ -110,7 +133,7 @@ const Line = styledCharts(({
     return hasData(lineData) && (
         <div className={classes.lineChartComponentWrap}>
             <div className={classes.headingWrap}>
-                <ChartHeading type='line' items={leftHeadingItems} />
+                <ChartHeading type='line' text={title} items={leftHeadingItems} />
                 {
                     rightHeadingItems
                         && <ChartHeading type='line' items={rightHeadingItems} />
@@ -144,10 +167,12 @@ const Line = styledCharts(({
                         tickPadding: 10,
                         tickRotation: -45,
                     }}
+                    legends={legends}
                     axisLeft={{
                         tickSize: 0,
                         tickValues: 8,
                     }}
+                    pointLabelYOffset={0}
                     {...(
                         formattedMarkers.length
                             && { markers: formattedMarkers }

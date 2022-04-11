@@ -32,7 +32,7 @@ const Chord = styledCharts(({
             <div className={classes.chordWrap}>
                 <NivoChord
                     label="id"
-                    matrix={matrix}
+                    data={matrix}
                     keys={names}
                     margin={{ top: 0, right: 10, bottom: 10, left: 10 }}
                     arcBorderColor={{ from: 'color', modifiers: [['darker', 0.4]] }}

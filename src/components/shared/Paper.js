@@ -14,6 +14,7 @@ const styles = theme => ({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
+        justifyContent: 'center',
     },
     'bg-none': {
         background: 'none'

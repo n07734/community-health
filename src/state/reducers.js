@@ -12,6 +12,16 @@ const reducers = combineReducers({
             ? newValue()
             : user
     },
+    teamName: (teamName = '', action) => {
+        const newValue = ({
+            [types.SET_TEAM_NAME]: () => action.payload,
+            [types.CLEAR_TEAM_NAME]: () => '',
+        })[action.type]
+
+        return newValue
+            ? newValue()
+            : teamName
+    },
     fetches: combineReducers({
         token: (token = '', action) => (action.type === types.STORE_TOKEN)
             ? action.payload
