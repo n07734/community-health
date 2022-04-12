@@ -114,7 +114,7 @@ const Line = styledCharts(({
                 itemDirection: 'right-to-left',
                 itemWidth: 80,
                 itemHeight: 20,
-                itemOpacity: 0.75,
+                itemOpacity: 1,
                 symbolSize: 12,
                 symbolShape: 'square',
                 symbolBorderColor: 'rgba(0, 0, 0, .9)',
@@ -151,6 +151,7 @@ const Line = styledCharts(({
                     lineWidth={2}
                     curve='monotoneX'
                     animate={false}
+                    toggleSerie={showLegends && true}
                     xScale={{
                         type: 'time',
                         format: '%Y-%m-%d',

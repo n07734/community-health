@@ -67,7 +67,6 @@ const theme =  (type = 'light') => createTheme({
             fontWeight: '400',
             fontFamily,
         },
-
         groupedCharts: {
             width: '100%',
             display: 'flex',
@@ -147,6 +146,22 @@ const theme =  (type = 'light') => createTheme({
             },
             ticks: {
                 text: { fill: themeColor(type) },
+            },
+        },
+        legends: {
+            hidden: {
+                symbol: {
+                    fill: '#eee',
+                    opacity: 1,
+                },
+                text: {
+                    fill: '#eee',
+                    fontWeight: '400',
+                    opacity: 1,
+                },
+            },
+            text: {
+                fontWeight: '800',
             },
         },
         legendsTextFill: themeColor(type),

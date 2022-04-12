@@ -39,11 +39,16 @@ const Team = ({
                 data={[
                     {
                         lines: [
+                            {
+                                label: 'all',
+                                color: colors[0],
+                                dataKey: 'commentsSentimentScore',
+                            },
                             ...(
                                 userIds
                                     .map((userId, i) => ({
                                         label: `${userId}`,
-                                        color: colors[i],
+                                        color: colors[i + 1],
                                         dataKey: `${userId}-commentsSentimentScore`,
                                     }))
                             )
