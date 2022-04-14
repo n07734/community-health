@@ -240,7 +240,7 @@ const mapDispatchToProps = dispatch => ({
     setValues: ({ token, userIds, teamName, enterpriseAPI, amountOfData, startingPoint }) => {
         dispatch(storeToken(token))
         dispatch(storeUserIds(userIds))
-        dispatch(storeTeamName(userIds))
+        dispatch(storeTeamName(teamName))
         dispatch(storeEnterpriseAPI(enterpriseAPI))
         dispatch(storeAmountOfData(amountOfData))
         dispatch(storeSortDirection(startingPoint === 'now'

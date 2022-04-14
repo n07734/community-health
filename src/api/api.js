@@ -27,7 +27,7 @@ const parseJSON = response => new Promise((resolve, reject) => {
         })
 })
 
-const triggeredAbuseRate = ({ message = '' }) =>/You have triggered an abuse detection mechanism/.test(message)
+const triggeredAbuseRate = ({ message = '' }) =>/(You have triggered an abuse detection mechanism|You have exceeded a secondary rate limit)/.test(message)
 
 const apiCall = fetchInfo => query =>
     fetch((fetchInfo.enterpriseAPI || 'https://api.github.com/graphql'), {
