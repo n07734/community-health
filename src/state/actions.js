@@ -75,6 +75,22 @@ const storeEnterpriseAPI = (enterpriseAPI = '') => (dispatch, getState) => {
     })
 }
 
+const storeTeamName = (teamName = '') => (dispatch, getState) => {
+    const {
+        fetches: {
+            teamName: currentTeamName
+        },
+    } = getState()
+
+    teamName && currentTeamName && teamName !== currentTeamName
+        && clearData(dispatch)
+
+    return dispatch({
+        type: types.SET_TEAM_NAME,
+        payload: teamName,
+    })
+}
+
 const userIdsFromString = pipe(
     split(','),
     map(trim),
@@ -418,6 +434,7 @@ export {
     storeOrg,
     storeToken,
     storeRepo,
+    storeTeamName,
     storeEnterpriseAPI,
     storeUserIds,
     storeExcludeIds,

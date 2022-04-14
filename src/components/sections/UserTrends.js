@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import { H, P, UL, LI } from '../shared/StyledTags'
 import Paper from '../shared/Paper'
@@ -91,14 +92,6 @@ const UserTrends = ({
                 )}
                 intro="This section shows how given and received metrics compare for the top contributors."
             >
-                <div>
-                    <P>Again, these are general questions meant to help teams look for useful data and promote healthy discussions around team contributions. Team context is needed to have a clear understanding of the data.</P>
-                    <UL>
-                        <LI>What is more discussed the "What"(PR comments) or the "How"(code comments)?</LI>
-                        <LI>Is there a healthy level of giving and receiving of comments and approvals?</LI>
-                        <LI>What are the outliers and why?</LI>
-                    </UL>
-                </div>
             </ChartDescription>
             {
                 contributionsRadar.length > 0
@@ -109,4 +102,8 @@ const UserTrends = ({
     )
 }
 
-export default UserTrends
+const mapStateToProps = (state) => ({
+    usersData: state.usersData,
+})
+
+export default connect(mapStateToProps)(UserTrends)

@@ -1,10 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import { P, UL, LI } from '../shared/StyledTags'
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
 import Line from '../charts/Line'
-
 
 const formatIssueData = (data = []) => data
     .map((item) => ({
@@ -25,16 +25,10 @@ const IssuesTrends = ({
     return data && data.length > 0 && (
         <Paper>
             <ChartDescription
-                title="Issues trend data"
-                intro="This is to help show the issue trends"
+                title="Feature and bug trends"
             >
                 <div>
                     <P>Bugs in this graph are issues that have a title or a label that contains the word 'bug'</P>
-                    <UL>
-                        <LI>What happens when there is a new release?</LI>
-                        <LI>Is the bug count raising? If so then why?</LI>
-                    </UL>
-                    <P>Again, these are general questions meant to help teams find useful data and promote healthy discussions around team contributions. Team context is needed to have a clear understanding of the data.</P>
                 </div>
             </ChartDescription>
             <Line
@@ -64,4 +58,9 @@ const IssuesTrends = ({
     )
 }
 
-export default IssuesTrends
+const mapStateToProps = (state) => ({
+    issues: state.issues,
+    releases: state.releases,
+})
+
+export default connect(mapStateToProps)(IssuesTrends)

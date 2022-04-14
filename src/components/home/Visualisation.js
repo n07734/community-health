@@ -6,9 +6,9 @@ import {
     propSatisfies,
     T as alwaysTrue,
 } from 'ramda'
-import RepoView from '../repo/Repo'
-import UserView from '../user/User'
-import TeamView from '../team/Team'
+import RepoView from '../Repo'
+import UserView from '../User'
+import TeamView from '../Team'
 
 const Visualisation = (props) => (
     <div>

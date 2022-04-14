@@ -32,12 +32,20 @@ const styles = () => ({
             },
         },
     },
+    pieWrap: {
+        width: '100%',
+        height: '350px',
+        marginBottom: '20px',
+        '@media (max-width: 750px)': {
+            height: '300px',
+        },
+        '@media (max-width: 650px)': {
+            height: '250px',
+        },
+    },
     chartWrap: {
         width: '100%',
         height: '500px',
-        '& svg path': {
-            opacity: '0.7'
-        },
         '& svg g line': {
             opacity: '0.6'
         },

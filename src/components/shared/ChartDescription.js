@@ -9,8 +9,8 @@ const ChartDescription = ({
     title,
     intro,
     children,
-    expandText = 'See more',
-    className,
+    expandText = 'info',
+    className = '',
     classes,
 } = {}) => {
     const [toggle, setCount] = useState(false)
@@ -33,7 +33,7 @@ const ChartDescription = ({
                         }}>
                         {
                             toggle
-                                ? 'See less'
+                                ? 'hide'
                                 : expandText
                         }
                     </a>
@@ -49,7 +49,12 @@ const ChartDescription = ({
 const styles = theme => ({
     root: {
         flexGrow: 1,
-        marginBottom: '1rem',
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems: 'baseline',
+        '& a': {
+            marginLeft: '0.5rem',
+        }
     },
     link: {
         color: theme.palette.link,

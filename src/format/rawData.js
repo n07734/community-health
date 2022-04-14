@@ -143,8 +143,8 @@ const formatApprovals = (data) => {
 }
 
 const prData = (exclude = []) => (data = {}) => {
-    const org = pathOr('', ['node', 'result', 'owner', 'login'], data)
-    const repo = pathOr('', ['node', 'result', 'name'], data)
+    const org = pathOr('', ['node', 'repository', 'owner', 'login'], data)
+    const repo = pathOr('', ['node', 'repository', 'name'], data)
     const author = pathOr('', ['node', 'author', 'login'], data)
     const url = pathOr('', ['node', 'url'], data)
     const additions = pathOr(0, ['node', 'additions'], data)

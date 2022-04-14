@@ -23,6 +23,7 @@ import styles from './styles'
 import {
     storeToken,
     storeUserIds,
+    storeTeamName,
     storeEnterpriseAPI,
     storeAmountOfData,
     storeSortDirection,
@@ -67,12 +68,14 @@ const RepoData = (props) => {
         token: false,
         enterpriseAPI: false,
         userIds: false,
+        teamName: false,
     })
 
     const [formInfo, setFormInfo] = useState({
         startingPoint: 'now',
         amountOfData: 1,
         token: '',
+        teamName: '',
         enterpriseAPI: '',
         userIds: '',
     })
@@ -126,6 +129,7 @@ const RepoData = (props) => {
             'token': getErrorValue('token'),
             'enterpriseAPI': getErrorValue('enterpriseAPI'),
             'userIds': getErrorValue('userIds'),
+            'teamName': getErrorValue('teamName'),
         }
 
         setInputError(newInputError)
@@ -166,7 +170,7 @@ const RepoData = (props) => {
                         inputProps={{ 'aria-label': 'Amount of data' }}
                         >
                         <MenuItem value={1} default>Get 100 more PRs</MenuItem>
-                        <MenuItem value={20} >Get 2,000 more PRs</MenuItem>
+                        <MenuItem value={5} >Get 500 more PRs</MenuItem>
                         <MenuItem value={100} >Get 10,000 more PRs</MenuItem>
                         <MenuItem value="all">Get it all</MenuItem>
                     </Select>
@@ -174,6 +178,10 @@ const RepoData = (props) => {
                     <TextField
                         {...inputProps('userIds')}
                         label="Comma separated list of user ids"
+                    />
+                    <TextField
+                        {...inputProps('teamName')}
+                        label="Team name"
                     />
                     <TextField
                         {...inputProps('token')}
@@ -229,9 +237,10 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    setValues: ({ token, userIds, enterpriseAPI, amountOfData, startingPoint }) => {
+    setValues: ({ token, userIds, teamName, enterpriseAPI, amountOfData, startingPoint }) => {
         dispatch(storeToken(token))
         dispatch(storeUserIds(userIds))
+        dispatch(storeTeamName(userIds))
         dispatch(storeEnterpriseAPI(enterpriseAPI))
         dispatch(storeAmountOfData(amountOfData))
         dispatch(storeSortDirection(startingPoint === 'now'

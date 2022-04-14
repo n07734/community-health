@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import { H } from '../shared/StyledTags'
 import ChartDescription from '../shared/ChartDescription'
@@ -38,5 +39,9 @@ const RepoDescription = ({ repoInfo, preFetchedRepo } = {}) => {
         : null
 }
 
-export default RepoDescription
+const mapStateToProps = (state) => ({
+    repoInfo: state.repoInfo,
+    preFetchedRepo: state.preFetchedRepo,
+})
 
+export default connect(mapStateToProps)(RepoDescription)

@@ -53,4 +53,8 @@ const styles = theme => ({
     },
 })
 
-export default connect(() => ({}), mapDispatchToProps)(withStyles(styles)(UserList))
+const mapStateToProps = (state) => ({
+    usersData: state.usersData,
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(UserList))

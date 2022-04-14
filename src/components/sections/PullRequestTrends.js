@@ -1,9 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { useTheme } from '@material-ui/core/styles';
 
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
-import { P, UL, LI } from '../shared/StyledTags'
+import { P } from '../shared/StyledTags'
 
 import Line from '../charts/Line'
 
@@ -15,39 +16,14 @@ const PullRequestTrends = ({
     return (
         <Paper>
             <ChartDescription
-                title="Pull Request trend data"
-                intro='This section shows contribution trends over time and how releases impact them.'
+                title="Pull Request trends"
             >
-                <div>
-
-                    <P>Virtical lines are releases: Green is a Major release, solid purple is Minor and dotted purple is Patch or Alpha</P>
-                    <P>These are general questions meant to help teams find useful data and promote healthy discussions around their contributions. Team context is needed to have a clear understanding of the data.</P>
-                    <UL>
-                        <LI>Are there any/enough comments? To few comments may be a sign that the code is not getting fully reviewed.</LI>
-                        <LI>Are all PRs are being approved? If not then how do you know they are getting properly reviewed?</LI>
-                        <LI>Are there many large PRs? Generally the bigger the PR the lower the quality of the review will be.</LI>
-                        <LI>How are the trends changing during a feature lifecycle?</LI>
-                        <LI>What are the outliers and why?</LI>
-                    </UL>
-                </div>
+                {
+                    releases.length > 1 && <div>
+                        <P>Vertical lines are releases: Green is a Major release, solid purple is Minor and dotted purple is Patch or Alpha</P>
+                    </div>
+                }
             </ChartDescription>
-            <Line
-                markers={releases}
-                data={[
-                    {
-                        lines: [
-                            {
-                                label: 'Sentiment score',
-                                color: '#1f77b4',
-                                dataKey: 'commentsSentimentScore',
-                            }
-                        ],
-                        xAxis: 'left',
-                        data: pullRequests,
-                    },
-                ]}
-            />
-
             <Line
                 markers={releases}
                 data={[
@@ -112,4 +88,9 @@ const PullRequestTrends = ({
     )
 }
 
-export default PullRequestTrends
+const mapStateToProps = (state) => ({
+    pullRequests: state.pullRequests,
+    releases: state.releases,
+})
+
+export default connect(mapStateToProps)(PullRequestTrends)
