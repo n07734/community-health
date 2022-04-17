@@ -33,47 +33,11 @@ const formatSentimentsCommenters = items => items
         return Object.assign(acc, { [author]: totalScore })
     }, {})
 
-const mergeCommenters = (left = {}) => (right = {}) => {
-    const leftEntries = Object.entries(left)
-    const rightEntries = Object.entries(right)
-
-    const mergedObject = [
-        ...leftEntries,
-        ...rightEntries,
-    ]
-        .reduce((acc, [user, value]) => {
-            const newTotal = (acc[user] || 0) + value
-
-            return Object.assign(acc, { [user]: newTotal })
-        }, {})
-
-    return mergedObject
-}
-
 const formatRepoInfo = ([data]) => ({
     repo: pathOr('', ['data', 'result', 'name'], data),
     org: pathOr('', ['data', 'result', 'owner', 'org'], data),
     description: pathOr('', ['data', 'result', 'description'], data),
 })
-
-const filterByUsers = users => item => !users.includes(path(['node', 'author', 'login'], item))
-
-const getAllCodeComments = (exclude, data) => {
-    const author = pathOr('', ['node', 'author', 'login'], data)
-    const allReviews = pathOr([], ['node', 'reviews', 'edges'], data)
-
-    const allCodeComments = allReviews
-        .reduce((acc, review) => {
-            const comments = pathOr([], ['node', 'comments', 'edges'], review)
-                .filter(filterByUsers([...exclude, author]))
-
-            acc.push(...comments)
-
-            return acc
-        }, [])
-
-    return allCodeComments
-}
 
 const formatSentiments = (comments = []) => {
     const sentiment = new Sentiment();
@@ -95,37 +59,74 @@ const formatSentiments = (comments = []) => {
     }
 }
 
-const formatCodeComments = (exclude, data) => {
-    const allCodeComments = getAllCodeComments(exclude, data)
+const getAllCodeComments = (data) => {
+    const allReviews = pathOr([], ['node', 'reviews', 'edges'], data)
 
-    const {
-        sentimentScore = 0,
-        sentiments = {},
-    } = formatSentiments(allCodeComments)
+    const allCodeComments = []
+    allReviews
+        .forEach((review) => {
+            const comments = pathOr([], ['node', 'comments', 'edges'], review)
+            allCodeComments.push(...comments)
+        })
 
-    return {
-        codeComments: allCodeComments.length,
-        codeCommenters: formatCommenters(allCodeComments),
-        codeCommentSentimentScore: sentimentScore,
-        codeCommentSentiments: sentiments,
-    }
+    return allCodeComments
 }
 
-const formatGeneralComments = (exclude, data) => {
+const filterForUsers = users => item => users.includes(path(['node', 'author', 'login'], item))
+const filterOutUsers = users => item => !filterForUsers(users)(item)
+
+const formatComments = (type = '', exclude, data) => {
     const author = pathOr('', ['node', 'author', 'login'], data)
-    const comments = pathOr([], ['node', 'comments', 'edges'], data)
-        .filter(filterByUsers([...exclude, author]))
+
+    const generalComments = pathOr([], ['node', 'comments', 'edges'], data)
+    const codeComments = getAllCodeComments(data)
+    const commentsMap = {
+        general: generalComments,
+        code: codeComments,
+        all: [
+            ...codeComments,
+            ...generalComments
+        ]
+    }
+    const allComments = commentsMap[type]
+
+    const comments = allComments
+        .filter(filterOutUsers([...exclude, author]))
 
     const {
         sentimentScore = 0,
         sentiments = {},
     } = formatSentiments(comments)
 
+    const commentsAuthor = allComments
+        .filter(filterForUsers([author]))
+    const {
+        sentimentScore: authorSentimentScore = 0,
+    } = formatSentiments(commentsAuthor)
+
+    const prefix = type === 'all'
+        ? 'c'
+        : `${type}C`
+
     return {
-        generalComments: comments.length,
-        generalCommenters: formatCommenters(comments),
-        generalCommentSentimentScore: sentimentScore,
-        generalCommentSentiments: sentiments,
+        [`${prefix}omments`]: comments.length,
+        [`${prefix}ommenters`]: formatCommenters(comments),
+        [`${prefix}ommentSentimentScore`]: sentimentScore,
+        [`${prefix}ommentSentiments`]: sentiments,
+        [`${prefix}ommentsAuthor`]: commentsAuthor.length,
+        [`${prefix}ommentAuthorSentimentScore`]: authorSentimentScore,
+    }
+}
+
+const formatAllComments = (exclude, data) => {
+    const generalCommentsInfo = formatComments('general',exclude, data)
+    const codeCommentsInfo = formatComments('code', exclude, data)
+    const collatedCommentsInfo = formatComments('all', exclude, data)
+
+    return {
+        ...generalCommentsInfo,
+        ...codeCommentsInfo,
+        ...collatedCommentsInfo,
     }
 }
 
@@ -153,19 +154,7 @@ const prData = (exclude = []) => (data = {}) => {
     const createdAt = pathOr('', ['node', 'createdAt'], data)
     const mergedAt = pathOr('', ['node', 'mergedAt'], data)
 
-    const {
-        codeComments = 0,
-        codeCommenters,
-        codeCommentSentimentScore,
-        codeCommentSentiments,
-    } = formatCodeComments(exclude, data)
-
-    const {
-        generalComments = 0,
-        generalCommenters,
-        generalCommentSentimentScore,
-        generalCommentSentiments,
-    } = formatGeneralComments(exclude, data)
+    const allCommentsInfo = formatAllComments(exclude, data)
 
     const {
         approvals,
@@ -190,20 +179,7 @@ const prData = (exclude = []) => (data = {}) => {
         approvals,
         approvers,
 
-        generalComments,
-        generalCommenters,
-        generalCommentSentimentScore,
-        generalCommentSentiments,
-
-        codeComments,
-        codeCommenters,
-        codeCommentSentimentScore,
-        codeCommentSentiments,
-
-        comments: codeComments + generalComments,
-        commenters: mergeCommenters(generalCommenters)(codeCommenters),
-        commenterSentiments: mergeCommenters(generalCommentSentiments)(codeCommentSentiments),
-        commentsSentimentScore: generalCommentSentimentScore + codeCommentSentimentScore,
+        ...allCommentsInfo
     }
 
     return prInfo

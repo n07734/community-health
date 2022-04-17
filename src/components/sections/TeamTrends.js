@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
 
-import { P, UL, LI } from '../shared/StyledTags'
+import { P } from '../shared/StyledTags'
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
 import Bar from '../charts/Bar'

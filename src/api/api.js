@@ -22,6 +22,7 @@ const parseJSON = response => new Promise((resolve, reject) => {
             : reject(Object.assign(data, { status: response.status }))
         )
         .catch(error => {
+            console.log('-=-=--parseJSON error', error)
             error.status = response.status
             reject(error)
         })
@@ -51,8 +52,9 @@ const pause = (ms = 3000) => new Promise(resolve => setTimeout(resolve, ms))
 let numRateTriggers = 0
 
 const pauseThenRetry = async(apiInfo, results) => {
-    console.log('-=-=--paused');
+    console.log('-=-=--paused', Date.now());
     await pause();
+    console.log('-=-=--resume', Date.now());
     ++numRateTriggers
     return numRateTriggers <= 10
         ? api(apiInfo, results)
@@ -85,7 +87,6 @@ const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
         resultInfo,
         fillerType,
     } = queryInfo(fetchInfo)
-    console.log('-=-=--query', query)
 
     dispatch({
         type: types.FETCH_STATUS,

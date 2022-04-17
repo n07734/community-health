@@ -170,6 +170,40 @@ const userGraphs = (data = [], releases = [], userName) => {
     return [
         {
             markers: releases,
+            showLegends: true,
+            title: 'Sentiments in PR',
+            data: [{
+                lines: [
+                    {
+                        label: `${userName} received`,
+                        color: colourA,
+                        dataKey: 'commentSentimentScore',
+                        data: userPrData,
+                    },
+                    {
+                        label: `${userName} given`,
+                        color: colourB,
+                        dataKey: 'commentAuthorSentimentScore',
+                        data: userPrData,
+                    },
+                    {
+                        label: 'Peer received',
+                        color: colourA,
+                        dataKey: 'commentSentimentScore',
+                        data: peerPrData,
+                    },
+                    {
+                        label: 'Peer given',
+                        color: colourB,
+                        dataKey: 'commentAuthorSentimentScore',
+                        data: peerPrData,
+                    },
+                ],
+                xAxis: 'left',
+            }],
+        },
+        {
+            markers: releases,
             data: [{
                 lines: [
                     {

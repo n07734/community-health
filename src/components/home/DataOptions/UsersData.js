@@ -25,6 +25,7 @@ import {
     storeUserIds,
     storeTeamName,
     storeEnterpriseAPI,
+    storeExcludeIds,
     storeAmountOfData,
     storeSortDirection,
     getAPIData,
@@ -40,6 +41,7 @@ const buttonText = (fetching, pullRequests = []) => [
 const validate = ({ key, value }) => {
     const isValid = cond([
         [equals('enterpriseAPI'), always(/^(https:\/\/.+\..+|^$)/.test(value))],
+        [equals('excludeIds'), always(/^([\w-.,\s]+|)$/.test(value))],
         [equals('userIds'), always(/^([\w-.,\s]+)$/.test(value))],
         [alwaysTrue, always(/^[\w-.]+$/.test(value))],
     ])(key)
@@ -69,6 +71,7 @@ const RepoData = (props) => {
         enterpriseAPI: false,
         userIds: false,
         teamName: false,
+        excludeIds: false,
     })
 
     const [formInfo, setFormInfo] = useState({
@@ -77,6 +80,7 @@ const RepoData = (props) => {
         token: '',
         teamName: '',
         enterpriseAPI: '',
+        excludeIds: '',
         userIds: '',
     })
 
@@ -130,6 +134,7 @@ const RepoData = (props) => {
             'enterpriseAPI': getErrorValue('enterpriseAPI'),
             'userIds': getErrorValue('userIds'),
             'teamName': getErrorValue('teamName'),
+            'excludeIds': getErrorValue('excludeIds'),
         }
 
         setInputError(newInputError)
@@ -198,10 +203,16 @@ const RepoData = (props) => {
                     expandText="add this"
                     intro="Advanced options"
                 >
-                    <TextField
-                        {...inputProps('enterpriseAPI')}
-                        label="Enterprise API full url"
-                    />
+                    <div className={classes.inputGrid}>
+                        <TextField
+                            {...inputProps('excludeIds')}
+                            label="Exclude GitHub ids e.g. bots, ',' separated"
+                        />
+                        <TextField
+                            {...inputProps('enterpriseAPI')}
+                            label="Enterprise API full url"
+                        />
+                    </div>
                 </ChartDescription>
 
                 <div className={classes.inputGrid}>
@@ -237,11 +248,12 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    setValues: ({ token, userIds, teamName, enterpriseAPI, amountOfData, startingPoint }) => {
+    setValues: ({ token, userIds, teamName, enterpriseAPI, excludeIds, amountOfData, startingPoint }) => {
         dispatch(storeToken(token))
         dispatch(storeUserIds(userIds))
         dispatch(storeTeamName(teamName))
         dispatch(storeEnterpriseAPI(enterpriseAPI))
+        dispatch(storeExcludeIds(excludeIds))
         dispatch(storeAmountOfData(amountOfData))
         dispatch(storeSortDirection(startingPoint === 'now'
             ? 'DESC'

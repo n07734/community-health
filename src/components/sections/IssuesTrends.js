@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { P, UL, LI } from '../shared/StyledTags'
+import { P } from '../shared/StyledTags'
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
 import Line from '../charts/Line'

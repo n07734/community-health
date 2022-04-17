@@ -16,7 +16,8 @@ const Sentiment = ({
 } = {}) => {
     const sentPRData = pullRequests.map(prData => ({
         ...prData,
-        [`${prData.author}-commentsSentimentScore`]: prData.commentsSentimentScore,
+        [`${prData.author}-commentsSentimentScore`]: prData.commentSentimentScore,
+        [`${prData.author}-commentAuthorSentimentScore`]: prData.commentAuthorSentimentScore,
     }))
 
     return (<>
@@ -32,15 +33,44 @@ const Sentiment = ({
             </ChartDescription>
             <Line
                 showLegends={true}
-                title="Sentiment received in PR comments"
+                title="Sentiments in PR between team and reviewers"
+                data={[
+                    {
+                        lines: [
+                            {
+                                label: 'To team',
+                                color: colors[0],
+                                dataKey: 'commentSentimentScore',
+                            },
+                            {
+                                label: 'From team',
+                                color: colors[1],
+                                dataKey: 'commentAuthorSentimentScore',
+                            },
+                        ],
+                        xAxis: 'left',
+                        data: sentPRData,
+                    },
+                ]}
+            />
+            <Line
+                showLegends={true}
+                title="Sentiments in PR between author and reviewers"
                 data={[
                     {
                         lines: userIds
-                            .map((userId, i) => ({
-                                label: `${userId}`,
-                                color: colors[i % colors.length],
-                                dataKey: `${userId}-commentsSentimentScore`,
-                            })),
+                            .map((userId, i) => ([
+                                {
+                                    label: `To ${userId}`,
+                                    color: colors[i % colors.length],
+                                    dataKey: `${userId}-commentsSentimentScore`,
+                                },
+                                {
+                                    label: `From ${userId}`,
+                                    color: colors[i % colors.length],
+                                    dataKey: `${userId}-commentAuthorSentimentScore`,
+                                }
+                            ])).flat(),
                         xAxis: 'left',
                         data: sentPRData,
                     },

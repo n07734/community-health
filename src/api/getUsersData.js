@@ -16,7 +16,7 @@ const getUsersData = async(fetchInfo, dispatch) => {
                 dispatch,
             }))
 
-        const allUsersData = await batch(data, api, 3)
+        const allUsersData = await batch(data, api, 1)
 
         const finalFetchInfo = {
             ...fetchInfo,
