@@ -16,7 +16,7 @@ import { withStyles } from '@material-ui/core/styles'
 
 import Button from '../../shared/Button'
 import ChartDescription from '../../shared/ChartDescription'
-import { P } from '../../shared/StyledTags'
+import { P, H } from '../../shared/StyledTags'
 import Message from '../Message'
 import styles from './styles'
 
@@ -154,12 +154,8 @@ const RepoData = (props) => {
     const itemText = (amount) => `Get ${amount} ${!preFetchedRepo && pullRequests.length > 0 ? 'more ' : ''}PRs`
 
     return (
-        <ChartDescription
-            className={classes.formDescription}
-            title=""
-            expandText="here"
-            intro="Or get community contribution health data for any team"
-        >
+        <div className={classes.formDescription} >
+            <H level={3}>Get community data for any Team(list of users)</H>
             <form
                 onSubmit={handleSubmit}
             >
@@ -237,10 +233,11 @@ const RepoData = (props) => {
             </form>
             {
                 !fetching
+                    && !preFetchedRepo
                     && pullRequests.length > 0
                     && <P><a className={classes.link} {...getDownloadInfo()}>Download report data</a></P>
             }
-        </ChartDescription>
+        </div>
     )
 }
 

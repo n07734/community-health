@@ -1,5 +1,5 @@
 import { userQuery as queryInfo } from './queries'
-import { prop, pick } from 'ramda'
+import { prop } from 'ramda'
 import api from './api'
 import batch from './batch'
 

@@ -406,10 +406,12 @@ const getDownloadProps = (dispatch, getState) => {
     const state = getState()
 
     const repo = path(['fetches', 'repo'], state)
+    const teamName = path(['teamName'], state)
     const getReportData = pipe(
-        pickAll(['fetches', 'repoInfo', 'pullRequests', 'userData', 'issues', 'releases']),
+        pickAll(['fetches', 'repoInfo', 'pullRequests', 'userData', 'issues', 'releases', 'teamName']),
         dissocPath(['fetches', 'token']),
         dissocPath(['fetches', 'amountOfData']),
+        // TODO: strip hasNextPage from user's pagination data
         dissocPath(['fetches', 'prPagination', 'hasNextPage']),
         dissocPath(['fetches', 'issuesPagination', 'hasNextPage']),
         dissocPath(['fetches', 'releasesPagination', 'hasNextPage']),
@@ -422,9 +424,14 @@ const getDownloadProps = (dispatch, getState) => {
     const blob = new Blob([json], { type: "application/json" })
     const href  = URL.createObjectURL(blob)
 
+
+    const fileName = teamName
+        ? teamName
+        : `${path(['fetches', 'org'], state)}-${repo}`
+
     return {
         href,
-        download: `${path(['fetches', 'org'], state)}-${repo}.json`,
+        download: `${fileName}.json`,
     }
 }
 

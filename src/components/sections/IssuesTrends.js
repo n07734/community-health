@@ -26,11 +26,7 @@ const IssuesTrends = ({
         <Paper>
             <ChartDescription
                 title="Feature and bug trends"
-            >
-                <div>
-                    <P>Bugs in this graph are issues that have a title or a label that contains the word 'bug'</P>
-                </div>
-            </ChartDescription>
+            />
             <Line
                 markers={releases}
                 data={[
@@ -54,6 +50,7 @@ const IssuesTrends = ({
                     },
                 ]}
             />
+            <P>Bugs in this graph are issues that have a title or a label that contains the word 'bug'</P>
         </Paper>
     )
 }

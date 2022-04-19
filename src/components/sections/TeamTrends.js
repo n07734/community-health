@@ -16,17 +16,14 @@ const TeamTrends = ({
         <Paper>
             <ChartDescription
                 title="Contribution distribution"
-            >
-                <div>
-                    <P>Note: The Users in the graphs are people who have opened PRs to the repo. This can mean that the received metrics can be higher than given as people who have not opened PRs could have contributed.</P>
-                </div>
-            </ChartDescription>
+            />
 
             {
                 usersData.length > 0
                     && (
                         <>
                             <div className={classes.groupedCharts}>
+                                <P>These chord charts show how contributions are given and received, the dominant colours indicate the higher contributions</P>
                                 <Chord data={usersData} dataKey="commentsByUser" title="Comment contributions" />
                                 <Chord data={usersData} dataKey="approvalsByUser" title="Approval contributions" />
                             </div>
@@ -40,7 +37,7 @@ const TeamTrends = ({
                                     {
                                         dataKey: 'commentsGiven',
                                         color: '#1f77b4',
-                                        label: 'given',
+                                        label: 'given*',
                                     },
                                     {
                                         dataKey: 'commentsReceived',
@@ -59,7 +56,7 @@ const TeamTrends = ({
                                     {
                                         dataKey: 'uniquePRsApproved',
                                         color: '#1f77b4',
-                                        label: 'approved',
+                                        label: 'approved*',
                                     },
                                     {
                                         dataKey: 'totalPRs',
@@ -68,6 +65,7 @@ const TeamTrends = ({
                                     },
                                 ]}
                             />
+                            <P>*Given comments and approvals are taken from the PRs in the dataset, i.e. not all comments/approvals that user has many given over the same time period.</P>
                         </>
                     )
             }

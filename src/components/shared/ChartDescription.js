@@ -25,7 +25,7 @@ const ChartDescription = ({
             <P>
                 {intro} {
                     children && <a
-                        className={classes.link}
+                        className={intro ? classes.link : classes.linkMargin}
                         href="#desc"
                         onClick={(e) => {
                             e.preventDefault()
@@ -52,12 +52,13 @@ const styles = theme => ({
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'baseline',
-        '& a': {
-            marginLeft: '0.5rem',
-        }
     },
     link: {
         color: theme.palette.link,
+    },
+    linkMargin: {
+        color: theme.palette.link,
+        marginLeft: '0.5rem',
     },
     wrapperFlex: {
         flexBasis: '100%'

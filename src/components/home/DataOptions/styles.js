@@ -15,6 +15,14 @@ const styles = theme => ({
             gridColumn:'1 / -1'
         }
     },
+    typeOptions: {
+        display: 'flex',
+        '& button': {
+            flexGrow: 1,
+            ...theme.copy.h4,
+            textTransform: 'none',
+        },
+    },
     link: {
         color: theme.palette.link,
     },
