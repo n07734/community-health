@@ -62,6 +62,7 @@ const RepoData = (props) => {
         fetching,
         error,
         pullRequests = [],
+        preFetchedRepo = '',
         classes,
         getDownloadInfo,
     } = props
@@ -150,6 +151,8 @@ const RepoData = (props) => {
             && getData()
     }
 
+    const itemText = (amount) => `Get ${amount} ${!preFetchedRepo && pullRequests.length > 0 ? 'more ' : ''}PRs`
+
     return (
         <ChartDescription
             className={classes.formDescription}
@@ -165,7 +168,7 @@ const RepoData = (props) => {
                         value={formInfo.startingPoint}
                         onChange={(e) => setValue('startingPoint', e.target.value)}
                         inputProps={{ 'aria-label': 'Starting point' }}
-                        >
+                    >
                         <MenuItem value="now" >Starting from now</MenuItem>
                         <MenuItem value="start">Starting from creation of the repo</MenuItem>
                     </Select>
@@ -173,10 +176,10 @@ const RepoData = (props) => {
                         value={formInfo.amountOfData}
                         onChange={(e) => setValue('amountOfData', e.target.value)}
                         inputProps={{ 'aria-label': 'Amount of data' }}
-                        >
-                        <MenuItem value={1} default>Get 100 more PRs</MenuItem>
-                        <MenuItem value={5} >Get 500 more PRs</MenuItem>
-                        <MenuItem value={100} >Get 10,000 more PRs</MenuItem>
+                    >
+                        <MenuItem value={1} default>{itemText(100)}</MenuItem>
+                        <MenuItem value={5} >{itemText(500)}</MenuItem>
+                        <MenuItem value={100} >{itemText('10,000')}</MenuItem>
                         <MenuItem value="all">Get it all</MenuItem>
                     </Select>
 
@@ -245,6 +248,7 @@ const mapStateToProps = (state) => ({
     fetching: state.fetching,
     error: state.error,
     pullRequests: state.pullRequests,
+    preFetchedRepo: state.preFetchedRepo,
 })
 
 const mapDispatchToProps = dispatch => ({

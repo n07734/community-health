@@ -35,6 +35,9 @@ const reducers = combineReducers({
         amountOfData: (amountOfData = 1, action) => (action.type === types.STORE_AMOUNT)
             ? action.payload
             : amountOfData,
+        sortDirection: (sortDirection = 'DESC', action) => (action.type === types.STORE_SORT)
+            ? action.payload
+            : sortDirection,
         enterpriseAPI: (enterpriseAPI = '', action) => (action.type === types.STORE_ENT_URL)
             ? action.payload
             : enterpriseAPI,

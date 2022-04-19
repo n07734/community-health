@@ -39,7 +39,7 @@ const ChartDescription = ({
                     </a>
                 }
             </P>
-            <Collapse className="wrapper" in={toggle}>
+            <Collapse className={`wrapper ${classes.wrapperFlex}`} in={toggle}>
                 {children}
             </Collapse>
         </div>
@@ -59,6 +59,9 @@ const styles = theme => ({
     link: {
         color: theme.palette.link,
     },
+    wrapperFlex: {
+        flexBasis: '100%'
+    }
 })
 
 export default withStyles(styles)(ChartDescription)

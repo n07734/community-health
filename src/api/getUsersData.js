@@ -10,6 +10,8 @@ const getUsersData = async(fetchInfo, dispatch) => {
             .map((user) => ({
                 fetchInfo: {
                     ...fetchInfo,
+                    issuesPagination: fetchInfo.issuesPagination[user] || { hasNextPage: true },
+                    prPagination: fetchInfo.prPagination[user] || { hasNextPage: true },
                     user,
                 },
                 queryInfo,
@@ -20,14 +22,15 @@ const getUsersData = async(fetchInfo, dispatch) => {
 
         const finalFetchInfo = {
             ...fetchInfo,
-            users: {},
         }
         const allResults = []
         allUsersData
             .forEach(({ fetchInfo, results }) => {
-                const user = prop('user', fetchInfo)
-                finalFetchInfo.users[user] = pick(['issuesPagination', 'prPagination', 'user'], fetchInfo)
                 allResults.push(results)
+
+                const user = prop('user', fetchInfo)
+                finalFetchInfo.issuesPagination[user] = prop('issuesPagination', fetchInfo)
+                finalFetchInfo.prPagination[user] = prop('prPagination', fetchInfo)
             })
 
         const usersData = {
