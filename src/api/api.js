@@ -29,6 +29,7 @@ const parseJSON = response => new Promise((resolve, reject) => {
 })
 
 const triggeredAbuseRate = ({ message = '' }) =>/(You have triggered an abuse detection mechanism|You have exceeded a secondary rate limit)/.test(message)
+const triggeredJsonError = ({ message = '' }) =>/Unexpected end of JSON input/.test(message)
 
 const apiCall = fetchInfo => query =>
     fetch((fetchInfo.enterpriseAPI || 'https://api.github.com/graphql'), {
@@ -48,7 +49,7 @@ const shouldGetNextPage = (hasNextPage, { amountOfData }) => cond([
     [alwaysTrue, alwaysFalse],
 ]);
 
-const pause = (ms = 3000) => new Promise(resolve => setTimeout(resolve, ms))
+const pause = (ms = 30000) => new Promise(resolve => setTimeout(() => resolve(), ms))
 let numRateTriggers = 0
 
 const pauseThenRetry = async(apiInfo, results) => {
@@ -59,8 +60,12 @@ const pauseThenRetry = async(apiInfo, results) => {
     return numRateTriggers <= 10
         ? api(apiInfo, results)
         : {
-            level: 'error',
-            message: 'Hit rate limit too many times'
+            errorMessage: {
+                level: 'error',
+                message: 'Hit rate limit over ten times'
+            },
+            fetchInfo: apiInfo.fetchInfo,
+            results: results,
         }
 }
 
@@ -135,6 +140,7 @@ const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
         console.log('-=-=--api error', error)
         const hasTriggeredAbuse = cond([
             [triggeredAbuseRate, alwaysTrue],
+            [triggeredJsonError, alwaysTrue],
             [propEq('status', 500), alwaysTrue],
             [propEq('status', 502), alwaysTrue],
             [propEq('message', 'Abuse rate triggered'), alwaysTrue],
@@ -149,6 +155,13 @@ const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
                     level: 'warn',
                     message: 'You may have triggered the api\'s abuse detection, please wait a minute before trying again',
                 })
+            ],
+            [
+                compose(/50\d/i.test, propOr('', 'status')),
+                always({
+                    level: 'error',
+                    message: 'GitHub API 500 error, could be CORS or rate limiting',
+                }),
             ],
             [
                 propEq('status', 401),
@@ -180,8 +193,8 @@ const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
             ? pauseThenRetry({ fetchInfo, queryInfo, dispatch }, results)
             : {
                 ...errorMessage,
-                // fetchInfo: fetchInfo,
-                // results: results,
+                fetchInfo: fetchInfo,
+                results: results,
             }
     }
 }

@@ -74,7 +74,13 @@ const TeamTrends = ({
 }
 
 const styles = theme => ({
-    groupedCharts: theme.palette.groupedCharts,
+    groupedCharts: {
+        ...theme.palette.groupedCharts,
+        '& p': {
+            flexBasis: '100%',
+            textAlign: 'center',
+        },
+    },
 })
 
 const mapStateToProps = (state) => ({

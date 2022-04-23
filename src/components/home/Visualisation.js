@@ -24,7 +24,7 @@ const Visualisation = (props) => (
 
 const mapStateToProps = (state) => ({
     user: state.user,
-    teamName: state.teamName,
+    teamName: state.fetches.teamName,
 })
 
 export default connect(mapStateToProps)(Visualisation)

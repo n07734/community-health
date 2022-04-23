@@ -49,7 +49,6 @@ pullRequests(
       }
       additions
       deletions
-      changedFiles
       mergedAt
       createdAt
       ${reviews()}
@@ -69,6 +68,7 @@ issues(
   edges {
     node {
       title
+      url
       createdAt
       closedAt
       state
@@ -204,7 +204,6 @@ const searchPullRequests = ({
           }
           additions
           deletions
-          changedFiles
           mergedAt
           createdAt
           ${reviews()}

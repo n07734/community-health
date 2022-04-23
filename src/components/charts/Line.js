@@ -18,21 +18,12 @@ import {
 const ToolTip = convertedRightLines => data => {
     // NOTE: this is needed to use the original Y value for the tool tip
     const getYValue = (point) => {
-        const label = point.serieId
-        const xCurrentValue = point.data.xFormatted
         const yCurrentValue = point.data.yFormatted
+        const originalY = point.data.originalY
 
-        const { data: rightLineMatch = [] } = convertedRightLines
-            .find(x => x.id === label) || {}
-
-        const rightItemMatch = rightLineMatch
-            .find(({ x, y }) => x === xCurrentValue && y === yCurrentValue)
-
-        const updatedY = rightItemMatch
-            ? rightItemMatch.originalY
+        return /[\d.]/.test(originalY)
+            ? originalY
             : yCurrentValue
-
-        return updatedY
     }
 
     const Chip = ({ color }) => <span

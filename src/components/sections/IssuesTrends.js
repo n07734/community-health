@@ -39,7 +39,7 @@ const IssuesTrends = ({
                                 groupMath: 'count',
                             },
                             {
-                                label: 'Bugs',
+                                label: 'Bugs*',
                                 color: '#e82573',
                                 dataKey: 'bug',
                                 groupMath: 'count',
@@ -50,7 +50,7 @@ const IssuesTrends = ({
                     },
                 ]}
             />
-            <P>Bugs in this graph are issues that have a title or a label that contains the word 'bug'</P>
+            <P>*Bugs in this graph are issues that have a title or a label that contains the word 'bug'</P>
         </Paper>
     )
 }

@@ -311,10 +311,12 @@ const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) =
             type: types.SET_PR_PAGINATION,
             payload: fetchInfo.prPagination,
         })
+
         dispatch({
             type: types.SET_ISSUES_PAGINATION,
             payload: fetchInfo.issuesPagination,
         })
+
         dispatch({
             type: types.SET_RELEASES_PAGINATION,
             payload: fetchInfo.releasesPagination,
@@ -406,7 +408,7 @@ const getDownloadProps = (dispatch, getState) => {
     const state = getState()
 
     const repo = path(['fetches', 'repo'], state)
-    const teamName = path(['teamName'], state)
+    const teamName = path(['fetches', 'teamName'], state)
     const getReportData = pipe(
         pickAll(['fetches', 'repoInfo', 'pullRequests', 'userData', 'issues', 'releases', 'teamName']),
         dissocPath(['fetches', 'token']),

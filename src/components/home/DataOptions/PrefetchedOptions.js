@@ -7,12 +7,23 @@ import { P } from '../../shared/StyledTags'
 import styles from './styles'
 import { getPreFetchedData } from '../../../state/actions'
 
+
 const FetchForm = (props) => {
     const {
         classes,
         preFetchedRepo,
         getPreFetchedRepo,
     } = props
+
+    const preFetchButton = (repo, i) => <Button
+        value={repo}
+        key={i}
+        color={preFetchedRepo === repo ? 'primary' : 'secondary'}
+        onClick={(e) => {
+            e.preventDefault()
+            getPreFetchedRepo(repo)
+        }}
+    />
 
     return (
         <div className={classes.preFetched}>
@@ -40,15 +51,14 @@ const FetchForm = (props) => {
                         'prettier',
                         'cypress',
                     ]
-                        .map((repo, i) => <Button
-                            value={repo}
-                            key={i}
-                            color={preFetchedRepo === repo ? 'primary' : 'secondary'}
-                            onClick={(e) => {
-                                e.preventDefault()
-                                getPreFetchedRepo(repo)
-                            }}
-                        />)
+                        .map(preFetchButton)
+                }
+                <P>See contribution health of some popular OSS teams</P>
+                {
+                    [
+                        'reactCore',
+                    ]
+                        .map(preFetchButton)
                 }
             </div>
     )
