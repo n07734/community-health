@@ -5,10 +5,10 @@ import IssuesTrends from './sections/IssuesTrends'
 import TeamTrends from './sections/TeamTrends'
 import UserTrends from './sections/UserTrends'
 import UserList from './sections/UserList'
-import RepoDescription from './sections/RepoDescription'
+import ReportDescription from './sections/ReportDescription'
 
 const RepoView = () => <>
-    <RepoDescription />
+    <ReportDescription />
     <TeamTrends />
     <PullRequestTrends />
     <IssuesTrends />

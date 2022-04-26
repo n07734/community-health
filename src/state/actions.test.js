@@ -67,10 +67,10 @@ describe('getAPIData:', () => {
     })
     const { getAPIData } = require('./actions')
 
-    it('Dispatches are called in correct order when there is preFetchedRepo', async() => {
+    it('Dispatches are called in correct order when there is preFetchedName', async() => {
         const dispatch = jest.fn()
         const getState = () => ({
-            preFetchedRepo: true,
+            preFetchedName: true,
             pullRequests: [],
         })
 
@@ -80,14 +80,14 @@ describe('getAPIData:', () => {
             types.FETCH_START,
             types.CLEAR_USER,
             types.CLEAR_PRS,
-            types.CLEAR_REPO_INFO,
+            types.CLEAR_REPORT_INFO,
             types.CLEAR_USERS_DATA,
             types.CLEAR_RELEASES,
             types.CLEAR_ISSUES,
             types.CLEAR_FETCH_ERROR,
             types.FETCH_END,
             types.ADD_PRS,
-            types.ADD_REPO_INFO,
+            types.ADD_REPORT_INFO,
             types.ADD_USERS_DATA,
             types.ADD_RELEASES,
             types.ADD_ISSUES,
@@ -149,13 +149,13 @@ describe('getPreFetchedData:', () => {
         const dispatchOrder = [
             types.CLEAR_USER,
             types.CLEAR_PRS,
-            types.CLEAR_REPO_INFO,
+            types.CLEAR_REPORT_INFO,
             types.CLEAR_USERS_DATA,
             types.CLEAR_RELEASES,
             types.CLEAR_ISSUES,
             types.CLEAR_FETCH_ERROR,
-            types.PREFETCHED_REPO,
-            types.ADD_REPO_INFO,
+            types.PREFETCHED_NAME,
+            types.ADD_REPORT_INFO,
             types.ADD_PRS,
             types.ADD_USERS_DATA,
             types.ADD_ISSUES,

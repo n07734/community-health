@@ -7,10 +7,10 @@ import UserTrends from './sections/UserTrends'
 import UserList from './sections/UserList'
 import RepoSplit from './sections/RepoSplit'
 import Sentiment from './sections/Sentiment'
-import RepoDescription from './sections/RepoDescription'
+import ReportDescription from './sections/ReportDescription'
 
 const Team = () => <>
-    <RepoDescription />
+    <ReportDescription />
     <TeamTrends />
     <RepoSplit />
     <Sentiment />

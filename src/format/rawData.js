@@ -150,7 +150,6 @@ const prData = (exclude = []) => (data = {}) => {
     const url = pathOr('', ['node', 'url'], data)
     const additions = pathOr(0, ['node', 'additions'], data)
     const deletions = pathOr(0, ['node', 'deletions'], data)
-    const changedFiles = pathOr(0, ['node', 'changedFiles'], data)
     const createdAt = pathOr('', ['node', 'createdAt'], data)
     const mergedAt = pathOr('', ['node', 'mergedAt'], data)
 
@@ -169,10 +168,8 @@ const prData = (exclude = []) => (data = {}) => {
 
         additions,
         deletions,
-        changedFiles,
         prSize: additions + deletions,
 
-        createdAt,
         mergedAt,
         age: differenceInDays(new Date(mergedAt), new Date(createdAt)) || 1,
 
@@ -201,15 +198,14 @@ const formatRepo = (data) => ({
 })
 
 const formatIssue = (data) => {
-    const createdAt = pathOr('', ['node', 'createdAt'], data)
     const closedAt = pathOr('', ['node', 'closedAt'], data)
     const title = pathOr('', ['node', 'title'], data)
+    const url = pathOr('', ['node', 'url'], data)
     const labels = pathOr([], ['node', 'labels', 'edges'], data)
 
     return {
-        createdAt,
-        mergedAt: createdAt,
-        closedAt,
+        mergedAt: closedAt,
+        url,
         isBug: /bug/i.test(title) || labels.some(x => /bug/i.test(path(['node', 'name'], x))),
     }
 }

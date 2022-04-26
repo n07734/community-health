@@ -33,7 +33,7 @@ const Sentiment = ({
             </ChartDescription>
             <Line
                 showLegends={true}
-                title="Sentiments in PR between team and reviewers"
+                title="Sentiment in PRs between team and reviewers"
                 data={[
                     {
                         lines: [
@@ -55,7 +55,7 @@ const Sentiment = ({
             />
             <Line
                 showLegends={true}
-                title="Sentiments in PR between author and reviewers"
+                title="Sentiment in PRs between authors and reviewers"
                 data={[
                     {
                         lines: userIds
@@ -82,7 +82,7 @@ const Sentiment = ({
 
 const mapStateToProps = (state) => ({
     pullRequests: state.pullRequests,
-    userIds: state.userIds || ['bvaughn','gaearon','acdlite','sebmarkbage'],
+    userIds: state.fetches.userIds,
 })
 
 const styles = theme => ({

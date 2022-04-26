@@ -11,17 +11,17 @@ import { getPreFetchedData } from '../../../state/actions'
 const FetchForm = (props) => {
     const {
         classes,
-        preFetchedRepo,
-        getPreFetchedRepo,
+        preFetchedName,
+        getPreFetchedInfo,
     } = props
 
-    const preFetchButton = (repo, i) => <Button
-        value={repo}
+    const preFetchButton = (name, i) => <Button
+        value={name}
         key={i}
-        color={preFetchedRepo === repo ? 'primary' : 'secondary'}
+        color={preFetchedName === name ? 'primary' : 'secondary'}
         onClick={(e) => {
             e.preventDefault()
-            getPreFetchedRepo(repo)
+            getPreFetchedInfo(name)
         }}
     />
 
@@ -56,7 +56,7 @@ const FetchForm = (props) => {
                 <P>See contribution health of some popular OSS teams</P>
                 {
                     [
-                        'reactCore',
+                        'ReactCore',
                     ]
                         .map(preFetchButton)
                 }
@@ -65,11 +65,11 @@ const FetchForm = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-    preFetchedRepo: state.preFetchedRepo,
+    preFetchedName: state.preFetchedName,
 })
 
 const mapDispatchToProps = dispatch => ({
-    getPreFetchedRepo: (x) => dispatch(getPreFetchedData(x)),
+    getPreFetchedInfo: (x) => dispatch(getPreFetchedData(x)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(FetchForm))

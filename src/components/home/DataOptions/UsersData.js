@@ -62,7 +62,7 @@ const RepoData = (props) => {
         fetching,
         error,
         pullRequests = [],
-        preFetchedRepo = '',
+        preFetchedName = '',
         classes,
         getDownloadInfo,
     } = props
@@ -151,7 +151,7 @@ const RepoData = (props) => {
             && getData()
     }
 
-    const itemText = (amount) => `Get ${amount} ${!preFetchedRepo && pullRequests.length > 0 ? 'more ' : ''}PRs`
+    const itemText = (amount) => `Get ${amount} ${!preFetchedName && pullRequests.length > 0 ? 'more ' : ''}PRs`
 
     return (
         <div className={classes.formDescription} >
@@ -233,7 +233,7 @@ const RepoData = (props) => {
             </form>
             {
                 !fetching
-                    && !preFetchedRepo
+                    && !preFetchedName
                     && pullRequests.length > 0
                     && <P><a className={classes.link} {...getDownloadInfo()}>Download report data</a></P>
             }
@@ -245,7 +245,7 @@ const mapStateToProps = (state) => ({
     fetching: state.fetching,
     error: state.error,
     pullRequests: state.pullRequests,
-    preFetchedRepo: state.preFetchedRepo,
+    preFetchedName: state.preFetchedName,
 })
 
 const mapDispatchToProps = dispatch => ({

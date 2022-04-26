@@ -163,7 +163,7 @@ const clearData = (dispatch, msg = 'fff') => {
     dispatch({ type: types.CLEAR_USER })
     dispatch({ type: types.CLEAR_PRS })
     dispatch({ type: types.CLEAR_PR_PAGINATION })
-    dispatch({ type: types.CLEAR_REPO_INFO })
+    dispatch({ type: types.CLEAR_REPORT_INFO })
     dispatch({ type: types.CLEAR_USERS_DATA })
     dispatch({ type: types.CLEAR_RELEASES })
     dispatch({ type: types.CLEAR_RELEASES_PAGINATION })
@@ -182,11 +182,43 @@ const updateUsersData = (dispatch, getState) => {
     })
 }
 
-const formatApiRepoInfo = ({ fetches: { repo, org, description = '' } = {} } = {} ) => ({
-    repo,
-    org,
-    description,
-})
+const getReportInfo = (getState) => {
+    const {
+        fetches: {
+            repo,
+            org,
+            teamName,
+            userIds = []
+        } = {},
+        pullRequests = [],
+        issues = [],
+        releases = [],
+    } = getState();
+
+    const startPrDate = pullRequests.at(0).mergedAt
+    const startIssueDate = issues.at(0).mergedAt
+    const startDate = new Date(startPrDate).getTime() < new Date(startIssueDate).getTime()
+        ? startPrDate
+        : startIssueDate
+
+    const endPrDate = pullRequests.at(-1).mergedAt
+    const endIssueDate = issues.at(-1).mergedAt
+    const endDate = new Date(endPrDate).getTime() > new Date(endIssueDate).getTime()
+        ? endPrDate
+        : endIssueDate
+
+    return {
+        prCount: pullRequests.length,
+        issueCount: issues.length,
+        releaseCount: releases.length, // TODO: split by type
+        startDate,
+        endDate,
+        org,
+        repo,
+        teamName,
+        userIds,
+    }
+}
 
 const getErrorMessage = state => {
     const {
@@ -265,7 +297,7 @@ const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) =
         type: types.FETCH_START,
     })
 
-    state.preFetchedRepo
+    state.preFetchedName
         && !appendData
         && clearData(dispatch, 'pre api')
 
@@ -281,7 +313,7 @@ const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) =
         const excludeIds = propOr([], 'excludeIds', fetches)
 
         const prs = formatPullRequests(excludeIds, results)
-        const repoInfo = formatRepoInfo(results)
+        const reportInfo = formatRepoInfo(results)
         const releases = formatReleases(results)
         const issues = formatIssues(results)
 
@@ -291,8 +323,8 @@ const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) =
         })
 
         dispatch({
-            type: types.ADD_REPO_INFO,
-            payload: repoInfo,
+            type: types.ADD_REPORT_INFO,
+            payload: reportInfo,
         })
 
         dispatch(updateUsersData)
@@ -337,17 +369,20 @@ const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) =
     }
 }
 
-const getPreFetchedData = (repo = 'nivo') => (dispatch) => {
-    const repoData = require(`../prefetchedData/${repo}.json`)
+const getPreFetchedData = (name = 'nivo') => (dispatch, getState) => {
+    const repoData = require(`../prefetchedData/${name}.json`)
 
     const {
         fetches = {},
-        preFetchedRepo = '',
+        preFetchedName = '',
         pullRequests = [],
         usersData= [],
         issues = [],
         releases = [],
     } = repoData
+
+    const teamName = fetches.teamName || ''
+    const userIds = fetches.userIds || []
 
     clearData(dispatch)
 
@@ -369,13 +404,18 @@ const getPreFetchedData = (repo = 'nivo') => (dispatch) => {
     });
 
     dispatch({
-        type: types.PREFETCHED_REPO,
-        payload: preFetchedRepo,
+        type: types.PREFETCHED_NAME,
+        payload: preFetchedName,
     })
 
     dispatch({
-        type: types.ADD_REPO_INFO,
-        payload: formatApiRepoInfo(repoData),
+        type: types.SET_TEAM_NAME,
+        payload: teamName,
+    })
+
+    dispatch({
+        type: types.STORE_USER_IDS,
+        payload: userIds,
     })
 
     dispatch({
@@ -400,6 +440,11 @@ const getPreFetchedData = (repo = 'nivo') => (dispatch) => {
     })
 
     dispatch({
+        type: types.ADD_REPORT_INFO,
+        payload: getReportInfo(getState),
+    })
+
+    dispatch({
         type: types.FETCH_END,
     })
 }
@@ -410,14 +455,14 @@ const getDownloadProps = (dispatch, getState) => {
     const repo = path(['fetches', 'repo'], state)
     const teamName = path(['fetches', 'teamName'], state)
     const getReportData = pipe(
-        pickAll(['fetches', 'repoInfo', 'pullRequests', 'userData', 'issues', 'releases', 'teamName']),
+        pickAll(['fetches', 'reportInfo', 'pullRequests', 'userData', 'issues', 'releases', 'teamName']),
         dissocPath(['fetches', 'token']),
         dissocPath(['fetches', 'amountOfData']),
         // TODO: strip hasNextPage from user's pagination data
         dissocPath(['fetches', 'prPagination', 'hasNextPage']),
         dissocPath(['fetches', 'issuesPagination', 'hasNextPage']),
         dissocPath(['fetches', 'releasesPagination', 'hasNextPage']),
-        assoc('preFetchedRepo', repo),
+        assoc('preFetchedName', repo),
         slimObject
     )
 

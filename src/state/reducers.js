@@ -81,22 +81,22 @@ const reducers = combineReducers({
             ? newValue()
             : error
     },
-    preFetchedRepo: (repo = '', action) => {
+    preFetchedName: (name = '', action) => {
         const newValue = ({
-            [types.PREFETCHED_REPO]: () => action.payload,
+            [types.PREFETCHED_NAME]: () => action.payload,
             [types.CLEAR_PRS]: () => '',
         })[action.type]
 
         return newValue
             ? newValue()
-            : repo
+            : name
     },
-    repoInfo: (repoInfo = {}, action) => [
-        action.type === types.ADD_REPO_INFO
+    reportInfo: (reportInfo = {}, action) => [
+        action.type === types.ADD_REPORT_INFO
             && action.payload,
-        action.type === types.CLEAR_REPO_INFO
+        action.type === types.CLEAR_REPORT_INFO
             && {},
-        repoInfo,
+        reportInfo,
     ].find(Boolean),
     pullRequests: (prs = [], action) => [
         action.type === types.ADD_PRS

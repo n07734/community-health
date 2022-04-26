@@ -33,9 +33,9 @@ import {
     getDownloadProps,
 } from '../../../state/actions'
 
-const buttonText = (fetching, preFetchedRepo, pullRequests = []) => [
+const buttonText = (fetching, preFetchedName, pullRequests = []) => [
     fetching && 'fetching',
-    preFetchedRepo && `Get new ${preFetchedRepo} data`,
+    preFetchedName && `Get new ${preFetchedName} data`,
     pullRequests.length && 'Get more data',
     'Get data',
 ].find(Boolean)
@@ -64,7 +64,7 @@ const RepoData = (props) => {
         error,
         pullRequests = [],
         classes,
-        preFetchedRepo,
+        preFetchedName,
         getDownloadInfo,
     } = props
 
@@ -152,7 +152,7 @@ const RepoData = (props) => {
             && getData()
     }
 
-    const itemText = (amount) => `Get ${amount} ${!preFetchedRepo && pullRequests.length > 0 ? 'more ' : ''}PRs`
+    const itemText = (amount) => `Get ${amount} ${!preFetchedName && pullRequests.length > 0 ? 'more ' : ''}PRs`
 
     return (
         <div className={classes.formDescription} >
@@ -222,7 +222,7 @@ const RepoData = (props) => {
                         type={fetching ? 'disabled' : 'submit'}
                         variant="contained"
                         color="primary"
-                        value={buttonText(fetching, '', preFetchedRepo ? [] : pullRequests)}
+                        value={buttonText(fetching, '', preFetchedName ? [] : pullRequests)}
                     />
                     {
                         error
@@ -235,7 +235,7 @@ const RepoData = (props) => {
             </form>
             {
                 !fetching
-                    && !preFetchedRepo
+                    && !preFetchedName
                     && pullRequests.length > 0
                     && <P><a className={classes.link} {...getDownloadInfo()}>Download report data</a></P>
             }
@@ -247,7 +247,7 @@ const mapStateToProps = (state) => ({
     fetching: state.fetching,
     error: state.error,
     pullRequests: state.pullRequests,
-    preFetchedRepo: state.preFetchedRepo,
+    preFetchedName: state.preFetchedName,
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -265,7 +265,7 @@ const mapDispatchToProps = dispatch => ({
     },
     getData: (x) => dispatch(getAPIData(x)),
     getDownloadInfo: () => dispatch(getDownloadProps),
-    getPreFetchedRepo: (x) => dispatch(getPreFetchedData(x)),
+    getpreFetchedName: (x) => dispatch(getPreFetchedData(x)),
 })
 
 
