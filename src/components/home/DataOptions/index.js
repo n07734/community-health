@@ -21,7 +21,7 @@ const FetchForm = ({ classes }) => {
             <div className={classes.typeOptions}>
                 {
                     [
-                        ['Popular repos', 'oss'],
+                        ['Popular repos/teams', 'oss'],
                         ['Make repo report', 'repo'],
                         ['Make team report', 'team'],
                     ]

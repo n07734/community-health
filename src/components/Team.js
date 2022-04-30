@@ -12,8 +12,8 @@ import ReportDescription from './sections/ReportDescription'
 const Team = () => <>
     <ReportDescription />
     <TeamTrends />
-    <RepoSplit />
     <Sentiment />
+    <RepoSplit />
     <PullRequestTrends />
     <IssuesTrends />
     <UserTrends />

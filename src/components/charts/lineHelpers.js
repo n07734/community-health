@@ -65,7 +65,7 @@ const formatLineData = ({ data, dataKey, groupMath = 'average' }) => {
     const sortedData = filteredData
         .sort(dateSort)
 
-    const batchedData = batchBy('week')('mergedAt')(sortedData)
+    const batchedData = batchBy('mergedAt')(sortedData)
     const formattedData = formatBatches(batchedData)(dataKey)(groupMath)
 
     return formattedData

@@ -49,7 +49,7 @@ const TeamTrends = ({
                             <Bar
                                 data={usersData}
                                 indexBy="author"
-                                titlePrefix="PRs,"
+                                titlePrefix="PRs"
                                 sortBy="uniquePRsApproved"
                                 max={7}
                                 bars={[
