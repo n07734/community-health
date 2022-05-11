@@ -14,6 +14,7 @@ import {
 } from 'ramda'
 import api from '../api/api'
 import getUsersData from '../api/getUsersData'
+import getUntilDate from '../api/getUntilDate'
 import {
     formatPullRequests,
     formatIssues,
@@ -162,6 +163,7 @@ const storeSortDirection = (sortDirection = 'DESC') => (dispatch) => dispatch({
 const clearData = (dispatch, msg = 'fff') => {
     dispatch({ type: types.CLEAR_USER })
     dispatch({ type: types.CLEAR_PRS })
+    dispatch({ type: types.CLEAR_FILTERED_PRS })
     dispatch({ type: types.CLEAR_PR_PAGINATION })
     dispatch({ type: types.CLEAR_REPORT_INFO })
     dispatch({ type: types.CLEAR_USERS_DATA })
@@ -304,22 +306,29 @@ const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) =
     try {
         const {
             fetches,
+            pullRequests,
         } = getState();
         const userIds = propOr([], 'userIds', fetches)
 
-        const { fetchInfo, results } = userIds.length
-            ? await getUsersData(fetches, dispatch)
-            : await api({ fetchInfo: fetches, queryInfo: batchedQuery, dispatch })
-        const excludeIds = propOr([], 'excludeIds', fetches)
+        const untilDate = getUntilDate(fetches, pullRequests)
 
-        const prs = formatPullRequests(excludeIds, results)
+        const { fetchInfo, results } = userIds.length
+            ? await getUsersData({ fetchInfo: fetches, untilDate, dispatch })
+            : await api({ fetchInfo: fetches, queryInfo: batchedQuery(untilDate), dispatch })
+
+        const [remainingPRs, filteredPRs] = formatPullRequests(fetches, untilDate, results)
         const reportInfo = formatRepoInfo(results)
         const releases = formatReleases(results)
         const issues = formatIssues(results)
 
         dispatch({
             type: types.ADD_PRS,
-            payload: prs,
+            payload: remainingPRs,
+        })
+
+        dispatch({
+            type: types.ADD_FILTERED_PRS,
+            payload: filteredPRs,
         })
 
         dispatch({

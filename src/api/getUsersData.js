@@ -1,9 +1,9 @@
-import { userQuery as queryInfo } from './queries'
+import { userQuery } from './queries'
 import { prop } from 'ramda'
 import api from './api'
 import batch from './batch'
 
-const getUsersData = async(fetchInfo, dispatch) => {
+const getUsersData = async({ fetchInfo, untilDate, dispatch }) => {
     try {
         const userIds = fetchInfo.userIds
         const data = userIds
@@ -14,7 +14,7 @@ const getUsersData = async(fetchInfo, dispatch) => {
                     prPagination: fetchInfo.prPagination[user] || { hasNextPage: true },
                     user,
                 },
-                queryInfo,
+                queryInfo: userQuery(untilDate),
                 dispatch,
             }))
 
@@ -37,8 +37,6 @@ const getUsersData = async(fetchInfo, dispatch) => {
             fetchInfo: finalFetchInfo,
             results: allResults.flat(),
         }
-
-        console.log('-=-=--usersData', usersData)
 
         return usersData
     } catch (error) {

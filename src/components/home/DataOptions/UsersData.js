@@ -106,8 +106,6 @@ const RepoData = (props) => {
                 [key]: isValid ? false : true
             })
 
-            console.log('-=-=--key,value,isValid', key,value,isValid)
-
             isValid
                 && setValue(key, value)
         },
@@ -143,7 +141,6 @@ const RepoData = (props) => {
         const allPass = Object.values(newInputError)
             .every(x => !x)
 
-        console.log('-=-=--handleSubmitformInfo', formInfo)
         allPass && !fetching
             && setValues(formInfo)
 
@@ -151,7 +148,9 @@ const RepoData = (props) => {
             && getData()
     }
 
-    const itemText = (amount) => `Get ${amount} ${!preFetchedName && pullRequests.length > 0 ? 'more ' : ''}PRs`
+    const hasTeamData = !preFetchedName && pullRequests.length > 0
+
+    const itemText = (amount) => `Get ${amount} ${amount === 1 ? 'month' : 'months'} ${hasTeamData ? 'more ' : ''}data`
 
     return (
         <div className={classes.formDescription} >
@@ -166,16 +165,19 @@ const RepoData = (props) => {
                         inputProps={{ 'aria-label': 'Starting point' }}
                     >
                         <MenuItem value="now" >Starting from now</MenuItem>
-                        <MenuItem value="start">Starting from creation of the repo</MenuItem>
+                        {
+                            hasTeamData && <MenuItem value="start">Starting from current team data</MenuItem>
+                        }
                     </Select>
                     <Select
                         value={formInfo.amountOfData}
                         onChange={(e) => setValue('amountOfData', e.target.value)}
                         inputProps={{ 'aria-label': 'Amount of data' }}
                     >
-                        <MenuItem value={1} default>{itemText(100)}</MenuItem>
-                        <MenuItem value={5} >{itemText(500)}</MenuItem>
-                        <MenuItem value={100} >{itemText('10,000')}</MenuItem>
+                        <MenuItem value={1} default>{itemText(1)}</MenuItem>
+                        <MenuItem value={3} >{itemText(3)}</MenuItem>
+                        <MenuItem value={6} >{itemText(6)}</MenuItem>
+                        <MenuItem value={12} >{itemText(12)}</MenuItem>
                         <MenuItem value="all">Get it all</MenuItem>
                     </Select>
 

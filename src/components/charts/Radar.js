@@ -1,11 +1,22 @@
 import React from 'react'
 import { Radar as NivoRadar } from '@nivo/radar'
+import { TableTooltip, Chip } from '@nivo/tooltip'
 import { useTheme } from '@material-ui/core/styles';
 
 import ChartHeading from './ChartHeading'
 import styledCharts from './styledCharts'
 import hasChartData from './hasChartData'
 
+const radarSliceTooltip = fullData => ({ index, data }) => {
+    const matched = fullData.find(x => x.area === index);
+    const rows = data.map(({ id, color }) => [
+        <Chip key={id} color={color} />,
+        id,
+        matched[`${id}Original`],
+    ])
+
+    return <TableTooltip title={<strong>{index}</strong>} rows={rows} />
+}
 
 const Radar = styledCharts(({
     title = '',
@@ -17,11 +28,6 @@ const Radar = styledCharts(({
     classes,
 } = {}) => {
     const theme = useTheme();
-    const toolTipValues = data
-        .reduce((acc, item) => acc.concat(
-            keys
-                .map(key => item[`${key}Original`])
-        ), [])
 
     return hasChartData(data)(keys) && (
         <div>
@@ -50,7 +56,7 @@ const Radar = styledCharts(({
                 theme={theme.charts}
                 gridAngleStep={200}
                 angleStep={200}
-                tooltipFormat={() => toolTipValues.shift()}
+                sliceTooltip={radarSliceTooltip(data)}
             />
         </div>
     )

@@ -1,5 +1,11 @@
 import { pathOr } from 'ramda'
-import format from 'date-fns/format'
+import { format } from 'date-fns'
+import {
+  always,
+  T,
+  cond,
+} from 'ramda'
+import filterByUntilDate from '../format/filterByUntilDate'
 
 const cursorQ = (cursor, key = 'after') => cursor
     ? ` ${key}:"${cursor}" `
@@ -214,12 +220,23 @@ const searchPullRequests = ({
   }
 `
 
-const getPaginationByType = (oldFetchInfo, results, order) => type => {
+const getPaginationByType = (oldFetchInfo = {}, untilDate ='', data = {}, order) => type => {
     const {
         hasNextPage = false,
         startCursor,
         endCursor,
-    } = pathOr({}, ['data', 'result', type, 'pageInfo'], results)
+    } = pathOr({}, ['data', 'result', type, 'pageInfo'], data)
+
+    const items = pathOr([], ['data', 'result', type, 'edges'], data)
+
+    const dateKey = {
+      pullRequests: 'mergedAt',
+      issues: 'createdAt',
+    }[type]
+
+    const filteredItems = untilDate
+      ? items.filter(filterByUntilDate(dateKey, order, untilDate))
+      : items
 
     const typeStateMap = {
         pullRequests: 'prPagination',
@@ -238,7 +255,7 @@ const getPaginationByType = (oldFetchInfo, results, order) => type => {
     return {
         newest: order === 'ASC' &&  endCursor ? endCursor : newestCurrent,
         oldest: order === 'DESC' && endCursor ? endCursor : oldestCurrent,
-        hasNextPage,
+        hasNextPage: filteredItems.length === 0 ? false : hasNextPage,
     }
 }
 
@@ -247,12 +264,10 @@ const getRemainingPageCount = (data) => {
     .map(type => pathOr(0, ['data', 'result', type, 'totalCount'], data))
     .sort((a,b) => a > b)
 
-    console.log('-=-=--maxItems', maxItems)
-
     return Math.ceil(maxItems/100) -1
 }
 
-const userQuery = ({
+const userQuery = (untilDate) => ({
   user,
   order = 'DESC',
   amountOfData,
@@ -268,35 +283,37 @@ const userQuery = ({
   }`,
   order,
   resultInfo: (data) => {
-      const resultTypes = [
-          ['prPagination', 'pullRequests'],
-          ['issuesPagination', 'issues'],
-      ]
-
       const byType = getPaginationByType(
           {
               issuesPagination,
               prPagination,
+              amountOfData,
           },
+          untilDate,
           data,
           order
       )
 
-      console.log('-=-=--data', data)
-      console.log('-=-=--amountOfData', amountOfData)
+      const updatedAmountOfData = cond([
+        [always(untilDate), always(amountOfData)],
+        [always(Number.isInteger(amountOfData)), always(amountOfData - 1)],
+        [T, getRemainingPageCount(data)]
+      ])
 
-      const updatedAmountOfData = Number.isInteger(amountOfData)
-          ? amountOfData - 1
-          : getRemainingPageCount(data);
+      const nextPageInfo = {
+        prPagination: {
+          hasNextPage: false,
+          ...byType('pullRequests'),
+        },
+        issuesPagination: {
+          hasNextPage: false,
+          ...byType('issues'),
+        },
+      }
 
-      console.log('-=-=--updatedAmountOfData, amountOfData', updatedAmountOfData, amountOfData)
-
-      const nextPageInfo = {}
-      resultTypes
-          .forEach(([key, type]) => nextPageInfo[key] = byType(type))
-      console.log('-=-=--nextPageInfo', nextPageInfo)
       return {
-          hasNextPage: Object.values(nextPageInfo).some(({ hasNextPage } ) => hasNextPage !== false),
+          hasNextPage: false,
+          // hasNextPage: Object.values(nextPageInfo).some(({ hasNextPage } ) => hasNextPage !== false),
           nextPageInfo: {
             ...nextPageInfo,
             amountOfData: updatedAmountOfData,
@@ -312,7 +329,7 @@ const userQuery = ({
 })
 
 // Sort out hasNextpage as diff by order
-const batchedQuery = ({
+const batchedQuery = (untilDate) => ({
     org,
     repo,
     order = 'DESC',
@@ -336,36 +353,35 @@ const batchedQuery = ({
     }`,
     order,
     resultInfo: (data) => {
-        const resultTypes = [
-            ['prPagination', 'pullRequests'],
-            ['issuesPagination', 'issues'],
-            ['releasesPagination', 'releases'],
-        ]
-
         const byType = getPaginationByType(
             {
                 issuesPagination,
                 releasesPagination,
                 prPagination,
             },
+            untilDate,
             data,
             order
         )
 
-        console.log('-=-=--data', data)
-        console.log('-=-=--amountOfData', amountOfData)
-
         const updatedAmountOfData = Number.isInteger(amountOfData)
-            ? amountOfData - 1
+            ? amountOfData
             : getRemainingPageCount(data);
 
-        console.log('-=-=--updatedAmountOfData, amountOfData', updatedAmountOfData, amountOfData)
-
-        const nextPageInfo = resultTypes
-            .reduce((acc,[key, type]) => ({
-                ...acc,
-                [key] : byType(type)
-            }), {})
+        const nextPageInfo = {
+          prPagination: {
+            hasNextPage: false,
+            ...byType('pullRequests'),
+          },
+          issuesPagination: {
+            hasNextPage: false,
+            ...byType('issues'),
+          },
+          releasesPagination: {
+            hasNextPage: false,
+            ...byType('releases'),
+          },
+        }
 
         return {
             hasNextPage: Object.values(nextPageInfo).some(({ hasNextPage } ) => hasNextPage !== false),

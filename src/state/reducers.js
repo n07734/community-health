@@ -104,6 +104,12 @@ const reducers = combineReducers({
         action.type === types.CLEAR_PRS && [],
         prs,
     ].find(Boolean),
+    filteredPRs: (prs = [], action) => [
+        action.type === types.ADD_FILTERED_PRS
+            && prs.concat(action.payload),
+        action.type === types.CLEAR_FILTERED_PRS && [],
+        prs,
+    ].find(Boolean),
     usersData: (users = [], action) => [
         action.type === types.ADD_USERS_DATA
             && action.payload,

@@ -1,7 +1,7 @@
 import {
     compose,
     map,
-    none,
+    any,
     flatten,
     filter,
     path,
@@ -15,6 +15,8 @@ import {
     prerelease,
 } from 'semver'
 import Sentiment from 'sentiment'
+import filterByUntilDate from './filterByUntilDate'
+
 
 const formatCommentersObject = paths => items => items
     .reduce((acc, item) => {
@@ -182,12 +184,25 @@ const prData = (exclude = []) => (data = {}) => {
     return prInfo
 }
 
-const formatPullRequests = (exclude = [], results) => compose(
-    filter(x => none(y => y === x.author, exclude)),
-    map(prData(exclude)),
-    flatten,
-    map(pathOr([], ['data', 'result', 'pullRequests', 'edges'])),
-)(results)
+const formatPullRequests = ({ excludeIds = [], order }, untilDate, results) => {
+    const filteredPRs = []
+    const pullrequests = compose(
+        map(prData(excludeIds)),
+        filter(item => {
+            const author = pathOr('', ['node','author','login'], item)
+            const hasExcludedAuthor = any(y => y === author, excludeIds)
+            const shouldFilterIn = filterByUntilDate('mergedAt', order, untilDate)(item)
+            const keepItem = shouldFilterIn && !hasExcludedAuthor
+
+            !keepItem && filteredPRs.push(item)
+            return keepItem
+        }),
+        flatten,
+        map(pathOr([], ['data', 'result', 'pullRequests', 'edges'])),
+    )(results)
+
+    return [pullrequests, filteredPRs]
+}
 
 
 // TODO: is this used?
@@ -198,13 +213,13 @@ const formatRepo = (data) => ({
 })
 
 const formatIssue = (data) => {
-    const closedAt = pathOr('', ['node', 'closedAt'], data)
+    const createdAt = pathOr('', ['node', 'createdAt'], data)
     const title = pathOr('', ['node', 'title'], data)
     const url = pathOr('', ['node', 'url'], data)
     const labels = pathOr([], ['node', 'labels', 'edges'], data)
 
     return {
-        mergedAt: closedAt,
+        mergedAt: createdAt,
         url,
         isBug: /bug/i.test(title) || labels.some(x => /bug/i.test(path(['node', 'name'], x))),
     }

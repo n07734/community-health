@@ -107,8 +107,6 @@ const RepoData = (props) => {
                 [key]: isValid ? false : true
             })
 
-            console.log('-=-=--key,value,isValid', key,value,isValid)
-
             isValid
                 && setValue(key, value)
         },
@@ -144,7 +142,6 @@ const RepoData = (props) => {
         const allPass = Object.values(newInputError)
             .every(x => !x)
 
-        console.log('-=-=--handleSubmitformInfo', formInfo)
         allPass && !fetching
             && setValues(formInfo)
 
