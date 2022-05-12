@@ -150,22 +150,10 @@ const storeRepo = (repo = '') => (dispatch, getState) => {
     })
 }
 
-const storeAmountOfData = (amountOfData = '') => (dispatch, getState) => {
-    dispatch({
-        type: types.STORE_AMOUNT,
-        payload: amountOfData,
-    })
-
-    const {
-        fetches: {
-            order
-        } = {},
-        pullRequests
-    } = getState()
-    const untilDate = getUntilDate({ order, amountOfData }, pullRequests)
-    // do we want untilDate in state, what about subsequent requests
-
-}
+const storeAmountOfData = (amountOfData = '') => (dispatch) => dispatch({
+    type: types.STORE_AMOUNT,
+    payload: amountOfData,
+})
 
 const storeSortDirection = (sortDirection = 'DESC') => (dispatch) => dispatch({
     type: types.STORE_SORT,
