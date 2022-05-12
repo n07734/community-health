@@ -150,10 +150,22 @@ const storeRepo = (repo = '') => (dispatch, getState) => {
     })
 }
 
-const storeAmountOfData = (amountOfData = '') => (dispatch) => dispatch({
-    type: types.STORE_AMOUNT,
-    payload: amountOfData,
-})
+const storeAmountOfData = (amountOfData = '') => (dispatch, getState) => {
+    dispatch({
+        type: types.STORE_AMOUNT,
+        payload: amountOfData,
+    })
+
+    const {
+        fetches: {
+            order
+        } = {},
+        pullRequests
+    } = getState()
+    const untilDate = getUntilDate({ order, amountOfData }, pullRequests)
+    // do we want untilDate in state, what about subsequent requests
+
+}
 
 const storeSortDirection = (sortDirection = 'DESC') => (dispatch) => dispatch({
     type: types.STORE_SORT,
@@ -165,7 +177,6 @@ const clearData = (dispatch, msg = 'fff') => {
     dispatch({ type: types.CLEAR_PRS })
     dispatch({ type: types.CLEAR_FILTERED_PRS })
     dispatch({ type: types.CLEAR_PR_PAGINATION })
-    dispatch({ type: types.CLEAR_REPORT_INFO })
     dispatch({ type: types.CLEAR_USERS_DATA })
     dispatch({ type: types.CLEAR_RELEASES })
     dispatch({ type: types.CLEAR_RELEASES_PAGINATION })
@@ -182,44 +193,6 @@ const updateUsersData = (dispatch, getState) => {
         type: types.ADD_USERS_DATA,
         payload: formatUserData(pullRequests),
     })
-}
-
-const getReportInfo = (getState) => {
-    const {
-        fetches: {
-            repo,
-            org,
-            teamName,
-            userIds = []
-        } = {},
-        pullRequests = [],
-        issues = [],
-        releases = [],
-    } = getState();
-
-    const startPrDate = pullRequests.at(0).mergedAt
-    const startIssueDate = issues.at(0).mergedAt
-    const startDate = new Date(startPrDate).getTime() < new Date(startIssueDate).getTime()
-        ? startPrDate
-        : startIssueDate
-
-    const endPrDate = pullRequests.at(-1).mergedAt
-    const endIssueDate = issues.at(-1).mergedAt
-    const endDate = new Date(endPrDate).getTime() > new Date(endIssueDate).getTime()
-        ? endPrDate
-        : endIssueDate
-
-    return {
-        prCount: pullRequests.length,
-        issueCount: issues.length,
-        releaseCount: releases.length, // TODO: split by type
-        startDate,
-        endDate,
-        org,
-        repo,
-        teamName,
-        userIds,
-    }
 }
 
 const getErrorMessage = state => {
@@ -317,7 +290,6 @@ const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) =
             : await api({ fetchInfo: fetches, queryInfo: batchedQuery(untilDate), dispatch })
 
         const [remainingPRs, filteredPRs] = formatPullRequests(fetches, untilDate, results)
-        const reportInfo = formatRepoInfo(results)
         const releases = formatReleases(results)
         const issues = formatIssues(results)
 
@@ -329,11 +301,6 @@ const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) =
         dispatch({
             type: types.ADD_FILTERED_PRS,
             payload: filteredPRs,
-        })
-
-        dispatch({
-            type: types.ADD_REPORT_INFO,
-            payload: reportInfo,
         })
 
         dispatch(updateUsersData)
@@ -449,11 +416,6 @@ const getPreFetchedData = (name = 'nivo') => (dispatch, getState) => {
     })
 
     dispatch({
-        type: types.ADD_REPORT_INFO,
-        payload: getReportInfo(getState),
-    })
-
-    dispatch({
         type: types.FETCH_END,
     })
 }
@@ -464,7 +426,7 @@ const getDownloadProps = (dispatch, getState) => {
     const repo = path(['fetches', 'repo'], state)
     const teamName = path(['fetches', 'teamName'], state)
     const getReportData = pipe(
-        pickAll(['fetches', 'reportInfo', 'pullRequests', 'userData', 'issues', 'releases', 'teamName']),
+        pickAll(['fetches', 'pullRequests', 'userData', 'issues', 'releases', 'teamName']),
         dissocPath(['fetches', 'token']),
         dissocPath(['fetches', 'amountOfData']),
         // TODO: strip hasNextPage from user's pagination data

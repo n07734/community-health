@@ -10,8 +10,10 @@ import Chord from '../charts/Chord'
 
 const TeamTrends = ({
     usersData = [],
+    userIds = [],
     classes,
 } = {}) => {
+    const maxAuthors = userIds.length || 7
     return (
         <Paper>
             <ChartDescription
@@ -32,7 +34,7 @@ const TeamTrends = ({
                                 indexBy="author"
                                 titlePrefix="Comments"
                                 sortBy="commentsGiven"
-                                max={7}
+                                max={maxAuthors}
                                 bars={[
                                     {
                                         dataKey: 'commentsGiven',
@@ -51,7 +53,7 @@ const TeamTrends = ({
                                 indexBy="author"
                                 titlePrefix="PRs"
                                 sortBy="uniquePRsApproved"
-                                max={7}
+                                max={maxAuthors}
                                 bars={[
                                     {
                                         dataKey: 'uniquePRsApproved',
@@ -85,6 +87,7 @@ const styles = theme => ({
 
 const mapStateToProps = (state) => ({
     usersData: state.usersData,
+    userIds: state.fetches.userIds,
 })
 
 export default connect(mapStateToProps)(withStyles(styles)(TeamTrends))

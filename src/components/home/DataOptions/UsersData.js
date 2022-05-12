@@ -178,6 +178,8 @@ const RepoData = (props) => {
                         <MenuItem value={3} >{itemText(3)}</MenuItem>
                         <MenuItem value={6} >{itemText(6)}</MenuItem>
                         <MenuItem value={12} >{itemText(12)}</MenuItem>
+                        <MenuItem value={24} >{itemText(24)}</MenuItem>
+                        <MenuItem value={36} >{itemText(36)}</MenuItem>
                         <MenuItem value="all">Get it all</MenuItem>
                     </Select>
 

@@ -7,7 +7,7 @@ import ChartDescription from '../shared/ChartDescription'
 import Radar from '../charts/Radar'
 import formatRadarData from '../../format/radarData'
 
-const radialChartsContributions = ({ maxValues = {}, users = [] }) => {
+const radialChartsContributions = ({ maxValues = {}, users = [] }, isTeamPage) => {
     const keys = [
         'commentsGiven',
         'commentsReceived',
@@ -15,16 +15,18 @@ const radialChartsContributions = ({ maxValues = {}, users = [] }) => {
         'approvalsReceived',
     ]
 
-    const topXUsers = users
-        .sort((a, b) => {
-            const aTotal = keys
-                .reduce((acc, key) => acc + (a[key] || 0), 0)
+    const topXUsers = isTeamPage
+        ? users
+        : users
+            .sort((a, b) => {
+                const aTotal = keys
+                    .reduce((acc, key) => acc + (a[key] || 0), 0)
 
-            const bTotal = keys
-                .reduce((acc, key) => acc + (b[key] || 0), 0)
-            return bTotal - aTotal
-        })
-        .slice(0, 6)
+                const bTotal = keys
+                    .reduce((acc, key) => acc + (b[key] || 0), 0)
+                return bTotal - aTotal
+            })
+            .slice(0, 6)
 
     const items = [
         {
@@ -76,10 +78,11 @@ const radialChartsContributions = ({ maxValues = {}, users = [] }) => {
 
 const UserTrends = ({
     usersData = [],
+    userIds = [],
 } = {}) => {
     const radarData = formatRadarData(usersData)
     // const prRadars = radialChartsPRs(radarData)
-    const contributionsRadar = radialChartsContributions(radarData)
+    const contributionsRadar = radialChartsContributions(radarData, userIds.length > 0)
 
     return (
         <Paper>
@@ -104,6 +107,7 @@ const UserTrends = ({
 
 const mapStateToProps = (state) => ({
     usersData: state.usersData,
+    userIds: state.fetches.userIds,
 })
 
 export default connect(mapStateToProps)(UserTrends)

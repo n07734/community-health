@@ -1,8 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import format from 'date-fns/format'
-import max from 'date-fns/max'
-import min from 'date-fns/min'
 import { withStyles } from '@material-ui/core/styles'
 
 import { H, P } from '../shared/StyledTags'
@@ -37,26 +34,20 @@ const titleCopy = cond([
     ],
 ])
 
-const formatDate = date => format(date, 'yyyy/MM/dd')
-
-const ReportDescription = ({ reportInfo, classes } = {}) => {
-    const {
-        prCount = 0,
-        issueCount = 0,
-        releaseCount = 0,
-        startDate = '',
-        endDate = '',
-        userIds = [],
-    } = reportInfo
-
-    const dates = [new Date(endDate), new Date(startDate)]
-    const maxDate = max(dates)
-    const minDate = min(dates)
+const ReportDescription = ({
+    fetches = {},
+    pullRequests = [],
+    issues = [],
+    releases = [],
+    userIds = [],
+    classes
+} = {}) => {
+    const releaseCount = releases.length
 
     return <Paper className={classes.root}>
             <H className={classes.heading} level={2}>
                 {
-                    titleCopy(reportInfo)
+                    titleCopy(fetches)
                 }
             </H>
             {
@@ -68,14 +59,18 @@ const ReportDescription = ({ reportInfo, classes } = {}) => {
                     </P>
             }
             {
-                startDate && endDate && <P>Data from {formatDate(minDate)} until {formatDate(maxDate)}</P>
+                // TODO: get start and end date info
             }
-            <P>Pull requests: {prCount}, Issues: {issueCount}{ releaseCount > 0 && `, Releases: ${releaseCount}`}</P>
+            <P>Pull requests: {pullRequests.length}, Issues: {issues.length}{ releaseCount > 0 && `, Releases: ${releaseCount}`}</P>
         </Paper>
 }
 
 const mapStateToProps = (state) => ({
-    reportInfo: state.reportInfo,
+    fetches: state.fetches,
+    pullRequests: state.pullRequests,
+    issues: state.issues,
+    releases: state.releases,
+    userIds: state.fetches.userIds,
 })
 
 const styles = theme => ({

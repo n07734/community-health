@@ -1,8 +1,9 @@
 import { pathOr } from 'ramda'
-import { format } from 'date-fns'
+import { format, isDate } from 'date-fns'
 import {
   always,
-  T,
+  T as alwaysTrue,
+  F as alwaysFalse,
   cond,
 } from 'ramda'
 import filterByUntilDate from '../format/filterByUntilDate'
@@ -234,9 +235,9 @@ const getPaginationByType = (oldFetchInfo = {}, untilDate ='', data = {}, order)
       issues: 'createdAt',
     }[type]
 
-    const filteredItems = untilDate
+    const filteredItems = isDate(untilDate)
       ? items.filter(filterByUntilDate(dateKey, order, untilDate))
-      : items
+      : []
 
     const typeStateMap = {
         pullRequests: 'prPagination',
@@ -252,10 +253,18 @@ const getPaginationByType = (oldFetchInfo = {}, untilDate ='', data = {}, order)
 
     // TODO: Dont clear if undefined cursor
     // TODO: add hasPrevPage
+    const dateFilteredLength = filteredItems.length
+    const tryNextpage = cond([
+      [always(hasNextPage === false), alwaysFalse],
+      [always(!isDate(untilDate)), always(hasNextPage)],
+      [always(dateFilteredLength > 0 && items.length > dateFilteredLength), alwaysFalse],
+      [alwaysTrue, always(hasNextPage)],
+    ])
+
     return {
         newest: order === 'ASC' &&  endCursor ? endCursor : newestCurrent,
         oldest: order === 'DESC' && endCursor ? endCursor : oldestCurrent,
-        hasNextPage: filteredItems.length === 0 ? false : hasNextPage,
+        hasNextPage: tryNextpage,
     }
 }
 
@@ -295,10 +304,10 @@ const userQuery = (untilDate) => ({
       )
 
       const updatedAmountOfData = cond([
-        [always(untilDate), always(amountOfData)],
+        [always(isDate(untilDate)), always(amountOfData)],
         [always(Number.isInteger(amountOfData)), always(amountOfData - 1)],
-        [T, getRemainingPageCount(data)]
-      ])
+        [alwaysTrue, getRemainingPageCount]
+      ])(data)
 
       const nextPageInfo = {
         prPagination: {
@@ -312,8 +321,7 @@ const userQuery = (untilDate) => ({
       }
 
       return {
-          hasNextPage: false,
-          // hasNextPage: Object.values(nextPageInfo).some(({ hasNextPage } ) => hasNextPage !== false),
+          hasNextPage: Object.values(nextPageInfo).some(({ hasNextPage } ) => hasNextPage !== false),
           nextPageInfo: {
             ...nextPageInfo,
             amountOfData: updatedAmountOfData,

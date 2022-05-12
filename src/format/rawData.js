@@ -6,6 +6,7 @@ import {
     filter,
     path,
     pathOr,
+    sort,
 } from 'ramda'
 import differenceInDays from 'date-fns/differenceInDays'
 import {
@@ -184,9 +185,14 @@ const prData = (exclude = []) => (data = {}) => {
     return prInfo
 }
 
+const dateSort = (order) => ({ mergedAt: a }, { mergedAt: b }) => order === 'DESC'
+    ? new Date(a).getTime() > new Date(b).getTime()
+    : new Date(a).getTime() - new Date(b).getTime()
+
 const formatPullRequests = ({ excludeIds = [], order }, untilDate, results) => {
     const filteredPRs = []
     const pullrequests = compose(
+        sort(dateSort('ASC')),
         map(prData(excludeIds)),
         filter(item => {
             const author = pathOr('', ['node','author','login'], item)
@@ -219,6 +225,7 @@ const formatIssue = (data) => {
     const labels = pathOr([], ['node', 'labels', 'edges'], data)
 
     return {
+        // TODO: update key
         mergedAt: createdAt,
         url,
         isBug: /bug/i.test(title) || labels.some(x => /bug/i.test(path(['node', 'name'], x))),

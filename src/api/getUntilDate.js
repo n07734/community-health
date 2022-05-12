@@ -3,6 +3,7 @@ import sub from 'date-fns/sub'
 import startOfMonth from 'date-fns/startOfMonth'
 import endOfMonth from 'date-fns/endOfMonth'
 
+// TODO: rely or state's pr sort
 const dateSort = (order) => ({ node: { mergedAt: a } },{ node: { mergedAt: b } }) => order === 'DESC'
     ? new Date(a).getTime() > new Date(b).getTime()
     : new Date(a).getTime() - new Date(b).getTime()

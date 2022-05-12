@@ -31,10 +31,10 @@ const RepoSplit = ({
 
     return (<>
         <Paper>
-            <ChartDescription title="PRs split by repository" />
+            <ChartDescription title={`PRs split by repository (${pieData.length} repos)`} />
             <Pie
                 data={pieData}
-                title="PR repository pie"
+                title="PR repository rainbow"
             />
             <Line
                 showLegends={true}

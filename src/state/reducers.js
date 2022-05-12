@@ -91,13 +91,6 @@ const reducers = combineReducers({
             ? newValue()
             : name
     },
-    reportInfo: (reportInfo = {}, action) => [
-        action.type === types.ADD_REPORT_INFO
-            && action.payload,
-        action.type === types.CLEAR_REPORT_INFO
-            && {},
-        reportInfo,
-    ].find(Boolean),
     pullRequests: (prs = [], action) => [
         action.type === types.ADD_PRS
             && prs.concat(action.payload),
