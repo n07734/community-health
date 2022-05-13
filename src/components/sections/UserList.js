@@ -15,7 +15,7 @@ const UserList = ({
     classes,
 } = {}) => <>
     <Paper className="justify">
-        <H level={2} >
+        <H level={2} className={classes.fullW}>
             User pages
         </H>
         <div className={classes.allButons}>
@@ -50,6 +50,9 @@ const styles = theme => ({
         '& button': {
             flexGrow: 1
         }
+    },
+    'fullW': {
+        width: '100%',
     },
 })
 

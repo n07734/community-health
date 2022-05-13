@@ -19,7 +19,6 @@ import {
     formatPullRequests,
     formatIssues,
     formatReleases,
-    formatRepoInfo,
 } from '../format/rawData'
 import { slimObject } from '../format/lightenData'
 import { batchedQuery } from '../api/queries'

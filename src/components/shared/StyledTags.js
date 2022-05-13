@@ -12,7 +12,7 @@ const styles = theme => ({
 })
 
 const P = withStyles(styles)(({
-    className,
+    className = '',
     classes,
     children,
 } = {}) => <p className={`${classes.p} ${className}`}>
@@ -43,7 +43,7 @@ const LI = withStyles(styles)(({
 const H = withStyles(styles)(({
     level = 1,
     styleAs,
-    className,
+    className = '',
     classes,
     ...props
 } = {}) => {

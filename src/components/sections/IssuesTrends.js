@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { withStyles } from '@material-ui/core/styles'
 
 import { P } from '../shared/StyledTags'
 import Paper from '../shared/Paper'
@@ -19,6 +20,7 @@ const formatIssueData = (data = []) => data
 const IssuesTrends = ({
     issues = [],
     releases = [],
+    classes,
 } = {}) => {
     const data = formatIssueData(issues)
 
@@ -50,14 +52,21 @@ const IssuesTrends = ({
                     },
                 ]}
             />
-            <P>*Bugs in this graph are issues that have a title or a label that contains the word 'bug'</P>
+            <P className={classes.fullP}>*Bugs in this graph are issues that have a title or a label that contains the word 'bug'</P>
         </Paper>
     )
 }
+
+const styles = theme => ({
+    'fullP': {
+        width: '100%',
+        textAlign: 'center',
+    },
+})
 
 const mapStateToProps = (state) => ({
     issues: state.issues,
     releases: state.releases,
 })
 
-export default connect(mapStateToProps)(IssuesTrends)
+export default connect(mapStateToProps)(withStyles(styles)(IssuesTrends))

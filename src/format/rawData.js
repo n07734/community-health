@@ -36,12 +36,6 @@ const formatSentimentsCommenters = items => items
         return Object.assign(acc, { [author]: totalScore })
     }, {})
 
-const formatRepoInfo = ([data]) => ({
-    repo: pathOr('', ['data', 'result', 'name'], data),
-    org: pathOr('', ['data', 'result', 'owner', 'org'], data),
-    description: pathOr('', ['data', 'result', 'description'], data),
-})
-
 const formatSentiments = (comments = []) => {
     const sentiment = new Sentiment();
 
@@ -277,7 +271,6 @@ const formatReleases = compose(
 )
 export {
     formatRepo,
-    formatRepoInfo,
     formatPullRequests,
     formatIssues,
     formatReleases,

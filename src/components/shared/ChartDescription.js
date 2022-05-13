@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/core/styles'
 
 import { H, P } from './StyledTags'
 
-
 const ChartDescription = ({
     title,
     intro,
@@ -16,7 +15,7 @@ const ChartDescription = ({
     const [toggle, setCount] = useState(false)
 
     return (
-        <div className={`${classes.root} ${className}`}>
+        <div className={`${classes.root} ${className} ${!intro ? '' : classes.rootRows}`}>
             {
                title && typeof title === 'string'
                     ? <H level={2} >{title}</H>
@@ -48,10 +47,16 @@ const ChartDescription = ({
 
 const styles = theme => ({
     root: {
+        width: '100%',
         flexGrow: 1,
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'baseline',
+    },
+    rootRows: {
+        '& > *': {
+            flexBasis: '100%'
+        }
     },
     link: {
         color: theme.palette.link,
