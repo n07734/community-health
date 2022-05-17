@@ -47,7 +47,7 @@ const shouldGetNextPage = (hasNextPage, { amountOfData }) => cond([
     [always(hasNextPage && Number.isInteger(amountOfData) && amountOfData >= 1), alwaysTrue],
     [always(hasNextPage && amountOfData === 'all'), alwaysTrue],
     [alwaysTrue, alwaysFalse],
-]);
+])();
 
 const pause = (ms = 30000) => new Promise(resolve => setTimeout(() => resolve(), ms))
 let numRateTriggers = 0
@@ -130,7 +130,7 @@ const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
 
         const updatedFetchInfo = mergeDeepRight(fetchInfo, nextPageInfo)
 
-        return shouldGetNextPage(hasNextPage, updatedFetchInfo)(fullData)
+        return 0 === 1
             ? api({ fetchInfo: updatedFetchInfo, queryInfo, dispatch }, updatedResults)
             : {
                 fetchInfo: updatedFetchInfo,

@@ -17,6 +17,7 @@ import getUsersData from '../api/getUsersData'
 import getUntilDate from '../api/getUntilDate'
 import {
     formatPullRequests,
+    filterSortPullRequests,
     formatIssues,
     formatReleases,
 } from '../format/rawData'
@@ -154,6 +155,31 @@ const storeAmountOfData = (amountOfData = '') => (dispatch) => dispatch({
     payload: amountOfData,
 })
 
+const storeFormUntilDate = (amountOfData = '') => (dispatch, getState) => {
+    const {
+        fetches  = {},
+        pullRequests = [],
+    } = getState();
+
+    const formUntilDate = getUntilDate(
+        {
+            ...fetches,
+            amountOfData
+        },
+        pullRequests
+    )
+
+    dispatch({
+        type: types.STORE_FORM_UNTIL_DATE,
+        payload: formUntilDate,
+    })
+}
+
+const storeUntilDate = (untilDate = '') => (dispatch) => dispatch({
+    type: types.STORE_UNTIL_DATE,
+    payload: untilDate,
+})
+
 const storeSortDirection = (sortDirection = 'DESC') => (dispatch) => dispatch({
     type: types.STORE_SORT,
     payload: sortDirection,
@@ -192,7 +218,7 @@ const getErrorMessage = state => {
     } = state
 
     const missing = [
-        !org && 'Organisation',
+        !org && 'Organization',
         !repo && 'Repository',
         !token &&'GitHib token',
     ]
@@ -266,28 +292,34 @@ const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) =
     try {
         const {
             fetches,
-            pullRequests,
+            filteredPRs = [],
+            pullRequests = [],
+            formUntilDate = '',
         } = getState();
         const userIds = propOr([], 'userIds', fetches)
 
-        const untilDate = getUntilDate(fetches, pullRequests)
+        const untilDate = formUntilDate
 
         const { fetchInfo, results } = userIds.length
             ? await getUsersData({ fetchInfo: fetches, untilDate, dispatch })
             : await api({ fetchInfo: fetches, queryInfo: batchedQuery(untilDate), dispatch })
 
-        const [remainingPRs, filteredPRs] = formatPullRequests(fetches, untilDate, results)
+        const newPullrequests = formatPullRequests(fetches, results)
+        // Get all prs together so then can be cleanly filtered and sorted
+        const allPullrequests = pullRequests.concat(filteredPRs).concat(newPullrequests)
+        const [newRemainingPRs, newFilteredPRs] = filterSortPullRequests(fetches, untilDate, allPullrequests)
+
         const releases = formatReleases(results)
         const issues = formatIssues(results)
 
         dispatch({
             type: types.ADD_PRS,
-            payload: remainingPRs,
+            payload: newRemainingPRs,
         })
 
         dispatch({
             type: types.ADD_FILTERED_PRS,
-            payload: filteredPRs,
+            payload: newFilteredPRs,
         })
 
         dispatch(updateUsersData)
@@ -300,6 +332,11 @@ const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) =
         dispatch({
             type: types.ADD_ISSUES,
             payload: issues,
+        })
+
+        dispatch({
+            type: types.STORE_UNTIL_DATE,
+            payload: formUntilDate,
         })
 
         dispatch({
@@ -451,6 +488,8 @@ export {
     storeUserIds,
     storeExcludeIds,
     storeAmountOfData,
+    storeFormUntilDate,
+    storeUntilDate,
     storeSortDirection,
     getAPIData,
     getPreFetchedData,

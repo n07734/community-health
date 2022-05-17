@@ -6,6 +6,7 @@ import {
     filter,
     path,
     pathOr,
+    propOr,
     sort,
 } from 'ramda'
 import differenceInDays from 'date-fns/differenceInDays'
@@ -183,34 +184,33 @@ const dateSort = (order) => ({ mergedAt: a }, { mergedAt: b }) => order === 'DES
     ? new Date(a).getTime() > new Date(b).getTime()
     : new Date(a).getTime() - new Date(b).getTime()
 
-const formatPullRequests = ({ excludeIds = [], order }, untilDate, results) => {
+const filterSortPullRequests = ({ excludeIds = [], order }, untilDate, allPullRequests = []) => {
     const filteredPRs = []
-    const pullrequests = compose(
+    const remainingPRs = compose(
         sort(dateSort('ASC')),
-        map(prData(excludeIds)),
         filter(item => {
-            const author = pathOr('', ['node','author','login'], item)
+            const author = propOr('', 'author', item)
             const hasExcludedAuthor = any(y => y === author, excludeIds)
-            const shouldFilterIn = filterByUntilDate('mergedAt', order, untilDate)(item)
+            const shouldFilterIn = filterByUntilDate(['mergedAt'], order, untilDate)(item)
             const keepItem = shouldFilterIn && !hasExcludedAuthor
 
             !keepItem && filteredPRs.push(item)
             return keepItem
         }),
+    )(allPullRequests)
+
+    return [remainingPRs, filteredPRs]
+}
+
+const formatPullRequests = ({ excludeIds = [] }, results) => {
+    const pullRequests = compose(
+        map(prData(excludeIds)),
         flatten,
         map(pathOr([], ['data', 'result', 'pullRequests', 'edges'])),
     )(results)
 
-    return [pullrequests, filteredPRs]
+    return pullRequests
 }
-
-
-// TODO: is this used?
-const formatRepo = (data) => ({
-    name: pathOr('', ['data', 'result', 'name'], data),
-    org: pathOr('', ['data', 'result', 'owner', 'login'], data),
-    pullRequests: formatPullRequests(data),
-})
 
 const formatIssue = (data) => {
     const createdAt = pathOr('', ['node', 'createdAt'], data)
@@ -270,8 +270,8 @@ const formatReleases = compose(
     map(pathOr([], ['data', 'result', 'releases', 'edges'])),
 )
 export {
-    formatRepo,
     formatPullRequests,
+    filterSortPullRequests,
     formatIssues,
     formatReleases,
 }

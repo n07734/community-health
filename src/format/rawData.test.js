@@ -1,5 +1,4 @@
 import {
-    formatRepo,
     formatPullRequests,
     formatIssues,
     formatReleases,
@@ -14,35 +13,6 @@ const repoData = type => formatItems => (items = []) => ({
             },
         },
     },
-})
-
-describe('formatRepo:', () => {
-    it('Empty call to return a blank repo', () => {
-        const result = formatRepo()
-        expect(result).toEqual({
-            name: '',
-            org: '',
-            pullRequests: [],
-        })
-    })
-
-    it('Empty call to return a basic repo', () => {
-        const result = formatRepo({
-            data: {
-                result: {
-                    name: 'REPO',
-                    owner: {
-                        login: 'ORG',
-                    },
-                },
-            },
-        })
-        expect(result).toEqual({
-            name: 'REPO',
-            org: 'ORG',
-            pullRequests: [],
-        })
-    })
 })
 
 describe('formatPullRequests:', () => {

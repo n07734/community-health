@@ -7,6 +7,7 @@ import {
   cond,
 } from 'ramda'
 import filterByUntilDate from '../format/filterByUntilDate'
+import { AssignmentReturned } from '@material-ui/icons'
 
 const cursorQ = (cursor, key = 'after') => cursor
     ? ` ${key}:"${cursor}" `
@@ -236,7 +237,7 @@ const getPaginationByType = (oldFetchInfo = {}, untilDate ='', data = {}, order)
     }[type]
 
     const filteredItems = isDate(untilDate)
-      ? items.filter(filterByUntilDate(dateKey, order, untilDate))
+      ? items.filter(filterByUntilDate(['node', dateKey], order, untilDate))
       : []
 
     const typeStateMap = {
@@ -257,14 +258,16 @@ const getPaginationByType = (oldFetchInfo = {}, untilDate ='', data = {}, order)
     const tryNextpage = cond([
       [always(hasNextPage === false), alwaysFalse],
       [always(!isDate(untilDate)), always(hasNextPage)],
+      [always(dateFilteredLength === 0), alwaysFalse],
       [always(dateFilteredLength > 0 && items.length > dateFilteredLength), alwaysFalse],
       [alwaysTrue, always(hasNextPage)],
-    ])
+    ])()
 
     return {
         newest: order === 'ASC' &&  endCursor ? endCursor : newestCurrent,
         oldest: order === 'DESC' && endCursor ? endCursor : oldestCurrent,
-        hasNextPage: tryNextpage,
+        hasNextPage,
+        hasNextPageForDate: tryNextpage,
     }
 }
 
@@ -320,8 +323,11 @@ const userQuery = (untilDate) => ({
         },
       }
 
-      return {
-          hasNextPage: Object.values(nextPageInfo).some(({ hasNextPage } ) => hasNextPage !== false),
+
+
+      const hasNextPageKey = untilDate ? 'hasNextPageForDate' : 'hasNextPage'
+      return  {
+          hasNextPage: Object.values(nextPageInfo).some(x => x[hasNextPageKey] === true),
           nextPageInfo: {
             ...nextPageInfo,
             amountOfData: updatedAmountOfData,
@@ -391,8 +397,9 @@ const batchedQuery = (untilDate) => ({
           },
         }
 
+        const hasNextPageKey = untilDate ? 'hasNextPageForDate' : 'hasNextPage'
         return {
-            hasNextPage: Object.values(nextPageInfo).some(({ hasNextPage } ) => hasNextPage !== false),
+            hasNextPage: Object.values(nextPageInfo).some(x => x[hasNextPageKey] !== false),
             nextPageInfo: {
               ...nextPageInfo,
               amountOfData: updatedAmountOfData,
