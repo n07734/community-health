@@ -16,12 +16,26 @@ const reducers = combineReducers({
         token: (token = '', action) => (action.type === types.STORE_TOKEN)
             ? action.payload
             : token,
-        org: (org = '', action) => (action.type === types.STORE_ORG)
-            ? action.payload
-            : org,
-        repo: (repo = '', action) => (action.type === types.STORE_REPO)
-            ? action.payload
-            : repo,
+        org: (org = '', action) => {
+            const newValue = ({
+                [types.STORE_ORG]: () => action.payload,
+                [types.CLEAR_ORG]: () => '',
+            })[action.type]
+
+            return newValue
+                ? newValue()
+                : org
+        },
+        repo: (repo = '', action) => {
+            const newValue = ({
+                [types.STORE_REPO]: () => action.payload,
+                [types.CLEAR_REPO]: () => '',
+            })[action.type]
+
+            return newValue
+                ? newValue()
+                : repo
+        },
         teamName: (teamName = '', action) => {
             const newValue = ({
                 [types.SET_TEAM_NAME]: () => action.payload,

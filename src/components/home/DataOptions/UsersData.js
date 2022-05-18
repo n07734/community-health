@@ -19,6 +19,7 @@ import ChartDescription from '../../shared/ChartDescription'
 import { P, H } from '../../shared/StyledTags'
 import Message from '../Message'
 import styles from './styles'
+import types from '../../../state/types'
 
 import {
     storeToken,
@@ -56,7 +57,7 @@ const errorValue = formInfo => key => {
     return isValid ? false : true
 }
 
-const RepoData = (props) => {
+const UsersData = (props) => {
     const {
         setValues,
         getData,
@@ -255,6 +256,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
     setValues: ({ token, userIds, teamName, enterpriseAPI, excludeIds, amountOfData, startingPoint }) => {
+        dispatch({ type: types.CLEAR_ORG })
+        dispatch({ type: types.CLEAR_REPO })
         dispatch(storeToken(token))
         dispatch(storeUserIds(userIds))
         dispatch(storeTeamName(teamName))
@@ -272,4 +275,4 @@ const mapDispatchToProps = dispatch => ({
 })
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(RepoData))
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(UsersData))

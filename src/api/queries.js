@@ -7,15 +7,14 @@ import {
   cond,
 } from 'ramda'
 import filterByUntilDate from '../format/filterByUntilDate'
-import { AssignmentReturned } from '@material-ui/icons'
 
 const cursorQ = (cursor, key = 'after') => cursor
     ? ` ${key}:"${cursor}" `
     : ''
 
 const getCursor = order => ({oldest, newest}) => {
- const cursor = order === 'DESC' ? oldest : newest
- return cursorQ(cursor)
+    const cursor = order === 'DESC' ? oldest : newest
+    return cursorQ(cursor)
 }
 
 const pageInfo = 'pageInfo { endCursor hasNextPage hasPreviousPage startCursor }'

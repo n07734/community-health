@@ -86,6 +86,11 @@ const storeTeamName = (teamName = '') => (dispatch, getState) => {
     teamName && currentTeamName && teamName !== currentTeamName
         && clearData(dispatch)
 
+    dispatch({
+        type: types.PREFETCHED_NAME,
+        payload: teamName,
+    })
+
     return dispatch({
         type: types.SET_TEAM_NAME,
         payload: teamName,
@@ -214,13 +219,17 @@ const getErrorMessage = state => {
             org,
             repo,
             token,
+            userIds = [],
         } = {},
     } = state
 
+    const noUserIds = userIds.length < 1
+
     const missing = [
-        !org && 'Organization',
-        !repo && 'Repository',
+        noUserIds && !org && 'Organization',
+        noUserIds && !repo && 'Repository',
         !token &&'GitHib token',
+        !org && !repo && noUserIds && 'GitHub Ids',
     ]
         .filter(Boolean)
 
@@ -249,15 +258,29 @@ const validateRequest = state => {
             org,
             repo,
             token,
+            userIds = [],
         } = {},
     } = state
 
-    const hasArgs = [org, repo, token]
+    const stringArgs = userIds.length
+        ? [token]
+        : [org, repo, token]
+
+    const validStringArgs = stringArgs
         .every(item => typeof item === 'string' && item.length > 0)
 
+    const arrayArgs = userIds.length
+        ? [userIds]
+        : []
+
+    const validArraygArgs = arrayArgs
+        .every(item => item.length > 0)
+
+    const isValid = validStringArgs && validArraygArgs
+
     return {
-        isValid: hasArgs,
-        error: !hasArgs
+        isValid,
+        error: !isValid
             ? {
                 level: 'error',
                 message: getErrorMessage(state),
@@ -450,6 +473,8 @@ const getDownloadProps = (dispatch, getState) => {
     const repo = path(['fetches', 'repo'], state)
     const teamName = path(['fetches', 'teamName'], state)
     const getReportData = pipe(
+        assoc('HOW_TO', "Move this file to src/prefetchedData, then in src/App.js on line 16 change 'react' to your file name excluding the extension. To show in the list you can add the file name in src/components/home/DataOptions/PrefetchedOptions.js."),
+        assoc('preFetchedName', repo || teamName),
         pickAll(['fetches', 'pullRequests', 'userData', 'issues', 'releases', 'teamName']),
         dissocPath(['fetches', 'token']),
         dissocPath(['fetches', 'amountOfData']),
@@ -457,7 +482,6 @@ const getDownloadProps = (dispatch, getState) => {
         dissocPath(['fetches', 'prPagination', 'hasNextPage']),
         dissocPath(['fetches', 'issuesPagination', 'hasNextPage']),
         dissocPath(['fetches', 'releasesPagination', 'hasNextPage']),
-        assoc('preFetchedName', repo),
         slimObject
     )
 

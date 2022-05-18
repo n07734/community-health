@@ -28,7 +28,7 @@ const Bar = styledCharts(({
         : trimmedData
 
     const finalData = max
-        ? sortedData.slice(0, max - 1)
+        ? sortedData.slice(0, max)
         : sortedData
 
     const keys = bars.map(x => x.dataKey)

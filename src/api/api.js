@@ -130,7 +130,7 @@ const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
 
         const updatedFetchInfo = mergeDeepRight(fetchInfo, nextPageInfo)
 
-        return 0 === 1
+        return shouldGetNextPage(hasNextPage, updatedFetchInfo)
             ? api({ fetchInfo: updatedFetchInfo, queryInfo, dispatch }, updatedResults)
             : {
                 fetchInfo: updatedFetchInfo,
