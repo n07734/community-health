@@ -212,6 +212,21 @@ const formatPullRequests = ({ excludeIds = [] }, results) => {
     return pullRequests
 }
 
+const filterSortIssues = ({ order }, untilDate, allIssues = []) => {
+    const filteredIssues = []
+    const remainingIssues = compose(
+        sort(dateSort('ASC')),
+        filter(item => {
+            const keepItem = filterByUntilDate(['mergedAt'], order, untilDate)(item)
+
+            !keepItem && filteredIssues.push(item)
+            return keepItem
+        }),
+    )(allIssues)
+
+    return [remainingIssues, filteredIssues]
+}
+
 const formatIssue = (data) => {
     const createdAt = pathOr('', ['node', 'createdAt'], data)
     const title = pathOr('', ['node', 'title'], data)
@@ -273,5 +288,6 @@ export {
     formatPullRequests,
     filterSortPullRequests,
     formatIssues,
+    filterSortIssues,
     formatReleases,
 }

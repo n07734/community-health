@@ -19,6 +19,7 @@ import {
     formatPullRequests,
     filterSortPullRequests,
     formatIssues,
+    filterSortIssues,
     formatReleases,
 } from '../format/rawData'
 import { slimObject } from '../format/lightenData'
@@ -199,6 +200,7 @@ const clearData = (dispatch, msg = 'fff') => {
     dispatch({ type: types.CLEAR_RELEASES })
     dispatch({ type: types.CLEAR_RELEASES_PAGINATION })
     dispatch({ type: types.CLEAR_ISSUES })
+    dispatch({ type: types.CLEAR_FILTERED_ISSUES })
     dispatch({ type: types.CLEAR_ISSUES_PAGINATION })
     dispatch({ type: types.CLEAR_FETCH_ERROR })
 }
@@ -317,6 +319,8 @@ const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) =
             fetches,
             filteredPRs = [],
             pullRequests = [],
+            issues = [],
+            filteredIssues = [],
             formUntilDate = '',
         } = getState();
         const userIds = propOr([], 'userIds', fetches)
@@ -333,7 +337,10 @@ const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) =
         const [newRemainingPRs, newFilteredPRs] = filterSortPullRequests(fetches, untilDate, allPullrequests)
 
         const releases = formatReleases(results)
-        const issues = formatIssues(results)
+
+        const newIssues = formatIssues(results)
+        const allIssues = issues.concat(filteredIssues).concat(newIssues)
+        const [newRemainingIssues, newFilteredissues] = filterSortIssues(fetches, untilDate, allIssues)
 
         dispatch({
             type: types.ADD_PRS,
@@ -354,7 +361,12 @@ const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) =
 
         dispatch({
             type: types.ADD_ISSUES,
-            payload: issues,
+            payload: newRemainingIssues,
+        })
+
+        dispatch({
+            type: types.ADD_FILTERED_ISSUES,
+            payload: newFilteredissues,
         })
 
         dispatch({

@@ -27,6 +27,7 @@ import {
     storeEnterpriseAPI,
     storeExcludeIds,
     storeAmountOfData,
+    storeFormUntilDate,
     storeSortDirection,
     getAPIData,
     getPreFetchedData,
@@ -149,7 +150,7 @@ const RepoData = (props) => {
             && getData()
     }
 
-    const itemText = (amount) => `Get ${amount} ${!preFetchedName && pullRequests.length > 0 ? 'more ' : ''}PRs`
+    const itemText = (amount) => `Get ${amount} ${amount === 1 ? 'month' : 'months'} ${!preFetchedName && pullRequests.length > 0 ? 'more ' : ''}data`
 
     return (
         <div className={classes.formDescription} >
@@ -171,9 +172,12 @@ const RepoData = (props) => {
                         onChange={(e) => setValue('amountOfData', e.target.value)}
                         inputProps={{ 'aria-label': 'Amount of data' }}
                     >
-                        <MenuItem value={1} default>{itemText(100)}</MenuItem>
-                        <MenuItem value={5} >{itemText(500)}</MenuItem>
-                        <MenuItem value={100} >{itemText('10,000')}</MenuItem>
+                        <MenuItem value={1} default>{itemText(1)}</MenuItem>
+                        <MenuItem value={3} >{itemText(3)}</MenuItem>
+                        <MenuItem value={6} >{itemText(6)}</MenuItem>
+                        <MenuItem value={12} >{itemText(12)}</MenuItem>
+                        <MenuItem value={24} >{itemText(24)}</MenuItem>
+                        <MenuItem value={36} >{itemText(36)}</MenuItem>
                         <MenuItem value="all">Get it all</MenuItem>
                     </Select>
 
@@ -255,6 +259,7 @@ const mapDispatchToProps = dispatch => ({
         dispatch(storeEnterpriseAPI(enterpriseAPI))
         dispatch(storeExcludeIds(excludeIds))
         dispatch(storeAmountOfData(amountOfData))
+        dispatch(storeFormUntilDate(amountOfData))
         dispatch(storeSortDirection(startingPoint === 'now'
             ? 'DESC'
             : 'ASC'

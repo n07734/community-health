@@ -264,7 +264,7 @@ const mapDispatchToProps = dispatch => ({
         dispatch(storeEnterpriseAPI(enterpriseAPI))
         dispatch(storeExcludeIds(excludeIds))
         dispatch(storeAmountOfData(amountOfData))
-        dispatch(storeFormUntilDate(amountOfData)) // TODO sets untildate, should update untildate if last untildate api call was sucsessfull so should have a 2nd untildate state value that is only set when untill date is sucsesfully called, can also save this for later calls
+        dispatch(storeFormUntilDate(amountOfData))
         dispatch(storeSortDirection(startingPoint === 'now'
             ? 'DESC'
             : 'ASC'

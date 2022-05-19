@@ -322,9 +322,7 @@ const userQuery = (untilDate) => ({
         },
       }
 
-
-
-      const hasNextPageKey = untilDate ? 'hasNextPageForDate' : 'hasNextPage'
+      const hasNextPageKey = isDate(untilDate) ? 'hasNextPageForDate' : 'hasNextPage'
       return  {
           hasNextPage: Object.values(nextPageInfo).some(x => x[hasNextPageKey] === true),
           nextPageInfo: {
@@ -341,7 +339,6 @@ const userQuery = (untilDate) => ({
       .some(x => x !== false),
 })
 
-// Sort out hasNextpage as diff by order
 const batchedQuery = (untilDate) => ({
     org,
     repo,
@@ -377,9 +374,11 @@ const batchedQuery = (untilDate) => ({
             order
         )
 
-        const updatedAmountOfData = Number.isInteger(amountOfData)
-            ? amountOfData
-            : getRemainingPageCount(data);
+        const updatedAmountOfData = cond([
+          [always(isDate(untilDate)), always(amountOfData)],
+          [always(Number.isInteger(amountOfData)), always(amountOfData - 1)],
+          [alwaysTrue, getRemainingPageCount]
+        ])(data)
 
         const nextPageInfo = {
           prPagination: {
@@ -396,9 +395,9 @@ const batchedQuery = (untilDate) => ({
           },
         }
 
-        const hasNextPageKey = untilDate ? 'hasNextPageForDate' : 'hasNextPage'
+        const hasNextPageKey = isDate(untilDate) ? 'hasNextPageForDate' : 'hasNextPage'
         return {
-            hasNextPage: Object.values(nextPageInfo).some(x => x[hasNextPageKey] !== false),
+            hasNextPage: Object.values(nextPageInfo).some(x => x[hasNextPageKey] === true),
             nextPageInfo: {
               ...nextPageInfo,
               amountOfData: updatedAmountOfData,

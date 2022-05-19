@@ -117,11 +117,11 @@ const reducers = combineReducers({
         action.type === types.CLEAR_PRS && [],
         prs,
     ].find(Boolean),
-    filteredPRs: (prs = [], action) => [
+    filteredPRs: (filteredPRs = [], action) => [
         action.type === types.ADD_FILTERED_PRS
             && action.payload,
         action.type === types.CLEAR_FILTERED_PRS && [],
-        prs,
+        filteredPRs,
     ].find(Boolean),
     usersData: (users = [], action) => [
         action.type === types.ADD_USERS_DATA
@@ -134,6 +134,12 @@ const reducers = combineReducers({
             && issues.concat(action.payload),
         action.type === types.CLEAR_ISSUES && [],
         issues,
+    ].find(Boolean),
+    filteredIssues: (filteredIssues = [], action) => [
+        action.type === types.ADD_FILTERED_ISSUES
+            && action.payload,
+        action.type === types.CLEAR_FILTERED_ISSUES && [],
+        filteredIssues,
     ].find(Boolean),
     releases: (releases = [], action) => [
         action.type === types.ADD_RELEASES
