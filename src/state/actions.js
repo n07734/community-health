@@ -487,7 +487,7 @@ const getDownloadProps = (dispatch, getState) => {
     const getReportData = pipe(
         assoc('HOW_TO', "Move this file to src/prefetchedData, then in src/App.js on line 16 change 'react' to your file name excluding the extension. To show in the list you can add the file name in src/components/home/DataOptions/PrefetchedOptions.js."),
         assoc('preFetchedName', repo || teamName),
-        pickAll(['fetches', 'pullRequests', 'userData', 'issues', 'releases', 'teamName']),
+        pickAll(['fetches', 'pullRequests', 'filteredPRs', 'userData', 'issues', 'filteredIssues', 'releases', 'teamName']),
         dissocPath(['fetches', 'token']),
         dissocPath(['fetches', 'amountOfData']),
         // TODO: strip hasNextPage from user's pagination data
