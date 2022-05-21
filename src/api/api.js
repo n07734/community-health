@@ -69,12 +69,6 @@ const pauseThenRetry = async(apiInfo, results) => {
         }
 }
 
-const getTotalItemsByType = (type = '', results = []) => {
-    const [ result ] = results
-    const total = pathOr(0, ['data', 'result', type, 'totalCount'], result)
-    return total
-}
-
 const getCurrentItemsByType = (type = '', results = []) => {
     const total = results
         .reduce((acc, result) => {
@@ -86,27 +80,36 @@ const getCurrentItemsByType = (type = '', results = []) => {
     return total
 }
 
+const getLatestPrDate = (results = []) => {
+    const allPrs = results.reduce((acc, result) => {
+        const prs = pathOr([], ['data', 'result', 'pullRequests', 'edges'], result)
+        return [
+            ...acc,
+            ...prs,
+        ]
+    }, []);
+
+    const targetPr = allPrs.at(-1)
+
+    return pathOr('', ['node', 'mergedAt'], targetPr)
+}
+
 const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
     const {
         query,
         resultInfo,
         fillerType,
+        user,
     } = queryInfo(fetchInfo)
 
     dispatch({
         type: types.FETCH_STATUS,
         payload: {
-            page: results.length,
-            pagesLoaded: results.length,
-            pagesRemaining: fetchInfo.amountOfData === 'all'
-                ? 0
-                : fetchInfo.amountOfData,
-            pullRequests: getCurrentItemsByType('pullRequests', results),
-            pullRequestsTotal: getTotalItemsByType('pullRequests', results),
-            issues: getCurrentItemsByType('issues', results),
-            issuesTotal: getTotalItemsByType('issues', results),
-            releases: getCurrentItemsByType('releases', results),
-            releasesTotal: getTotalItemsByType('releases', results),
+            user,
+            prCount: getCurrentItemsByType('pullRequests', results),
+            latestPrDate: getLatestPrDate(results),
+            issueCount: getCurrentItemsByType('issues', results),
+            releaseCount: getCurrentItemsByType('releases', results),
         }
     })
 

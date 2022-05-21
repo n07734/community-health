@@ -1,8 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
-import LinearProgress from '@material-ui/core/LinearProgress';
-import { H } from './shared/StyledTags'
+import LinearProgress from '@material-ui/core/LinearProgress'
+import { H, P } from './shared/StyledTags'
+import differenceInDays from 'date-fns/differenceInDays'
+import {
+    always,
+    cond,
+    equals,
+    T as alwaysTrue
+} from 'ramda'
 
 const styles = theme => ({
     'root': {
@@ -45,50 +52,119 @@ const styles = theme => ({
     }
 })
 
+const daysRemainingText = cond([
+    [equals(1), x => `${x} day remaining`],
+    [x => x > 1 , x => `${x} days remaining`],
+    [x => x < 0 , always('Wrapping up')],
+    [alwaysTrue, always('')],
+])
+
 const Loader = ({
-    fetching,
+    fetches = {},
+    fetching = false,
     fetchStatus = {},
-    classes
+    pullRequests: pastPRs = [],
+    formUntilDate = '',
+    classes = {},
 } = {}) => {
     const {
-        page = 1,
-        pagesLoaded = 0,
-        pagesRemaining = 0,
-        pullRequests = 0,
-        issues = 0,
-        releases = 0,
+        userIds = [],
+        sortDirection = '',
+    } = fetches
+
+    const {
+        user = '',
+        prCount = 0,
+        latestPrDate = '',
+        issueCount = 0,
+        releaseCount = 0,
     } = fetchStatus
 
-    const pagesTotal = pagesLoaded + pagesRemaining
-    const onePagePercent = 100 / (pagesTotal || 10)
-    const loadedPercent = (pagesLoaded * onePagePercent)
+    const isTeamSearch = userIds.length > 0
+
+    const dayDiff = (a,b) => sortDirection === 'DESC'
+        ? differenceInDays(a, b)
+        : differenceInDays(b, a)
+
+    const startDate = pastPRs.length > 0
+        ? new Date(pastPRs.at(0).mergedAt)
+        : new Date()
+
+    const uptoDate = latestPrDate
+        ? new Date(latestPrDate)
+        : startDate
+
+    const untilDate = new Date(formUntilDate)
+
+    const daysTotal = dayDiff(startDate, untilDate)
+    const daysLoaded = dayDiff(startDate, uptoDate)
+    const daysRemaining = daysTotal - daysLoaded
+    const oneDayPercent = 100 / (daysTotal || 10)
+    const loadedPercent = (daysLoaded * oneDayPercent)
+
+    const usersPosition = user
+        ? userIds.findIndex(x => x === user)
+        : 0
+
+    const loadedUsers = usersPosition > 0
+        ? userIds.slice(0, usersPosition)
+        : []
+
+    const oneUserPercent = 100 / (userIds.length || 10)
+    const loadedUserPercent = (usersPosition * oneUserPercent)
 
     return (
         fetching && <div>
             <div className={ classes.overlay }></div>
             <div className={ classes.modal }>
+                {
+                    isTeamSearch
+                        && <>
+                            <H level={2}>
+                                Loading {usersPosition + 1} of {userIds.length} {userIds.length === 1 ? 'user' : 'users'}
+                            </H>
+                            <LinearProgress className={classes.dashed} variant="determinate" value={loadedUserPercent} valueBuffer={oneUserPercent + loadedUserPercent}/>
+                        </>
+                }
                 <H level={2}>
-                    {page} {pagesTotal ? `of ${pagesTotal}` : ''}
+                    {daysRemainingText(daysRemaining)}
                 </H>
-                <LinearProgress className={classes.dashed} variant="determinate" value={loadedPercent} valueBuffer={onePagePercent + loadedPercent}/>
+                <LinearProgress className={classes.dashed} variant="determinate" value={loadedPercent} valueBuffer={oneDayPercent + loadedPercent}/>
 
-                <H level={2}>
-                    {pullRequests} Pull Requests
-                </H>
-                <H level={2}>
-                    {issues} Issues
-                </H>
-                <H level={2}>
-                    {releases} Releases
-                </H>
+                {
+                    !isTeamSearch
+                        && <>
+                            <H level={2}>
+                                {prCount} Pull Requests
+                            </H>
+                            <H level={2}>
+                                {issueCount} Issues
+                            </H>
+                            <H level={2}>
+                                {releaseCount} Releases
+                            </H>
+                        </>
+                }
+                {
+                    isTeamSearch
+                        && loadedUsers.length > 0
+                        && <>
+                            <P>
+                                Loaded users: {loadedUsers.join(', ')}
+                            </P>
+                        </>
+                }
             </div>
         </div>
     )
 }
 
 const mapStateToProps = (state) => ({
+    fetches: state.fetches,
     fetching: state.fetching,
     fetchStatus: state.fetchStatus,
+    pullRequests: state.pullRequests,
+    formUntilDate: state.formUntilDate,
 })
 
 export default connect(mapStateToProps)(withStyles(styles)(Loader))

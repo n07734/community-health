@@ -230,10 +230,9 @@ const getPaginationByType = (oldFetchInfo = {}, untilDate ='', data = {}, order)
 
     const items = pathOr([], ['data', 'result', type, 'edges'], data)
 
-    const dateKey = {
-      pullRequests: 'mergedAt',
-      issues: 'createdAt',
-    }[type]
+    const dateKey = type === pullRequests
+      ? 'mergedAt'
+      : 'createdAt'
 
     const filteredItems = isDate(untilDate)
       ? items.filter(filterByUntilDate(['node', dateKey], order, untilDate))
@@ -293,6 +292,7 @@ const userQuery = (untilDate) => ({
     }
   }`,
   order,
+  user,
   resultInfo: (data) => {
       const byType = getPaginationByType(
           {
