@@ -10,8 +10,7 @@ import Paper from '../../shared/Paper'
 import Button from '../../shared/Button'
 
 import PrefetchedOptions from './PrefetchedOptions'
-import RepoData from './RepoData'
-import UsersData from './UsersData'
+import FormSection from './FormSection'
 import styles from './styles'
 
 const FetchForm = ({ classes }) => {
@@ -39,8 +38,8 @@ const FetchForm = ({ classes }) => {
             {
                 cond([
                     [equals('oss'), always(<PrefetchedOptions />)],
-                    [equals('repo'), always(<RepoData />)],
-                    [equals('team'), always(<UsersData />)],
+                    [equals('repo'), always(<FormSection reportType="repo" />)],
+                    [equals('team'), always(<FormSection reportType="team" />)],
                 ])(selectedOption)
             }
         </Paper>

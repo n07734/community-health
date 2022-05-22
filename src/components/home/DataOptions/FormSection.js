@@ -5,7 +5,8 @@ import {
     equals,
     pathOr,
     cond,
-    T as alwaysTrue
+    T as alwaysTrue,
+    keys,
 } from 'ramda'
 import {
     TextField,
@@ -22,6 +23,8 @@ import styles from './styles'
 import types from '../../../state/types'
 
 import {
+    storeOrg,
+    storeRepo,
     storeToken,
     storeUserIds,
     storeTeamName,
@@ -33,6 +36,7 @@ import {
     getAPIData,
     getDownloadProps,
 } from '../../../state/actions'
+import { pick } from 'ramda'
 
 const buttonText = (fetching, pullRequests = []) => [
     fetching && 'fetching',
@@ -57,35 +61,63 @@ const errorValue = formInfo => key => {
     return isValid ? false : true
 }
 
-const UsersData = (props) => {
+const inputLabels = {
+    org: 'Organization',
+    repo: 'Repository',
+    token: 'Token*',
+    excludeIds: "Exclude GitHub ids e.g. bots, ',' separated",
+    enterpriseAPI: 'Enterprise API full url',
+    userIds: 'Comma separated list of user ids',
+    teamName: 'Team name',
+}
+
+const FormSection = (props) => {
     const {
         setValues,
         getData,
+        fetches,
         fetching,
         error,
         pullRequests = [],
         preFetchedName = '',
+        preFetchedReport = false,
+        reportType = 'repo',
         classes,
         getDownloadInfo,
     } = props
 
-    const [inputError, setInputError] = useState({
-        token: false,
-        enterpriseAPI: false,
-        userIds: false,
-        teamName: false,
-        excludeIds: false,
-    })
-
-    const [formInfo, setFormInfo] = useState({
-        startingPoint: 'now',
+    const commonInputs = {
+        sortDirection: 'DESC',
         amountOfData: 1,
         token: '',
-        teamName: '',
-        enterpriseAPI: '',
         excludeIds: '',
-        userIds: '',
-    })
+        enterpriseAPI: '',
+    }
+
+    const primaryInputs = reportType === 'repo'
+        ? {
+            org: '',
+            repo: '',
+        }
+        : {
+            userIds: '',
+            teamName: '',
+        }
+
+    const defaultInputs = {
+        ...commonInputs,
+        ...primaryInputs,
+    }
+
+    const inputKeys = keys(defaultInputs)
+
+    const [inputError, setInputError] = useState({})
+
+    const inputs = preFetchedReport
+        ? pick(inputKeys, fetches)
+        : defaultInputs
+
+    const [formInfo, setFormInfo] = useState(inputs)
 
     const setValue = (key, value) => setFormInfo({
         ...formInfo,
@@ -93,8 +125,9 @@ const UsersData = (props) => {
     })
 
     const inputProps = (key) => ({
+        label: inputLabels[key],
         className: classes.child,
-        error: inputError[key],
+        error: inputError[key] || false,
         value: formInfo[key],
         variant: 'outlined',
         margin: 'normal',
@@ -130,13 +163,10 @@ const UsersData = (props) => {
         event.preventDefault()
 
         const getErrorValue = errorValue(formInfo)
-        const newInputError = {
-            'token': getErrorValue('token'),
-            'enterpriseAPI': getErrorValue('enterpriseAPI'),
-            'userIds': getErrorValue('userIds'),
-            'teamName': getErrorValue('teamName'),
-            'excludeIds': getErrorValue('excludeIds'),
-        }
+
+        const newInputError = {}
+        inputKeys
+            .forEach(key => newInputError[key] = getErrorValue(key))
 
         setInputError(newInputError)
 
@@ -156,19 +186,22 @@ const UsersData = (props) => {
 
     return (
         <div className={classes.formDescription} >
-            <H level={3}>Get community data for any Team(list of users)</H>
+            {
+                !preFetchedReport
+                    && <H level={3}>Get community data for any Team(list of users)</H>
+            }
             <form
                 onSubmit={handleSubmit}
             >
                 <div className={classes.inputGrid}>
                     <Select
-                        value={formInfo.startingPoint}
-                        onChange={(e) => setValue('startingPoint', e.target.value)}
+                        value={formInfo.sortDirection}
+                        onChange={(e) => setValue('sortDirection', e.target.value)}
                         inputProps={{ 'aria-label': 'Starting point' }}
                     >
-                        <MenuItem value="now" >Starting from now</MenuItem>
+                        <MenuItem value="DESC" >Starting from now</MenuItem>
                         {
-                            hasTeamData && <MenuItem value="start">Starting from current team data</MenuItem>
+                            hasTeamData && <MenuItem value="ASC">Starting from current team data</MenuItem>
                         }
                     </Select>
                     <Select
@@ -182,20 +215,17 @@ const UsersData = (props) => {
                         <MenuItem value={12} >{itemText(12)}</MenuItem>
                         <MenuItem value={24} >{itemText(24)}</MenuItem>
                         <MenuItem value={36} >{itemText(36)}</MenuItem>
-                        <MenuItem value="all">Get it all</MenuItem>
+                        <MenuItem value="all">Get it all!</MenuItem>
                     </Select>
-
-                    <TextField
-                        {...inputProps('userIds')}
-                        label="Comma separated list of user ids"
-                    />
-                    <TextField
-                        {...inputProps('teamName')}
-                        label="Team name"
-                    />
+                    {
+                        keys(primaryInputs)
+                            .map((inputKey) => <TextField
+                                key={inputKey}
+                                {...inputProps(inputKey)}
+                            />)
+                    }
                     <TextField
                         {...inputProps('token')}
-                        label="Token*"
                     />
                     <P className="tokenText">
                         * To create a token go to your GitHub <a className={classes.link} href="https://github.com/settings/tokens">tokens</a> page, click on 'generate new token', choose the settings 'repo' (all) and 'read:org' then click 'Generate token'.
@@ -211,11 +241,9 @@ const UsersData = (props) => {
                     <div className={classes.inputGrid}>
                         <TextField
                             {...inputProps('excludeIds')}
-                            label="Exclude GitHub ids e.g. bots, ',' separated"
                         />
                         <TextField
                             {...inputProps('enterpriseAPI')}
-                            label="Enterprise API full url"
                         />
                     </div>
                 </ChartDescription>
@@ -248,6 +276,7 @@ const UsersData = (props) => {
 }
 
 const mapStateToProps = (state) => ({
+    fetches: state.fetches,
     fetching: state.fetching,
     error: state.error,
     pullRequests: state.pullRequests,
@@ -255,24 +284,40 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    setValues: ({ token, userIds, teamName, enterpriseAPI, excludeIds, amountOfData, startingPoint }) => {
-        dispatch({ type: types.CLEAR_ORG })
-        dispatch({ type: types.CLEAR_REPO })
+    setValues: ({
+        token,
+        org,
+        repo,
+        userIds,
+        teamName,
+        enterpriseAPI,
+        excludeIds,
+        amountOfData,
+        sortDirection
+    }) => {
+        dispatch(
+            org
+                ? storeOrg(org)
+                : { type: types.CLEAR_ORG }
+        )
+        dispatch(
+            repo
+                ? storeRepo(repo)
+                : { type: types.CLEAR_REPO }
+        )
+        userIds && dispatch(storeUserIds(userIds))
+        teamName && dispatch(storeTeamName(teamName))
+
         dispatch(storeToken(token))
-        dispatch(storeUserIds(userIds))
-        dispatch(storeTeamName(teamName))
         dispatch(storeEnterpriseAPI(enterpriseAPI))
         dispatch(storeExcludeIds(excludeIds))
         dispatch(storeAmountOfData(amountOfData))
         dispatch(storeFormUntilDate(amountOfData))
-        dispatch(storeSortDirection(startingPoint === 'now'
-            ? 'DESC'
-            : 'ASC'
-        ))
+        dispatch(storeSortDirection(sortDirection))
     },
     getData: (x) => dispatch(getAPIData(x)),
     getDownloadInfo: () => dispatch(getDownloadProps),
 })
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(UsersData))
+export default connect(mapStateToProps,
+    mapDispatchToProps)(withStyles(styles)(FormSection))

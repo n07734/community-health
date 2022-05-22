@@ -1,10 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
+import { always, cond, T, propSatisfies, where } from 'ramda'
 
 import { H, P } from '../shared/StyledTags'
 import Paper from '../shared/Paper'
-import { always, cond, T, propSatisfies, where } from 'ramda'
+import ChartDescription from '../shared/ChartDescription'
+import FormSection from '../home/DataOptions/FormSection'
 
 const RepoOrgCopy = ({ repo, org } = {}) => org === repo
     ? (<span style={{ color: '#e82573' }}>{repo}</span>)
@@ -44,6 +46,10 @@ const ReportDescription = ({
 } = {}) => {
     const releaseCount = releases.length
 
+    const reportType = userIds.length > 0
+        ? 'team'
+        : 'repo'
+
     return <Paper className={classes.root}>
             <H className={classes.heading} level={2}>
                 {
@@ -62,6 +68,18 @@ const ReportDescription = ({
                 // TODO: get start and end date info
             }
             <P>Pull requests: {pullRequests.length}, Issues: {issues.length}{ releaseCount > 0 && `, Releases: ${releaseCount}`}</P>
+            <ChartDescription
+                className={`${classes.formDescription} ${classes.fullRow}`}
+                title=""
+                expandText="here"
+                intro="Top up this report's data"
+            >
+                {
+                    reportType === 'team'
+                        ? <FormSection reportType="team" preFetchedReport={true}/>
+                        : <FormSection reportType="repo" preFetchedReport={true} />
+                }
+            </ChartDescription>
         </Paper>
 }
 
