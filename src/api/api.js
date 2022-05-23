@@ -181,6 +181,13 @@ const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
                 })
             ],
             [
+                propEq('status', undefined),
+                always({
+                    level: 'error',
+                    message: 'Error while processing data after, please check the console',
+                })
+            ],
+            [
                 alwaysTrue,
                 always({
                     level: 'error',

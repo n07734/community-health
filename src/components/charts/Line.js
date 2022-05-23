@@ -126,7 +126,7 @@ const Line = styledCharts(({
             <div className={classes.headingWrap}>
                 <ChartHeading type='line' text={title} items={leftHeadingItems} />
                 {
-                    rightHeadingItems
+                    rightHeadingItems.length > 0
                         && <ChartHeading type='line' items={rightHeadingItems} />
                 }
             </div>

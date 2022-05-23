@@ -60,9 +60,27 @@ const ChartHeading = ({ className, items = [], text = '', type = '' } = {}) => {
         </span>
     )
 
+    const mathTypeMap = {
+        average: 'Average',
+        sum: 'Total',
+        count: 'Total',
+        multiple: '',
+    }
+
+    const uniqueLinesMaths = [
+        ...new Set(items.map(x => x.groupMath))
+    ]
+
+    const singleMathType = items.length > 0
+        && type === 'line'
+        && uniqueLinesMaths.length < 2
+            ? uniqueLinesMaths[0] || 'average'
+            : 'multiple'
+
     return (
         <H level={3} className={className}>
             {`${text} `}
+            {`${mathTypeMap[singleMathType]} `}
             {
                 items
                     .map((item, i) => <Fragment key={i}>
