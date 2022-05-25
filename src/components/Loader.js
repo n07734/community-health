@@ -75,7 +75,7 @@ const Loader = ({
     const {
         user = '',
         prCount = 0,
-        latestPrDate = '',
+        latestItemDate = '',
         issueCount = 0,
         releaseCount = 0,
     } = fetchStatus
@@ -90,8 +90,8 @@ const Loader = ({
         ? new Date(pastPRs.at(0).mergedAt)
         : new Date()
 
-    const uptoDate = latestPrDate
-        ? new Date(latestPrDate)
+    const uptoDate = latestItemDate
+        ? new Date(latestItemDate)
         : startDate
 
     const untilDate = new Date(formUntilDate)

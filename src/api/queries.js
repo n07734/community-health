@@ -230,7 +230,7 @@ const getPaginationByType = (oldFetchInfo = {}, untilDate ='', data = {}, order)
 
     const items = pathOr([], ['data', 'result', type, 'edges'], data)
 
-    const dateKey = type === pullRequests
+    const dateKey = type === 'pullRequests'
       ? 'mergedAt'
       : 'createdAt'
 
@@ -287,8 +287,8 @@ const userQuery = (untilDate) => ({
   query: `{
     result: user(login: "${user}") {
       login
-      ${prPagination.hasNextPage ? pullRequests(order)(prPagination) : ''}
-      ${issuesPagination.hasNextPage ? issues(order)(issuesPagination) : ''}
+      ${prPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? pullRequests(order)(prPagination) : ''}
+      ${issuesPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? issues(order)(issuesPagination) : ''}
     }
   }`,
   order,
@@ -355,10 +355,9 @@ const batchedQuery = (untilDate) => ({
         name
         owner {
           org: login
-        }
-        ${prPagination.hasNextPage ? pullRequests(order)(prPagination) : ''}
-        ${issuesPagination.hasNextPage ? issues(order)(issuesPagination) : ''}
-        ${releasesPagination.hasNextPage ? releases(order)(releasesPagination) : ''}
+        }${prPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? pullRequests(order)(prPagination) : ''}
+        ${issuesPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? issues(order)(issuesPagination) : ''}
+        ${releasesPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? releases(order)(releasesPagination) : ''}
       }
     }`,
     order,

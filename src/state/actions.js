@@ -196,6 +196,8 @@ const clearData = (dispatch, msg = 'fff') => {
     dispatch({ type: types.CLEAR_PRS })
     dispatch({ type: types.CLEAR_FILTERED_PRS })
     dispatch({ type: types.CLEAR_PR_PAGINATION })
+    dispatch({ type: types.CLEAR_UNTIL_DATE })
+    dispatch({ type: types.CLEAR_FORM_UNTIL_DATE })
     dispatch({ type: types.CLEAR_USERS_DATA })
     dispatch({ type: types.CLEAR_RELEASES })
     dispatch({ type: types.CLEAR_RELEASES_PAGINATION })

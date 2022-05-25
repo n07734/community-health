@@ -67,7 +67,7 @@ const ReportDescription = ({
             {
                 // TODO: get start and end date info
             }
-            <P>Pull requests: {pullRequests.length}, Issues: {issues.length}{ releaseCount > 0 && `, Releases: ${releaseCount}`}</P>
+            <P>Pull requests: {pullRequests.length}{ issues.length > 0 && `, Issues: ${issues.length}`}{ releaseCount > 0 && `, Releases: ${releaseCount}`}</P>
             <ChartDescription
                 className={`${classes.formDescription} ${classes.fullRow}`}
                 title=""

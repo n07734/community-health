@@ -46,9 +46,10 @@ const reducers = combineReducers({
                 ? newValue()
                 : teamName
         },
-        untilDate: (untilDate = '', action) => (action.type === types.STORE_UNTIL_DATE)
-            ? action.payload
-            : untilDate,
+        untilDate: (untilDate = '', action) => ({
+            [types.STORE_UNTIL_DATE]: action.payload,
+            [types.CLEAR_UNTIL_DATE]: '',
+        })[action.type] || untilDate,
         amountOfData: (amountOfData = 1, action) => (action.type === types.STORE_AMOUNT)
             ? action.payload
             : amountOfData,
@@ -77,9 +78,10 @@ const reducers = combineReducers({
             [types.CLEAR_ISSUES_PAGINATION]: { hasNextPage: true },
         })[action.type] || pagination,
     }),
-    formUntilDate: (formUntilDate = '', action) => (action.type === types.STORE_FORM_UNTIL_DATE)
-        ? action.payload
-        : formUntilDate,
+    formUntilDate: (formUntilDate = '', action) => ({
+        [types.STORE_FORM_UNTIL_DATE]: action.payload,
+        [types.CLEAR_FORM_UNTIL_DATE]: '',
+    })[action.type] || formUntilDate,
     fetching: (fetching = false, action) => [
         action.type === types.FETCH_START
             && (() => true),

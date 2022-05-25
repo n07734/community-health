@@ -80,19 +80,22 @@ const getCurrentItemsByType = (type = '', results = []) => {
     return total
 }
 
-const getLatestPrDate = (results = []) => {
-    const allPrs = results.reduce((acc, result) => {
-        const prs = pathOr([], ['data', 'result', 'pullRequests', 'edges'], result)
-        return [
-            ...acc,
-            ...prs,
-        ]
-    }, []);
+const getLatestDate = (type = '', results = []) => {
+    const latestResult = results.at(-1)
+    const latestResultItems = pathOr([], ['data', 'result', type, 'edges'], latestResult)
 
-    const targetPr = allPrs.at(-1)
+    const targetItem = latestResultItems.at(-1)
 
-    return pathOr('', ['node', 'mergedAt'], targetPr)
+    const dateKey = type === 'pullRequests'
+        ? 'mergedAt'
+        : 'createdAt'
+
+    return pathOr('', ['node', dateKey], targetItem)
 }
+
+const dateSort = (order) => (a, b) => order === 'DESC'
+    ? new Date(b).getTime() - new Date(a).getTime()
+    : new Date(a).getTime() - new Date(b).getTime()
 
 const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
     const {
@@ -100,14 +103,23 @@ const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
         resultInfo,
         fillerType,
         user,
+        order,
     } = queryInfo(fetchInfo)
+
+    const [oldestItemWithNextPage] = [
+        fetchInfo.prPagination.hasNextPageForDate && getLatestDate('pullRequests', results),
+        fetchInfo.issuesPagination.hasNextPageForDate && getLatestDate('issues', results),
+        fetchInfo.releasesPagination.hasNextPageForDate && getLatestDate('releases', results),
+    ]
+        .filter(Boolean)
+        .sort(dateSort(order))
 
     dispatch({
         type: types.FETCH_STATUS,
         payload: {
             user,
             prCount: getCurrentItemsByType('pullRequests', results),
-            latestPrDate: getLatestPrDate(results),
+            latestItemDate: oldestItemWithNextPage,
             issueCount: getCurrentItemsByType('issues', results),
             releaseCount: getCurrentItemsByType('releases', results),
         }
