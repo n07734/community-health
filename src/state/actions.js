@@ -1,4 +1,5 @@
 import {
+    anyPass,
     assoc,
     dissocPath,
     equals,
@@ -45,58 +46,20 @@ const storeToken = (token = '') => ({
     payload: token,
 })
 
-const storeOrg = (org = '') => (dispatch, getState) => {
-    const {
-        fetches: {
-            org: currentOrg,
-        },
-    } = getState()
+const storeOrg = (org = '') => (dispatch) => dispatch({
+    type: types.STORE_ORG,
+    payload: org,
+})
 
-    org && currentOrg && org !== currentOrg
-        && clearData(dispatch)
+const storeEnterpriseAPI = (enterpriseAPI = '') => (dispatch) => dispatch({
+    type: types.STORE_ENT_URL,
+    payload: enterpriseAPI,
+})
 
-    return dispatch({
-        type: types.STORE_ORG,
-        payload: org,
-    })
-}
-
-const storeEnterpriseAPI = (enterpriseAPI = '') => (dispatch, getState) => {
-    const {
-        fetches: {
-            enterpriseAPI: currentEnterpriseAPI
-        },
-    } = getState()
-
-    enterpriseAPI && currentEnterpriseAPI && enterpriseAPI !== currentEnterpriseAPI
-        && clearData(dispatch)
-
-    return dispatch({
-        type: types.STORE_ENT_URL,
-        payload: enterpriseAPI,
-    })
-}
-
-const storeTeamName = (teamName = '') => (dispatch, getState) => {
-    const {
-        fetches: {
-            teamName: currentTeamName
-        },
-    } = getState()
-
-    teamName && currentTeamName && teamName !== currentTeamName
-        && clearData(dispatch)
-
-    dispatch({
-        type: types.PREFETCHED_NAME,
-        payload: teamName,
-    })
-
-    return dispatch({
-        type: types.SET_TEAM_NAME,
-        payload: teamName,
-    })
-}
+const storeTeamName = (teamName = '') => (dispatch) => dispatch({
+    type: types.SET_TEAM_NAME,
+    payload: teamName,
+})
 
 const userIdsFromString = pipe(
     split(','),
@@ -104,17 +67,8 @@ const userIdsFromString = pipe(
     filter(Boolean)
 )
 
-const storeUserIds = (userIds = '') => (dispatch, getState) => {
+const storeUserIds = (userIds = '') => (dispatch) => {
     const userIdsArray = userIdsFromString(userIds)
-
-    const {
-        fetches: {
-            userIds: currentUserIds = []
-        },
-    } = getState()
-
-    not(equals(currentUserIds, userIdsArray))
-        && clearData(dispatch)
 
     return dispatch({
         type: types.STORE_USER_IDS,
@@ -122,17 +76,8 @@ const storeUserIds = (userIds = '') => (dispatch, getState) => {
     })
 }
 
-const storeExcludeIds = (excludeIds = '') => (dispatch, getState) => {
+const storeExcludeIds = (excludeIds = '') => (dispatch) => {
     const excludeArray = userIdsFromString(excludeIds)
-
-    const {
-        fetches: {
-            excludeIds: currentExcludeIds
-        },
-    } = getState()
-
-    excludeArray.length && not(equals(currentExcludeIds, excludeArray))
-        && clearData(dispatch)
 
     return dispatch({
         type: types.STORE_EX_IDS,
@@ -140,21 +85,10 @@ const storeExcludeIds = (excludeIds = '') => (dispatch, getState) => {
     })
 }
 
-const storeRepo = (repo = '') => (dispatch, getState) => {
-    const {
-        fetches: {
-            repo: currentRepo,
-        },
-    } = getState()
-
-    repo && currentRepo && repo !== currentRepo
-        && clearData(dispatch)
-
-    return dispatch({
-        type: types.STORE_REPO,
-        payload: repo,
-    })
-}
+const storeRepo = (repo = '') => (dispatch) => dispatch({
+    type: types.STORE_REPO,
+    payload: repo,
+})
 
 const storeAmountOfData = (amountOfData = '') => (dispatch) => dispatch({
     type: types.STORE_AMOUNT,
@@ -191,11 +125,45 @@ const storeSortDirection = (sortDirection = 'DESC') => (dispatch) => dispatch({
     payload: sortDirection,
 })
 
-const clearData = (dispatch, msg = 'fff') => {
+
+const notSameStringValues = (a = {}, b = {}) => (key = '') => a[key] && b[key] && a[key] !== b[key]
+const notSameArrayValues = (fetches = {}, formValues = {}) => (key = '') => {
+    const idsStrng = formValues[key]
+    const formIds = userIdsFromString(idsStrng)
+
+    const currentIds = fetches[key]
+    return currentIds.length && not(equals(currentIds, formIds))
+}
+
+const clearPastSearch = (values) => (dispatch, getState) => {
+    const {
+        preFetchedName = '',
+        fetches = {}
+    } = getState()
+
+    const notSameValues = notSameStringValues(fetches, values)
+    const notSameIds = notSameArrayValues(fetches, values)
+
+    const isNewSearch = anyPass([
+        preFetchedName && preFetchedName.length > 0,
+        notSameValues('org'),
+        notSameValues('repo'),
+        notSameValues('teamName'),
+        notSameValues('enterpriseAPI'),
+        notSameIds('userIds'),
+        notSameIds('excludeIds'),
+    ])
+
+    isNewSearch
+        && clearData(dispatch)
+}
+
+const clearData = (dispatch) => {
     dispatch({ type: types.CLEAR_USER })
     dispatch({ type: types.CLEAR_PRS })
     dispatch({ type: types.CLEAR_FILTERED_PRS })
     dispatch({ type: types.CLEAR_PR_PAGINATION })
+    dispatch({ type: types.CLEAR_PREFETCHED_NAME })
     dispatch({ type: types.CLEAR_UNTIL_DATE })
     dispatch({ type: types.CLEAR_FORM_UNTIL_DATE })
     dispatch({ type: types.CLEAR_USERS_DATA })
@@ -311,10 +279,6 @@ const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) =
     isValidRequest && dispatch({
         type: types.FETCH_START,
     })
-
-    state.preFetchedName
-        && !appendData
-        && clearData(dispatch, 'pre api')
 
     try {
         const {
@@ -518,6 +482,7 @@ const getDownloadProps = (dispatch, getState) => {
 export {
     setUser,
     clearUser,
+    clearPastSearch,
     storeOrg,
     storeToken,
     storeRepo,

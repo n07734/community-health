@@ -91,7 +91,7 @@ const fillData = apiCall => {
 
             return updateRawData(review)('comments')({ edges: allReviewComments })
         }
-        const updatedReviewComments = await batch(data, getAllReviewComments, 10)
+        const updatedReviewComments = await batch(data, getAllReviewComments, 5)
 
         return () => updatedReviewComments
     }
@@ -110,7 +110,7 @@ const fillData = apiCall => {
                 results: { edges: allReviews },
             }
         }
-        const allPullRequestsReviews = await batch(pullRequests, getAllPullRequestReviews, 10)
+        const allPullRequestsReviews = await batch(pullRequests, getAllPullRequestReviews, 5)
 
         return (data) => {
             const updatedpullRequestsData = updatePullRequests(data)('reviews')(allPullRequestsReviews)
@@ -165,7 +165,7 @@ const fillData = apiCall => {
             }
         }
 
-        const allPullRequestsComments = await batch(pullRequests, getAllPullRequestComments, 10)
+        const allPullRequestsComments = await batch(pullRequests, getAllPullRequestComments, 5)
 
         return (data) => {
             const updatedpullRequestsData = updatePullRequests(data)('comments')(allPullRequestsComments)

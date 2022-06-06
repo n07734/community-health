@@ -77,7 +77,6 @@ const Loader = ({
         prCount = 0,
         latestItemDate = '',
         issueCount = 0,
-        releaseCount = 0,
     } = fetchStatus
 
     const isTeamSearch = userIds.length > 0
@@ -139,9 +138,6 @@ const Loader = ({
                             </H>
                             <H level={2}>
                                 {issueCount} Issues
-                            </H>
-                            <H level={2}>
-                                {releaseCount} Releases
                             </H>
                         </>
                 }

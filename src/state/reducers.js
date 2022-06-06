@@ -46,10 +46,16 @@ const reducers = combineReducers({
                 ? newValue()
                 : teamName
         },
-        untilDate: (untilDate = '', action) => ({
-            [types.STORE_UNTIL_DATE]: action.payload,
-            [types.CLEAR_UNTIL_DATE]: '',
-        })[action.type] || untilDate,
+        untilDate: (untilDate = '', action) => {
+            const newValue = ({
+                [types.STORE_UNTIL_DATE]: () => action.payload,
+                [types.CLEAR_UNTIL_DATE]: () => '',
+            })[action.type]
+
+            return newValue
+                ? newValue()
+                : untilDate
+        },
         amountOfData: (amountOfData = 1, action) => (action.type === types.STORE_AMOUNT)
             ? action.payload
             : amountOfData,
@@ -78,10 +84,16 @@ const reducers = combineReducers({
             [types.CLEAR_ISSUES_PAGINATION]: { hasNextPage: true },
         })[action.type] || pagination,
     }),
-    formUntilDate: (formUntilDate = '', action) => ({
-        [types.STORE_FORM_UNTIL_DATE]: action.payload,
-        [types.CLEAR_FORM_UNTIL_DATE]: '',
-    })[action.type] || formUntilDate,
+    formUntilDate: (formUntilDate = '', action) => {
+        const newValue = ({
+            [types.STORE_FORM_UNTIL_DATE]: () => action.payload,
+            [types.CLEAR_FORM_UNTIL_DATE]: () => '',
+        })[action.type]
+
+        return newValue
+            ? newValue()
+            : formUntilDate
+    },
     fetching: (fetching = false, action) => [
         action.type === types.FETCH_START
             && (() => true),
@@ -106,7 +118,7 @@ const reducers = combineReducers({
     preFetchedName: (name = '', action) => {
         const newValue = ({
             [types.PREFETCHED_NAME]: () => action.payload,
-            [types.CLEAR_PRS]: () => '',
+            [types.CLEAR_PREFETCHED_NAME]: () => '',
         })[action.type]
 
         return newValue

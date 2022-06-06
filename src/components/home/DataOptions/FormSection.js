@@ -23,6 +23,7 @@ import styles from './styles'
 import types from '../../../state/types'
 
 import {
+    clearPastSearch,
     storeOrg,
     storeRepo,
     storeToken,
@@ -214,7 +215,6 @@ const FormSection = (props) => {
                         <MenuItem value={6} >{itemText(6)}</MenuItem>
                         <MenuItem value={12} >{itemText(12)}</MenuItem>
                         <MenuItem value={24} >{itemText(24)}</MenuItem>
-                        <MenuItem value={36} >{itemText(36)}</MenuItem>
                         <MenuItem value="all">Get it all!</MenuItem>
                     </Select>
                     {
@@ -284,17 +284,20 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    setValues: ({
-        token,
-        org,
-        repo,
-        userIds,
-        teamName,
-        enterpriseAPI,
-        excludeIds,
-        amountOfData,
-        sortDirection
-    }) => {
+    setValues: (values) => {
+        const {
+            token,
+            org,
+            repo,
+            userIds,
+            teamName,
+            enterpriseAPI,
+            excludeIds,
+            amountOfData,
+            sortDirection
+        } = values
+        dispatch(clearPastSearch(values))
+
         dispatch(
             org
                 ? storeOrg(org)

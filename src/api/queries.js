@@ -35,7 +35,7 @@ const comments = (cursor) => `
 
 const pullRequests = order => pagination => `
 pullRequests(
-  first: 100
+  first: 50
   ${getCursor(order)(pagination)}
   states: [MERGED]
   orderBy: {field: CREATED_AT direction: ${order}}
@@ -68,7 +68,7 @@ pullRequests(
 const issues = order => pagination => `
 issues(
   ${getCursor(order)(pagination)}
-  first: 100
+  first: 50
   orderBy: { field:CREATED_AT direction: ${order} }
 ) {
   totalCount
@@ -94,7 +94,7 @@ issues(
 const releases = order => pagination => `
 releases(
   ${getCursor(order)(pagination)}
-  first:100
+  first: 50
   orderBy:{ field:CREATED_AT direction: ${order} }
 ) {
   totalCount
@@ -274,7 +274,7 @@ const getRemainingPageCount = (data) => {
     .map(type => pathOr(0, ['data', 'result', type, 'totalCount'], data))
     .sort((a,b) => a > b)
 
-    return Math.ceil(maxItems/100) -1
+    return Math.ceil(maxItems/50) -1
 }
 
 const userQuery = (untilDate) => ({

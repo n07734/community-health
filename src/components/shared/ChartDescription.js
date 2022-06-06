@@ -14,8 +14,12 @@ const ChartDescription = ({
 } = {}) => {
     const [toggle, setCount] = useState(false)
 
+    const alignClass = title && !intro
+        ? classes.alignExpander
+        : ''
+
     return (
-        <div className={`${classes.root} ${className} ${!intro ? '' : classes.rootRows}`}>
+        <div className={`${classes.root} ${alignClass} ${className} ${!intro ? '' : classes.rootRows}`}>
             {
                title && typeof title === 'string'
                     ? <H level={2} >{title}</H>
@@ -51,6 +55,8 @@ const styles = theme => ({
         flexGrow: 1,
         display: 'flex',
         flexWrap: 'wrap',
+    },
+    alignExpander: {
         alignItems: 'baseline',
     },
     rootRows: {
