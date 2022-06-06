@@ -38,6 +38,7 @@ const titleCopy = cond([
 
 const ReportDescription = ({
     fetches = {},
+    preFetchedName = '',
     pullRequests = [],
     issues = [],
     releases = [],
@@ -64,27 +65,28 @@ const ReportDescription = ({
                         }
                     </P>
             }
-            {
-                // TODO: get start and end date info
-            }
             <P>Pull requests: {pullRequests.length}{ issues.length > 0 && `, Issues: ${issues.length}`}{ releaseCount > 0 && `, Releases: ${releaseCount}`}</P>
-            <ChartDescription
-                className={`${classes.formDescription} ${classes.fullRow}`}
-                title=""
-                expandText="here"
-                intro="Top up this report's data"
-            >
-                {
-                    reportType === 'team'
-                        ? <FormSection reportType="team" preFetchedReport={true}/>
-                        : <FormSection reportType="repo" preFetchedReport={true} />
-                }
-            </ChartDescription>
+           {
+              preFetchedName.length > 0
+                && <ChartDescription
+                    className={`${classes.formDescription} ${classes.fullRow}`}
+                    title=""
+                    expandText="here"
+                    intro="Top up this report's data"
+                >
+                    {
+                        reportType === 'team'
+                            ? <FormSection reportType="team" preFetchedReport={true}/>
+                            : <FormSection reportType="repo" preFetchedReport={true} />
+                    }
+                </ChartDescription>
+           }
         </Paper>
 }
 
 const mapStateToProps = (state) => ({
     fetches: state.fetches,
+    preFetchedName: state.preFetchedName,
     pullRequests: state.pullRequests,
     issues: state.issues,
     releases: state.releases,
