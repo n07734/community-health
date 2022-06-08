@@ -1,0 +1,6996 @@
+{
+  "fetches": {
+    "org": "testing-library",
+    "repo": "react-testing-library",
+    "sortDirection": "DESC",
+    "excludeIds": [
+      "allcontributors"
+    ],
+    "prPagination": {
+      "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wNS0xN1QxOTo0Njo1NCswMTowMM43-nKp",
+      "oldest": "Y3Vyc29yOnYyOpK5MjAyMC0wMi0yMlQxNTozOTozMyswMDowMM4WkQDn"
+    },
+    "releasesPagination": {
+      "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wNS0yOFQwOToxODowNiswMTowMM4EDp60",
+      "oldest": "Y3Vyc29yOnYyOpK5MjAxOS0wMi0xMlQxNzo0MjoyMSswMDowMM4A7L7z"
+    },
+    "issuesPagination": {
+      "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wNS0zMVQxNjozNjoxMiswMTowMM5Kv1Qt",
+      "oldest": "Y3Vyc29yOnYyOpK5MjAyMC0wNS0wNlQxMDo1NDowMyswMTowMM4kjJX-"
+    }
+  },
+  "pullRequests": [
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "kentcdodds",
+      "url": "https://github.com/testing-library/react-testing-library/pull/687",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2020-06-02T22:10:53Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "codesandbox-ci": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "generalCommentsAuthor": 1,
+      "comments": 1,
+      "commenters": {
+        "codesandbox-ci": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "samtsai",
+      "url": "https://github.com/testing-library/react-testing-library/pull/690",
+      "additions": 165,
+      "deletions": 4,
+      "prSize": 169,
+      "mergedAt": "2020-06-04T00:46:20Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 6,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 4,
+        "codecov": 1
+      },
+      "generalCommentSentimentScore": 29,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 27
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 2,
+      "comments": 6,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 4,
+        "codecov": 1
+      },
+      "commentSentimentScore": 29,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 27
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 2
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "screendriver",
+      "url": "https://github.com/testing-library/react-testing-library/pull/676",
+      "additions": 16,
+      "deletions": 5,
+      "prSize": 21,
+      "mergedAt": "2020-06-04T13:46:56Z",
+      "age": 8,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "eps1lon": 1,
+        "codecov": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "eps1lon": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": -2,
+      "codeComments": 1,
+      "codeCommenters": {
+        "eps1lon": 1
+      },
+      "codeCommentSentimentScore": -5,
+      "codeCommentSentiments": {
+        "eps1lon": -5
+      },
+      "comments": 5,
+      "commenters": {
+        "eps1lon": 2,
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": -1,
+      "commentSentiments": {
+        "eps1lon": -4,
+        "codesandbox-ci": 2,
+        "kentcdodds": 1
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": -2
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "kentcdodds",
+      "url": "https://github.com/testing-library/react-testing-library/pull/696",
+      "additions": 2,
+      "prSize": 2,
+      "mergedAt": "2020-06-05T19:13:54Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "codesandbox-ci": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 1,
+      "codeComments": 1,
+      "codeCommenters": {
+        "NiGhTTraX": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "NiGhTTraX": 1,
+        "codesandbox-ci": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 1
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "kettanaito",
+      "url": "https://github.com/testing-library/react-testing-library/pull/697",
+      "additions": 49,
+      "deletions": 7,
+      "prSize": 56,
+      "mergedAt": "2020-06-05T19:18:46Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 2
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 1
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 4,
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 2
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 1
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 4
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "samtsai",
+      "url": "https://github.com/testing-library/react-testing-library/pull/700",
+      "additions": 12,
+      "deletions": 7,
+      "prSize": 19,
+      "mergedAt": "2020-06-06T00:02:00Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 2
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 1
+      },
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 2
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 1
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "michael-siek",
+      "url": "https://github.com/testing-library/react-testing-library/pull/703",
+      "additions": 2,
+      "prSize": 2,
+      "mergedAt": "2020-06-08T16:09:54Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 2
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 1
+      },
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 2
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 1
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "2dubbing",
+      "url": "https://github.com/testing-library/react-testing-library/pull/709",
+      "additions": 10,
+      "deletions": 7,
+      "prSize": 17,
+      "mergedAt": "2020-06-15T12:51:17Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 2
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 1
+      },
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 2
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 1
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "weyert",
+      "url": "https://github.com/testing-library/react-testing-library/pull/711",
+      "additions": 13,
+      "prSize": 13,
+      "mergedAt": "2020-06-18T00:20:09Z",
+      "age": 1,
+      "approvals": 2,
+      "approvers": {
+        "MichaelDeBoey": 1,
+        "kentcdodds": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "kentcdodds": 2
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "kentcdodds": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "kentcdodds": 2
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "kentcdodds": 1
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "kentcdodds",
+      "url": "https://github.com/testing-library/react-testing-library/pull/715",
+      "additions": 98,
+      "deletions": 45,
+      "prSize": 143,
+      "mergedAt": "2020-06-19T16:42:07Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "codesandbox-ci": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "generalCommentsAuthor": 1,
+      "comments": 1,
+      "commenters": {
+        "codesandbox-ci": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "nickmccurdy",
+      "url": "https://github.com/testing-library/react-testing-library/pull/717",
+      "additions": 7,
+      "deletions": 12,
+      "prSize": 19,
+      "mergedAt": "2020-06-21T13:56:54Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 2,
+        "afontcu": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 2
+      },
+      "generalCommentsAuthor": 1,
+      "codeComments": 5,
+      "codeCommenters": {
+        "kentcdodds": 3,
+        "afontcu": 2
+      },
+      "codeCommentSentimentScore": -2,
+      "codeCommentSentiments": {
+        "kentcdodds": -2
+      },
+      "codeCommentsAuthor": 3,
+      "codeCommentAuthorSentimentScore": -10,
+      "comments": 10,
+      "commenters": {
+        "kentcdodds": 5,
+        "afontcu": 3,
+        "codesandbox-ci": 1,
+        "codecov": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "commentsAuthor": 4,
+      "commentAuthorSentimentScore": -10
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "kentcdodds",
+      "url": "https://github.com/testing-library/react-testing-library/pull/720",
+      "additions": 19,
+      "deletions": 2,
+      "prSize": 21,
+      "mergedAt": "2020-06-24T19:07:18Z",
+      "age": 1,
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "9still": 1
+      },
+      "generalCommentSentimentScore": 5,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "9still": 3
+      },
+      "generalCommentsAuthor": 1,
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "9still": 1
+      },
+      "commentSentimentScore": 5,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "9still": 3
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "kamranayub",
+      "url": "https://github.com/testing-library/react-testing-library/pull/632",
+      "additions": 17,
+      "deletions": 1,
+      "prSize": 18,
+      "mergedAt": "2020-06-25T04:21:29Z",
+      "age": 78,
+      "generalComments": 12,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 9,
+        "codecov": 1,
+        "stefcameron": 1
+      },
+      "generalCommentSentimentScore": 10,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 8,
+        "codecov": 1,
+        "stefcameron": -1
+      },
+      "generalCommentsAuthor": 5,
+      "generalCommentAuthorSentimentScore": 11,
+      "comments": 12,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 9,
+        "codecov": 1,
+        "stefcameron": 1
+      },
+      "commentSentimentScore": 10,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 8,
+        "codecov": 1,
+        "stefcameron": -1
+      },
+      "commentsAuthor": 5,
+      "commentAuthorSentimentScore": 11
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "nickmccurdy",
+      "url": "https://github.com/testing-library/react-testing-library/pull/728",
+      "additions": 6,
+      "deletions": 1,
+      "prSize": 7,
+      "mergedAt": "2020-07-02T23:28:51Z",
+      "age": 1,
+      "approvals": 2,
+      "approvers": {
+        "kentcdodds": 1,
+        "eps1lon": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "codecov": 1,
+        "eps1lon": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": -6,
+      "generalCommentSentiments": {
+        "eps1lon": -6
+      },
+      "generalCommentsAuthor": 4,
+      "generalCommentAuthorSentimentScore": 4,
+      "comments": 3,
+      "commenters": {
+        "codecov": 1,
+        "eps1lon": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": -6,
+      "commentSentiments": {
+        "eps1lon": -6
+      },
+      "commentsAuthor": 4,
+      "commentAuthorSentimentScore": 4
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "MatanBobi",
+      "url": "https://github.com/testing-library/react-testing-library/pull/732",
+      "additions": 33,
+      "deletions": 2,
+      "prSize": 35,
+      "mergedAt": "2020-07-05T17:15:39Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 3
+      },
+      "generalCommentSentimentScore": 18,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 16
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 8,
+      "codeComments": 4,
+      "codeCommenters": {
+        "kentcdodds": 4
+      },
+      "codeCommentSentimentScore": -6,
+      "codeCommentSentiments": {
+        "kentcdodds": -6
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 1,
+      "comments": 8,
+      "commenters": {
+        "kentcdodds": 7,
+        "codesandbox-ci": 1
+      },
+      "commentSentimentScore": 12,
+      "commentSentiments": {
+        "kentcdodds": 10,
+        "codesandbox-ci": 2
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 9
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "MichaelDeBoey",
+      "url": "https://github.com/testing-library/react-testing-library/pull/737",
+      "additions": 1,
+      "deletions": 5,
+      "prSize": 6,
+      "mergedAt": "2020-07-06T13:46:31Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kentcdodds": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "kentcdodds": 1
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "MatanBobi",
+      "url": "https://github.com/testing-library/react-testing-library/pull/740",
+      "deletions": 1,
+      "prSize": 1,
+      "mergedAt": "2020-07-08T18:37:23Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kentcdodds": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "kentcdodds": 1
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "MatanBobi",
+      "url": "https://github.com/testing-library/react-testing-library/pull/739",
+      "additions": 5,
+      "deletions": 3,
+      "prSize": 8,
+      "mergedAt": "2020-07-08T18:46:22Z",
+      "age": 1,
+      "generalComments": 4,
+      "generalCommenters": {
+        "kentcdodds": 4
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kentcdodds": 9
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": 13,
+      "codeComments": 2,
+      "codeCommenters": {
+        "kentcdodds": 2
+      },
+      "codeCommentSentimentScore": 5,
+      "codeCommentSentiments": {
+        "kentcdodds": 5
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 2,
+      "comments": 6,
+      "commenters": {
+        "kentcdodds": 6
+      },
+      "commentSentimentScore": 14,
+      "commentSentiments": {
+        "kentcdodds": 14
+      },
+      "commentsAuthor": 4,
+      "commentAuthorSentimentScore": 15
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "kentcdodds",
+      "url": "https://github.com/testing-library/react-testing-library/pull/744",
+      "additions": 4,
+      "deletions": 32,
+      "prSize": 36,
+      "mergedAt": "2020-07-13T18:15:28Z",
+      "age": 1,
+      "approvals": 2,
+      "approvers": {
+        "eps1lon": 1,
+        "MatanBobi": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "MatanBobi": 2,
+        "pke": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "MatanBobi": 2,
+        "pke": -2
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 2,
+      "codeComments": 1,
+      "codeCommenters": {
+        "eps1lon": 1
+      },
+      "codeCommentSentimentScore": 2,
+      "codeCommentSentiments": {
+        "eps1lon": 2
+      },
+      "codeCommentsAuthor": 2,
+      "codeCommentAuthorSentimentScore": 1,
+      "comments": 6,
+      "commenters": {
+        "eps1lon": 1,
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "MatanBobi": 2,
+        "pke": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "eps1lon": 2,
+        "codesandbox-ci": 2,
+        "MatanBobi": 2,
+        "pke": -2
+      },
+      "commentsAuthor": 4,
+      "commentAuthorSentimentScore": 3
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/746",
+      "additions": 19,
+      "deletions": 1,
+      "prSize": 20,
+      "mergedAt": "2020-07-15T12:49:29Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "marcosvega91": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": 1,
+        "marcosvega91": 1
+      },
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "marcosvega91": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": 1,
+        "marcosvega91": 1
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/757",
+      "additions": 27,
+      "prSize": 27,
+      "mergedAt": "2020-08-04T19:13:41Z",
+      "age": 1,
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/758",
+      "additions": 20,
+      "deletions": 5,
+      "prSize": 25,
+      "mergedAt": "2020-08-05T02:02:18Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "radar",
+      "url": "https://github.com/testing-library/react-testing-library/pull/766",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2020-08-21T06:45:15Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "kentcdodds": 1,
+        "ryota-murakami": 1
+      },
+      "generalCommentSentimentScore": 8,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "ryota-murakami": 6
+      },
+      "comments": 5,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "kentcdodds": 1,
+        "ryota-murakami": 1
+      },
+      "commentSentimentScore": 8,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "ryota-murakami": 6
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/768",
+      "additions": 91,
+      "deletions": 79,
+      "prSize": 170,
+      "mergedAt": "2020-08-30T03:23:19Z",
+      "age": 8,
+      "generalComments": 12,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "MatanBobi": 3,
+        "kentcdodds": 6,
+        "testing-library-bot": 1
+      },
+      "generalCommentSentimentScore": 18,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": 1,
+        "MatanBobi": 2,
+        "kentcdodds": 13
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": -9,
+      "codeCommentsAuthor": 1,
+      "comments": 12,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "MatanBobi": 3,
+        "kentcdodds": 6,
+        "testing-library-bot": 1
+      },
+      "commentSentimentScore": 18,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": 1,
+        "MatanBobi": 2,
+        "kentcdodds": 13
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": -9
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "kentcdodds",
+      "url": "https://github.com/testing-library/react-testing-library/pull/772",
+      "additions": 91,
+      "deletions": 79,
+      "prSize": 170,
+      "mergedAt": "2020-09-02T17:37:41Z",
+      "age": 3,
+      "generalComments": 1,
+      "generalCommenters": {
+        "testing-library-bot": 1
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 5,
+      "comments": 1,
+      "commenters": {
+        "testing-library-bot": 1
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 5
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "antonhalim",
+      "url": "https://github.com/testing-library/react-testing-library/pull/770",
+      "additions": 13,
+      "deletions": 12,
+      "prSize": 25,
+      "mergedAt": "2020-09-02T22:02:25Z",
+      "age": 7,
+      "approvals": 1,
+      "approvers": {
+        "nickmccurdy": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "nickmccurdy": 1,
+        "testing-library-bot": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "codeComments": 2,
+      "codeCommenters": {
+        "nickmccurdy": 1,
+        "hdn7": 1
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 2,
+      "comments": 6,
+      "commenters": {
+        "nickmccurdy": 2,
+        "hdn7": 1,
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "testing-library-bot": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 2
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "artem-malko",
+      "url": "https://github.com/testing-library/react-testing-library/pull/776",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2020-09-03T06:29:07Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "testing-library-bot": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "testing-library-bot": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "ljosberinn",
+      "url": "https://github.com/testing-library/react-testing-library/pull/778",
+      "additions": 4,
+      "deletions": 4,
+      "prSize": 8,
+      "mergedAt": "2020-09-03T17:43:28Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "testing-library-bot": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "testing-library-bot": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "tapico-weyert",
+      "url": "https://github.com/testing-library/react-testing-library/pull/782",
+      "mergedAt": "2020-09-08T23:24:18Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1,
+        "weyert": 1,
+        "testing-library-bot": 1
+      },
+      "generalCommentSentimentScore": 5,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 4
+      },
+      "comments": 5,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1,
+        "weyert": 1,
+        "testing-library-bot": 1
+      },
+      "commentSentimentScore": 5,
+      "commentSentiments": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 4
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "karthick3018",
+      "url": "https://github.com/testing-library/react-testing-library/pull/784",
+      "additions": 31,
+      "prSize": 31,
+      "mergedAt": "2020-09-13T15:50:56Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "testing-library-bot": 1
+      },
+      "generalCommentSentimentScore": 5,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 3
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 6,
+      "comments": 5,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "testing-library-bot": 1
+      },
+      "commentSentimentScore": 5,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 3
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 6
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/786",
+      "additions": 17,
+      "deletions": 21,
+      "prSize": 38,
+      "mergedAt": "2020-09-13T18:33:31Z",
+      "age": 1,
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "testing-library-bot": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 1
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "testing-library-bot": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "codesandbox-ci": 1
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "theashraf",
+      "url": "https://github.com/testing-library/react-testing-library/pull/799",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2020-10-14T13:11:27Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1,
+        "testing-library-bot": 1
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 1
+      },
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1,
+        "testing-library-bot": 1
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 1
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "lidoravitan",
+      "url": "https://github.com/testing-library/react-testing-library/pull/806",
+      "additions": 6,
+      "deletions": 3,
+      "prSize": 9,
+      "mergedAt": "2020-10-26T18:59:25Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "MatanBobi": 1
+      },
+      "generalComments": 9,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 5,
+        "MatanBobi": 2,
+        "testing-library-bot": 1
+      },
+      "generalCommentSentimentScore": -1,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": -3
+      },
+      "comments": 9,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 5,
+        "MatanBobi": 2,
+        "testing-library-bot": 1
+      },
+      "commentSentimentScore": -1,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": -3
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/809",
+      "additions": 4,
+      "deletions": 1,
+      "prSize": 5,
+      "mergedAt": "2020-10-29T14:06:18Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "nickmccurdy": 1
+      },
+      "generalComments": 6,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "MatanBobi": 1,
+        "nickmccurdy": 2,
+        "codecov": 1,
+        "testing-library-bot": 1
+      },
+      "generalCommentSentimentScore": 5,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "MatanBobi": 3
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 1,
+      "codeComments": 6,
+      "codeCommenters": {
+        "MatanBobi": 2,
+        "kentcdodds": 2,
+        "nickmccurdy": 1,
+        "ljharb": 1
+      },
+      "codeCommentSentimentScore": 4,
+      "codeCommentSentiments": {
+        "MatanBobi": 2,
+        "kentcdodds": 2
+      },
+      "codeCommentsAuthor": 1,
+      "comments": 12,
+      "commenters": {
+        "MatanBobi": 3,
+        "kentcdodds": 2,
+        "nickmccurdy": 3,
+        "ljharb": 1,
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "testing-library-bot": 1
+      },
+      "commentSentimentScore": 9,
+      "commentSentiments": {
+        "MatanBobi": 5,
+        "kentcdodds": 2,
+        "codesandbox-ci": 2
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 1
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "MichaelDeBoey",
+      "url": "https://github.com/testing-library/react-testing-library/pull/811",
+      "additions": 23,
+      "deletions": 25,
+      "prSize": 48,
+      "mergedAt": "2020-10-29T21:08:52Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1,
+        "eps1lon": 1,
+        "testing-library-bot": 1
+      },
+      "generalCommentSentimentScore": 6,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 2,
+        "eps1lon": 2
+      },
+      "generalCommentsAuthor": 1,
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1,
+        "eps1lon": 1,
+        "testing-library-bot": 1
+      },
+      "commentSentimentScore": 6,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 2,
+        "eps1lon": 2
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "kentcdodds",
+      "url": "https://github.com/testing-library/react-testing-library/pull/812",
+      "additions": 2,
+      "deletions": 3,
+      "prSize": 5,
+      "mergedAt": "2020-10-30T15:17:12Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "ljharb": 1
+      },
+      "generalComments": 8,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "nickmccurdy": 4,
+        "testing-library-bot": 1,
+        "ljharb": 1
+      },
+      "generalCommentSentimentScore": 5,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "nickmccurdy": 3
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 3,
+      "comments": 8,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "nickmccurdy": 4,
+        "testing-library-bot": 1,
+        "ljharb": 1
+      },
+      "commentSentimentScore": 5,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "nickmccurdy": 3
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 3
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "weyert",
+      "url": "https://github.com/testing-library/react-testing-library/pull/816",
+      "additions": 7,
+      "deletions": 7,
+      "prSize": 14,
+      "mergedAt": "2020-11-03T14:25:18Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "MatanBobi": 1,
+        "testing-library-bot": 1
+      },
+      "generalCommentSentimentScore": 5,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "MatanBobi": 3
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 3,
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "MatanBobi": 1,
+        "testing-library-bot": 1
+      },
+      "commentSentimentScore": 5,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "MatanBobi": 3
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 3
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "marcosvega91",
+      "url": "https://github.com/testing-library/react-testing-library/pull/821",
+      "additions": 8,
+      "deletions": 4,
+      "prSize": 12,
+      "mergedAt": "2020-11-10T19:04:54Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1,
+        "samtsai": 1,
+        "testing-library-bot": 1
+      },
+      "generalCommentSentimentScore": 5,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 1,
+        "samtsai": 2
+      },
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1,
+        "samtsai": 1,
+        "testing-library-bot": 1
+      },
+      "commentSentimentScore": 5,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 1,
+        "samtsai": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "nickmccurdy",
+      "url": "https://github.com/testing-library/react-testing-library/pull/826",
+      "additions": 127,
+      "deletions": 63,
+      "prSize": 190,
+      "mergedAt": "2020-11-14T16:19:22Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 7,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "MatanBobi": 2,
+        "kentcdodds": 2,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 8,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "MatanBobi": 2,
+        "kentcdodds": 3,
+        "codecov": 1
+      },
+      "generalCommentsAuthor": 4,
+      "generalCommentAuthorSentimentScore": -8,
+      "codeComments": 1,
+      "codeCommenters": {
+        "kentcdodds": 1
+      },
+      "codeCommentsAuthor": 1,
+      "comments": 8,
+      "commenters": {
+        "kentcdodds": 3,
+        "codesandbox-ci": 1,
+        "MatanBobi": 2,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 8,
+      "commentSentiments": {
+        "kentcdodds": 3,
+        "codesandbox-ci": 2,
+        "MatanBobi": 2,
+        "codecov": 1
+      },
+      "commentsAuthor": 5,
+      "commentAuthorSentimentScore": -8
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "MichaelDeBoey",
+      "url": "https://github.com/testing-library/react-testing-library/pull/827",
+      "additions": 11,
+      "deletions": 12,
+      "prSize": 23,
+      "mergedAt": "2020-11-16T14:02:30Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "benmonro",
+      "url": "https://github.com/testing-library/react-testing-library/pull/831",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2020-11-18T16:42:13Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 3,
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 3
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "joebobmiles",
+      "url": "https://github.com/testing-library/react-testing-library/pull/833",
+      "additions": 6,
+      "deletions": 6,
+      "prSize": 12,
+      "mergedAt": "2020-11-19T10:41:10Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "nickmccurdy": 1,
+        "eps1lon": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "nickmccurdy": 2
+      },
+      "comments": 5,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "nickmccurdy": 1,
+        "eps1lon": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "nickmccurdy": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "nickmccurdy",
+      "url": "https://github.com/testing-library/react-testing-library/pull/834",
+      "additions": 9,
+      "prSize": 9,
+      "mergedAt": "2020-11-19T14:45:07Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 8,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1,
+        "just-boris": 2,
+        "eps1lon": 3
+      },
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "eps1lon": -2
+      },
+      "generalCommentsAuthor": 1,
+      "comments": 8,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1,
+        "just-boris": 2,
+        "eps1lon": 3
+      },
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "eps1lon": -2
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "benmonro",
+      "url": "https://github.com/testing-library/react-testing-library/pull/836",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2020-11-20T23:31:50Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "nickmccurdy": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 2,
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 2
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "MichaelDeBoey",
+      "url": "https://github.com/testing-library/react-testing-library/pull/840",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2020-12-02T19:08:38Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "nickmccurdy": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "nickmccurdy": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "kentcdodds",
+      "url": "https://github.com/testing-library/react-testing-library/pull/842",
+      "additions": 10,
+      "deletions": 36,
+      "prSize": 46,
+      "mergedAt": "2020-12-04T18:34:49Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "marcosvega91": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 4,
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 3,
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 7
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "sanchit121",
+      "url": "https://github.com/testing-library/react-testing-library/pull/857",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2021-01-07T17:59:46Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 2,
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 2
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/868",
+      "additions": 50,
+      "deletions": 12,
+      "prSize": 62,
+      "mergedAt": "2021-02-02T09:30:49Z",
+      "age": 6,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "nickmccurdy": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 6,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "nickmccurdy": 4
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 4,
+      "codeComments": 4,
+      "codeCommenters": {
+        "nickmccurdy": 2,
+        "timdeschryver": 2
+      },
+      "codeCommentSentimentScore": 1,
+      "codeCommentSentiments": {
+        "nickmccurdy": -3,
+        "timdeschryver": 4
+      },
+      "codeCommentsAuthor": 4,
+      "codeCommentAuthorSentimentScore": 5,
+      "comments": 8,
+      "commenters": {
+        "nickmccurdy": 3,
+        "timdeschryver": 2,
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 7,
+      "commentSentiments": {
+        "nickmccurdy": 1,
+        "timdeschryver": 4,
+        "codesandbox-ci": 2
+      },
+      "commentsAuthor": 6,
+      "commentAuthorSentimentScore": 9
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "solufa",
+      "url": "https://github.com/testing-library/react-testing-library/pull/871",
+      "additions": 17,
+      "deletions": 1,
+      "prSize": 18,
+      "mergedAt": "2021-02-02T16:33:02Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 2,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 8,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "eps1lon": 6
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 1,
+      "comments": 5,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 2,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 8,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "eps1lon": 6
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 1
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "solufa",
+      "url": "https://github.com/testing-library/react-testing-library/pull/873",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2021-02-03T09:42:52Z",
+      "age": 1,
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "eps1lon": 2
+      },
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "eps1lon": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "AriPerkkio",
+      "url": "https://github.com/testing-library/react-testing-library/pull/878",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2021-02-19T19:24:31Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "nickmccurdy": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "nickmccurdy": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "MatanBobi",
+      "url": "https://github.com/testing-library/react-testing-library/pull/893",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2021-03-30T10:19:09Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "nickmccurdy": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "MichaelDeBoey",
+      "url": "https://github.com/testing-library/react-testing-library/pull/900",
+      "additions": 5,
+      "deletions": 9,
+      "prSize": 14,
+      "mergedAt": "2021-04-21T15:31:07Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "nickmccurdy",
+      "url": "https://github.com/testing-library/react-testing-library/pull/902",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2021-04-23T13:09:27Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "MatanBobi",
+      "url": "https://github.com/testing-library/react-testing-library/pull/901",
+      "additions": 18,
+      "deletions": 18,
+      "prSize": 36,
+      "mergedAt": "2021-04-25T09:51:28Z",
+      "age": 3,
+      "approvals": 3,
+      "approvers": {
+        "eps1lon": 1,
+        "marcosvega91": 1,
+        "nickmccurdy": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 6,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "eps1lon": 4
+      },
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 6,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "eps1lon": 4
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "jhnns",
+      "url": "https://github.com/testing-library/react-testing-library/pull/911",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2021-05-14T12:39:23Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "eps1lon": 1
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 8,
+      "comments": 5,
+      "commenters": {
+        "eps1lon": 2,
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 8
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "anpaopao",
+      "url": "https://github.com/testing-library/react-testing-library/pull/916",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2021-05-24T09:40:28Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "github-actions": 2
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 5,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "github-actions": 2
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/922",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2021-06-08T08:55:05Z",
+      "age": 1,
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 2
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 2
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/923",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2021-06-08T09:30:21Z",
+      "age": 1,
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 2
+      },
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": -2
+      },
+      "generalCommentsAuthor": 1,
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 2
+      },
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": -2
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/921",
+      "additions": 59,
+      "deletions": 55,
+      "prSize": 114,
+      "mergedAt": "2021-06-08T18:05:19Z",
+      "age": 1,
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 2
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "codeCommentsAuthor": 2,
+      "codeCommentAuthorSentimentScore": 2,
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 2
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 2
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/928",
+      "additions": 62,
+      "deletions": 18,
+      "prSize": 80,
+      "mergedAt": "2021-06-12T09:05:12Z",
+      "age": 1,
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/929",
+      "additions": 69,
+      "deletions": 26,
+      "prSize": 95,
+      "mergedAt": "2021-06-12T09:18:37Z",
+      "age": 1,
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 2
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 2
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/930",
+      "additions": 4,
+      "deletions": 3,
+      "prSize": 7,
+      "mergedAt": "2021-06-12T09:27:17Z",
+      "age": 1,
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 2
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 2
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/931",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2021-06-13T16:02:19Z",
+      "age": 1,
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 2
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 2
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/936",
+      "additions": 76,
+      "deletions": 72,
+      "prSize": 148,
+      "mergedAt": "2021-06-23T06:32:13Z",
+      "age": 2,
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": 1
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": 1
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "leschdom",
+      "url": "https://github.com/testing-library/react-testing-library/pull/932",
+      "additions": 5,
+      "deletions": 6,
+      "prSize": 11,
+      "mergedAt": "2021-07-15T01:25:15Z",
+      "age": 31,
+      "approvals": 1,
+      "approvers": {
+        "nickmccurdy": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "nickmccurdy": 2,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 5,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "nickmccurdy": 3
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 3,
+      "comments": 5,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "nickmccurdy": 2,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 5,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "nickmccurdy": 3
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 3
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/960",
+      "additions": 2,
+      "deletions": 1,
+      "prSize": 3,
+      "mergedAt": "2021-09-11T09:38:51Z",
+      "age": 1,
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/959",
+      "additions": 9,
+      "deletions": 4,
+      "prSize": 13,
+      "mergedAt": "2021-09-11T09:42:24Z",
+      "age": 1,
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "ImADrafter",
+      "url": "https://github.com/testing-library/react-testing-library/pull/909",
+      "additions": 32,
+      "prSize": 32,
+      "mergedAt": "2021-09-11T09:50:31Z",
+      "age": 122,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 6,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "eps1lon": 4
+      },
+      "codeComments": 8,
+      "codeCommenters": {
+        "eps1lon": 8
+      },
+      "codeCommentSentimentScore": 4,
+      "codeCommentSentiments": {
+        "eps1lon": 4
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": -3,
+      "comments": 12,
+      "commenters": {
+        "eps1lon": 9,
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 10,
+      "commentSentiments": {
+        "eps1lon": 8,
+        "codesandbox-ci": 2
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": -3
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/962",
+      "additions": 56,
+      "deletions": 20,
+      "prSize": 76,
+      "mergedAt": "2021-09-12T09:12:06Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "MatanBobi": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 2
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 2
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/937",
+      "additions": 210,
+      "deletions": 83,
+      "prSize": 293,
+      "mergedAt": "2021-09-13T08:49:05Z",
+      "age": 82,
+      "approvals": 2,
+      "approvers": {
+        "kentcdodds": 1,
+        "nickmccurdy": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1,
+        "nstepien": 1,
+        "diegohaz": 1
+      },
+      "generalCommentSentimentScore": -3,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": 1,
+        "nstepien": -3,
+        "diegohaz": -3
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 1,
+      "codeComments": 3,
+      "codeCommenters": {
+        "kentcdodds": 2,
+        "MatanBobi": 1
+      },
+      "codeCommentSentimentScore": -1,
+      "codeCommentSentiments": {
+        "kentcdodds": 4,
+        "MatanBobi": -5
+      },
+      "codeCommentsAuthor": 7,
+      "codeCommentAuthorSentimentScore": -22,
+      "comments": 8,
+      "commenters": {
+        "kentcdodds": 2,
+        "MatanBobi": 1,
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1,
+        "nstepien": 1,
+        "diegohaz": 1
+      },
+      "commentSentimentScore": -4,
+      "commentSentiments": {
+        "kentcdodds": 4,
+        "MatanBobi": -5,
+        "codesandbox-ci": 2,
+        "codecov": 1,
+        "nstepien": -3,
+        "diegohaz": -3
+      },
+      "commentsAuthor": 8,
+      "commentAuthorSentimentScore": -21
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "kentcdodds",
+      "url": "https://github.com/testing-library/react-testing-library/pull/966",
+      "additions": 23,
+      "deletions": 1,
+      "prSize": 24,
+      "mergedAt": "2021-09-27T12:39:57Z",
+      "age": 2,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 2,
+        "astorije": 1
+      },
+      "generalCommentSentimentScore": 6,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "astorije": 4
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 4,
+      "codeComments": 2,
+      "codeCommenters": {
+        "eps1lon": 2
+      },
+      "codeCommentSentimentScore": -1,
+      "codeCommentSentiments": {
+        "eps1lon": -1
+      },
+      "comments": 7,
+      "commenters": {
+        "eps1lon": 2,
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 2,
+        "astorije": 1
+      },
+      "commentSentimentScore": 5,
+      "commentSentiments": {
+        "eps1lon": -1,
+        "codesandbox-ci": 2,
+        "astorije": 4
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 4
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/973",
+      "additions": 21,
+      "deletions": 2,
+      "prSize": 23,
+      "mergedAt": "2021-10-03T13:14:51Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "MatanBobi": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 2
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "codeComments": 2,
+      "codeCommenters": {
+        "drzamich": 2
+      },
+      "codeCommentSentimentScore": 5,
+      "codeCommentSentiments": {
+        "drzamich": 5
+      },
+      "codeCommentsAuthor": 2,
+      "codeCommentAuthorSentimentScore": 1,
+      "comments": 6,
+      "commenters": {
+        "drzamich": 2,
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 2
+      },
+      "commentSentimentScore": 7,
+      "commentSentiments": {
+        "drzamich": 5,
+        "codesandbox-ci": 2
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 1
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "ph-fritsche",
+      "url": "https://github.com/testing-library/react-testing-library/pull/975",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2021-10-07T12:12:08Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 2
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 2
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/980",
+      "additions": 126,
+      "deletions": 9,
+      "prSize": 135,
+      "mergedAt": "2021-10-28T08:45:19Z",
+      "age": 8,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": 1
+      },
+      "generalCommentsAuthor": 1,
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": 1
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/987",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2021-10-28T10:45:20Z",
+      "age": 1,
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/988",
+      "additions": 57,
+      "deletions": 12,
+      "prSize": 69,
+      "mergedAt": "2021-10-31T08:52:46Z",
+      "age": 2,
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": 1
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": 1
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/994",
+      "additions": 27,
+      "deletions": 15,
+      "prSize": 42,
+      "mergedAt": "2021-11-23T15:15:34Z",
+      "age": 5,
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": -3,
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": -3
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "fmeum",
+      "url": "https://github.com/testing-library/react-testing-library/pull/1001",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2022-02-15T22:50:32Z",
+      "age": 74,
+      "generalComments": 8,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "MatanBobi": 1,
+        "codecov": 1,
+        "eps1lon": 3,
+        "github-actions": 2
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "MatanBobi": -2,
+        "codecov": 2,
+        "eps1lon": 2
+      },
+      "generalCommentsAuthor": 4,
+      "generalCommentAuthorSentimentScore": 21,
+      "codeComments": 1,
+      "codeCommenters": {
+        "eps1lon": 1
+      },
+      "codeCommentSentimentScore": 1,
+      "codeCommentSentiments": {
+        "eps1lon": 1
+      },
+      "comments": 9,
+      "commenters": {
+        "eps1lon": 4,
+        "codesandbox-ci": 1,
+        "MatanBobi": 1,
+        "codecov": 1,
+        "github-actions": 2
+      },
+      "commentSentimentScore": 5,
+      "commentSentiments": {
+        "eps1lon": 3,
+        "codesandbox-ci": 2,
+        "MatanBobi": -2,
+        "codecov": 2
+      },
+      "commentsAuthor": 4,
+      "commentAuthorSentimentScore": 21
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/1019",
+      "additions": 1,
+      "deletions": 2,
+      "prSize": 3,
+      "mergedAt": "2022-03-01T18:32:08Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "github-actions": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "github-actions": 1
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/1020",
+      "additions": 2,
+      "prSize": 2,
+      "mergedAt": "2022-03-01T19:20:14Z",
+      "age": 1,
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/1018",
+      "additions": 73,
+      "deletions": 446,
+      "prSize": 519,
+      "mergedAt": "2022-03-04T21:06:31Z",
+      "age": 3,
+      "generalComments": 9,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "alexkrolick": 1,
+        "kentcdodds": 3,
+        "RLiriaVA": 2,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 17,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": 2,
+        "alexkrolick": 4,
+        "kentcdodds": 6,
+        "RLiriaVA": 3
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": 4,
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 1,
+      "comments": 9,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "alexkrolick": 1,
+        "kentcdodds": 3,
+        "RLiriaVA": 2,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 17,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": 2,
+        "alexkrolick": 4,
+        "kentcdodds": 6,
+        "RLiriaVA": 3
+      },
+      "commentsAuthor": 4,
+      "commentAuthorSentimentScore": 5
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/1023",
+      "additions": 26,
+      "deletions": 4,
+      "prSize": 30,
+      "mergedAt": "2022-03-09T14:32:49Z",
+      "age": 4,
+      "generalComments": 5,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 3
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 5,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 3
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/1026",
+      "additions": 2,
+      "prSize": 2,
+      "mergedAt": "2022-03-19T07:43:44Z",
+      "age": 1,
+      "generalComments": 6,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "RLiriaVA": 1,
+        "github-actions": 3
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "RLiriaVA": 2
+      },
+      "comments": 6,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "RLiriaVA": 1,
+        "github-actions": 3
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "RLiriaVA": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/1030",
+      "additions": 6,
+      "deletions": 7,
+      "prSize": 13,
+      "mergedAt": "2022-03-30T15:05:31Z",
+      "age": 1,
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/1031",
+      "additions": 370,
+      "deletions": 444,
+      "prSize": 814,
+      "mergedAt": "2022-03-31T04:55:39Z",
+      "age": 1,
+      "approvals": 3,
+      "approvers": {
+        "w3bdesign": 1,
+        "kentcdodds": 1,
+        "Sergio-Leon-Contrast": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": 1
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": 1
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/1042",
+      "additions": 1,
+      "prSize": 1,
+      "mergedAt": "2022-04-11T17:59:54Z",
+      "age": 1,
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "Nokel81",
+      "url": "https://github.com/testing-library/react-testing-library/pull/1040",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2022-04-11T18:03:31Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "github-actions": 1,
+        "simkessy": 1
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "simkessy": 1
+      },
+      "generalCommentsAuthor": 1,
+      "comments": 5,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "github-actions": 1,
+        "simkessy": 1
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "simkessy": 1
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/1041",
+      "additions": 3,
+      "deletions": 3,
+      "prSize": 6,
+      "mergedAt": "2022-04-11T18:56:20Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1,
+        "DaeguDude": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "codeCommentsAuthor": 1,
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1,
+        "DaeguDude": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/1044",
+      "additions": 4,
+      "deletions": 3,
+      "prSize": 7,
+      "mergedAt": "2022-04-11T20:10:27Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": -2
+      },
+      "codeCommentsAuthor": 1,
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1,
+        "github-actions": 1
+      },
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": -2
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/1045",
+      "additions": 4,
+      "deletions": 3,
+      "prSize": 7,
+      "mergedAt": "2022-04-13T14:38:44Z",
+      "age": 1,
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/991",
+      "additions": 161,
+      "deletions": 2,
+      "prSize": 163,
+      "mergedAt": "2022-04-15T18:55:25Z",
+      "age": 158,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 36,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 7,
+        "mpeyper": 14,
+        "joshuaellis": 4,
+        "thymikee": 1,
+        "RLiriaVA": 1,
+        "geekact": 1,
+        "github-actions": 1,
+        "AndrewSouthpaw": 1,
+        "MattyBalaam": 1,
+        "MatanBobi": 2,
+        "mubartok": 1
+      },
+      "generalCommentSentimentScore": 168,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": 1,
+        "kentcdodds": 48,
+        "mpeyper": 92,
+        "joshuaellis": 10,
+        "thymikee": 2,
+        "AndrewSouthpaw": 11,
+        "MatanBobi": 3,
+        "mubartok": -1
+      },
+      "generalCommentsAuthor": 6,
+      "generalCommentAuthorSentimentScore": 40,
+      "codeComments": 5,
+      "codeCommenters": {
+        "smmoosavi": 1,
+        "CreativeTechGuy": 1,
+        "mpeyper": 1,
+        "kentcdodds": 2
+      },
+      "codeCommentSentimentScore": 1,
+      "codeCommentSentiments": {
+        "CreativeTechGuy": -1,
+        "kentcdodds": 2
+      },
+      "comments": 41,
+      "commenters": {
+        "smmoosavi": 1,
+        "CreativeTechGuy": 1,
+        "mpeyper": 15,
+        "kentcdodds": 9,
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "joshuaellis": 4,
+        "thymikee": 1,
+        "RLiriaVA": 1,
+        "geekact": 1,
+        "github-actions": 1,
+        "AndrewSouthpaw": 1,
+        "MattyBalaam": 1,
+        "MatanBobi": 2,
+        "mubartok": 1
+      },
+      "commentSentimentScore": 169,
+      "commentSentiments": {
+        "CreativeTechGuy": -1,
+        "mpeyper": 92,
+        "kentcdodds": 50,
+        "codesandbox-ci": 2,
+        "codecov": 1,
+        "joshuaellis": 10,
+        "thymikee": 2,
+        "AndrewSouthpaw": 11,
+        "MatanBobi": 3,
+        "mubartok": -1
+      },
+      "commentsAuthor": 6,
+      "commentAuthorSentimentScore": 40
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "ahummel25",
+      "url": "https://github.com/testing-library/react-testing-library/pull/1049",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2022-04-15T22:07:31Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": -1,
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": -1
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "mboettcher",
+      "url": "https://github.com/testing-library/react-testing-library/pull/1062",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2022-05-03T18:34:37Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 2,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 5,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 2,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/1071",
+      "additions": 1,
+      "deletions": 2,
+      "prSize": 3,
+      "mergedAt": "2022-05-17T18:51:03Z",
+      "age": 1,
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/1070",
+      "additions": 7,
+      "prSize": 7,
+      "mergedAt": "2022-05-28T08:18:07Z",
+      "age": 10,
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "nknapp": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "nknapp": -1
+      },
+      "generalCommentsAuthor": 1,
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "nknapp": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "nknapp": -1
+      },
+      "commentsAuthor": 1
+    }
+  ],
+  "filteredPRs": [
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/1063",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2022-05-03T18:36:41Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/1043",
+      "additions": 11,
+      "prSize": 11,
+      "mergedAt": "2022-04-11T18:06:25Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/1016",
+      "additions": 11,
+      "prSize": 11,
+      "mergedAt": "2022-02-15T22:51:14Z",
+      "age": 1,
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 2
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 2
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/967",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2021-09-27T10:06:03Z",
+      "age": 1,
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 2
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 2
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/961",
+      "additions": 12,
+      "prSize": 12,
+      "mergedAt": "2021-09-11T09:54:16Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/941",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2021-07-15T01:45:28Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/917",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2021-06-12T08:10:30Z",
+      "age": 18,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/912",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2021-05-14T12:40:04Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/903",
+      "additions": 3,
+      "deletions": 2,
+      "prSize": 5,
+      "mergedAt": "2021-04-23T13:19:06Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/879",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2021-02-20T06:53:24Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/872",
+      "additions": 11,
+      "prSize": 11,
+      "mergedAt": "2021-02-02T16:36:21Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/858",
+      "additions": 139,
+      "deletions": 128,
+      "prSize": 267,
+      "mergedAt": "2021-01-07T18:00:47Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/822",
+      "additions": 12,
+      "prSize": 12,
+      "mergedAt": "2020-11-10T19:09:14Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "testing-library-bot": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "testing-library-bot": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/813",
+      "additions": 11,
+      "deletions": 1,
+      "prSize": 12,
+      "mergedAt": "2020-10-30T15:18:55Z",
+      "age": 1,
+      "generalComments": 3,
+      "generalCommenters": {
+        "kentcdodds": 1,
+        "codesandbox-ci": 1,
+        "testing-library-bot": 1
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "kentcdodds": 1,
+        "codesandbox-ci": 2
+      },
+      "generalCommentsAuthor": 1,
+      "comments": 3,
+      "commenters": {
+        "kentcdodds": 1,
+        "codesandbox-ci": 1,
+        "testing-library-bot": 1
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "kentcdodds": 1,
+        "codesandbox-ci": 2
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/807",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2020-10-26T19:00:20Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "testing-library-bot": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "testing-library-bot": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/800",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2020-10-14T13:11:57Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "testing-library-bot": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "testing-library-bot": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/785",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2020-09-13T16:16:15Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "testing-library-bot": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "testing-library-bot": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/779",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2020-09-03T18:04:00Z",
+      "age": 1,
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "testing-library-bot": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "testing-library-bot": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/777",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2020-09-03T06:51:37Z",
+      "age": 1,
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "testing-library-bot": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "testing-library-bot": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/775",
+      "additions": 12,
+      "prSize": 12,
+      "mergedAt": "2020-09-02T22:28:19Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "nickmccurdy": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "testing-library-bot": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "testing-library-bot": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/767",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2020-08-21T07:08:57Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "testing-library-bot": 2
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "testing-library-bot": 2
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/733",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2020-07-05T17:17:03Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "kentcdodds": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "kentcdodds": 1
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/721",
+      "additions": 11,
+      "prSize": 11,
+      "mergedAt": "2020-06-25T07:39:42Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/712",
+      "additions": 3,
+      "deletions": 2,
+      "prSize": 5,
+      "mergedAt": "2020-06-18T00:20:53Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/710",
+      "additions": 10,
+      "deletions": 1,
+      "prSize": 11,
+      "mergedAt": "2020-06-15T12:51:56Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/706",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2020-06-08T16:10:20Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/701",
+      "additions": 3,
+      "deletions": 2,
+      "prSize": 5,
+      "mergedAt": "2020-06-06T00:02:31Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/699",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2020-06-05T19:19:22Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/698",
+      "additions": 13,
+      "prSize": 13,
+      "mergedAt": "2020-06-05T19:14:53Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/692",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2020-06-04T13:51:18Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/691",
+      "additions": 11,
+      "prSize": 11,
+      "mergedAt": "2020-06-04T00:47:06Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "kentcdodds",
+      "url": "https://github.com/testing-library/react-testing-library/pull/685",
+      "additions": 55,
+      "deletions": 57,
+      "prSize": 112,
+      "mergedAt": "2020-06-01T23:33:41Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": 1
+      },
+      "generalCommentsAuthor": 1,
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": 1
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "kentcdodds",
+      "url": "https://github.com/testing-library/react-testing-library/pull/653",
+      "additions": 13,
+      "deletions": 8,
+      "prSize": 21,
+      "mergedAt": "2020-04-30T16:08:06Z",
+      "age": 1,
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 3,
+        "codecov": 1
+      },
+      "generalCommentSentimentScore": 6,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 6
+      },
+      "generalCommentsAuthor": 1,
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 3,
+        "codecov": 1
+      },
+      "commentSentimentScore": 6,
+      "commentSentiments": {
+        "codesandbox-ci": 6
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/649",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2020-04-24T09:39:29Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1,
+        "Ishaan28malik": 1
+      },
+      "generalCommentSentimentScore": 5,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "Ishaan28malik": 3
+      },
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1,
+        "Ishaan28malik": 1
+      },
+      "commentSentimentScore": 5,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "Ishaan28malik": 3
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "MichaelDeBoey",
+      "url": "https://github.com/testing-library/react-testing-library/pull/648",
+      "additions": 2,
+      "deletions": 1,
+      "prSize": 3,
+      "mergedAt": "2020-04-23T18:38:59Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "eps1lon": 2
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 3,
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "eps1lon": 2
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 3
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "MichaelDeBoey",
+      "url": "https://github.com/testing-library/react-testing-library/pull/647",
+      "additions": 1,
+      "prSize": 1,
+      "mergedAt": "2020-04-23T18:58:27Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "Ishaan28malik",
+      "url": "https://github.com/testing-library/react-testing-library/pull/645",
+      "additions": 6,
+      "prSize": 6,
+      "mergedAt": "2020-04-24T09:28:07Z",
+      "age": 2,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 2,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "eps1lon": 2
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": 4,
+      "codeComments": 3,
+      "codeCommenters": {
+        "eps1lon": 3
+      },
+      "codeCommentSentimentScore": -3,
+      "codeCommentSentiments": {
+        "eps1lon": -3
+      },
+      "codeCommentsAuthor": 3,
+      "codeCommentAuthorSentimentScore": -1,
+      "comments": 8,
+      "commenters": {
+        "eps1lon": 5,
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "eps1lon": -1,
+        "codesandbox-ci": 2
+      },
+      "commentsAuthor": 6,
+      "commentAuthorSentimentScore": 3
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "just-boris",
+      "url": "https://github.com/testing-library/react-testing-library/pull/644",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2020-04-20T18:00:31Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "timgates42",
+      "url": "https://github.com/testing-library/react-testing-library/pull/628",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2020-04-03T10:54:44Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "afontcu": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "afontcu": 1,
+        "codecov": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "afontcu": 2
+      },
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "afontcu": 1,
+        "codecov": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "afontcu": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "KubaJastrz",
+      "url": "https://github.com/testing-library/react-testing-library/pull/625",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2020-03-30T16:22:35Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "eps1lon": 2
+      },
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "eps1lon": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "eps1lon": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "MichaelDeBoey",
+      "url": "https://github.com/testing-library/react-testing-library/pull/619",
+      "additions": 6,
+      "deletions": 10,
+      "prSize": 16,
+      "mergedAt": "2020-03-22T13:49:29Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "kentcdodds": 1
+      },
+      "codeCommentsAuthor": 1,
+      "comments": 4,
+      "commenters": {
+        "kentcdodds": 2,
+        "codesandbox-ci": 1,
+        "codecov": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/617",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2020-03-18T11:46:45Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "NMinhNguyen",
+      "url": "https://github.com/testing-library/react-testing-library/pull/611",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2020-03-13T13:25:27Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/609",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2020-03-11T22:57:38Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "juangl",
+      "url": "https://github.com/testing-library/react-testing-library/pull/608",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2020-03-11T22:54:10Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 2
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 1
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 2
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "kentcdodds": 1
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/604",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2020-03-07T14:47:23Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "MichaelDeBoey",
+      "url": "https://github.com/testing-library/react-testing-library/pull/600",
+      "additions": 10,
+      "deletions": 28,
+      "prSize": 38,
+      "mergedAt": "2020-03-04T20:23:10Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/599",
+      "additions": 3,
+      "deletions": 2,
+      "prSize": 5,
+      "mergedAt": "2020-03-04T19:54:36Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "MichaelDeBoey",
+      "url": "https://github.com/testing-library/react-testing-library/pull/598",
+      "additions": 1,
+      "deletions": 6,
+      "prSize": 7,
+      "mergedAt": "2020-03-04T19:52:20Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 2
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": -2,
+        "kentcdodds": 1
+      },
+      "comments": 4,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 2
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": -2,
+        "kentcdodds": 1
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "kentcdodds",
+      "url": "https://github.com/testing-library/react-testing-library/pull/597",
+      "additions": 45,
+      "deletions": 69,
+      "prSize": 114,
+      "mergedAt": "2020-03-12T23:19:28Z",
+      "age": 8,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": 1
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 3,
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": 1
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 3
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "kentcdodds",
+      "url": "https://github.com/testing-library/react-testing-library/pull/596",
+      "additions": 16,
+      "deletions": 3,
+      "prSize": 19,
+      "mergedAt": "2020-03-04T19:13:32Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": 1
+      },
+      "generalCommentsAuthor": 1,
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "codesandbox-ci": 2,
+        "codecov": 1
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/595",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2020-03-04T19:02:15Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/593",
+      "additions": 12,
+      "prSize": 12,
+      "mergedAt": "2020-02-25T10:15:28Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "codecov": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "codesandbox-ci": 2
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "allcontributors",
+      "url": "https://github.com/testing-library/react-testing-library/pull/592",
+      "additions": 12,
+      "deletions": 2,
+      "prSize": 14,
+      "mergedAt": "2020-02-22T15:41:20Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kentcdodds": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "codesandbox-ci": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "codesandbox-ci": 1,
+        "kentcdodds": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "codesandbox-ci": 1
+      }
+    }
+  ],
+  "issues": [
+    {
+      "mergedAt": "2020-06-03T06:46:33Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/688"
+    },
+    {
+      "mergedAt": "2020-06-03T08:38:52Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/689"
+    },
+    {
+      "mergedAt": "2020-06-05T03:41:03Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/693"
+    },
+    {
+      "mergedAt": "2020-06-05T13:41:44Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/694",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2020-06-05T15:06:23Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/695"
+    },
+    {
+      "mergedAt": "2020-06-08T18:31:12Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/707"
+    },
+    {
+      "mergedAt": "2020-06-11T11:25:58Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/708"
+    },
+    {
+      "mergedAt": "2020-06-18T21:25:10Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/713"
+    },
+    {
+      "mergedAt": "2020-06-19T22:23:48Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/716",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2020-06-23T12:02:38Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/719"
+    },
+    {
+      "mergedAt": "2020-06-25T23:19:21Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/722"
+    },
+    {
+      "mergedAt": "2020-06-26T18:07:07Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/723",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2020-06-26T20:54:33Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/724"
+    },
+    {
+      "mergedAt": "2020-06-28T10:45:48Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/725"
+    },
+    {
+      "mergedAt": "2020-06-29T22:31:06Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/726",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2020-07-01T16:48:03Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/727"
+    },
+    {
+      "mergedAt": "2020-07-03T04:33:26Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/729"
+    },
+    {
+      "mergedAt": "2020-07-03T18:50:32Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/730"
+    },
+    {
+      "mergedAt": "2020-07-04T08:50:57Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/731"
+    },
+    {
+      "mergedAt": "2020-07-06T09:20:15Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/734"
+    },
+    {
+      "mergedAt": "2020-07-06T10:16:00Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/735"
+    },
+    {
+      "mergedAt": "2020-07-06T11:16:32Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/736"
+    },
+    {
+      "mergedAt": "2020-07-09T18:28:21Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/741"
+    },
+    {
+      "mergedAt": "2020-07-10T23:22:23Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/742"
+    },
+    {
+      "mergedAt": "2020-07-14T06:25:06Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/745"
+    },
+    {
+      "mergedAt": "2020-07-17T15:26:31Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/748"
+    },
+    {
+      "mergedAt": "2020-07-20T18:25:26Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/749",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2020-07-22T19:35:35Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/750"
+    },
+    {
+      "mergedAt": "2020-07-23T17:14:26Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/751"
+    },
+    {
+      "mergedAt": "2020-07-24T19:56:20Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/752"
+    },
+    {
+      "mergedAt": "2020-07-25T18:54:32Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/753"
+    },
+    {
+      "mergedAt": "2020-07-29T21:58:39Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/754"
+    },
+    {
+      "mergedAt": "2020-07-31T05:04:35Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/755"
+    },
+    {
+      "mergedAt": "2020-08-05T06:33:24Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/759"
+    },
+    {
+      "mergedAt": "2020-08-06T15:15:37Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/760"
+    },
+    {
+      "mergedAt": "2020-08-08T20:27:39Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/762"
+    },
+    {
+      "mergedAt": "2020-08-09T21:55:00Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/763"
+    },
+    {
+      "mergedAt": "2020-08-11T19:26:30Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/764"
+    },
+    {
+      "mergedAt": "2020-08-14T00:58:33Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/765"
+    },
+    {
+      "mergedAt": "2020-08-28T15:15:18Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/771"
+    },
+    {
+      "mergedAt": "2020-08-31T15:34:41Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/773"
+    },
+    {
+      "mergedAt": "2020-09-01T12:34:38Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/774"
+    },
+    {
+      "mergedAt": "2020-09-04T15:11:17Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/780"
+    },
+    {
+      "mergedAt": "2020-09-05T07:26:53Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/781"
+    },
+    {
+      "mergedAt": "2020-09-12T18:34:52Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/783",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2020-09-14T18:07:30Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/787"
+    },
+    {
+      "mergedAt": "2020-09-17T23:19:07Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/788",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2020-09-24T15:57:29Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/789"
+    },
+    {
+      "mergedAt": "2020-09-29T03:43:01Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/790"
+    },
+    {
+      "mergedAt": "2020-10-02T02:48:32Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/791"
+    },
+    {
+      "mergedAt": "2020-10-02T15:02:14Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/792"
+    },
+    {
+      "mergedAt": "2020-10-04T08:22:36Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/793"
+    },
+    {
+      "mergedAt": "2020-10-07T11:27:58Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/795"
+    },
+    {
+      "mergedAt": "2020-10-12T15:45:14Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/797"
+    },
+    {
+      "mergedAt": "2020-10-13T10:39:02Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/798"
+    },
+    {
+      "mergedAt": "2020-10-15T06:18:00Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/801"
+    },
+    {
+      "mergedAt": "2020-10-16T22:32:35Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/802"
+    },
+    {
+      "mergedAt": "2020-10-19T13:30:42Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/803"
+    },
+    {
+      "mergedAt": "2020-10-19T15:27:48Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/804"
+    },
+    {
+      "mergedAt": "2020-10-21T15:27:11Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/805"
+    },
+    {
+      "mergedAt": "2020-10-28T11:18:13Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/810"
+    },
+    {
+      "mergedAt": "2020-11-02T11:18:18Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/814"
+    },
+    {
+      "mergedAt": "2020-11-03T11:07:35Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/815"
+    },
+    {
+      "mergedAt": "2020-11-06T12:52:53Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/817"
+    },
+    {
+      "mergedAt": "2020-11-06T16:28:22Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/818"
+    },
+    {
+      "mergedAt": "2020-11-09T18:08:21Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/819"
+    },
+    {
+      "mergedAt": "2020-11-10T18:29:54Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/820"
+    },
+    {
+      "mergedAt": "2020-11-10T20:16:59Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/823"
+    },
+    {
+      "mergedAt": "2020-11-12T06:55:01Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/824"
+    },
+    {
+      "mergedAt": "2020-11-17T08:10:18Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/828"
+    },
+    {
+      "mergedAt": "2020-11-17T16:55:39Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/829"
+    },
+    {
+      "mergedAt": "2020-11-18T01:52:19Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/830"
+    },
+    {
+      "mergedAt": "2020-11-18T18:47:31Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/832"
+    },
+    {
+      "mergedAt": "2020-11-19T17:21:15Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/835"
+    },
+    {
+      "mergedAt": "2020-11-28T10:43:21Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/838"
+    },
+    {
+      "mergedAt": "2020-12-02T08:31:32Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/841"
+    },
+    {
+      "mergedAt": "2020-12-04T08:47:31Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/844"
+    },
+    {
+      "mergedAt": "2020-12-04T13:29:46Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/845"
+    },
+    {
+      "mergedAt": "2020-12-07T14:50:04Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/846"
+    },
+    {
+      "mergedAt": "2020-12-07T16:20:41Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/847"
+    },
+    {
+      "mergedAt": "2020-12-08T11:34:21Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/848"
+    },
+    {
+      "mergedAt": "2020-12-11T10:27:42Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/849"
+    },
+    {
+      "mergedAt": "2020-12-11T12:14:02Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/850"
+    },
+    {
+      "mergedAt": "2020-12-14T03:23:46Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/852"
+    },
+    {
+      "mergedAt": "2020-12-16T17:51:49Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/853"
+    },
+    {
+      "mergedAt": "2020-12-22T20:09:28Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/854"
+    },
+    {
+      "mergedAt": "2020-12-31T15:09:11Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/855"
+    },
+    {
+      "mergedAt": "2021-01-07T16:04:43Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/856"
+    },
+    {
+      "mergedAt": "2021-01-08T19:44:45Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/859"
+    },
+    {
+      "mergedAt": "2021-01-13T11:31:56Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/860"
+    },
+    {
+      "mergedAt": "2021-01-13T17:56:39Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/861"
+    },
+    {
+      "mergedAt": "2021-01-13T18:46:15Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/863"
+    },
+    {
+      "mergedAt": "2021-01-14T16:06:06Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/864"
+    },
+    {
+      "mergedAt": "2021-01-18T06:17:06Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/865"
+    },
+    {
+      "mergedAt": "2021-01-24T21:38:39Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/866"
+    },
+    {
+      "mergedAt": "2021-01-25T01:27:42Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/867"
+    },
+    {
+      "mergedAt": "2021-01-28T19:22:11Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/869"
+    },
+    {
+      "mergedAt": "2021-02-01T14:25:26Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/870"
+    },
+    {
+      "mergedAt": "2021-02-03T19:44:30Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/874",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2021-02-09T17:02:50Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/876"
+    },
+    {
+      "mergedAt": "2021-02-10T14:33:21Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/877"
+    },
+    {
+      "mergedAt": "2021-03-03T15:47:57Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/880"
+    },
+    {
+      "mergedAt": "2021-03-10T17:10:50Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/882"
+    },
+    {
+      "mergedAt": "2021-03-13T08:43:14Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/883",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2021-03-17T17:00:00Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/884"
+    },
+    {
+      "mergedAt": "2021-03-18T13:59:00Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/885"
+    },
+    {
+      "mergedAt": "2021-03-19T06:25:09Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/886"
+    },
+    {
+      "mergedAt": "2021-03-19T22:12:42Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/887"
+    },
+    {
+      "mergedAt": "2021-03-25T11:52:21Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/889"
+    },
+    {
+      "mergedAt": "2021-03-26T10:22:12Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/891"
+    },
+    {
+      "mergedAt": "2021-03-26T20:29:39Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/892"
+    },
+    {
+      "mergedAt": "2021-03-31T22:30:44Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/894"
+    },
+    {
+      "mergedAt": "2021-04-07T07:55:49Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/895"
+    },
+    {
+      "mergedAt": "2021-04-13T08:18:11Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/899"
+    },
+    {
+      "mergedAt": "2021-04-26T06:44:23Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/904"
+    },
+    {
+      "mergedAt": "2021-04-26T08:47:38Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/905"
+    },
+    {
+      "mergedAt": "2021-04-28T18:12:32Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/906"
+    },
+    {
+      "mergedAt": "2021-05-03T17:18:47Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/907"
+    },
+    {
+      "mergedAt": "2021-05-06T23:55:23Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/908",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2021-05-13T19:35:38Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/910"
+    },
+    {
+      "mergedAt": "2021-05-16T13:20:51Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/913"
+    },
+    {
+      "mergedAt": "2021-05-19T16:24:30Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/914"
+    },
+    {
+      "mergedAt": "2021-05-20T10:24:09Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/915"
+    },
+    {
+      "mergedAt": "2021-05-26T02:34:37Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/918",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2021-05-29T21:09:44Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/919"
+    },
+    {
+      "mergedAt": "2021-06-02T02:10:39Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/920"
+    },
+    {
+      "mergedAt": "2021-06-08T12:27:13Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/924"
+    },
+    {
+      "mergedAt": "2021-06-13T19:18:25Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/933"
+    },
+    {
+      "mergedAt": "2021-06-15T02:59:58Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/934"
+    },
+    {
+      "mergedAt": "2021-06-18T09:30:16Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/935"
+    },
+    {
+      "mergedAt": "2021-07-02T09:37:10Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/938"
+    },
+    {
+      "mergedAt": "2021-07-07T16:31:20Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/939"
+    },
+    {
+      "mergedAt": "2021-07-09T13:59:55Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/940"
+    },
+    {
+      "mergedAt": "2021-07-16T04:34:04Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/942"
+    },
+    {
+      "mergedAt": "2021-07-17T12:03:08Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/943"
+    },
+    {
+      "mergedAt": "2021-07-26T08:10:37Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/946"
+    },
+    {
+      "mergedAt": "2021-07-30T16:49:54Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/947"
+    },
+    {
+      "mergedAt": "2021-08-02T13:40:14Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/948"
+    },
+    {
+      "mergedAt": "2021-08-03T21:22:17Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/949"
+    },
+    {
+      "mergedAt": "2021-08-09T23:35:35Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/950"
+    },
+    {
+      "mergedAt": "2021-08-13T09:38:24Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/951"
+    },
+    {
+      "mergedAt": "2021-08-16T09:01:51Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/952"
+    },
+    {
+      "mergedAt": "2021-08-19T13:44:07Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/954"
+    },
+    {
+      "mergedAt": "2021-08-19T21:58:19Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/955"
+    },
+    {
+      "mergedAt": "2021-09-09T23:57:42Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/958"
+    },
+    {
+      "mergedAt": "2021-09-13T08:52:39Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/963"
+    },
+    {
+      "mergedAt": "2021-09-24T07:09:11Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/965",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2021-09-27T14:45:45Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/968"
+    },
+    {
+      "mergedAt": "2021-09-27T20:17:58Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/969"
+    },
+    {
+      "mergedAt": "2021-09-27T22:06:08Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/970",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2021-09-28T14:27:58Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/971"
+    },
+    {
+      "mergedAt": "2021-10-02T18:38:06Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/972"
+    },
+    {
+      "mergedAt": "2021-10-06T16:14:33Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/974"
+    },
+    {
+      "mergedAt": "2021-10-17T01:28:33Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/977"
+    },
+    {
+      "mergedAt": "2021-10-17T09:18:40Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/978"
+    },
+    {
+      "mergedAt": "2021-10-18T07:07:15Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/979",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2021-10-21T19:33:58Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/981"
+    },
+    {
+      "mergedAt": "2021-10-21T22:09:45Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/982"
+    },
+    {
+      "mergedAt": "2021-10-22T11:00:33Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/984"
+    },
+    {
+      "mergedAt": "2021-10-22T12:36:24Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/983"
+    },
+    {
+      "mergedAt": "2021-10-25T12:03:05Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/985"
+    },
+    {
+      "mergedAt": "2021-10-27T00:56:25Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/986"
+    },
+    {
+      "mergedAt": "2021-10-29T04:14:15Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/989"
+    },
+    {
+      "mergedAt": "2021-11-05T14:03:52Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/990"
+    },
+    {
+      "mergedAt": "2021-11-15T10:25:44Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/993"
+    },
+    {
+      "mergedAt": "2021-11-22T13:17:43Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/996"
+    },
+    {
+      "mergedAt": "2021-11-29T15:35:02Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/998"
+    },
+    {
+      "mergedAt": "2021-12-01T17:09:49Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/999"
+    },
+    {
+      "mergedAt": "2021-12-03T08:56:31Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1000"
+    },
+    {
+      "mergedAt": "2021-12-10T12:09:46Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1003"
+    },
+    {
+      "mergedAt": "2021-12-10T12:56:48Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1002"
+    },
+    {
+      "mergedAt": "2021-12-15T14:58:21Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1004",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2021-12-17T20:33:25Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1005"
+    },
+    {
+      "mergedAt": "2021-12-24T17:40:02Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1006",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2021-12-30T13:38:56Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1007"
+    },
+    {
+      "mergedAt": "2022-01-03T16:51:06Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1008"
+    },
+    {
+      "mergedAt": "2022-01-15T19:00:54Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1009"
+    },
+    {
+      "mergedAt": "2022-01-19T10:49:04Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1010"
+    },
+    {
+      "mergedAt": "2022-01-20T10:10:08Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1011"
+    },
+    {
+      "mergedAt": "2022-01-21T11:07:04Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1012"
+    },
+    {
+      "mergedAt": "2022-01-24T07:42:06Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1013"
+    },
+    {
+      "mergedAt": "2022-01-25T06:38:12Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1014"
+    },
+    {
+      "mergedAt": "2022-02-11T08:31:35Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1015"
+    },
+    {
+      "mergedAt": "2022-02-22T18:22:33Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1017"
+    },
+    {
+      "mergedAt": "2022-03-03T17:28:00Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1022"
+    },
+    {
+      "mergedAt": "2022-03-07T07:18:25Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1024"
+    },
+    {
+      "mergedAt": "2022-03-10T02:42:04Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1025"
+    },
+    {
+      "mergedAt": "2022-03-21T14:40:09Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1027"
+    },
+    {
+      "mergedAt": "2022-03-23T07:13:16Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1028"
+    },
+    {
+      "mergedAt": "2022-03-29T13:55:26Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1029"
+    },
+    {
+      "mergedAt": "2022-03-30T17:31:28Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1032"
+    },
+    {
+      "mergedAt": "2022-04-02T06:17:53Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1033"
+    },
+    {
+      "mergedAt": "2022-04-04T09:12:12Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1034"
+    },
+    {
+      "mergedAt": "2022-04-04T19:55:07Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1035"
+    },
+    {
+      "mergedAt": "2022-04-05T06:46:56Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1036"
+    },
+    {
+      "mergedAt": "2022-04-07T00:01:54Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1037"
+    },
+    {
+      "mergedAt": "2022-04-07T08:14:43Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1038"
+    },
+    {
+      "mergedAt": "2022-04-11T14:42:52Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1039"
+    },
+    {
+      "mergedAt": "2022-04-12T16:19:58Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1046"
+    },
+    {
+      "mergedAt": "2022-04-13T10:17:02Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1047"
+    },
+    {
+      "mergedAt": "2022-04-14T07:09:13Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1048"
+    },
+    {
+      "mergedAt": "2022-04-18T15:33:36Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1050"
+    },
+    {
+      "mergedAt": "2022-04-19T00:20:38Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1051"
+    },
+    {
+      "mergedAt": "2022-04-20T11:10:45Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1052"
+    },
+    {
+      "mergedAt": "2022-04-21T12:38:20Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1053"
+    },
+    {
+      "mergedAt": "2022-04-21T21:41:04Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1054"
+    },
+    {
+      "mergedAt": "2022-04-24T19:10:13Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1055"
+    },
+    {
+      "mergedAt": "2022-04-25T10:41:30Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1056"
+    },
+    {
+      "mergedAt": "2022-04-25T17:23:11Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1057"
+    },
+    {
+      "mergedAt": "2022-04-26T08:45:19Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1058"
+    },
+    {
+      "mergedAt": "2022-04-30T14:42:24Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1060"
+    },
+    {
+      "mergedAt": "2022-05-03T04:25:18Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1061"
+    },
+    {
+      "mergedAt": "2022-05-04T17:28:52Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1064"
+    },
+    {
+      "mergedAt": "2022-05-11T11:27:01Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1065"
+    },
+    {
+      "mergedAt": "2022-05-13T04:31:11Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1066"
+    },
+    {
+      "mergedAt": "2022-05-13T12:58:32Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1067"
+    },
+    {
+      "mergedAt": "2022-05-15T14:49:23Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1068"
+    },
+    {
+      "mergedAt": "2022-05-18T06:34:14Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1073"
+    },
+    {
+      "mergedAt": "2022-05-18T08:16:43Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1074"
+    },
+    {
+      "mergedAt": "2022-05-23T16:27:30Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1076"
+    },
+    {
+      "mergedAt": "2022-05-26T01:32:41Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1078"
+    },
+    {
+      "mergedAt": "2022-05-26T20:23:56Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1079"
+    },
+    {
+      "mergedAt": "2022-05-31T15:36:12Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/1080"
+    }
+  ],
+  "filteredIssues": [
+    {
+      "mergedAt": "2020-06-02T14:52:19Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/686"
+    },
+    {
+      "mergedAt": "2020-06-01T21:34:38Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/684",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2020-05-30T06:14:45Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/683"
+    },
+    {
+      "mergedAt": "2020-05-29T10:16:18Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/682"
+    },
+    {
+      "mergedAt": "2020-05-28T12:16:38Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/681"
+    },
+    {
+      "mergedAt": "2020-05-28T03:58:28Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/680"
+    },
+    {
+      "mergedAt": "2020-05-27T12:52:16Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/679"
+    },
+    {
+      "mergedAt": "2020-05-27T12:48:11Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/678"
+    },
+    {
+      "mergedAt": "2020-05-27T12:10:58Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/677"
+    },
+    {
+      "mergedAt": "2020-05-26T16:29:21Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/675"
+    },
+    {
+      "mergedAt": "2020-05-22T13:55:06Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/674"
+    },
+    {
+      "mergedAt": "2020-05-21T11:47:44Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/673"
+    },
+    {
+      "mergedAt": "2020-05-20T00:28:59Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/672"
+    },
+    {
+      "mergedAt": "2020-05-15T16:29:30Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/671"
+    },
+    {
+      "mergedAt": "2020-05-14T23:17:22Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/670"
+    },
+    {
+      "mergedAt": "2020-05-14T17:14:48Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/669"
+    },
+    {
+      "mergedAt": "2020-05-13T12:18:50Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/668"
+    },
+    {
+      "mergedAt": "2020-05-13T10:30:24Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/667"
+    },
+    {
+      "mergedAt": "2020-05-11T04:21:54Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/666"
+    },
+    {
+      "mergedAt": "2020-05-10T15:11:10Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/665"
+    },
+    {
+      "mergedAt": "2020-05-10T01:54:03Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/664"
+    },
+    {
+      "mergedAt": "2020-05-09T13:32:15Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/663"
+    },
+    {
+      "mergedAt": "2020-05-07T19:05:24Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/662"
+    },
+    {
+      "mergedAt": "2020-05-07T09:25:21Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/661"
+    },
+    {
+      "mergedAt": "2020-05-06T12:57:40Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/660"
+    },
+    {
+      "mergedAt": "2020-05-06T10:19:26Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/659"
+    },
+    {
+      "mergedAt": "2020-05-06T09:54:03Z",
+      "url": "https://github.com/testing-library/react-testing-library/issues/658"
+    }
+  ],
+  "releases": [
+    {
+      "date": "2022-05-28T08:18:06Z",
+      "description": "v13.3.0",
+      "releaseType": "MINOR"
+    },
+    {
+      "date": "2022-05-03T18:36:41Z",
+      "description": "v13.2.0",
+      "releaseType": "MINOR"
+    },
+    {
+      "date": "2022-04-15T22:07:31Z",
+      "description": "v13.1.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2022-04-15T18:55:24Z",
+      "description": "v13.1.0",
+      "releaseType": "MINOR"
+    },
+    {
+      "date": "2022-04-11T20:10:27Z",
+      "description": "v12.1.5",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2022-04-11T18:06:24Z",
+      "description": "v13.0.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2022-03-31T04:55:38Z",
+      "description": "v13.0.0",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2022-03-30T15:06:16Z",
+      "description": "v13.0.0-alpha.7",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2022-03-09T14:32:49Z",
+      "description": "v12.1.4",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2022-03-04T21:06:31Z",
+      "description": "v13.0.0-alpha.6",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2022-02-15T22:51:13Z",
+      "description": "v12.1.3",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2021-11-23T15:15:34Z",
+      "description": "v13.0.0-alpha.5",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2021-10-31T08:52:45Z",
+      "description": "v13.0.0-alpha.4",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2021-10-28T10:52:45Z",
+      "description": "v13.0.0-alpha.3",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2021-10-03T13:14:51Z",
+      "description": "v12.1.2",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2021-09-27T12:39:57Z",
+      "description": "v12.1.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2021-09-13T08:49:05Z",
+      "description": "v13.0.0-alpha.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2021-09-11T09:54:16Z",
+      "description": "v12.1.0",
+      "releaseType": "MINOR"
+    },
+    {
+      "date": "2021-06-23T06:29:11Z",
+      "description": "v12.0.0",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2021-06-13T16:02:19Z",
+      "description": "v12.0.0-alpha.2",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2021-06-12T09:27:17Z",
+      "description": "v12.0.0-alpha.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2021-06-08T09:30:21Z",
+      "description": "v11.2.8-alpha.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2021-05-14T12:40:04Z",
+      "description": "v11.2.7",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2021-03-30T10:19:08Z",
+      "description": "v11.2.6",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2021-02-02T16:36:20Z",
+      "description": "v11.2.5",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2021-02-02T09:30:49Z",
+      "description": "v11.2.4",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2021-01-07T18:00:46Z",
+      "description": "v11.2.3",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-11-20T23:31:49Z",
+      "description": "v11.2.2",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-11-19T10:41:09Z",
+      "description": "v11.2.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-11-18T16:42:12Z",
+      "description": "v11.2.0",
+      "releaseType": "MINOR"
+    },
+    {
+      "date": "2020-11-10T19:09:13Z",
+      "description": "v11.1.2",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-11-03T14:25:18Z",
+      "description": "v11.1.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-10-14T13:11:56Z",
+      "description": "v11.1.0",
+      "releaseType": "MINOR"
+    },
+    {
+      "date": "2020-09-13T18:33:30Z",
+      "description": "v11.0.4",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-09-13T15:50:55Z",
+      "description": "v11.0.3",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-09-03T17:43:27Z",
+      "description": "v11.0.2",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-09-03T06:29:06Z",
+      "description": "v11.0.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-09-02T17:41:32Z",
+      "description": "v11.0.0",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2020-08-30T03:23:18Z",
+      "description": "v11.0.0-beta.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-08-21T06:45:14Z",
+      "description": "v10.4.9",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-08-05T02:02:17Z",
+      "description": "v10.4.8",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-07-15T12:49:28Z",
+      "description": "v10.4.7",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-07-13T18:15:28Z",
+      "description": "v10.4.6",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-07-08T18:46:21Z",
+      "description": "v10.4.5",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-07-05T17:17:02Z",
+      "description": "v10.4.4",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-06-25T04:21:29Z",
+      "description": "v10.4.3",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-06-24T19:07:18Z",
+      "description": "v10.4.2",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-06-23T21:53:35Z",
+      "description": "v10.4.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-06-23T16:26:11Z",
+      "description": "v10.4.0",
+      "releaseType": "MINOR"
+    },
+    {
+      "date": "2020-06-18T00:20:53Z",
+      "description": "v10.3.0",
+      "releaseType": "MINOR"
+    },
+    {
+      "date": "2020-06-05T19:19:22Z",
+      "description": "v10.2.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-06-04T13:51:17Z",
+      "description": "v10.2.0",
+      "releaseType": "MINOR"
+    },
+    {
+      "date": "2020-06-04T00:47:05Z",
+      "description": "v10.1.0",
+      "releaseType": "MINOR"
+    },
+    {
+      "date": "2020-06-02T22:10:52Z",
+      "description": "v10.0.6",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-06-01T23:33:40Z",
+      "description": "v10.0.5",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-04-30T16:08:05Z",
+      "description": "v10.0.4",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-04-20T18:00:30Z",
+      "description": "v10.0.3",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-03-30T16:22:34Z",
+      "description": "v10.0.2",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-03-13T13:25:27Z",
+      "description": "v10.0.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-03-12T23:19:27Z",
+      "description": "v10.0.0",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2020-03-04T19:52:19Z",
+      "description": "v10.0.0-beta.2",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-03-04T19:23:33Z",
+      "description": "v10.0.0-beta.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2020-03-04T19:13:32Z",
+      "description": "v9.5.0",
+      "releaseType": "MINOR"
+    },
+    {
+      "date": "2020-02-22T15:43:31Z",
+      "description": "v9.4.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-12-13T15:36:29Z",
+      "description": "v9.4.0",
+      "releaseType": "MINOR"
+    },
+    {
+      "date": "2019-12-11T05:52:59Z",
+      "description": "v9.3.3",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-11-04T14:58:33Z",
+      "description": "v9.3.2",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-10-30T17:54:46Z",
+      "description": "v9.3.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-10-03T19:17:37Z",
+      "description": "v9.3.0",
+      "releaseType": "MINOR"
+    },
+    {
+      "date": "2019-09-26T23:02:57Z",
+      "description": "v9.2.0",
+      "releaseType": "MINOR"
+    },
+    {
+      "date": "2019-09-03T21:40:58Z",
+      "description": "v9.1.4",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-08-16T21:08:35Z",
+      "description": "v9.1.3",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-08-15T19:27:27Z",
+      "description": "v9.1.2",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-08-12T23:41:16Z",
+      "description": "v9.1.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-08-10T17:36:08Z",
+      "description": "v9.1.0",
+      "releaseType": "MINOR"
+    },
+    {
+      "date": "2019-08-09T20:35:37Z",
+      "description": "v9.0.2",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-08-09T20:12:57Z",
+      "description": "v9.0.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-08-09T19:57:15Z",
+      "description": "v9.0.0",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2019-08-08T22:54:48Z",
+      "description": "v8.0.9",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-08-06T20:14:20Z",
+      "description": "v8.0.8",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-07-26T14:17:19Z",
+      "description": "v8.0.7",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-07-23T11:52:14Z",
+      "description": "v8.0.6",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-07-12T17:04:44Z",
+      "description": "v8.0.5",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-06-25T14:19:45Z",
+      "description": "v8.0.4",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-06-25T12:54:37Z",
+      "description": "v8.0.3",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-06-24T18:46:02Z",
+      "description": "v8.0.2",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-05-30T17:52:16Z",
+      "description": "v8.0.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-05-30T17:43:13Z",
+      "description": "v8.0.0",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2019-05-19T19:53:04Z",
+      "description": "v7.0.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-04-25T21:14:27Z",
+      "description": "v7.0.0",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2019-04-05T19:44:52Z",
+      "description": "v6.1.2",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-04-05T16:49:08Z",
+      "description": "v6.1.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-04-05T16:32:44Z",
+      "description": "v6.1.0",
+      "releaseType": "MINOR"
+    },
+    {
+      "date": "2019-04-01T17:33:06Z",
+      "description": "v6.0.4",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-03-26T17:08:43Z",
+      "description": "v6.0.3",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-03-21T15:23:08Z",
+      "description": "v6.0.2",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-03-19T15:42:28Z",
+      "description": "v6.0.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2019-02-24T06:25:27Z",
+      "description": "v6.0.0",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2019-02-19T01:10:47Z",
+      "description": "v5.9.0",
+      "releaseType": "MINOR"
+    },
+    {
+      "date": "2019-02-12T17:42:21Z",
+      "description": "v5.8.0",
+      "releaseType": "MINOR"
+    }
+  ]
+}
