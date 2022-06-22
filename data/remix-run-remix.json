@@ -1,4 +1,5 @@
 {
+  "preFetchedName": "remix-run-remix",
   "fetches": {
     "org": "remix-run",
     "repo": "remix",

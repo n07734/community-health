@@ -1,4 +1,5 @@
 {
+  "preFetchedName": "babel-babel",
   "fetches": {
     "org": "babel",
     "repo": "babel",

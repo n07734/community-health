@@ -1,4 +1,5 @@
 {
+  "preFetchedName": "denoland-deno",
   "fetches": {
     "org": "denoland",
     "repo": "deno",

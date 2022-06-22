@@ -1,4 +1,5 @@
 {
+  "preFetchedName": "microsoft-playwright",
   "fetches": {
     "org": "microsoft",
     "repo": "playwright",

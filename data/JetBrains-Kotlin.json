@@ -1,4 +1,5 @@
 {
+  "preFetchedName": "JetBrains-Kotlin",
   "fetches": {
     "org": "JetBrains",
     "repo": "Kotlin",

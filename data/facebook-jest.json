@@ -1,4 +1,5 @@
 {
+  "preFetchedName": "facebook-jest",
   "fetches": {
     "org": "facebook",
     "repo": "jest",

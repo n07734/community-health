@@ -1,4 +1,5 @@
 {
+  "preFetchedName": "cypress-io-cypress",
   "fetches": {
     "org": "cypress-io",
     "repo": "cypress",

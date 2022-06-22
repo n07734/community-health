@@ -1,4 +1,5 @@
 {
+  "preFetchedName": "vitejs-vite",
   "fetches": {
     "org": "vitejs",
     "repo": "vite",
