@@ -6,19 +6,33 @@ import { pathOr } from 'ramda'
 import theme from './theme'
 import Page from './components/home/Page'
 import Loader from './components/Loader'
-
+import {
+    preFetchedRepos,
+    preFetchedTeams,
+} from './preFetchedInfo'
 import * as actions from './state/actions'
 
-const App = ({ getPreFetchedData, themeType, setUser } = {}) => {
+const App = ({
+    getPreFetched,
+    themeType,
+    setReposUserId
+} = {}) => {
     useEffect(() => {
         const quertString = pathOr('', ['location', 'search'],window)
         const urlParams = new URLSearchParams(quertString);
-        const repo = urlParams.get('repo') || 'react';
+        const repo = urlParams.get('repo') || 'facebook-jest';
         const user = urlParams.get('user') || '';
 
-        getPreFetchedData(repo)
-        setUser(user)
-    }, [getPreFetchedData, setUser])
+        const allItems = [
+            ...preFetchedRepos,
+            ...preFetchedTeams,
+        ]
+        const repoInfo = allItems
+            .find(x => x.file === repo)
+
+        getPreFetched(repoInfo)
+        setReposUserId(user)
+    }, [getPreFetched, setReposUserId])
 
     return (
         <MuiThemeProvider theme={theme(themeType)}>
@@ -33,8 +47,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    getPreFetchedData: (x) => dispatch(actions.getPreFetchedData(x)),
-    setUser: (x) => dispatch(actions.setUser(x)),
+    getPreFetched: (x) => dispatch(actions.getPreFetched(x)),
+    setReposUserId: (x) => dispatch(actions.setUser(x)),
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(App)

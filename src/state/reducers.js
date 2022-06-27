@@ -1,61 +1,31 @@
 import { combineReducers } from 'redux'
 import types from './types'
 
-const reducers = combineReducers({
-    user: (user = '', action) => {
-        const newValue = ({
-            [types.SET_USER]: () => action.payload,
-            [types.CLEAR_USER]: () => '',
-        })[action.type]
+const setClear = startValue => (storKey, clearKey) => (current = startValue, action) => {
+    const newValue = ({
+        [types[storKey]]: () => action.payload,
+        [types[clearKey]]: () => startValue,
+    })[action.type]
 
-        return newValue
-            ? newValue()
-            : user
-    },
+    return newValue
+        ? newValue()
+        : current
+}
+
+const setClearString = setClear('')
+const setClearArray = setClear([])
+const setClearPagination = setClear({ hasNextPage: true })
+
+const reducers = combineReducers({
+    user: setClearString('SET_USER', 'CLEAR_USER'),
     fetches: combineReducers({
         token: (token = '', action) => (action.type === types.STORE_TOKEN)
             ? action.payload
             : token,
-        org: (org = '', action) => {
-            const newValue = ({
-                [types.STORE_ORG]: () => action.payload,
-                [types.CLEAR_ORG]: () => '',
-            })[action.type]
-
-            return newValue
-                ? newValue()
-                : org
-        },
-        repo: (repo = '', action) => {
-            const newValue = ({
-                [types.STORE_REPO]: () => action.payload,
-                [types.CLEAR_REPO]: () => '',
-            })[action.type]
-
-            return newValue
-                ? newValue()
-                : repo
-        },
-        teamName: (teamName = '', action) => {
-            const newValue = ({
-                [types.SET_TEAM_NAME]: () => action.payload,
-                [types.CLEAR_TEAM_NAME]: () => '',
-            })[action.type]
-
-            return newValue
-                ? newValue()
-                : teamName
-        },
-        untilDate: (untilDate = '', action) => {
-            const newValue = ({
-                [types.STORE_UNTIL_DATE]: () => action.payload,
-                [types.CLEAR_UNTIL_DATE]: () => '',
-            })[action.type]
-
-            return newValue
-                ? newValue()
-                : untilDate
-        },
+        org: setClearString('STORE_ORG', 'CLEAR_ORG'),
+        repo: setClearString('STORE_REPO', 'CLEAR_REPO'),
+        teamName: setClearString('SET_TEAM_NAME', 'CLEAR_TEAM_NAME'),
+        untilDate: setClearString('STORE_UNTIL_DATE', 'CLEAR_UNTIL_DATE'),
         amountOfData: (amountOfData = 1, action) => (action.type === types.STORE_AMOUNT)
             ? action.payload
             : amountOfData,
@@ -65,35 +35,13 @@ const reducers = combineReducers({
         enterpriseAPI: (enterpriseAPI = '', action) => (action.type === types.STORE_ENT_URL)
             ? action.payload
             : enterpriseAPI,
-        userIds: (userIds = [], action) => (action.type === types.STORE_USER_IDS)
-            ? action.payload
-            : userIds,
-        excludeIds: (excludeIds = [], action) => (action.type === types.STORE_EX_IDS)
-            ? action.payload
-            : excludeIds,
-        prPagination: (pagination = { hasNextPage: true }, action) => ({
-            [types.SET_PR_PAGINATION]: action.payload,
-            [types.CLEAR_PR_PAGINATION]: { hasNextPage: true },
-        })[action.type] || pagination,
-        releasesPagination: (pagination = { hasNextPage: true }, action) => ({
-            [types.SET_RELEASES_PAGINATION]: action.payload,
-            [types.CLEAR_RELEASES_PAGINATION]: { hasNextPage: true },
-        })[action.type] || pagination,
-        issuesPagination: (pagination = { hasNextPage: true }, action) => ({
-            [types.SET_ISSUES_PAGINATION]: action.payload,
-            [types.CLEAR_ISSUES_PAGINATION]: { hasNextPage: true },
-        })[action.type] || pagination,
+        userIds: setClearArray('STORE_USER_IDS', 'CLEAR_USER_IDS'),
+        excludeIds: setClearArray('STORE_EX_IDS', 'CLEAR_EX_IDS'),
+        prPagination: setClearPagination('SET_PR_PAGINATION', 'CLEAR_PR_PAGINATION'),
+        releasesPagination: setClearPagination('SET_RELEASES_PAGINATION', 'CLEAR_RELEASES_PAGINATION'),
+        issuesPagination: setClearPagination('SET_ISSUES_PAGINATION', 'CLEAR_ISSUES_PAGINATION'),
     }),
-    formUntilDate: (formUntilDate = '', action) => {
-        const newValue = ({
-            [types.STORE_FORM_UNTIL_DATE]: () => action.payload,
-            [types.CLEAR_FORM_UNTIL_DATE]: () => '',
-        })[action.type]
-
-        return newValue
-            ? newValue()
-            : formUntilDate
-    },
+    formUntilDate: setClearString('STORE_FORM_UNTIL_DATE', 'CLEAR_FORM_UNTIL_DATE'),
     fetching: (fetching = false, action) => [
         action.type === types.FETCH_START
             && (() => true),
@@ -105,26 +53,8 @@ const reducers = combineReducers({
     fetchStatus: (fetchStatus = {}, action) => action.type === types.FETCH_STATUS
         ? action.payload
         : fetchStatus,
-    error: (error = '', action) => {
-        const newValue = ({
-            [types.FETCH_ERROR]: () => action.payload,
-            [types.CLEAR_FETCH_ERROR]: () => '',
-        })[action.type]
-
-        return newValue
-            ? newValue()
-            : error
-    },
-    preFetchedName: (name = '', action) => {
-        const newValue = ({
-            [types.PREFETCHED_NAME]: () => action.payload,
-            [types.CLEAR_PREFETCHED_NAME]: () => '',
-        })[action.type]
-
-        return newValue
-            ? newValue()
-            : name
-    },
+    error: setClearString('FETCH_ERROR', 'CLEAR_FETCH_ERROR'),
+    preFetchedName: setClearString('PREFETCHED_NAME', 'CLEAR_PREFETCHED_NAME'),
     pullRequests: (prs = [], action) => [
         action.type === types.ADD_PRS
             && action.payload,

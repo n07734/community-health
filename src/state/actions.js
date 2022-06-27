@@ -128,8 +128,8 @@ const storeSortDirection = (sortDirection = 'DESC') => (dispatch) => dispatch({
 
 const notSameStringValues = (a = {}, b = {}) => (key = '') => a[key] && b[key] && a[key] !== b[key]
 const notSameArrayValues = (fetches = {}, formValues = {}) => (key = '') => {
-    const idsStrng = formValues[key]
-    const formIds = userIdsFromString(idsStrng)
+    const idsString = propOr('', key, formValues)
+    const formIds = userIdsFromString(idsString)
 
     const currentIds = fetches[key]
     return currentIds.length && not(equals(currentIds, formIds))
@@ -165,8 +165,11 @@ const clearData = (dispatch) => {
     dispatch({ type: types.CLEAR_PR_PAGINATION })
     dispatch({ type: types.CLEAR_PREFETCHED_NAME })
     dispatch({ type: types.CLEAR_UNTIL_DATE })
+    dispatch({ type: types.CLEAR_USER_IDS })
+    dispatch({ type: types.CLEAR_EX_IDS })
     dispatch({ type: types.CLEAR_FORM_UNTIL_DATE })
     dispatch({ type: types.CLEAR_USERS_DATA })
+    dispatch({ type: types.CLEAR_TEAM_NAME })
     dispatch({ type: types.CLEAR_RELEASES })
     dispatch({ type: types.CLEAR_RELEASES_PAGINATION })
     dispatch({ type: types.CLEAR_ISSUES })
@@ -370,9 +373,7 @@ const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) =
     }
 }
 
-const getPreFetchedData = (name = 'nivo') => (dispatch, getState) => {
-    const repoData = require(`../prefetchedData/${name}.json`)
-
+const setPreFetchedData = (repoData = {}, dispatch) => {
     const {
         fetches = {},
         preFetchedName = '',
@@ -445,14 +446,68 @@ const getPreFetchedData = (name = 'nivo') => (dispatch, getState) => {
     })
 }
 
+const parseJSON = response => new Promise((resolve, reject) => {
+    response.json()
+        .then(data => response.status === 200
+            ? resolve(data)
+            : reject(new Error(`Error status code ${response.status}`))
+        )
+        .catch(error => {
+            console.log('-=-=--parseJSON error', error)
+            error.status = response.status
+            reject(error)
+        })
+})
+
+const getPreFetched = ({ name = '', file = '' }) => async (dispatch) => {
+    clearData(dispatch)
+    dispatch({ type: types.FETCH_START })
+    dispatch({
+        type: types.FETCH_STATUS,
+        payload: { savedReportName: name }
+    })
+
+    console.log('-=-=--name, file', name, file)
+
+    try {
+        const reportData = await fetch(`https://n07734.github.io/community-health/data/${file}.json`)
+            .then(parseJSON)
+
+        setPreFetchedData(reportData, dispatch)
+
+    } catch (error) {
+        console.log('-=-=--api data error', error, error.status)
+
+        const message = error.status !== 200
+            ? `Error status code ${error.status} loading ${file}`
+            : `${error.message} loading ${file}`
+
+        dispatch({
+            type: types.FETCH_ERROR,
+            payload: {
+                level: 'error',
+                message: message || 'Unknown error',
+            },
+        })
+        dispatch({ type: types.FETCH_END })
+    }
+}
+
+const getPreFetchedData = (name = 'nivo') => (dispatch) => {
+    const reportData = require(`../prefetchedData/${name}.json`)
+    setPreFetchedData(reportData, dispatch)
+}
+
 const getDownloadProps = (dispatch, getState) => {
     const state = getState()
 
     const repo = path(['fetches', 'repo'], state)
     const teamName = path(['fetches', 'teamName'], state)
+    const fileName = teamName
+        ? teamName
+        : `${path(['fetches', 'org'], state)}-${repo}`
+
     const getReportData = pipe(
-        assoc('HOW_TO', "Move this file to src/prefetchedData, then in src/App.js on line 16 change 'react' to your file name excluding the extension. To show in the list you can add the file name in src/components/home/DataOptions/PrefetchedOptions.js."),
-        assoc('preFetchedName', repo || teamName),
         pickAll(['fetches', 'pullRequests', 'filteredPRs', 'userData', 'issues', 'filteredIssues', 'releases', 'teamName']),
         dissocPath(['fetches', 'token']),
         dissocPath(['fetches', 'amountOfData']),
@@ -460,6 +515,7 @@ const getDownloadProps = (dispatch, getState) => {
         dissocPath(['fetches', 'prPagination', 'hasNextPage']),
         dissocPath(['fetches', 'issuesPagination', 'hasNextPage']),
         dissocPath(['fetches', 'releasesPagination', 'hasNextPage']),
+        assoc('preFetchedName', fileName),
         slimObject
     )
 
@@ -467,11 +523,6 @@ const getDownloadProps = (dispatch, getState) => {
     const json = JSON.stringify(reportData, null, 2)
     const blob = new Blob([json], { type: "application/json" })
     const href  = URL.createObjectURL(blob)
-
-
-    const fileName = teamName
-        ? teamName
-        : `${path(['fetches', 'org'], state)}-${repo}`
 
     return {
         href,
@@ -496,6 +547,7 @@ export {
     storeSortDirection,
     getAPIData,
     getPreFetchedData,
+    getPreFetched,
     toggleTheme,
     getDownloadProps,
 }

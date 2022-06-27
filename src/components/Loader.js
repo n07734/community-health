@@ -77,6 +77,7 @@ const Loader = ({
         prCount = 0,
         latestItemDate = '',
         issueCount = 0,
+        savedReportName = '',
     } = fetchStatus
 
     const isTeamSearch = userIds.length > 0
@@ -128,10 +129,18 @@ const Loader = ({
                 <H level={2}>
                     {daysRemainingText(daysRemaining)}
                 </H>
-                <LinearProgress className={classes.dashed} variant="determinate" value={loadedPercent} valueBuffer={oneDayPercent + loadedPercent}/>
-
                 {
-                    !isTeamSearch
+                    savedReportName
+                        && <>
+                            <H level={2}>
+                                Fetching {savedReportName}
+                            </H>
+                        </>
+                }
+                <LinearProgress className={classes.dashed} variant="determinate" value={loadedPercent} valueBuffer={oneDayPercent + loadedPercent}/>
+                {
+                    !savedReportName
+                        && !isTeamSearch
                         && <>
                             <H level={2}>
                                 {prCount} Pull Requests

@@ -3,62 +3,62 @@ import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
 
 import Button from '../../shared/Button'
+import Message from '../Message'
 import { P } from '../../shared/StyledTags'
 import styles from './styles'
-import { getPreFetchedData } from '../../../state/actions'
-
+import { getPreFetched } from '../../../state/actions'
+import {
+    preFetchedRepos,
+    preFetchedTeams,
+} from '../../../preFetchedInfo'
 
 const FetchForm = (props) => {
     const {
         classes,
+        error,
         preFetchedName,
-        getPreFetchedInfo,
+        getPreFetchedReport,
     } = props
 
-    const preFetchButton = (name, i) => <Button
+    console.log('-=-=--preFetchedName', preFetchedName)
+
+    const preFetchButton = ({ name, file }, i) => <Button
         value={name}
         key={i}
-        color={preFetchedName === name ? 'primary' : 'secondary'}
+        color={preFetchedName === file ? 'primary' : 'secondary'}
         onClick={(e) => {
             e.preventDefault()
-            getPreFetchedInfo(name)
+            getPreFetchedReport({ name, file })
         }}
     />
-
+    // TODO: ajax prefetched on load? or have first in bundle
     return (
         <div className={classes.preFetched}>
-                <P>
-                    See community contribution health of some popular Open Source repositories.
-                </P>
-                {
+            <P>
+                See community contribution health of some popular Open Source repositories.
+            </P>
+            {
+                preFetchedRepos
+                    .map(preFetchButton)
+            }
+                {/* {
                     [
                         'react',
                         'svelte',
                         'vue-next',
-                        'TypeScript',
-                        'material-ui',
-                        'xstate',
-                        'react-testing-library',
-                        'node',
-                        'deno',
-                        'vscode',
-                        'electron',
-                        'kotlin',
-                        'swift',
-                        'ramda',
-                        'babel',
-                        'jest',
-                        'prettier',
-                        'cypress',
                     ]
-                        .map(preFetchButton)
-                }
+                } */}
                 <P>See contribution health of some popular OSS teams</P>
                 {
-                    [
-                        'ReactCore',
-                    ]
+                    preFetchedTeams
                         .map(preFetchButton)
+                }
+                {
+                    error
+                        && <Message
+                            error={error}
+                            className={classes.fullRow}
+                        />
                 }
             </div>
     )
@@ -66,10 +66,11 @@ const FetchForm = (props) => {
 
 const mapStateToProps = (state) => ({
     preFetchedName: state.preFetchedName,
+    error: state.error,
 })
 
 const mapDispatchToProps = dispatch => ({
-    getPreFetchedInfo: (x) => dispatch(getPreFetchedData(x)),
+    getPreFetchedReport: (x) => dispatch(getPreFetched(x)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(FetchForm))
