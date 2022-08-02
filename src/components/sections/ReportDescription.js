@@ -65,7 +65,7 @@ const ReportDescription = ({
                         }
                     </P>
             }
-            <P>Pull requests: {pullRequests.length}{ issues.length > 0 && `, Issues: ${issues.length}`}{ releaseCount > 0 && `, Releases: ${releaseCount}`}</P>
+            <P>{pullRequests.length > 0 && `Pull requests: ${pullRequests.length}`}{ issues.length > 0 && `, Issues: ${issues.length}`}{ releaseCount > 0 && `, Releases: ${releaseCount}`}</P>
            {
               preFetchedName.length > 0
                 && <ChartDescription

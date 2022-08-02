@@ -1,23 +1,35 @@
 const preFetchedRepos = [
     {
-        name: 'Cypress',
-        file: 'cypress-io-cypress',
-    },
-    {
         name: 'React',
         file: 'facebook-react',
+    },
+    {
+        name: 'Vite',
+        file: 'vitejs-vite',
+    },
+    {
+        name: 'Typescript',
+        file: 'microsoft-typescript'
     },
     {
         name: 'Jest',
         file: 'facebook-jest',
     },
     {
+        name: 'Vitest',
+        file: 'vitest-dev-vitest',
+    },
+    {
+        name: 'Cypress',
+        file: 'cypress-io-cypress',
+    },
+    {
         name: 'Playwright',
         file: 'microsoft-playwright',
     },
     {
-        name: 'Typescript',
-        file: 'microsoft-typescript'
+        name: 'React Testing Library',
+        file: 'testing-library-react-testing-library',
     },
     {
         name: 'vscode',
@@ -28,28 +40,12 @@ const preFetchedRepos = [
         file: 'mui-org-material',
     },
     {
-        name: 'Node',
-        file: 'nodejs-node',
-    },
-    {
         name: 'Remix',
         file: 'remix-run-remix',
     },
     {
-        name: 'React Testing Library',
-        file: 'testing-library-react-testing-library',
-    },
-    {
-        name: 'Vite',
-        file: 'vitejs-vite',
-    },
-    {
-        name: 'Vitest',
-        file: 'vitest-dev-vitest',
-    },
-    {
-        name: 'Kotlin',
-        file: 'JetBrains-Kotlin',
+        name: 'Node',
+        file: 'nodejs-node',
     },
     {
         name: 'Deno',
@@ -58,6 +54,10 @@ const preFetchedRepos = [
     {
         name: 'Swift',
         file: 'apple-swift',
+    },
+    {
+        name: 'Kotlin',
+        file: 'JetBrains-Kotlin',
     },
     {
         name: 'Babel',

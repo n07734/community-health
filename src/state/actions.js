@@ -383,8 +383,11 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
         releases = [],
     } = repoData
 
-    const teamName = fetches.teamName || ''
-    const userIds = fetches.userIds || []
+    const {
+        teamName = '',
+        userIds = [],
+        excludeIds = [],
+    } = fetches
 
     clearData(dispatch)
 
@@ -418,6 +421,11 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
     dispatch({
         type: types.STORE_USER_IDS,
         payload: userIds,
+    })
+
+    dispatch({
+        type: types.STORE_EX_IDS,
+        payload: excludeIds,
     })
 
     dispatch({

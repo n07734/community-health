@@ -20,7 +20,7 @@ const App = ({
     useEffect(() => {
         const quertString = pathOr('', ['location', 'search'],window)
         const urlParams = new URLSearchParams(quertString);
-        const repo = urlParams.get('repo') || 'facebook-jest';
+        const repo = urlParams.get('repo') || 'facebook-react';
         const user = urlParams.get('user') || '';
 
         const allItems = [

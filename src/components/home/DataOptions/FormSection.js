@@ -38,6 +38,7 @@ import {
     getDownloadProps,
 } from '../../../state/actions'
 import { pick } from 'ramda'
+import { join } from 'ramda'
 
 const buttonText = (fetching, pullRequests = []) => [
     fetching && 'fetching',
@@ -76,7 +77,7 @@ const FormSection = (props) => {
     const {
         setValues,
         getData,
-        fetches,
+        fetches = {},
         fetching,
         error,
         pullRequests = [],
@@ -91,7 +92,7 @@ const FormSection = (props) => {
         sortDirection: 'DESC',
         amountOfData: 1,
         token: '',
-        excludeIds: '',
+        excludeIds: '', // todo:why is this being a [] vs ''?
         enterpriseAPI: '',
     }
 
@@ -125,11 +126,18 @@ const FormSection = (props) => {
         [key]: value
     })
 
+    const formValue = (data, key) => {
+        const value = data[key]
+        return Array.isArray(value)
+            ? join(', ', value)
+            : value
+    }
+
     const inputProps = (key) => ({
         label: inputLabels[key],
         className: classes.child,
         error: inputError[key] || false,
-        value: formInfo[key],
+        value: formValue(formInfo, key) || formValue(fetches, key),
         variant: 'outlined',
         margin: 'normal',
         helperText: inputError[key] && 'Invalid input',
