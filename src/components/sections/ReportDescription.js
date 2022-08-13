@@ -51,7 +51,9 @@ const ReportDescription = ({
         ? 'team'
         : 'repo'
 
-    return <Paper className={classes.root}>
+    const hasReportData = pullRequests.length > 0 || issues.length > 0
+
+    return hasReportData && (<Paper className={classes.root}>
             <H className={classes.heading} level={2}>
                 {
                     titleCopy(fetches)
@@ -81,7 +83,7 @@ const ReportDescription = ({
                     }
                 </ChartDescription>
            }
-        </Paper>
+        </Paper>)
 }
 
 const mapStateToProps = (state) => ({

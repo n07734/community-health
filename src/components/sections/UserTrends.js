@@ -84,7 +84,7 @@ const UserTrends = ({
     // const prRadars = radialChartsPRs(radarData)
     const contributionsRadar = radialChartsContributions(radarData, userIds.length > 0)
 
-    return (
+    return contributionsRadar.length > 0 && (
         <Paper>
             <ChartDescription
                 title={(
@@ -97,9 +97,8 @@ const UserTrends = ({
             >
             </ChartDescription>
             {
-                contributionsRadar.length > 0
-                    && contributionsRadar
-                        .map((info, i) => <Radar key={i} {...info} />)
+                contributionsRadar
+                    .map((info, i) => <Radar key={i} {...info} />)
             }
         </Paper>
     )

@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
+import { pathOr } from 'ramda'
 
 import Button from '../../shared/Button'
 import Message from '../Message'
@@ -12,15 +13,29 @@ import {
     preFetchedTeams,
 } from '../../../preFetchedInfo'
 
-const FetchForm = (props) => {
+const PrefetchedOptions = (props = {}) => {
     const {
         classes,
         error,
-        preFetchedName,
+        preFetchedName = '',
         getPreFetchedReport,
     } = props
 
-    console.log('-=-=--preFetchedName', preFetchedName)
+    useEffect(() => {
+        const quertString = pathOr('', ['location', 'search'], window)
+        const urlParams = new URLSearchParams(quertString);
+        const repo = urlParams.get('repo') || 'facebook-react';
+
+        const allItems = [
+            ...preFetchedRepos,
+            ...preFetchedTeams,
+        ]
+        const repoInfo = allItems
+            .find(x => x.file === repo)
+
+        !preFetchedName
+            && getPreFetchedReport(repoInfo)
+    },[preFetchedName, getPreFetchedReport])
 
     const preFetchButton = ({ name, file }, i) => <Button
         value={name}
@@ -73,4 +88,4 @@ const mapDispatchToProps = dispatch => ({
     getPreFetchedReport: (x) => dispatch(getPreFetched(x)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(FetchForm))
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(PrefetchedOptions))

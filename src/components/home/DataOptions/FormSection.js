@@ -137,7 +137,7 @@ const FormSection = (props) => {
         label: inputLabels[key],
         className: classes.child,
         error: inputError[key] || false,
-        value: formValue(formInfo, key) || formValue(fetches, key),
+        value: formValue(formInfo, key),
         variant: 'outlined',
         margin: 'normal',
         helperText: inputError[key] && 'Invalid input',
@@ -183,7 +183,7 @@ const FormSection = (props) => {
             .every(x => !x)
 
         allPass && !fetching
-            && setValues(formInfo)
+            && setValues(preFetchedName, formInfo)
 
         allPass && !fetching
             && getData()
@@ -192,6 +192,13 @@ const FormSection = (props) => {
     const hasTeamData = !preFetchedName && pullRequests.length > 0
 
     const itemText = (amount) => `Get ${amount} ${amount === 1 ? 'month' : 'months'} ${hasTeamData ? 'more ' : ''}data`
+
+    const item = (inputKey) => preFetchedName && inputKey !== 'token'
+        ? <P key={inputKey}>{inputLabels[inputKey]}: {formValue(formInfo, inputKey) || 'N/A'}</P>
+        : <TextField
+            key={inputKey}
+            {...inputProps(inputKey)}
+        />
 
     return (
         <div className={classes.formDescription} >
@@ -210,7 +217,8 @@ const FormSection = (props) => {
                     >
                         <MenuItem value="DESC" >Starting from now</MenuItem>
                         {
-                            hasTeamData && <MenuItem value="ASC">Starting from current team data</MenuItem>
+                            (preFetchedName || hasTeamData)
+                                && <MenuItem value="ASC">Starting from current team data</MenuItem>
                         }
                     </Select>
                     <Select
@@ -227,10 +235,7 @@ const FormSection = (props) => {
                     </Select>
                     {
                         keys(primaryInputs)
-                            .map((inputKey) => <TextField
-                                key={inputKey}
-                                {...inputProps(inputKey)}
-                            />)
+                            .map(item)
                     }
                     <TextField
                         {...inputProps('token')}
@@ -247,12 +252,12 @@ const FormSection = (props) => {
                     intro="Advanced options"
                 >
                     <div className={classes.inputGrid}>
-                        <TextField
-                            {...inputProps('excludeIds')}
-                        />
-                        <TextField
-                            {...inputProps('enterpriseAPI')}
-                        />
+                        {
+                           item('excludeIds')
+                        }
+                        {
+                           item('enterpriseAPI')
+                        }
                     </div>
                 </ChartDescription>
 
@@ -291,40 +296,52 @@ const mapStateToProps = (state) => ({
     preFetchedName: state.preFetchedName,
 })
 
+const dispatchRest = (dispatch, values) => {
+    const {
+        org,
+        repo,
+        userIds,
+        teamName,
+        enterpriseAPI,
+        excludeIds,
+    } = values
+
+    dispatch(
+        org
+            ? storeOrg(org)
+            : { type: types.CLEAR_ORG }
+    )
+    dispatch(
+        repo
+            ? storeRepo(repo)
+            : { type: types.CLEAR_REPO }
+    )
+    userIds && dispatch(storeUserIds(userIds))
+    teamName && dispatch(storeTeamName(teamName))
+
+    dispatch(storeEnterpriseAPI(enterpriseAPI))
+    dispatch(storeExcludeIds(excludeIds))
+}
+
 const mapDispatchToProps = dispatch => ({
-    setValues: (values) => {
+    setValues: (preFetchedName, values) => {
         const {
             token,
-            org,
-            repo,
-            userIds,
-            teamName,
-            enterpriseAPI,
-            excludeIds,
             amountOfData,
             sortDirection
         } = values
-        dispatch(clearPastSearch(values))
 
-        dispatch(
-            org
-                ? storeOrg(org)
-                : { type: types.CLEAR_ORG }
-        )
-        dispatch(
-            repo
-                ? storeRepo(repo)
-                : { type: types.CLEAR_REPO }
-        )
-        userIds && dispatch(storeUserIds(userIds))
-        teamName && dispatch(storeTeamName(teamName))
+        // TODO: have clearPastSearch not clear when preFetchedName
+        !preFetchedName
+            && dispatch(clearPastSearch(values))
 
         dispatch(storeToken(token))
-        dispatch(storeEnterpriseAPI(enterpriseAPI))
-        dispatch(storeExcludeIds(excludeIds))
         dispatch(storeAmountOfData(amountOfData))
         dispatch(storeFormUntilDate(amountOfData))
         dispatch(storeSortDirection(sortDirection))
+
+        !preFetchedName
+            && dispatchRest(dispatch, values)
     },
     getData: (x) => dispatch(getAPIData(x)),
     getDownloadInfo: () => dispatch(getDownloadProps),

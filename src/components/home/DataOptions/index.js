@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import {
     cond,
     always,
     equals,
 } from 'ramda'
 import { withStyles } from '@material-ui/core/styles'
+
+import { clearAllData } from '../../../state/actions'
 
 import Paper from '../../shared/Paper'
 import Button from '../../shared/Button'
@@ -13,8 +16,15 @@ import PrefetchedOptions from './PrefetchedOptions'
 import FormSection from './FormSection'
 import styles from './styles'
 
-const FetchForm = ({ classes }) => {
-     const [selectedOption, setOption] = useState('oss')
+const FetchForm = ({ classes, clearReport }) => {
+     const [selectedOption, setLocalOption] = useState('oss')
+
+     const setOption = (option = '') => {
+        option !== selectedOption
+            && clearReport()
+        setLocalOption(option)
+     }
+
      return (
         <Paper className={classes.dataPaper} >
             <div className={classes.typeOptions}>
@@ -46,4 +56,8 @@ const FetchForm = ({ classes }) => {
     )
 }
 
-export default withStyles(styles)(FetchForm)
+const mapDispatchToProps = dispatch => ({
+    clearReport: () => dispatch(clearAllData),
+})
+
+export default connect(() => ({}), mapDispatchToProps)(withStyles(styles)(FetchForm))

@@ -126,8 +126,9 @@ const storeSortDirection = (sortDirection = 'DESC') => (dispatch) => dispatch({
 })
 
 
-const notSameStringValues = (a = {}, b = {}) => (key = '') => a[key] && b[key] && a[key] !== b[key]
-const notSameArrayValues = (fetches = {}, formValues = {}) => (key = '') => {
+const notSameStringValues = (formValues = {}) => (key = '') => (fetches = {}) =>
+    formValues[key] && fetches[key] && formValues[key] !== fetches[key]
+const notSameArrayValues = (formValues = {}) => (key = '') => (fetches = {}) => {
     const idsString = propOr('', key, formValues)
     const formIds = userIdsFromString(idsString)
 
@@ -137,28 +138,28 @@ const notSameArrayValues = (fetches = {}, formValues = {}) => (key = '') => {
 
 const clearPastSearch = (values) => (dispatch, getState) => {
     const {
-        preFetchedName = '',
         fetches = {}
     } = getState()
 
-    const notSameValues = notSameStringValues(fetches, values)
-    const notSameIds = notSameArrayValues(fetches, values)
+    const notSameValues = notSameStringValues(values)
+    const notSameIds = notSameArrayValues(values)
 
     const isNewSearch = anyPass([
-        preFetchedName && preFetchedName.length > 0,
         notSameValues('org'),
         notSameValues('repo'),
         notSameValues('teamName'),
         notSameValues('enterpriseAPI'),
         notSameIds('userIds'),
         notSameIds('excludeIds'),
-    ])
+    ])(fetches)
 
     isNewSearch
         && clearData(dispatch)
 }
 
 const clearData = (dispatch) => {
+    dispatch({ type: types.CLEAR_ORG })
+    dispatch({ type: types.CLEAR_REPO })
     dispatch({ type: types.CLEAR_USER })
     dispatch({ type: types.CLEAR_PRS })
     dispatch({ type: types.CLEAR_FILTERED_PRS })
@@ -177,6 +178,8 @@ const clearData = (dispatch) => {
     dispatch({ type: types.CLEAR_ISSUES_PAGINATION })
     dispatch({ type: types.CLEAR_FETCH_ERROR })
 }
+
+const clearAllData = clearData
 
 // Hmm: full users format per new pr results
 const updateUsersData = (dispatch, getState) => {
@@ -540,6 +543,7 @@ const getDownloadProps = (dispatch, getState) => {
 
 export {
     setUser,
+    clearAllData,
     clearUser,
     clearPastSearch,
     storeOrg,

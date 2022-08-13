@@ -13,7 +13,7 @@ const UserList = ({
     usersData = [],
     setUser,
     classes,
-} = {}) => <>
+} = {}) => usersData.length > 0 && (<>
     <Paper className="justify">
         <H level={2} className={classes.fullW}>
             User pages
@@ -36,7 +36,7 @@ const UserList = ({
             }
         </div>
     </Paper>
-</>
+</>)
 
 const mapDispatchToProps = dispatch => ({
     setUser: (x) => dispatch(setUserAction(x)),

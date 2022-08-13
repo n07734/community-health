@@ -56,7 +56,7 @@ const PullRequestTrends = ({
         ? getByAuthorData(pullRequests)
         : []
 
-    return (
+    return pullRequests.length > 0 && (
         <Paper>
             <ChartDescription
                 title="Pull Request trends"
