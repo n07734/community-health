@@ -1,26 +1,17 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import {
-    always,
-    equals,
-    pathOr,
-    cond,
-    T as alwaysTrue,
-    keys,
-} from 'ramda'
-import {
-    TextField,
-    Select,
-    MenuItem,
-} from '@material-ui/core'
+import { keys } from 'ramda'
 import { withStyles } from '@material-ui/core/styles'
 
-import Button from '../../shared/Button'
 import ChartDescription from '../../shared/ChartDescription'
+import SelectAmountData from './SelectAmountData'
+import ButtonWithMessage from './ButtonWithMessage'
+import TextInput from './TextInput'
+
+import Download from './Download'
 import { P, H } from '../../shared/StyledTags'
-import Message from '../Message'
 import styles from './styles'
-import types from '../../../state/types'
+import { validateForm } from './utils'
 
 import {
     clearPastSearch,
@@ -35,57 +26,15 @@ import {
     storeFormUntilDate,
     storeSortDirection,
     getAPIData,
-    getDownloadProps,
 } from '../../../state/actions'
-import { pick } from 'ramda'
-import { join } from 'ramda'
-
-const buttonText = (fetching, pullRequests = []) => [
-    fetching && 'fetching',
-    pullRequests.length && 'Get more data',
-    'Get data',
-].find(Boolean)
-
-const validate = ({ key, value }) => {
-    const isValid = cond([
-        [equals('enterpriseAPI'), always(/^(https:\/\/.+\..+|^$)/.test(value))],
-        [equals('excludeIds'), always(/^([\w-.,\s]+|)$/.test(value))],
-        [equals('userIds'), always(/^([\w-.,\s]+)$/.test(value))],
-        [alwaysTrue, always(/^[\w-.]+$/.test(value))],
-    ])(key)
-    return isValid
-}
-
-const errorValue = formInfo => key => {
-    const value = formInfo[key]
-    const isValid = validate({ key, value })
-
-    return isValid ? false : true
-}
-
-const inputLabels = {
-    org: 'Organization',
-    repo: 'Repository',
-    token: 'Token*',
-    excludeIds: "Exclude GitHub ids e.g. bots, ',' separated",
-    enterpriseAPI: 'Enterprise API full url',
-    userIds: 'Comma separated list of user ids',
-    teamName: 'Team name',
-}
 
 const FormSection = (props) => {
     const {
         setValues,
         getData,
-        fetches = {},
         fetching,
-        error,
-        pullRequests = [],
-        preFetchedName = '',
-        preFetchedReport = false,
         reportType = 'repo',
         classes,
-        getDownloadInfo,
     } = props
 
     const commonInputs = {
@@ -111,134 +60,57 @@ const FormSection = (props) => {
         ...primaryInputs,
     }
 
-    const inputKeys = keys(defaultInputs)
-
     const [inputError, setInputError] = useState({})
-
-    const inputs = preFetchedReport
-        ? pick(inputKeys, fetches)
-        : defaultInputs
-
-    const [formInfo, setFormInfo] = useState(inputs)
+    const [formInfo, setFormInfo] = useState(defaultInputs)
 
     const setValue = (key, value) => setFormInfo({
         ...formInfo,
         [key]: value
     })
 
-    const formValue = (data, key) => {
-        const value = data[key]
-        return Array.isArray(value)
-            ? join(', ', value)
-            : value
+    const inputStates = {
+        inputError,
+        setInputError,
+        formInfo,
+        setValue,
     }
-
-    const inputProps = (key) => ({
-        label: inputLabels[key],
-        className: classes.child,
-        error: inputError[key] || false,
-        value: formValue(formInfo, key),
-        variant: 'outlined',
-        margin: 'normal',
-        helperText: inputError[key] && 'Invalid input',
-        onBlur: (event) => {
-            const value = pathOr('', ['target', 'value'], event)
-
-            const isValid = validate({ key, value })
-            setInputError({
-                ...inputError,
-                [key]: isValid ? false : true
-            })
-
-            isValid
-                && setValue(key, value)
-        },
-        onChange: (event) => {
-            const value = pathOr('', ['target', 'value'], event)
-            setInputError({
-                ...inputError,
-                [key]: false,
-            })
-
-            setValue(key, value)
-        },
-        onFocus: () => setInputError({
-            ...inputError,
-            [key]: false,
-        })
-    })
 
     const handleSubmit = (event) => {
         event.preventDefault()
 
-        const getErrorValue = errorValue(formInfo)
+        const {
+            isValid,
+            validationErrors,
+        } = validateForm(formInfo)
 
-        const newInputError = {}
-        inputKeys
-            .forEach(key => newInputError[key] = getErrorValue(key))
+        setInputError(validationErrors)
 
-        setInputError(newInputError)
+        isValid && !fetching
+            && setValues(formInfo)
 
-        const allPass = Object.values(newInputError)
-            .every(x => !x)
-
-        allPass && !fetching
-            && setValues(preFetchedName, formInfo)
-
-        allPass && !fetching
+        isValid && !fetching
             && getData()
     }
 
-    const hasTeamData = !preFetchedName && pullRequests.length > 0
-
-    const itemText = (amount) => `Get ${amount} ${amount === 1 ? 'month' : 'months'} ${hasTeamData ? 'more ' : ''}data`
-
-    const item = (inputKey) => preFetchedName && inputKey !== 'token'
-        ? <P key={inputKey}>{inputLabels[inputKey]}: {formValue(formInfo, inputKey) || 'N/A'}</P>
-        : <TextField
-            key={inputKey}
-            {...inputProps(inputKey)}
-        />
-
     return (
         <div className={classes.formDescription} >
-            {
-                !preFetchedReport
-                    && <H level={3}>Get community data for any Team(list of users)</H>
-            }
+            <H level={3}>Get community data for any Team(list of users)</H>
             <form
                 onSubmit={handleSubmit}
             >
                 <div className={classes.inputGrid}>
-                    <Select
-                        value={formInfo.sortDirection}
-                        onChange={(e) => setValue('sortDirection', e.target.value)}
-                        inputProps={{ 'aria-label': 'Starting point' }}
-                    >
-                        <MenuItem value="DESC" >Starting from now</MenuItem>
-                        {
-                            (preFetchedName || hasTeamData)
-                                && <MenuItem value="ASC">Starting from current team data</MenuItem>
-                        }
-                    </Select>
-                    <Select
-                        value={formInfo.amountOfData}
-                        onChange={(e) => setValue('amountOfData', e.target.value)}
-                        inputProps={{ 'aria-label': 'Amount of data' }}
-                    >
-                        <MenuItem value={1} default>{itemText(1)}</MenuItem>
-                        <MenuItem value={3} >{itemText(3)}</MenuItem>
-                        <MenuItem value={6} >{itemText(6)}</MenuItem>
-                        <MenuItem value={12} >{itemText(12)}</MenuItem>
-                        <MenuItem value={24} >{itemText(24)}</MenuItem>
-                        <MenuItem value="all">Get it all!</MenuItem>
-                    </Select>
+                    <SelectAmountData setValue={setValue} amountOfData={formInfo.amountOfData} />
                     {
                         keys(primaryInputs)
-                            .map(item)
+                            .map((inputKey) => <TextInput
+                                key={inputKey}
+                                type={inputKey}
+                                { ...inputStates }
+                            />)
                     }
-                    <TextField
-                        {...inputProps('token')}
+                    <TextInput
+                        type="token"
+                        { ...inputStates }
                     />
                     <P className="tokenText">
                         * To create a token go to your GitHub <a className={classes.link} href="https://github.com/settings/tokens">tokens</a> page, click on 'generate new token', choose the settings 'repo' (all) and 'read:org' then click 'Generate token'.
@@ -252,99 +124,59 @@ const FormSection = (props) => {
                     intro="Advanced options"
                 >
                     <div className={classes.inputGrid}>
-                        {
-                           item('excludeIds')
-                        }
-                        {
-                           item('enterpriseAPI')
-                        }
+                        <TextInput
+                            type="excludeIds"
+                            { ...inputStates }
+                        />
+                        <TextInput
+                            type="enterpriseAPI"
+                            { ...inputStates }
+                        />
                     </div>
                 </ChartDescription>
 
-                <div className={classes.inputGrid}>
-                    <Button
-                        className={`${classes.child} ${classes.fullRow}`}
-                        type={fetching ? 'disabled' : 'submit'}
-                        variant="contained"
-                        color="primary"
-                        value={buttonText(fetching, '', pullRequests)}
-                    />
-                    {
-                        error
-                            && <Message
-                                error={error}
-                                className={classes.fullRow}
-                            />
-                    }
-                </div>
+                <ButtonWithMessage />
             </form>
-            {
-                !fetching
-                    && !preFetchedName
-                    && pullRequests.length > 0
-                    && <P><a className={classes.link} {...getDownloadInfo()}>Download report data</a></P>
-            }
+            <Download />
         </div>
     )
 }
 
 const mapStateToProps = (state) => ({
-    fetches: state.fetches,
     fetching: state.fetching,
     error: state.error,
-    pullRequests: state.pullRequests,
-    preFetchedName: state.preFetchedName,
 })
 
-const dispatchRest = (dispatch, values) => {
-    const {
-        org,
-        repo,
-        userIds,
-        teamName,
-        enterpriseAPI,
-        excludeIds,
-    } = values
-
-    dispatch(
-        org
-            ? storeOrg(org)
-            : { type: types.CLEAR_ORG }
-    )
-    dispatch(
-        repo
-            ? storeRepo(repo)
-            : { type: types.CLEAR_REPO }
-    )
-    userIds && dispatch(storeUserIds(userIds))
-    teamName && dispatch(storeTeamName(teamName))
-
-    dispatch(storeEnterpriseAPI(enterpriseAPI))
-    dispatch(storeExcludeIds(excludeIds))
-}
-
 const mapDispatchToProps = dispatch => ({
-    setValues: (preFetchedName, values) => {
+    setValues: (values) => {
         const {
+            org,
+            repo,
             token,
             amountOfData,
-            sortDirection
+            sortDirection,
+            teamName,
+            userIds,
+            enterpriseAPI,
+            excludeIds,
         } = values
 
-        // TODO: have clearPastSearch not clear when preFetchedName
-        !preFetchedName
-            && dispatch(clearPastSearch(values))
+        dispatch(clearPastSearch(values))
 
         dispatch(storeToken(token))
         dispatch(storeAmountOfData(amountOfData))
-        dispatch(storeFormUntilDate(amountOfData))
         dispatch(storeSortDirection(sortDirection))
+        dispatch(storeFormUntilDate(amountOfData))
 
-        !preFetchedName
-            && dispatchRest(dispatch, values)
+        org && dispatch(storeOrg(org))
+        repo && dispatch(storeRepo(repo))
+        userIds && dispatch(storeUserIds(userIds))
+        teamName && dispatch(storeTeamName(teamName))
+
+        dispatch(storeEnterpriseAPI(enterpriseAPI))
+        dispatch(storeExcludeIds(excludeIds))
     },
     getData: (x) => dispatch(getAPIData(x)),
-    getDownloadInfo: () => dispatch(getDownloadProps),
 })
 
 export default connect(mapStateToProps,

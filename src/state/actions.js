@@ -12,6 +12,7 @@ import {
     split,
     trim,
     propOr,
+    pick,
 } from 'ramda'
 import api from '../api/api'
 import getUsersData from '../api/getUsersData'
@@ -136,6 +137,7 @@ const notSameArrayValues = (formValues = {}) => (key = '') => (fetches = {}) => 
     return currentIds.length && not(equals(currentIds, formIds))
 }
 
+// TODO: regression test
 const clearPastSearch = (values) => (dispatch, getState) => {
     const {
         fetches = {}
@@ -166,9 +168,9 @@ const clearData = (dispatch) => {
     dispatch({ type: types.CLEAR_PR_PAGINATION })
     dispatch({ type: types.CLEAR_PREFETCHED_NAME })
     dispatch({ type: types.CLEAR_UNTIL_DATE })
+    dispatch({ type: types.CLEAR_FORM_UNTIL_DATE })
     dispatch({ type: types.CLEAR_USER_IDS })
     dispatch({ type: types.CLEAR_EX_IDS })
-    dispatch({ type: types.CLEAR_FORM_UNTIL_DATE })
     dispatch({ type: types.CLEAR_USERS_DATA })
     dispatch({ type: types.CLEAR_TEAM_NAME })
     dispatch({ type: types.CLEAR_RELEASES })
@@ -177,6 +179,7 @@ const clearData = (dispatch) => {
     dispatch({ type: types.CLEAR_FILTERED_ISSUES })
     dispatch({ type: types.CLEAR_ISSUES_PAGINATION })
     dispatch({ type: types.CLEAR_FETCH_ERROR })
+    dispatch({ type: types.CLEAR_PRE_FETCH_ERROR })
 }
 
 const clearAllData = clearData
@@ -312,7 +315,7 @@ const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) =
 
         const newIssues = formatIssues(results)
         const allIssues = issues.concat(filteredIssues).concat(newIssues)
-        const [newRemainingIssues, newFilteredissues] = filterSortIssues(fetches, untilDate, allIssues)
+        const [newRemainingIssues, newFilteredIssues] = filterSortIssues(fetches, untilDate, allIssues)
 
         dispatch({
             type: types.ADD_PRS,
@@ -338,7 +341,7 @@ const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) =
 
         dispatch({
             type: types.ADD_FILTERED_ISSUES,
-            payload: newFilteredissues,
+            payload: newFilteredIssues,
         })
 
         dispatch({
@@ -346,25 +349,25 @@ const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) =
             payload: formUntilDate,
         })
 
+        const pageInfo = pick(['newest', 'oldest'])
         dispatch({
             type: types.SET_PR_PAGINATION,
-            payload: fetchInfo.prPagination,
+            payload: pageInfo(fetchInfo.prPagination),
         })
 
         dispatch({
             type: types.SET_ISSUES_PAGINATION,
-            payload: fetchInfo.issuesPagination,
+            payload: pageInfo(fetchInfo.issuesPagination),
         })
 
         dispatch({
             type: types.SET_RELEASES_PAGINATION,
-            payload: fetchInfo.releasesPagination,
+            payload: pageInfo(fetchInfo.releasesPagination),
         })
 
         dispatch({ type: types.FETCH_END })
 
     } catch (error) {
-        console.log('-=-=--api data error', error)
         dispatch({
             type: types.FETCH_ERROR,
             payload: {
@@ -472,6 +475,9 @@ const parseJSON = response => new Promise((resolve, reject) => {
 
 const getPreFetched = ({ name = '', file = '' }) => async (dispatch) => {
     clearData(dispatch)
+    dispatch({
+        type: types.CLEAR_PRE_FETCH_ERROR,
+    })
     dispatch({ type: types.FETCH_START })
     dispatch({
         type: types.FETCH_STATUS,
@@ -494,7 +500,7 @@ const getPreFetched = ({ name = '', file = '' }) => async (dispatch) => {
             : `${error.message} loading ${file}`
 
         dispatch({
-            type: types.FETCH_ERROR,
+            type: types.PRE_FETCH_ERROR,
             payload: {
                 level: 'error',
                 message: message || 'Unknown error',
@@ -541,6 +547,16 @@ const getDownloadProps = (dispatch, getState) => {
     }
 }
 
+const checkUntilDate = (newSortDirection = '') => (dispatch, getState) => {
+    const {
+        sortDirection = '',
+    } = getState();
+
+    sortDirection !== newSortDirection
+        && dispatch({ type: types.CLEAR_UNTIL_DATE })
+        && dispatch({ type: types.CLEAR_FORM_UNTIL_DATE })
+}
+
 export {
     setUser,
     clearAllData,
@@ -562,4 +578,5 @@ export {
     getPreFetched,
     toggleTheme,
     getDownloadProps,
+    checkUntilDate,
 }

@@ -86,8 +86,12 @@ const Loader = ({
         ? differenceInDays(a, b)
         : differenceInDays(b, a)
 
+    const prIndex = sortDirection === 'DESC'
+        ? 0
+        : -1
+
     const startDate = pastPRs.length > 0
-        ? new Date(pastPRs.at(0).mergedAt)
+        ? new Date(pastPRs.at(prIndex).mergedAt)
         : new Date()
 
     const uptoDate = latestItemDate

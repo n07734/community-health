@@ -81,7 +81,7 @@ const PrefetchedOptions = (props = {}) => {
 
 const mapStateToProps = (state) => ({
     preFetchedName: state.preFetchedName,
-    error: state.error,
+    error: state.preFetchedError,
 })
 
 const mapDispatchToProps = dispatch => ({

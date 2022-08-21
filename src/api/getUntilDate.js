@@ -10,14 +10,21 @@ import {
     prop,
     propEq,
     propOr,
+    path,
     is,
     isEmpty,
     cond,
     T as alwaysTrue,
 } from 'ramda'
 
-const getLatestPrDate = (order, allPrs = []) => {
-    const { node: { mergedAt: currentEndDate } } = allPrs.at(-1)
+const getPrDate = (sortDirection, allPrs = []) => {
+    const prIndex = sortDirection === 'DESC'
+        ? 0
+        : -1
+
+    const pr = allPrs.at(prIndex)
+
+    const currentEndDate = path(['node', 'mergedAt'], pr) || prop('mergedAt', pr)
 
     return new Date(currentEndDate)
 }
@@ -50,16 +57,21 @@ const getUntilDate = (fetches = {}, allPrs = []) => {
     )
 
     const dateFromPRs = compose(
-        lastDate => add(lastDate, changeBy),
-        sortDirection => getLatestPrDate(sortDirection, allPrs),
+        ({ prDate, sortDirection }) => sortDirection === 'DESC'
+            ? sub(prDate, changeBy)
+            : add(prDate, changeBy),
+        sortDirection => ({
+            prDate: getPrDate(sortDirection, allPrs),
+            sortDirection
+        }),
         propOr('', 'sortDirection'),
     )
 
     const newUntilDate = cond([
         [amountOfDataIsString, always('')],
+        [allPass([noDateUntil, () => allPrs.length > 0]), dateFromPRs],
         [isDesc, subtractDate],
-        [allPass([isAsc, noDateUntil]), dateFromPRs],
-        [isAsc, add(new Date(untilDate), changeBy)],
+        [isAsc, () => add(new Date(untilDate), changeBy)],
         [alwaysTrue, always('')],
     ])(fetches)
 

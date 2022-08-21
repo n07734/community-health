@@ -54,6 +54,7 @@ const reducers = combineReducers({
         ? action.payload
         : fetchStatus,
     error: setClearString('FETCH_ERROR', 'CLEAR_FETCH_ERROR'),
+    preFetchedError: setClearString('PRE_FETCH_ERROR', 'CLEAR_PRE_FETCH_ERROR'),
     preFetchedName: setClearString('PREFETCHED_NAME', 'CLEAR_PREFETCHED_NAME'),
     pullRequests: (prs = [], action) => [
         action.type === types.ADD_PRS
@@ -75,7 +76,7 @@ const reducers = combineReducers({
     ].find(Boolean),
     issues: (issues = [], action) => [
         action.type === types.ADD_ISSUES
-            && issues.concat(action.payload),
+            && action.payload,
         action.type === types.CLEAR_ISSUES && [],
         issues,
     ].find(Boolean),

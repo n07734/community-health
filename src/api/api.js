@@ -7,6 +7,7 @@ import {
     pathOr,
     propEq,
     mergeDeepRight,
+    test,
     T as alwaysTrue,
     F as alwaysFalse,
 } from 'ramda'
@@ -93,7 +94,7 @@ const getLatestDate = (type = '', results = []) => {
     return pathOr('', ['node', dateKey], targetItem)
 }
 
-const dateSort = (order) => (a, b) => order === 'DESC'
+const dateSort = (sortDirection) => (a, b) => sortDirection === 'DESC'
     ? new Date(b).getTime() - new Date(a).getTime()
     : new Date(a).getTime() - new Date(b).getTime()
 
@@ -103,7 +104,7 @@ const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
         resultInfo,
         fillerType,
         user,
-        order,
+        sortDirection,
     } = queryInfo(fetchInfo)
 
     const [oldestItemWithNextPage] = [
@@ -112,7 +113,7 @@ const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
         fetchInfo.releasesPagination.hasNextPageForDate && getLatestDate('releases', results),
     ]
         .filter(Boolean)
-        .sort(dateSort(order))
+        .sort(dateSort(sortDirection))
 
     dispatch({
         type: types.FETCH_STATUS,
@@ -152,15 +153,14 @@ const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
                 results: updatedResults,
             }
     } catch (error) {
-        console.log('-=-=--api error', error)
         const hasTriggeredAbuse = cond([
             [triggeredAbuseRate, alwaysTrue],
             [triggeredJsonError, alwaysTrue],
             [propEq('status', 500), alwaysTrue],
             [propEq('status', 502), alwaysTrue],
             [propEq('message', 'Abuse rate triggered'), alwaysTrue],
-            [compose(/ENOTFOUND|ECONNRESET/.test, propOr('', 'code')), alwaysTrue],
-            [compose(/fetch/i.test, propOr('', 'message')), alwaysTrue],
+            [compose(test(/ENOTFOUND|ECONNRESET/), propOr('', 'code')), alwaysTrue],
+            [compose(test(/fetch/i), propOr('', 'message')), alwaysTrue],
             [alwaysTrue, alwaysFalse],
         ])
         const getErrorMessage = cond([
@@ -172,7 +172,7 @@ const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
                 })
             ],
             [
-                compose(/50\d/i.test, propOr('', 'status')),
+                compose(test(/50\d/i), propOr('', 'status')),
                 always({
                     level: 'error',
                     message: 'GitHub API 500 error, could be CORS or rate limiting',
@@ -186,7 +186,7 @@ const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
                 }),
             ],
             [
-                compose(/40\d/i.test, propOr('', 'status')),
+                compose(test(/40\d/i), propOr('', 'status')),
                 always({
                     level: 'error',
                     message: `Auth error: ${error.message || 'UNKOWN'}`,
@@ -206,18 +206,15 @@ const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
                     message: `ERROR: ${error.message || 'UNKOWN'}`,
                 })
             ]
-        ]);
+        ])
 
         const errorMessage = getErrorMessage(error)
-        console.log('-=-=--errorMessage', errorMessage)
 
-        return hasTriggeredAbuse(error)
-            ? pauseThenRetry({ fetchInfo, queryInfo, dispatch }, results)
-            : {
-                ...errorMessage,
-                fetchInfo: fetchInfo,
-                results: results,
-            }
+        if (hasTriggeredAbuse(error)) {
+            return pauseThenRetry({ fetchInfo, queryInfo, dispatch }, results)
+        } else {
+            throw new Error(errorMessage.message)
+        }
     }
 }
 

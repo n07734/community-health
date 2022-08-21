@@ -180,18 +180,18 @@ const prData = (exclude = []) => (data = {}) => {
     return prInfo
 }
 
-const dateSort = (order) => ({ mergedAt: a }, { mergedAt: b }) => order === 'DESC'
+const dateSort = (sortDirection) => ({ mergedAt: a }, { mergedAt: b }) => sortDirection === 'DESC'
     ? new Date(a).getTime() > new Date(b).getTime()
     : new Date(a).getTime() - new Date(b).getTime()
 
-const filterSortPullRequests = ({ excludeIds = [], order }, untilDate, allPullRequests = []) => {
+const filterSortPullRequests = ({ excludeIds = [], sortDirection }, untilDate, allPullRequests = []) => {
     const filteredPRs = []
     const remainingPRs = compose(
         sort(dateSort('ASC')),
         filter(item => {
             const author = propOr('', 'author', item)
             const hasExcludedAuthor = any(y => y === author, excludeIds)
-            const shouldFilterIn = filterByUntilDate(['mergedAt'], order, untilDate)(item)
+            const shouldFilterIn = filterByUntilDate(['mergedAt'], sortDirection, untilDate)(item)
             const keepItem = shouldFilterIn && !hasExcludedAuthor
 
             !keepItem && filteredPRs.push(item)
@@ -212,12 +212,12 @@ const formatPullRequests = ({ excludeIds = [] }, results) => {
     return pullRequests
 }
 
-const filterSortIssues = ({ order }, untilDate, allIssues = []) => {
+const filterSortIssues = ({ sortDirection }, untilDate, allIssues = []) => {
     const filteredIssues = []
     const remainingIssues = compose(
         sort(dateSort('ASC')),
         filter(item => {
-            const keepItem = filterByUntilDate(['mergedAt'], order, untilDate)(item)
+            const keepItem = filterByUntilDate(['mergedAt'], sortDirection, untilDate)(item)
 
             !keepItem && filteredIssues.push(item)
             return keepItem

@@ -5,8 +5,7 @@ import { always, cond, T, propSatisfies, where } from 'ramda'
 
 import { H, P } from '../shared/StyledTags'
 import Paper from '../shared/Paper'
-import ChartDescription from '../shared/ChartDescription'
-import FormSection from '../home/DataOptions/FormSection'
+import PretetchedForm from '../home/DataOptions/PretetchedForm'
 
 const RepoOrgCopy = ({ repo, org } = {}) => org === repo
     ? (<span style={{ color: '#e82573' }}>{repo}</span>)
@@ -47,10 +46,6 @@ const ReportDescription = ({
 } = {}) => {
     const releaseCount = releases.length
 
-    const reportType = userIds.length > 0
-        ? 'team'
-        : 'repo'
-
     const hasReportData = pullRequests.length > 0 || issues.length > 0
 
     return hasReportData && (<Paper className={classes.root}>
@@ -70,18 +65,7 @@ const ReportDescription = ({
             <P>{pullRequests.length > 0 && `Pull requests: ${pullRequests.length}`}{ issues.length > 0 && `, Issues: ${issues.length}`}{ releaseCount > 0 && `, Releases: ${releaseCount}`}</P>
            {
               preFetchedName.length > 0
-                && <ChartDescription
-                    className={`${classes.formDescription} ${classes.fullRow}`}
-                    title=""
-                    expandText="here"
-                    intro="Top up this report's data"
-                >
-                    {
-                        reportType === 'team'
-                            ? <FormSection reportType="team" preFetchedReport={true}/>
-                            : <FormSection reportType="repo" preFetchedReport={true} />
-                    }
-                </ChartDescription>
+                && <PretetchedForm />
            }
         </Paper>)
 }

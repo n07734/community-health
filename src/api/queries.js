@@ -1,5 +1,5 @@
 import { pathOr } from 'ramda'
-import { format, isDate } from 'date-fns'
+import { isDate } from 'date-fns'
 import {
   always,
   T as alwaysTrue,
@@ -127,100 +127,6 @@ const reviews = (cursor) => `
     }
 `
 
-const getDateRange = (type, order, fromDate, toDate) => {
-    const rangetype = /asc/i.test(order)
-        ? '=<'
-        : '=>'
-    const range = fromDate
-        ? ''
-        : rangetype
-
-    const to = toDate && format(new Date(toDate), 'yyyy-MM-dd')
-    const from = fromDate
-        ? `${format(new Date(fromDate), 'yyyy-MM-dd')}..`
-        : ''
-
-    return toDate
-        ? `${type}:${range}${from}${to}`
-        : ''
-}
-
-const searchIssues = ({
-    org,
-    repo,
-    order,
-    fromDate,
-    toDate
-}) => (pagination)=> `
-  issues: search(
-    query: "is:issue ${getDateRange('created', order, fromDate, toDate)} repo:${org}/${repo} sort:created-${/asc/i.test(order) ? 'asc' : 'desc'}"
-    type: ISSUE
-    first: 100
-    ${getCursor(order)(pagination)}
-  ) {
-    issueCount
-    ${pageInfo}
-    edges {
-      node {
-        ... on Issue {
-          title
-          createdAt
-          closedAt
-          state
-          labels(first:10) {
-            edges {
-              node {
-                name
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
-
-const searchPullRequests = ({
-    org,
-    repo,
-    order,
-    fromDate,
-    toDate
-}) => (pagination)=> `
-  pullRequests: search(
-    query: "is:merged is:pr ${getDateRange('merged', order, fromDate, toDate)} repo:${org}/${repo} sort:created-${/asc/i.test(order) ? 'asc' : 'desc'}"
-    type: ISSUE
-    first: 100
-    ${getCursor(order)(pagination)}
-  ) {
-    issueCount
-    ${pageInfo}
-    edges {
-      node {
-        ... on PullRequest {
-          id
-          url
-          author {
-            login
-          }
-          repository {
-            name
-            owner {
-              login
-            }
-          }
-          additions
-          deletions
-          mergedAt
-          createdAt
-          ${reviews()}
-          ${comments()}
-        }
-      }
-    }
-  }
-`
-
 const getPaginationByType = (oldFetchInfo = {}, untilDate ='', data = {}, order) => type => {
     const {
         hasNextPage = false,
@@ -250,10 +156,10 @@ const getPaginationByType = (oldFetchInfo = {}, untilDate ='', data = {}, order)
     const newestDefault = order === 'ASC' ? endCursor : startCursor
     const newestCurrent = pathOr(newestDefault, [typeStateMap[type], 'newest'], oldFetchInfo)
 
-    // TODO: Dont clear if undefined cursor
+    // TODO: Don't clear if undefined cursor
     // TODO: add hasPrevPage
     const dateFilteredLength = filteredItems.length
-    const tryNextpage = cond([
+    const tryNextPage = cond([
       [always(hasNextPage === false), alwaysFalse],
       [always(!isDate(untilDate)), always(hasNextPage)],
       [always(dateFilteredLength === 0), alwaysFalse],
@@ -265,7 +171,7 @@ const getPaginationByType = (oldFetchInfo = {}, untilDate ='', data = {}, order)
         newest: order === 'ASC' &&  endCursor ? endCursor : newestCurrent,
         oldest: order === 'DESC' && endCursor ? endCursor : oldestCurrent,
         hasNextPage,
-        hasNextPageForDate: tryNextpage,
+        hasNextPageForDate: tryNextPage,
     }
 }
 
@@ -279,7 +185,7 @@ const getRemainingPageCount = (data) => {
 
 const userQuery = (untilDate) => ({
   user,
-  order = 'DESC',
+  sortDirection = 'DESC',
   amountOfData,
   issuesPagination = {},
   prPagination = {},
@@ -287,11 +193,11 @@ const userQuery = (untilDate) => ({
   query: `{
     result: user(login: "${user}") {
       login
-      ${prPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? pullRequests(order)(prPagination) : ''}
-      ${issuesPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? issues(order)(issuesPagination) : ''}
+      ${prPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? pullRequests(sortDirection)(prPagination) : ''}
+      ${issuesPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? issues(sortDirection)(issuesPagination) : ''}
     }
   }`,
-  order,
+  sortDirection,
   user,
   resultInfo: (data) => {
       const byType = getPaginationByType(
@@ -302,7 +208,7 @@ const userQuery = (untilDate) => ({
           },
           untilDate,
           data,
-          order
+          sortDirection
       )
 
       const updatedAmountOfData = cond([
@@ -342,7 +248,7 @@ const userQuery = (untilDate) => ({
 const batchedQuery = (untilDate) => ({
     org,
     repo,
-    order = 'DESC',
+    sortDirection = 'DESC',
     amountOfData,
     issuesPagination = {},
     releasesPagination = {},
@@ -355,12 +261,12 @@ const batchedQuery = (untilDate) => ({
         name
         owner {
           org: login
-        }${prPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? pullRequests(order)(prPagination) : ''}
-        ${issuesPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? issues(order)(issuesPagination) : ''}
-        ${releasesPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? releases(order)(releasesPagination) : ''}
+        }${prPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? pullRequests(sortDirection)(prPagination) : ''}
+        ${issuesPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? issues(sortDirection)(issuesPagination) : ''}
+        ${releasesPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? releases(sortDirection)(releasesPagination) : ''}
       }
     }`,
-    order,
+    sortDirection,
     resultInfo: (data) => {
         const byType = getPaginationByType(
             {
@@ -370,7 +276,7 @@ const batchedQuery = (untilDate) => ({
             },
             untilDate,
             data,
-            order
+            sortDirection
         )
 
         const updatedAmountOfData = cond([
@@ -479,6 +385,4 @@ export {
     reviewCommentsQuery,
     commentsQuery,
     reviewsQuery,
-    searchIssues,
-    searchPullRequests,
 }
