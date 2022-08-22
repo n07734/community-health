@@ -1,18 +1,17 @@
 {
-  "preFetchedName": "JetBrains-Kotlin",
   "fetches": {
     "org": "JetBrains",
     "repo": "Kotlin",
-    "sortDirection": "DESC",
+    "sortDirection": "ASC",
     "excludeIds": [
       "dependabot"
     ],
     "prPagination": {
-      "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wNS0xOVQyMjoyNTo0OCswMTowMM44Jllj",
+      "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wOC0xOFQxMTowMDozOSswMTowMM49YVMA",
       "oldest": "Y3Vyc29yOnYyOpK5MjAyMC0wNS0yNlQxNDo1MDo0NyswMTowMM4ZOc8z"
     },
     "releasesPagination": {
-      "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wNS0zMVQxNTo0NTo1MCswMTowMM4EEYhZ",
+      "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wNy0yN1QxNDozMDo1MiswMTowMM4EXB3P",
       "oldest": "Y3Vyc29yOnYyOpK5MjAyMC0wMi0wM1QxNDoyODowNSswMDowMM4BYsxT"
     }
   },
@@ -15391,19 +15390,234 @@
       },
       "commentsAuthor": 11,
       "commentAuthorSentimentScore": 11
-    }
-  ],
-  "filteredPRs": [
+    },
     {
       "repo": "kotlin",
       "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/4821",
-      "additions": 272,
-      "deletions": 8,
-      "prSize": 280,
-      "mergedAt": "2022-05-13T07:00:06Z",
+      "author": "sfs",
+      "url": "https://github.com/JetBrains/kotlin/pull/4834",
+      "additions": 229,
+      "deletions": 20,
+      "prSize": 249,
+      "mergedAt": "2022-06-08T13:38:07Z",
+      "age": 9,
+      "generalComments": 1,
+      "generalCommenters": {
+        "udalov": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "udalov": 2
+      },
+      "comments": 1,
+      "commenters": {
+        "udalov": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "udalov": 2
+      }
+    },
+    {
+      "repo": "kotlin",
+      "org": "JetBrains",
+      "author": "pyos",
+      "url": "https://github.com/JetBrains/kotlin/pull/4831",
+      "additions": 215,
+      "deletions": 18,
+      "prSize": 233,
+      "mergedAt": "2022-06-08T21:59:59Z",
+      "age": 15,
+      "generalComments": 2,
+      "generalCommenters": {
+        "udalov": 2
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "udalov": 1
+      },
+      "codeCommentSentimentScore": 1,
+      "codeCommentSentiments": {
+        "udalov": 1
+      },
+      "codeCommentsAuthor": 1,
+      "comments": 3,
+      "commenters": {
+        "udalov": 3
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "udalov": 1
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "kotlin",
+      "org": "JetBrains",
+      "author": "diego-gomez-olvera",
+      "url": "https://github.com/JetBrains/kotlin/pull/4845",
+      "additions": 938,
+      "deletions": 938,
+      "prSize": 1876,
+      "mergedAt": "2022-06-10T12:46:28Z",
       "age": 2,
+      "approvals": 1,
+      "approvers": {
+        "SvyatoslavScherbina": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "SvyatoslavScherbina": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "SvyatoslavScherbina": 1
+      },
+      "generalCommentsAuthor": 1,
+      "comments": 1,
+      "commenters": {
+        "SvyatoslavScherbina": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "SvyatoslavScherbina": 1
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "kotlin",
+      "org": "JetBrains",
+      "author": "kandersen",
+      "url": "https://github.com/JetBrains/kotlin/pull/4841",
+      "additions": 13,
+      "prSize": 13,
+      "mergedAt": "2022-06-10T17:10:34Z",
+      "age": 7,
+      "generalComments": 2,
+      "generalCommenters": {
+        "udalov": 2
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "udalov": 3
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": 3,
+      "comments": 2,
+      "commenters": {
+        "udalov": 2
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "udalov": 3
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 3
+    },
+    {
+      "repo": "kotlin",
+      "org": "JetBrains",
+      "author": "bennyhuo",
+      "url": "https://github.com/JetBrains/kotlin/pull/4844",
+      "additions": 1,
+      "prSize": 1,
+      "mergedAt": "2022-06-14T15:16:55Z",
+      "age": 9,
+      "generalComments": 2,
+      "generalCommenters": {
+        "sbogolepov": 1,
+        "SvyatoslavScherbina": 1
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "sbogolepov": 2,
+        "SvyatoslavScherbina": 1
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 6,
+      "comments": 2,
+      "commenters": {
+        "sbogolepov": 1,
+        "SvyatoslavScherbina": 1
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "sbogolepov": 2,
+        "SvyatoslavScherbina": 1
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 6
+    },
+    {
+      "repo": "kotlin",
+      "org": "JetBrains",
+      "author": "sfs",
+      "url": "https://github.com/JetBrains/kotlin/pull/4849",
+      "additions": 73,
+      "deletions": 4,
+      "prSize": 77,
+      "mergedAt": "2022-06-15T14:49:22Z",
+      "age": 6,
+      "generalComments": 1,
+      "generalCommenters": {
+        "udalov": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "udalov": 2
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "udalov": 1
+      },
+      "codeCommentSentimentScore": -2,
+      "codeCommentSentiments": {
+        "udalov": -2
+      },
+      "codeCommentsAuthor": 1,
+      "comments": 2,
+      "commenters": {
+        "udalov": 2
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "kotlin",
+      "org": "JetBrains",
+      "author": "mvicsokolova",
+      "url": "https://github.com/JetBrains/kotlin/pull/4879",
+      "additions": 19,
+      "deletions": 4,
+      "prSize": 23,
+      "mergedAt": "2022-06-23T14:57:15Z",
+      "age": 1,
+      "codeComments": 3,
+      "codeCommenters": {
+        "Tapchicoma": 3
+      },
+      "codeCommentSentimentScore": 1,
+      "codeCommentSentiments": {
+        "Tapchicoma": 1
+      },
+      "comments": 3,
+      "commenters": {
+        "Tapchicoma": 3
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "Tapchicoma": 1
+      }
+    },
+    {
+      "repo": "kotlin",
+      "org": "JetBrains",
+      "author": "johanbay",
+      "url": "https://github.com/JetBrains/kotlin/pull/4877",
+      "additions": 7,
+      "deletions": 7,
+      "prSize": 14,
+      "mergedAt": "2022-06-24T18:27:33Z",
+      "age": 3,
       "approvals": 1,
       "approvers": {
         "SvyatoslavScherbina": 1
@@ -15412,632 +15626,227 @@
     {
       "repo": "kotlin",
       "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/4750",
-      "additions": 60,
-      "deletions": 8,
-      "prSize": 68,
-      "mergedAt": "2022-03-09T11:30:08Z",
-      "age": 16,
-      "approvals": 1,
-      "approvers": {
-        "LepilkinaElena": 1
-      }
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/4662",
-      "additions": 11,
-      "deletions": 11,
-      "prSize": 22,
-      "mergedAt": "2021-11-29T06:43:21Z",
-      "age": 2,
-      "approvals": 1,
-      "approvers": {
-        "LepilkinaElena": 1
-      }
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3845",
-      "additions": 2,
-      "deletions": 2,
-      "prSize": 4,
-      "mergedAt": "2020-10-15T18:38:44Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3842",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-10-15T18:40:10Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3841",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-10-15T18:38:24Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3840",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-10-15T18:38:07Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3839",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-10-15T18:37:57Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3838",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-10-15T18:37:41Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3837",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-10-15T18:37:25Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3836",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-10-15T18:37:11Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3835",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-10-15T18:36:56Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3834",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-10-15T18:36:42Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3833",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-10-15T18:36:26Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3832",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-10-15T18:36:13Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3831",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-10-15T18:35:57Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3830",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-10-15T18:35:42Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3829",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-10-15T18:35:28Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3828",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-10-15T18:35:13Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3827",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-10-15T18:34:55Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3826",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-10-15T18:34:40Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3825",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-10-15T18:34:06Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3824",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-10-15T18:33:57Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3823",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-10-15T18:33:36Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3822",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-10-15T18:33:15Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3821",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-10-15T18:33:07Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "dependabot",
-      "url": "https://github.com/JetBrains/kotlin/pull/3820",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-10-15T18:32:54Z",
-      "age": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "jsjeon",
-      "url": "https://github.com/JetBrains/kotlin/pull/3451",
-      "additions": 23,
-      "deletions": 39,
-      "prSize": 62,
-      "mergedAt": "2020-06-04T07:13:38Z",
-      "age": 1,
-      "approvals": 1,
-      "approvers": {
-        "punzki": 1
-      },
-      "generalComments": 2,
-      "generalCommenters": {
-        "mglukhikh": 2
-      },
-      "generalCommentSentimentScore": 7,
-      "generalCommentSentiments": {
-        "mglukhikh": 7
-      },
-      "generalCommentsAuthor": 1,
-      "generalCommentAuthorSentimentScore": -2,
-      "comments": 2,
-      "commenters": {
-        "mglukhikh": 2
-      },
-      "commentSentimentScore": 7,
-      "commentSentiments": {
-        "mglukhikh": 7
-      },
-      "commentsAuthor": 1,
-      "commentAuthorSentimentScore": -2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "sfs",
-      "url": "https://github.com/JetBrains/kotlin/pull/3448",
-      "additions": 32,
-      "deletions": 6,
-      "prSize": 38,
-      "mergedAt": "2020-06-04T15:52:57Z",
-      "age": 2,
-      "generalComments": 1,
-      "generalCommenters": {
-        "udalov": 1
-      },
-      "generalCommentSentimentScore": 5,
-      "generalCommentSentiments": {
-        "udalov": 5
-      },
-      "comments": 1,
-      "commenters": {
-        "udalov": 1
-      },
-      "commentSentimentScore": 5,
-      "commentSentiments": {
-        "udalov": 5
-      }
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "ilgonmic",
-      "url": "https://github.com/JetBrains/kotlin/pull/3447",
-      "additions": 54,
-      "deletions": 45,
-      "prSize": 99,
-      "mergedAt": "2020-06-02T11:56:30Z",
-      "age": 1,
+      "author": "nikita-nazarov",
+      "url": "https://github.com/JetBrains/kotlin/pull/4858",
+      "additions": 741,
+      "deletions": 9,
+      "prSize": 750,
+      "mergedAt": "2022-07-02T15:29:19Z",
+      "age": 21,
       "approvals": 2,
       "approvers": {
-        "ilya-g": 1,
-        "bashor": 1
-      },
-      "generalComments": 1,
-      "generalCommenters": {
-        "bashor": 1
-      },
-      "comments": 1,
-      "commenters": {
-        "bashor": 1
-      }
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "jsjeon",
-      "url": "https://github.com/JetBrains/kotlin/pull/3445",
-      "additions": 17,
-      "deletions": 32,
-      "prSize": 49,
-      "mergedAt": "2020-06-02T09:00:53Z",
-      "age": 1,
-      "generalComments": 1,
-      "generalCommenters": {
-        "mglukhikh": 1
-      },
-      "generalCommentSentimentScore": 2,
-      "generalCommentSentiments": {
-        "mglukhikh": 2
-      },
-      "comments": 1,
-      "commenters": {
-        "mglukhikh": 1
-      },
-      "commentSentimentScore": 2,
-      "commentSentiments": {
-        "mglukhikh": 2
-      }
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "punzki",
-      "url": "https://github.com/JetBrains/kotlin/pull/3441",
-      "additions": 3,
-      "deletions": 27,
-      "prSize": 30,
-      "mergedAt": "2020-06-04T14:03:56Z",
-      "age": 5,
-      "approvals": 1,
-      "approvers": {
-        "mglukhikh": 1
-      },
-      "generalComments": 2,
-      "generalCommenters": {
-        "zarechenskiy": 1,
-        "mglukhikh": 1
-      },
-      "generalCommentSentimentScore": 7,
-      "generalCommentSentiments": {
-        "zarechenskiy": 5,
-        "mglukhikh": 2
-      },
-      "comments": 2,
-      "commenters": {
-        "zarechenskiy": 1,
-        "mglukhikh": 1
-      },
-      "commentSentimentScore": 7,
-      "commentSentiments": {
-        "zarechenskiy": 5,
-        "mglukhikh": 2
-      }
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "nikitabobko",
-      "url": "https://github.com/JetBrains/kotlin/pull/3439",
-      "additions": 136,
-      "deletions": 130,
-      "prSize": 266,
-      "mergedAt": "2020-05-29T17:31:13Z",
-      "age": 1,
-      "approvals": 1,
-      "approvers": {
-        "goodwinnk": 1
+        "ilmirus": 2
       },
       "generalCommentsAuthor": 1,
-      "generalCommentAuthorSentimentScore": -3,
-      "codeComments": 2,
+      "generalCommentAuthorSentimentScore": 1,
+      "codeComments": 5,
       "codeCommenters": {
-        "goodwinnk": 2
-      },
-      "codeCommentSentimentScore": 2,
-      "codeCommentSentiments": {
-        "goodwinnk": 2
-      },
-      "codeCommentsAuthor": 3,
-      "codeCommentAuthorSentimentScore": 5,
-      "comments": 2,
-      "commenters": {
-        "goodwinnk": 2
-      },
-      "commentSentimentScore": 2,
-      "commentSentiments": {
-        "goodwinnk": 2
-      },
-      "commentsAuthor": 4,
-      "commentAuthorSentimentScore": 2
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "madsager",
-      "url": "https://github.com/JetBrains/kotlin/pull/3435",
-      "additions": 77,
-      "deletions": 33,
-      "prSize": 110,
-      "mergedAt": "2020-06-03T05:33:22Z",
-      "age": 4,
-      "generalComments": 2,
-      "generalCommenters": {
-        "max-kammerer": 2
-      },
-      "generalCommentSentimentScore": 22,
-      "generalCommentSentiments": {
-        "max-kammerer": 22
-      },
-      "generalCommentsAuthor": 3,
-      "generalCommentAuthorSentimentScore": 3,
-      "comments": 2,
-      "commenters": {
-        "max-kammerer": 2
-      },
-      "commentSentimentScore": 22,
-      "commentSentiments": {
-        "max-kammerer": 22
-      },
-      "commentsAuthor": 3,
-      "commentAuthorSentimentScore": 3
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "jsjeon",
-      "url": "https://github.com/JetBrains/kotlin/pull/3432",
-      "additions": 17,
-      "deletions": 7,
-      "prSize": 24,
-      "mergedAt": "2020-06-01T07:45:43Z",
-      "age": 4,
-      "approvals": 1,
-      "approvers": {
-        "punzki": 1
-      },
-      "generalComments": 1,
-      "generalCommenters": {
-        "mglukhikh": 1
-      },
-      "generalCommentSentimentScore": 2,
-      "generalCommentSentiments": {
-        "mglukhikh": 2
-      },
-      "codeComments": 2,
-      "codeCommenters": {
-        "punzki": 2
+        "ilmirus": 3,
+        "udalov": 2
       },
       "codeCommentSentimentScore": 3,
       "codeCommentSentiments": {
-        "punzki": 3
+        "ilmirus": -2,
+        "udalov": 5
       },
-      "codeCommentsAuthor": 2,
-      "codeCommentAuthorSentimentScore": 4,
-      "comments": 3,
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 5,
+      "comments": 5,
       "commenters": {
-        "punzki": 2,
-        "mglukhikh": 1
+        "ilmirus": 3,
+        "udalov": 2
       },
-      "commentSentimentScore": 5,
+      "commentSentimentScore": 3,
       "commentSentiments": {
-        "punzki": 3,
-        "mglukhikh": 2
+        "ilmirus": -2,
+        "udalov": 5
       },
       "commentsAuthor": 2,
-      "commentAuthorSentimentScore": 4
+      "commentAuthorSentimentScore": 6
     },
     {
       "repo": "kotlin",
       "org": "JetBrains",
-      "author": "madsager",
-      "url": "https://github.com/JetBrains/kotlin/pull/3428",
-      "additions": 1458,
-      "deletions": 1035,
-      "prSize": 2493,
-      "mergedAt": "2020-05-29T13:07:50Z",
-      "age": 2,
+      "author": "kandersen",
+      "url": "https://github.com/JetBrains/kotlin/pull/4866",
+      "additions": 7,
+      "deletions": 6,
+      "prSize": 13,
+      "mergedAt": "2022-07-11T11:13:10Z",
+      "age": 24,
       "generalComments": 1,
       "generalCommenters": {
-        "max-kammerer": 1
+        "udalov": 1
       },
       "generalCommentSentimentScore": 2,
       "generalCommentSentiments": {
-        "max-kammerer": 2
+        "udalov": 2
       },
-      "generalCommentsAuthor": 1,
-      "generalCommentAuthorSentimentScore": 2,
       "comments": 1,
       "commenters": {
-        "max-kammerer": 1
+        "udalov": 1
       },
       "commentSentimentScore": 2,
       "commentSentiments": {
-        "max-kammerer": 2
-      },
-      "commentsAuthor": 1,
-      "commentAuthorSentimentScore": 2
+        "udalov": 2
+      }
     },
     {
       "repo": "kotlin",
       "org": "JetBrains",
-      "author": "nikitabobko",
-      "url": "https://github.com/JetBrains/kotlin/pull/3427",
-      "additions": 241,
-      "deletions": 5,
-      "prSize": 246,
-      "mergedAt": "2020-06-01T14:05:11Z",
-      "age": 5
-    },
-    {
-      "repo": "kotlin",
-      "org": "JetBrains",
-      "author": "nikitabobko",
-      "url": "https://github.com/JetBrains/kotlin/pull/3425",
+      "author": "rickclephas",
+      "url": "https://github.com/JetBrains/kotlin/pull/4894",
       "additions": 38,
-      "deletions": 48,
-      "prSize": 86,
-      "mergedAt": "2020-06-04T11:56:24Z",
-      "age": 8,
+      "deletions": 2,
+      "prSize": 40,
+      "mergedAt": "2022-07-15T16:14:12Z",
+      "age": 2,
       "approvals": 1,
       "approvers": {
-        "dimonchik0036": 1
+        "sbogolepov": 1
       },
-      "codeComments": 6,
+      "codeComments": 1,
       "codeCommenters": {
-        "dimonchik0036": 6
+        "sbogolepov": 1
       },
-      "codeCommentSentimentScore": -1,
+      "codeCommentSentimentScore": 2,
       "codeCommentSentiments": {
-        "dimonchik0036": -1
+        "sbogolepov": 2
       },
-      "codeCommentsAuthor": 7,
-      "comments": 6,
+      "codeCommentsAuthor": 1,
+      "comments": 1,
       "commenters": {
-        "dimonchik0036": 6
+        "sbogolepov": 1
       },
-      "commentSentimentScore": -1,
+      "commentSentimentScore": 2,
       "commentSentiments": {
-        "dimonchik0036": -1
+        "sbogolepov": 2
       },
-      "commentsAuthor": 7
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "kotlin",
+      "org": "JetBrains",
+      "author": "kandersen",
+      "url": "https://github.com/JetBrains/kotlin/pull/4880",
+      "additions": 5,
+      "deletions": 5,
+      "prSize": 10,
+      "mergedAt": "2022-07-18T21:50:35Z",
+      "age": 24,
+      "approvals": 1,
+      "approvers": {
+        "dsavvinov": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "udalov": 2,
+        "demiurg906": 1
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "udalov": 4,
+        "demiurg906": -1
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": 11,
+      "comments": 3,
+      "commenters": {
+        "udalov": 2,
+        "demiurg906": 1
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "udalov": 4,
+        "demiurg906": -1
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 11
+    },
+    {
+      "repo": "kotlin",
+      "org": "JetBrains",
+      "author": "aSemy",
+      "url": "https://github.com/JetBrains/kotlin/pull/4899",
+      "additions": 3,
+      "deletions": 3,
+      "prSize": 6,
+      "mergedAt": "2022-07-21T16:46:15Z",
+      "age": 5,
+      "generalComments": 1,
+      "generalCommenters": {
+        "ilgonmic": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "ilgonmic": 2
+      },
+      "comments": 1,
+      "commenters": {
+        "ilgonmic": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "ilgonmic": 2
+      }
+    },
+    {
+      "repo": "kotlin",
+      "org": "JetBrains",
+      "author": "martinbonnin",
+      "url": "https://github.com/JetBrains/kotlin/pull/4897",
+      "additions": 16,
+      "prSize": 16,
+      "mergedAt": "2022-07-29T09:01:38Z",
+      "age": 13,
+      "approvals": 1,
+      "approvers": {
+        "Tapchicoma": 1
+      }
+    },
+    {
+      "repo": "kotlin",
+      "org": "JetBrains",
+      "author": "Kutashov",
+      "url": "https://github.com/JetBrains/kotlin/pull/4920",
+      "additions": 2,
+      "deletions": 1,
+      "prSize": 3,
+      "mergedAt": "2022-08-19T22:56:53Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "udalov": 2
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "udalov": 3
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 1,
+      "comments": 2,
+      "commenters": {
+        "udalov": 2
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "udalov": 3
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 1
+    }
+  ],
+  "filteredPRs": [
+    {
+      "repo": "kotlin",
+      "org": "JetBrains",
+      "author": "dependabot",
+      "url": "https://github.com/JetBrains/kotlin/pull/4905",
+      "additions": 47,
+      "deletions": 12,
+      "prSize": 59,
+      "mergedAt": "2022-07-21T16:15:14Z",
+      "age": 1
     }
   ],
   "releases": [
@@ -16290,6 +16099,22 @@
       "date": "2020-02-03T14:28:05Z",
       "description": "v1.3.70-eap-184",
       "releaseType": "PATCH"
+    },
+    {
+      "date": "2022-06-07T15:24:38Z",
+      "description": "v1.7.0",
+      "releaseType": "MINOR"
+    },
+    {
+      "date": "2022-07-04T12:04:04Z",
+      "description": "v1.7.10",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2022-07-27T13:30:52Z",
+      "description": "v1.7.20-Beta",
+      "releaseType": "PATCH"
     }
-  ]
+  ],
+  "preFetchedName": "JetBrains-Kotlin"
 }

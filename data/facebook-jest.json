@@ -1,22 +1,21 @@
 {
-  "preFetchedName": "facebook-jest",
   "fetches": {
     "org": "facebook",
     "repo": "jest",
-    "sortDirection": "DESC",
+    "sortDirection": "ASC",
     "excludeIds": [
       "facebook-github-bot"
     ],
     "prPagination": {
-      "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wNi0wNFQwNjo1Nzo0MCswMTowMM45G5WQ",
+      "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wOC0yMFQxMTo1ODozNyswMTowMM49f2_k",
       "oldest": "Y3Vyc29yOnYyOpK5MjAyMC0wNS0xNVQxNToyMDowNiswMTowMM4Y86Pu"
     },
     "releasesPagination": {
-      "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wNS0wNlQxMTo0ODo0NyswMTowMM4D8lxd",
+      "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wOC0xOVQxNDo1NzozNyswMTowMM4EdfCT",
       "oldest": "Y3Vyc29yOnYyOpK5MjAxOC0wMi0yMlQyMTozNTowMiswMDowMM4BJweU"
     },
     "issuesPagination": {
-      "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wNi0wM1QyMjozODo1NCswMTowMM5LIFkN",
+      "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wOC0yMVQwOToxNzowMyswMTowMM5QMXrn",
       "oldest": "Y3Vyc29yOnYyOpK5MjAyMC0wNS0yOVQxNDo0OToyNCswMTowMM4lY5Ff"
     }
   },
@@ -36309,18 +36308,271 @@
       "approvers": {
         "SimenB": 1
       }
-    }
-  ],
-  "filteredPRs": [
+    },
     {
       "repo": "jest",
       "org": "facebook",
-      "author": "facebook-github-bot",
-      "url": "https://github.com/facebook/jest/pull/10391",
-      "additions": 47,
-      "prSize": 47,
-      "mergedAt": "2020-08-10T21:03:24Z",
+      "author": "mrazauskas",
+      "url": "https://github.com/facebook/jest/pull/12912",
+      "additions": 114,
+      "deletions": 5,
+      "prSize": 119,
+      "mergedAt": "2022-06-05T09:09:33Z",
       "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "github-actions": 4
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 2,
+      "comments": 1,
+      "commenters": {
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "github-actions": 4
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 2
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "DanRowe",
+      "url": "https://github.com/facebook/jest/pull/12915",
+      "additions": 9,
+      "deletions": 9,
+      "prSize": 18,
+      "mergedAt": "2022-06-10T10:29:37Z",
+      "age": 3,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "mrazauskas": 2,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "mrazauskas": 5,
+        "github-actions": 4
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 2,
+      "comments": 3,
+      "commenters": {
+        "mrazauskas": 2,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 9,
+      "commentSentiments": {
+        "mrazauskas": 5,
+        "github-actions": 4
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 2
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "mrazauskas",
+      "url": "https://github.com/facebook/jest/pull/12949",
+      "additions": 6,
+      "deletions": 4,
+      "prSize": 10,
+      "mergedAt": "2022-06-20T06:49:04Z",
+      "age": 2,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "eelco": 2,
+        "SimenB": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "eelco": 1,
+        "SimenB": -1,
+        "github-actions": 4
+      },
+      "comments": 4,
+      "commenters": {
+        "eelco": 2,
+        "SimenB": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "eelco": 1,
+        "SimenB": -1,
+        "github-actions": 4
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/12954",
+      "additions": 14,
+      "deletions": 14,
+      "prSize": 28,
+      "mergedAt": "2022-06-21T09:19:36Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "github-actions": 4
+      },
+      "comments": 1,
+      "commenters": {
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "github-actions": 4
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/12956",
+      "additions": 16,
+      "deletions": 22,
+      "prSize": 38,
+      "mergedAt": "2022-06-21T09:52:51Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "github-actions": 4
+      },
+      "comments": 1,
+      "commenters": {
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "github-actions": 4
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/12955",
+      "additions": 1334,
+      "deletions": 1358,
+      "prSize": 2692,
+      "mergedAt": "2022-06-21T10:40:27Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "github-actions": 4
+      },
+      "comments": 1,
+      "commenters": {
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "github-actions": 4
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "pbomb",
+      "url": "https://github.com/facebook/jest/pull/12977",
+      "additions": 24,
+      "deletions": 2,
+      "prSize": 26,
+      "mergedAt": "2022-06-30T11:12:49Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "SimenB": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "github-actions": 4
+      },
+      "comments": 2,
+      "commenters": {
+        "SimenB": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "github-actions": 4
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/12979",
+      "additions": 6,
+      "deletions": 6,
+      "prSize": 12,
+      "mergedAt": "2022-06-30T11:46:21Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "github-actions": 4
+      },
+      "comments": 1,
+      "commenters": {
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "github-actions": 4
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "joshkel",
+      "url": "https://github.com/facebook/jest/pull/12960",
+      "additions": 33,
+      "deletions": 31,
+      "prSize": 64,
+      "mergedAt": "2022-06-30T11:48:20Z",
+      "age": 6,
       "approvals": 1,
       "approvers": {
         "SimenB": 1
@@ -36345,12 +36597,12 @@
     {
       "repo": "jest",
       "org": "facebook",
-      "author": "mohamedsgap",
-      "url": "https://github.com/facebook/jest/pull/10109",
-      "additions": 46,
-      "deletions": 1,
-      "prSize": 47,
-      "mergedAt": "2020-05-31T10:34:14Z",
+      "author": "mrazauskas",
+      "url": "https://github.com/facebook/jest/pull/12981",
+      "additions": 37,
+      "deletions": 37,
+      "prSize": 74,
+      "mergedAt": "2022-06-30T12:55:39Z",
       "age": 1,
       "approvals": 1,
       "approvers": {
@@ -36364,7 +36616,7 @@
       "generalCommentSentiments": {
         "github-actions": 4
       },
-      "generalCommentsAuthor": 1,
+      "codeCommentsAuthor": 1,
       "comments": 1,
       "commenters": {
         "github-actions": 1
@@ -36378,120 +36630,58 @@
     {
       "repo": "jest",
       "org": "facebook",
-      "author": "AHB",
-      "url": "https://github.com/facebook/jest/pull/10107",
-      "additions": 4,
-      "deletions": 4,
-      "prSize": 8,
-      "mergedAt": "2020-05-30T12:46:04Z",
-      "age": 1,
-      "approvals": 1,
-      "approvers": {
-        "jeysal": 1
-      },
-      "generalComments": 1,
-      "generalCommenters": {
-        "github-actions": 1
-      },
-      "generalCommentSentimentScore": 4,
-      "generalCommentSentiments": {
-        "github-actions": 4
-      },
-      "comments": 1,
-      "commenters": {
-        "github-actions": 1
-      },
-      "commentSentimentScore": 4,
-      "commentSentiments": {
-        "github-actions": 4
-      }
-    },
-    {
-      "repo": "jest",
-      "org": "facebook",
-      "author": "ychi",
-      "url": "https://github.com/facebook/jest/pull/10081",
-      "additions": 195,
-      "deletions": 23,
-      "prSize": 218,
-      "mergedAt": "2020-06-01T15:56:04Z",
-      "age": 7,
+      "author": "enrilzhou",
+      "url": "https://github.com/facebook/jest/pull/12973",
+      "additions": 29,
+      "deletions": 12,
+      "prSize": 41,
+      "mergedAt": "2022-06-30T21:13:59Z",
+      "age": 2,
       "approvals": 1,
       "approvers": {
         "SimenB": 1
       },
-      "generalComments": 1,
+      "generalComments": 2,
       "generalCommenters": {
+        "SimenB": 1,
         "github-actions": 1
       },
       "generalCommentSentimentScore": 4,
       "generalCommentSentiments": {
         "github-actions": 4
       },
-      "generalCommentsAuthor": 1,
-      "generalCommentAuthorSentimentScore": 2,
-      "codeComments": 7,
+      "codeComments": 3,
       "codeCommenters": {
-        "SimenB": 7
+        "SimenB": 3
       },
-      "codeCommentSentimentScore": 4,
+      "codeCommentSentimentScore": 3,
       "codeCommentSentiments": {
-        "SimenB": 4
+        "SimenB": 3
       },
       "codeCommentsAuthor": 3,
-      "comments": 8,
+      "codeCommentAuthorSentimentScore": 5,
+      "comments": 5,
       "commenters": {
-        "SimenB": 7,
-        "github-actions": 1
-      },
-      "commentSentimentScore": 8,
-      "commentSentiments": {
         "SimenB": 4,
-        "github-actions": 4
-      },
-      "commentsAuthor": 4,
-      "commentAuthorSentimentScore": 2
-    },
-    {
-      "repo": "jest",
-      "org": "facebook",
-      "author": "tundethomas",
-      "url": "https://github.com/facebook/jest/pull/10067",
-      "additions": 2,
-      "deletions": 2,
-      "prSize": 4,
-      "mergedAt": "2020-05-21T12:10:01Z",
-      "age": 1,
-      "approvals": 1,
-      "approvers": {
-        "jeysal": 1
-      },
-      "generalComments": 1,
-      "generalCommenters": {
         "github-actions": 1
       },
-      "generalCommentSentimentScore": 4,
-      "generalCommentSentiments": {
-        "github-actions": 4
-      },
-      "comments": 1,
-      "commenters": {
-        "github-actions": 1
-      },
-      "commentSentimentScore": 4,
+      "commentSentimentScore": 7,
       "commentSentiments": {
+        "SimenB": 3,
         "github-actions": 4
-      }
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 5
     },
     {
       "repo": "jest",
       "org": "facebook",
-      "author": "duxtinto",
-      "url": "https://github.com/facebook/jest/pull/10055",
-      "additions": 3,
-      "deletions": 2,
-      "prSize": 5,
-      "mergedAt": "2020-05-18T09:11:57Z",
+      "author": "robinpokorny",
+      "url": "https://github.com/facebook/jest/pull/12986",
+      "additions": 47,
+      "deletions": 4,
+      "prSize": 51,
+      "mergedAt": "2022-07-05T12:23:37Z",
       "age": 1,
       "approvals": 1,
       "approvers": {
@@ -36502,47 +36692,33 @@
         "SimenB": 1,
         "github-actions": 1
       },
-      "generalCommentSentimentScore": 6,
+      "generalCommentSentimentScore": 4,
       "generalCommentSentiments": {
-        "SimenB": 2,
         "github-actions": 4
       },
-      "generalCommentsAuthor": 1,
-      "generalCommentAuthorSentimentScore": 2,
       "codeComments": 1,
       "codeCommenters": {
-        "kenrick95": 1
+        "SimenB": 1
       },
-      "codeCommentSentimentScore": -2,
-      "codeCommentSentiments": {
-        "kenrick95": -2
-      },
-      "codeCommentsAuthor": 1,
-      "codeCommentAuthorSentimentScore": 7,
       "comments": 3,
       "commenters": {
-        "kenrick95": 1,
-        "SimenB": 1,
+        "SimenB": 2,
         "github-actions": 1
       },
       "commentSentimentScore": 4,
       "commentSentiments": {
-        "kenrick95": -2,
-        "SimenB": 2,
         "github-actions": 4
-      },
-      "commentsAuthor": 2,
-      "commentAuthorSentimentScore": 9
+      }
     },
     {
       "repo": "jest",
       "org": "facebook",
-      "author": "Connormiha",
-      "url": "https://github.com/facebook/jest/pull/10050",
-      "additions": 23,
-      "deletions": 20,
-      "prSize": 43,
-      "mergedAt": "2020-05-16T07:56:39Z",
+      "author": "jakeboone02",
+      "url": "https://github.com/facebook/jest/pull/12995",
+      "additions": 6,
+      "deletions": 6,
+      "prSize": 12,
+      "mergedAt": "2022-07-07T08:10:17Z",
       "age": 1,
       "approvals": 1,
       "approvers": {
@@ -36568,49 +36744,1594 @@
     {
       "repo": "jest",
       "org": "facebook",
-      "author": "kenrick95",
-      "url": "https://github.com/facebook/jest/pull/10049",
-      "additions": 12,
-      "deletions": 20,
-      "prSize": 32,
-      "mergedAt": "2020-05-19T21:13:55Z",
-      "age": 4,
-      "approvals": 2,
+      "author": "mrazauskas",
+      "url": "https://github.com/facebook/jest/pull/12935",
+      "additions": 236,
+      "deletions": 226,
+      "prSize": 462,
+      "mergedAt": "2022-07-07T08:11:08Z",
+      "age": 24,
+      "approvals": 1,
       "approvers": {
-        "SimenB": 2
+        "SimenB": 1
       },
-      "generalComments": 3,
+      "generalComments": 1,
       "generalCommenters": {
-        "codecov-io": 1,
-        "SimenB": 1,
         "github-actions": 1
       },
-      "generalCommentSentimentScore": 7,
+      "generalCommentSentimentScore": 4,
       "generalCommentSentiments": {
-        "codecov-io": 1,
-        "SimenB": 2,
         "github-actions": 4
       },
       "codeComments": 1,
       "codeCommenters": {
         "SimenB": 1
       },
-      "codeCommentsAuthor": 1,
-      "codeCommentAuthorSentimentScore": 2,
+      "comments": 2,
+      "commenters": {
+        "SimenB": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "github-actions": 4
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "mrazauskas",
+      "url": "https://github.com/facebook/jest/pull/13004",
+      "additions": 1190,
+      "deletions": 1190,
+      "prSize": 2380,
+      "mergedAt": "2022-07-10T08:29:31Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "github-actions": 4
+      },
+      "comments": 1,
+      "commenters": {
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "github-actions": 4
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "milahu",
+      "url": "https://github.com/facebook/jest/pull/12983",
+      "additions": 4,
+      "deletions": 2,
+      "prSize": 6,
+      "mergedAt": "2022-07-10T11:18:48Z",
+      "age": 8,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "vitkarpov": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "vitkarpov": -2,
+        "github-actions": 4
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": -1,
+      "comments": 2,
+      "commenters": {
+        "vitkarpov": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "vitkarpov": -2,
+        "github-actions": 4
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": -1
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "mrazauskas",
+      "url": "https://github.com/facebook/jest/pull/13013",
+      "additions": 106,
+      "deletions": 6,
+      "prSize": 112,
+      "mergedAt": "2022-07-13T07:36:51Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "Maxim-Mazurok": 1,
+        "SimenB": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 6,
+      "generalCommentSentiments": {
+        "Maxim-Mazurok": 2,
+        "github-actions": 4
+      },
+      "comments": 3,
+      "commenters": {
+        "Maxim-Mazurok": 1,
+        "SimenB": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 6,
+      "commentSentiments": {
+        "Maxim-Mazurok": 2,
+        "github-actions": 4
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "JLHwung",
+      "url": "https://github.com/facebook/jest/pull/13011",
+      "additions": 7,
+      "deletions": 3,
+      "prSize": 10,
+      "mergedAt": "2022-07-13T07:37:51Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "SimenB": 2,
+        "liuxingbaoyu": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 10,
+      "generalCommentSentiments": {
+        "SimenB": 5,
+        "liuxingbaoyu": 1,
+        "github-actions": 4
+      },
       "comments": 4,
       "commenters": {
         "SimenB": 2,
-        "codecov-io": 1,
+        "liuxingbaoyu": 1,
         "github-actions": 1
       },
-      "commentSentimentScore": 7,
+      "commentSentimentScore": 10,
       "commentSentiments": {
-        "SimenB": 2,
-        "codecov-io": 1,
+        "SimenB": 5,
+        "liuxingbaoyu": 1,
+        "github-actions": 4
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "MiguelYax",
+      "url": "https://github.com/facebook/jest/pull/13000",
+      "additions": 127,
+      "deletions": 42,
+      "prSize": 169,
+      "mergedAt": "2022-07-13T08:05:53Z",
+      "age": 5,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "github-actions": 4
+      },
+      "codeComments": 2,
+      "codeCommenters": {
+        "mrazauskas": 2
+      },
+      "codeCommentSentimentScore": 1,
+      "codeCommentSentiments": {
+        "mrazauskas": 1
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 2,
+      "comments": 3,
+      "commenters": {
+        "mrazauskas": 2,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 5,
+      "commentSentiments": {
+        "mrazauskas": 1,
         "github-actions": 4
       },
       "commentsAuthor": 1,
       "commentAuthorSentimentScore": 2
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13014",
+      "additions": 144,
+      "deletions": 86,
+      "prSize": 230,
+      "mergedAt": "2022-07-13T08:20:21Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "github-actions": 4
+      },
+      "comments": 1,
+      "commenters": {
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "github-actions": 4
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "kaffarell",
+      "url": "https://github.com/facebook/jest/pull/13015",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2022-07-13T08:52:52Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "github-actions": 4
+      },
+      "comments": 1,
+      "commenters": {
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "github-actions": 4
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13016",
+      "additions": 367,
+      "deletions": 525,
+      "prSize": 892,
+      "mergedAt": "2022-07-13T09:06:09Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "github-actions": 4
+      },
+      "comments": 1,
+      "commenters": {
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "github-actions": 4
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "TheKhanj",
+      "url": "https://github.com/facebook/jest/pull/12988",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2022-07-13T09:12:33Z",
+      "age": 8,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "Simon7520": 1,
+        "SimenB": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 5,
+      "generalCommentSentiments": {
+        "Simon7520": -2,
+        "SimenB": 3,
+        "github-actions": 4
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 2,
+      "comments": 3,
+      "commenters": {
+        "Simon7520": 1,
+        "SimenB": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 5,
+      "commentSentiments": {
+        "Simon7520": -2,
+        "SimenB": 3,
+        "github-actions": 4
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 2
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "mrazauskas",
+      "url": "https://github.com/facebook/jest/pull/13017",
+      "additions": 69,
+      "deletions": 69,
+      "prSize": 138,
+      "mergedAt": "2022-07-13T11:33:57Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "github-actions": 4
+      },
+      "comments": 1,
+      "commenters": {
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "github-actions": 4
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "Fdawgs",
+      "url": "https://github.com/facebook/jest/pull/13019",
+      "additions": 7,
+      "deletions": 7,
+      "prSize": 14,
+      "mergedAt": "2022-07-13T12:39:03Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "SimenB": 2,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 6,
+      "generalCommentSentiments": {
+        "SimenB": 2,
+        "github-actions": 4
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 2,
+      "comments": 3,
+      "commenters": {
+        "SimenB": 2,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 6,
+      "commentSentiments": {
+        "SimenB": 2,
+        "github-actions": 4
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 2
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "mrazauskas",
+      "url": "https://github.com/facebook/jest/pull/13020",
+      "additions": 10,
+      "deletions": 15,
+      "prSize": 25,
+      "mergedAt": "2022-07-13T13:19:17Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "github-actions": 4
+      },
+      "codeCommentsAuthor": 3,
+      "codeCommentAuthorSentimentScore": 2,
+      "comments": 1,
+      "commenters": {
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "github-actions": 4
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 2
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13021",
+      "additions": 445,
+      "deletions": 448,
+      "prSize": 893,
+      "mergedAt": "2022-07-13T14:09:48Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "github-actions": 4
+      },
+      "comments": 1,
+      "commenters": {
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "github-actions": 4
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13033",
+      "additions": 441,
+      "deletions": 750,
+      "prSize": 1191,
+      "mergedAt": "2022-07-17T19:14:12Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "silverwind": 1,
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 7,
+      "generalCommentSentiments": {
+        "silverwind": 3,
+        "github-actions": 4
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 1,
+      "comments": 2,
+      "commenters": {
+        "silverwind": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 7,
+      "commentSentiments": {
+        "silverwind": 3,
+        "github-actions": 4
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 1
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13035",
+      "additions": 6,
+      "deletions": 102,
+      "prSize": 108,
+      "mergedAt": "2022-07-17T20:24:06Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "github-actions": 4
+      },
+      "comments": 1,
+      "commenters": {
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "github-actions": 4
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13036",
+      "additions": 59,
+      "deletions": 43,
+      "prSize": 102,
+      "mergedAt": "2022-07-17T20:34:44Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "github-actions": 4
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "orta": 1
+      },
+      "codeCommentsAuthor": 1,
+      "comments": 2,
+      "commenters": {
+        "orta": 1,
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "github-actions": 4
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13038",
+      "additions": 13,
+      "prSize": 13,
+      "mergedAt": "2022-07-17T21:38:17Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "github-actions": 4
+      },
+      "comments": 1,
+      "commenters": {
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "github-actions": 4
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13037",
+      "additions": 62,
+      "deletions": 85,
+      "prSize": 147,
+      "mergedAt": "2022-07-17T21:55:26Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "github-actions": 4
+      },
+      "comments": 1,
+      "commenters": {
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "github-actions": 4
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "mrazauskas",
+      "url": "https://github.com/facebook/jest/pull/13040",
+      "additions": 6,
+      "deletions": 140,
+      "prSize": 146,
+      "mergedAt": "2022-07-20T12:17:11Z",
+      "age": 2,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "github-actions": 4
+      },
+      "comments": 1,
+      "commenters": {
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "github-actions": 4
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13045",
+      "additions": 304,
+      "deletions": 305,
+      "prSize": 609,
+      "mergedAt": "2022-07-20T16:26:42Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "github-actions": 4
+      },
+      "comments": 1,
+      "commenters": {
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "github-actions": 4
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13047",
+      "additions": 454,
+      "deletions": 450,
+      "prSize": 904,
+      "mergedAt": "2022-07-20T17:58:48Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "github-actions": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "github-actions": 4
+      },
+      "comments": 1,
+      "commenters": {
+        "github-actions": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "github-actions": 4
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13050",
+      "additions": 31,
+      "deletions": 15,
+      "prSize": 46,
+      "mergedAt": "2022-07-22T06:56:35Z",
+      "age": 1
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "makstech",
+      "url": "https://github.com/facebook/jest/pull/13049",
+      "additions": 11,
+      "deletions": 10,
+      "prSize": 21,
+      "mergedAt": "2022-07-22T07:12:25Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "SimenB": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "SimenB": 2
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 2,
+      "comments": 1,
+      "commenters": {
+        "SimenB": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "SimenB": 2
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 2
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "phawxby",
+      "url": "https://github.com/facebook/jest/pull/13054",
+      "additions": 51,
+      "deletions": 1,
+      "prSize": 52,
+      "mergedAt": "2022-07-22T07:14:26Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "SimenB": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "SimenB": 1
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "sa2taka",
+      "url": "https://github.com/facebook/jest/pull/13055",
+      "additions": 20,
+      "deletions": 2,
+      "prSize": 22,
+      "mergedAt": "2022-07-24T00:29:20Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "SimenB": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "SimenB": 1
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13058",
+      "additions": 23,
+      "deletions": 8,
+      "prSize": 31,
+      "mergedAt": "2022-07-24T00:30:59Z",
+      "age": 1
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13060",
+      "additions": 6002,
+      "deletions": 5667,
+      "prSize": 11669,
+      "mergedAt": "2022-07-25T15:37:39Z",
+      "age": 1
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "Josh-Cena",
+      "url": "https://github.com/facebook/jest/pull/13066",
+      "additions": 4,
+      "deletions": 11,
+      "prSize": 15,
+      "mergedAt": "2022-07-27T11:07:36Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13087",
+      "additions": 669,
+      "deletions": 663,
+      "prSize": 1332,
+      "mergedAt": "2022-08-02T09:22:41Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "thymikee": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "thymikee": 1
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13091",
+      "additions": 39,
+      "deletions": 68,
+      "prSize": 107,
+      "mergedAt": "2022-08-03T22:59:38Z",
+      "age": 1
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13096",
+      "additions": 1200,
+      "deletions": 1097,
+      "prSize": 2297,
+      "mergedAt": "2022-08-05T22:38:08Z",
+      "age": 1
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "matheus-rodrigues00",
+      "url": "https://github.com/facebook/jest/pull/13090",
+      "additions": 6,
+      "deletions": 6,
+      "prSize": 12,
+      "mergedAt": "2022-08-05T22:54:41Z",
+      "age": 2,
+      "approvals": 2,
+      "approvers": {
+        "SimenB": 2
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 2,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 2
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "phawxby",
+      "url": "https://github.com/facebook/jest/pull/13056",
+      "additions": 1358,
+      "deletions": 38,
+      "prSize": 1396,
+      "mergedAt": "2022-08-05T22:57:17Z",
+      "age": 14,
+      "approvals": 2,
+      "approvers": {
+        "SimenB": 2
+      },
+      "generalComments": 8,
+      "generalCommenters": {
+        "SimenB": 7,
+        "AndrewLeedham": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "SimenB": 5,
+        "AndrewLeedham": -3
+      },
+      "generalCommentsAuthor": 13,
+      "generalCommentAuthorSentimentScore": -18,
+      "codeComments": 9,
+      "codeCommenters": {
+        "SimenB": 7,
+        "mrazauskas": 2
+      },
+      "codeCommentSentimentScore": 3,
+      "codeCommentSentiments": {
+        "SimenB": 1,
+        "mrazauskas": 2
+      },
+      "codeCommentsAuthor": 4,
+      "comments": 17,
+      "commenters": {
+        "SimenB": 14,
+        "mrazauskas": 2,
+        "AndrewLeedham": 1
+      },
+      "commentSentimentScore": 5,
+      "commentSentiments": {
+        "SimenB": 6,
+        "mrazauskas": 2,
+        "AndrewLeedham": -3
+      },
+      "commentsAuthor": 17,
+      "commentAuthorSentimentScore": -18
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13097",
+      "additions": 1193,
+      "deletions": 2633,
+      "prSize": 3826,
+      "mergedAt": "2022-08-05T23:07:09Z",
+      "age": 1,
+      "generalComments": 9,
+      "generalCommenters": {
+        "ghiscoding": 8,
+        "MirKml": 1
+      },
+      "generalCommentSentimentScore": 62,
+      "generalCommentSentiments": {
+        "ghiscoding": 57,
+        "MirKml": 5
+      },
+      "generalCommentsAuthor": 8,
+      "generalCommentAuthorSentimentScore": 17,
+      "comments": 9,
+      "commenters": {
+        "ghiscoding": 8,
+        "MirKml": 1
+      },
+      "commentSentimentScore": 62,
+      "commentSentiments": {
+        "ghiscoding": 57,
+        "MirKml": 5
+      },
+      "commentsAuthor": 8,
+      "commentAuthorSentimentScore": 17
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "lanpai",
+      "url": "https://github.com/facebook/jest/pull/13094",
+      "additions": 2,
+      "deletions": 1,
+      "prSize": 3,
+      "mergedAt": "2022-08-05T23:13:13Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "SimenB": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "SimenB": 1
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "Zebreus",
+      "url": "https://github.com/facebook/jest/pull/13099",
+      "additions": 124,
+      "deletions": 12,
+      "prSize": 136,
+      "mergedAt": "2022-08-07T18:00:13Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "SimenB": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "SimenB": 1
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13102",
+      "additions": 9,
+      "deletions": 1,
+      "prSize": 10,
+      "mergedAt": "2022-08-08T07:20:00Z",
+      "age": 1
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "AndrewLeedham",
+      "url": "https://github.com/facebook/jest/pull/13105",
+      "additions": 3,
+      "deletions": 2,
+      "prSize": 5,
+      "mergedAt": "2022-08-08T12:57:37Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "phawxby": 1,
+        "SimenB": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "phawxby": 1,
+        "SimenB": 1
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "backmask",
+      "url": "https://github.com/facebook/jest/pull/13106",
+      "additions": 2,
+      "deletions": 1,
+      "prSize": 3,
+      "mergedAt": "2022-08-09T08:37:54Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 6,
+      "generalCommenters": {
+        "SimenB": 2,
+        "phawxby": 4
+      },
+      "generalCommentSentimentScore": -11,
+      "generalCommentSentiments": {
+        "phawxby": -11
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": -4,
+      "comments": 6,
+      "commenters": {
+        "SimenB": 2,
+        "phawxby": 4
+      },
+      "commentSentimentScore": -11,
+      "commentSentiments": {
+        "phawxby": -11
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": -4
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "Zebreus",
+      "url": "https://github.com/facebook/jest/pull/13109",
+      "additions": 42,
+      "deletions": 12,
+      "prSize": 54,
+      "mergedAt": "2022-08-09T15:06:57Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "Zebreus",
+      "url": "https://github.com/facebook/jest/pull/13108",
+      "additions": 12,
+      "deletions": 24,
+      "prSize": 36,
+      "mergedAt": "2022-08-09T15:09:04Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13117",
+      "additions": 84,
+      "deletions": 74,
+      "prSize": 158,
+      "mergedAt": "2022-08-11T08:34:17Z",
+      "age": 1,
+      "codeComments": 1,
+      "codeCommenters": {
+        "mrazauskas": 1
+      },
+      "codeCommentSentimentScore": 3,
+      "codeCommentSentiments": {
+        "mrazauskas": 3
+      },
+      "codeCommentsAuthor": 2,
+      "codeCommentAuthorSentimentScore": 4,
+      "comments": 1,
+      "commenters": {
+        "mrazauskas": 1
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "mrazauskas": 3
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 4
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "phawxby",
+      "url": "https://github.com/facebook/jest/pull/13107",
+      "additions": 644,
+      "deletions": 256,
+      "prSize": 900,
+      "mergedAt": "2022-08-11T12:29:23Z",
+      "age": 2,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "SimenB": 4
+      },
+      "generalCommentSentimentScore": -2,
+      "generalCommentSentiments": {
+        "SimenB": -2
+      },
+      "generalCommentsAuthor": 10,
+      "generalCommentAuthorSentimentScore": 15,
+      "codeComments": 15,
+      "codeCommenters": {
+        "SimenB": 15
+      },
+      "codeCommentSentimentScore": -5,
+      "codeCommentSentiments": {
+        "SimenB": -5
+      },
+      "codeCommentsAuthor": 7,
+      "codeCommentAuthorSentimentScore": -1,
+      "comments": 19,
+      "commenters": {
+        "SimenB": 19
+      },
+      "commentSentimentScore": -7,
+      "commentSentiments": {
+        "SimenB": -7
+      },
+      "commentsAuthor": 17,
+      "commentAuthorSentimentScore": 14
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13119",
+      "additions": 10,
+      "deletions": 10,
+      "prSize": 20,
+      "mergedAt": "2022-08-12T07:15:01Z",
+      "age": 1
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "mrazauskas",
+      "url": "https://github.com/facebook/jest/pull/13123",
+      "additions": 409,
+      "deletions": 60,
+      "prSize": 469,
+      "mergedAt": "2022-08-12T09:43:47Z",
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "SimenB": 2
+      },
+      "generalCommentSentimentScore": 6,
+      "generalCommentSentiments": {
+        "SimenB": 6
+      },
+      "codeCommentsAuthor": 2,
+      "codeCommentAuthorSentimentScore": -3,
+      "comments": 2,
+      "commenters": {
+        "SimenB": 2
+      },
+      "commentSentimentScore": 6,
+      "commentSentiments": {
+        "SimenB": 6
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": -3
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "liuxingbaoyu",
+      "url": "https://github.com/facebook/jest/pull/13120",
+      "additions": 5,
+      "deletions": 1,
+      "prSize": 6,
+      "mergedAt": "2022-08-12T09:44:12Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "SimenB": 1
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "SimenB": 3
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 4,
+      "comments": 1,
+      "commenters": {
+        "SimenB": 1
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "SimenB": 3
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 4
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "mrazauskas",
+      "url": "https://github.com/facebook/jest/pull/13124",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2022-08-12T11:20:54Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "SimenB": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "SimenB": 1
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "phawxby",
+      "url": "https://github.com/facebook/jest/pull/13126",
+      "additions": 2,
+      "prSize": 2,
+      "mergedAt": "2022-08-12T17:36:17Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "SimenB": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "SimenB": 1
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "mrazauskas",
+      "url": "https://github.com/facebook/jest/pull/13125",
+      "additions": 129,
+      "deletions": 67,
+      "prSize": 196,
+      "mergedAt": "2022-08-13T10:50:17Z",
+      "age": 1,
+      "approvals": 2,
+      "approvers": {
+        "SimenB": 2
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "SimenB": 3
+      },
+      "generalCommentSentimentScore": -8,
+      "generalCommentSentiments": {
+        "SimenB": -8
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": -6,
+      "codeComments": 3,
+      "codeCommenters": {
+        "SimenB": 3
+      },
+      "codeCommentSentimentScore": -4,
+      "codeCommentSentiments": {
+        "SimenB": -4
+      },
+      "codeCommentsAuthor": 3,
+      "codeCommentAuthorSentimentScore": 4,
+      "comments": 6,
+      "commenters": {
+        "SimenB": 6
+      },
+      "commentSentimentScore": -12,
+      "commentSentiments": {
+        "SimenB": -12
+      },
+      "commentsAuthor": 5,
+      "commentAuthorSentimentScore": -2
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "Trim",
+      "url": "https://github.com/facebook/jest/pull/13128",
+      "additions": 7,
+      "deletions": 6,
+      "prSize": 13,
+      "mergedAt": "2022-08-13T10:52:14Z",
+      "age": 1,
+      "approvals": 2,
+      "approvers": {
+        "SimenB": 2
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "mrazauskas": 1,
+        "SimenB": 1
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 6,
+      "codeComments": 1,
+      "codeCommenters": {
+        "mrazauskas": 1
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 4,
+      "comments": 3,
+      "commenters": {
+        "mrazauskas": 2,
+        "SimenB": 1
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 10
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "mrazauskas",
+      "url": "https://github.com/facebook/jest/pull/13133",
+      "additions": 23,
+      "deletions": 2,
+      "prSize": 25,
+      "mergedAt": "2022-08-15T11:01:40Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      }
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "mrazauskas",
+      "url": "https://github.com/facebook/jest/pull/13132",
+      "deletions": 39,
+      "prSize": 39,
+      "mergedAt": "2022-08-15T14:03:14Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "codeCommentsAuthor": 2,
+      "codeCommentAuthorSentimentScore": -1,
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": -1
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13138",
+      "additions": 17,
+      "deletions": 16,
+      "prSize": 33,
+      "mergedAt": "2022-08-16T07:35:51Z",
+      "age": 1
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13141",
+      "additions": 84,
+      "deletions": 57,
+      "prSize": 141,
+      "mergedAt": "2022-08-17T06:47:51Z",
+      "age": 1,
+      "codeComments": 2,
+      "codeCommenters": {
+        "mrazauskas": 2
+      },
+      "codeCommentSentimentScore": -1,
+      "codeCommentSentiments": {
+        "mrazauskas": -1
+      },
+      "codeCommentsAuthor": 3,
+      "codeCommentAuthorSentimentScore": -4,
+      "comments": 2,
+      "commenters": {
+        "mrazauskas": 2
+      },
+      "commentSentimentScore": -1,
+      "commentSentiments": {
+        "mrazauskas": -1
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": -4
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "kkyusufk",
+      "url": "https://github.com/facebook/jest/pull/13142",
+      "additions": 430,
+      "deletions": 84,
+      "prSize": 514,
+      "mergedAt": "2022-08-17T19:33:23Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "SimenB": 1
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 4,
+      "codeComments": 14,
+      "codeCommenters": {
+        "SimenB": 7,
+        "mrazauskas": 7
+      },
+      "codeCommentSentimentScore": -13,
+      "codeCommentSentiments": {
+        "SimenB": 2,
+        "mrazauskas": -15
+      },
+      "codeCommentsAuthor": 9,
+      "codeCommentAuthorSentimentScore": 1,
+      "comments": 15,
+      "commenters": {
+        "SimenB": 8,
+        "mrazauskas": 7
+      },
+      "commentSentimentScore": -13,
+      "commentSentiments": {
+        "SimenB": 2,
+        "mrazauskas": -15
+      },
+      "commentsAuthor": 10,
+      "commentAuthorSentimentScore": 5
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13149",
+      "additions": 6,
+      "deletions": 5,
+      "prSize": 11,
+      "mergedAt": "2022-08-19T11:43:49Z",
+      "age": 1
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13150",
+      "additions": 157,
+      "deletions": 8,
+      "prSize": 165,
+      "mergedAt": "2022-08-19T13:13:14Z",
+      "age": 1
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "SimenB",
+      "url": "https://github.com/facebook/jest/pull/13151",
+      "additions": 40,
+      "deletions": 45,
+      "prSize": 85,
+      "mergedAt": "2022-08-19T13:37:33Z",
+      "age": 1,
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 4,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 4
+    },
+    {
+      "repo": "jest",
+      "org": "facebook",
+      "author": "mrazauskas",
+      "url": "https://github.com/facebook/jest/pull/13155",
+      "additions": 8,
+      "deletions": 14,
+      "prSize": 22,
+      "mergedAt": "2022-08-20T11:50:26Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "SimenB": 1
+      }
     }
   ],
   "issues": [
@@ -43235,98 +44956,618 @@
       "mergedAt": "2022-06-03T21:38:54Z",
       "url": "https://github.com/facebook/jest/issues/12908",
       "isBug": true
-    }
-  ],
-  "filteredIssues": [
-    {
-      "mergedAt": "2020-06-04T15:18:08Z",
-      "url": "https://github.com/facebook/jest/issues/10125"
     },
     {
-      "mergedAt": "2020-06-04T11:42:23Z",
-      "url": "https://github.com/facebook/jest/issues/10124"
-    },
-    {
-      "mergedAt": "2020-06-04T08:56:29Z",
-      "url": "https://github.com/facebook/jest/issues/10123",
+      "mergedAt": "2022-06-05T02:01:33Z",
+      "url": "https://github.com/facebook/jest/issues/12911",
       "isBug": true
     },
     {
-      "mergedAt": "2020-06-04T08:24:09Z",
-      "url": "https://github.com/facebook/jest/issues/10122"
+      "mergedAt": "2022-06-07T04:15:46Z",
+      "url": "https://github.com/facebook/jest/issues/12916"
     },
     {
-      "mergedAt": "2020-06-03T13:14:23Z",
-      "url": "https://github.com/facebook/jest/issues/10121",
+      "mergedAt": "2022-06-07T09:25:17Z",
+      "url": "https://github.com/facebook/jest/issues/12918",
       "isBug": true
     },
     {
-      "mergedAt": "2020-06-02T15:27:44Z",
-      "url": "https://github.com/facebook/jest/issues/10118"
-    },
-    {
-      "mergedAt": "2020-06-02T15:09:09Z",
-      "url": "https://github.com/facebook/jest/issues/10117",
+      "mergedAt": "2022-06-07T16:49:47Z",
+      "url": "https://github.com/facebook/jest/issues/12919",
       "isBug": true
     },
     {
-      "mergedAt": "2020-06-01T20:03:14Z",
-      "url": "https://github.com/facebook/jest/issues/10115",
+      "mergedAt": "2022-06-07T17:28:10Z",
+      "url": "https://github.com/facebook/jest/issues/12920",
       "isBug": true
     },
     {
-      "mergedAt": "2020-06-01T18:14:46Z",
-      "url": "https://github.com/facebook/jest/issues/10114",
+      "mergedAt": "2022-06-07T20:30:29Z",
+      "url": "https://github.com/facebook/jest/issues/12921"
+    },
+    {
+      "mergedAt": "2022-06-08T05:39:05Z",
+      "url": "https://github.com/facebook/jest/issues/12923"
+    },
+    {
+      "mergedAt": "2022-06-08T10:11:51Z",
+      "url": "https://github.com/facebook/jest/issues/12925",
       "isBug": true
     },
     {
-      "mergedAt": "2020-06-01T17:01:40Z",
-      "url": "https://github.com/facebook/jest/issues/10113"
-    },
-    {
-      "mergedAt": "2020-06-01T13:22:22Z",
-      "url": "https://github.com/facebook/jest/issues/10112"
-    },
-    {
-      "mergedAt": "2020-06-01T08:55:39Z",
-      "url": "https://github.com/facebook/jest/issues/10111",
+      "mergedAt": "2022-06-08T15:10:10Z",
+      "url": "https://github.com/facebook/jest/issues/12926",
       "isBug": true
     },
     {
-      "mergedAt": "2020-05-31T17:24:37Z",
-      "url": "https://github.com/facebook/jest/issues/10110"
-    },
-    {
-      "mergedAt": "2020-05-30T21:40:05Z",
-      "url": "https://github.com/facebook/jest/issues/10108",
+      "mergedAt": "2022-06-08T21:15:37Z",
+      "url": "https://github.com/facebook/jest/issues/12927",
       "isBug": true
     },
     {
-      "mergedAt": "2020-05-30T06:48:51Z",
-      "url": "https://github.com/facebook/jest/issues/10106",
+      "mergedAt": "2022-06-09T02:04:43Z",
+      "url": "https://github.com/facebook/jest/issues/12928"
+    },
+    {
+      "mergedAt": "2022-06-09T02:47:15Z",
+      "url": "https://github.com/facebook/jest/issues/12929",
       "isBug": true
     },
     {
-      "mergedAt": "2020-05-29T21:57:46Z",
-      "url": "https://github.com/facebook/jest/issues/10105"
-    },
-    {
-      "mergedAt": "2020-05-29T16:51:30Z",
-      "url": "https://github.com/facebook/jest/issues/10104",
+      "mergedAt": "2022-06-10T07:13:35Z",
+      "url": "https://github.com/facebook/jest/issues/12931",
       "isBug": true
     },
     {
-      "mergedAt": "2020-05-29T16:22:39Z",
-      "url": "https://github.com/facebook/jest/issues/10103"
-    },
-    {
-      "mergedAt": "2020-05-29T13:57:12Z",
-      "url": "https://github.com/facebook/jest/issues/10102",
+      "mergedAt": "2022-06-11T22:51:24Z",
+      "url": "https://github.com/facebook/jest/issues/12932",
       "isBug": true
     },
     {
-      "mergedAt": "2020-05-29T13:49:24Z",
-      "url": "https://github.com/facebook/jest/issues/10101"
+      "mergedAt": "2022-06-12T23:10:39Z",
+      "url": "https://github.com/facebook/jest/issues/12933"
+    },
+    {
+      "mergedAt": "2022-06-13T02:29:20Z",
+      "url": "https://github.com/facebook/jest/issues/12934",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-13T14:37:43Z",
+      "url": "https://github.com/facebook/jest/issues/12936",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-13T17:12:23Z",
+      "url": "https://github.com/facebook/jest/issues/12937",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-14T00:11:12Z",
+      "url": "https://github.com/facebook/jest/issues/12938",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-14T10:51:27Z",
+      "url": "https://github.com/facebook/jest/issues/12939"
+    },
+    {
+      "mergedAt": "2022-06-14T21:48:39Z",
+      "url": "https://github.com/facebook/jest/issues/12940",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-15T12:58:42Z",
+      "url": "https://github.com/facebook/jest/issues/12941",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-15T17:23:09Z",
+      "url": "https://github.com/facebook/jest/issues/12942"
+    },
+    {
+      "mergedAt": "2022-06-15T19:19:19Z",
+      "url": "https://github.com/facebook/jest/issues/12943"
+    },
+    {
+      "mergedAt": "2022-06-16T04:04:56Z",
+      "url": "https://github.com/facebook/jest/issues/12944",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-17T12:15:13Z",
+      "url": "https://github.com/facebook/jest/issues/12946",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-17T16:12:41Z",
+      "url": "https://github.com/facebook/jest/issues/12947",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-17T17:05:22Z",
+      "url": "https://github.com/facebook/jest/issues/12948",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-20T14:24:43Z",
+      "url": "https://github.com/facebook/jest/issues/12952",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-20T18:01:15Z",
+      "url": "https://github.com/facebook/jest/issues/12953"
+    },
+    {
+      "mergedAt": "2022-06-22T08:44:17Z",
+      "url": "https://github.com/facebook/jest/issues/12957",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-22T13:19:28Z",
+      "url": "https://github.com/facebook/jest/issues/12958",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-22T15:40:18Z",
+      "url": "https://github.com/facebook/jest/issues/12959",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-24T03:31:34Z",
+      "url": "https://github.com/facebook/jest/issues/12961"
+    },
+    {
+      "mergedAt": "2022-06-24T06:30:57Z",
+      "url": "https://github.com/facebook/jest/issues/12962",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-24T10:05:26Z",
+      "url": "https://github.com/facebook/jest/issues/12963",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-24T11:01:18Z",
+      "url": "https://github.com/facebook/jest/issues/12964",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-24T13:07:35Z",
+      "url": "https://github.com/facebook/jest/issues/12965",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-26T02:32:49Z",
+      "url": "https://github.com/facebook/jest/issues/12966",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-26T08:49:48Z",
+      "url": "https://github.com/facebook/jest/issues/12967",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-27T09:10:26Z",
+      "url": "https://github.com/facebook/jest/issues/12969",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-27T20:56:16Z",
+      "url": "https://github.com/facebook/jest/issues/12972",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-28T18:10:26Z",
+      "url": "https://github.com/facebook/jest/issues/12974",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-29T13:50:31Z",
+      "url": "https://github.com/facebook/jest/issues/12975"
+    },
+    {
+      "mergedAt": "2022-06-29T22:28:20Z",
+      "url": "https://github.com/facebook/jest/issues/12976",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-06-30T04:20:08Z",
+      "url": "https://github.com/facebook/jest/issues/12978",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-04T08:25:58Z",
+      "url": "https://github.com/facebook/jest/issues/12984",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-05T04:20:51Z",
+      "url": "https://github.com/facebook/jest/issues/12987",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-05T09:54:16Z",
+      "url": "https://github.com/facebook/jest/issues/12989"
+    },
+    {
+      "mergedAt": "2022-07-05T15:52:56Z",
+      "url": "https://github.com/facebook/jest/issues/12990",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-06T03:33:00Z",
+      "url": "https://github.com/facebook/jest/issues/12991"
+    },
+    {
+      "mergedAt": "2022-07-06T07:27:59Z",
+      "url": "https://github.com/facebook/jest/issues/12992",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-06T13:33:08Z",
+      "url": "https://github.com/facebook/jest/issues/12993"
+    },
+    {
+      "mergedAt": "2022-07-06T15:55:24Z",
+      "url": "https://github.com/facebook/jest/issues/12994",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-07T04:00:32Z",
+      "url": "https://github.com/facebook/jest/issues/12996",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-07T10:10:47Z",
+      "url": "https://github.com/facebook/jest/issues/12997",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-07T17:16:37Z",
+      "url": "https://github.com/facebook/jest/issues/12998",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-07T19:24:49Z",
+      "url": "https://github.com/facebook/jest/issues/12999"
+    },
+    {
+      "mergedAt": "2022-07-08T07:15:24Z",
+      "url": "https://github.com/facebook/jest/issues/13001",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-08T10:19:08Z",
+      "url": "https://github.com/facebook/jest/issues/13002"
+    },
+    {
+      "mergedAt": "2022-07-08T15:39:59Z",
+      "url": "https://github.com/facebook/jest/issues/13003",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-10T15:56:09Z",
+      "url": "https://github.com/facebook/jest/issues/13006",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-11T00:30:36Z",
+      "url": "https://github.com/facebook/jest/issues/13007",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-11T13:19:25Z",
+      "url": "https://github.com/facebook/jest/issues/13008",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-12T08:48:01Z",
+      "url": "https://github.com/facebook/jest/issues/13010",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-13T01:47:40Z",
+      "url": "https://github.com/facebook/jest/issues/13012",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-13T10:04:56Z",
+      "url": "https://github.com/facebook/jest/issues/13018",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-13T18:20:48Z",
+      "url": "https://github.com/facebook/jest/issues/13022",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-14T09:36:00Z",
+      "url": "https://github.com/facebook/jest/issues/13024",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-14T15:05:20Z",
+      "url": "https://github.com/facebook/jest/issues/13025"
+    },
+    {
+      "mergedAt": "2022-07-14T16:45:56Z",
+      "url": "https://github.com/facebook/jest/issues/13026",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-14T18:00:47Z",
+      "url": "https://github.com/facebook/jest/issues/13027",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-15T05:13:57Z",
+      "url": "https://github.com/facebook/jest/issues/13028",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-15T09:29:28Z",
+      "url": "https://github.com/facebook/jest/issues/13029",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-15T14:11:33Z",
+      "url": "https://github.com/facebook/jest/issues/13030",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-15T20:24:06Z",
+      "url": "https://github.com/facebook/jest/issues/13031"
+    },
+    {
+      "mergedAt": "2022-07-17T18:11:51Z",
+      "url": "https://github.com/facebook/jest/issues/13034"
+    },
+    {
+      "mergedAt": "2022-07-18T09:41:12Z",
+      "url": "https://github.com/facebook/jest/issues/13041",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-19T10:27:39Z",
+      "url": "https://github.com/facebook/jest/issues/13042",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-19T13:06:16Z",
+      "url": "https://github.com/facebook/jest/issues/13043",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-20T01:31:25Z",
+      "url": "https://github.com/facebook/jest/issues/13044",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-21T02:17:28Z",
+      "url": "https://github.com/facebook/jest/issues/13048",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-21T14:48:01Z",
+      "url": "https://github.com/facebook/jest/issues/13051",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-21T15:51:08Z",
+      "url": "https://github.com/facebook/jest/issues/13052",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-21T16:26:00Z",
+      "url": "https://github.com/facebook/jest/issues/13053"
+    },
+    {
+      "mergedAt": "2022-07-23T10:44:59Z",
+      "url": "https://github.com/facebook/jest/issues/13057"
+    },
+    {
+      "mergedAt": "2022-07-25T13:42:51Z",
+      "url": "https://github.com/facebook/jest/issues/13059",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-25T18:24:31Z",
+      "url": "https://github.com/facebook/jest/issues/13061",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-26T06:40:33Z",
+      "url": "https://github.com/facebook/jest/issues/13062"
+    },
+    {
+      "mergedAt": "2022-07-26T10:46:15Z",
+      "url": "https://github.com/facebook/jest/issues/13063",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-26T12:17:33Z",
+      "url": "https://github.com/facebook/jest/issues/13064"
+    },
+    {
+      "mergedAt": "2022-07-26T13:34:13Z",
+      "url": "https://github.com/facebook/jest/issues/13065",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-27T10:45:47Z",
+      "url": "https://github.com/facebook/jest/issues/13067",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-27T12:24:31Z",
+      "url": "https://github.com/facebook/jest/issues/13068",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-27T14:45:46Z",
+      "url": "https://github.com/facebook/jest/issues/13069",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-27T14:54:52Z",
+      "url": "https://github.com/facebook/jest/issues/13070",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-27T21:36:02Z",
+      "url": "https://github.com/facebook/jest/issues/13071",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-28T02:55:54Z",
+      "url": "https://github.com/facebook/jest/issues/13073",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-28T09:04:34Z",
+      "url": "https://github.com/facebook/jest/issues/13074",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-29T13:39:52Z",
+      "url": "https://github.com/facebook/jest/issues/13076",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-29T15:13:31Z",
+      "url": "https://github.com/facebook/jest/issues/13077",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-29T16:08:57Z",
+      "url": "https://github.com/facebook/jest/issues/13078"
+    },
+    {
+      "mergedAt": "2022-07-29T20:16:49Z",
+      "url": "https://github.com/facebook/jest/issues/13079",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-30T10:42:54Z",
+      "url": "https://github.com/facebook/jest/issues/13081"
+    },
+    {
+      "mergedAt": "2022-07-30T23:43:11Z",
+      "url": "https://github.com/facebook/jest/issues/13082",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-01T20:56:15Z",
+      "url": "https://github.com/facebook/jest/issues/13084"
+    },
+    {
+      "mergedAt": "2022-08-01T21:08:59Z",
+      "url": "https://github.com/facebook/jest/issues/13085"
+    },
+    {
+      "mergedAt": "2022-08-02T00:52:00Z",
+      "url": "https://github.com/facebook/jest/issues/13086"
+    },
+    {
+      "mergedAt": "2022-08-04T15:17:49Z",
+      "url": "https://github.com/facebook/jest/issues/13092",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-04T16:52:16Z",
+      "url": "https://github.com/facebook/jest/issues/13093"
+    },
+    {
+      "mergedAt": "2022-08-05T21:10:44Z",
+      "url": "https://github.com/facebook/jest/issues/13095",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-06T22:53:35Z",
+      "url": "https://github.com/facebook/jest/issues/13098",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-08T04:57:11Z",
+      "url": "https://github.com/facebook/jest/issues/13101"
+    },
+    {
+      "mergedAt": "2022-08-09T14:55:42Z",
+      "url": "https://github.com/facebook/jest/issues/13110",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-09T19:44:21Z",
+      "url": "https://github.com/facebook/jest/issues/13111"
+    },
+    {
+      "mergedAt": "2022-08-10T00:06:47Z",
+      "url": "https://github.com/facebook/jest/issues/13112"
+    },
+    {
+      "mergedAt": "2022-08-10T16:22:40Z",
+      "url": "https://github.com/facebook/jest/issues/13116"
+    },
+    {
+      "mergedAt": "2022-08-11T20:20:53Z",
+      "url": "https://github.com/facebook/jest/issues/13118"
+    },
+    {
+      "mergedAt": "2022-08-14T07:04:24Z",
+      "url": "https://github.com/facebook/jest/issues/13131"
+    },
+    {
+      "mergedAt": "2022-08-14T16:50:10Z",
+      "url": "https://github.com/facebook/jest/issues/13134",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-15T00:10:27Z",
+      "url": "https://github.com/facebook/jest/issues/13135",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-15T02:09:28Z",
+      "url": "https://github.com/facebook/jest/issues/13136"
+    },
+    {
+      "mergedAt": "2022-08-15T20:28:31Z",
+      "url": "https://github.com/facebook/jest/issues/13140",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-16T23:42:48Z",
+      "url": "https://github.com/facebook/jest/issues/13143"
+    },
+    {
+      "mergedAt": "2022-08-17T07:22:01Z",
+      "url": "https://github.com/facebook/jest/issues/13144",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-18T12:11:42Z",
+      "url": "https://github.com/facebook/jest/issues/13147"
+    },
+    {
+      "mergedAt": "2022-08-18T21:18:21Z",
+      "url": "https://github.com/facebook/jest/issues/13148",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-20T06:51:35Z",
+      "url": "https://github.com/facebook/jest/issues/13153",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-20T07:35:15Z",
+      "url": "https://github.com/facebook/jest/issues/13154",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-21T08:17:03Z",
+      "url": "https://github.com/facebook/jest/issues/13158",
+      "isBug": true
     }
   ],
   "releases": [
@@ -43829,6 +46070,52 @@
       "date": "2018-02-22T21:35:02Z",
       "description": "v22.4.1",
       "releaseType": "PATCH"
+    },
+    {
+      "date": "2022-06-07T06:09:29Z",
+      "description": "v28.1.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2022-06-29T10:33:52Z",
+      "description": "v28.1.2",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2022-07-13T14:12:20Z",
+      "description": "v28.1.3",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2022-07-17T22:07:00Z",
+      "description": "v29.0.0-alpha.0",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2022-08-04T08:23:22Z",
+      "description": "v29.0.0-alpha.1",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2022-08-07T13:41:27Z",
+      "description": "v29.0.0-alpha.3",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2022-08-08T13:05:25Z",
+      "description": "v29.0.0-alpha.4",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2022-08-11T13:40:53Z",
+      "description": "v29.0.0-alpha.5",
+      "releaseType": "PATCH"
+    },
+    {
+      "date": "2022-08-19T13:57:37Z",
+      "description": "v29.0.0-alpha.6",
+      "releaseType": "PATCH"
     }
-  ]
+  ],
+  "preFetchedName": "facebook-jest"
 }

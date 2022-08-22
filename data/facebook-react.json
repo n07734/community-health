@@ -2,7 +2,7 @@
   "fetches": {
     "org": "facebook",
     "repo": "react",
-    "sortDirection": "DESC",
+    "sortDirection": "ASC",
     "excludeIds": [
       "dependabot",
       "facebook-github-bot",
@@ -10,7 +10,7 @@
       "github-actions"
     ],
     "prPagination": {
-      "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wNi0yNVQyMzoxMjoxNSswMTowMM46XKl9",
+      "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wOC0xOFQxNDoxNDo0MyswMTowMM49ZEsU",
       "oldest": "Y3Vyc29yOnYyOpK5MjAyMC0wNi0yM1QxNjozMjoyOSswMTowMM4aJUjf"
     },
     "releasesPagination": {
@@ -18,7 +18,7 @@
       "oldest": "Y3Vyc29yOnYyOpK5MjAxNy0wNS0wMVQxNzoxMzozNSswMTowMM4AXz49"
     },
     "issuesPagination": {
-      "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wNi0yN1QxODozMTozOCswMTowMM5MqMpq",
+      "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wOC0xOVQxMToxMjowOCswMTowMM5QH3Cl",
       "oldest": "Y3Vyc29yOnYyOpK5MjAyMC0wNi0yMlQwODoyMjowNSswMTowMM4mULc_"
     }
   },
@@ -43787,233 +43787,1255 @@
       },
       "commentsAuthor": 3,
       "commentAuthorSentimentScore": 1
-    }
-  ],
-  "filteredPRs": [
-    {
-      "repo": "react",
-      "org": "facebook",
-      "author": "dependabot",
-      "url": "https://github.com/facebook/react/pull/22223",
-      "additions": 21,
-      "deletions": 27,
-      "prSize": 48,
-      "mergedAt": "2021-09-06T19:03:12Z",
-      "age": 6
     },
     {
       "repo": "react",
       "org": "facebook",
-      "author": "dependabot",
-      "url": "https://github.com/facebook/react/pull/21628",
-      "additions": 6,
-      "deletions": 6,
+      "author": "lunaruan",
+      "url": "https://github.com/facebook/react/pull/24801",
+      "additions": 10,
+      "deletions": 2,
       "prSize": 12,
-      "mergedAt": "2021-06-29T20:53:39Z",
-      "age": 24
-    },
-    {
-      "repo": "react",
-      "org": "facebook",
-      "author": "dependabot",
-      "url": "https://github.com/facebook/react/pull/20468",
-      "additions": 15,
-      "deletions": 11,
-      "prSize": 26,
-      "mergedAt": "2021-06-29T20:53:31Z",
-      "age": 196,
-      "generalComments": 1,
-      "generalCommenters": {
-        "codesandbox-ci": 1
-      },
-      "generalCommentSentimentScore": 2,
-      "generalCommentSentiments": {
-        "codesandbox-ci": 2
-      },
-      "comments": 1,
-      "commenters": {
-        "codesandbox-ci": 1
-      },
-      "commentSentimentScore": 2,
-      "commentSentiments": {
-        "codesandbox-ci": 2
+      "mergedAt": "2022-06-28T17:09:59Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "acdlite": 1
       }
     },
     {
       "repo": "react",
       "org": "facebook",
-      "author": "trueadm",
-      "url": "https://github.com/facebook/react/pull/19197",
-      "additions": 4,
-      "deletions": 6,
-      "prSize": 10,
-      "mergedAt": "2020-06-26T19:35:22Z",
+      "author": "blakef",
+      "url": "https://github.com/facebook/react/pull/24805",
+      "additions": 346,
+      "deletions": 48,
+      "prSize": 394,
+      "mergedAt": "2022-06-28T21:15:24Z",
       "age": 1,
       "approvals": 1,
       "approvers": {
-        "bvaughn": 1
+        "lunaruan": 1
       },
-      "generalComments": 1,
+      "generalComments": 2,
       "generalCommenters": {
-        "codesandbox-ci": 1
+        "lunaruan": 2
       },
-      "generalCommentSentimentScore": 2,
+      "generalCommentSentimentScore": 16,
       "generalCommentSentiments": {
-        "codesandbox-ci": 2
+        "lunaruan": 16
       },
-      "comments": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 1,
+      "comments": 2,
       "commenters": {
-        "codesandbox-ci": 1
+        "lunaruan": 2
       },
-      "commentSentimentScore": 2,
+      "commentSentimentScore": 16,
       "commentSentiments": {
-        "codesandbox-ci": 2
+        "lunaruan": 16
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 1
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "lunaruan",
+      "url": "https://github.com/facebook/react/pull/24806",
+      "additions": 68,
+      "deletions": 5,
+      "prSize": 73,
+      "mergedAt": "2022-06-29T01:17:15Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "rickhanlonii": 1
       }
     },
     {
       "repo": "react",
       "org": "facebook",
-      "author": "finico",
-      "url": "https://github.com/facebook/react/pull/19195",
-      "deletions": 1,
-      "prSize": 1,
-      "mergedAt": "2020-06-25T16:10:48Z",
-      "age": 1,
+      "author": "mondaychen",
+      "url": "https://github.com/facebook/react/pull/24799",
+      "additions": 26,
+      "deletions": 4,
+      "prSize": 30,
+      "mergedAt": "2022-06-29T17:02:53Z",
+      "age": 2,
       "approvals": 1,
       "approvers": {
-        "bvaughn": 1
+        "lunaruan": 1
       },
-      "generalComments": 1,
-      "generalCommenters": {
-        "codesandbox-ci": 1
-      },
-      "generalCommentSentimentScore": 2,
-      "generalCommentSentiments": {
-        "codesandbox-ci": 2
-      },
-      "comments": 1,
-      "commenters": {
-        "codesandbox-ci": 1
-      },
-      "commentSentimentScore": 2,
-      "commentSentiments": {
-        "codesandbox-ci": 2
-      }
-    },
-    {
-      "repo": "react",
-      "org": "facebook",
-      "author": "cpojer",
-      "url": "https://github.com/facebook/react/pull/19193",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-06-25T16:17:43Z",
-      "age": 1,
-      "approvals": 1,
-      "approvers": {
-        "bvaughn": 1
-      },
-      "generalComments": 1,
-      "generalCommenters": {
-        "codesandbox-ci": 1
-      },
-      "generalCommentSentimentScore": 2,
-      "generalCommentSentiments": {
-        "codesandbox-ci": 2
-      },
-      "comments": 1,
-      "commenters": {
-        "codesandbox-ci": 1
-      },
-      "commentSentimentScore": 2,
-      "commentSentiments": {
-        "codesandbox-ci": 2
-      }
-    },
-    {
-      "repo": "react",
-      "org": "facebook",
-      "author": "rickhanlonii",
-      "url": "https://github.com/facebook/react/pull/19184",
-      "additions": 374,
-      "deletions": 98,
-      "prSize": 472,
-      "mergedAt": "2020-06-26T00:39:51Z",
-      "age": 1,
-      "approvals": 1,
-      "approvers": {
-        "bvaughn": 1
-      },
-      "generalComments": 6,
-      "generalCommenters": {
-        "codesandbox-ci": 1,
-        "acdlite": 5
-      },
-      "generalCommentSentimentScore": 20,
-      "generalCommentSentiments": {
-        "codesandbox-ci": 2,
-        "acdlite": 18
-      },
-      "generalCommentsAuthor": 4,
-      "generalCommentAuthorSentimentScore": 32,
-      "codeComments": 21,
+      "codeComments": 4,
       "codeCommenters": {
-        "acdlite": 4,
-        "bvaughn": 17
+        "lunaruan": 4
       },
-      "codeCommentSentimentScore": 13,
+      "codeCommentSentimentScore": 2,
       "codeCommentSentiments": {
-        "acdlite": 2,
-        "bvaughn": 11
+        "lunaruan": 2
       },
-      "codeCommentsAuthor": 11,
-      "codeCommentAuthorSentimentScore": 17,
-      "comments": 27,
+      "codeCommentsAuthor": 1,
+      "comments": 4,
       "commenters": {
-        "acdlite": 9,
-        "bvaughn": 17,
-        "codesandbox-ci": 1
+        "lunaruan": 4
       },
-      "commentSentimentScore": 33,
+      "commentSentimentScore": 2,
       "commentSentiments": {
-        "acdlite": 20,
-        "bvaughn": 11,
-        "codesandbox-ci": 2
+        "lunaruan": 2
       },
-      "commentsAuthor": 15,
-      "commentAuthorSentimentScore": 49
+      "commentsAuthor": 1
     },
     {
       "repo": "react",
       "org": "facebook",
-      "author": "MoonBall",
-      "url": "https://github.com/facebook/react/pull/19182",
-      "additions": 1,
-      "deletions": 1,
-      "prSize": 2,
-      "mergedAt": "2020-06-23T20:28:24Z",
+      "author": "lunaruan",
+      "url": "https://github.com/facebook/react/pull/24814",
+      "additions": 13,
+      "deletions": 13,
+      "prSize": 26,
+      "mergedAt": "2022-06-29T17:38:28Z",
       "age": 1,
       "approvals": 1,
       "approvers": {
-        "bvaughn": 1
+        "blakef": 1
       },
       "generalComments": 1,
       "generalCommenters": {
-        "codesandbox-ci": 1
+        "blakef": 1
       },
-      "generalCommentSentimentScore": 2,
+      "codeComments": 2,
+      "codeCommenters": {
+        "mondaychen": 1,
+        "blakef": 1
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 1,
+      "comments": 3,
+      "commenters": {
+        "mondaychen": 1,
+        "blakef": 2
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 1
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "lunaruan",
+      "url": "https://github.com/facebook/react/pull/24815",
+      "additions": 78,
+      "deletions": 70,
+      "prSize": 148,
+      "mergedAt": "2022-06-29T23:00:48Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "blakef": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "lunaruan",
+      "url": "https://github.com/facebook/react/pull/24816",
+      "additions": 106,
+      "deletions": 80,
+      "prSize": 186,
+      "mergedAt": "2022-06-30T00:54:07Z",
+      "age": 1,
+      "approvals": 3,
+      "approvers": {
+        "blakef": 2,
+        "mondaychen": 1
+      },
+      "codeComments": 2,
+      "codeCommenters": {
+        "blakef": 1,
+        "mondaychen": 1
+      },
+      "codeCommentSentimentScore": -1,
+      "codeCommentSentiments": {
+        "mondaychen": -1
+      },
+      "comments": 2,
+      "commenters": {
+        "blakef": 1,
+        "mondaychen": 1
+      },
+      "commentSentimentScore": -1,
+      "commentSentiments": {
+        "mondaychen": -1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "acdlite",
+      "url": "https://github.com/facebook/react/pull/24817",
+      "additions": 307,
+      "deletions": 191,
+      "prSize": 498,
+      "mergedAt": "2022-06-30T03:31:42Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "lunaruan": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "acdlite",
+      "url": "https://github.com/facebook/react/pull/24829",
+      "additions": 179,
+      "deletions": 309,
+      "prSize": 488,
+      "mergedAt": "2022-06-30T15:48:25Z",
+      "age": 1
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "lunaruan",
+      "url": "https://github.com/facebook/react/pull/24830",
+      "additions": 321,
+      "deletions": 181,
+      "prSize": 502,
+      "mergedAt": "2022-06-30T17:16:08Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "acdlite": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "acdlite": 1
+      },
+      "generalCommentSentimentScore": 4,
       "generalCommentSentiments": {
-        "codesandbox-ci": 2
+        "acdlite": 4
+      },
+      "codeComments": 2,
+      "codeCommenters": {
+        "acdlite": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "acdlite": 3
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "acdlite": 4
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "acdlite",
+      "url": "https://github.com/facebook/react/pull/24846",
+      "additions": 50,
+      "deletions": 16,
+      "prSize": 66,
+      "mergedAt": "2022-07-05T15:40:44Z",
+      "age": 1,
+      "codeComments": 2,
+      "codeCommenters": {
+        "lunaruan": 2
+      },
+      "comments": 2,
+      "commenters": {
+        "lunaruan": 2
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "lunaruan",
+      "url": "https://github.com/facebook/react/pull/24856",
+      "additions": 40,
+      "deletions": 64,
+      "prSize": 104,
+      "mergedAt": "2022-07-06T13:37:46Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "acdlite": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "lunaruan",
+      "url": "https://github.com/facebook/react/pull/24855",
+      "additions": 28,
+      "deletions": 60,
+      "prSize": 88,
+      "mergedAt": "2022-07-06T13:38:28Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "acdlite": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "lunaruan",
+      "url": "https://github.com/facebook/react/pull/24863",
+      "additions": 53,
+      "deletions": 8,
+      "prSize": 61,
+      "mergedAt": "2022-07-07T14:43:25Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "mondaychen": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "mondaychen": 1,
+        "rickhanlonii": 1,
+        "sylsaint": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "mondaychen": 3,
+        "sylsaint": 1
+      },
+      "comments": 3,
+      "commenters": {
+        "mondaychen": 1,
+        "rickhanlonii": 1,
+        "sylsaint": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "mondaychen": 3,
+        "sylsaint": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "acdlite",
+      "url": "https://github.com/facebook/react/pull/24868",
+      "additions": 11,
+      "deletions": 2518,
+      "prSize": 2529,
+      "mergedAt": "2022-07-07T20:57:42Z",
+      "age": 1,
+      "approvals": 2,
+      "approvers": {
+        "gaearon": 1,
+        "gnoff": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "acdlite",
+      "url": "https://github.com/facebook/react/pull/24872",
+      "additions": 254,
+      "deletions": 78,
+      "prSize": 332,
+      "mergedAt": "2022-07-08T15:51:40Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "rickhanlonii": 1
+      },
+      "codeComments": 2,
+      "codeCommenters": {
+        "rickhanlonii": 2
+      },
+      "codeCommentSentimentScore": -1,
+      "codeCommentSentiments": {
+        "rickhanlonii": -1
+      },
+      "codeCommentsAuthor": 1,
+      "comments": 2,
+      "commenters": {
+        "rickhanlonii": 2
+      },
+      "commentSentimentScore": -1,
+      "commentSentiments": {
+        "rickhanlonii": -1
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "acdlite",
+      "url": "https://github.com/facebook/react/pull/24878",
+      "additions": 634,
+      "deletions": 386,
+      "prSize": 1020,
+      "mergedAt": "2022-07-08T15:55:53Z",
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 1,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 1
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "lunaruan",
+      "url": "https://github.com/facebook/react/pull/24833",
+      "additions": 498,
+      "deletions": 51,
+      "prSize": 549,
+      "mergedAt": "2022-07-08T16:13:29Z",
+      "age": 7,
+      "approvals": 1,
+      "approvers": {
+        "acdlite": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "acdlite": 1
       },
       "comments": 1,
       "commenters": {
-        "codesandbox-ci": 1
+        "acdlite": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "lunaruan",
+      "url": "https://github.com/facebook/react/pull/24873",
+      "additions": 116,
+      "deletions": 14,
+      "prSize": 130,
+      "mergedAt": "2022-07-08T16:31:44Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "acdlite": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "acdlite": 1
+      },
+      "codeCommentSentimentScore": -4,
+      "codeCommentSentiments": {
+        "acdlite": -4
+      },
+      "comments": 1,
+      "commenters": {
+        "acdlite": 1
+      },
+      "commentSentimentScore": -4,
+      "commentSentiments": {
+        "acdlite": -4
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "lunaruan",
+      "url": "https://github.com/facebook/react/pull/24887",
+      "additions": 83,
+      "deletions": 2,
+      "prSize": 85,
+      "mergedAt": "2022-07-11T22:00:49Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "acdlite": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "acdlite",
+      "url": "https://github.com/facebook/react/pull/24906",
+      "additions": 670,
+      "deletions": 586,
+      "prSize": 1256,
+      "mergedAt": "2022-07-12T18:31:24Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "rickhanlonii": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "rickhanlonii": 1
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 4,
+      "comments": 1,
+      "commenters": {
+        "rickhanlonii": 1
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 4
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "lunaruan",
+      "url": "https://github.com/facebook/react/pull/24861",
+      "additions": 344,
+      "deletions": 48,
+      "prSize": 392,
+      "mergedAt": "2022-07-12T18:59:54Z",
+      "age": 6,
+      "approvals": 1,
+      "approvers": {
+        "acdlite": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "acdlite": 1
+      },
+      "codeCommentSentimentScore": 2,
+      "codeCommentSentiments": {
+        "acdlite": 2
+      },
+      "codeCommentsAuthor": 1,
+      "comments": 1,
+      "commenters": {
+        "acdlite": 1
       },
       "commentSentimentScore": 2,
       "commentSentiments": {
-        "codesandbox-ci": 2
+        "acdlite": 2
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "lunaruan",
+      "url": "https://github.com/facebook/react/pull/24880",
+      "additions": 111,
+      "deletions": 127,
+      "prSize": 238,
+      "mergedAt": "2022-07-12T19:48:05Z",
+      "age": 4,
+      "approvals": 1,
+      "approvers": {
+        "acdlite": 1
       }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "lunaruan",
+      "url": "https://github.com/facebook/react/pull/24908",
+      "deletions": 190,
+      "prSize": 190,
+      "mergedAt": "2022-07-12T19:59:58Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "mondaychen": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "mondaychen",
+      "url": "https://github.com/facebook/react/pull/24921",
+      "additions": 3,
+      "deletions": 3,
+      "prSize": 6,
+      "mergedAt": "2022-07-13T19:21:32Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "lunaruan": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "lunaruan",
+      "url": "https://github.com/facebook/react/pull/24920",
+      "additions": 42,
+      "deletions": 18,
+      "prSize": 60,
+      "mergedAt": "2022-07-13T19:27:12Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "mondaychen": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "mondaychen",
+      "url": "https://github.com/facebook/react/pull/24919",
+      "additions": 21,
+      "deletions": 10,
+      "prSize": 31,
+      "mergedAt": "2022-07-13T19:57:50Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "lunaruan": 1
+      },
+      "codeComments": 2,
+      "codeCommenters": {
+        "eps1lon": 1,
+        "lunaruan": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "eps1lon": 1,
+        "lunaruan": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "acdlite",
+      "url": "https://github.com/facebook/react/pull/24918",
+      "additions": 154,
+      "deletions": 166,
+      "prSize": 320,
+      "mergedAt": "2022-07-14T15:08:08Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "lunaruan": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "lunaruan",
+      "url": "https://github.com/facebook/react/pull/24937",
+      "additions": 6,
+      "deletions": 2,
+      "prSize": 8,
+      "mergedAt": "2022-07-18T17:22:47Z",
+      "age": 2,
+      "approvals": 1,
+      "approvers": {
+        "mondaychen": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "mondaychen",
+      "url": "https://github.com/facebook/react/pull/24888",
+      "additions": 28,
+      "deletions": 12,
+      "prSize": 40,
+      "mergedAt": "2022-07-18T19:52:54Z",
+      "age": 6,
+      "approvals": 1,
+      "approvers": {
+        "lunaruan": 1
+      },
+      "codeComments": 4,
+      "codeCommenters": {
+        "lunaruan": 4
+      },
+      "codeCommentSentimentScore": 7,
+      "codeCommentSentiments": {
+        "lunaruan": 7
+      },
+      "codeCommentsAuthor": 4,
+      "codeCommentAuthorSentimentScore": 16,
+      "comments": 4,
+      "commenters": {
+        "lunaruan": 4
+      },
+      "commentSentimentScore": 7,
+      "commentSentiments": {
+        "lunaruan": 7
+      },
+      "commentsAuthor": 4,
+      "commentAuthorSentimentScore": 16
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "acdlite",
+      "url": "https://github.com/facebook/react/pull/24931",
+      "additions": 296,
+      "deletions": 334,
+      "prSize": 630,
+      "mergedAt": "2022-07-19T18:12:52Z",
+      "age": 4,
+      "approvals": 1,
+      "approvers": {
+        "rickhanlonii": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "acdlite",
+      "url": "https://github.com/facebook/react/pull/24936",
+      "additions": 1281,
+      "deletions": 1042,
+      "prSize": 2323,
+      "mergedAt": "2022-07-19T18:12:52Z",
+      "age": 4,
+      "approvals": 1,
+      "approvers": {
+        "rickhanlonii": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "mondaychen",
+      "url": "https://github.com/facebook/react/pull/24951",
+      "additions": 16,
+      "deletions": 15,
+      "prSize": 31,
+      "mergedAt": "2022-07-19T19:22:09Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "lunaruan": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "eps1lon",
+      "url": "https://github.com/facebook/react/pull/24853",
+      "additions": 4,
+      "prSize": 4,
+      "mergedAt": "2022-07-21T19:46:11Z",
+      "age": 16,
+      "approvals": 1,
+      "approvers": {
+        "gaearon": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "eps1lon",
+      "url": "https://github.com/facebook/react/pull/24945",
+      "additions": 12,
+      "deletions": 32,
+      "prSize": 44,
+      "mergedAt": "2022-07-21T19:46:43Z",
+      "age": 4,
+      "approvals": 1,
+      "approvers": {
+        "acdlite": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "eps1lon",
+      "url": "https://github.com/facebook/react/pull/24946",
+      "additions": 14,
+      "deletions": 8,
+      "prSize": 22,
+      "mergedAt": "2022-07-21T19:46:58Z",
+      "age": 4,
+      "approvals": 1,
+      "approvers": {
+        "gaearon": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "davidrenne",
+      "url": "https://github.com/facebook/react/pull/24972",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2022-07-22T15:24:49Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kassens": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "kassens": 2
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 8,
+      "comments": 1,
+      "commenters": {
+        "kassens": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "kassens": 2
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 8
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "mondaychen",
+      "url": "https://github.com/facebook/react/pull/24966",
+      "additions": 96,
+      "deletions": 20,
+      "prSize": 116,
+      "mergedAt": "2022-07-25T15:53:38Z",
+      "age": 4,
+      "approvals": 1,
+      "approvers": {
+        "lunaruan": 1
+      },
+      "codeComments": 4,
+      "codeCommenters": {
+        "lunaruan": 4
+      },
+      "codeCommentSentimentScore": 3,
+      "codeCommentSentiments": {
+        "lunaruan": 3
+      },
+      "codeCommentsAuthor": 4,
+      "codeCommentAuthorSentimentScore": 6,
+      "comments": 4,
+      "commenters": {
+        "lunaruan": 4
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "lunaruan": 3
+      },
+      "commentsAuthor": 4,
+      "commentAuthorSentimentScore": 6
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "acdlite",
+      "url": "https://github.com/facebook/react/pull/24988",
+      "additions": 126,
+      "deletions": 8,
+      "prSize": 134,
+      "mergedAt": "2022-07-26T04:35:52Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "gnoff": 1
+      },
+      "generalCommentsAuthor": 1,
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "acdlite",
+      "url": "https://github.com/facebook/react/pull/24967",
+      "additions": 1250,
+      "deletions": 322,
+      "prSize": 1572,
+      "mergedAt": "2022-07-29T23:22:58Z",
+      "age": 8,
+      "approvals": 2,
+      "approvers": {
+        "rickhanlonii": 1,
+        "sebmarkbage": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "acdlite",
+      "url": "https://github.com/facebook/react/pull/24977",
+      "additions": 616,
+      "deletions": 177,
+      "prSize": 793,
+      "mergedAt": "2022-07-29T23:34:28Z",
+      "age": 7,
+      "approvals": 1,
+      "approvers": {
+        "rickhanlonii": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "Andarist": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "sebmarkbage": 1
+      },
+      "codeCommentSentimentScore": 2,
+      "codeCommentSentiments": {
+        "sebmarkbage": 2
+      },
+      "codeCommentsAuthor": 2,
+      "codeCommentAuthorSentimentScore": -3,
+      "comments": 2,
+      "commenters": {
+        "sebmarkbage": 1,
+        "Andarist": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "sebmarkbage": 2
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": -3
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "Saber2pr",
+      "url": "https://github.com/facebook/react/pull/25001",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2022-07-30T08:57:14Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 6,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 6
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "sebmarkbage",
+      "url": "https://github.com/facebook/react/pull/25024",
+      "additions": 14,
+      "deletions": 100,
+      "prSize": 114,
+      "mergedAt": "2022-08-02T03:30:04Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "gnoff": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "lunaruan",
+      "url": "https://github.com/facebook/react/pull/25035",
+      "additions": 72,
+      "prSize": 72,
+      "mergedAt": "2022-08-03T17:24:41Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "acdlite": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "acdlite": 1
+      },
+      "codeCommentSentimentScore": -2,
+      "codeCommentSentiments": {
+        "acdlite": -2
+      },
+      "codeCommentsAuthor": 1,
+      "comments": 1,
+      "commenters": {
+        "acdlite": 1
+      },
+      "commentSentimentScore": -2,
+      "commentSentiments": {
+        "acdlite": -2
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "acdlite",
+      "url": "https://github.com/facebook/react/pull/24992",
+      "additions": 27,
+      "deletions": 28,
+      "prSize": 55,
+      "mergedAt": "2022-08-03T21:03:53Z",
+      "age": 8,
+      "approvals": 1,
+      "approvers": {
+        "sebmarkbage": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "acdlite",
+      "url": "https://github.com/facebook/react/pull/25044",
+      "additions": 174,
+      "deletions": 3,
+      "prSize": 177,
+      "mergedAt": "2022-08-05T01:20:16Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "sebmarkbage": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "Krishnamohan-Yerrabilli",
+      "url": "https://github.com/facebook/react/pull/24798",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2022-08-08T11:31:35Z",
+      "age": 41,
+      "approvals": 2,
+      "approvers": {
+        "shirleypatterson": 2
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "shirleypatterson": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "shirleypatterson": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "zahad-a-s",
+      "url": "https://github.com/facebook/react/pull/25067",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2022-08-10T19:14:32Z",
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "gaearon": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "gaearon": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "gaearon": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "gaearon": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "sammy-SC",
+      "url": "https://github.com/facebook/react/pull/25080",
+      "deletions": 22,
+      "prSize": 22,
+      "mergedAt": "2022-08-11T13:24:57Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "acdlite": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "rbalicki2",
+      "url": "https://github.com/facebook/react/pull/25077",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2022-08-11T23:47:03Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "lunaruan": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "acdlite",
+      "url": "https://github.com/facebook/react/pull/25074",
+      "additions": 539,
+      "deletions": 200,
+      "prSize": 739,
+      "mergedAt": "2022-08-12T02:01:56Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "sebmarkbage": 1
+      },
+      "codeComments": 5,
+      "codeCommenters": {
+        "sebmarkbage": 1,
+        "rickhanlonii": 4
+      },
+      "codeCommentSentimentScore": -2,
+      "codeCommentSentiments": {
+        "sebmarkbage": -2
+      },
+      "codeCommentsAuthor": 5,
+      "codeCommentAuthorSentimentScore": -1,
+      "comments": 5,
+      "commenters": {
+        "sebmarkbage": 1,
+        "rickhanlonii": 4
+      },
+      "commentSentimentScore": -2,
+      "commentSentiments": {
+        "sebmarkbage": -2
+      },
+      "commentsAuthor": 5,
+      "commentAuthorSentimentScore": -1
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "lunaruan",
+      "url": "https://github.com/facebook/react/pull/25085",
+      "additions": 48,
+      "deletions": 8,
+      "prSize": 56,
+      "mergedAt": "2022-08-12T03:04:45Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "acdlite": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "gnoff",
+      "url": "https://github.com/facebook/react/pull/25060",
+      "additions": 729,
+      "deletions": 26,
+      "prSize": 755,
+      "mergedAt": "2022-08-12T20:27:54Z",
+      "age": 4,
+      "approvals": 1,
+      "approvers": {
+        "sebmarkbage": 1
+      },
+      "codeComments": 18,
+      "codeCommenters": {
+        "sebmarkbage": 17,
+        "apostolos": 1
+      },
+      "codeCommentSentimentScore": -9,
+      "codeCommentSentiments": {
+        "sebmarkbage": -9
+      },
+      "codeCommentsAuthor": 12,
+      "codeCommentAuthorSentimentScore": -14,
+      "comments": 18,
+      "commenters": {
+        "sebmarkbage": 17,
+        "apostolos": 1
+      },
+      "commentSentimentScore": -9,
+      "commentSentiments": {
+        "sebmarkbage": -9
+      },
+      "commentsAuthor": 12,
+      "commentAuthorSentimentScore": -14
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "gnoff",
+      "url": "https://github.com/facebook/react/pull/25102",
+      "additions": 17,
+      "deletions": 22,
+      "prSize": 39,
+      "mergedAt": "2022-08-16T11:17:50Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "sebmarkbage": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "gnoff",
+      "url": "https://github.com/facebook/react/pull/25104",
+      "additions": 101,
+      "deletions": 14,
+      "prSize": 115,
+      "mergedAt": "2022-08-17T07:31:06Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "sebmarkbage": 1
+      }
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "huozhi",
+      "url": "https://github.com/facebook/react/pull/25114",
+      "additions": 1,
+      "prSize": 1,
+      "mergedAt": "2022-08-18T13:33:37Z",
+      "age": 1
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "tyao1",
+      "url": "https://github.com/facebook/react/pull/25111",
+      "additions": 11,
+      "deletions": 1,
+      "prSize": 12,
+      "mergedAt": "2022-08-19T23:18:14Z",
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "lunaruan": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "lunaruan": 1
+      },
+      "codeCommentsAuthor": 1,
+      "comments": 1,
+      "commenters": {
+        "lunaruan": 1
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "react",
+      "org": "facebook",
+      "author": "evrenkaraarslan",
+      "url": "https://github.com/facebook/react/pull/25100",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2022-08-21T19:16:01Z",
+      "age": 5,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 5,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 5
     }
   ],
   "issues": [
@@ -54402,74 +55424,652 @@
       "mergedAt": "2022-06-27T17:31:38Z",
       "url": "https://github.com/facebook/react/issues/24800",
       "isBug": true
-    }
-  ],
-  "filteredIssues": [
+    },
     {
-      "mergedAt": "2020-06-27T15:50:45Z",
-      "url": "https://github.com/facebook/react/issues/19203",
+      "mergedAt": "2022-06-28T03:56:12Z",
+      "url": "https://github.com/facebook/react/issues/24802"
+    },
+    {
+      "mergedAt": "2022-06-28T08:21:44Z",
+      "url": "https://github.com/facebook/react/issues/24804"
+    },
+    {
+      "mergedAt": "2022-06-29T02:11:00Z",
+      "url": "https://github.com/facebook/react/issues/24807",
       "isBug": true
     },
     {
-      "mergedAt": "2020-06-26T22:01:07Z",
-      "url": "https://github.com/facebook/react/issues/19201",
+      "mergedAt": "2022-06-29T07:27:26Z",
+      "url": "https://github.com/facebook/react/issues/24808",
       "isBug": true
     },
     {
-      "mergedAt": "2020-06-26T17:44:54Z",
-      "url": "https://github.com/facebook/react/issues/19200",
+      "mergedAt": "2022-06-29T07:59:21Z",
+      "url": "https://github.com/facebook/react/issues/24810",
       "isBug": true
     },
     {
-      "mergedAt": "2020-06-25T15:09:27Z",
-      "url": "https://github.com/facebook/react/issues/19196"
-    },
-    {
-      "mergedAt": "2020-06-25T14:07:25Z",
-      "url": "https://github.com/facebook/react/issues/19194"
-    },
-    {
-      "mergedAt": "2020-06-25T06:44:07Z",
-      "url": "https://github.com/facebook/react/issues/19192",
+      "mergedAt": "2022-06-29T13:34:57Z",
+      "url": "https://github.com/facebook/react/issues/24812",
       "isBug": true
     },
     {
-      "mergedAt": "2020-06-24T06:09:33Z",
-      "url": "https://github.com/facebook/react/issues/19185",
+      "mergedAt": "2022-06-30T06:01:54Z",
+      "url": "https://github.com/facebook/react/issues/24818",
       "isBug": true
     },
     {
-      "mergedAt": "2020-06-23T20:30:53Z",
-      "url": "https://github.com/facebook/react/issues/19183"
-    },
-    {
-      "mergedAt": "2020-06-23T15:10:35Z",
-      "url": "https://github.com/facebook/react/issues/19181",
+      "mergedAt": "2022-06-30T10:34:32Z",
+      "url": "https://github.com/facebook/react/issues/24828",
       "isBug": true
     },
     {
-      "mergedAt": "2020-06-23T14:50:10Z",
-      "url": "https://github.com/facebook/react/issues/19178",
+      "mergedAt": "2022-06-30T17:20:15Z",
+      "url": "https://github.com/facebook/react/issues/24831",
       "isBug": true
     },
     {
-      "mergedAt": "2020-06-23T03:43:01Z",
-      "url": "https://github.com/facebook/react/issues/19177",
+      "mergedAt": "2022-07-01T07:46:54Z",
+      "url": "https://github.com/facebook/react/issues/24834"
+    },
+    {
+      "mergedAt": "2022-07-02T10:20:12Z",
+      "url": "https://github.com/facebook/react/issues/24837"
+    },
+    {
+      "mergedAt": "2022-07-03T10:24:28Z",
+      "url": "https://github.com/facebook/react/issues/24838",
       "isBug": true
     },
     {
-      "mergedAt": "2020-06-22T17:24:19Z",
-      "url": "https://github.com/facebook/react/issues/19176",
+      "mergedAt": "2022-07-04T20:58:17Z",
+      "url": "https://github.com/facebook/react/issues/24841",
       "isBug": true
     },
     {
-      "mergedAt": "2020-06-22T16:19:33Z",
-      "url": "https://github.com/facebook/react/issues/19175",
+      "mergedAt": "2022-07-05T01:06:32Z",
+      "url": "https://github.com/facebook/react/issues/24843",
       "isBug": true
     },
     {
-      "mergedAt": "2020-06-22T07:22:05Z",
-      "url": "https://github.com/facebook/react/issues/19173",
+      "mergedAt": "2022-07-05T03:46:47Z",
+      "url": "https://github.com/facebook/react/issues/24844",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-05T11:10:15Z",
+      "url": "https://github.com/facebook/react/issues/24845"
+    },
+    {
+      "mergedAt": "2022-07-05T16:35:56Z",
+      "url": "https://github.com/facebook/react/issues/24847"
+    },
+    {
+      "mergedAt": "2022-07-05T17:07:07Z",
+      "url": "https://github.com/facebook/react/issues/24849",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-05T18:02:38Z",
+      "url": "https://github.com/facebook/react/issues/24850"
+    },
+    {
+      "mergedAt": "2022-07-05T18:36:10Z",
+      "url": "https://github.com/facebook/react/issues/24851",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-05T19:29:42Z",
+      "url": "https://github.com/facebook/react/issues/24854",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-06T10:29:59Z",
+      "url": "https://github.com/facebook/react/issues/24858"
+    },
+    {
+      "mergedAt": "2022-07-06T14:17:01Z",
+      "url": "https://github.com/facebook/react/issues/24859"
+    },
+    {
+      "mergedAt": "2022-07-06T23:05:13Z",
+      "url": "https://github.com/facebook/react/issues/24864",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-07T07:28:12Z",
+      "url": "https://github.com/facebook/react/issues/24865",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-07T08:22:04Z",
+      "url": "https://github.com/facebook/react/issues/24866"
+    },
+    {
+      "mergedAt": "2022-07-07T12:03:38Z",
+      "url": "https://github.com/facebook/react/issues/24867"
+    },
+    {
+      "mergedAt": "2022-07-07T16:58:47Z",
+      "url": "https://github.com/facebook/react/issues/24869",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-07T17:02:35Z",
+      "url": "https://github.com/facebook/react/issues/24870",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-07T18:52:48Z",
+      "url": "https://github.com/facebook/react/issues/24871",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-07T20:18:39Z",
+      "url": "https://github.com/facebook/react/issues/24874",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-09T10:25:58Z",
+      "url": "https://github.com/facebook/react/issues/24881",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-09T21:01:51Z",
+      "url": "https://github.com/facebook/react/issues/24883",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-09T22:24:06Z",
+      "url": "https://github.com/facebook/react/issues/24884"
+    },
+    {
+      "mergedAt": "2022-07-12T01:54:53Z",
+      "url": "https://github.com/facebook/react/issues/24889",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-12T09:05:00Z",
+      "url": "https://github.com/facebook/react/issues/24891"
+    },
+    {
+      "mergedAt": "2022-07-12T11:04:14Z",
+      "url": "https://github.com/facebook/react/issues/24894"
+    },
+    {
+      "mergedAt": "2022-07-12T13:33:40Z",
+      "url": "https://github.com/facebook/react/issues/24895",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-12T17:16:47Z",
+      "url": "https://github.com/facebook/react/issues/24905",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-13T01:03:12Z",
+      "url": "https://github.com/facebook/react/issues/24910"
+    },
+    {
+      "mergedAt": "2022-07-13T01:04:39Z",
+      "url": "https://github.com/facebook/react/issues/24911"
+    },
+    {
+      "mergedAt": "2022-07-13T07:37:26Z",
+      "url": "https://github.com/facebook/react/issues/24915"
+    },
+    {
+      "mergedAt": "2022-07-13T19:25:33Z",
+      "url": "https://github.com/facebook/react/issues/24922"
+    },
+    {
+      "mergedAt": "2022-07-13T19:40:42Z",
+      "url": "https://github.com/facebook/react/issues/24923"
+    },
+    {
+      "mergedAt": "2022-07-13T21:04:12Z",
+      "url": "https://github.com/facebook/react/issues/24926",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-14T03:45:25Z",
+      "url": "https://github.com/facebook/react/issues/24927",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-14T11:57:49Z",
+      "url": "https://github.com/facebook/react/issues/24928",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-14T20:59:14Z",
+      "url": "https://github.com/facebook/react/issues/24929",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-15T06:54:26Z",
+      "url": "https://github.com/facebook/react/issues/24932",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-15T15:29:46Z",
+      "url": "https://github.com/facebook/react/issues/24934",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-15T15:58:10Z",
+      "url": "https://github.com/facebook/react/issues/24935",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-15T22:35:48Z",
+      "url": "https://github.com/facebook/react/issues/24938"
+    },
+    {
+      "mergedAt": "2022-07-16T03:19:49Z",
+      "url": "https://github.com/facebook/react/issues/24940"
+    },
+    {
+      "mergedAt": "2022-07-17T04:47:06Z",
+      "url": "https://github.com/facebook/react/issues/24941",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-17T07:19:37Z",
+      "url": "https://github.com/facebook/react/issues/24944",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-17T19:15:55Z",
+      "url": "https://github.com/facebook/react/issues/24948",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-18T06:27:41Z",
+      "url": "https://github.com/facebook/react/issues/24949",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-18T12:25:25Z",
+      "url": "https://github.com/facebook/react/issues/24950",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-18T23:32:09Z",
+      "url": "https://github.com/facebook/react/issues/24952",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-19T02:02:53Z",
+      "url": "https://github.com/facebook/react/issues/24953",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-19T21:16:58Z",
+      "url": "https://github.com/facebook/react/issues/24956"
+    },
+    {
+      "mergedAt": "2022-07-19T21:32:57Z",
+      "url": "https://github.com/facebook/react/issues/24957",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-19T22:50:56Z",
+      "url": "https://github.com/facebook/react/issues/24959"
+    },
+    {
+      "mergedAt": "2022-07-19T23:09:34Z",
+      "url": "https://github.com/facebook/react/issues/24960",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-20T12:02:57Z",
+      "url": "https://github.com/facebook/react/issues/24964",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-20T15:32:03Z",
+      "url": "https://github.com/facebook/react/issues/24965",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-21T05:50:00Z",
+      "url": "https://github.com/facebook/react/issues/24968"
+    },
+    {
+      "mergedAt": "2022-07-22T02:32:56Z",
+      "url": "https://github.com/facebook/react/issues/24975",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-22T02:47:50Z",
+      "url": "https://github.com/facebook/react/issues/24976"
+    },
+    {
+      "mergedAt": "2022-07-22T08:32:18Z",
+      "url": "https://github.com/facebook/react/issues/24978"
+    },
+    {
+      "mergedAt": "2022-07-23T05:26:36Z",
+      "url": "https://github.com/facebook/react/issues/24979"
+    },
+    {
+      "mergedAt": "2022-07-24T12:53:21Z",
+      "url": "https://github.com/facebook/react/issues/24980",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-24T14:50:36Z",
+      "url": "https://github.com/facebook/react/issues/24981",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-24T16:49:38Z",
+      "url": "https://github.com/facebook/react/issues/24982",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-25T07:13:31Z",
+      "url": "https://github.com/facebook/react/issues/24984",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-25T13:02:52Z",
+      "url": "https://github.com/facebook/react/issues/24985",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-25T14:41:01Z",
+      "url": "https://github.com/facebook/react/issues/24986"
+    },
+    {
+      "mergedAt": "2022-07-25T14:56:33Z",
+      "url": "https://github.com/facebook/react/issues/24987"
+    },
+    {
+      "mergedAt": "2022-07-25T22:44:24Z",
+      "url": "https://github.com/facebook/react/issues/24989",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-26T10:13:33Z",
+      "url": "https://github.com/facebook/react/issues/24991",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-26T16:18:14Z",
+      "url": "https://github.com/facebook/react/issues/24993",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-27T06:25:25Z",
+      "url": "https://github.com/facebook/react/issues/24996",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-27T08:23:14Z",
+      "url": "https://github.com/facebook/react/issues/24997",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-29T04:41:03Z",
+      "url": "https://github.com/facebook/react/issues/25002",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-29T07:42:42Z",
+      "url": "https://github.com/facebook/react/issues/25003",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-29T12:33:34Z",
+      "url": "https://github.com/facebook/react/issues/25007",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-29T14:38:30Z",
+      "url": "https://github.com/facebook/react/issues/25008"
+    },
+    {
+      "mergedAt": "2022-07-29T23:19:05Z",
+      "url": "https://github.com/facebook/react/issues/25011",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-30T10:15:03Z",
+      "url": "https://github.com/facebook/react/issues/25012",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-07-31T07:42:07Z",
+      "url": "https://github.com/facebook/react/issues/25015"
+    },
+    {
+      "mergedAt": "2022-07-31T10:16:29Z",
+      "url": "https://github.com/facebook/react/issues/25017"
+    },
+    {
+      "mergedAt": "2022-07-31T20:53:17Z",
+      "url": "https://github.com/facebook/react/issues/25019",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-01T11:37:00Z",
+      "url": "https://github.com/facebook/react/issues/25022"
+    },
+    {
+      "mergedAt": "2022-08-01T13:36:15Z",
+      "url": "https://github.com/facebook/react/issues/25023",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-02T05:46:33Z",
+      "url": "https://github.com/facebook/react/issues/25026",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-02T13:12:58Z",
+      "url": "https://github.com/facebook/react/issues/25028",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-03T08:32:43Z",
+      "url": "https://github.com/facebook/react/issues/25032"
+    },
+    {
+      "mergedAt": "2022-08-03T08:42:51Z",
+      "url": "https://github.com/facebook/react/issues/25033",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-03T11:21:17Z",
+      "url": "https://github.com/facebook/react/issues/25034"
+    },
+    {
+      "mergedAt": "2022-08-03T17:25:40Z",
+      "url": "https://github.com/facebook/react/issues/25036"
+    },
+    {
+      "mergedAt": "2022-08-04T06:35:26Z",
+      "url": "https://github.com/facebook/react/issues/25038",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-04T10:11:15Z",
+      "url": "https://github.com/facebook/react/issues/25039",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-04T13:24:07Z",
+      "url": "https://github.com/facebook/react/issues/25040"
+    },
+    {
+      "mergedAt": "2022-08-04T14:04:05Z",
+      "url": "https://github.com/facebook/react/issues/25041",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-04T17:55:18Z",
+      "url": "https://github.com/facebook/react/issues/25042",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-05T06:44:59Z",
+      "url": "https://github.com/facebook/react/issues/25046",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-05T06:53:11Z",
+      "url": "https://github.com/facebook/react/issues/25047",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-05T09:43:42Z",
+      "url": "https://github.com/facebook/react/issues/25048",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-05T11:22:09Z",
+      "url": "https://github.com/facebook/react/issues/25050",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-05T15:49:02Z",
+      "url": "https://github.com/facebook/react/issues/25051",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-05T17:24:18Z",
+      "url": "https://github.com/facebook/react/issues/25052",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-06T03:37:55Z",
+      "url": "https://github.com/facebook/react/issues/25055",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-06T12:01:09Z",
+      "url": "https://github.com/facebook/react/issues/25056",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-07T20:04:38Z",
+      "url": "https://github.com/facebook/react/issues/25059"
+    },
+    {
+      "mergedAt": "2022-08-07T23:29:51Z",
+      "url": "https://github.com/facebook/react/issues/25061",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-08T08:11:43Z",
+      "url": "https://github.com/facebook/react/issues/25062",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-08T08:40:36Z",
+      "url": "https://github.com/facebook/react/issues/25063",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-08T10:17:53Z",
+      "url": "https://github.com/facebook/react/issues/25064",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-08T12:43:40Z",
+      "url": "https://github.com/facebook/react/issues/25065",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-09T17:24:32Z",
+      "url": "https://github.com/facebook/react/issues/25069",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-10T06:43:22Z",
+      "url": "https://github.com/facebook/react/issues/25072",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-10T13:01:23Z",
+      "url": "https://github.com/facebook/react/issues/25073",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-11T07:24:40Z",
+      "url": "https://github.com/facebook/react/issues/25079"
+    },
+    {
+      "mergedAt": "2022-08-11T13:08:10Z",
+      "url": "https://github.com/facebook/react/issues/25081",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-11T13:14:19Z",
+      "url": "https://github.com/facebook/react/issues/25082"
+    },
+    {
+      "mergedAt": "2022-08-12T06:42:58Z",
+      "url": "https://github.com/facebook/react/issues/25088"
+    },
+    {
+      "mergedAt": "2022-08-12T09:16:48Z",
+      "url": "https://github.com/facebook/react/issues/25089",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-12T09:17:28Z",
+      "url": "https://github.com/facebook/react/issues/25090",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-13T21:15:12Z",
+      "url": "https://github.com/facebook/react/issues/25093",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-14T10:58:07Z",
+      "url": "https://github.com/facebook/react/issues/25094",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-14T11:32:03Z",
+      "url": "https://github.com/facebook/react/issues/25095",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-14T14:21:03Z",
+      "url": "https://github.com/facebook/react/issues/25096",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-15T01:46:27Z",
+      "url": "https://github.com/facebook/react/issues/25097",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-15T06:25:39Z",
+      "url": "https://github.com/facebook/react/issues/25098",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-15T18:07:48Z",
+      "url": "https://github.com/facebook/react/issues/25099"
+    },
+    {
+      "mergedAt": "2022-08-16T08:16:41Z",
+      "url": "https://github.com/facebook/react/issues/25101",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2022-08-18T18:02:57Z",
+      "url": "https://github.com/facebook/react/issues/25116"
+    },
+    {
+      "mergedAt": "2022-08-19T10:12:08Z",
+      "url": "https://github.com/facebook/react/issues/25120",
       "isBug": true
     }
   ],
