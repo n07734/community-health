@@ -20,6 +20,10 @@ const preFetchedRepos = [
         file: 'vitest-dev-vitest',
     },
     {
+        name: 'Prettier',
+        file: 'prettier-prettier',
+    },
+    {
         name: 'Cypress',
         file: 'cypress-io-cypress',
     },
@@ -63,10 +67,6 @@ const preFetchedRepos = [
         name: 'Babel',
         file: 'babel-babel',
     },
-    {
-        name: 'Babel',
-        file: 'babel-babel',
-    },
 ]
 
 const preFetchedTeams = [
@@ -79,8 +79,12 @@ const preFetchedTeams = [
         file: 'ViteCore',
     },
     {
-        name: 'CoreSvelte',
-        file: 'CoreSvelte',
+        name: 'SvelteCore',
+        file: 'SvelteCore',
+    },
+    {
+        name: 'TypeScriptCore',
+        file: 'TypeScriptCore',
     },
 ]
 

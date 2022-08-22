@@ -35,7 +35,7 @@ const PrefetchedOptions = (props = {}) => {
 
         !preFetchedName
             && getPreFetchedReport(repoInfo)
-    },[preFetchedName, getPreFetchedReport])
+    },[])
 
     const preFetchButton = ({ name, file }, i) => <Button
         value={name}
@@ -56,13 +56,6 @@ const PrefetchedOptions = (props = {}) => {
                 preFetchedRepos
                     .map(preFetchButton)
             }
-                {/* {
-                    [
-                        'react',
-                        'svelte',
-                        'vue-next',
-                    ]
-                } */}
                 <P>See contribution health of some popular OSS teams</P>
                 {
                     preFetchedTeams
