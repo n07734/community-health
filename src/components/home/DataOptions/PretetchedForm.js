@@ -125,7 +125,8 @@ const PrefetchedForm = (props) => {
                         </P>
                         {
                             hardCodedKeys
-                                .map((inputKey) => <P key={inputKey}>{inputLabels[inputKey]}: {formValue(fetches, inputKey) || 'N/A'}</P>)
+                                .filter((inputKey) => formValue(fetches, inputKey))
+                                .map((inputKey) => <P key={inputKey}>{inputLabels[inputKey]}: <b>{formValue(fetches, inputKey) || 'N/A'}</b></P>)
                         }
                     </div>
                     <ButtonWithMessage />
