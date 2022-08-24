@@ -510,11 +510,6 @@ const getPreFetched = ({ name = '', file = '' }) => async (dispatch) => {
     }
 }
 
-const getPreFetchedData = (name = 'nivo') => (dispatch) => {
-    const reportData = require(`../prefetchedData/${name}.json`)
-    setPreFetchedData(reportData, dispatch)
-}
-
 const getDownloadProps = (dispatch, getState) => {
     const state = getState()
 
@@ -574,7 +569,6 @@ export {
     storeUntilDate,
     storeSortDirection,
     getAPIData,
-    getPreFetchedData,
     getPreFetched,
     toggleTheme,
     getDownloadProps,
