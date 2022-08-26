@@ -55,6 +55,7 @@ const Line = styledCharts(({
     data = [],
     markers = [],
     showLegends = false,
+    legends = [],
     classes,
 } = {}) => {
     const theme = useTheme();
@@ -93,8 +94,9 @@ const Line = styledCharts(({
 
     const rightHeadingItems = rightAxis.lines
 
-    const legends = showLegends
-        ? [
+    const legendsArray = legends.length
+        ? legends
+        : [
             {
                 anchor: 'top-right',
                 direction: 'column',
@@ -111,9 +113,8 @@ const Line = styledCharts(({
                 symbolBorderColor: 'rgba(0, 0, 0, .9)',
                 toggleSerie: true,
                 itemTextColor: theme.palette.text.primary,
-            }
+            },
         ]
-        : []
 
     const lineData = leftLinesData.concat(convertedRightLines)
 
@@ -159,7 +160,7 @@ const Line = styledCharts(({
                         tickPadding: 10,
                         tickRotation: -45,
                     }}
-                    legends={legends}
+                    legends={showLegends ? legendsArray : []}
                     axisLeft={{
                         tickSize: 0,
                         tickValues: 8,

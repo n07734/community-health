@@ -484,8 +484,6 @@ const getPreFetched = ({ name = '', file = '' }) => async (dispatch) => {
         payload: { savedReportName: name }
     })
 
-    console.log('-=-=--name, file', name, file)
-
     try {
         const reportData = await fetch(`https://n07734.github.io/community-health/data/${file}.json`)
             .then(parseJSON)

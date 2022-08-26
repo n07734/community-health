@@ -6,11 +6,13 @@ import { H, P, UL, LI } from './shared/StyledTags'
 import ChartDescription from './shared/ChartDescription'
 import Button from './shared/Button'
 import Paper from './shared/Paper'
-import { clearUser } from '../state/actions'
-import formatRadarData from '../format/radarData'
 import Radar from './charts/Radar'
 import Bar from './charts/Bar'
 import Line from './charts/Line'
+
+import colors from './colors'
+import { clearUser } from '../state/actions'
+import formatRadarData from '../format/radarData'
 
 const colourA = '#1f77b4'
 const colourB = '#e82573'
@@ -176,25 +178,25 @@ const userGraphs = (data = [], releases = [], userName) => {
                 lines: [
                     {
                         label: `${userName} received`,
-                        color: colourA,
+                        color: colors[2],
                         dataKey: 'commentSentimentScore',
                         data: userPrData,
                     },
                     {
                         label: `${userName} given`,
-                        color: colourB,
+                        color: colors[1],
                         dataKey: 'commentAuthorSentimentScore',
                         data: userPrData,
                     },
                     {
                         label: 'Peer received',
-                        color: colourA,
+                        color: colors[4],
                         dataKey: 'commentSentimentScore',
                         data: peerPrData,
                     },
                     {
                         label: 'Peer given',
-                        color: colourB,
+                        color: colors[5],
                         dataKey: 'commentAuthorSentimentScore',
                         data: peerPrData,
                     },

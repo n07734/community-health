@@ -24,7 +24,7 @@ const PrefetchedOptions = (props = {}) => {
     useEffect(() => {
         const quertString = pathOr('', ['location', 'search'], window)
         const urlParams = new URLSearchParams(quertString);
-        const repo = urlParams.get('repo') || 'facebook-react';
+        const repo = urlParams.get('repo') || 'SvelteCore';
 
         const allItems = [
             ...preFetchedRepos,
@@ -33,9 +33,8 @@ const PrefetchedOptions = (props = {}) => {
         const repoInfo = allItems
             .find(x => x.file === repo)
 
-        !preFetchedName
-            && getPreFetchedReport(repoInfo)
-    },[])
+        getPreFetchedReport(repoInfo)
+    }, [getPreFetchedReport])
 
     const preFetchButton = ({ name, file }, i) => <Button
         value={name}
