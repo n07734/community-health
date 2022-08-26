@@ -300,17 +300,7 @@ const UserView = ({
                         </H>
                     }
                     intro={`A collection of charts showing ${user} and average data from the top ${radarData.averagedData.userCount} peers`}
-                >
-                    <div>
-                        <P>Reminder that context is needed, without it what looks good can be bad and what looks good can be bad</P>
-                        <UL>
-                            <LI>How do the given and received metrics compare?</LI>
-                            <LI>How do Code comments(the how) and PR comments(the what) comaire?</LI>
-                            <LI>How do PR approvals comaire?</LI>
-                            <LI>How do size of PRs comaire?</LI>
-                        </UL>
-                    </div>
-                </ChartDescription>
+                />
 
                 {
                     radars.length
