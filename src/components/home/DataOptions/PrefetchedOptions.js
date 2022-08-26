@@ -24,7 +24,7 @@ const PrefetchedOptions = (props = {}) => {
     useEffect(() => {
         const quertString = pathOr('', ['location', 'search'], window)
         const urlParams = new URLSearchParams(quertString);
-        const repo = urlParams.get('repo') || 'SvelteCore';
+        const repo = urlParams.get('repo') || 'facebook-react';
 
         const allItems = [
             ...preFetchedRepos,
