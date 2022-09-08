@@ -121,9 +121,7 @@ const ItemsTable = ({
 
     const selectedClassFor = selectedClass(classes, dataIndex, showTable)
 
-    return <div
-        className={classes.wrapper}
-    >
+    return <div className={classes.wrapper}>
         <div className={classes.bar}>
             {
                 data
@@ -133,6 +131,11 @@ const ItemsTable = ({
                         onClick={() => {
                             dataIndex === i
                                 && setShowTable(!showTable)
+
+                            dataIndex !== i
+                                && !showTable
+                                && setShowTable(true)
+
                             setIndex(i)
                         }}
                     >

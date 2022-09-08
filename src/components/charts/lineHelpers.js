@@ -170,17 +170,20 @@ const chunkData = (data = []) => {
 
     const daysPerChunk = Math.ceil(totalDays/10)
 
-    const chunkyData = [[]]
+    const chunkyData = []
     data
         .forEach((itemData, i) => {
             itemData.id = i
             const prDate = new Date(itemData.mergedAt)
-            const { mergedAt: prevMergedAt = '' } = chunkyData.at(-1).at(0) || {}
+            const { mergedAt: prevMergedAt = '' } = chunkyData.length > 0
+                ? chunkyData.at(-1).at(0)
+                : {}
+
             const daysFromChunkStart = prevMergedAt
                 ? differenceInDays(prDate,new Date(prevMergedAt))
                 : 0
 
-            daysFromChunkStart > daysPerChunk
+            daysFromChunkStart > daysPerChunk || chunkyData.length < 1
                 ? chunkyData.push([itemData])
                 : chunkyData.at(-1).push(itemData)
         })
