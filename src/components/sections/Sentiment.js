@@ -9,6 +9,9 @@ import Paper from '../shared/Paper'
 import colors from '../colors'
 import ChartDescription from '../shared/ChartDescription'
 import { P } from '../shared/StyledTags'
+import PrTable from './PrTable'
+
+import { chunkData } from '../charts/lineHelpers'
 
 
 const Sentiment = ({
@@ -23,6 +26,8 @@ const Sentiment = ({
         [`${prData.author}-commentsSentimentScore`]: prData.commentSentimentScore,
         [`${prData.author}-commentAuthorSentimentScore`]: prData.commentAuthorSentimentScore,
     }))
+
+    const chunkyData = chunkData(sentPRData)
 
     const lines = userIds
         .map((userId, i) => ([
@@ -121,6 +126,11 @@ const Sentiment = ({
                     },
                 ]}
             />
+            <PrTable
+                dataKeys={['commentSentimentScore', 'commentAuthorSentimentScore']}
+                data={chunkyData}
+            />
+
             <Line
                 showLegends={showLegends}
                 legends={legends}
@@ -132,6 +142,10 @@ const Sentiment = ({
                         data: sentPRData,
                     },
                 ]}
+            />
+            <PrTable
+                dataKeys={['commentSentimentScore', 'commentAuthorSentimentScore']}
+                data={chunkyData}
             />
         </Paper>
     </>)

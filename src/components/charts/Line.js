@@ -128,7 +128,7 @@ const Line = styledCharts(({
                 <ChartHeading type='line' text={title} items={leftHeadingItems} />
                 {
                     rightHeadingItems.length > 0
-                        && <ChartHeading type='line' items={rightHeadingItems} />
+                    && <ChartHeading type='line' items={rightHeadingItems} />
                 }
             </div>
 
@@ -168,21 +168,21 @@ const Line = styledCharts(({
                     pointLabelYOffset={0}
                     {...(
                         formattedMarkers.length
-                            && { markers: formattedMarkers }
+                        && { markers: formattedMarkers }
 
                     )}
                     {...(
                         convertedRightLines.length
-                            && {
-                                axisRight: {
-                                    tickSize: 0,
-                                    tickValues: 8,
-                                    format: (rawLeftValue) => {
-                                        const realRightValue = Math.round(rawLeftValue * (maxRightValue / maxLeftValue))
-                                        return smoothNumber(realRightValue)
-                                    },
+                        && {
+                            axisRight: {
+                                tickSize: 0,
+                                tickValues: 8,
+                                format: (rawLeftValue) => {
+                                    const realRightValue = Math.round(rawLeftValue * (maxRightValue / maxLeftValue))
+                                    return smoothNumber(realRightValue)
                                 },
-                            }
+                            },
+                        }
                     )}
                     enableGridX={false}
                     enableSlices="x"

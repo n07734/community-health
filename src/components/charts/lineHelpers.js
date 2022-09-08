@@ -1,4 +1,6 @@
 import { apply } from 'ramda'
+import differenceInDays from 'date-fns/differenceInDays'
+
 import batchBy from './batchBy'
 
 const getAllYValues = data => data
@@ -158,6 +160,34 @@ const smoothNumber = (ruffledNumber) => {
     return smooth
 }
 
+const chunkData = (data = []) => {
+    const startDate = data.at(0) && new Date(data.at(0)?.mergedAt)
+    const endDate = data.at(-1)  && new Date(data.at(-1)?.mergedAt)
+
+    const totalDays = startDate && endDate
+        ? differenceInDays(endDate,startDate)
+        : 0
+
+    const daysPerChunk = Math.ceil(totalDays/10)
+
+    const chunkyData = [[]]
+    data
+        .forEach((itemData, i) => {
+            itemData.id = i
+            const prDate = new Date(itemData.mergedAt)
+            const { mergedAt: prevMergedAt = '' } = chunkyData.at(-1).at(0) || {}
+            const daysFromChunkStart = prevMergedAt
+                ? differenceInDays(prDate,new Date(prevMergedAt))
+                : 0
+
+            daysFromChunkStart > daysPerChunk
+                ? chunkyData.push([itemData])
+                : chunkyData.at(-1).push(itemData)
+        })
+
+    return chunkyData
+}
+
 export {
     getMaxYValue,
     getMinYValue,
@@ -165,4 +195,5 @@ export {
     formatGraphMarkers,
     smoothNumber,
     dateSort,
+    chunkData,
 }

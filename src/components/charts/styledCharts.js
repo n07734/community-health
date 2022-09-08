@@ -18,6 +18,7 @@ const styles = () => ({
         },
     },
     lineChartComponentWrap: {
+        zIndex: 10,
         width: '100%',
         maxWidth: '1200px',
     },

@@ -15,6 +15,7 @@ const styles = theme => ({
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'center',
+        position: 'relative',
     },
     'bg-none': {
         background: 'none'

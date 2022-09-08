@@ -7,7 +7,10 @@ import ChartDescription from '../shared/ChartDescription'
 import Line from '../charts/Line'
 import Pie from '../charts/Pie'
 import Paper from '../shared/Paper'
+import PrTable from './PrTable'
 import colors from '../colors'
+import { chunkData } from '../charts/lineHelpers'
+
 
 const RepoSplit = ({
     pullRequests = [],
@@ -98,6 +101,8 @@ const RepoSplit = ({
         }
     ]
 
+    const chunkyData = chunkData(pullRequests)
+
     return (<>
         <Paper>
             <ChartDescription title={sectionTitle} />
@@ -116,6 +121,10 @@ const RepoSplit = ({
                         data: filteredPRData,
                     },
                 ]}
+            />
+            <PrTable
+                dataKeys={['repo']}
+                data={chunkyData}
             />
         </Paper>
     </>)

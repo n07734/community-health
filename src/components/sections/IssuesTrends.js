@@ -6,6 +6,9 @@ import { P } from '../shared/StyledTags'
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
 import Line from '../charts/Line'
+import PrTable from './PrTable'
+import { chunkData } from '../charts/lineHelpers'
+
 
 const formatIssueData = (data = []) => data
     .map((item) => ({
@@ -17,12 +20,14 @@ const formatIssueData = (data = []) => data
         ),
     }))
 
+
 const IssuesTrends = ({
     issues = [],
     releases = [],
     classes,
 } = {}) => {
     const data = formatIssueData(issues)
+    const chunkyData = chunkData(data)
 
     return data && data.length > 0 && (
         <Paper>
@@ -51,6 +56,10 @@ const IssuesTrends = ({
                         data,
                     },
                 ]}
+            />
+            <PrTable
+                dataKeys={['isBug']}
+                data={chunkyData}
             />
             <P className={classes.fullP}>*Bugs in this graph are issues that have a title or a label that contains the word 'bug'</P>
         </Paper>

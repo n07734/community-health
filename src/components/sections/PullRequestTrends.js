@@ -7,6 +7,8 @@ import ChartDescription from '../shared/ChartDescription'
 import { P } from '../shared/StyledTags'
 import colors from '../colors'
 import Line from '../charts/Line'
+import PrTable from './PrTable'
+import { chunkData } from '../charts/lineHelpers'
 
 const getByAuthorData = (pullRequests = []) => {
     const authorsPrs = {}
@@ -56,6 +58,8 @@ const PullRequestTrends = ({
         ? getByAuthorData(pullRequests)
         : []
 
+    const chunkyData = chunkData(pullRequests)
+
     return pullRequests.length > 0 && (
         <Paper>
             <ChartDescription
@@ -70,24 +74,13 @@ const PullRequestTrends = ({
             {
                 isTeamPage && <>
                     <Line
-                        title="Merged PRs by team"
-                        markers={releases}
-                        data={[{
-                            lines: [{
-                                label: 'team',
-                                color: '#e82573',
-                                dataKey: 'author',
-                                groupMath: 'count',
-                            }],
-                            xAxis: 'left',
-                            data: pullRequests,
-                        }]}
-                    />
-                    <Line
                         title="Merged PRs by author"
                         markers={releases}
                         showLegends={true}
                         data={byAuthorData}
+                    />
+                    <PrTable
+                        data={chunkyData}
                     />
                 </>
             }
@@ -123,6 +116,10 @@ const PullRequestTrends = ({
                     },
                 ]}
             />
+            <PrTable
+                dataKeys={['comments', 'approvals', 'prSize']}
+                data={chunkyData}
+            />
 
             <Line
                 markers={releases}
@@ -150,6 +147,10 @@ const PullRequestTrends = ({
                         data: pullRequests,
                     },
                 ]}
+            />
+            <PrTable
+                dataKeys={['age', 'prSize']}
+                data={chunkyData}
             />
         </Paper>
     )

@@ -7,9 +7,21 @@ const styles = theme => ({
     h2: theme.copy.h2,
     h3: theme.copy.h3,
     h4: theme.copy.h4,
+    link: {
+        color: theme.palette.link,
+    },
     list: theme.copy.list,
     listItem: theme.copy.listItem,
 })
+
+const A = withStyles(styles)(({
+    className = '',
+    href ='',
+    classes,
+    children,
+} = {}) => <a href={href} className={`${classes.link} ${className}`}>
+    {children}
+</a>)
 
 const P = withStyles(styles)(({
     className = '',
@@ -61,6 +73,7 @@ const H = withStyles(styles)(({
 
 
 export {
+    A,
     P,
     UL,
     OL,
