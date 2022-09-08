@@ -8,26 +8,29 @@ import { format } from 'date-fns'
 
 import { A } from '../shared/StyledTags'
 
-const zeroDefault = (params) => params.value || '0'
+const zeroOut = {
+    renderCell: (params) => params.value || '0',
+    sortComparator: (v1 = 0, v2 = 0) => v1 - v2,
+}
 
 const columnMap = {
     comments: {
         field: 'comments',
         headerName: 'Comments',
         flex: 1,
-        renderCell: zeroDefault,
+        ...zeroOut,
     },
     approvals: {
         field: 'approvals',
         headerName: 'Approvals',
         flex: 1,
-        renderCell: zeroDefault,
+        ...zeroOut,
     },
     prSize: {
         field: 'prSize',
         headerName: 'PR Size',
         flex: 1,
-        renderCell: zeroDefault,
+        ...zeroOut,
     },
     age: {
         field: 'age',
@@ -44,13 +47,13 @@ const columnMap = {
         field: 'commentSentimentScore',
         headerName: 'To team',
         flex: 1,
-        renderCell: zeroDefault,
+        ...zeroOut,
     },
     commentAuthorSentimentScore: {
         field: 'commentAuthorSentimentScore',
         headerName: 'From team',
         flex: 1,
-        renderCell: zeroDefault,
+        ...zeroOut,
     },
     url: {
         field: 'url',
@@ -174,6 +177,7 @@ const styles = theme => ({
     'chunk': {
         ...chunksRules,
         backgroundColor: theme.palette.secondary.main,
+        cursor: 'pointer',
     },
     hasTable: {
         '&:before': {
@@ -188,6 +192,7 @@ const styles = theme => ({
     },
     'selected': {
         ...chunksRules,
+        cursor: 'pointer',
         backgroundColor: theme.palette.primary.main,
         position: 'relative',
         '&:after': {

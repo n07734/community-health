@@ -131,22 +131,26 @@ const Sentiment = ({
                 data={chunkyData}
             />
 
-            <Line
-                showLegends={showLegends}
-                legends={legends}
-                title="Sentiment in PRs between authors and reviewers"
-                data={[
-                    {
-                        lines,
-                        xAxis: 'left',
-                        data: sentPRData,
-                    },
-                ]}
-            />
-            <ItemsTable
-                dataKeys={['commentSentimentScore', 'commentAuthorSentimentScore', 'author']}
-                data={chunkyData}
-            />
+            {
+                userIds.length > 0 && <>
+                    <Line
+                        showLegends={showLegends}
+                        legends={legends}
+                        title="Sentiment in PRs between authors and reviewers"
+                        data={[
+                            {
+                                lines,
+                                xAxis: 'left',
+                                data: sentPRData,
+                            },
+                        ]}
+                    />
+                    <ItemsTable
+                        dataKeys={['commentSentimentScore', 'commentAuthorSentimentScore', 'author']}
+                        data={chunkyData}
+                    />
+                </>
+            }
         </Paper>
     </>)
 }
