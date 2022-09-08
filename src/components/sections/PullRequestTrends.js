@@ -7,7 +7,7 @@ import ChartDescription from '../shared/ChartDescription'
 import { P } from '../shared/StyledTags'
 import colors from '../colors'
 import Line from '../charts/Line'
-import PrTable from './PrTable'
+import ItemsTable from './ItemsTable'
 import { chunkData } from '../charts/lineHelpers'
 
 const getByAuthorData = (pullRequests = []) => {
@@ -79,8 +79,9 @@ const PullRequestTrends = ({
                         showLegends={true}
                         data={byAuthorData}
                     />
-                    <PrTable
+                    <ItemsTable
                         data={chunkyData}
+                        dataKeys={['author']}
                     />
                 </>
             }
@@ -116,8 +117,8 @@ const PullRequestTrends = ({
                     },
                 ]}
             />
-            <PrTable
-                dataKeys={['comments', 'approvals', 'prSize']}
+            <ItemsTable
+                dataKeys={['comments', 'approvals', 'prSize', 'author']}
                 data={chunkyData}
             />
 
@@ -148,8 +149,8 @@ const PullRequestTrends = ({
                     },
                 ]}
             />
-            <PrTable
-                dataKeys={['age', 'prSize']}
+            <ItemsTable
+                dataKeys={['age', 'prSize', 'author']}
                 data={chunkyData}
             />
         </Paper>

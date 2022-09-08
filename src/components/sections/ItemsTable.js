@@ -38,7 +38,7 @@ const columnMap = {
         field: 'mergedAt',
         headerName: 'Date',
         flex: 1,
-        renderCell: (params) => format(new Date(params.value), 'dd/MM/yy')
+        renderCell: (params) => format(new Date(params.value), 'do MMM yy')
     },
     commentSentimentScore: {
         field: 'commentSentimentScore',
@@ -54,7 +54,7 @@ const columnMap = {
     },
     url: {
         field: 'url',
-        headerName: 'PR link',
+        headerName: 'Link',
         flex: 1,
         renderCell: (params) => {
             const url = params.value
@@ -75,8 +75,8 @@ const columnMap = {
         flex: 1,
     },
     isBug: {
-        field: 'bug',
-        headerName: 'Is a bug',
+        field: 'isBug',
+        headerName: 'Bug',
         flex: 1,
         renderCell: (params) => params.value
             ? 'true'
@@ -87,7 +87,7 @@ const columnMap = {
 const makeColumns = dataKeys => {
     const allkeys = [
         ...dataKeys,
-        ...['mergedAt', 'author', 'url'],
+        ...['mergedAt', 'url'],
     ]
 
     const columns = allkeys
@@ -107,7 +107,7 @@ const ChunkIcon = ({
     ? <RemoveCircleIcon className={classes.arrow} />
     : <AddCircleIcon className={classes.arrow} />
 
-const PrTable = ({
+const ItemsTable = ({
     data = [],
     dataKeys = [],
     classes = {},
@@ -231,4 +231,4 @@ const styles = theme => ({
     },
 })
 
-export default withStyles(styles)(PrTable)
+export default withStyles(styles)(ItemsTable)

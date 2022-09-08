@@ -9,7 +9,7 @@ import Paper from '../shared/Paper'
 import colors from '../colors'
 import ChartDescription from '../shared/ChartDescription'
 import { P } from '../shared/StyledTags'
-import PrTable from './PrTable'
+import ItemsTable from './ItemsTable'
 
 import { chunkData } from '../charts/lineHelpers'
 
@@ -126,8 +126,8 @@ const Sentiment = ({
                     },
                 ]}
             />
-            <PrTable
-                dataKeys={['commentSentimentScore', 'commentAuthorSentimentScore']}
+            <ItemsTable
+                dataKeys={['commentSentimentScore', 'commentAuthorSentimentScore', 'author']}
                 data={chunkyData}
             />
 
@@ -143,8 +143,8 @@ const Sentiment = ({
                     },
                 ]}
             />
-            <PrTable
-                dataKeys={['commentSentimentScore', 'commentAuthorSentimentScore']}
+            <ItemsTable
+                dataKeys={['commentSentimentScore', 'commentAuthorSentimentScore', 'author']}
                 data={chunkyData}
             />
         </Paper>

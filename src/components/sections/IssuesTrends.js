@@ -6,7 +6,7 @@ import { P } from '../shared/StyledTags'
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
 import Line from '../charts/Line'
-import PrTable from './PrTable'
+import ItemsTable from './ItemsTable'
 import { chunkData } from '../charts/lineHelpers'
 
 
@@ -27,7 +27,7 @@ const IssuesTrends = ({
     classes,
 } = {}) => {
     const data = formatIssueData(issues)
-    const chunkyData = chunkData(data)
+    const chunkyData = chunkData(issues)
 
     return data && data.length > 0 && (
         <Paper>
@@ -57,7 +57,7 @@ const IssuesTrends = ({
                     },
                 ]}
             />
-            <PrTable
+            <ItemsTable
                 dataKeys={['isBug']}
                 data={chunkyData}
             />

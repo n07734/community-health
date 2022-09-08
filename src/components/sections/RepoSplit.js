@@ -7,7 +7,7 @@ import ChartDescription from '../shared/ChartDescription'
 import Line from '../charts/Line'
 import Pie from '../charts/Pie'
 import Paper from '../shared/Paper'
-import PrTable from './PrTable'
+import ItemsTable from './ItemsTable'
 import colors from '../colors'
 import { chunkData } from '../charts/lineHelpers'
 
@@ -122,8 +122,8 @@ const RepoSplit = ({
                     },
                 ]}
             />
-            <PrTable
-                dataKeys={['repo']}
+            <ItemsTable
+                dataKeys={['repo', 'author']}
                 data={chunkyData}
             />
         </Paper>
