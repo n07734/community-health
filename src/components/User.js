@@ -9,6 +9,8 @@ import Paper from './shared/Paper'
 import Radar from './charts/Radar'
 import Bar from './charts/Bar'
 import Line from './charts/Line'
+import ItemsTable from './sections/ItemsTable'
+import { chunkData } from './charts/lineHelpers'
 
 import colors from './colors'
 import { clearUser } from '../state/actions'
@@ -169,101 +171,102 @@ const userGraphs = (data = [], releases = [], userName) => {
     const userPrData = mergedPrData
         .filter(({ author }) => author === userName)
 
+    const chunkyData = chunkData(userPrData)
+    console.log('-=-=--userPrData', userPrData)
+
     return [
-        {
-            markers: releases,
-            showLegends: true,
-            title: 'Sentiments in PR',
-            data: [{
-                lines: [
-                    {
-                        label: `${userName} received`,
-                        color: colors[2],
-                        dataKey: 'commentSentimentScore',
-                        data: userPrData,
-                    },
-                    {
-                        label: `${userName} given`,
-                        color: colors[1],
-                        dataKey: 'commentAuthorSentimentScore',
-                        data: userPrData,
-                    },
-                    {
-                        label: 'Peer received',
-                        color: colors[4],
-                        dataKey: 'commentSentimentScore',
-                        data: peerPrData,
-                    },
-                    {
-                        label: 'Peer given',
-                        color: colors[5],
-                        dataKey: 'commentAuthorSentimentScore',
-                        data: peerPrData,
-                    },
-                ],
-                xAxis: 'left',
-            }],
-        },
-        {
-            markers: releases,
-            data: [{
-                lines: [
-                    {
-                        label: 'User comments',
-                        color: colourA,
-                        dataKey: 'commentsGiven',
-                        data: userPrData,
-                    },
-                    {
-                        label: 'Peer Comments',
-                        color: colourB,
-                        dataKey: 'commentsGiven',
-                        data: peerPrData,
-                    },
-                ],
-                xAxis: 'left',
-            }],
-        },
-        {
-            markers: releases,
-            data: [{
-                lines: [
-                    {
-                        label: 'User PR size',
-                        color: colourA,
-                        dataKey: 'prSize',
-                        data: userPrData,
-                    },
-                    {
-                        label: 'Peer PR size',
-                        color: colourB,
-                        dataKey: 'prSize',
-                        data: peerPrData,
-                    },
-                ],
-                xAxis: 'left',
-            }],
-        },
-        {
-            markers: releases,
-            data: [{
-                lines: [
-                    {
-                        label: 'User PR age',
-                        color: colourA,
-                        dataKey: 'age',
-                        data: userPrData,
-                    },
-                    {
-                        label: 'Peer PR age',
-                        color: colourB,
-                        dataKey: 'age',
-                        data: peerPrData,
-                    },
-                ],
-                xAxis: 'left',
-            }],
-        },
+        [
+            {
+                dataKeys:['commentSentimentScore', 'commentAuthorSentimentScore'],
+                data: chunkyData,
+            },
+            {
+                markers: releases,
+                showLegends: true,
+                title: 'Sentiments in PR',
+                data: [{
+                    lines: [
+                        {
+                            label: `${userName} received`,
+                            color: colors[2],
+                            dataKey: 'commentSentimentScore',
+                            data: userPrData,
+                        },
+                        {
+                            label: `${userName} given`,
+                            color: colors[1],
+                            dataKey: 'commentAuthorSentimentScore',
+                            data: userPrData,
+                        },
+                        {
+                            label: 'Peer received',
+                            color: colors[4],
+                            dataKey: 'commentSentimentScore',
+                            data: peerPrData,
+                        },
+                        {
+                            label: 'Peer given',
+                            color: colors[5],
+                            dataKey: 'commentAuthorSentimentScore',
+                            data: peerPrData,
+                        },
+                    ],
+                    xAxis: 'left',
+                }],
+            },
+        ],
+        [
+            {
+                dataKeys:['prSize'],
+                data: chunkyData,
+            },
+            {
+                markers: releases,
+                data: [{
+                    lines: [
+                        {
+                            label: 'User PR size',
+                            color: colourA,
+                            dataKey: 'prSize',
+                            data: userPrData,
+                        },
+                        {
+                            label: 'Peer PR size',
+                            color: colourB,
+                            dataKey: 'prSize',
+                            data: peerPrData,
+                        },
+                    ],
+                    xAxis: 'left',
+                }],
+            },
+        ],
+        [
+            {
+                dataKeys:['age'],
+                data: chunkyData,
+            },
+            {
+                markers: releases,
+                data: [{
+                    lines: [
+                        {
+                            label: 'User PR age',
+                            color: colourA,
+                            dataKey: 'age',
+                            data: userPrData,
+                        },
+                        {
+                            label: 'Peer PR age',
+                            color: colourB,
+                            dataKey: 'age',
+                            data: peerPrData,
+                        },
+                    ],
+                    xAxis: 'left',
+                }],
+            },
+        ],
     ]
 }
 
@@ -309,7 +312,7 @@ const UserView = ({
                                 {
                                     radars
                                         .map((info, i) => <Radar key={i} {...info} />)
-                                }
+                                 }
                             </div>
                         )
                 }
@@ -321,7 +324,10 @@ const UserView = ({
                 {
                     graphs.length
                         && graphs
-                            .map((info, i) => <Line key={i} {...info} />)
+                            .map(([itemsInfo, lineInfo], i) => <div key={i}>
+                                <Line {...lineInfo} />
+                                <ItemsTable {...itemsInfo} />
+                            </div>)
                 }
 
                 <Button

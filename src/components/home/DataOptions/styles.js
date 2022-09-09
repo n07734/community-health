@@ -19,7 +19,7 @@ const styles = theme => ({
         display: 'flex',
         '& button': {
             flexGrow: 1,
-            ...theme.copy.h4,
+            fontSize: '1.3rem',
             textTransform: 'none',
         },
     },

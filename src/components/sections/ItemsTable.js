@@ -55,6 +55,12 @@ const columnMap = {
         flex: 1,
         ...zeroOut,
     },
+    commentsGiven: {
+        field: 'commentsGiven',
+        headerName: 'Comments given',
+        flex: 1,
+        ...zeroOut,
+    },
     url: {
         field: 'url',
         headerName: 'Link',
