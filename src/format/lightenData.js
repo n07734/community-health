@@ -9,28 +9,23 @@ const slimValue = (value) => {
 }
 
 const slimArray = arr => {
-    const newArray = arr
-        .reduce((acc, item) => [
-            ...acc,
-            ...([slimValue(item)])
-        ], [])
+    const newArray = []
+    arr
+        .forEach((item) => {
+            const value = slimValue(item)
+            value && newArray.push(value)
+        })
 
     return newArray.length && newArray
 }
 
 const slimObject = obj => {
-    const newObject = Object.entries(obj)
-        .reduce((acc, [key, value]) => {
+    const newObject = {}
+    Object.entries(obj)
+        .forEach(([key, value]) => {
             const newValue = slimValue(value)
-
-            return {
-                ...acc,
-                ...( newValue
-                    ? { [key]: newValue }
-                    : {}
-                )
-            }
-        }, {});
+            newValue && (newObject[key] = newValue)
+        });
 
     return Object.keys(newObject).length && newObject
 }

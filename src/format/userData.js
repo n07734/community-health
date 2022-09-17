@@ -1,4 +1,7 @@
 
+import { sum } from 'ramda'
+import { sortByKeys } from '../utils'
+
 const baseUserData = {
     author: '',
     approvalsGiven: 0,
@@ -14,22 +17,28 @@ const baseUserData = {
     commentsByUser: {},
 }
 
-const updateContributorCount = (currentData, objKey, obj, addition) => Object.entries(obj)
-    .reduce((acc, [key, value]) => {
-        const prevData = currentData[key] || {}
-        const updated = {
-            ...baseUserData,
-            ...prevData,
-            user: key,
-            [objKey]: (prevData[objKey] || 0) + (addition || value),
-        }
+const updateContributorCount = (currentData, objKey, obj, addition) => {
+    const contributorCount = {}
+    Object.entries(obj)
+        .forEach(([key, value]) => {
+            const prevData = currentData[key] || {}
+            const updated = {
+                ...baseUserData,
+                ...prevData,
+                user: key,
+                [objKey]: (prevData[objKey] || 0) + (addition || value),
+            }
 
-        return Object.assign(acc, { [key]: updated })
-    }, {})
+            contributorCount[key] = updated
+        })
 
-const formatUserData = (data = []) => {
-    const updateByUsersCount = (currentData, objKey, obj, author) => Object.entries(obj)
-        .reduce((acc, [key, value]) => {
+    return contributorCount
+}
+
+const updateByUsersCount = (currentData, objKey, obj, author) => {
+    const byUsersCount = {}
+    Object.entries(obj)
+        .forEach(([key, value]) => {
             const currentUserData = currentData[key] || {}
             const currentKeyData = currentUserData[objKey] || {}
             const updatedKeyData = {
@@ -44,8 +53,14 @@ const formatUserData = (data = []) => {
                 [objKey]: updatedKeyData,
             }
 
-            return Object.assign(acc, { [key]: updated })
-        }, {})
+            byUsersCount[key] = updated
+        })
+
+    return byUsersCount
+}
+
+const formatUserData = (data = []) => {
+    // TODO: This is too complex, break it down into something that makes more sense
     const userData = data
         .reduce((acc, prData) => {
             const {
@@ -106,10 +121,10 @@ const formatUserData = (data = []) => {
             const prevData = acc[author] || {}
 
             const prSizes = [...(prevData.prSizes || []), prSize]
-            const averagePrSize = Math.round(prSizes.reduce((acc, x) => acc + x, 0) / prSizes.length)
+            const averagePrSize = Math.round(sum(prSizes) / prSizes.length)
 
             const prAges = [...(prevData.prAges || []), age]
-            const averagePrAge = Math.round(prAges.reduce((acc, x) => acc + x, 0) / prAges.length)
+            const averagePrAge = Math.round(sum(prAges) / prAges.length)
 
             return Object.assign(acc, {
                 [author]: {
@@ -145,14 +160,7 @@ const formatUserData = (data = []) => {
     ]
 
     const sortedUsers = newUsersData
-        .sort((a, b) => {
-            const aTotal = keys
-                .reduce((acc, key) => acc + (a[key] || 0), 0)
-
-            const bTotal = keys
-                .reduce((acc, key) => acc + (b[key] || 0), 0)
-            return bTotal - aTotal
-        })
+        .sort(sortByKeys(keys))
 
     return sortedUsers
 }

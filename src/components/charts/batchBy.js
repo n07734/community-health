@@ -46,23 +46,23 @@ const isNew = {
     '1month': isNewMonth,
 }
 
-const batchByType = batchType => key => data => data
-    .reduce((acc, item) => {
-        const prevWeeks = acc.length > 1
-            ? acc.slice(0, acc.length - 1)
-            : []
 
-        const currentWeek = acc[acc.length - 1] || []
-        const prevItem = currentWeek[currentWeek.length - 1] || {}
+const batchByType = batchType => key => data => {
+    const batchedData = []
+    data
+        .forEach((item) => {
+            const currentWeek = batchedData.at(-1) || []
+            const prevItem = currentWeek.at(-1) || {}
 
-        const all = isNew[batchType](prevItem[key], item[key])
-            ? acc
-                .concat([[item]])
-            : prevWeeks
-                .concat([currentWeek.concat(item)])
+            !prevItem[key] || isNew[batchType](prevItem[key], item[key])
+                ? batchedData
+                    .push([item])
+                : batchedData.at(-1)
+                    .push(item)
+        })
 
-        return all
-    }, [])
+    return batchedData;
+}
 
 const batchByData = key => (data = []) => {
     const { mergedAt: startDate } = data.at(0)

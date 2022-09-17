@@ -18,24 +18,30 @@ import {
 } from 'semver'
 import Sentiment from 'sentiment'
 import filterByUntilDate from './filterByUntilDate'
+import { sumKeysValue } from '../utils'
 
+const formatCommentersObject = paths => items => {
+    const commenters = {}
+    items
+        .forEach((item) => {
+            const user = path(paths, item)
+            commenters[user] = (commenters[user] || 0) + 1
+        })
 
-const formatCommentersObject = paths => items => items
-    .reduce((acc, item) => {
-        const user = path(paths, item)
-        const userCount = (acc[user] || 0) + 1
-
-        return Object.assign(acc, { [user]: userCount })
-    }, {})
+    return commenters
+}
 
 const formatCommenters = formatCommentersObject(['node', 'author', 'login'])
 
-const formatSentimentsCommenters = items => items
-    .reduce((acc, {author = '', score = 0}) => {
-        const totalScore = (acc[author] || 0) + score
+const formatSentimentsCommenters = items => {
+    const commenters = {}
+    items
+        .forEach(({author = '', score = 0}) => {
+            commenters[author] = (commenters[author] || 0) + score
+        })
 
-        return Object.assign(acc, { [author]: totalScore })
-    }, {})
+    return commenters
+}
 
 const formatSentiments = (comments = []) => {
     const sentiment = new Sentiment();
@@ -52,7 +58,7 @@ const formatSentiments = (comments = []) => {
         })
 
     return {
-        sentimentScore: sentimental.reduce((acc, { score = 0 } = {}) => score + acc,0),
+        sentimentScore: sumKeysValue('score')(sentimental),
         sentiments: formatSentimentsCommenters(sentimental),
     }
 }

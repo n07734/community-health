@@ -1,3 +1,4 @@
+import { sortByKeys } from '../utils'
 const formatRadarData = (userData, filterAuthor) => {
 
     const defaultValues = {
@@ -40,55 +41,50 @@ const formatRadarData = (userData, filterAuthor) => {
     ]
 
     const sortedUsers = filteredContributors
-        .sort((a, b) => {
-            const aTotal = keys
-                .reduce((acc, key) => acc + (a[key] || 0), 0)
-
-            const bTotal = keys
-                .reduce((acc, key) => acc + (b[key] || 0), 0)
-            return bTotal - aTotal
-        })
+        .sort(sortByKeys(keys))
 
     const p10 = Math.ceil(sortedUsers.length / 100 * 10)
     const topUsers = p10 > 10
         ? sortedUsers.slice(0, p10)
         : sortedUsers
 
-    const totalled = topUsers
+    const totalled = {}
+    topUsers
         .filter(x => !filterAuthor || x.author !== filterAuthor)
-        .reduce((total, user) => {
-            const addedUser = Object.entries(user)
+        .forEach((user) => {
+            Object.entries(user)
                 .filter(([, value]) => !Array.isArray(value) && /^\d+$/.test(value) && value > 0)
-                .reduce((combinedData, [key, value]) => Object.assign(combinedData, { [key]: value + (total[key] || 0) }), {})
-
-            return Object.assign(total, addedUser)
-        }, {})
+                .forEach(([key, value]) => {
+                    const current = totalled[key] || 0
+                    totalled[key] = value + current
+                })
+        })
 
     const userCount = topUsers.length
-    const averagedData = Object.entries(totalled)
-        .reduce((acc, [key, value], i) =>
-            Object.assign(
-                acc, { [key]: Math.round(value / userCount) }
-            ), { ...defaultValues, user: 'Peers', userCount }
-        )
+    const averagedData = { ...defaultValues, user: 'Peers', userCount }
+    Object.entries(totalled)
+        .forEach(([key, value]) => {
+            averagedData[key] = Math.round(value / userCount)
+        })
 
     const usersData = userData
         .find(x => x.author === filterAuthor) || { approvalsGivenByTeam: {} }
 
-    const maxValues = userData
-        .reduce((parentAcc, user) => {
+    const maxValues = defaultValues
+    userData
+        .forEach((user) => {
             const withNumberValue = Object.entries(user)
                 .filter(([, value]) => !Array.isArray(value) && /^\d+$/.test(value))
 
-            const upDateMaxValues = withNumberValue
-                .reduce((acc, [key, value]) => {
-                    const accVaue = parentAcc[key] || 0
+            withNumberValue
+                .forEach(([key, value]) => {
+                    const accVaue = maxValues[key] || 0
 
-                    return Object.assign(acc, { [key]: accVaue > value ? accVaue : value })
-                }, {})
-
-            return Object.assign(parentAcc, upDateMaxValues)
-        }, defaultValues)
+                    maxValues[key] = accVaue > value
+                        ? accVaue
+                        : value
+                })
+        })
 
     return {
         averagedData,

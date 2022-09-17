@@ -6,6 +6,7 @@ import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
 import Radar from '../charts/Radar'
 import formatRadarData from '../../format/radarData'
+import { sortByKeys } from '../../utils'
 
 const radialChartsContributions = ({ maxValues = {}, users = [] }, isTeamPage) => {
     const keys = [
@@ -18,14 +19,7 @@ const radialChartsContributions = ({ maxValues = {}, users = [] }, isTeamPage) =
     const topXUsers = isTeamPage
         ? users
         : users
-            .sort((a, b) => {
-                const aTotal = keys
-                    .reduce((acc, key) => acc + (a[key] || 0), 0)
-
-                const bTotal = keys
-                    .reduce((acc, key) => acc + (b[key] || 0), 0)
-                return bTotal - aTotal
-            })
+            .sort(sortByKeys(keys))
             .slice(0, 6)
 
     const items = [
