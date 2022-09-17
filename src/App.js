@@ -7,6 +7,7 @@ import theme from './theme'
 import Page from './components/home/Page'
 import Loader from './components/Loader'
 import * as actions from './state/actions'
+import './fonts.css'
 
 const App = ({
     themeType,

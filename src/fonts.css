@@ -1,0 +1,9 @@
+/* nunito-regular - latin */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+         url('./fonts/nunito-v25-latin-regular.woff2') format('woff2'),
+         url('./fonts/nunito-v25-latin-regular.woff') format('woff');
+  }

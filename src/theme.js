@@ -10,7 +10,7 @@ const themeColorBg = type => ({
     dark: '#232023',
 })[type]
 
-const fontFamily = '"Roboto", "Helvetica", "Arial", sans-serif'
+const fontFamily = '"Nunito", "Roboto", "Helvetica", "Arial", sans-serif'
 const fontSize = 12
 
 const defaultCopy = (type) => ({
