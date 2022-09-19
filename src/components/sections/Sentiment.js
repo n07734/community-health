@@ -93,7 +93,7 @@ const Sentiment = ({
         ]
         : []
 
-    return (<>
+    return sentPRData.length > 0 && (<>
         <Paper>
             <ChartDescription
                 title="Sentiment analysis*"

@@ -1,5 +1,5 @@
 import { userQuery } from './queries'
-import { prop } from 'ramda'
+import { mergeDeepRight, prop } from 'ramda'
 import api from './api'
 import batch from './batch'
 
@@ -17,21 +17,25 @@ const getUsersData = async({ fetchInfo, untilDate, dispatch }) => {
                 queryInfo: userQuery(untilDate),
                 dispatch,
             }))
-
         const allUsersData = await batch(data, api, 1)
 
-        const finalFetchInfo = {
-            ...fetchInfo,
+        const paginationInfo = {
+            issuesPagination: {},
+            prPagination: {},
         }
+
         const allResults = []
         allUsersData
             .forEach(({ fetchInfo, results }) => {
                 allResults.push(results)
 
                 const user = prop('user', fetchInfo)
-                finalFetchInfo.issuesPagination[user] = prop('issuesPagination', fetchInfo)
-                finalFetchInfo.prPagination[user] = prop('prPagination', fetchInfo)
+
+                paginationInfo.issuesPagination[user] = prop('issuesPagination', fetchInfo)
+                paginationInfo.prPagination[user] = prop('prPagination', fetchInfo)
             })
+
+        const finalFetchInfo = mergeDeepRight(fetchInfo, paginationInfo)
 
         const usersData = {
             fetchInfo: finalFetchInfo,

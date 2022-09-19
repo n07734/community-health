@@ -32,7 +32,7 @@ const TextInput = (props) => {
         onBlur: (event) => {
             const value = pathOr('', ['target', 'value'], event)
 
-            const isValid = validate({ type, value })
+            const isValid = validate({ key: type, value })
             setInputError({
                 ...inputError,
                 [type]: isValid ? false : true

@@ -240,7 +240,6 @@ const formatIssue = (data) => {
     const labels = pathOr([], ['node', 'labels', 'edges'], data)
 
     return {
-        // TODO: update key
         mergedAt: createdAt,
         url,
         isBug: /bug/i.test(title) || labels.some(x => /bug/i.test(path(['node', 'name'], x))),

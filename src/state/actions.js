@@ -4,6 +4,7 @@ import {
     dissocPath,
     equals,
     filter,
+    is,
     not,
     map,
     path,
@@ -13,6 +14,8 @@ import {
     trim,
     propOr,
     pick,
+    toPairs,
+    values,
 } from 'ramda'
 import api from '../api/api'
 import getUsersData from '../api/getUsersData'
@@ -270,7 +273,6 @@ const validateRequest = state => {
     }
 }
 
-// TODO: Improve clearData logic
 const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) => {
     const state = getState();
 
@@ -349,7 +351,22 @@ const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) =
             payload: formUntilDate,
         })
 
-        const pageInfo = pick(['newest', 'oldest'])
+        const pageInfo = (info = {}) => {
+            const picks = pick(['newest', 'oldest'])
+
+            const nextLevel = {}
+            toPairs(info)
+                .filter(([, value]) => is(Object, value) && values(picks(value)).length > 0)
+                .forEach(([key, value]) => {
+                    nextLevel[key] = picks(value)
+                })
+
+            return {
+                ...picks(info),
+                ...nextLevel,
+            }
+        }
+
         dispatch({
             type: types.SET_PR_PAGINATION,
             payload: pageInfo(fetchInfo.prPagination),

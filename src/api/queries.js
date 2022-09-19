@@ -237,7 +237,6 @@ const userQuery = (untilDate) => ({
           },
       }
   },
-  fillerType: 'batchedQuery',
   hasMoreResults: [
       prPagination.hasNextPage,
       issuesPagination.hasNextPage,

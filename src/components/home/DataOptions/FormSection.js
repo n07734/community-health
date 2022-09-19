@@ -41,7 +41,7 @@ const FormSection = (props) => {
         sortDirection: 'DESC',
         amountOfData: 1,
         token: '',
-        excludeIds: '', // todo:why is this being a [] vs ''?
+        excludeIds: '',
         enterpriseAPI: '',
     }
 
