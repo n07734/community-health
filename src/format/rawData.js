@@ -77,7 +77,12 @@ const getAllCodeComments = (data) => {
 }
 
 const filterForUsers = users => item => users.includes(path(['node', 'author', 'login'], item))
-const filterOutUsers = users => item => !filterForUsers(users)(item)
+const filterOutUsers = users => item => {
+    const isAllowedUser = !filterForUsers(users)(item)
+    const notGitAppComment = !/\/apps\//.test(pathOr('', ['node', 'author', 'url'], item))
+
+    return notGitAppComment && isAllowedUser
+}
 
 const formatComments = (type = '', exclude, data) => {
     const author = pathOr('', ['node', 'author', 'login'], data)
@@ -151,6 +156,7 @@ const prData = (exclude = []) => (data = {}) => {
     const org = pathOr('', ['node', 'repository', 'owner', 'login'], data)
     const repo = pathOr('', ['node', 'repository', 'name'], data)
     const author = pathOr('', ['node', 'author', 'login'], data)
+    const authorUrl = pathOr('', ['node', 'author', 'url'], data)
     const url = pathOr('', ['node', 'url'], data)
     const additions = pathOr(0, ['node', 'additions'], data)
     const deletions = pathOr(0, ['node', 'deletions'], data)
@@ -167,7 +173,9 @@ const prData = (exclude = []) => (data = {}) => {
     const prInfo = {
         repo,
         org,
-        author,
+        author: /\/apps\//.test(authorUrl)
+            ? 'GIT_APP_PR'
+            : author,
         url,
 
         additions,
@@ -196,7 +204,7 @@ const filterSortPullRequests = ({ excludeIds = [], sortDirection }, untilDate, a
         sort(dateSort('ASC')),
         filter(item => {
             const author = propOr('', 'author', item)
-            const hasExcludedAuthor = any(y => y === author, excludeIds)
+            const hasExcludedAuthor = any(y => y === author, ['GIT_APP_PR', ...excludeIds])
             const shouldFilterIn = filterByUntilDate(['mergedAt'], sortDirection, untilDate)(item)
             const keepItem = shouldFilterIn && !hasExcludedAuthor
 

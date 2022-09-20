@@ -11,9 +11,9 @@ const inputLabels = {
     org: 'Organization',
     repo: 'Repository',
     token: 'Token*',
-    excludeIds: "Exclude GitHub ids e.g. bots, ',' separated",
+    excludeIds: "Exclude GitHub users e.g. remove bot PRs and comments, ',' separated",
     enterpriseAPI: 'Enterprise API full url',
-    userIds: 'Comma separated list of user ids',
+    userIds: 'Comma separated list GitHub users',
     teamName: 'Team name',
 }
 

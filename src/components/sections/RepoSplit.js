@@ -103,7 +103,7 @@ const RepoSplit = ({
 
     const chunkyData = chunkData(pullRequests)
 
-    return (<>
+    return filteredPRData.length > 0 && (<>
         <Paper>
             <ChartDescription title={sectionTitle} />
             <Pie

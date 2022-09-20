@@ -101,7 +101,6 @@ const Sentiment = ({
                 <div>
                     <P>*Adding this is an experiment to see if it can provide useful insights.</P>
                     <P>Uses npm package <a className={classes.link} href="https://github.com/thisandagain/sentiment" alt="sentiment github package">sentiment</a> which uses AFINN-165 word list and Emoji ranking to perform sentiment analysis.</P>
-                    <P>Would like to look into AI sentiment analysis later down the line.</P>
                 </div>
             </ChartDescription>
             <Line
@@ -117,7 +116,7 @@ const Sentiment = ({
                             },
                             {
                                 label: 'From team',
-                                color: colors[1],
+                                color: colors[2],
                                 dataKey: 'commentAuthorSentimentScore',
                             },
                         ],

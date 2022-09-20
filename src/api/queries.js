@@ -25,6 +25,7 @@ const comments = (cursor) => `
         node {
           author {
             login
+            url
           }
           body
         }
@@ -47,6 +48,7 @@ pullRequests(
       url
       author {
         login
+        url
       }
       repository {
         name
@@ -119,6 +121,7 @@ const reviews = (cursor) => `
           state
           author {
             login
+            url
           }
           ${comments()}
         }
