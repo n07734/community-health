@@ -1,6 +1,7 @@
 import React from 'react'
 
 import PullRequestTrends from './sections/PullRequestTrends'
+import PullRequestCustom from './sections/PullRequestCustom'
 import IssuesTrends from './sections/IssuesTrends'
 import TeamTrends from './sections/TeamTrends'
 import Sentiment from './sections/Sentiment'
@@ -12,6 +13,7 @@ const RepoView = () => <>
     <ReportDescription />
     <TeamTrends />
     <Sentiment />
+    <PullRequestCustom />
     <PullRequestTrends />
     <IssuesTrends />
     <UserTrends />

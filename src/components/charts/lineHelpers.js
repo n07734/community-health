@@ -1,7 +1,7 @@
 import { apply } from 'ramda'
 import differenceInDays from 'date-fns/differenceInDays'
 
-import batchBy from './batchBy'
+import { batchBy } from './batchBy'
 import { sumKeysValue } from '../../utils'
 
 const getAllYValues = data => {

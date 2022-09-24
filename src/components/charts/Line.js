@@ -52,6 +52,7 @@ const ToolTip = convertedRightLines => data => {
 
 const Line = styledCharts(({
     title,
+    blockHeading = false,
     data = [],
     markers = [],
     showLegends = false,
@@ -88,7 +89,7 @@ const Line = styledCharts(({
         })
         .filter(Boolean)
 
-    const leftHeadingItems = title
+    const leftHeadingItems = title || blockHeading
         ? []
         : leftAxis.lines
 
@@ -127,8 +128,8 @@ const Line = styledCharts(({
             <div className={classes.headingWrap}>
                 <ChartHeading type='line' text={title} items={leftHeadingItems} />
                 {
-                    rightHeadingItems.length > 0
-                    && <ChartHeading type='line' items={rightHeadingItems} />
+                    !blockHeading && rightHeadingItems.length > 0
+                        && <ChartHeading type='line' items={rightHeadingItems} />
                 }
             </div>
 

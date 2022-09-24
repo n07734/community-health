@@ -1,4 +1,4 @@
-import batchBy from './batchBy'
+import { batchBy } from './batchBy'
 
 describe('batchBy:', () => {
     it('Only one week of data', () => {

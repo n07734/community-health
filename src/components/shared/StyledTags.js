@@ -25,7 +25,7 @@ const A = withStyles(styles)(({
 
 const P = withStyles(styles)(({
     className = '',
-    classes,
+    classes = {},
     children,
 } = {}) => <p className={`${classes.p} ${className}`}>
     {children}

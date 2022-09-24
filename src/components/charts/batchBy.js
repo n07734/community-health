@@ -47,7 +47,7 @@ const isNew = {
 }
 
 
-const batchByType = batchType => key => data => {
+const batchByType = (key, batchType) => data => {
     const batchedData = []
     data
         .forEach((item) => {
@@ -70,11 +70,11 @@ const batchByData = key => (data = []) => {
     const totalMonths = differenceInMonths(new Date(endDate), new Date(startDate))
 
     return cond([
-        [always(totalMonths >= 200), batchByType('1month')(key)],
-        [always(totalMonths >= 60), batchByType('3week')(key)],
-        [always(totalMonths >= 12), batchByType('2week')(key)],
-        [always(totalMonths >= 6), batchByType('1week')(key)],
-        [T, batchByType('1day')(key)],
+        [always(totalMonths >= 200), batchByType(key, '1month')],
+        [always(totalMonths >= 60), batchByType(key, '3week')],
+        [always(totalMonths >= 12), batchByType(key, '2week')],
+        [always(totalMonths >= 6), batchByType(key, '1week')],
+        [T, batchByType(key, '1day')],
     ])(data)
 }
 
@@ -82,4 +82,7 @@ const batchBy = key => (data = []) => data.length < 1
     ? []
     : batchByData(key)(data)
 
-export default batchBy
+export {
+    batchBy,
+    batchByType,
+}
