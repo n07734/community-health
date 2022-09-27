@@ -32,6 +32,18 @@ const columnMap = {
         flex: 1,
         ...zeroOut,
     },
+    additions: {
+        field: 'additions',
+        headerName: 'PR additions',
+        flex: 1,
+        ...zeroOut,
+    },
+    deletions: {
+        field: 'deletions',
+        headerName: 'PR deletions',
+        flex: 1,
+        ...zeroOut,
+    },
     age: {
         field: 'age',
         headerName: 'Age (days)',
@@ -52,6 +64,12 @@ const columnMap = {
     commentAuthorSentimentScore: {
         field: 'commentAuthorSentimentScore',
         headerName: 'From team',
+        flex: 1,
+        ...zeroOut,
+    },
+    commentSentimentTotalScore: {
+        field: 'commentSentimentTotalScore',
+        headerName: 'Sentiment',
         flex: 1,
         ...zeroOut,
     },

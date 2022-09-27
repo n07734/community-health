@@ -124,6 +124,7 @@ const formatComments = (type = '', exclude, data) => {
         [`${prefix}ommentSentiments`]: sentiments,
         [`${prefix}ommentsAuthor`]: commentsAuthor.length,
         [`${prefix}ommentAuthorSentimentScore`]: authorSentimentScore,
+        [`${prefix}ommentSentimentTotalScore`]: (authorSentimentScore || 0) + (sentimentScore || 0),
     }
 }
 

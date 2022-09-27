@@ -12,8 +12,8 @@ import ReportDescription from './sections/ReportDescription'
 const RepoView = () => <>
     <ReportDescription />
     <TeamTrends />
-    <Sentiment />
     <PullRequestCustom />
+    <Sentiment />
     <PullRequestTrends />
     <IssuesTrends />
     <UserTrends />

@@ -9,8 +9,6 @@ import {
     FormLabel,
 } from '@material-ui/core'
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
-import { equals } from 'ramda'
-
 
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
@@ -45,6 +43,10 @@ const lineOptions = [
     {
         label: 'PR age(days)',
         dataKey: 'age',
+    },
+    {
+        label: 'PR sentiment',
+        dataKey: 'commentSentimentTotalScore',
     },
     {
         label: 'PR sentiment to team',
@@ -115,9 +117,11 @@ const getTableKeys = (graphInfo = {}) => {
     ]
         .map(x => x.dataKey)
 
-    return activeKeys.length > 0
+    const keys = activeKeys.length > 0
         ? [...activeKeys, 'author']
         : ['comments', 'approvals', 'age', 'prSize', 'author']
+
+    return keys
 }
 
 const addedLine = (removeLine, classes) => ({
@@ -282,8 +286,8 @@ const GraphUi = ({
                     row
                     name="lineMaths"
                 >
-                    <FormLabel>Line maths: Average<Radio name="lineMaths" value="average" /></FormLabel>
-                    <FormLabel>Total<Radio name="lineMaths" value="sum" /></FormLabel>
+                    <FormLabel>Line points: Averaged<Radio name="lineMaths" value="average" /></FormLabel>
+                    <FormLabel>Totaled<Radio name="lineMaths" value="sum" /></FormLabel>
                 </RadioGroup>
                 <Button value={"Add to graph"} color="primary" type='submit'/>
             </form>
@@ -309,7 +313,7 @@ let id = 1
 const getGraphId = () => ++id
 
 const PullRequestCustom = ({
-    pullRequests = [],
+    pullRequests: rawPullRequests = [],
     releases = [],
     classes = {},
 } = {}) => {
@@ -337,6 +341,12 @@ const PullRequestCustom = ({
         ]
     }]
     const [graphs, setGraph] = useState(defaultState)
+
+    const pullRequests = rawPullRequests
+        .map((pr = {}) => ({
+            ...pr,
+            commentSentimentTotalScore: (pr.commentSentimentScore || 0) + (pr.commentAuthorSentimentScore || 0)
+        }))
 
     const chunkyData = chunkData(pullRequests)
 
@@ -430,6 +440,9 @@ const styles = theme => ({
         '& > *': {
             marginRight: '20px',
             marginBottom: '15px',
+        },
+        '& .MuiFormLabel-root': {
+            color: theme.palette.mainCopy.color,
         },
     },
     graphForm: {
