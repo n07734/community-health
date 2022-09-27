@@ -9,6 +9,7 @@ import {
     FormLabel,
 } from '@material-ui/core'
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
+import { equals } from 'ramda'
 
 
 import Paper from '../shared/Paper'
@@ -23,27 +24,35 @@ import { chunkData } from '../charts/lineHelpers'
 const lineOptions = [
     {
         label: 'PR comments',
-        value: 'comments',
+        dataKey: 'comments',
     },
     {
         label: 'PR approvals',
-        value: 'approvals',
+        dataKey: 'approvals',
     },
     {
-        label: 'PR Size',
-        value: 'prSize',
+        label: 'PR additions',
+        dataKey: 'additions'
+    },
+    {
+        label: 'PR deletions',
+        dataKey: 'deletions'
+    },
+    {
+        label: 'PR size',
+        dataKey: 'prSize',
     },
     {
         label: 'PR age(days)',
-        value: 'age',
+        dataKey: 'age',
     },
     {
         label: 'PR sentiment to team',
-        value: 'commentSentimentScore',
+        dataKey: 'commentSentimentScore',
     },
     {
         label: 'PR sentiment from team',
-        value: 'commentAuthorSentimentScore',
+        dataKey: 'commentAuthorSentimentScore',
     },
 ]
 
@@ -127,6 +136,17 @@ const addedLine = (removeLine, classes) => ({
         />
     </div>
 
+const getRemainingLines = (graphInfo = {}) => {
+    const activeLines = [
+        ...(graphInfo.left || []),
+        ...(graphInfo.right || []),
+    ]
+
+    const remainingLines = lineOptions
+        .filter(({ dataKey = '' } = {}) => activeLines.every(x => x.dataKey !== dataKey))
+
+    return remainingLines
+}
 
 const GraphUi = ({
     graphInfo = {},
@@ -134,26 +154,22 @@ const GraphUi = ({
     graphs = [],
     classes = {},
 }) =>  {
-    const activeLines = [
-        ...(graphInfo.left || []),
-        ...(graphInfo.right || []),
-    ]
-
-    const remainingLines = lineOptions
-        .filter(({ value = '' } = {}) => activeLines.every(x => x.dataKey !== value))
+    const remainingLines = getRemainingLines(graphInfo)
 
     const [formInfo, setFormInfo] = useState({
         label: remainingLines[0]?.label || 'Comments',
-        dataKey: remainingLines[0]?.value || 'comments',
+        dataKey: remainingLines[0]?.dataKey || 'comments',
         color: getColor(graphInfo),
         lineSide: 'left',
         groupMath: 'average',
     })
 
-    const setValue = (key, value) => setFormInfo({
-        ...formInfo,
-        [key]: value
-    })
+    const setValue = (newValue = {}) => {
+        setFormInfo({
+            ...formInfo,
+            ...newValue,
+        })
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -174,9 +190,11 @@ const GraphUi = ({
 
         setGraph(updatedGraphs)
 
+        const [firstline = {}] = getRemainingLines(graphItem)
+
         setFormInfo({
-            label: remainingLines[1]?.label,
-            dataKey: remainingLines[1]?.value,
+            label: firstline.label,
+            dataKey: firstline.dataKey,
             color: getColor(graphItem),
             lineSide: 'left',
             groupMath: 'average',
@@ -193,14 +211,6 @@ const GraphUi = ({
             [side]: updatedLines,
         }
 
-        const activeLines = [
-            ...(graphItem.left || []),
-            ...(graphItem.right || []),
-        ]
-
-        const firstline = lineOptions
-            .find(({ value = '' } = {}) => activeLines.every(x => x.dataKey !== value))
-
         const updatedGraphs = graphs
             .map(x => graphItem.graphId === x.graphId
                 ? graphItem
@@ -208,9 +218,10 @@ const GraphUi = ({
             )
         setGraph(updatedGraphs)
 
+        const [firstline = {}] = getRemainingLines(graphItem)
         setFormInfo({
             label: firstline.label,
-            dataKey: firstline.value,
+            dataKey: firstline.dataKey,
             color: getColor(graphItem),
             lineSide: 'left',
             groupMath: 'average',
@@ -223,22 +234,25 @@ const GraphUi = ({
                 <Select
                     onChange={(e) => {
                         const value = e.target.value
-                        setValue('dataKey',value)
-                        const { label } = remainingLines.find(x => x.value === value)
-                        setValue('label', label)
+                        const { label } = remainingLines.find(x => x.dataKey === value)
+                        setValue({
+                            dataKey: value,
+                            label
+                        })
+
                     }}
                     value={formInfo.dataKey}
                     inputProps={{ 'aria-label': 'choose a line' }}
                 >
                     {
                         remainingLines
-                            .map(({label, value} = {}) => <MenuItem key={value} value={value} >
+                            .map(({label, dataKey} = {}) => <MenuItem key={dataKey} value={dataKey} >
                                 {label}
                             </MenuItem>)
                     }
                 </Select>
                 <Select
-                    onChange={(e) => setValue('color', e.target.value)}
+                    onChange={(e) => setValue({ color: e.target.value })}
                     value={formInfo.color}
                     inputProps={{ 'aria-label': 'Choose a color' }}
                 >
@@ -256,7 +270,7 @@ const GraphUi = ({
                 </Select>
                 <RadioGroup
                     value={formInfo.lineSide}
-                    onChange={(e) => setValue('lineSide', e.target.value)}
+                    onChange={(e) => setValue({ lineSide: e.target.value })}
                     row name="side"
                 >
                     <FormLabel>Axis: Left<Radio name="side" value="left" /></FormLabel>
@@ -264,14 +278,14 @@ const GraphUi = ({
                 </RadioGroup>
                 <RadioGroup
                     value={formInfo.groupMath}
-                    onChange={(e) => setValue('groupMath', e.target.value)}
+                    onChange={(e) => setValue({ groupMath: e.target.value })}
                     row
                     name="lineMaths"
                 >
                     <FormLabel>Line maths: Average<Radio name="lineMaths" value="average" /></FormLabel>
                     <FormLabel>Total<Radio name="lineMaths" value="sum" /></FormLabel>
                 </RadioGroup>
-                <Button value="Add to graph" color="primary" type='submit'/>
+                <Button value={"Add to graph"} color="primary" type='submit'/>
             </form>
         }
         <div className={classes.customLines}>
@@ -299,31 +313,30 @@ const PullRequestCustom = ({
     releases = [],
     classes = {},
 } = {}) => {
-    const [graphs, setGraph] = useState([
-        {
-            graphId: 1,
-            left: [
-                {
-                    label: 'Comments',
-                    color: '#1F77B4',
-                    dataKey: 'comments',
-                },
-                {
-                    label: 'Approvals',
-                    color: '#E82573',
-                    dataKey: 'approvals',
-                },
-            ],
-            right: [
-                {
-                    label: 'PR Size',
-                    color: '#4ECC7A',
-                    groupMath: 'sum',
-                    dataKey: 'prSize',
-                }
-            ]
-        }
-    ])
+    const defaultState = [{
+        graphId: 1,
+        left: [
+            {
+                label: 'Comments',
+                color: '#1F77B4',
+                dataKey: 'comments',
+            },
+            // {
+            //     label: 'Approvals',
+            //     color: '#E82573',
+            //     dataKey: 'approvals',
+            // },
+        ],
+        right: [
+            // {
+            //     label: 'PR Size',
+            //     color: '#4ECC7A',
+            //     groupMath: 'sum',
+            //     dataKey: 'prSize',
+            // }
+        ]
+    }]
+    const [graphs, setGraph] = useState(defaultState)
 
     const chunkyData = chunkData(pullRequests)
 
@@ -363,9 +376,9 @@ const PullRequestCustom = ({
                     </div>)
             }
             {
-                graphs.length > 0
+                graphs.length > 1
                     && <Button
-                        value="Remove graph"
+                        value="Remove above graph"
                         color="secondary"
                         onClick={(event) => {
                             event.preventDefault()
@@ -374,7 +387,7 @@ const PullRequestCustom = ({
                     />
             }
             <Button
-                value="Make graph"
+                value={"Make another graph"}
                 color="primary"
                 onClick={(event) => {
                     event.preventDefault()
@@ -407,6 +420,10 @@ const styles = theme => ({
     graphLine: {
         display: 'flex',
         flexWrap: 'wrap',
+        borderRadius: '15px',
+        paddingTop:' 0.5em',
+        justifyContent: 'center',
+        backgroundImage: 'linear-gradient(0deg, rgba(102,102,102,0) 80%, rgba(102,102,102,1) 100%)',
         '& p': {
             margin: '0'
         },
@@ -472,6 +489,7 @@ const styles = theme => ({
         },
         '& > div:nth-child(2)': {
             justifyContent: 'flex-end',
+            textAlign: 'right',
         },
     },
     block: {

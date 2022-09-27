@@ -64,20 +64,29 @@ const Line = styledCharts(({
     const leftAxis = data
         .find(({ xAxis } = {}) => xAxis === 'left') || { data: [], lines: [] }
     const leftLinesData = formatLinesData(leftAxis)
-    const maxLeftValue = getMaxYValue(leftLinesData)
     const minLeftValue = getMinYValue(leftLinesData)
 
     const rightAxis = data
         .find(({ xAxis } = {}) => xAxis === 'right') || { data: [], lines: [] }
     const rightLinesData = formatLinesData(rightAxis)
     const maxRightValue = getMaxYValue(rightLinesData)
+    const minRightValue = getMinYValue(rightLinesData)
+
+    // if no left try right mas as there may be a right line being used
+    const maxLeftValue = getMaxYValue(leftLinesData) || maxRightValue
+
+    const minValue = minLeftValue > minRightValue
+        ? minRightValue
+        : minLeftValue
 
     // As Nivo Line does not have right axis lines need to convert right line data to left line data
     const convertedRightLines = rightLinesData
         .map((item = {}) => {
             const formattedData = item.data
                 .map((dataItem) => ({
-                    y: Math.round(dataItem.y * (maxLeftValue / maxRightValue)),
+                    y: dataItem.y < 0
+                        ? dataItem.y
+                        : Math.round(dataItem.y * (maxLeftValue / maxRightValue)),
                     x: dataItem.x,
                     originalY: dataItem.y,
                 }))
@@ -152,7 +161,7 @@ const Line = styledCharts(({
                     xFormat="time:%Y-%m-%d"
                     yScale={{
                         type: 'linear',
-                        min: minLeftValue,
+                        min: minValue,
                         max: maxLeftValue,
                     }}
                     axisBottom={{
@@ -180,7 +189,9 @@ const Line = styledCharts(({
                                 tickValues: 8,
                                 format: (rawLeftValue) => {
                                     const realRightValue = Math.round(rawLeftValue * (maxRightValue / maxLeftValue))
-                                    return smoothNumber(realRightValue)
+                                    return rawLeftValue < 0 // to allow minus values, minus values are currently raw not aligned like positive numbers
+                                        ? rawLeftValue
+                                        : smoothNumber(realRightValue)
                                 },
                             },
                         }

@@ -324,10 +324,10 @@ const UserView = ({
                 {
                     graphs.length
                         && graphs
-                            .map(([itemsInfo, lineInfo], i) => <div key={i}>
-                                <Line {...lineInfo} />
-                                <ItemsTable {...itemsInfo} />
-                            </div>)
+                            .map(([itemsInfo, lineInfo], i) => <>
+                                <Line key={i} {...lineInfo} />
+                                <ItemsTable key={i + graphs.length} {...itemsInfo} />
+                            </>)
                 }
 
                 <Button

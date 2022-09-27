@@ -121,8 +121,7 @@ const ItemsTable = ({
     dataKeys = [],
     classes = {},
 } = {}) => {
-
-    const [dataIndex, setIndex] = useState(0);
+    const [dataIndex, setIndex] = useState(data.length - 1);
     const [showTable, setShowTable] = useState(false);
 
     const selectedClassFor = selectedClass(classes, dataIndex, showTable)

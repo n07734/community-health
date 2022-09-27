@@ -20,7 +20,9 @@ const getAllYValues = data => {
 const getMaxYValue = (data) => {
     const allValues = getAllYValues(data)
 
-    const maxValue = apply(Math.max, allValues)
+    const maxValue = allValues.length > 0
+        ? apply(Math.max, allValues)
+        : 0
 
     return maxValue
 }
@@ -28,7 +30,9 @@ const getMaxYValue = (data) => {
 const getMinYValue = (data) => {
     const allValues = getAllYValues(data)
 
-    const minValue = apply(Math.min, allValues)
+    const minValue = allValues.length > 0
+        ? apply(Math.min, allValues)
+        : 0
 
     return minValue > 0
         ? 0
