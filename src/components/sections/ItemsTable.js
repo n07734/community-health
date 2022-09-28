@@ -16,7 +16,19 @@ const zeroOut = {
 const columnMap = {
     comments: {
         field: 'comments',
-        headerName: 'Comments',
+        headerName: 'All comments',
+        flex: 1,
+        ...zeroOut,
+    },
+    codeComments: {
+        field: 'codeComments',
+        headerName: 'Code comments',
+        flex: 1,
+        ...zeroOut,
+    },
+    generalComments: {
+        field: 'generalComments',
+        headerName: 'Review comments',
         flex: 1,
         ...zeroOut,
     },

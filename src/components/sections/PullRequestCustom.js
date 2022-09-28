@@ -21,19 +21,27 @@ import { chunkData } from '../charts/lineHelpers'
 
 const lineOptions = [
     {
-        label: 'PR comments',
+        label: 'All comments',
         dataKey: 'comments',
     },
     {
-        label: 'PR approvals',
+        label: 'Code comments',
+        dataKey: 'codeComments',
+    },
+    {
+        label: 'Review comments',
+        dataKey: 'generalComments',
+    },
+    {
+        label: 'Approvals',
         dataKey: 'approvals',
     },
     {
-        label: 'PR additions',
+        label: 'Additions',
         dataKey: 'additions'
     },
     {
-        label: 'PR deletions',
+        label: 'Deletions',
         dataKey: 'deletions'
     },
     {
@@ -41,19 +49,19 @@ const lineOptions = [
         dataKey: 'prSize',
     },
     {
-        label: 'PR age(days)',
+        label: 'Age(days)',
         dataKey: 'age',
     },
     {
-        label: 'PR sentiment',
+        label: 'Sentiment',
         dataKey: 'commentSentimentTotalScore',
     },
     {
-        label: 'PR sentiment to team',
+        label: 'Sentiment to team',
         dataKey: 'commentSentimentScore',
     },
     {
-        label: 'PR sentiment from team',
+        label: 'Sentiment from team',
         dataKey: 'commentAuthorSentimentScore',
     },
 ]
