@@ -104,7 +104,9 @@ const GraphUi = ({
     const [formInfo, setFormInfo] = useState({
         label: remainingLines[0]?.label || 'Comments',
         dataKey: remainingLines[0]?.dataKey || 'comments',
-        color: colors[1],
+        color: graphs.length > 1
+            ? colors[0]
+            : colors[1],
         lineSide: 'left',
         groupMath: 'average',
     })
@@ -322,6 +324,7 @@ const styles = theme => ({
             flexWrap: 'wrap',
             maxWidth: '50%',
             justifyContent: 'flex-start',
+            flexDirection: 'column',
         },
         '& > div:nth-child(2)': {
             justifyContent: 'flex-end',
