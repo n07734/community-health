@@ -16,6 +16,7 @@ import { chunkData } from '../charts/lineHelpers'
 
 const Sentiment = ({
     pullRequests = [],
+    releases = [],
     userIds = [],
     classes = {}
 } = {}) => {
@@ -104,6 +105,7 @@ const Sentiment = ({
                 </div>
             </ChartDescription>
             <Line
+                markers={releases}
                 showLegends={true}
                 title="Sentiment in PRs between team and reviewers"
                 data={[
@@ -156,6 +158,7 @@ const Sentiment = ({
 
 const mapStateToProps = (state) => ({
     pullRequests: state.pullRequests,
+    releases: state.releases,
     userIds: state.fetches.userIds,
 })
 
