@@ -240,14 +240,14 @@ const styles = theme => ({
             height:'500px',
             position: 'absolute',
             bottom: '0px',
-            background: 'linear-gradient(0deg, rgba(232,37,115,.12) 16%,rgba(232,37,115,.55) 16%, rgba(232,37,115,0) 90%)',
+            background: 'linear-gradient(0deg, rgba(232,37,115,.12) 16%,rgba(232,37,115,.40) 16%, rgba(232,37,115,0) 90%)',
             '@media (max-width: 768px)': {
                 height: '400px',
-                background: 'linear-gradient(0deg, rgba(232,37,115,.12) 20%,rgba(232,37,115,.55) 16%, rgba(232,37,115,0) 90%)',
+                background: 'linear-gradient(0deg, rgba(232,37,115,.12) 20%,rgba(232,37,115,.40) 16%, rgba(232,37,115,0) 90%)',
             },
             '@media (max-width: 668px)': {
                 height: '320px',
-                background: 'linear-gradient(0deg, rgba(232,37,115,.12) 25%,rgba(232,37,115,.55) 16%, rgba(232,37,115,0) 90%)',
+                background: 'linear-gradient(0deg, rgba(232,37,115,.12) 25%,rgba(232,37,115,.40) 16%, rgba(232,37,115,0) 90%)',
             },
         }
     },
