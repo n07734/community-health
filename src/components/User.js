@@ -172,7 +172,6 @@ const userGraphs = (data = [], releases = [], userName) => {
         .filter(({ author }) => author === userName)
 
     const chunkyData = chunkData(userPrData)
-    console.log('-=-=--userPrData', userPrData)
 
     return [
         [

@@ -1,7 +1,5 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
-import classNames from 'classnames'
-
 
 const styles = theme => ({
     root: {
@@ -26,7 +24,7 @@ const styles = theme => ({
 
 const PaperWapper = ({ classes = {}, className = '', children } = {}) => (
     <div
-        className={classNames(classes.root, classes[className] || className)}
+        className={`${classes.root} ${classes[className] || className}`}
     >
         {children}
     </div>

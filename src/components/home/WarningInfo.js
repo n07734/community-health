@@ -1,7 +1,6 @@
 import React from 'react'
 import { SnackbarContent } from '@material-ui/core'
 import { Warning } from '@material-ui/icons'
-import classNames from 'classnames'
 
 import amber from '@material-ui/core/colors/amber'
 import { withStyles } from '@material-ui/core/styles'
@@ -26,10 +25,10 @@ const infoStyles = theme => ({
 
 const WarningRaw = ({ classes = {}, className = '' } = {}) => (<>
     <SnackbarContent
-        className={classNames(classes.warning, className)}
+        className={`${classes.warning} ${className}`}
         message={
             <span className={classes.message}>
-                <Warning className={classNames(classes.icon, classes.iconVariant)} />Warning using demo data, fill in form to get real data from gitHub
+                <Warning className={`${classes.icon} ${classes.iconVariant}`} />Warning using demo data, fill in form to get real data from gitHub
             </span>
         }
     />
