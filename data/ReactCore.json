@@ -1,7 +1,7 @@
 {
   "fetches": {
-    "org": "sveltejs",
-    "repo": "svelte",
+    "org": "",
+    "repo": "",
     "teamName": "ReactCore",
     "sortDirection": "DESC",
     "userIds": [

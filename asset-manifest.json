@@ -1,21 +1,15 @@
 {
   "files": {
-    "main.css": "/community-health/static/css/main.fad27343.chunk.css",
-    "main.js": "/community-health/static/js/main.a45dc955.chunk.js",
-    "main.js.map": "/community-health/static/js/main.a45dc955.chunk.js.map",
-    "runtime-main.js": "/community-health/static/js/runtime-main.dc01f931.js",
-    "runtime-main.js.map": "/community-health/static/js/runtime-main.dc01f931.js.map",
-    "static/js/2.0e919a16.chunk.js": "/community-health/static/js/2.0e919a16.chunk.js",
-    "static/js/2.0e919a16.chunk.js.map": "/community-health/static/js/2.0e919a16.chunk.js.map",
+    "main.css": "/community-health/static/css/main.596e1f42.css",
+    "main.js": "/community-health/static/js/main.ac1d70de.js",
+    "static/media/nunito-v25-latin-regular.woff": "/community-health/static/media/nunito-v25-latin-regular.ca52c044715c95fdd0d8.woff",
+    "static/media/nunito-v25-latin-regular.woff2": "/community-health/static/media/nunito-v25-latin-regular.b8644b6e04ecda1cf98b.woff2",
     "index.html": "/community-health/index.html",
-    "static/css/main.fad27343.chunk.css.map": "/community-health/static/css/main.fad27343.chunk.css.map",
-    "static/js/2.0e919a16.chunk.js.LICENSE.txt": "/community-health/static/js/2.0e919a16.chunk.js.LICENSE.txt",
-    "static/media/fonts.css": "/community-health/static/media/nunito-v25-latin-regular.ca52c044.woff"
+    "main.596e1f42.css.map": "/community-health/static/css/main.596e1f42.css.map",
+    "main.ac1d70de.js.map": "/community-health/static/js/main.ac1d70de.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.dc01f931.js",
-    "static/js/2.0e919a16.chunk.js",
-    "static/css/main.fad27343.chunk.css",
-    "static/js/main.a45dc955.chunk.js"
+    "static/css/main.596e1f42.css",
+    "static/js/main.ac1d70de.js"
   ]
 }
