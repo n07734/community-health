@@ -1,4 +1,4 @@
-import { createMuiTheme } from '@material-ui/core/styles'
+import { createTheme } from '@material-ui/core/styles'
 
 const themeColor = type => ({
     light: '#232023',
@@ -10,7 +10,7 @@ const themeColorBg = type => ({
     dark: '#232023',
 })[type]
 
-const fontFamily = '"Roboto", "Helvetica", "Arial", sans-serif'
+const fontFamily = '"Nunito", "Roboto", "Helvetica", "Arial", sans-serif'
 const fontSize = 12
 
 const defaultCopy = (type) => ({
@@ -45,7 +45,7 @@ const spacing = {
     },
 }
 
-const theme =  (type = 'light') => createMuiTheme({
+const theme =  (type = 'light') => createTheme({
     type,
     palette: {
         type,
@@ -67,8 +67,8 @@ const theme =  (type = 'light') => createMuiTheme({
             fontWeight: '400',
             fontFamily,
         },
-
         groupedCharts: {
+            width: '100%',
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'space-evenly',
@@ -119,16 +119,34 @@ const theme =  (type = 'light') => createMuiTheme({
             ...defaultCopy(type),
             fontSize: '2rem',
             fontWeight: '500',
+            '@media (max-width: 768px)': {
+                fontSize: '1.5rem'
+            },
+            '@media (max-width: 668px)': {
+                fontSize: '1.3rem'
+            },
         },
         h2: {
             ...defaultCopy(type),
             fontSize: '3rem',
             fontWeight: '200',
+            '@media (max-width: 768px)': {
+                fontSize: '2.5rem'
+            },
+            '@media (max-width: 668px)': {
+                fontSize: '2rem'
+            },
         },
         h1: {
             ...defaultCopy(type),
             fontSize: '4rem',
             fontWeight: '300',
+            '@media (max-width: 768px)': {
+                fontSize: '3rem'
+            },
+            '@media (max-width: 668px)': {
+                fontSize: '2.5rem'
+            },
         },
     },
     charts: {
@@ -148,6 +166,23 @@ const theme =  (type = 'light') => createMuiTheme({
                 text: { fill: themeColor(type) },
             },
         },
+        legends: {
+            hidden: {
+                symbol: {
+                    fill: '#eee',
+                    opacity: 1,
+                },
+                text: {
+                    fill: '#eee',
+                    fontWeight: '400',
+                    opacity: 1,
+                },
+            },
+            text: {
+                fontWeight: '800',
+            },
+        },
+        legendsTextFill: themeColor(type),
         dotColor: themeColor(type),
         tooltip: {
             fontFamily,
@@ -157,11 +192,6 @@ const theme =  (type = 'light') => createMuiTheme({
                 color: themeColor(type),
                 boxShadow: `0 1px 2px ${themeColor(type)}`,
             },
-        },
-        ledgend: {
-            fontFamily,
-            fontSize,
-            fill: themeColor(type),
         },
         grid: {
             line: {

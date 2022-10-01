@@ -4,7 +4,7 @@
 const { writeFile } = require('fs')
 
 const slimValue = (value) => {
-    const newValue = (typeof value === 'string' && value.length && value) // picks defined string 
+    const newValue = (typeof value === 'string' && value.length && value) // picks defined string
         || (/^[\d.]+$/.test(`${value}`) && /^[^0]/.test(`${value}`) && value) // picks non 0 number
         || (Array.isArray(value) && value.length && slimArray(value)) // picks defined array
         || (value && Object.keys(value).length && slimObject(value)) // picks defiend object
@@ -61,6 +61,6 @@ const light = (file) => new Promise((resolve, reject) => {
     'vscode',
     'electron',
     'kotlin',
-    'swift',
+    'swift'
 ]
     .forEach(light)

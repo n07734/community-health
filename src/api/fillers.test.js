@@ -111,7 +111,7 @@ describe('fillData:', () => {
         const applyFiller = await fillData(getMore)('pullRequests')
         const repo = {
             data: {
-                repository: {
+                result: {
                     pullRequests: {
                         edges: [
                             {

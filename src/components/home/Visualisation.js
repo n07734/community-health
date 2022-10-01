@@ -1,53 +1,30 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { withStyles } from '@material-ui/core/styles'
+import {
+    cond,
+    always,
+    propSatisfies,
+    T as alwaysTrue,
+} from 'ramda'
+import RepoView from '../Repo'
+import UserView from '../User'
+import TeamView from '../Team'
 
-import RepoView from '../repo/Repo'
-import UserView from '../user/User'
-
-const styles = () => ({
-    'root': {
-        position: 'relative',
-    },
-    'fetching': {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        backgroundColor: '#b10e4f',
-        animation: 'pulse 1s infinite alternate',
-        opacity: 0.4,
-    },
-    '@keyframes pulse': {
-        '100%': {
-            opacity: 0.6,
-        },
-    },
-})
-
-const Visualisation = ({
-    user,
-    fetching,
-    classes,
-} = {}) => (
-    <div className={classes.root}>
+const Visualisation = (props) => (
+    <div>
         {
-            user
-                ? <UserView />
-                : <RepoView />
-        }
-        {
-            fetching
-                && <div className={classes.fetching}></div>
+            cond([
+                [propSatisfies(Boolean, 'user'), always(<UserView />)],
+                [propSatisfies(Boolean, 'teamName'), always(<TeamView />)],
+                [alwaysTrue, always(<RepoView />)],
+            ])(props)
         }
     </div>
 )
 
 const mapStateToProps = (state) => ({
     user: state.user,
-    fetching: state.fetching,
-
+    teamName: state.fetches.teamName,
 })
 
-export default connect(mapStateToProps)(withStyles(styles)(Visualisation))
+export default connect(mapStateToProps)(Visualisation)

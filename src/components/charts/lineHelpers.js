@@ -1,21 +1,42 @@
 import { apply } from 'ramda'
-import batchBy from './batchBy'
+import differenceInDays from 'date-fns/differenceInDays'
 
+import { batchBy } from './batchBy'
+import { sumKeysValue } from '../../utils'
 
-const getMaxYValue = (data) => {
-    const allValues = data
-        .reduce((acc, { data }) => {
+const getAllYValues = data => {
+    const allValues = []
+    data
+        .forEach(({ data }) => {
             const values = data
                 .map(x => x.y)
 
-            acc.push(...values)
+            allValues.push(...values)
+        })
 
-            return acc
-        }, [])
+    return allValues
+}
 
-    const maxValue = apply(Math.max, allValues)
+const getMaxYValue = (data) => {
+    const allValues = getAllYValues(data)
+
+    const maxValue = allValues.length > 0
+        ? apply(Math.max, allValues)
+        : 0
 
     return maxValue
+}
+
+const getMinYValue = (data) => {
+    const allValues = getAllYValues(data)
+
+    const minValue = allValues.length > 0
+        ? apply(Math.min, allValues)
+        : 0
+
+    return minValue > 0
+        ? 0
+        : minValue
 }
 
 const dateSort = (
@@ -32,8 +53,7 @@ const formatDate = (date) => {
 
 const formatBatches = batches => dataKey => groupMath => batches
     .map((batch) => {
-        const value = batch
-            .reduce((acc, current) => (current[dataKey] || 0) + acc, 0)
+        const value = sumKeysValue(dataKey)(batch)
 
         const valueByTypes = {
             'average': Math.round(value / batch.length),
@@ -54,7 +74,7 @@ const formatLineData = ({ data, dataKey, groupMath = 'average' }) => {
     const sortedData = filteredData
         .sort(dateSort)
 
-    const batchedData = batchBy('week')('mergedAt')(sortedData)
+    const batchedData = batchBy('mergedAt')(sortedData)
     const formattedData = formatBatches(batchedData)(dataKey)(groupMath)
 
     return formattedData
@@ -75,20 +95,21 @@ const formatLinesData = (axix) => axix.lines
     .filter(Boolean)
 
 const formatGraphMarkers = (markers, theme, lineData) => {
-    const [dateStart, dateEnd] = lineData
-        .reduce(([start, end], { data = [] } = {}) => {
+    let dateStart
+    let dateEnd
+    lineData
+        .forEach(({ data = [] } = {}) => {
             const currentStart = data[0].x
             const currentEnd = data[data.length - 1].x
 
-            return [
-                !start || new Date(currentStart) < start
-                    ? new Date(currentStart)
-                    : start,
-                !end || new Date(currentEnd) > end
-                    ? new Date(currentEnd)
-                    : end,
-            ]
-        }, [])
+            if (!dateStart || new Date(currentStart) < dateStart) {
+                dateStart = new Date(currentStart)
+            }
+
+            if (!dateEnd || new Date(currentEnd) > dateEnd) {
+                dateEnd = new Date(currentEnd)
+            }
+        })
 
     const markerType = (type) => ({
         MAJOR: 'primary',
@@ -147,10 +168,44 @@ const smoothNumber = (ruffledNumber) => {
     return smooth
 }
 
+const chunkData = (data = []) => {
+    const startDate = data.at(0) && new Date(data.at(0)?.mergedAt)
+    const endDate = data.at(-1)  && new Date(data.at(-1)?.mergedAt)
+
+    const totalDays = startDate && endDate
+        ? differenceInDays(endDate,startDate)
+        : 0
+
+    const daysPerChunk = Math.ceil(totalDays/10)
+
+    const chunkyData = []
+    data
+        .forEach((itemData, i) => {
+            itemData.id = i
+            const prDate = new Date(itemData.mergedAt)
+            const { mergedAt: prevMergedAt = '' } = chunkyData.length > 0
+                ? chunkyData.at(-1).at(0)
+                : {}
+
+            const daysFromChunkStart = prevMergedAt
+                ? differenceInDays(prDate,new Date(prevMergedAt))
+                : 0
+
+            daysFromChunkStart > daysPerChunk || chunkyData.length < 1
+                ? chunkyData.push([itemData])
+                : chunkyData.at(-1).push(itemData)
+        })
+
+    return chunkyData
+}
+
 export {
     getMaxYValue,
+    getMinYValue,
     formatLinesData,
     formatGraphMarkers,
     smoothNumber,
     dateSort,
+    chunkData,
+    sumKeysValue,
 }

@@ -9,10 +9,18 @@ const styles = () => ({
         flexWrap: 'wrap',
         justifyContent: 'space-between',
     },
-    chartComponentWrap: {
-        width: '100%',
+    barChartComponentWrap: {
+        width: '50%',
         maxWidth: '1200px',
         margin: '0 0 1rem 0',
+        '@media (max-width: 950px)': {
+            width: '100%',
+        },
+    },
+    lineChartComponentWrap: {
+        zIndex: 10,
+        width: '100%',
+        maxWidth: '1200px',
     },
     chordWrap: {
         width: '450px',
@@ -25,11 +33,22 @@ const styles = () => ({
             },
         },
     },
+    pieWrap: {
+        width: '100%',
+        height: '350px',
+        marginBottom: '20px',
+        '@media (max-width: 750px)': {
+            height: '300px',
+        },
+        '@media (max-width: 650px)': {
+            height: '250px',
+        },
+    },
     chartWrap: {
         width: '100%',
         height: '500px',
-        '& svg path': {
-            opacity: '0.7'
+        '& svg g line': {
+            opacity: '0.6'
         },
         '@media (max-width: 768px)': {
             height: '350px',
@@ -51,7 +70,7 @@ const styles = () => ({
             '& svg text': {
                 fontSize: '10px !important'
             },
-        },  
+        },
     },
 })
 

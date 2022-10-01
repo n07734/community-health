@@ -127,7 +127,6 @@ describe('formatUserData:', () => {
             expect(bob.approvalsReceived).toEqual(3)
             expect(smith.approvalsReceived).toEqual(1)
 
-            // TODO: approvalsByUser is confusing, it is who the person has given approvals to
             expect(bob.approvalsByUser).toEqual({
                 smith: 1,
             })

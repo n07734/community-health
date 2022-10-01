@@ -5,22 +5,25 @@ import { pathOr } from 'ramda'
 
 import theme from './theme'
 import Page from './components/home/Page'
-
+import Loader from './components/Loader'
 import * as actions from './state/actions'
+import './fonts.css'
 
-const App = ({ getPreFetchedData, themeType, setUser } = {}) => {
+const App = ({
+    themeType,
+    setReposUserId
+} = {}) => {
     useEffect(() => {
-        const quertString = pathOr('', ['location', 'search'],window)
+        const quertString = pathOr('', ['location', 'search'], window)
         const urlParams = new URLSearchParams(quertString);
-        const repo = urlParams.get('repo') || 'react';
         const user = urlParams.get('user') || '';
 
-        getPreFetchedData(repo)
-        setUser(user)
-    }, [getPreFetchedData, setUser])
+        setReposUserId(user)
+    }, [setReposUserId])
 
     return (
         <MuiThemeProvider theme={theme(themeType)}>
+            <Loader />
             <Page />
         </MuiThemeProvider>
     )
@@ -31,8 +34,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    getPreFetchedData: (x) => dispatch(actions.getPreFetchedData(x)),
-    setUser: (x) => dispatch(actions.setUser(x)),
+    setReposUserId: (x) => dispatch(actions.setUser(x)),
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(App)

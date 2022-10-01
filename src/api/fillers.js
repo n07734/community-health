@@ -39,7 +39,7 @@ const fillData = apiCall => {
             : data
     }
 
-    const recursiveFiller = makeQuery => (queryInfo = {}) => (accumulator = []) => {
+    const recursiveFiller = makeQuery => (queryInfo = {}) => async (currentResults = []) => {
         const {
             hasNextPage: currentHasNextPage,
         } = queryInfo
@@ -50,28 +50,24 @@ const fillData = apiCall => {
             fillerType,
         } = makeQuery(queryInfo)
 
-        const resolver = async(nextResult) => {
-            const {
-                results = [],
-                hasNextPage: newHasNextPage,
-                nextArgs,
-            } = resultInfo(nextResult)
+        const newResult = currentHasNextPage
+            ? await apiCall(query)
+            : {}
 
-            const updatedData = [
-                ...accumulator,
-                ...results,
-            ]
+        const {
+            results = [],
+            hasNextPage: newHasNextPage,
+            nextArgs,
+        } = resultInfo(newResult)
 
-            return newHasNextPage
-                ? recursiveFiller(makeQuery)(nextArgs)(updatedData)
-                : await fillByType(fillerType)(updatedData)
-        }
+        const updatedData = [
+            ...currentResults,
+            ...results,
+        ]
 
-        return currentHasNextPage
-            ? apiCall(query)(resolver)((error) => {
-                throw error
-            })
-            : accumulator
+        return newHasNextPage
+            ? recursiveFiller(makeQuery)(nextArgs)(updatedData)
+            : await fillByType(fillerType)(updatedData)
     }
 
     const updateRawData = (rawData = {}) => key => newData => {
@@ -93,16 +89,15 @@ const fillData = apiCall => {
 
             const allReviewComments = await recursiveFiller(reviewCommentsQuery)(reviewCommentsQueryInfo)(currentReviewComments)
 
-
             return updateRawData(review)('comments')({ edges: allReviewComments })
         }
-        const updatedReviewComments = await batch(data, getAllReviewComments, 10)
+        const updatedReviewComments = await batch(data, getAllReviewComments, 5)
 
         return () => updatedReviewComments
     }
 
     const pullRequestsReviews = async(data) => {
-        const pullRequests = pathOr([], ['data', 'repository', 'pullRequests', 'edges'], data)
+        const pullRequests = pathOr([], ['data', 'result', 'pullRequests', 'edges'], data)
 
         const getAllPullRequestReviews = async (pullRequest) => {
             const currentReviews = pathOr([], ['node','reviews','edges'], pullRequest)
@@ -115,7 +110,7 @@ const fillData = apiCall => {
                 results: { edges: allReviews },
             }
         }
-        const allPullRequestsReviews = await batch(pullRequests, getAllPullRequestReviews, 10)
+        const allPullRequestsReviews = await batch(pullRequests, getAllPullRequestReviews, 5)
 
         return (data) => {
             const updatedpullRequestsData = updatePullRequests(data)('reviews')(allPullRequestsReviews)
@@ -123,11 +118,11 @@ const fillData = apiCall => {
             return {
                 data: Object.assign(propOr({}, 'data', data),
                     {
-                        repository: Object.assign(pathOr(
+                        result: Object.assign(pathOr(
                             {
                                 pullRequests: updatedpullRequestsData,
                             },
-                            ['data', 'repository'],
+                            ['data', 'result'],
                             data,
                         )),
                     }
@@ -137,8 +132,8 @@ const fillData = apiCall => {
     }
 
     const updatePullRequests = data =>  key => pullRequestsItems => {
-        const pullRequestsData = pathOr({}, ['data', 'repository', 'pullRequests'], data)
-        const currentPullRequests = pathOr([], ['data', 'repository', 'pullRequests', 'edges'], data)
+        const pullRequestsData = pathOr({}, ['data', 'result', 'pullRequests'], data)
+        const currentPullRequests = pathOr([], ['data', 'result', 'pullRequests', 'edges'], data)
 
         const mergedPullRequests = currentPullRequests
             .map((currentPullRequest) => {
@@ -156,7 +151,7 @@ const fillData = apiCall => {
     }
 
     const pullRequestsComments = async(data) => {
-        const pullRequests = pathOr([], ['data', 'repository', 'pullRequests', 'edges'], data)
+        const pullRequests = pathOr([], ['data', 'result', 'pullRequests', 'edges'], data)
 
         const getAllPullRequestComments = async (pullRequest) => {
             const currentComments = pathOr([], ['node', 'comments', 'edges'], pullRequest)
@@ -170,7 +165,7 @@ const fillData = apiCall => {
             }
         }
 
-        const allPullRequestsComments = await batch(pullRequests, getAllPullRequestComments, 10)
+        const allPullRequestsComments = await batch(pullRequests, getAllPullRequestComments, 5)
 
         return (data) => {
             const updatedpullRequestsData = updatePullRequests(data)('comments')(allPullRequestsComments)
@@ -178,11 +173,11 @@ const fillData = apiCall => {
             return {
                 data: Object.assign(propOr({}, 'data', data),
                     {
-                        repository: Object.assign(pathOr(
+                        result: Object.assign(pathOr(
                             {
                                 pullRequests: updatedpullRequestsData,
                             },
-                            ['data', 'repository'],
+                            ['data', 'result'],
                             data
                         )),
                     }

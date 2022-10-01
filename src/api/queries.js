@@ -1,10 +1,21 @@
 import { pathOr } from 'ramda'
-
-import types from '../state/types'
+import { isDate } from 'date-fns'
+import {
+  always,
+  T as alwaysTrue,
+  F as alwaysFalse,
+  cond,
+} from 'ramda'
+import filterByUntilDate from '../format/filterByUntilDate'
 
 const cursorQ = (cursor, key = 'after') => cursor
     ? ` ${key}:"${cursor}" `
     : ''
+
+const getCursor = order => ({oldest, newest}) => {
+    const cursor = order === 'DESC' ? oldest : newest
+    return cursorQ(cursor)
+}
 
 const pageInfo = 'pageInfo { endCursor hasNextPage hasPreviousPage startCursor }'
 
@@ -14,6 +25,7 @@ const comments = (cursor) => `
         node {
           author {
             login
+            url
           }
           body
         }
@@ -22,19 +34,21 @@ const comments = (cursor) => `
     }
 `
 
-const pullRequests = cursor => `
+const pullRequests = order => pagination => `
 pullRequests(
-  first: 100
-  ${cursorQ(cursor)}
+  first: 50
+  ${getCursor(order)(pagination)}
   states: [MERGED]
-  orderBy: {field: CREATED_AT direction: DESC}
+  orderBy: {field: CREATED_AT direction: ${order}}
 ) {
+  totalCount
   edges {
     node {
       id
       url
       author {
         login
+        url
       }
       repository {
         name
@@ -44,7 +58,6 @@ pullRequests(
       }
       additions
       deletions
-      changedFiles
       mergedAt
       createdAt
       ${reviews()}
@@ -54,15 +67,17 @@ pullRequests(
   ${pageInfo}
 }`
 
-const issues = cursor => `
+const issues = order => pagination => `
 issues(
-  ${cursorQ(cursor)}
-  first: 100
-  orderBy: { field:CREATED_AT direction:DESC }
+  ${getCursor(order)(pagination)}
+  first: 50
+  orderBy: { field:CREATED_AT direction: ${order} }
 ) {
+  totalCount
   edges {
     node {
       title
+      url
       createdAt
       closedAt
       state
@@ -78,12 +93,13 @@ issues(
   ${pageInfo}
 }`
 
-const releases = cursor => `
+const releases = order => pagination => `
 releases(
-  ${cursorQ(cursor)}
-  first:100
-  orderBy:{ field:CREATED_AT direction:DESC }
+  ${getCursor(order)(pagination)}
+  first: 50
+  orderBy:{ field:CREATED_AT direction: ${order} }
 ) {
+  totalCount
   edges {
     node {
       id
@@ -105,6 +121,7 @@ const reviews = (cursor) => `
           state
           author {
             login
+            url
           }
           ${comments()}
         }
@@ -113,169 +130,194 @@ const reviews = (cursor) => `
     }
 `
 
-const releasesQuery = ({
-    fetches: {
-        token,
-        org,
-        repo,
-        releasesPagination: {
-            cursor,
-            hasNextPage,
-        } = {},
-    } = {},
-} = {}) => ({
-    query: `{
-        repository(name: "${repo}" owner: "${org}") {
-          ${releases(cursor)}
-        }
-    }`,
-    resultInfo: (data) => ({
-        rawData: data,
-        results: pathOr([], ['data', 'repository', 'releases', 'edges'], data),
-        hasNextPage: pathOr(false, ['data', 'repository', 'releases', 'pageInfo', 'hasNextPage'], data),
-        nextArgs: {
-            repo,
-            org,
-            nodeId: pathOr('', ['data', 'repository', 'id'], data),
-            cursor: pathOr('', ['data', 'repository', 'releases', 'pageInfo', 'endCursor'], data),
-        },
-    }),
-    token,
-    cursorAction: types.SET_RELEASES_PAGINATION,
-    hasMoreResults: hasNextPage,
-})
+const getPaginationByType = (oldFetchInfo = {}, untilDate ='', data = {}, order) => type => {
+    const {
+        hasNextPage = false,
+        startCursor,
+        endCursor,
+    } = pathOr({}, ['data', 'result', type, 'pageInfo'], data)
 
-const issuesQuery = ({
-    fetches: {
-        token,
-        org,
-        repo,
-        issuesPagination: {
-            cursor,
-            hasNextPage,
-        } = {},
-    } = {},
-} = {}) => ({
-    query: `{
-        repository(name: "${repo}" owner: "${org}") {
-          ${issues(cursor)}
-        }
-    }`,
-    resultInfo: (data) => ({
-        rawData: data,
-        results: pathOr([], ['data', 'repository', 'issues', 'edges'], data),
-        hasNextPage: pathOr(false, ['data', 'repository', 'issues', 'pageInfo', 'hasNextPage'], data),
-        nextArgs: {
-            repo,
-            org,
-            nodeId: pathOr('', ['data', 'repository', 'id'], data),
-            cursor: pathOr('', ['data', 'repository', 'issues', 'pageInfo', 'endCursor'], data),
-        },
-    }),
-    token,
-    cursorAction: types.SET_ISSUES_PAGINATION,
-    hasMoreResults: hasNextPage,
-})
+    const items = pathOr([], ['data', 'result', type, 'edges'], data)
 
-const prQuery = ({
-    fetches: {
-        token,
-        org,
-        repo,
+    const dateKey = type === 'pullRequests'
+      ? 'mergedAt'
+      : 'createdAt'
+
+    const filteredItems = isDate(untilDate)
+      ? items.filter(filterByUntilDate(['node', dateKey], order, untilDate))
+      : []
+
+    const typeStateMap = {
+        pullRequests: 'prPagination',
+        issues: 'issuesPagination',
+        releases: 'releasesPagination',
+    }
+
+    const oldestDefault = order === 'DESC' ? endCursor : startCursor
+    const oldestCurrent = pathOr(oldestDefault, [typeStateMap[type], 'oldest'], oldFetchInfo)
+
+    const newestDefault = order === 'ASC' ? endCursor : startCursor
+    const newestCurrent = pathOr(newestDefault, [typeStateMap[type], 'newest'], oldFetchInfo)
+
+    // TODO: Don't clear if undefined cursor
+    // TODO: add hasPrevPage
+    const dateFilteredLength = filteredItems.length
+    const tryNextPage = cond([
+      [always(hasNextPage === false), alwaysFalse],
+      [always(!isDate(untilDate)), always(hasNextPage)],
+      [always(dateFilteredLength === 0), alwaysFalse],
+      [always(dateFilteredLength > 0 && items.length > dateFilteredLength), alwaysFalse],
+      [alwaysTrue, always(hasNextPage)],
+    ])()
+
+    return {
+        newest: order === 'ASC' &&  endCursor ? endCursor : newestCurrent,
+        oldest: order === 'DESC' && endCursor ? endCursor : oldestCurrent,
+        hasNextPage,
+        hasNextPageForDate: tryNextPage,
+    }
+}
+
+const getRemainingPageCount = (data) => {
+  const [ maxItems ] = ['issues', 'pullRequests', 'releases']
+    .map(type => pathOr(0, ['data', 'result', type, 'totalCount'], data))
+    .sort((a,b) => a > b)
+
+    return Math.ceil(maxItems/50) -1
+}
+
+const userQuery = (untilDate) => ({
+  user,
+  sortDirection = 'DESC',
+  amountOfData,
+  issuesPagination = {},
+  prPagination = {},
+}) => ({
+  query: `{
+    result: user(login: "${user}") {
+      login
+      ${prPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? pullRequests(sortDirection)(prPagination) : ''}
+      ${issuesPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? issues(sortDirection)(issuesPagination) : ''}
+    }
+  }`,
+  sortDirection,
+  user,
+  resultInfo: (data) => {
+      const byType = getPaginationByType(
+          {
+              issuesPagination,
+              prPagination,
+              amountOfData,
+          },
+          untilDate,
+          data,
+          sortDirection
+      )
+
+      const updatedAmountOfData = cond([
+        [always(isDate(untilDate)), always(amountOfData)],
+        [always(Number.isInteger(amountOfData)), always(amountOfData - 1)],
+        [alwaysTrue, getRemainingPageCount]
+      ])(data)
+
+      const nextPageInfo = {
         prPagination: {
-            cursor,
-            hasNextPage,
+          hasNextPage: false,
+          ...byType('pullRequests'),
         },
-    } = {},
+        issuesPagination: {
+          hasNextPage: false,
+          ...byType('issues'),
+        },
+      }
+
+      const hasNextPageKey = isDate(untilDate) ? 'hasNextPageForDate' : 'hasNextPage'
+      return  {
+          hasNextPage: Object.values(nextPageInfo).some(x => x[hasNextPageKey] === true),
+          nextPageInfo: {
+            ...nextPageInfo,
+            amountOfData: updatedAmountOfData,
+          },
+      }
+  },
+  hasMoreResults: [
+      prPagination.hasNextPage,
+      issuesPagination.hasNextPage,
+  ]
+      .some(x => x !== false),
+})
+
+const batchedQuery = (untilDate) => ({
+    org,
+    repo,
+    sortDirection = 'DESC',
+    amountOfData,
+    issuesPagination = {},
+    releasesPagination = {},
+    prPagination = {},
 }) => ({
     query: `{
-          repository(name: "${repo}" owner: "${org}") {
-            ${pullRequests(cursor)}
-          }
-      }`,
-    resultInfo: (data) => ({
-        rawData: data,
-        results: pathOr([], ['data', 'repository', 'pullRequests', 'edges'], data),
-        hasNextPage: pathOr(false, ['data', 'repository', 'pullRequests', 'pageInfo', 'hasNextPage'], data),
-        nextArgs: {
-            repo,
-            org,
-            nodeId: pathOr('', ['data', 'repository', 'id'], data),
-            cursor: pathOr('', ['data', 'repository', 'pullRequests', 'pageInfo', 'endCursor'], data),
-        },
-    }),
-    fillerType: 'pullRequests',
-    token,
-    cursorAction: types.SET_PR_PAGINATION,
-    hasMoreResults: hasNextPage,
-})
-
-const batchedQuery = ({
-    fetches: {
-        org,
-        repo,
-        issuesPagination: {
-            cursor: issuesCursor,
-            hasNextPage: issuesHasNextPage,
-        } = {},
-        releasesPagination: {
-            cursor: releasesCursor,
-            hasNextPage: releasesHasNextPage,
-        } = {},
-        prPagination: {
-            cursor: prCursor,
-            hasNextPage: prHasNextPage,
-        } = {},
-    },
-}) => ({
-    query: `{
-      repository(name: "${repo}" owner: "${org}") {
+      result: repository(name: "${repo}" owner: "${org}") {
         id
         description
         name
         owner {
           org: login
-        }
-        ${prHasNextPage ? pullRequests(prCursor) : ''}
-        ${issuesHasNextPage ? issues(issuesCursor) : ''}
-        ${releasesHasNextPage ? releases(releasesCursor) : ''}
+        }${prPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? pullRequests(sortDirection)(prPagination) : ''}
+        ${issuesPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? issues(sortDirection)(issuesPagination) : ''}
+        ${releasesPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? releases(sortDirection)(releasesPagination) : ''}
       }
     }`,
+    sortDirection,
     resultInfo: (data) => {
-        const resultTypes = [
-            'pullRequests',
-            'issues',
-            'releases',
-        ]
+        const byType = getPaginationByType(
+            {
+                issuesPagination,
+                releasesPagination,
+                prPagination,
+            },
+            untilDate,
+            data,
+            sortDirection
+        )
 
-        const actions = {
-            pullRequests: types.SET_PR_PAGINATION,
-            issues: types.SET_ISSUES_PAGINATION,
-            releases: types.SET_RELEASES_PAGINATION,
+        const updatedAmountOfData = cond([
+          [always(isDate(untilDate)), always(amountOfData)],
+          [always(Number.isInteger(amountOfData)), always(amountOfData - 1)],
+          [alwaysTrue, getRemainingPageCount]
+        ])(data)
+
+        const nextPageInfo = {
+          prPagination: {
+            hasNextPage: false,
+            ...byType('pullRequests'),
+          },
+          issuesPagination: {
+            hasNextPage: false,
+            ...byType('issues'),
+          },
+          releasesPagination: {
+            hasNextPage: false,
+            ...byType('releases'),
+          },
         }
 
-        const nextPageInfo = resultTypes
-            .map((type) => ({
-                hasNextPage: pathOr(false, ['data', 'repository', type, 'pageInfo', 'hasNextPage'], data),
-                cursor: pathOr('', ['data', 'repository', type, 'pageInfo', 'endCursor'], data),
-                cursorAction: actions[type],
-            }))
-
-        const hasNextPage = resultTypes
-            .some(type => pathOr(false, ['data', 'repository', type, 'pageInfo', 'hasNextPage'], data))
-
+        const hasNextPageKey = isDate(untilDate) ? 'hasNextPageForDate' : 'hasNextPage'
         return {
-            hasNextPage,
-            nextPageInfo,
+            hasNextPage: Object.values(nextPageInfo).some(x => x[hasNextPageKey] === true),
+            nextPageInfo: {
+              ...nextPageInfo,
+              amountOfData: updatedAmountOfData,
+            },
         }
     },
     fillerType: 'batchedQuery',
     hasMoreResults: [
-        prHasNextPage,
-        issuesHasNextPage,
-        releasesHasNextPage,
+        prPagination.hasNextPage,
+        issuesPagination.hasNextPage,
+        releasesPagination.hasNextPage,
     ]
-        .some(Boolean),
+        .some(x => x !== false),
 })
 
 const commentsQuery = ({ nodeId, cursor }) => ({
@@ -340,11 +382,9 @@ const reviewCommentsQuery = ({ nodeId, cursor }) => ({
 })
 
 export {
+    userQuery,
     batchedQuery,
-    prQuery,
     reviewCommentsQuery,
     commentsQuery,
     reviewsQuery,
-    releasesQuery,
-    issuesQuery,
 }

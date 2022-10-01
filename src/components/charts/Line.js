@@ -9,6 +9,7 @@ import styledCharts from './styledCharts'
 
 import {
     getMaxYValue,
+    getMinYValue,
     formatLinesData,
     formatGraphMarkers,
     smoothNumber,
@@ -17,21 +18,12 @@ import {
 const ToolTip = convertedRightLines => data => {
     // NOTE: this is needed to use the original Y value for the tool tip
     const getYValue = (point) => {
-        const label = point.serieId
-        const xCurrentValue = point.data.xFormatted
         const yCurrentValue = point.data.yFormatted
+        const originalY = point.data.originalY
 
-        const { data: rightLineMatch = [] } = convertedRightLines
-            .find(x => x.id === label) || {}
-
-        const rightItemMatch = rightLineMatch
-            .find(({ x, y }) => x === xCurrentValue && y === yCurrentValue)
-
-        const updatedY = rightItemMatch
-            ? rightItemMatch.originalY
+        return /[\d.]/.test(originalY)
+            ? originalY
             : yCurrentValue
-
-        return updatedY
     }
 
     const Chip = ({ color }) => <span
@@ -60,8 +52,11 @@ const ToolTip = convertedRightLines => data => {
 
 const Line = styledCharts(({
     title,
+    blockHeading = false,
     data = [],
     markers = [],
+    showLegends = false,
+    legends = [],
     classes,
 } = {}) => {
     const theme = useTheme();
@@ -69,19 +64,29 @@ const Line = styledCharts(({
     const leftAxis = data
         .find(({ xAxis } = {}) => xAxis === 'left') || { data: [], lines: [] }
     const leftLinesData = formatLinesData(leftAxis)
-    const maxLeftValue = getMaxYValue(leftLinesData)
+    const minLeftValue = getMinYValue(leftLinesData)
 
     const rightAxis = data
         .find(({ xAxis } = {}) => xAxis === 'right') || { data: [], lines: [] }
     const rightLinesData = formatLinesData(rightAxis)
     const maxRightValue = getMaxYValue(rightLinesData)
+    const minRightValue = getMinYValue(rightLinesData)
+
+    // if no left try right mas as there may be a right line being used
+    const maxLeftValue = getMaxYValue(leftLinesData) || maxRightValue
+
+    const minValue = minLeftValue > minRightValue
+        ? minRightValue
+        : minLeftValue
 
     // As Nivo Line does not have right axis lines need to convert right line data to left line data
     const convertedRightLines = rightLinesData
         .map((item = {}) => {
             const formattedData = item.data
                 .map((dataItem) => ({
-                    y: Math.round(dataItem.y * (maxLeftValue / maxRightValue)),
+                    y: dataItem.y < 0
+                        ? dataItem.y
+                        : Math.round(dataItem.y * (maxLeftValue / maxRightValue)),
                     x: dataItem.x,
                     originalY: dataItem.y,
                 }))
@@ -93,11 +98,33 @@ const Line = styledCharts(({
         })
         .filter(Boolean)
 
-    const leftHeadingItems = title
-        ? [title]
+    const leftHeadingItems = title || blockHeading
+        ? []
         : leftAxis.lines
 
     const rightHeadingItems = rightAxis.lines
+
+    const legendsArray = legends.length
+        ? legends
+        : [
+            {
+                anchor: 'top-right',
+                direction: 'column',
+                justify: false,
+                translateX: -10,
+                translateY: 10,
+                itemsSpacing: 0,
+                itemDirection: 'right-to-left',
+                itemWidth: 80,
+                itemHeight: 20,
+                itemOpacity: 1,
+                symbolSize: 12,
+                symbolShape: 'square',
+                symbolBorderColor: 'rgba(0, 0, 0, .9)',
+                toggleSerie: true,
+                itemTextColor: theme.palette.text.primary,
+            },
+        ]
 
     const lineData = leftLinesData.concat(convertedRightLines)
 
@@ -106,11 +133,11 @@ const Line = styledCharts(({
     const hasData = (items) => items.some(x => propOr([], 'data', x).length)
 
     return hasData(lineData) && (
-        <div className={classes.chartComponentWrap}>
+        <div className={classes.lineChartComponentWrap}>
             <div className={classes.headingWrap}>
-                <ChartHeading type='line' items={leftHeadingItems} />
+                <ChartHeading type='line' text={title} items={leftHeadingItems} />
                 {
-                    rightHeadingItems
+                    !blockHeading && rightHeadingItems.length > 0
                         && <ChartHeading type='line' items={rightHeadingItems} />
                 }
             </div>
@@ -123,9 +150,10 @@ const Line = styledCharts(({
                         ...leftAxis.lines.map(x => x.color),
                         ...rightAxis.lines.map(x => x.color),
                     ]}
-                    lineWidth={1}
+                    lineWidth={2}
                     curve='monotoneX'
                     animate={false}
+                    toggleSerie={showLegends && true}
                     xScale={{
                         type: 'time',
                         format: '%Y-%m-%d',
@@ -133,37 +161,40 @@ const Line = styledCharts(({
                     xFormat="time:%Y-%m-%d"
                     yScale={{
                         type: 'linear',
-                        min: 0,
+                        min: minValue,
                         max: maxLeftValue,
                     }}
                     axisBottom={{
-                        format: '%b %d',
+                        format: '%y/%m',
                         tickSize: 0,
                         tickPadding: 10,
                         tickRotation: -45,
-
                     }}
+                    legends={showLegends ? legendsArray : []}
                     axisLeft={{
                         tickSize: 0,
                         tickValues: 8,
                     }}
+                    pointLabelYOffset={0}
                     {...(
                         formattedMarkers.length
-                            && { markers: formattedMarkers }
+                        && { markers: formattedMarkers }
 
                     )}
                     {...(
                         convertedRightLines.length
-                            && {
-                                axisRight: {
-                                    tickSize: 0,
-                                    tickValues: 8,
-                                    format: (rawLeftValue) => {
-                                        const realRightValue = Math.round(rawLeftValue * (maxRightValue / maxLeftValue))
-                                        return smoothNumber(realRightValue)
-                                    },
+                        && {
+                            axisRight: {
+                                tickSize: 0,
+                                tickValues: 8,
+                                format: (rawLeftValue) => {
+                                    const realRightValue = Math.round(rawLeftValue * (maxRightValue / maxLeftValue))
+                                    return rawLeftValue < 0 // to allow minus values, minus values are currently raw not aligned like positive numbers
+                                        ? rawLeftValue
+                                        : smoothNumber(realRightValue)
                                 },
-                            }
+                            },
+                        }
                     )}
                     enableGridX={false}
                     enableSlices="x"

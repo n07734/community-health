@@ -1,39 +1,88 @@
-const weekInMS = 60000 * 60 * 24 * 7
+import {
+    cond,
+    always,
+    T,
+} from 'ramda'
+ const {
+    getMonth,
+    getWeek,
+    getDay,
+    differenceInMonths,
+ } = require('date-fns')
 
-const getWeekNumber = date => {
-    const dateMS = date && new Date(date.split('T')[0]).getTime()
-    const weekNumber = dateMS && Math.round((dateMS) / weekInMS)
+ const isNewDay = (prev, current) => {
+    const prevItemsDay = prev && getDay(new Date(prev))
+    const currentItemsDay = current && getDay(new Date(current))
 
-    return weekNumber
+    return (prevItemsDay && currentItemsDay) && prevItemsDay !== currentItemsDay
 }
 
 const isNewWeek = (prev, current) => {
-    const prevItemsWeek = getWeekNumber(prev)
-    const currentItemsWeek = getWeekNumber(current)
+    const prevItemsWeek = prev && getWeek(new Date(prev))
+    const currentItemsWeek = current && getWeek(new Date(current))
 
     return (prevItemsWeek && currentItemsWeek) && prevItemsWeek !== currentItemsWeek
 }
 
-const batchWeekly = key => data => data
-    .reduce((acc, item) => {
-        const prevWeeks = acc.length > 1
-            ? acc.slice(0, acc.length - 1)
-            : []
+const isNewNthWeek = mod => (prev, current) => {
+    const prevItemsWeek = prev && getWeek(new Date(prev))
+    const currentItemsWeek = current && getWeek(new Date(current))
 
-        const currentWeek = acc[acc.length - 1] || []
-        const prevItem = currentWeek[currentWeek.length - 1] || {}
+    return (prevItemsWeek && currentItemsWeek) && (prevItemsWeek % mod) > 0 && (currentItemsWeek % mod) === 0
+}
 
-        const all = isNewWeek(prevItem[key], item[key])
-            ? acc
-                .concat([[item]])
-            : prevWeeks
-                .concat([currentWeek.concat(item)])
+const isNewMonth = (prev, current) => {
+    const prevItemsWeek = prev && getMonth(new Date(prev))
+    const currentItemsWeek = current && getMonth(new Date(current))
 
-        return all
-    }, [])
+    return (prevItemsWeek && currentItemsWeek) && prevItemsWeek !== currentItemsWeek
+}
 
-const batchBy = type => key => data => ({
-    'week': batchWeekly(key)(data),
-})[type]
+const isNew = {
+    '1day': isNewDay,
+    '1week': isNewWeek,
+    '2week': isNewNthWeek(2),
+    '3week': isNewNthWeek(3),
+    '1month': isNewMonth,
+}
 
-export default batchBy
+
+const batchByType = (key, batchType) => data => {
+    const batchedData = []
+    data
+        .forEach((item) => {
+            const currentWeek = batchedData.at(-1) || []
+            const prevItem = currentWeek.at(-1) || {}
+
+            !prevItem[key] || isNew[batchType](prevItem[key], item[key])
+                ? batchedData
+                    .push([item])
+                : batchedData.at(-1)
+                    .push(item)
+        })
+
+    return batchedData;
+}
+
+const batchByData = key => (data = []) => {
+    const { mergedAt: startDate } = data.at(0)
+    const { mergedAt: endDate } = data.at(-1)
+    const totalMonths = differenceInMonths(new Date(endDate), new Date(startDate))
+
+    return cond([
+        [always(totalMonths >= 200), batchByType(key, '1month')],
+        [always(totalMonths >= 60), batchByType(key, '3week')],
+        [always(totalMonths >= 12), batchByType(key, '2week')],
+        [always(totalMonths >= 6), batchByType(key, '1week')],
+        [T, batchByType(key, '1day')],
+    ])(data)
+}
+
+const batchBy = key => (data = []) => data.length < 1
+    ? []
+    : batchByData(key)(data)
+
+export {
+    batchBy,
+    batchByType,
+}

@@ -1,8 +1,19 @@
 // TODO: Think more about if this should maintain github api data structures
 // TODO: add tests
-import { pathOr, propOr } from 'ramda'
-import fillData from './fillers'
+import {
+    always,
+    cond,
+    propOr,
+    pathOr,
+    propEq,
+    mergeDeepRight,
+    test,
+    T as alwaysTrue,
+    F as alwaysFalse,
+} from 'ramda'
+import { compose } from 'redux'
 
+import fillData from './fillers'
 import types from '../state/types'
 
 const parseJSON = response => new Promise((resolve, reject) => {
@@ -12,190 +23,199 @@ const parseJSON = response => new Promise((resolve, reject) => {
             : reject(Object.assign(data, { status: response.status }))
         )
         .catch(error => {
+            console.log('-=-=--parseJSON error', error)
             error.status = response.status
             reject(error)
         })
 })
 
-const triggeredAbuseRate = ({ message = '' } = {}) => /You have triggered an abuse detection mechanism/.test(message)
+const triggeredAbuseRate = ({ message = '' }) =>/(You have triggered an abuse detection mechanism|You have exceeded a secondary rate limit)/.test(message)
+const triggeredJsonError = ({ message = '' }) =>/Unexpected end of JSON input/.test(message)
 
-const apiCall = request => query => resolver => rejecter =>
-    fetch((request.enterpriseAPI || 'https://api.github.com/graphql'), {
+const apiCall = fetchInfo => query =>
+    fetch((fetchInfo.enterpriseAPI || 'https://api.github.com/graphql'), {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${request.token}`,
+            'Authorization': `Bearer ${fetchInfo.token}`,
         },
         body: JSON.stringify({ query }),
     })
         .then(parseJSON)
-        .then(data => triggeredAbuseRate(data)
-            ? rejecter(data)
-            : resolver(data)
-        )
-        .catch(rejecter)
 
-const getErrorMessage = state => {
-    const {
-        fetches: {
-            org,
-            repo,
-            token,
-        } = {},
-    } = state
+const shouldGetNextPage = (hasNextPage, { amountOfData }) => cond([
+    [always(hasNextPage === false), alwaysFalse],
+    [always(hasNextPage && Number.isInteger(amountOfData) && amountOfData >= 1), alwaysTrue],
+    [always(hasNextPage && amountOfData === 'all'), alwaysTrue],
+    [alwaysTrue, alwaysFalse],
+])();
 
-    const missing = [
-        !org && 'Organisation',
-        !repo && 'Repository',
-        !token &&'GitHib token',
-    ]
-        .filter(Boolean)
+const pause = (ms = 30000) => new Promise(resolve => setTimeout(() => resolve(), ms))
+let numRateTriggers = 0
 
-    const prepend = (i) => {
-        const maxIndex = missing.length - 1
-
-        return [
-            i === 0
-            && (() => 'Missing '),
-            i === maxIndex
-            && (() => ' and '),
-            i > 0
-            && (() => ', '),
-        ].find(Boolean)()
-    }
-
-    const message = missing
-        .reduce((acc, current, i) => acc + prepend(i) + current, '')
-
-    return message
-}
-
-const validateRequest = state => {
-    const {
-        fetches: {
-            org,
-            repo,
-            token,
-        } = {},
-    } = state
-
-    const hasArgs = [org, repo, token]
-        .every(item => typeof item === 'string' && item.length > 0)
-
-    return {
-        isValid: hasArgs,
-        error: !hasArgs
-            ? {
+const pauseThenRetry = async(apiInfo, results) => {
+    console.log('-=-=--paused', Date.now());
+    await pause();
+    console.log('-=-=--resume', Date.now());
+    ++numRateTriggers
+    return numRateTriggers <= 10
+        ? api(apiInfo, results)
+        : {
+            errorMessage: {
                 level: 'error',
-                message: getErrorMessage(state),
-            }
-            : null,
-    }
+                message: 'Hit rate limit over ten times'
+            },
+            fetchInfo: apiInfo.fetchInfo,
+            results: results,
+        }
 }
 
-const api = state => queryInfo => dispatch => {
-    dispatch({
-        type: types.CLEAR_FETCH_ERROR,
-    })
+const getCurrentItemsByType = (type = '', results = []) => {
+    const total = results
+        .reduce((acc, result) => {
+            const itemCount = pathOr([], ['data', 'result', type, 'edges'], result)
+                .length
+            return acc + itemCount
+        }, 0)
 
+    return total
+}
+
+const getLatestDate = (type = '', results = []) => {
+    const latestResult = results.at(-1)
+    const latestResultItems = pathOr([], ['data', 'result', type, 'edges'], latestResult)
+
+    const targetItem = latestResultItems.at(-1)
+
+    const dateKey = type === 'pullRequests'
+        ? 'mergedAt'
+        : 'createdAt'
+
+    return pathOr('', ['node', dateKey], targetItem)
+}
+
+const dateSort = (sortDirection) => (a, b) => sortDirection === 'DESC'
+    ? new Date(b).getTime() - new Date(a).getTime()
+    : new Date(a).getTime() - new Date(b).getTime()
+
+const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
     const {
         query,
         resultInfo,
         fillerType,
-        cursorAction,
-        hasMoreResults,
-    } = queryInfo(state)
+        user,
+        sortDirection,
+    } = queryInfo(fetchInfo)
 
-    const token = pathOr('', ['fetches', 'token'], state)
-    const enterpriseAPI = pathOr('', ['fetches', 'enterpriseAPI'], state)
-    const apiCallWithToken = apiCall({ enterpriseAPI, token })
+    const [oldestItemWithNextPage] = [
+        fetchInfo.prPagination.hasNextPageForDate && getLatestDate('pullRequests', results),
+        fetchInfo.issuesPagination.hasNextPageForDate && getLatestDate('issues', results),
+        fetchInfo.releasesPagination.hasNextPageForDate && getLatestDate('releases', results),
+    ]
+        .filter(Boolean)
+        .sort(dateSort(sortDirection))
 
-    const { isValid: isValidRequest, error = {}} = validateRequest(state)
-
-    !isValidRequest && dispatch({
-        type: types.FETCH_ERROR,
-        payload: error,
+    dispatch({
+        type: types.FETCH_STATUS,
+        payload: {
+            user,
+            prCount: getCurrentItemsByType('pullRequests', results),
+            latestItemDate: oldestItemWithNextPage,
+            issueCount: getCurrentItemsByType('issues', results),
+            releaseCount: getCurrentItemsByType('releases', results),
+        }
     })
 
-    // TODO: Not like this, yuck
-    const resolver = async(response = {}) => {
-        response.errors
-            && dispatch({
-                type: types.FETCH_ERROR,
-                payload: {
-                    level: 'error',
-                    message: 'Error with graphql query',
-                },
-            })
+    const apiCallWithToken = apiCall(fetchInfo)
+    try {
+        const result = await apiCallWithToken(query)
+        if (triggeredAbuseRate(result)) {
+            throw new Error('Abuse rate triggered');
+        }
 
-        const result = resultInfo(response)
+        const fullData = await fillData(apiCallWithToken)(fillerType)(result)
+        const updatedResults = [
+            ...results,
+            fullData
+        ]
 
-        // TODO: FILLERS HERE SORT OUT RAW and filled data
-        // pass in fillers
-        const fullData = await fillData(apiCallWithToken)(fillerType)(response)
+        const {
+            hasNextPage,
+            nextPageInfo,
+        } = resultInfo(result)
 
-        // TODO: dispatch should not be in api call need to update this info outside
-        cursorAction
-            && dispatch({
-                type: cursorAction,
-                payload: {
-                    cursor: pathOr('', ['nextArgs', 'cursor'], result),
-                    hasNextPage: propOr(false, 'hasNextPage', result),
-                },
-            })
+        const updatedFetchInfo = mergeDeepRight(fetchInfo, nextPageInfo)
 
-        const nextPageInfo = propOr([], 'nextPageInfo', result)
-        nextPageInfo
-            .map(pageInfo => dispatch({
-                type: pageInfo.cursorAction,
-                payload: {
-                    cursor: pageInfo.cursor,
-                    hasNextPage: pageInfo.hasNextPage,
-                },
-            }))
-
-        return fullData
-    }
-
-    const rejecter = (error = {}) => {
-        const status = error.status
-        const errorMessage = [
-            (
-                /ENOTFOUND|ECONNRESET/.test(error.code)
-                    || triggeredAbuseRate(error)
-                    || status === 502
-                    || /fetch/i.test(error.message)
-            )
-                && {
+        return shouldGetNextPage(hasNextPage, updatedFetchInfo)
+            ? api({ fetchInfo: updatedFetchInfo, queryInfo, dispatch }, updatedResults)
+            : {
+                fetchInfo: updatedFetchInfo,
+                results: updatedResults,
+            }
+    } catch (error) {
+        const hasTriggeredAbuse = cond([
+            [triggeredAbuseRate, alwaysTrue],
+            [triggeredJsonError, alwaysTrue],
+            [propEq('status', 500), alwaysTrue],
+            [propEq('status', 502), alwaysTrue],
+            [propEq('message', 'Abuse rate triggered'), alwaysTrue],
+            [compose(test(/ENOTFOUND|ECONNRESET/), propOr('', 'code')), alwaysTrue],
+            [compose(test(/fetch/i), propOr('', 'message')), alwaysTrue],
+            [alwaysTrue, alwaysFalse],
+        ])
+        const getErrorMessage = cond([
+            [
+                hasTriggeredAbuse,
+                always({
                     level: 'warn',
                     message: 'You may have triggered the api\'s abuse detection, please wait a minute before trying again',
-                },
-            status === 401
-                && {
+                })
+            ],
+            [
+                compose(test(/50\d/i), propOr('', 'status')),
+                always({
+                    level: 'error',
+                    message: 'GitHub API 500 error, could be CORS or rate limiting',
+                }),
+            ],
+            [
+                propEq('status', 401),
+                always({
                     level: 'error',
                     message: 'GitHub token does not have correct settings, please see README',
-                },
-            /40\d/.test(status)
-                && {
+                }),
+            ],
+            [
+                compose(test(/40\d/i), propOr('', 'status')),
+                always({
                     level: 'error',
                     message: `Auth error: ${error.message || 'UNKOWN'}`,
-                },
-            {
-                level: 'error',
-                message: `ERROR: ${error.message || 'UNKOWN'}`,
-            },
-        ].find(Boolean)
+                })
+            ],
+            [
+                propEq('status', undefined),
+                always({
+                    level: 'error',
+                    message: 'Error while processing data after, please check the console',
+                })
+            ],
+            [
+                alwaysTrue,
+                always({
+                    level: 'error',
+                    message: `ERROR: ${error.message || 'UNKOWN'}`,
+                })
+            ]
+        ])
 
-        dispatch({
-            type: types.FETCH_ERROR,
-            payload: errorMessage,
-        })
+        const errorMessage = getErrorMessage(error)
+
+        if (hasTriggeredAbuse(error)) {
+            return pauseThenRetry({ fetchInfo, queryInfo, dispatch }, results)
+        } else {
+            throw new Error(errorMessage.message)
+        }
     }
-
-    return isValidRequest && hasMoreResults
-        ? apiCallWithToken(query)(resolver)(rejecter)
-        : Promise.resolve()
-
 }
 
 export default api

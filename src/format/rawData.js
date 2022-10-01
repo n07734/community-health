@@ -1,73 +1,142 @@
-import { path, pathOr } from 'ramda'
-import differenceInDays from 'date-fns/difference_in_days'
+import {
+    compose,
+    map,
+    any,
+    flatten,
+    filter,
+    path,
+    pathOr,
+    propOr,
+    sort,
+} from 'ramda'
+import differenceInDays from 'date-fns/differenceInDays'
 import {
     major,
     minor,
     patch,
     prerelease,
 } from 'semver'
+import Sentiment from 'sentiment'
+import filterByUntilDate from './filterByUntilDate'
+import { sumKeysValue } from '../utils'
 
-const formatCommenters = items => items
-    .reduce((acc, item) => {
-        const user = path(['node', 'author', 'login'], item)
-        const userCount = (acc[user] || 0) + 1
+const formatCommentersObject = paths => items => {
+    const commenters = {}
+    items
+        .forEach((item) => {
+            const user = path(paths, item)
+            commenters[user] = (commenters[user] || 0) + 1
+        })
 
-        return Object.assign(acc, { [user]: userCount })
-    }, {})
-
-const mergeCommenters = (left = {}) => (right = {}) => {
-    const leftEntries = Object.entries(left)
-    const rightEntries = Object.entries(right)
-
-    const mergedObject = [
-        ...leftEntries,
-        ...rightEntries,
-    ]
-        .reduce((acc, [user, value]) => {
-            const newTotal = (acc[user] || 0) + value
-
-            return Object.assign(acc, { [user]: newTotal })
-        }, {})
-
-    return mergedObject
+    return commenters
 }
 
-const formatRepoInfo = (data) => ({
-    repo: pathOr('', ['data', 'repository', 'name'], data),
-    org: pathOr('', ['data', 'repository', 'owner', 'org'], data),
-    description: pathOr('', ['data', 'repository', 'description'], data),
-})
+const formatCommenters = formatCommentersObject(['node', 'author', 'login'])
 
-const filterByUser = user => item => path(['node', 'author', 'login'], item) !== user
+const formatSentimentsCommenters = items => {
+    const commenters = {}
+    items
+        .forEach(({author = '', score = 0}) => {
+            commenters[author] = (commenters[author] || 0) + score
+        })
 
-const formatCodeComments = (data) => {
-    const author = pathOr('', ['node', 'author', 'login'], data)
-    const allReviews = pathOr([], ['node', 'reviews', 'edges'], data)
+    return commenters
+}
 
-    const allCodeComments = allReviews
-        .reduce((acc, review) => {
-            const comments = pathOr([], ['node', 'comments', 'edges'], review)
-                .filter(filterByUser(author))
+const formatSentiments = (comments = []) => {
+    const sentiment = new Sentiment();
 
-            acc.push(...comments)
+    const sentimental = comments
+        .map(comment => {
+            const body = pathOr('',['node', 'body'], comment)
+            const commentAuthor = pathOr('', ['node', 'author', 'login'], comment)
 
-            return acc
-        }, [])
+            return {
+                author: commentAuthor,
+                score: sentiment.analyze(body).score,
+            }
+        })
 
     return {
-        codeComments: allCodeComments.length,
-        codeCommenters: formatCommenters(allCodeComments),
+        sentimentScore: sumKeysValue('score')(sentimental),
+        sentiments: formatSentimentsCommenters(sentimental),
     }
 }
 
-const formatGeneralComments = (data) => {
+const getAllCodeComments = (data) => {
+    const allReviews = pathOr([], ['node', 'reviews', 'edges'], data)
+
+    const allCodeComments = []
+    allReviews
+        .forEach((review) => {
+            const comments = pathOr([], ['node', 'comments', 'edges'], review)
+            allCodeComments.push(...comments)
+        })
+
+    return allCodeComments
+}
+
+const filterForUsers = users => item => users.includes(path(['node', 'author', 'login'], item))
+const filterOutUsers = users => item => {
+    const isAllowedUser = !filterForUsers(users)(item)
+    const notGitAppComment = !/\/apps\//.test(pathOr('', ['node', 'author', 'url'], item))
+
+    return notGitAppComment && isAllowedUser
+}
+
+const formatComments = (type = '', exclude, data) => {
     const author = pathOr('', ['node', 'author', 'login'], data)
-    const comments = pathOr([], ['node', 'comments', 'edges'], data)
-        .filter(filterByUser(author))
+
+    const generalComments = pathOr([], ['node', 'comments', 'edges'], data)
+    const codeComments = getAllCodeComments(data)
+    const commentsMap = {
+        general: generalComments,
+        code: codeComments,
+        all: [
+            ...codeComments,
+            ...generalComments
+        ]
+    }
+    const allComments = commentsMap[type]
+
+    const comments = allComments
+        .filter(filterOutUsers([...exclude, author]))
+
+    const {
+        sentimentScore = 0,
+        sentiments = {},
+    } = formatSentiments(comments)
+
+    const commentsAuthor = allComments
+        .filter(filterForUsers([author]))
+    const {
+        sentimentScore: authorSentimentScore = 0,
+    } = formatSentiments(commentsAuthor)
+
+    const prefix = type === 'all'
+        ? 'c'
+        : `${type}C`
 
     return {
-        generalComments: comments.length,
-        generalCommenters: formatCommenters(comments),
+        [`${prefix}omments`]: comments.length,
+        [`${prefix}ommenters`]: formatCommenters(comments),
+        [`${prefix}ommentSentimentScore`]: sentimentScore,
+        [`${prefix}ommentSentiments`]: sentiments,
+        [`${prefix}ommentsAuthor`]: commentsAuthor.length,
+        [`${prefix}ommentAuthorSentimentScore`]: authorSentimentScore,
+        [`${prefix}ommentSentimentTotalScore`]: (authorSentimentScore || 0) + (sentimentScore || 0),
+    }
+}
+
+const formatAllComments = (exclude, data) => {
+    const generalCommentsInfo = formatComments('general',exclude, data)
+    const codeCommentsInfo = formatComments('code', exclude, data)
+    const collatedCommentsInfo = formatComments('all', exclude, data)
+
+    return {
+        ...generalCommentsInfo,
+        ...codeCommentsInfo,
+        ...collatedCommentsInfo,
     }
 }
 
@@ -84,26 +153,18 @@ const formatApprovals = (data) => {
     }
 }
 
-const prData = (data) => {
+const prData = (exclude = []) => (data = {}) => {
     const org = pathOr('', ['node', 'repository', 'owner', 'login'], data)
     const repo = pathOr('', ['node', 'repository', 'name'], data)
     const author = pathOr('', ['node', 'author', 'login'], data)
+    const authorUrl = pathOr('', ['node', 'author', 'url'], data)
     const url = pathOr('', ['node', 'url'], data)
     const additions = pathOr(0, ['node', 'additions'], data)
     const deletions = pathOr(0, ['node', 'deletions'], data)
-    const changedFiles = pathOr(0, ['node', 'changedFiles'], data)
     const createdAt = pathOr('', ['node', 'createdAt'], data)
     const mergedAt = pathOr('', ['node', 'mergedAt'], data)
 
-    const {
-        codeComments = 0,
-        codeCommenters,
-    } = formatCodeComments(data)
-
-    const {
-        generalComments = 0,
-        generalCommenters,
-    } = formatGeneralComments(data)
+    const allCommentsInfo = formatAllComments(exclude, data)
 
     const {
         approvals,
@@ -113,61 +174,92 @@ const prData = (data) => {
     const prInfo = {
         repo,
         org,
-        author,
+        author: /\/apps\//.test(authorUrl)
+            ? 'GIT_APP_PR'
+            : author,
         url,
 
         additions,
         deletions,
-        changedFiles,
         prSize: additions + deletions,
 
-        createdAt,
         mergedAt,
-        age: differenceInDays(mergedAt, createdAt) || 1,
+        age: differenceInDays(new Date(mergedAt), new Date(createdAt)) || 1,
 
         approvals,
         approvers,
 
-        generalComments,
-        generalCommenters,
-
-        codeComments,
-        codeCommenters,
-
-        comments: codeComments + generalComments,
-        commenters: mergeCommenters(generalCommenters)(codeCommenters),
+        ...allCommentsInfo
     }
 
     return prInfo
 }
 
-const formatPullRequests = data =>  pathOr([], ['data', 'repository', 'pullRequests', 'edges'], data)
-    .map(prData)
+const dateSort = (sortDirection) => ({ mergedAt: a }, { mergedAt: b }) => sortDirection === 'DESC'
+    ? new Date(a).getTime() > new Date(b).getTime()
+    : new Date(a).getTime() - new Date(b).getTime()
 
-const formatRepo = (data) => ({
-    name: pathOr('', ['data', 'repository', 'name'], data),
-    org: pathOr('', ['data', 'repository', 'owner', 'login'], data),
-    pullRequests: formatPullRequests(data),
-})
+const filterSortPullRequests = ({ excludeIds = [], sortDirection }, untilDate, allPullRequests = []) => {
+    const filteredPRs = []
+    const remainingPRs = compose(
+        sort(dateSort('ASC')),
+        filter(item => {
+            const author = propOr('', 'author', item)
+            const hasExcludedAuthor = any(y => y === author, ['GIT_APP_PR', ...excludeIds])
+            const shouldFilterIn = filterByUntilDate(['mergedAt'], sortDirection, untilDate)(item)
+            const keepItem = shouldFilterIn && !hasExcludedAuthor
+
+            !keepItem && filteredPRs.push(item)
+            return keepItem
+        }),
+    )(allPullRequests)
+
+    return [remainingPRs, filteredPRs]
+}
+
+const formatPullRequests = ({ excludeIds = [] }, results) => {
+    const pullRequests = compose(
+        map(prData(excludeIds)),
+        flatten,
+        map(pathOr([], ['data', 'result', 'pullRequests', 'edges'])),
+    )(results)
+
+    return pullRequests
+}
+
+const filterSortIssues = ({ sortDirection }, untilDate, allIssues = []) => {
+    const filteredIssues = []
+    const remainingIssues = compose(
+        sort(dateSort('ASC')),
+        filter(item => {
+            const keepItem = filterByUntilDate(['mergedAt'], sortDirection, untilDate)(item)
+
+            !keepItem && filteredIssues.push(item)
+            return keepItem
+        }),
+    )(allIssues)
+
+    return [remainingIssues, filteredIssues]
+}
 
 const formatIssue = (data) => {
     const createdAt = pathOr('', ['node', 'createdAt'], data)
-    const closedAt = pathOr('', ['node', 'closedAt'], data)
     const title = pathOr('', ['node', 'title'], data)
+    const url = pathOr('', ['node', 'url'], data)
     const labels = pathOr([], ['node', 'labels', 'edges'], data)
 
     return {
-        createdAt,
         mergedAt: createdAt,
-        closedAt,
+        url,
         isBug: /bug/i.test(title) || labels.some(x => /bug/i.test(path(['node', 'name'], x))),
     }
 }
 
-const formatIssues = data =>
-    pathOr([], ['data', 'repository', 'issues', 'edges'], data)
-        .map(formatIssue)
-
+const formatIssues = compose(
+    map(formatIssue),
+    flatten,
+    map(pathOr([], ['data', 'result', 'issues', 'edges'])),
+)
 
 const getReleaseType = (tag) => {
     try {
@@ -201,14 +293,15 @@ const formatRelease = (data) => {
     }
 }
 
-const formatReleases = data =>
-    pathOr([], ['data', 'repository', 'releases', 'edges'], data)
-        .map(formatRelease)
-
+const formatReleases = compose(
+    map(formatRelease),
+    flatten,
+    map(pathOr([], ['data', 'result', 'releases', 'edges'])),
+)
 export {
-    formatRepo,
-    formatRepoInfo,
     formatPullRequests,
+    filterSortPullRequests,
     formatIssues,
+    filterSortIssues,
     formatReleases,
 }

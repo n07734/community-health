@@ -1,21 +1,20 @@
-const { path, prop } = require('ramda');
+const { path, prop, sum } = require('ramda');
 
 const getNameList = (data, key) => {
-    const scoredData = data
-        .reduce((acc, userData) => {
+    const scoredData = {}
+    data
+        .forEach((userData) => {
             const author = userData.author
             const keyData = userData[key] || {}
-            const given = Object.values(keyData).reduce((acc, current) => acc + current, 0)
+            const given = sum(Object.values(keyData))
 
-            return Object.assign(acc, { [author]: given })
-        }, {})
+            scoredData[author] = given
+        })
 
     const sortedValues = Object.entries(scoredData)
         .sort(([, a], [, b]) => b - a)
 
-    const total = sortedValues
-        .reduce((acc, [, value]) => value + acc, 0)
-
+    const total = sum(Object.values(scoredData))
 
     const percentageOfTotal = (value) => {
         const percentPerUnit = 100 / total
@@ -24,24 +23,15 @@ const getNameList = (data, key) => {
         return percentOf
     }
 
-    const { showNames } = sortedValues
-        .reduce((
-            { accPercent = 0, showNames = [] },
-            [author, value],
-        ) => {
-            const itemPercent = percentageOfTotal(value, author, accPercent)
-            const newAccPercent = accPercent + itemPercent
+    const showNames = []
+    sortedValues
+        .forEach(([author, value]) => {
+            const itemsPercent = percentageOfTotal(value)
 
-            return {
-                accPercent: newAccPercent,
-                showNames: value > 0 && itemPercent > 5
-                    ? [
-                        ...showNames,
-                        author,
-                    ]
-                    : showNames,
-            }
-        }, {})
+            value > 0
+                && itemsPercent > 5
+                && showNames.push(author)
+        })
 
     // We do not want only one user going into the "Other" group
     return showNames.length === data.length - 1
@@ -49,12 +39,20 @@ const getNameList = (data, key) => {
         : showNames
 }
 
-const getMatrix = (data, key, showNames, otherAppened) => {
-    const otherTotal = (ignoreNames, data = {}) => Object.entries(data)
-        .reduce((acc, [name, value]) => ignoreNames.some(x => x === name)
-            ? acc
-            : acc + value, 0)
+const otherTotal = (ignoreNames = [], data = {}) => {
+    const otherAuthors = Object.entries(data)
+        .filter(([name]) => !ignoreNames.some(x => x === name))
 
+    const total =  sum(otherAuthors.map(x => x[1]))
+    return total
+}
+
+const getMatrix = (
+    data = [],
+    key = '',
+    showNames = [],
+    otherAppened = false,
+) => {
     const martixRow = (item) => [
         ...showNames.map(x => path([key, x], item) || 0),
         ...(

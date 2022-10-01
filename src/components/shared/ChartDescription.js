@@ -5,41 +5,66 @@ import { withStyles } from '@material-ui/core/styles'
 import { H, P } from './StyledTags'
 
 
+const ExpandLink = ({
+    classes,
+    setCount,
+    toggle,
+    expandText,
+}) =>  <a
+    className={classes.link}
+    href="#desc"
+    onClick={(e) => {
+        e.preventDefault()
+        setCount(!toggle)
+    }}>
+    {
+        toggle
+            ? 'hide'
+            : expandText
+    }
+</a>
+
 const ChartDescription = ({
     title,
     intro,
     children,
-    expandText = 'See more',
-    className,
+    expandText = 'info',
+    className = '',
     classes,
 } = {}) => {
     const [toggle, setCount] = useState(false)
 
     return (
-        <div className={`${classes.root} ${className}`}>
+        <div className={`${classes.root} ${className} ${!intro ? '' : classes.rootRows}`}>
             {
                title && typeof title === 'string'
-                    ? <H level={2} >{title}</H>
+                    ? <H className={classes.heading} level={2} >
+                        {title}
+                        {
+                            children
+                                && <ExpandLink
+                                    classes={classes}
+                                    toggle={toggle}
+                                    setCount={setCount}
+                                    expandText={expandText}
+                                />
+                        }
+                    </H>
                     : title
             }
             <P>
-                {intro} { 
-                    children && <a
-                        className={classes.link}
-                        href="#desc"
-                        onClick={(e) => {
-                            e.preventDefault()
-                            setCount(!toggle)
-                        }}>
-                        {
-                            toggle
-                                ? 'See less'
-                                : expandText
-                        }
-                    </a>
+                {intro} {
+                    intro
+                        && children
+                        && <ExpandLink
+                            classes={classes}
+                            toggle={toggle}
+                            setCount={setCount}
+                            expandText={expandText}
+                        />
                 }
             </P>
-            <Collapse in={toggle}>
+            <Collapse className={`wrapper ${classes.wrapperFlex}`} in={toggle}>
                 {children}
             </Collapse>
         </div>
@@ -48,12 +73,32 @@ const ChartDescription = ({
 
 const styles = theme => ({
     root: {
+        width: '100%',
         flexGrow: 1,
-        marginBottom: '1rem',
+        display: 'flex',
+        flexWrap: 'wrap',
+    },
+    rootRows: {
+        '& > *': {
+            flexBasis: '100%'
+        }
     },
     link: {
         color: theme.palette.link,
     },
+    linkMargin: {
+        color: theme.palette.link,
+        marginLeft: '0.5rem',
+    },
+    heading: {
+        '& a': {
+            fontSize: '1rem',
+            marginLeft: '0.5rem',
+        }
+    },
+    wrapperFlex: {
+        flexBasis: '100%'
+    }
 })
 
 export default withStyles(styles)(ChartDescription)

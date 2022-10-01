@@ -3,41 +3,29 @@ import { withStyles } from '@material-ui/core/styles'
 
 const styles = theme => ({
     p: theme.copy.body,
-    h1: {
-        ...theme.copy.h1,
-        '@media (max-width: 768px)': {
-            fontSize: '3rem'
-        },
-        '@media (max-width: 668px)': {
-            fontSize: '2.5rem'
-        },
-    },
-    h2: {
-        ...theme.copy.h2,
-        '@media (max-width: 768px)': {
-            fontSize: '2.5rem'
-        },
-        '@media (max-width: 668px)': {
-            fontSize: '2rem'
-        },
-    },
-    h3: {
-        ...theme.copy.h3,
-        '@media (max-width: 768px)': {
-            fontSize: '1.5rem'
-        },
-        '@media (max-width: 668px)': {
-            fontSize: '1.3rem'
-        },
-    },
+    h1: theme.copy.h1,
+    h2: theme.copy.h2,
+    h3: theme.copy.h3,
     h4: theme.copy.h4,
+    link: {
+        color: theme.palette.link,
+    },
     list: theme.copy.list,
     listItem: theme.copy.listItem,
 })
 
-const P = withStyles(styles)(({
-    className,
+const A = withStyles(styles)(({
+    className = '',
+    href ='',
     classes,
+    children,
+} = {}) => <a href={href} className={`${classes.link} ${className}`}>
+    {children}
+</a>)
+
+const P = withStyles(styles)(({
+    className = '',
+    classes = {},
     children,
 } = {}) => <p className={`${classes.p} ${className}`}>
     {children}
@@ -67,7 +55,7 @@ const LI = withStyles(styles)(({
 const H = withStyles(styles)(({
     level = 1,
     styleAs,
-    className,
+    className = '',
     classes,
     ...props
 } = {}) => {
@@ -85,6 +73,7 @@ const H = withStyles(styles)(({
 
 
 export {
+    A,
     P,
     UL,
     OL,

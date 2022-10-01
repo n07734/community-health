@@ -10,6 +10,7 @@ const Button = ({
     onClick,
     key,
     value,
+    text,
     type = 'submit',
     color = 'inherit',
 } = {}) => (
@@ -23,7 +24,7 @@ const Button = ({
         key={key}
         onClick={onClick}
     >
-        {value}
+        {text || value}
     </CoreButton>
 )
 

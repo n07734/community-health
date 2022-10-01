@@ -14,21 +14,20 @@ const isNewWeek = (prev, current) => {
     return (prevItemsWeek && currentItemsWeek) && prevItemsWeek !== currentItemsWeek
 }
 
-const batchWeekly = key => data => data
-    .reduce((acc, item) => {
-        const prevWeeks = acc.length > 1
-            ? acc.slice(0, acc.length - 1)
-            : []
+const batchWeekly = key => data => {
+    const batches = []
+    data
+        .forEach((item) => {
+            const currentWeek = batches.at(-1) || []
+            const prevItem = currentWeek.at(-1) || {}
 
-        const currentWeek = acc[acc.length - 1] || []
-        const prevItem = currentWeek[currentWeek.length - 1] || {}
+            !prevItem[key] || isNewWeek(item[key], prevItem[key])
+                ? batches.push([item])
+                : batches.at(-1).push(item)
+        })
 
-        const all = isNewWeek(item[key], prevItem[key])
-            ? [...prevWeeks, currentWeek, [item]]
-            : [...prevWeeks, [...currentWeek, item]]
-
-        return all
-    }, [])
+    return batches
+}
 
 const batchBy = type => key => data => ({
     'week': batchWeekly(key)(data),

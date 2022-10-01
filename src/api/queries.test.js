@@ -1,9 +1,7 @@
 import {
-    prQuery,
     reviewCommentsQuery,
     commentsQuery,
     reviewsQuery,
-    releasesQuery,
     issuesQuery,
 } from './queries'
 
@@ -49,19 +47,6 @@ describe('queries:', () => {
             },
         },
         {
-            name: 'releasesQuery',
-            testFunction: releasesQuery,
-            stateArgs: {
-                releasesPagination: {
-                    cursor: 'cursor',
-                },
-            },
-            rawDataArgs: {
-                type: 'repository',
-                resultType: 'releases',
-            },
-        },
-        {
             name: 'reviewsQuery',
             testFunction: reviewsQuery,
             queryArgs: {
@@ -97,20 +82,6 @@ describe('queries:', () => {
                 type: 'node',
                 resultType: 'comments',
             },
-        },
-        {
-            name: 'prQuery',
-            testFunction: prQuery,
-            stateArgs: {
-                prPagination: {
-                    cursor: 'cursor',
-                },
-            },
-            rawDataArgs: {
-                type: 'repository',
-                resultType: 'pullRequests',
-            },
-            expectFillerType: 'pullRequests',
         },
     ]
 

@@ -5,7 +5,7 @@ import { useTheme } from '@material-ui/core/styles';
 import ChartHeading from './ChartHeading'
 import formatChordData from '../../format/chordData'
 import styledCharts from './styledCharts'
-
+import colors from '../colors'
 
 const Chord = styledCharts(({
     title,
@@ -19,8 +19,6 @@ const Chord = styledCharts(({
         matrix,
     } = formatChordData(data, dataKey)
 
-    const colors = ['#E82573', '#8b4ff0', '#1F77B4', '#4ECC7A', '#DBD523', '#EB9830', '#D14B41']
-
     const hasMatrixData = (matrix) => matrix
         .some(row => row
             .some(Boolean)
@@ -32,7 +30,7 @@ const Chord = styledCharts(({
             <div className={classes.chordWrap}>
                 <NivoChord
                     label="id"
-                    matrix={matrix}
+                    data={matrix}
                     keys={names}
                     margin={{ top: 0, right: 10, bottom: 10, left: 10 }}
                     arcBorderColor={{ from: 'color', modifiers: [['darker', 0.4]] }}
