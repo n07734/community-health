@@ -15,6 +15,7 @@
       "RyanCavanaugh"
     ]
   },
+  "reportDescription": "Note: Could not find official core team so used top recent contributors",
   "pullRequests": [
     {
       "repo": "DefinitelyTyped",
