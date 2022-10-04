@@ -12,6 +12,10 @@ const preFetchedRepos = [
         file: 'microsoft-typescript'
     },
     {
+        name: 'Typescript 10th anniversary',
+        file: 'microsoft-typescript-10'
+    },
+    {
         name: 'Jest',
         file: 'facebook-jest',
     },

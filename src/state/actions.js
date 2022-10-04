@@ -30,6 +30,7 @@ import {
 import { slimObject } from '../format/lightenData'
 import { batchedQuery } from '../api/queries'
 import formatUserData from '../format/userData'
+import formatReleaseData from '../format/releaseData'
 import types from './types'
 
 const setUser = (user = '') => ({
@@ -170,6 +171,7 @@ const clearData = (dispatch) => {
     dispatch({ type: types.CLEAR_FILTERED_PRS })
     dispatch({ type: types.CLEAR_PR_PAGINATION })
     dispatch({ type: types.CLEAR_PREFETCHED_NAME })
+    dispatch({ type: types.CLEAR_DESC })
     dispatch({ type: types.CLEAR_UNTIL_DATE })
     dispatch({ type: types.CLEAR_FORM_UNTIL_DATE })
     dispatch({ type: types.CLEAR_USER_IDS })
@@ -273,7 +275,7 @@ const validateRequest = state => {
     }
 }
 
-const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) => {
+const getAPIData = () => async (dispatch, getState) => {
     const state = getState();
 
     const { isValid: isValidRequest, error = {}} = validateRequest(state);
@@ -299,6 +301,7 @@ const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) =
             issues = [],
             filteredIssues = [],
             formUntilDate = '',
+            releases = [],
         } = getState();
         const userIds = propOr([], 'userIds', fetches)
 
@@ -313,7 +316,11 @@ const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) =
         const allPullrequests = pullRequests.concat(filteredPRs).concat(newPullrequests)
         const [newRemainingPRs, newFilteredPRs] = filterSortPullRequests(fetches, untilDate, allPullrequests)
 
-        const releases = formatReleases(results)
+        const newReleases = formatReleases(results)
+        const allReleases = formatReleaseData([
+            ...releases,
+            ...newReleases,
+        ])
 
         const newIssues = formatIssues(results)
         const allIssues = issues.concat(filteredIssues).concat(newIssues)
@@ -333,7 +340,7 @@ const getAPIData = ({ appendData = false } = {}) => async (dispatch, getState) =
 
         dispatch({
             type: types.ADD_RELEASES,
-            payload: releases,
+            payload: allReleases,
         })
 
         dispatch({
@@ -400,6 +407,7 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
     const {
         fetches = {},
         preFetchedName = '',
+        reportDescription = '',
         pullRequests = [],
         usersData= [],
         issues = [],
@@ -437,6 +445,11 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
     })
 
     dispatch({
+        type: types.SET_DESC,
+        payload: reportDescription,
+    })
+
+    dispatch({
         type: types.SET_TEAM_NAME,
         payload: teamName,
     })
@@ -467,9 +480,10 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
         payload: issues,
     })
 
+    const allReleases = formatReleaseData(releases)
     dispatch({
         type: types.ADD_RELEASES,
-        payload: releases,
+        payload: allReleases,
     })
 
     dispatch({

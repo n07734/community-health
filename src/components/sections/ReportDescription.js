@@ -42,6 +42,7 @@ const ReportDescription = ({
     issues = [],
     releases = [],
     userIds = [],
+    reportDescription = '',
     classes
 } = {}) => {
     const releaseCount = releases.length
@@ -54,6 +55,10 @@ const ReportDescription = ({
                     titleCopy(fetches)
                 }
             </H>
+            {
+                reportDescription
+                    && <P>{reportDescription}</P>
+            }
             {
                 userIds.length > 0
                     && <P>
@@ -77,6 +82,7 @@ const mapStateToProps = (state) => ({
     issues: state.issues,
     releases: state.releases,
     userIds: state.fetches.userIds,
+    reportDescription: state.reportDescription,
 })
 
 const styles = theme => ({

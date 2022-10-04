@@ -10,12 +10,6 @@ import {
     sort,
 } from 'ramda'
 import differenceInDays from 'date-fns/differenceInDays'
-import {
-    major,
-    minor,
-    patch,
-    prerelease,
-} from 'semver'
 import Sentiment from 'sentiment'
 import filterByUntilDate from './filterByUntilDate'
 import { sumKeysValue } from '../utils'
@@ -261,35 +255,13 @@ const formatIssues = compose(
     map(pathOr([], ['data', 'result', 'issues', 'edges'])),
 )
 
-const getReleaseType = (tag) => {
-    try {
-        const majorV = major(tag)
-        const minorV = minor(tag)
-        const patchV = patch(tag)
-        const prereleaseV = prerelease(tag)
-
-        const releaseType = [
-            !prereleaseV && majorV && minorV === 0 && patchV === 0 && 'MAJOR',
-            !prereleaseV && minorV && patchV === 0 && 'MINOR',
-            'PATCH',
-        ].find(Boolean)
-
-        return releaseType
-    } catch(error) {
-        return 'PATCH'
-    }
-}
-
 const formatRelease = (data) => {
     const createdAt = pathOr('', ['node', 'createdAt'], data)
     const tag = pathOr('', ['node', 'tag', 'name'], data)
 
-    const releaseType = getReleaseType(tag)
-
     return {
         date: createdAt,
         description: tag,
-        releaseType,
     }
 }
 

@@ -24,14 +24,14 @@ const PrefetchedOptions = (props = {}) => {
     useEffect(() => {
         const quertString = pathOr('', ['location', 'search'], window)
         const urlParams = new URLSearchParams(quertString);
-        const repo = urlParams.get('repo') || 'facebook-react';
+        const report = urlParams.get('report') || 'facebook-react';
 
         const allItems = [
             ...preFetchedRepos,
             ...preFetchedTeams,
         ]
         const repoInfo = allItems
-            .find(x => x.file === repo)
+            .find(x => x.file === report)
 
         getPreFetchedReport(repoInfo)
     }, [getPreFetchedReport])

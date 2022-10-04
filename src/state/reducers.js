@@ -41,6 +41,7 @@ const reducers = combineReducers({
         releasesPagination: setClearPagination('SET_RELEASES_PAGINATION', 'CLEAR_RELEASES_PAGINATION'),
         issuesPagination: setClearPagination('SET_ISSUES_PAGINATION', 'CLEAR_ISSUES_PAGINATION'),
     }),
+    reportDescription: setClearString('SET_DESC', 'CLEAR_DESC'),
     formUntilDate: setClearString('STORE_FORM_UNTIL_DATE', 'CLEAR_FORM_UNTIL_DATE'),
     fetching: (fetching = false, action) => [
         action.type === types.FETCH_START

@@ -81,7 +81,7 @@ const PullRequestTrends = ({
                     />
                     <ItemsTable
                         data={chunkyData}
-                        dataKeys={['author']}
+                        dataKeys={['author', 'repo']}
                     />
                 </>
             }

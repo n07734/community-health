@@ -4,6 +4,7 @@ import {
     T,
 } from 'ramda'
  const {
+    getYear,
     getMonth,
     getWeek,
     getDay,
@@ -32,10 +33,25 @@ const isNewNthWeek = mod => (prev, current) => {
 }
 
 const isNewMonth = (prev, current) => {
-    const prevItemsWeek = prev && getMonth(new Date(prev))
-    const currentItemsWeek = current && getMonth(new Date(current))
+    const prevItemsMonth = prev && getMonth(new Date(prev))
+    const currentItemsYear = current && getMonth(new Date(current))
 
-    return (prevItemsWeek && currentItemsWeek) && prevItemsWeek !== currentItemsWeek
+    return (prevItemsMonth && currentItemsYear) && prevItemsMonth !== currentItemsYear
+}
+
+const isNewNthMonth = mod => (prev, current) => {
+    const prevItemsMonth = prev && getMonth(new Date(prev))
+    const currentItemsMonth = current && getMonth(new Date(current))
+
+    return (prevItemsMonth && currentItemsMonth) && (prevItemsMonth % mod) > 0 && (currentItemsMonth % mod) === 0
+}
+
+
+const isNewYear = (prev, current) => {
+    const prevItemsYear = prev && getYear(new Date(prev))
+    const currentItemsYear = current && getYear(new Date(current))
+
+    return (prevItemsYear && currentItemsYear) && prevItemsYear !== currentItemsYear
 }
 
 const isNew = {
@@ -44,6 +60,8 @@ const isNew = {
     '2week': isNewNthWeek(2),
     '3week': isNewNthWeek(3),
     '1month': isNewMonth,
+    '1quarter': isNewNthMonth(3),
+    '1year': isNewYear,
 }
 
 
@@ -70,7 +88,8 @@ const batchByData = key => (data = []) => {
     const totalMonths = differenceInMonths(new Date(endDate), new Date(startDate))
 
     return cond([
-        [always(totalMonths >= 200), batchByType(key, '1month')],
+        [always(totalMonths >= 288), batchByType(key, '1year')],
+        [always(totalMonths >= 84), batchByType(key, '1quarter')],
         [always(totalMonths >= 60), batchByType(key, '3week')],
         [always(totalMonths >= 12), batchByType(key, '2week')],
         [always(totalMonths >= 6), batchByType(key, '1week')],

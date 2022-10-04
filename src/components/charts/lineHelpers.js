@@ -1,5 +1,8 @@
-import { apply } from 'ramda'
+import { apply, pathOr } from 'ramda'
 import differenceInDays from 'date-fns/differenceInDays'
+import differenceInMonths from 'date-fns/differenceInMonths'
+import min from 'date-fns/min'
+import max from 'date-fns/max'
 
 import { batchBy } from './batchBy'
 import { sumKeysValue } from '../../utils'
@@ -199,6 +202,31 @@ const chunkData = (data = []) => {
     return chunkyData
 }
 
+const getData = pathOr([{}], ['data'])
+
+const getFirstLastDates = (lines = []) => {
+    const dates = []
+    lines
+        .forEach(x => {
+            const data = getData(x)
+            dates.push(new Date(data.at(0).x))
+            dates.push(new Date(data.at(-1).x))
+        })
+
+    return dates
+}
+
+const getReportMonthCount = (leftItems = [], rightItems = []) => {
+    const allDates = getFirstLastDates([...leftItems, ...rightItems])
+
+    const startDate = min(allDates)
+    const endDate = max(allDates)
+
+    const totalMonths = differenceInMonths(endDate, startDate)
+
+    return totalMonths
+}
+
 export {
     getMaxYValue,
     getMinYValue,
@@ -208,4 +236,5 @@ export {
     dateSort,
     chunkData,
     sumKeysValue,
+    getReportMonthCount,
 }

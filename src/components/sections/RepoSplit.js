@@ -12,43 +12,57 @@ import colors from '../colors'
 import { chunkData } from '../charts/lineHelpers'
 
 
+const rainbowData = (type = '', data = {}) => {
+    const sortedData = Object.entries(data)
+        .sort(([,a],[,b]) => a - b)
+
+    const topItems = sortedData.slice(-20)
+
+    const reportItems = sortedData.length > 19
+        ? topItems.map(([item]) => item)
+        : Object.keys(data)
+
+    const pieData = topItems
+        .map(([item, value], i) => ({
+            id: item,
+            label: item,
+            color: colors[i % colors.length],
+            value: value,
+        }))
+
+    const sectionTitle = sortedData.length > reportItems.length
+        ? `PR total from top 20 ${type}s out of ${sortedData.length}`
+        : `PR total from ${type}s (${reportItems.length})`
+
+    return {
+        pieData,
+        reportItems,
+        pieTitle: `PR by ${type} rainbow`,
+        sectionTitle,
+    }
+}
+
 const RepoSplit = ({
     pullRequests = [],
 } = {}) => {
     const theme = useTheme();
 
     const allRepos = {}
+    const allOrgs = {}
     const allPRdata = pullRequests.map(prData => {
-        allRepos[prData.repo] =  (allRepos[prData.repo] || 0) + 1
+        allRepos[prData.repo] = (allRepos[prData.repo] || 0) + 1
+        allOrgs[prData.org] = (allOrgs[prData.org] || 0) + 1
         return ({
             ...prData,
             [`repo-${prData.repo}`]: 1,
         })
     })
 
-    const sortedRepoData = Object.entries(allRepos)
-        .sort(([,a],[,b]) => a - b)
-
-    const topRepos = sortedRepoData.slice(-20)
-
-    const uniqueRepos = sortedRepoData.length > 19
-        ? topRepos.map(([repo]) => repo)
-        : Object.keys(allRepos)
-
-    const pieData = topRepos
-        .map(([repo, value], i) => ({
-            id: repo,
-            label: repo,
-            color: colors[i % colors.length],
-            value: value,
-        }))
+    const repoPie = rainbowData('repo', allRepos)
+    const uniqueRepos = repoPie.reportItems
 
     const filteredPRData = allPRdata
         .filter(({ repo = ''} = {}) => includes(repo, uniqueRepos))
-
-    const sectionTitle = sortedRepoData.length > uniqueRepos.length
-        ? `PRs split by top 20 of ${sortedRepoData.length} repositories`
-        : `PRs split by repository (${uniqueRepos.length} repos)`
 
     const lines = uniqueRepos
         .map((repo, i) => ({
@@ -103,11 +117,13 @@ const RepoSplit = ({
 
     const chunkyData = chunkData(pullRequests)
 
+    const orgPie = rainbowData('org', allOrgs)
+
     return filteredPRData.length > 0 && (<>
         <Paper>
-            <ChartDescription title={sectionTitle} />
+            <ChartDescription title={repoPie.sectionTitle} />
             <Pie
-                data={pieData}
+                data={repoPie.pieData}
                 title="PR repository rainbow"
             />
             <Line
@@ -125,6 +141,11 @@ const RepoSplit = ({
             <ItemsTable
                 dataKeys={['repo', 'author']}
                 data={chunkyData}
+            />
+            <ChartDescription title={orgPie.sectionTitle} />
+            <Pie
+                data={orgPie.pieData}
+                title="PR Orgs rainbow"
             />
         </Paper>
     </>)

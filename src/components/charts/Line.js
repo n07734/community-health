@@ -13,6 +13,7 @@ import {
     formatLinesData,
     formatGraphMarkers,
     smoothNumber,
+    getReportMonthCount,
 } from './lineHelpers'
 
 const ToolTip = convertedRightLines => data => {
@@ -132,6 +133,12 @@ const Line = styledCharts(({
 
     const hasData = (items) => items.some(x => propOr([], 'data', x).length)
 
+    const monthCount = getReportMonthCount(leftLinesData, rightLinesData)
+
+    const xFormat = monthCount > 90
+        ? '%Y'
+        : '%y/%m'
+
     return hasData(lineData) && (
         <div className={classes.lineChartComponentWrap}>
             <div className={classes.headingWrap}>
@@ -165,7 +172,7 @@ const Line = styledCharts(({
                         max: maxLeftValue,
                     }}
                     axisBottom={{
-                        format: '%y/%m',
+                        format: xFormat,
                         tickSize: 0,
                         tickPadding: 10,
                         tickRotation: -45,
