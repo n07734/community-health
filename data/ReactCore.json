@@ -35,10 +35,6 @@
         "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wNS0wNlQyMTowODoxMyswMTowMM43b3N0",
         "oldest": "Y3Vyc29yOnYyOpK5MjAxOC0wOC0wMlQyMToyMjozOSswMTowMM4MRQeZ"
       },
-      "rachelnabors": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wMS0yMFQwMDoyMjoyNyswMDowMM4xS0W-",
-        "oldest": "Y3Vyc29yOnYyOpK5MjAxMi0wMy0yOFQxNjowOTo0NyswMTowMM4AEDkS"
-      },
       "rickhanlonii": {
         "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wNS0xMlQxNDowMToxNCswMTowMM43t_ue",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMC0wNy0yNlQwNToyMDoxOCswMTowMM4bOK0w"
@@ -46,10 +42,6 @@
       "sebmarkbage": {
         "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wNS0wNVQwMjo1MTowNiswMTowMM43U5Wz",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMS0wMy0zMFQwMTowODowNyswMTowMM4j9Nuy"
-      },
-      "sethwebster": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyMC0wOS0xMlQxNzo1NToxOCswMTowMM4c9yjD",
-        "oldest": "Y3Vyc29yOnYyOpK5MjAxMS0xMi0wMlQyMjozNjozNSswMDowMM4ACHPJ"
       },
       "huxpro": {
         "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wMy0xMlQwMDoyNTozMSswMDowMM40VQHN",
@@ -77,10 +69,6 @@
         "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wNS0wM1QxNTowMTo0NiswMTowMM5I9wbR",
         "oldest": "Y3Vyc29yOnYyOpK5MjAxMy0wNi0xNFQyMTo0Mzo0NSswMTowMM4A7bCX"
       },
-      "rachelnabors": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wMi0wM1QxMzo0NTo0OCswMDowMM5C8TuG",
-        "oldest": "Y3Vyc29yOnYyOpK5MjAxMi0wNi0yMFQxNzo1MTo0OSswMTowMM4ATvfa"
-      },
       "rickhanlonii": {
         "newest": "Y3Vyc29yOnYyOpK5MjAyMS0wNy0yN1QyMjowMjowMyswMTowMM444OmL",
         "oldest": "Y3Vyc29yOnYyOpK5MjAxMy0wMi0yM1QxODoxNTowNiswMDowMM4ArMc1"
@@ -88,10 +76,6 @@
       "sebmarkbage": {
         "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wMy0yNlQxNjo1MDo0MCswMDowMM5Gclln",
         "oldest": "Y3Vyc29yOnYyOpK5MjAxNy0wNi0wMVQxODoyNjoxMiswMTowMM4N4pGR"
-      },
-      "sethwebster": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyMC0xMS0xOVQxNzoyMzoyNCswMDowMM4sgvLc",
-        "oldest": "Y3Vyc29yOnYyOpK5MjAxMS0wNi0xNlQwNzozNToxNiswMTowMM4AEEL7"
       },
       "huxpro": {
         "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wNC0wN1QyMjo1ODoxOSswMTowMM5HUtN_",
@@ -12396,26 +12380,8 @@
       "url": "https://github.com/komejo/setviewport/issues/1"
     },
     {
-      "mergedAt": "2013-06-06T22:47:30Z",
-      "url": "https://github.com/rachelnabors/rachelnabors.github.io/issues/1"
-    },
-    {
       "mergedAt": "2013-05-13T22:20:21Z",
       "url": "https://github.com/imakewebthings/deck.js/issues/125"
-    },
-    {
-      "mergedAt": "2012-12-29T20:06:33Z",
-      "url": "https://github.com/rachelnabors/nyantuna/issues/3"
-    },
-    {
-      "mergedAt": "2012-12-29T20:04:53Z",
-      "url": "https://github.com/rachelnabors/nyantuna/issues/2",
-      "isBug": true
-    },
-    {
-      "mergedAt": "2012-12-29T20:04:09Z",
-      "url": "https://github.com/rachelnabors/nyantuna/issues/1",
-      "isBug": true
     },
     {
       "mergedAt": "2012-11-11T05:46:06Z",
@@ -13094,10 +13060,6 @@
       "url": "https://github.com/ralovets/valid_url/issues/19"
     },
     {
-      "mergedAt": "2018-10-27T23:02:38Z",
-      "url": "https://github.com/sethwebster/GoogleMaps.LocationServices/issues/32"
-    },
-    {
       "mergedAt": "2018-09-15T23:51:30Z",
       "url": "https://github.com/contently/todo/issues/14"
     },
@@ -13114,10 +13076,6 @@
       "url": "https://github.com/nylas/nylas-mail/issues/3263"
     },
     {
-      "mergedAt": "2016-03-05T02:37:34Z",
-      "url": "https://github.com/sethwebster/ember-cli-new-version/issues/13"
-    },
-    {
       "mergedAt": "2015-01-15T19:33:34Z",
       "url": "https://github.com/merit-gem/merit/issues/210"
     },
@@ -13128,10 +13086,6 @@
     {
       "mergedAt": "2011-12-18T21:02:12Z",
       "url": "https://github.com/JabbR/JabbR/issues/259"
-    },
-    {
-      "mergedAt": "2011-12-17T17:19:12Z",
-      "url": "https://github.com/sethwebster/Jabbot/issues/1"
     },
     {
       "mergedAt": "2011-12-13T03:07:50Z",
@@ -13161,75 +13115,6 @@
     {
       "mergedAt": "2011-12-03T23:30:30Z",
       "url": "https://github.com/JabbR/JabbR/issues/169"
-    },
-    {
-      "mergedAt": "2011-11-21T22:39:03Z",
-      "url": "https://github.com/sethwebster/TweetHarbor/issues/17",
-      "isBug": true
-    },
-    {
-      "mergedAt": "2011-11-21T22:31:34Z",
-      "url": "https://github.com/sethwebster/TweetHarbor/issues/16"
-    },
-    {
-      "mergedAt": "2011-11-21T21:59:29Z",
-      "url": "https://github.com/sethwebster/TweetHarbor/issues/15"
-    },
-    {
-      "mergedAt": "2011-11-14T22:40:05Z",
-      "url": "https://github.com/sethwebster/TweetHarbor/issues/14"
-    },
-    {
-      "mergedAt": "2011-11-14T18:20:40Z",
-      "url": "https://github.com/sethwebster/TweetHarbor/issues/13"
-    },
-    {
-      "mergedAt": "2011-11-14T17:45:07Z",
-      "url": "https://github.com/sethwebster/TweetHarbor/issues/12"
-    },
-    {
-      "mergedAt": "2011-11-14T04:03:34Z",
-      "url": "https://github.com/sethwebster/TweetHarbor/issues/11"
-    },
-    {
-      "mergedAt": "2011-11-14T04:03:20Z",
-      "url": "https://github.com/sethwebster/TweetHarbor/issues/10"
-    },
-    {
-      "mergedAt": "2011-11-14T03:56:19Z",
-      "url": "https://github.com/sethwebster/TweetHarbor/issues/9"
-    },
-    {
-      "mergedAt": "2011-11-13T23:44:42Z",
-      "url": "https://github.com/sethwebster/TweetHarbor/issues/8"
-    },
-    {
-      "mergedAt": "2011-11-13T21:32:35Z",
-      "url": "https://github.com/sethwebster/TweetHarbor/issues/7"
-    },
-    {
-      "mergedAt": "2011-11-13T04:31:05Z",
-      "url": "https://github.com/sethwebster/TweetHarbor/issues/6"
-    },
-    {
-      "mergedAt": "2011-11-13T02:50:36Z",
-      "url": "https://github.com/sethwebster/TweetHarbor/issues/5"
-    },
-    {
-      "mergedAt": "2011-11-13T02:49:54Z",
-      "url": "https://github.com/sethwebster/TweetHarbor/issues/4"
-    },
-    {
-      "mergedAt": "2011-11-13T02:48:38Z",
-      "url": "https://github.com/sethwebster/TweetHarbor/issues/3"
-    },
-    {
-      "mergedAt": "2011-11-13T02:48:21Z",
-      "url": "https://github.com/sethwebster/TweetHarbor/issues/2"
-    },
-    {
-      "mergedAt": "2011-06-16T06:35:16Z",
-      "url": "https://github.com/sethwebster/TweetHarbor/issues/1"
     },
     {
       "mergedAt": "2022-04-07T21:58:19Z",
