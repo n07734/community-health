@@ -43,6 +43,10 @@ const lineOptions = [
         dataKey: 'prSize',
     },
     {
+        label: 'PR count',
+        dataKey: 'author',
+    },
+    {
         label: 'Age(days)',
         dataKey: 'age',
     },
@@ -108,7 +112,7 @@ const GraphUi = ({
             ? colors[0]
             : colors[1],
         lineSide: 'left',
-        groupMath: 'average',
+        groupMath: remainingLines[0]?.groupMath || 'average',
     })
 
     const setValue = (newValue = {}) => {
@@ -122,7 +126,12 @@ const GraphUi = ({
         event.preventDefault()
         const side = formInfo.lineSide
         const lines = graphInfo[side] || []
-        lines.push(formInfo)
+        lines.push({
+            ...formInfo,
+            groupMath: formInfo.dataKey === 'author'
+                ? 'count'
+                : formInfo.groupMath || 'average'
+        })
 
         const graphItem = {
             ...graphInfo,
@@ -147,7 +156,9 @@ const GraphUi = ({
             dataKey: firstline.dataKey,
             color: colors[(chosenColorIndex + 1) % colors.length],
             lineSide: 'left',
-            groupMath: 'average',
+            groupMath: firstline.dataKey === 'author'
+                ? 'count'
+                : firstline.groupMath || 'average',
         })
     }
 
@@ -177,7 +188,7 @@ const GraphUi = ({
             dataKey: firstline.dataKey,
             color: removedLine.color,
             lineSide: 'left',
-            groupMath: 'average',
+            groupMath: firstline.groupMath || 'average',
         })
     }
 
@@ -199,7 +210,7 @@ const GraphUi = ({
                 >
                     {
                         remainingLines
-                            .map(({label, dataKey} = {}) => <MenuItem key={dataKey} value={dataKey} >
+                            .map(({label, dataKey} = {}) => <MenuItem key={`${dataKey}${label}`} value={dataKey} >
                                 {label}
                             </MenuItem>)
                     }
@@ -229,15 +240,19 @@ const GraphUi = ({
                     <FormLabel>Axis: Left<Radio name="side" value="left" /></FormLabel>
                     <FormLabel>Right<Radio name="side" value="right" /></FormLabel>
                 </RadioGroup>
-                <RadioGroup
-                    value={formInfo.groupMath}
-                    onChange={(e) => setValue({ groupMath: e.target.value })}
-                    row
-                    name="lineMaths"
-                >
-                    <FormLabel>Line points: Averaged<Radio name="lineMaths" value="average" /></FormLabel>
-                    <FormLabel>Totaled<Radio name="lineMaths" value="sum" /></FormLabel>
-                </RadioGroup>
+                {
+                    formInfo.dataKey !== 'author'
+                        && <RadioGroup
+                            value={formInfo.groupMath}
+                            onChange={(e) => setValue({ groupMath: e.target.value })}
+                            row
+                            name="lineMaths"
+                        >
+
+                        <FormLabel>Line points: Averaged<Radio name="lineMaths" value="average" /></FormLabel>
+                        <FormLabel>Totaled<Radio name="lineMaths" value="sum" /></FormLabel>
+                    </RadioGroup>
+                }
                 <Button value={"Add to graph"} color="primary" type='submit'/>
             </form>
         }

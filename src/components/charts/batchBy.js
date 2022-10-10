@@ -12,8 +12,8 @@ import {
  } = require('date-fns')
 
  const isNewDay = (prev, current) => {
-    const prevItemsDay = prev && getDay(new Date(prev))
-    const currentItemsDay = current && getDay(new Date(current))
+    const prevItemsDay = prev && getDay(new Date(prev)) + 1
+    const currentItemsDay = current && getDay(new Date(current)) + 1
 
     return (prevItemsDay && currentItemsDay) && prevItemsDay !== currentItemsDay
 }
@@ -83,8 +83,8 @@ const batchByType = (key, batchType) => data => {
 }
 
 const batchByData = key => (data = []) => {
-    const { mergedAt: startDate } = data.at(0)
-    const { mergedAt: endDate } = data.at(-1)
+    const { [key]: startDate } = data.at(0)
+    const { [key]: endDate } = data.at(-1)
     const totalMonths = differenceInMonths(new Date(endDate), new Date(startDate))
 
     return cond([

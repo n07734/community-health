@@ -4,7 +4,7 @@ import {
     formatReleases,
 } from './rawData'
 
-const repoData = type => formatItems => (items = []) => ({
+const repoData = type => formatItems => (items = []) => [{
     data: {
         result: {
             [type]: {
@@ -13,7 +13,7 @@ const repoData = type => formatItems => (items = []) => ({
             },
         },
     },
-})
+}]
 
 describe('formatPullRequests:', () => {
     const makePullRequest = ({ overrides = {}, reviews = [], comments = [] } = {}) => {
@@ -79,7 +79,7 @@ describe('formatPullRequests:', () => {
     })
 
     it('Expect basic PR to match snapshot', () => {
-        const result = formatPullRequests(makePullRequests([{}]))
+        const result = formatPullRequests({}, makePullRequests([{}]))
         expect(result).toMatchSnapshot()
     })
 
@@ -103,7 +103,7 @@ describe('formatPullRequests:', () => {
                 mergedAt: '2000-01-02',
             },
         }])
-        const result = formatPullRequests(data)
+        const result = formatPullRequests({}, data)
         expect(result).toMatchSnapshot()
     })
 
@@ -132,7 +132,7 @@ describe('formatPullRequests:', () => {
             ],
         }])
 
-        const result = formatPullRequests(data)
+        const result = formatPullRequests({}, data)
         expect(result).toMatchSnapshot()
     })
 })
@@ -151,6 +151,7 @@ describe('formatIssues:', () => {
             labels: {
                 edges: labels,
             },
+            url: 'url',
         },
     })
     const makeIssues = repoData('issues')(makeIssue)
@@ -170,10 +171,9 @@ describe('formatIssues:', () => {
             },
         ]))
         expect(result).toEqual({
-            closedAt: '5678',
-            createdAt: '1234',
             mergedAt: '1234',
             isBug: false,
+            url: 'url',
         })
     })
 
@@ -212,10 +212,10 @@ describe('formatReleases:', () => {
         expect(result).toEqual([])
     })
 
-    it('With invalid semver returns as PATCH', () => {
+    it('Gets tag and date', () => {
         const [result] = formatReleases(makeReleases([{name:'name'}]))
         expect(result.description).toEqual('name')
-        expect(result.releaseType).toEqual('PATCH')
+        expect(result.date).toEqual('2020')
     })
 
     it('Date is passed back correctly', () => {
@@ -235,25 +235,20 @@ describe('formatReleases:', () => {
             {
                 date: '2020',
                 description: '1.0.0',
-                releaseType: 'MAJOR',
             },
             {
                 date: '2020',
                 description: '1.1.0',
-                releaseType: 'MINOR',
 
             },
             {
                 date: '2020',
                 description: '1.1.1',
-                releaseType: 'PATCH',
 
             },
             {
                 date: '2020',
                 description: '5.0.0-alpha.7',
-                releaseType: 'PATCH',
-
             },
         ]
         expect(result).toEqual(expected)

@@ -211,7 +211,7 @@ const filterSortPullRequests = ({ excludeIds = [], sortDirection }, untilDate, a
     return [remainingPRs, filteredPRs]
 }
 
-const formatPullRequests = ({ excludeIds = [] }, results) => {
+const formatPullRequests = ({ excludeIds = [] } = {}, results = []) => {
     const pullRequests = compose(
         map(prData(excludeIds)),
         flatten,
@@ -251,6 +251,7 @@ const formatIssue = (data) => {
 
 const formatIssues = compose(
     map(formatIssue),
+    filter(x => x),
     flatten,
     map(pathOr([], ['data', 'result', 'issues', 'edges'])),
 )
@@ -267,6 +268,7 @@ const formatRelease = (data) => {
 
 const formatReleases = compose(
     map(formatRelease),
+    filter(x => x),
     flatten,
     map(pathOr([], ['data', 'result', 'releases', 'edges'])),
 )

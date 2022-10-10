@@ -278,12 +278,7 @@ const validateRequest = state => {
 const getAPIData = () => async (dispatch, getState) => {
     const state = getState();
 
-    const { isValid: isValidRequest, error = {}} = validateRequest(state);
-
-    !isValidRequest && dispatch({
-        type: types.FETCH_ERROR,
-        payload: error,
-    })
+    const { isValid: isValidRequest } = validateRequest(state);
 
     isValidRequest && dispatch({
         type: types.CLEAR_FETCH_ERROR,
@@ -294,6 +289,10 @@ const getAPIData = () => async (dispatch, getState) => {
     })
 
     try {
+        if (!isValidRequest) {
+            throw new Error('Not a valid request')
+        }
+
         const {
             fetches,
             filteredPRs = [],
@@ -307,7 +306,7 @@ const getAPIData = () => async (dispatch, getState) => {
 
         const untilDate = formUntilDate
 
-        const { fetchInfo, results } = userIds.length
+        const { fetchInfo = {}, results = [] } = userIds.length
             ? await getUsersData({ fetchInfo: fetches, untilDate, dispatch })
             : await api({ fetchInfo: fetches, queryInfo: batchedQuery(untilDate), dispatch })
 

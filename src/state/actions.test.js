@@ -70,29 +70,34 @@ describe('getAPIData:', () => {
     it('Dispatches are called in correct order when there is preFetchedName', async() => {
         const dispatch = jest.fn()
         const getState = () => ({
+            fetches: {
+                org: 'org',
+                repo: 'repo',
+                token: 'TOKEN',
+            },
             preFetchedName: true,
             pullRequests: [],
         })
 
-        await getAPIData()(dispatch, getState)
+       await getAPIData()(dispatch, getState)
 
         const dispatchOrder = [
-            types.FETCH_START,
-            types.CLEAR_USER,
-            types.CLEAR_PRS,
-            types.CLEAR_USERS_DATA,
-            types.CLEAR_RELEASES,
-            types.CLEAR_ISSUES,
             types.CLEAR_FETCH_ERROR,
-            types.FETCH_END,
+            types.FETCH_START,
             types.ADD_PRS,
+            types.ADD_FILTERED_PRS,
             types.ADD_USERS_DATA,
             types.ADD_RELEASES,
             types.ADD_ISSUES,
+            types.ADD_FILTERED_ISSUES,
+            types.STORE_UNTIL_DATE,
+            types.SET_PR_PAGINATION,
+            types.SET_ISSUES_PAGINATION,
+            types.SET_RELEASES_PAGINATION,
+            types.FETCH_END,
         ]
 
         const mockedCalls = dispatch.mock.calls
-
 
         dispatchOrder
             .forEach((type, i) => {
@@ -115,47 +120,16 @@ describe('getAPIData:', () => {
     it('Dispatches are called in correct order when there is an api error', async () => {
         const dispatch = jest.fn()
         const getState = () => ({
-            apiError: true,
+            fetches: {
+                org: 'org',
+                repo: 'repo',
+            },
         })
 
         await getAPIData()(dispatch, getState)
 
         const dispatchOrder = [
-            types.FETCH_START,
             types.FETCH_ERROR,
-            types.FETCH_END,
-        ]
-
-        const mockedCalls = dispatch.mock.calls
-
-        dispatchOrder
-            .forEach((type, i) => {
-                expect(mockedCalls[i][0].type).toEqual(type)
-            })
-
-        expect(dispatch).toHaveBeenCalledTimes(dispatchOrder.length)
-    })
-})
-
-describe('getPreFetchedData:', () => {
-    const { getPreFetchedData } = require('./actions')
-
-    it('Triggers dispatches in correct order', () => {
-        const dispatch = jest.fn()
-        getPreFetchedData('vue-next')(dispatch)
-
-        const dispatchOrder = [
-            types.CLEAR_USER,
-            types.CLEAR_PRS,
-            types.CLEAR_USERS_DATA,
-            types.CLEAR_RELEASES,
-            types.CLEAR_ISSUES,
-            types.CLEAR_FETCH_ERROR,
-            types.PREFETCHED_NAME,
-            types.ADD_PRS,
-            types.ADD_USERS_DATA,
-            types.ADD_ISSUES,
-            types.ADD_RELEASES,
             types.FETCH_END,
         ]
 
