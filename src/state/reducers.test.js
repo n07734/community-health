@@ -176,7 +176,6 @@ describe('reducers: ', () => {
         )).toEqual([1, 2, 3, 4])
     })
 
-
     it('themeType', () => {
         const themeType = reducers.themeType
 
