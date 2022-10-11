@@ -26,7 +26,7 @@ const paginationReducers = ({ parent, key, type }) => {
         expect(reducer('foo', {
             type: types[type],
             payload: { cursor: 'bar' },
-        })).toEqual({cursor: 'bar', newest: 'bar'})
+        })).toEqual({ cursor: 'bar' })
 
         expect(reducer('foo', {})).toEqual('foo')
     })
@@ -98,12 +98,12 @@ describe('reducers: ', () => {
             expect(fetches({}, {
                 type: types.SET_PR_PAGINATION,
                 payload: { cursor: 'bar' },
-            })).toEqual({cursor: 'bar', newest: 'bar'})
+            })).toEqual({ cursor: 'bar' })
 
-            expect(fetches({cursor: 'bar', newest: 'bar'}, {
+            expect(fetches({cursor: 'bar' }, {
                 type: types.SET_PR_PAGINATION,
                 payload: { cursor: 'baz' },
-            })).toEqual({cursor: 'baz', newest: 'bar'})
+            })).toEqual({ cursor: 'baz' })
         })
     })
 
@@ -143,7 +143,7 @@ describe('reducers: ', () => {
                 type: types.ADD_PRS,
                 payload: [3,4],
             },
-        )).toEqual([1,2,3,4])
+        )).toEqual([3,4]) // replaces PRs
     })
 
     it('issues', () => {
@@ -157,7 +157,7 @@ describe('reducers: ', () => {
                 type: types.ADD_ISSUES,
                 payload: [3, 4],
             },
-        )).toEqual([1, 2, 3, 4])
+        )).toEqual([3, 4]) // replaces issues
     })
 
     it('releases', () => {

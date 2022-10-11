@@ -11,6 +11,7 @@ exports[`queries: commentsQuery: query to match snapshot 1`] = `
         node {
           author {
             login
+            url
           }
           body
         }
@@ -19,137 +20,6 @@ exports[`queries: commentsQuery: query to match snapshot 1`] = `
     }
 
           }
-        }
-    }"
-`;
-
-exports[`queries: issuesQuery: query to match snapshot 1`] = `
-"{
-        repository(name: \\"repo\\" owner: \\"org\\") {
-          
-issues(
-   after:\\"cursor\\" 
-  first: 100
-  orderBy: { field:CREATED_AT direction:DESC }
-) {
-  edges {
-    node {
-      title
-      createdAt
-      closedAt
-      state
-      labels(first:5) {
-        edges {
-          node {
-            name
-          }
-        }
-      }
-    }
-  }
-  pageInfo { endCursor hasNextPage hasPreviousPage startCursor }
-}
-        }
-    }"
-`;
-
-exports[`queries: prQuery: query to match snapshot 1`] = `
-"{
-          repository(name: \\"repo\\" owner: \\"org\\") {
-            
-pullRequests(
-  first: 100
-   after:\\"cursor\\" 
-  states: [MERGED]
-  orderBy: {field: CREATED_AT direction: DESC}
-) {
-  edges {
-    node {
-      id
-      url
-      author {
-        login
-      }
-      repository {
-        name
-        owner {
-          login
-        }
-      }
-      additions
-      deletions
-      changedFiles
-      mergedAt
-      createdAt
-      
-    reviews(first: 10 ) {
-      edges {
-        node {
-          id
-          state
-          author {
-            login
-          }
-          
-    comments(first: 10 ) {
-      edges {
-        node {
-          author {
-            login
-          }
-          body
-        }
-      }
-      pageInfo { endCursor hasNextPage hasPreviousPage startCursor }
-    }
-
-        }
-      }
-      pageInfo { endCursor hasNextPage hasPreviousPage startCursor }
-    }
-
-      
-    comments(first: 10 ) {
-      edges {
-        node {
-          author {
-            login
-          }
-          body
-        }
-      }
-      pageInfo { endCursor hasNextPage hasPreviousPage startCursor }
-    }
-
-    }
-  }
-  pageInfo { endCursor hasNextPage hasPreviousPage startCursor }
-}
-          }
-      }"
-`;
-
-exports[`queries: releasesQuery: query to match snapshot 1`] = `
-"{
-        repository(name: \\"repo\\" owner: \\"org\\") {
-          
-releases(
-   after:\\"cursor\\" 
-  first:100
-  orderBy:{ field:CREATED_AT direction:DESC }
-) {
-  edges {
-    node {
-      id
-      name
-      createdAt
-      tag {
-        name
-      }
-    }
-  }
-  pageInfo { endCursor hasNextPage hasPreviousPage startCursor }
-}
         }
     }"
 `;
@@ -165,6 +35,7 @@ exports[`queries: reviewCommentsQuery: query to match snapshot 1`] = `
         node {
           author {
             login
+            url
           }
           body
         }
@@ -190,6 +61,7 @@ exports[`queries: reviewsQuery: query to match snapshot 1`] = `
           state
           author {
             login
+            url
           }
           
     comments(first: 10 ) {
@@ -197,6 +69,7 @@ exports[`queries: reviewsQuery: query to match snapshot 1`] = `
         node {
           author {
             login
+            url
           }
           body
         }

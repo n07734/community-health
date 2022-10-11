@@ -2,7 +2,6 @@ import {
     reviewCommentsQuery,
     commentsQuery,
     reviewsQuery,
-    issuesQuery,
 } from './queries'
 
 describe('queries:', () => {
@@ -33,19 +32,6 @@ describe('queries:', () => {
 
 
     const testArgs = [
-        {
-            name: 'issuesQuery',
-            testFunction: issuesQuery,
-            stateArgs: {
-                issuesPagination: {
-                    cursor: 'cursor',
-                },
-            },
-            rawDataArgs: {
-                type: 'repository',
-                resultType: 'issues',
-            },
-        },
         {
             name: 'reviewsQuery',
             testFunction: reviewsQuery,

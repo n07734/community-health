@@ -7,71 +7,66 @@ describe('fillData:', () => {
         expect(applyFiller('sameOld')).toEqual('sameOld')
     })
 
-    const getMoreReviewComments = () => (resolver) => () => Promise.resolve(resolver(
-        {
-            data: {
-                node: {
-                    id: 'id',
-                    comments: {
-                        edges: ['reviewComment2'],
-                        pageInfo: {
-                            endCursor: 'endCursor',
-                            hasNextPage: false,
-                        },
+    const getMoreReviewComments = () => ({
+        data: {
+            node: {
+                id: 'id',
+                comments: {
+                    edges: ['reviewComment2'],
+                    pageInfo: {
+                        endCursor: 'endCursor',
+                        hasNextPage: false,
                     },
-
                 },
-            },
-        }
-    ))
 
-    const getMoreComments = () => (resolver) => () => Promise.resolve(resolver(
-        {
-            data: {
-                node: {
-                    id: 'id',
-                    comments: {
-                        edges: ['comment2'],
-                        pageInfo: {
-                            endCursor: 'endCursor',
-                            hasNextPage: false,
-                        },
+            },
+        },
+    })
+
+    const getMoreComments = () => ({
+        data: {
+            node: {
+                id: 'id',
+                comments: {
+                    edges: ['comment2'],
+                    pageInfo: {
+                        endCursor: 'endCursor',
+                        hasNextPage: false,
                     },
-
                 },
-            },
-        }
-    ))
 
-    const getMoreReviews = () => (resolver) => () => Promise.resolve(resolver(
-        {
-            data: {
-                node: {
-                    id: 'id',
-                    reviews: {
-                        edges: [
-                            {
-                                node: {
-                                    comments: {
-                                        edges: ['reviewComment1'],
-                                        pageInfo: {
-                                            hasNextPage: true,
-                                            endCursor: 'endCursor',
-                                        },
+            },
+        },
+    })
+
+
+    const getMoreReviews = () => ({
+        data: {
+            node: {
+                id: 'id',
+                reviews: {
+                    edges: [
+                        {
+                            node: {
+                                comments: {
+                                    edges: ['reviewComment1'],
+                                    pageInfo: {
+                                        hasNextPage: true,
+                                        endCursor: 'endCursor',
                                     },
                                 },
                             },
-                        ],
-                        pageInfo: {
-                            endCursor: 'endCursor',
-                            hasNextPage: false,
                         },
+                    ],
+                    pageInfo: {
+                        endCursor: 'endCursor',
+                        hasNextPage: false,
                     },
-
                 },
+
             },
-        }
-    ))
+        },
+    })
 
     it('fillType pullRequestReviewComments adds review comments', async () => {
         const applyFiller = await fillData(getMoreReviewComments)('pullRequestReviewComments')
@@ -97,16 +92,14 @@ describe('fillData:', () => {
     })
 
     it('fillType pullRequests adds comments and reviews', async () => {
-        const getMore = query => {
-            return x => [
-                /PullRequestReview/.test(query)
-                    && getMoreReviewComments()(x),
-                /comments\(first: 100/.test(query)
-                    && getMoreComments()(x),
-                /reviews\(first: 100/.test(query)
-                    && getMoreReviews()(x),
-            ].find(Boolean)
-        }
+        const getMore = query => [
+            /PullRequestReview/.test(query)
+                && getMoreReviewComments(),
+            /comments\(first: 100/.test(query)
+                && getMoreComments(),
+            /reviews\(first: 100/.test(query)
+                && getMoreReviews(),
+        ].find(Boolean)
 
         const applyFiller = await fillData(getMore)('pullRequests')
         const repo = {
