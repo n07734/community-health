@@ -33,7 +33,7 @@ describe('getUntilDate: Get the date to request data util', () => {
             prs
         )
 
-        expect(result).toEqual(new Date('2022-04-30T23:00:00.000Z'))
+        expect(result).toEqual(new Date('2022-05-01T00:00:00.000Z'))
     })
 
     it('Returns date two months after untilDate', () => {
@@ -59,6 +59,6 @@ describe('getUntilDate: Get the date to request data util', () => {
             prs
         )
 
-        expect(result).toEqual(new Date('2022-02-01T01:00:00.000Z'))
+        expect(result).toEqual(new Date('2022-02-01T00:00:00.000Z'))
     })
 });
