@@ -22,7 +22,7 @@ const Pie = styledCharts(({
                 <ResponsivePie
                     data={data}
                     colors={{ datum: 'data.color' }}
-                    margin={{ top: 5, right: 80, bottom: 5, left: 80 }}
+                    margin={{ top: 15, right: 80, bottom: 0, left: 80 }}
                     animate={false}
                     innerRadius={0.65}
                     padAngle={1}
