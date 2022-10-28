@@ -18,9 +18,9 @@ const setClearPagination = setClear({ hasNextPage: true })
 
 const reducers = combineReducers({
     user: setClearString('SET_USER', 'CLEAR_USER'),
-    pvp: (fetching = false, action) => action.type === types.SET_PVP
+    pvp: (pvp = false, action) => action.type === types.SET_PVP
         ? true
-        : false,
+        : pvp,
     fetches: combineReducers({
         token: (token = '', action) => (action.type === types.STORE_TOKEN)
             ? action.payload

@@ -5,6 +5,7 @@ import {
     Select,
     MenuItem,
 } from '@material-ui/core'
+import { pathOr } from 'ramda'
 
 import { P } from './shared/StyledTags'
 import Button from './shared/Button'
@@ -236,6 +237,30 @@ const SelectUser = (props = {}) => {
     </Select>
 }
 
+const getUsers = (users = []) => {
+    const quertString = pathOr('', ['location', 'search'], window)
+    const urlParams = new URLSearchParams(quertString);
+    const path = pathOr('', ['location', 'pathname'], window)
+    const [, p1Path, p2Path] = /^[\w-/]+$/.test(path)
+        ? path
+            .split('/')
+            .filter(x => x && x !== 'community-health')
+        : []
+    const player1 = p1Path || urlParams.get('player1') || '';
+    const player2 = p2Path || urlParams.get('player2') || '';
+
+    const [userA, userB] = users
+
+    return [
+        /\w+/.test(player1)
+            ? player1
+            : userA,
+        player1 !== player2 && /\w+/.test(player2)
+            ? player2
+            : userB,
+    ]
+}
+
 // battle duration
 // winner is, sore breakdown
 // colour per user or for winner?
@@ -247,7 +272,7 @@ const PvP = ({
     classes,
 } = {}) => {
     const users = usersData.map(x => x.author)
-    const [userA, userB] = users
+    const [userA, userB] = getUsers(users)
     const [user1 = userA, setUser1] = useState()
     const [user2 = userB, setUser2] = useState()
 
@@ -259,7 +284,7 @@ const PvP = ({
     const graphs = userGraphs(pullRequests, releases, user1, user2)
     const stats = getStats(userData1, userData2)
 
-    return (
+    return usersData.length > 0 && (
         <>
             <Paper>
                 <Button
@@ -314,7 +339,6 @@ const PvP = ({
                 }
 
                 <P className={classes.copy}>And the winner is.... Both! Thanks for your great work!</P>
-
 
                 {
                     graphs.length

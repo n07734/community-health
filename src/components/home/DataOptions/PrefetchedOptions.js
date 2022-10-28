@@ -7,7 +7,10 @@ import Button from '../../shared/Button'
 import Message from '../Message'
 import { P } from '../../shared/StyledTags'
 import styles from './styles'
-import { getPreFetched } from '../../../state/actions'
+import {
+    getPreFetched,
+    setPvP,
+} from '../../../state/actions'
 import {
     preFetchedRepos,
     preFetchedTeams,
@@ -19,12 +22,21 @@ const PrefetchedOptions = (props = {}) => {
         error,
         preFetchedName = '',
         getPreFetchedReport,
+        setPvPArena,
     } = props
 
     useEffect(() => {
         const quertString = pathOr('', ['location', 'search'], window)
         const urlParams = new URLSearchParams(quertString);
-        const report = urlParams.get('report') || 'facebook-react';
+        const path = pathOr('', ['location', 'pathname'], window)
+        const [reportPath, p1Path, p2Path] = /^[\w-/]+$/.test(path)
+            ? path
+                .split('/')
+                .filter(x => x && x !== 'community-health')
+            : []
+        const report = reportPath || urlParams.get('report') || 'facebook-react';
+        const player1 = p1Path || urlParams.get('player1') || '';
+        const player2 = p2Path || urlParams.get('player2') || '';
 
         const allItems = [
             ...preFetchedRepos,
@@ -33,6 +45,9 @@ const PrefetchedOptions = (props = {}) => {
         const repoInfo = allItems
             .find(x => x.file === report)
 
+        if (player1 && player2) {
+            setPvPArena()
+        }
         getPreFetchedReport(repoInfo)
     }, [getPreFetchedReport])
 
@@ -77,6 +92,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
+    setPvPArena: (x) => dispatch(setPvP(x)),
     getPreFetchedReport: (x) => dispatch(getPreFetched(x)),
 })
 
