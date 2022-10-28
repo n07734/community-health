@@ -273,6 +273,8 @@ const PvP = ({
                         removePvP()
                     }} />
 
+                <P className={classes.copy}>This page is just for fun, a bigger or smaller number could be good, bar or not mean much it depends on context.</P>
+
                 <div className={classes.title}>
                     <SelectUser
                         user={user1}
@@ -310,6 +312,9 @@ const PvP = ({
                             </div>
                         </div>)
                 }
+
+                <P className={classes.copy}>And the winner is.... Both! Thanks for your great work!</P>
+
 
                 {
                     graphs.length
@@ -355,6 +360,10 @@ const styles = theme => ({
     fill: {
         flexBasis: '100%',
         marginRight: 0,
+    },
+    copy: {
+        flexBasis: '100%',
+        textAlign: 'center',
     },
     title: {
         width: '100%',
