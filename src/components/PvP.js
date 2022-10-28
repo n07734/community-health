@@ -6,7 +6,7 @@ import {
     MenuItem,
 } from '@material-ui/core'
 
-import { P, H } from './shared/StyledTags'
+import { P } from './shared/StyledTags'
 import Button from './shared/Button'
 import Paper from './shared/Paper'
 import Line from './charts/Line'
