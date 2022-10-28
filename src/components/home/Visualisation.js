@@ -6,23 +6,26 @@ import {
     propSatisfies,
     T as alwaysTrue,
 } from 'ramda'
-import RepoView from '../Repo'
-import UserView from '../User'
-import TeamView from '../Team'
+import Repo from '../Repo'
+import User from '../User'
+import PvP from '../PvP'
+import Team from '../Team'
 
 const Visualisation = (props) => (
     <div>
         {
             cond([
-                [propSatisfies(Boolean, 'user'), always(<UserView />)],
-                [propSatisfies(Boolean, 'teamName'), always(<TeamView />)],
-                [alwaysTrue, always(<RepoView />)],
+                [propSatisfies(Boolean, 'pvp'), always(<PvP />)],
+                [propSatisfies(Boolean, 'user'), always(<User />)],
+                [propSatisfies(Boolean, 'teamName'), always(<Team />)],
+                [alwaysTrue, always(<Repo />)],
             ])(props)
         }
     </div>
 )
 
 const mapStateToProps = (state) => ({
+    pvp: state.pvp,
     user: state.user,
     teamName: state.fetches.teamName,
 })

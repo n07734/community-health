@@ -7,14 +7,28 @@ import Button from '../shared/Button'
 import { H } from '../shared/StyledTags'
 
 
-import { setUser as setUserAction } from '../../state/actions'
+import {
+    setUser as setUserAction,
+    setPvP as setPvPAction,
+} from '../../state/actions'
 
 const UserList = ({
     usersData = [],
     setUser,
+    setPvP,
     classes,
 } = {}) => usersData.length > 0 && (<>
     <Paper className="justify">
+        <Button
+            className={classes.fullW}
+            value="PvP arena"
+            color="primary"
+            onClick={(e) => {
+                e.preventDefault()
+                setPvP()
+                window && window.scrollTo(0, 0)
+            }}
+        />
         <H level={2} className={classes.fullW}>
             User pages
         </H>
@@ -40,6 +54,7 @@ const UserList = ({
 
 const mapDispatchToProps = dispatch => ({
     setUser: (x) => dispatch(setUserAction(x)),
+    setPvP: (x) => dispatch(setPvPAction(x)),
 })
 
 const styles = theme => ({

@@ -38,6 +38,16 @@ const setUser = (user = '') => ({
     payload: user,
 })
 
+const setPvP = (pvp = false) => ({
+    type: types.SET_PVP,
+    payload: true,
+})
+
+const clearPvP = (pvp = false) => ({
+    type: types.CLEAR_PVP,
+    payload: false,
+})
+
 const toggleTheme = () => ({
     type: types.TOGGLE_THEME,
 })
@@ -584,6 +594,8 @@ export {
     setUser,
     clearAllData,
     clearUser,
+    setPvP,
+    clearPvP,
     clearPastSearch,
     storeOrg,
     storeToken,

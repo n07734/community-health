@@ -61,11 +61,14 @@ const updateByUsersCount = (currentData, objKey, obj, author) => {
 
 const formatUserData = (data = []) => {
     // TODO: This is too complex, break it down into something that makes more sense
+    // Also not reduce
     const userData = data
         .reduce((acc, prData) => {
             const {
                 author,
                 prSize = 0,
+                additions = 0,
+                deletions = 0,
                 age = 0,
                 approvals = 0,
                 approvers = {},
@@ -75,6 +78,9 @@ const formatUserData = (data = []) => {
                 codeCommenters = {},
                 generalComments = 0,
                 generalCommenters = {},
+                commentSentimentTotalScore = 0,
+                commentSentimentScore = 0,
+                commentAuthorSentimentScore = 0,
             } = prData
 
             const updatedCommentsByUser = updateByUsersCount(acc, 'commentsByUser', commenters, author)
@@ -123,8 +129,28 @@ const formatUserData = (data = []) => {
             const prSizes = [...(prevData.prSizes || []), prSize]
             const averagePrSize = Math.round(sum(prSizes) / prSizes.length)
 
+            const prAdditions = [...(prevData.prAdditions || []), additions]
+            const prTotalAdditions = sum(prAdditions)
+
+            const prDeletions = [...(prevData.prDeletions || []), deletions]
+            const prTotalDeletions = sum(prDeletions)
+
             const prAges = [...(prevData.prAges || []), age]
+            const prTotalAge = sum(prAges)
             const averagePrAge = Math.round(sum(prAges) / prAges.length)
+
+            const sentimentTotal = commentSentimentTotalScore || (commentSentimentScore + commentAuthorSentimentScore)
+            const sentimentTotalScores = [...(prevData.sentimentTotalScores || []), sentimentTotal]
+
+            const positiveScores = sentimentTotalScores
+                .filter(x => x >= 0)
+            const sentimentAveragePositiveScore = Math.round(sum(positiveScores) / positiveScores.length)
+            const sentimentTotalPositiveScore = sum(positiveScores)
+
+            const negativeScores = sentimentTotalScores
+                .filter(x => x < 0)
+            const sentimentAverageNegativeScore = Math.round(sum(negativeScores) / negativeScores.length)
+            const sentimentTotalNegativeScore = sum(negativeScores)
 
             return Object.assign(acc, {
                 [author]: {
@@ -138,9 +164,19 @@ const formatUserData = (data = []) => {
                     generalCommentsReceived: (prevData.generalCommentsReceived || 0) + generalComments,
                     totalPRs: (prevData.totalPRs || 0) + 1,
                     prSizes,
+                    prAdditions,
+                    prTotalAdditions,
+                    prDeletions,
+                    prTotalDeletions,
                     prSize: averagePrSize,
                     prAges,
+                    prTotalAge,
                     age: averagePrAge,
+                    sentimentTotalScores,
+                    sentimentAveragePositiveScore,
+                    sentimentTotalPositiveScore,
+                    sentimentAverageNegativeScore,
+                    sentimentTotalNegativeScore,
                 },
             })
 
