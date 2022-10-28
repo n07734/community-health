@@ -15,11 +15,27 @@ exports[`formatUserData: Basic PR data transfers to result 1`] = `
     'commentsReceived': 2,
     'generalCommentsGiven': 0,
     'generalCommentsReceived': 4,
+    'prAdditions': [
+      0,
+    ],
     'prAges': [
+      0,
+    ],
+    'prDeletions': [
       0,
     ],
     'prSize': 0,
     'prSizes': [
+      0,
+    ],
+    'prTotalAdditions': 0,
+    'prTotalAge': 0,
+    'prTotalDeletions': 0,
+    'sentimentAverageNegativeScore': NaN,
+    'sentimentAveragePositiveScore': 0,
+    'sentimentTotalNegativeScore': 0,
+    'sentimentTotalPositiveScore': 0,
+    'sentimentTotalScores': [
       0,
     ],
     'totalPRs': 1,
@@ -44,12 +60,31 @@ exports[`formatUserData: PR data from two authors with no contributors to match 
     'commentsReceived': 0,
     'generalCommentsGiven': 0,
     'generalCommentsReceived': 0,
+    'prAdditions': [
+      0,
+      0,
+    ],
     'prAges': [
+      0,
+      0,
+    ],
+    'prDeletions': [
       0,
       0,
     ],
     'prSize': 0,
     'prSizes': [
+      0,
+      0,
+    ],
+    'prTotalAdditions': 0,
+    'prTotalAge': 0,
+    'prTotalDeletions': 0,
+    'sentimentAverageNegativeScore': NaN,
+    'sentimentAveragePositiveScore': 0,
+    'sentimentTotalNegativeScore': 0,
+    'sentimentTotalPositiveScore': 0,
+    'sentimentTotalScores': [
       0,
       0,
     ],
@@ -70,11 +105,27 @@ exports[`formatUserData: PR data from two authors with no contributors to match 
     'commentsReceived': 0,
     'generalCommentsGiven': 0,
     'generalCommentsReceived': 0,
+    'prAdditions': [
+      0,
+    ],
     'prAges': [
+      0,
+    ],
+    'prDeletions': [
       0,
     ],
     'prSize': 0,
     'prSizes': [
+      0,
+    ],
+    'prTotalAdditions': 0,
+    'prTotalAge': 0,
+    'prTotalDeletions': 0,
+    'sentimentAverageNegativeScore': NaN,
+    'sentimentAveragePositiveScore': 0,
+    'sentimentTotalNegativeScore': 0,
+    'sentimentTotalPositiveScore': 0,
+    'sentimentTotalScores': [
       0,
     ],
     'totalPRs': 1,
