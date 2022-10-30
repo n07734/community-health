@@ -1,6 +1,6 @@
 const { path, prop, sum } = require('ramda');
 
-const getNameList = (data, key) => {
+const getNameList = (data, key, preSorted = false) => {
     const scoredData = {}
     data
         .forEach((userData) => {
@@ -34,9 +34,15 @@ const getNameList = (data, key) => {
         })
 
     // We do not want only one user going into the "Other" group
-    return showNames.length === data.length - 1
+    const names = showNames.length === data.length - 1
         ? sortedValues.map(([x]) => x)
         : showNames
+
+    return preSorted
+        ? data
+            .filter(x => names.includes(x.author))
+            .map(x => x.author)
+        : names
 }
 
 const otherTotal = (ignoreNames = [], data = {}) => {
@@ -93,8 +99,8 @@ const getMatrix = (
     ]
 }
 
-const formatChordData = (data, key) => {
-    const showNames = getNameList(data, key)
+const formatChordData = (data, key, preSorted) => {
+    const showNames = getNameList(data, key, preSorted)
     const otherAppened = showNames.length < data.length
 
     const matrix = getMatrix(data, key, showNames, otherAppened)

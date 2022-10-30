@@ -10,6 +10,7 @@ import colors from '../colors'
 const Chord = styledCharts(({
     title,
     data = [],
+    preSorted = false,
     dataKey = '',
     classes,
 } = {}) => {
@@ -17,7 +18,7 @@ const Chord = styledCharts(({
     const {
         names,
         matrix,
-    } = formatChordData(data, dataKey)
+    } = formatChordData(data, dataKey, preSorted)
 
     const hasMatrixData = (matrix) => matrix
         .some(row => row

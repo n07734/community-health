@@ -7,6 +7,7 @@ import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
 import Bar from '../charts/Bar'
 import Chord from '../charts/Chord'
+import { sortByKeys } from '../../utils'
 
 const TeamTrends = ({
     usersData = [],
@@ -14,6 +15,9 @@ const TeamTrends = ({
     classes,
 } = {}) => {
     const maxAuthors = userIds.length || 7
+    const sortedUsers = usersData
+        .sort(sortByKeys(['commentsByUser, approvalsByUser']))
+
     return usersData.length > 0 && (
         <Paper>
             <ChartDescription
@@ -22,11 +26,21 @@ const TeamTrends = ({
 
             <div className={classes.groupedCharts}>
                 <P>These chord charts show how contributions are given and received, the dominant colours indicate the higher contributions</P>
-                <Chord data={usersData} dataKey="commentsByUser" title="Comment contributions" />
-                <Chord data={usersData} dataKey="approvalsByUser" title="Approval contributions" />
+                <Chord
+                    data={sortedUsers}
+                    preSorted={true}
+                    dataKey="commentsByUser"
+                    title="Comment contributions"
+                />
+                <Chord
+                    data={sortedUsers}
+                    preSorted={true}
+                    dataKey="approvalsByUser"
+                    title="Approval contributions"
+                />
             </div>
             <Bar
-                data={usersData}
+                data={sortedUsers}
                 indexBy="author"
                 titlePrefix="Comments"
                 sortBy="commentsGiven"
@@ -45,7 +59,7 @@ const TeamTrends = ({
                 ]}
             />
             <Bar
-                data={usersData}
+                data={sortedUsers}
                 indexBy="author"
                 titlePrefix="PRs"
                 sortBy="uniquePRsApproved"
