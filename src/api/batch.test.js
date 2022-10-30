@@ -1,7 +1,7 @@
 import batch from './batch'
 
 describe('batch:', () => {
-    it('Empty call returns blank arrray', () => {
+    it('Empty call returns blank array', () => {
         const result = batch()
         expect(result).toEqual([])
     })

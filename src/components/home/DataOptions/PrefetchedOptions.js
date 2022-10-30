@@ -49,7 +49,7 @@ const PrefetchedOptions = (props = {}) => {
             setPvPArena()
         }
         getPreFetchedReport(repoInfo)
-    }, [getPreFetchedReport])
+    }, [getPreFetchedReport, setPvPArena])
 
     const preFetchButton = ({ name, file }, i) => <Button
         value={name}
