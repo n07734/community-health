@@ -17,6 +17,8 @@ const formatGraphData = (pullRequests = []) => (data = {}) => {
         right = [],
     } = data
 
+    // TODO: transformer that dupes lines by x and adds data to lines
+
     const leftLines = {
         lines: left,
         xAxis: 'left',

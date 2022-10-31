@@ -298,7 +298,7 @@ const PvP = ({
                         removePvP()
                     }} />
 
-                <P className={classes.copy}>This page is just for fun, a bigger or smaller number could be good, bar or not mean much it depends on context.</P>
+                <P className={classes.copy}>This page is just for fun, a bigger or smaller number could be good, bar or not mean much, it depends on context.</P>
 
                 <div className={classes.title}>
                     <SelectUser
