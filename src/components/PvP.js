@@ -13,124 +13,90 @@ import Paper from './shared/Paper'
 import Line from './charts/Line'
 import ItemsTable from './sections/ItemsTable'
 import { chunkData } from './charts/lineHelpers'
+import PullRequestCustom from './sections/PullRequestCustom'
 
-import colors from './colors'
+import {
+    colors,
+    colorsRGBValues,
+} from './colors'
 import { clearPvP } from '../state/actions'
 
 const colourA = '#1f77b4'
 const colourB = '#e82573'
 
-const userGraphs = (data = [], releases = [], userName1, userName2) => {
-    const mergedPrData = data
-        .filter(({ mergedAt } = {}) => mergedAt)
+const prTransformer = (user1 = '', user2 = '') => (left = [], right = [], pullRequests = []) => {
+    const user1Prs = pullRequests
+        .filter(({ author }) => author === user1)
 
-    const user1PrData = mergedPrData
-        .filter(({ author }) => author === userName1)
+    const user2Prs = pullRequests
+        .filter(({ author }) => author === user2)
 
-    const user2PrData = mergedPrData
-        .filter(({ author }) => author === userName2)
+    const linesTransform = (lines = []) => lines
+        .map((line = {}) => {
+            const line1 = {
+                ...line,
+                label: `${user1} ${line.label}`,
+                data: user1Prs
+            }
 
-    const chunkyData = chunkData(mergedPrData
-        .filter(({ author }) => [userName1, userName2].includes(author)))
+            const line2 = {
+                ...line,
+                label: `${user2} ${line.label}`,
+                color: `rgba(${colorsRGBValues[line.color]}, 0.5)`,
+                data: user2Prs
+            }
+            return [
+                line1,
+                line2,
+            ]
+        })
+        .flat()
 
-    return [
-        [
-            {
-                dataKeys:['author', 'commentSentimentScore', 'commentAuthorSentimentScore'],
-                data: chunkyData,
-            },
-            {
-                markers: releases,
-                showLegends: true,
-                title: 'Sentiments in PR',
-                data: [{
-                    lines: [
-                        {
-                            label: `${userName1} received`,
-                            color: colors[2],
-                            dataKey: 'commentSentimentScore',
-                            data: user1PrData,
-                        },
-                        {
-                            label: `${userName1} given`,
-                            color: colors[1],
-                            dataKey: 'commentAuthorSentimentScore',
-                            data: user1PrData,
-                        },
-                        {
-                            label: `${userName2} received`,
-                            color: colors[2],
-                            dataKey: 'commentSentimentScore',
-                            data: user2PrData,
-                        },
-                        {
-                            label: `${userName2} given`,
-                            color: colors[1],
-                            dataKey: 'commentAuthorSentimentScore',
-                            data: user2PrData,
-                        },
-                    ],
-                    xAxis: 'left',
-                }],
-            },
-        ],
-        [
-            {
-                dataKeys:['author', 'prSize'],
-                data: chunkyData,
-            },
-            {
-                markers: releases,
-                data: [{
-                    lines: [
-                        {
-                            label: `${userName1} PR size`,
-                            color: colourA,
-                            dataKey: 'prSize',
-                            data: user1PrData,
-                        },
-                        {
-                            label: `${userName2} PR size`,
-                            color: colourB,
-                            dataKey: 'prSize',
-                            data: user2PrData,
-                        },
-                    ],
-                    xAxis: 'left',
-                }],
-            },
-        ],
-        [
-            {
-                dataKeys:['author', 'age'],
-                data: chunkyData,
-            },
-            {
-                markers: releases,
-                data: [{
-                    lines: [
-                        {
-                            label: `${userName1} PR age`,
-                            color: colourA,
-                            dataKey: 'age',
-                            data: user1PrData,
-                        },
-                        {
-                            label: `${userName2} PR age`,
-                            color: colourB,
-                            dataKey: 'age',
-                            data: user2PrData,
-                        },
-                    ],
-                    xAxis: 'left',
-                }],
-            },
-        ],
+    const newLeft = linesTransform(left)
+    const newRight = linesTransform(right)
+
+    const legendDefaults = {
+        anchor: 'top-left',
+        direction: 'column',
+        justify: false,
+        translateX: 10,
+        translateY: 10,
+        itemsSpacing: 0,
+        itemDirection: 'left-to-right',
+        itemWidth: 80,
+        itemHeight: 20,
+        itemOpacity: 1,
+        symbolSize: 12,
+        symbolShape: 'square',
+        symbolBorderColor: 'rgba(0, 0, 0, .9)',
+        toggleSerie: true,
+        itemTextColor: 'white', // TODO: use theme theme.palette.text.primary
+    }
+
+    const legends = [
+        ...(1 && left.length > 0
+            ? [{
+                ...legendDefaults,
+                data: newLeft,
+            }]
+            : []
+        ),
+        ...(1 && right.length > 0
+            ? [{
+                ...legendDefaults,
+                data: newRight,
+                anchor: 'top-right',
+                translateX: -10,
+                itemDirection: 'right-to-left',
+            }]
+            : []
+        ),
     ]
+
+    return [newLeft, newRight, legends]
 }
 
 const getStats = (userData1 = {}, userData2 = {}) => {
-
     const stats = [
         {
             title: 'Total Merged',
@@ -281,8 +247,19 @@ const PvP = ({
     const userData2 = usersData
         .find(x => x.author === user2) || {}
 
-    const graphs = userGraphs(pullRequests, releases, user1, user2)
     const stats = getStats(userData1, userData2)
+
+    const mergedPrData = pullRequests
+        .filter(({ mergedAt } = {}) => mergedAt)
+
+    const user1PrData = mergedPrData
+        .filter(({ author }) => author === user1)
+
+    const user2PrData = mergedPrData
+        .filter(({ author }) => author === user2)
+
+    const chunkyData = chunkData(mergedPrData
+        .filter(({ author }) => [user1, user2].includes(author)))
 
     return usersData.length > 0 && (
         <>
@@ -339,15 +316,87 @@ const PvP = ({
                 }
 
                 <P className={classes.copy}>And the winner is.... Both! Thanks for your great work!</P>
+                <PullRequestCustom prTransformer={prTransformer(user1, user2)} />
 
-                {
-                    graphs.length
-                        && graphs
-                            .map(([itemsInfo, lineInfo], i) => <>
-                                <Line key={i} {...lineInfo} />
-                                <ItemsTable key={i + graphs.length} {...itemsInfo} />
-                            </>)
-                }
+                <Line
+                    markers={releases}
+                    showLegends={true}
+                    title="Sentiments in PR"
+                    data={[{
+                        lines: [
+                            {
+                                label: `${user1} received`,
+                                color: colors[2],
+                                dataKey: 'commentSentimentScore',
+                                data: user1PrData,
+                            },
+                            {
+                                label: `${user1} given`,
+                                color: colors[1],
+                                dataKey: 'commentAuthorSentimentScore',
+                                data: user1PrData,
+                            },
+                            {
+                                label: `${user2} received`,
+                                color: colors[2],
+                                dataKey: 'commentSentimentScore',
+                                data: user2PrData,
+                            },
+                            {
+                                label: `${user2} given`,
+                                color: colors[1],
+                                dataKey: 'commentAuthorSentimentScore',
+                                data: user2PrData,
+                            },
+                        ],
+                        xAxis: 'left',
+                    }]}
+                />
+                <ItemsTable  dataKeys={['author', 'prSize']} data={chunkyData} />
+
+                <Line
+                    markers={releases}
+                    data={[{
+                        lines: [
+                            {
+                                label: `${user1} PR size`,
+                                color: colourA,
+                                dataKey: 'prSize',
+                                data: user1PrData,
+                            },
+                            {
+                                label: `${user2} PR size`,
+                                color: colourB,
+                                dataKey: 'prSize',
+                                data: user2PrData,
+                            },
+                        ],
+                        xAxis: 'left',
+                    }]}
+                />
+                <ItemsTable  dataKeys={['author', 'prSize']} data={chunkyData} />
+
+                <Line
+                    markers={releases}
+                    data={[{
+                        lines: [
+                            {
+                                label: `${user1} PR age`,
+                                color: colourA,
+                                dataKey: 'age',
+                                data: user1PrData,
+                            },
+                            {
+                                label: `${user2} PR age`,
+                                color: colourB,
+                                dataKey: 'age',
+                                data: user2PrData,
+                            },
+                        ],
+                        xAxis: 'left',
+                    }]}
+                />
+                <ItemsTable  dataKeys={['author', 'age']} data={chunkyData} />
 
                 <Button
                     className={classes.fill}

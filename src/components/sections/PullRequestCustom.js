@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
 
+
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
 import { P } from '../shared/StyledTags'
@@ -11,24 +12,28 @@ import GraphUi from '../charts/GraphUi'
 import ItemsTable from './ItemsTable'
 import { chunkData } from '../charts/lineHelpers'
 
-const formatGraphData = (pullRequests = []) => (data = {}) => {
+const formatGraphData = (pullRequests = [], prTransformer) => (data = {}) => {
     const {
         left = [],
         right = [],
     } = data
 
-    // TODO: transformer that dupes lines by x and adds data to lines
+    const [customLeft = [], customRight = [], legends = []] = prTransformer
+        ? prTransformer(left, right, pullRequests)
+        : []
 
     const leftLines = {
-        lines: left,
+        lines: customLeft.length > 0
+            ? customLeft
+            : left.map(x => ({...x, data: pullRequests})),
         xAxis: 'left',
-        data: pullRequests,
     }
 
     const rightLines = {
-        lines: right,
+        lines: customRight.length > 0
+            ? customRight
+            : right.map(x => ({...x, data: pullRequests})),
         xAxis: 'right',
-        data: pullRequests,
     }
 
     const formData = [
@@ -44,7 +49,10 @@ const formatGraphData = (pullRequests = []) => (data = {}) => {
         ),
     ]
 
-    return formData
+    return [
+        legends,
+        formData,
+    ]
 }
 
 const getTableKeys = (graphInfo = {}) => {
@@ -66,6 +74,7 @@ const getGraphId = () => ++id
 
 const PullRequestCustom = ({
     pullRequests: rawPullRequests = [],
+    prTransformer,
     releases = [],
     classes = {},
 } = {}) => {
@@ -90,7 +99,7 @@ const PullRequestCustom = ({
 
     const chunkyData = chunkData(pullRequests)
 
-    const makeGraphData = formatGraphData(pullRequests)
+    const makeGraphData = formatGraphData(pullRequests, prTransformer)
 
     return pullRequests.length > 0 && (
         <Paper className={classes.block}>
@@ -105,24 +114,29 @@ const PullRequestCustom = ({
             </ChartDescription>
             {
                 graphs
-                    .map((graphInfo, i) => <div className={classes.addedGraph} key={i}>
-                        <GraphUi
-                            graphInfo={graphInfo}
-                            setGraph={setGraph}
-                            graphs={graphs}
-                        />
-                        <Line
-                            blockHeading={true}
-                            markers={releases}
-                            data={makeGraphData(graphInfo)}
-                        />
-                        {
-                            (graphInfo.left.length > 0 || graphInfo.right.length > 0) && <ItemsTable
-                                dataKeys={getTableKeys(graphInfo)}
-                                data={chunkyData}
+                    .map((graphInfo, i) => {
+                        const [legends =[], data = []] = makeGraphData(graphInfo)
+                        return <div className={classes.addedGraph} key={i}>
+                            <GraphUi
+                                graphInfo={graphInfo}
+                                setGraph={setGraph}
+                                graphs={graphs}
                             />
-                        }
-                    </div>)
+                            <Line
+                                blockHeading={true}
+                                markers={releases}
+                                legends={legends}
+                                showLegends={legends.length > 0}
+                                data={data}
+                            />
+                            {
+                                (graphInfo.left.length > 0 || graphInfo.right.length > 0) && <ItemsTable
+                                    dataKeys={getTableKeys(graphInfo)}
+                                    data={chunkyData}
+                                />
+                            }
+                        </div>
+                    })
             }
             <div className={classes.buttons}>
                 {

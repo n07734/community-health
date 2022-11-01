@@ -6,7 +6,7 @@ import { splitAt } from 'ramda'
 
 import Line from '../charts/Line'
 import Paper from '../shared/Paper'
-import colors from '../colors'
+import { colors } from '../colors'
 import ChartDescription from '../shared/ChartDescription'
 import { P } from '../shared/StyledTags'
 import ItemsTable from './ItemsTable'

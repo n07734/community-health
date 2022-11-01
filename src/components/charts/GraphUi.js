@@ -9,7 +9,7 @@ import {
 } from '@material-ui/core'
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 
-import colors from '../colors'
+import { colors } from '../colors'
 import { P } from '../shared/StyledTags'
 import Button from '../shared/Button'
 

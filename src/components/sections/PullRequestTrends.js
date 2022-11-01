@@ -5,7 +5,7 @@ import { useTheme } from '@material-ui/core/styles';
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
 import { P } from '../shared/StyledTags'
-import colors from '../colors'
+import { colors } from '../colors'
 import Line from '../charts/Line'
 import ItemsTable from './ItemsTable'
 import { chunkData } from '../charts/lineHelpers'

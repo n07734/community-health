@@ -12,7 +12,7 @@ import Line from './charts/Line'
 import ItemsTable from './sections/ItemsTable'
 import { chunkData } from './charts/lineHelpers'
 
-import colors from './colors'
+import { colors } from './colors'
 import { clearUser } from '../state/actions'
 import formatRadarData from '../format/radarData'
 

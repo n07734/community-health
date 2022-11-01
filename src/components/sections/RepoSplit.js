@@ -8,7 +8,7 @@ import Line from '../charts/Line'
 import Pie from '../charts/Pie'
 import Paper from '../shared/Paper'
 import ItemsTable from './ItemsTable'
-import colors from '../colors'
+import { colors } from '../colors'
 import { chunkData } from '../charts/lineHelpers'
 
 
