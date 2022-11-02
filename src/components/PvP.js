@@ -356,7 +356,7 @@ const PvP = ({
                         xAxis: 'left',
                     }]}
                 />
-                <ItemsTable  dataKeys={['author', 'prSize']} data={chunkyData} />
+                <ItemsTable  dataKeys={['author', 'commentSentimentScore', 'commentAuthorSentimentScore']} data={chunkyData} />
 
                 <Line
                     markers={releases}

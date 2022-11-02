@@ -177,6 +177,7 @@ const clearData = (dispatch) => {
     dispatch({ type: types.CLEAR_ORG })
     dispatch({ type: types.CLEAR_REPO })
     dispatch({ type: types.CLEAR_USER })
+    dispatch({ type: types.CLEAR_PVP })
     dispatch({ type: types.CLEAR_PRS })
     dispatch({ type: types.CLEAR_FILTERED_PRS })
     dispatch({ type: types.CLEAR_PR_PAGINATION })
@@ -527,6 +528,8 @@ const getPreFetched = ({ name = '', file = '' }) => async (dispatch) => {
     try {
         const reportData = await fetch(`https://n07734.github.io/community-health/data/${file}.json`)
             .then(parseJSON)
+        // For local dev
+        // const reportData = require(`./${file}.json`)
 
         setPreFetchedData(reportData, dispatch)
 
