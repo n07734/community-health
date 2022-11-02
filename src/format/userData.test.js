@@ -1,6 +1,8 @@
 import formatUserData from './userData'
 
 const pr = {
+    org: 'org',
+    repo: 'repo',
     author: 'bob',
     prSize: 0,
     age: 0,
