@@ -65,6 +65,8 @@ const formatUserData = (data = []) => {
     const userData = data
         .reduce((acc, prData) => {
             const {
+                org,
+                repo,
                 author,
                 prSize = 0,
                 additions = 0,
@@ -152,10 +154,20 @@ const formatUserData = (data = []) => {
             const sentimentAverageNegativeScore = Math.round(sum(negativeScores) / negativeScores.length)
             const sentimentTotalNegativeScore = sum(negativeScores)
 
+            const orgs = [...new Set([...(prevData.orgs || []), org])]
+            const orgCount = orgs.length
+
+            const repos = [...new Set([...(prevData.repos || []), repo])]
+            const repoCount = repos.length
+
             return Object.assign(acc, {
                 [author]: {
                     ...baseUserData,
                     ...prevData,
+                    orgs,
+                    orgCount,
+                    repos,
+                    repoCount,
                     author,
                     user: author,
                     approvalsReceived: (prevData.approvalsReceived || 0) + approvals,

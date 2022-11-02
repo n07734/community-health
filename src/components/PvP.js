@@ -150,11 +150,25 @@ const getStats = (userData1 = {}, userData2 = {}) => {
             title: 'Average days open',
             id: 'age',
         },
+        {
+            title: 'Orgs contributed to',
+            id: 'orgCount',
+        },
+        {
+            title: 'Repos contributed to',
+            id: 'repoCount',
+        },
         // repo count
     ]
 
     const formattedStats = stats
-        .filter(({ id } = {}) => Number.isInteger(userData1[id]) &&  Number.isInteger(userData2[id]))
+        .filter(({ id } = {}) =>
+            Number.isInteger(userData1[id]) && Number.isInteger(userData2[id])
+                && (
+                    !['orgCount', 'repoCount'].includes(id)
+                        || ['orgCount', 'repoCount'].includes(id) && userData1[id] !== 1 && userData2[id] !==1 // don't want these in repo pvp pages
+                )
+        )
         .map((stat = {}) => {
             const id = stat.id
             const lValue = userData1[id]
