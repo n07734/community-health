@@ -164,8 +164,8 @@ const getStats = (userData1 = {}, userData2 = {}) => {
     const formattedStats = stats
         .filter(({ id } = {}) =>
             Number.isInteger(userData1[id]) && Number.isInteger(userData2[id])
-                && !['orgCount', 'repoCount'].includes(id)
-                    || (['orgCount', 'repoCount'].includes(id) && userData1[id] !== 1 && userData2[id] !==1) // don't want these in repo pvp pages
+                && (!['orgCount', 'repoCount'].includes(id)
+                    || (['orgCount', 'repoCount'].includes(id) && userData1[id] !== 1 && userData2[id] !==1)) // don't want these in repo pvp pages
         )
         .map((stat = {}) => {
             const id = stat.id
