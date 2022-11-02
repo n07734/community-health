@@ -139,6 +139,32 @@ const Line = styledCharts(({
         ? '%Y'
         : '%y/%m'
 
+    const allLines = [
+        ...leftAxis.lines,
+        ...rightAxis.lines,
+    ]
+
+    const DashedLine = ({ series, lineGenerator, xScale, yScale }) => series
+        .map((item = {}) => {
+            const { id, data: lineData, color } = item
+            const { lineStyles = { strokeWidth: 2 } } = allLines.find(x => x.label === id) || {}
+
+            return (
+                <path
+                    key={id}
+                    d={lineGenerator(
+                        lineData.map(d => ({
+                            x: xScale(d.data.x),
+                            y: yScale(d.data.y),
+                        }))
+                    )}
+                    fill="none"
+                    stroke={color}
+                    style={lineStyles}
+                />
+            )
+        })
+
     return hasData(lineData) && (
         <div className={classes.lineChartComponentWrap}>
             <div className={classes.headingWrap}>
@@ -207,6 +233,7 @@ const Line = styledCharts(({
                     enableSlices="x"
                     sliceTooltip={ToolTip(convertedRightLines)}
                     theme={theme.charts}
+                    layers={['grid', 'markers', 'areas', DashedLine, 'slices', 'points', 'axes', 'legends']}
                 />
             </div>
         </div>

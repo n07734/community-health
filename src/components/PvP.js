@@ -36,13 +36,17 @@ const prTransformer = (user1 = '', user2 = '') => (left = [], right = [], pullRe
             const line1 = {
                 ...line,
                 label: `${user1} ${line.label}`,
+                lineStyles: {
+                    strokeDasharray: '6, 6',
+                    strokeWidth: 2,
+                },
                 data: user1Prs
             }
 
             const line2 = {
                 ...line,
                 label: `${user2} ${line.label}`,
-                color: `rgba(${colorsRGBValues[line.color]}, 0.5)`,
+                color: `rgba(${colorsRGBValues[line.color]}, 0.6)`,
                 data: user2Prs
             }
             return [
@@ -74,14 +78,14 @@ const prTransformer = (user1 = '', user2 = '') => (left = [], right = [], pullRe
     }
 
     const legends = [
-        ...(1 && left.length > 0
+        ...(left.length > 0
             ? [{
                 ...legendDefaults,
                 data: newLeft,
             }]
             : []
         ),
-        ...(1 && right.length > 0
+        ...(right.length > 0
             ? [{
                 ...legendDefaults,
                 data: newRight,

@@ -115,6 +115,7 @@ const PullRequestCustom = ({
             {
                 graphs
                     .map((graphInfo, i) => {
+                        // TODO: fix legend toggle for custom graphs
                         const [legends =[], data = []] = makeGraphData(graphInfo)
                         return <div className={classes.addedGraph} key={i}>
                             <GraphUi
