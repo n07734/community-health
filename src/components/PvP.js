@@ -1,16 +1,13 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
-import {
-    Select,
-    MenuItem,
-} from '@material-ui/core'
 import { pathOr } from 'ramda'
 
 import { P } from './shared/StyledTags'
 import Button from './shared/Button'
 import Paper from './shared/Paper'
 import Line from './charts/Line'
+import StatBars from './charts/StatBars'
 import ItemsTable from './sections/ItemsTable'
 import { chunkData } from './charts/lineHelpers'
 import PullRequestCustom from './sections/PullRequestCustom'
@@ -100,124 +97,6 @@ const prTransformer = (user1 = '', user2 = '') => (left = [], right = [], pullRe
     return [newLeft, newRight, legends]
 }
 
-const getStats = (userData1 = {}, userData2 = {}) => {
-    const stats = [
-        {
-            title: 'Total Merged',
-            id: 'totalPRs',
-        },
-        {
-            title: 'Total approved',
-            id: 'uniquePRsApproved',
-        },
-        {
-            title: 'Comments given',
-            id: 'commentsGiven',
-        },
-        {
-            title: 'Comments received',
-            id: 'commentsReceived',
-        },
-        // {
-        //     title: 'Total positive sentiment',
-        //     id: 'sentimentTotalPositiveScore',
-        // },
-        // {
-        //     title: 'Total negative sentiment',
-        //     id: 'sentimentTotalNegativeScore',
-        // },
-        {
-            title: 'Average positive sentiment',
-            id: 'sentimentAveragePositiveScore',
-        },
-        {
-            title: 'Average negative sentiment',
-            id: 'sentimentAverageNegativeScore',
-        },
-        {
-            title: 'Average size',
-            id: 'prSize',
-        },
-        {
-            title: 'Total additions',
-            id: 'prTotalAdditions',
-        },
-        {
-            title: 'Total deletions',
-            id: 'prTotalDeletions',
-        },
-        {
-            title: 'Average days open',
-            id: 'age',
-        },
-        {
-            title: 'Orgs contributed to',
-            id: 'orgCount',
-        },
-        {
-            title: 'Repos contributed to',
-            id: 'repoCount',
-        },
-        // repo count
-    ]
-
-    const formattedStats = stats
-        .filter(({ id } = {}) =>
-            Number.isInteger(userData1[id]) && Number.isInteger(userData2[id])
-                && (!['orgCount', 'repoCount'].includes(id)
-                    || (['orgCount', 'repoCount'].includes(id) && userData1[id] !== 1 && userData2[id] !==1)) // don't want these in repo pvp pages
-        )
-        .map((stat = {}) => {
-            const id = stat.id
-            const lValue = userData1[id]
-            const rValue = userData2[id]
-
-            const lColor = colourA
-            const rColor = colourB
-
-            const lPercent = Math.ceil((100 *  lValue) / (lValue + rValue))
-            const rPercent = 100 - lPercent
-
-            return {
-                ...stat,
-                lValue,
-                lColor,
-                lPercent,
-                rValue,
-                rColor,
-                rPercent,
-            }
-        })
-
-    return formattedStats
-}
-
-const SelectUser = (props = {}) => {
-    const {
-        setUser,
-        user = '',
-        color,
-        otherUser,
-        users = [],
-    } = props
-
-    return <Select
-            value={user}
-            style={{
-                color,
-                fontSize: '2rem'
-            }}
-
-            onChange={(e) => setUser(e.target.value)}
-            inputProps={{ 'aria-label': 'Select a user' }}
-        >
-        {
-            users
-                .filter(user => user !== otherUser)
-                .map(user => <MenuItem  key={user} value={user} >{user}</MenuItem>)
-        }
-    </Select>
-}
 
 const getUsers = (users = []) => {
     const quertString = pathOr('', ['location', 'search'], window)
@@ -263,8 +142,6 @@ const PvP = ({
     const userData2 = usersData
         .find(x => x.author === user2) || {}
 
-    const stats = getStats(userData1, userData2)
-
     const mergedPrData = pullRequests
         .filter(({ mergedAt } = {}) => mergedAt)
 
@@ -293,43 +170,13 @@ const PvP = ({
 
                 <P className={classes.copy}>This page is just for fun, a bigger or smaller number could be good, bar or not mean much, it depends on context.</P>
 
-                <div className={classes.title}>
-                    <SelectUser
-                        user={user1}
-                        color={colourA}
-                        otherUser={user2}
-                        setUser={setUser1}
-                        users={users}
-                    />
-                    <SelectUser
-                        user={user2}
-                        color={colourB}
-                        otherUser={user1}
-                        setUser={setUser2}
-                        users={users}
-                    />
-                </div>
-
-                {
-                    stats
-                        .map((stat = {}, i) => <div key={`${stat.id}${i}`} className={classes.pvpWrapper} style={{ width: '100%'}}>
-                            <P>{stat.title}</P>
-                            <div key={stat.id} className={classes.pvpBarWrapper}>
-                                <div className={classes.pvpL} style={{
-                                    width: `${stat.lPercent}%`,
-                                    backgroundColor: `${stat.lColor}`,
-                                }}>
-                                    <P>{stat.lValue}</P>
-                                </div>
-                                <div className={classes.pvpR} style={{
-                                    width: `${stat.rPercent}%`,
-                                    backgroundColor: `${stat.rColor}`,
-                                }}>
-                                    <P>{stat.rValue}</P>
-                                </div>
-                            </div>
-                        </div>)
-                }
+                <StatBars
+                    user1={userData1}
+                    user2={userData2}
+                    setUser1={setUser1}
+                    setUser2={setUser2}
+                    users={users}
+                />
 
                 <P className={classes.copy}>And the winner is.... Both! Thanks for your great work!</P>
                 <PullRequestCustom prTransformer={prTransformer(user1, user2)} />
@@ -454,49 +301,8 @@ const styles = theme => ({
         flexBasis: '100%',
         textAlign: 'center',
     },
-    title: {
-        width: '100%',
-        maxWidth: '1200px',
-        flexWrap: 'nowrap',
-        display: 'flex',
-        justifyContent: 'space-between',
-        marginBottom: '1em'
-    },
     topButton: {
         width: '100%',
-    },
-    pvpWrapper: {
-        position: 'relative',
-        width: '100%',
-        maxWidth: '1200px',
-        marginBottom: '1em',
-        '& > p': {
-            position: 'absolute',
-            width: '100%',
-            top: '8px',
-            textAlign: 'center',
-            margin: '0',
-        }
-    },
-    pvpBarWrapper: {
-        width: '100%',
-        display: 'flex',
-        flexWrap: 'nowrap',
-        alignContent: 'stretch',
-    },
-    pvpL: {
-        textAlign: 'left',
-        padding: '8px',
-        '& p': {
-            margin: 0
-        }
-    },
-    pvpR: {
-        textAlign: 'right',
-        padding: '8px',
-        '& p': {
-            margin: 0
-        }
     },
 })
 
