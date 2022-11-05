@@ -12,8 +12,8 @@ const radialChartsContributions = ({ maxValues = {}, users = [] }, isTeamPage) =
     const keys = [
         'commentsGiven',
         'commentsReceived',
-        'approvalsGiven',
-        'approvalsReceived',
+        'uniquePRsApproved',
+        'totalPRs',
     ]
 
     const topXUsers = isTeamPage
@@ -24,46 +24,45 @@ const radialChartsContributions = ({ maxValues = {}, users = [] }, isTeamPage) =
 
     const items = [
         {
-            area: 'Code comments',
-            given: 'codeCommentsGiven',
-            received: 'codeCommentsReceived',
+            area: 'Comments received',
+            dataKey: 'commentsReceived',
         },
         {
-            area: 'PR comments',
-            given: 'generalCommentsGiven',
-            received: 'generalCommentsReceived',
+            area: 'Comments given',
+            dataKey: 'commentsGiven',
         },
         {
-            area: 'Approvals',
-            given: 'approvalsGiven',
-            received: 'approvalsReceived',
+            area: 'Approved PRs',
+            dataKey: 'uniquePRsApproved',
+        },
+        {
+            area: 'Merged PRs',
+            dataKey: 'totalPRs',
+        },
+        {
+            area: 'PR size',
+            dataKey: 'prSize',
         },
     ]
 
     const radarData = topXUsers
         .map(user => {
             const data = items
-                .map(({ area, given, received}) => {
-                    const givenOriginal = user[given] || 0
-                    const receivedOriginal = user[received] || 0
+                .map(({ area, dataKey }) => {
+                    const originalUser = user[dataKey] || 0
+                    const maxValue = maxValues[dataKey] || 0
 
                     return {
                         area,
-                        given: givenOriginal
-                            ? (givenOriginal / (maxValues[given] || 0)) * 100
-                            : 0,
-                        received: receivedOriginal
-                            ? (receivedOriginal / (maxValues[received] || 0)) * 100
-                            : 0,
-                        givenOriginal,
-                        receivedOriginal,
+                        value: (originalUser / maxValue) * 100,
+                        valueOriginal: originalUser,
                     }
                 })
 
             return {
                 title: user.author,
                 data,
-                keys: ['given', 'received'],
+                keys: ['value'],
             }
         })
 
@@ -75,21 +74,11 @@ const UserTrends = ({
     userIds = [],
 } = {}) => {
     const radarData = formatRadarData(usersData)
-    // const prRadars = radialChartsPRs(radarData)
     const contributionsRadar = radialChartsContributions(radarData, userIds.length > 0)
 
     return contributionsRadar.length > 0 && (
         <Paper>
-            <ChartDescription
-                title={(
-                    <>
-                        <H level={2}>User's contributions</H>
-                        <H level={3}>Comments and approvals, <span style={{ color: '#1f77b4' }}>given</span> and <span style={{ color:'#e82573'}}>received</span></H>
-                    </>
-                )}
-                intro="This section shows how given and received metrics compare for the top contributors."
-            >
-            </ChartDescription>
+            <ChartDescription title="Top contributor's" />
             {
                 contributionsRadar
                     .map((info, i) => <Radar key={i} {...info} />)
