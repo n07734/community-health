@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { H } from '../shared/StyledTags'
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
 import Radar from '../charts/Radar'
