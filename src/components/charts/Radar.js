@@ -21,8 +21,10 @@ const radarSliceTooltip = fullData => ({ index, data }) => {
 const Radar = styledCharts(({
     title = '',
     titleItems = [],
+    showTitle = true,
     data = [],
     keys = [],
+    colors = ['#1f77b4', '#e82573'],
     width = 410,
     height = 300,
     classes,
@@ -31,11 +33,14 @@ const Radar = styledCharts(({
 
     return hasChartData(data)(keys) && (
         <div>
-            <ChartHeading className={classes.centerHeading} items={
-                titleItems.length
-                    ? titleItems
-                    : [{ label: title }]
-            } />
+            {
+                showTitle && <ChartHeading className={classes.centerHeading} items={
+                    titleItems.length
+                        ? titleItems
+                        : [{ label: title }]
+                } />
+            }
+
             <NivoRadar
                 width={width}
                 height={height}
@@ -43,7 +48,7 @@ const Radar = styledCharts(({
                 dotSize={8}
                 dotBorderColor={theme.charts.dotColor}
                 dotBorderWidth={2}
-                colors={['#1f77b4', '#e82573']}
+                colors={colors}
                 gridShape="linear"
                 enableDotLabel={false}
                 gridLabelOffset={10}

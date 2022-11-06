@@ -4,8 +4,13 @@ import { connect } from 'react-redux'
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
 import Radar from '../charts/Radar'
+import Button from '../shared/Button'
 import formatRadarData from '../../format/radarData'
 import { sortByKeys } from '../../utils'
+
+import {
+    setUser as setUserAction,
+} from '../../state/actions'
 
 const radialChartsContributions = ({ maxValues = {}, users = [] }, isTeamPage) => {
     const keys = [
@@ -71,24 +76,55 @@ const radialChartsContributions = ({ maxValues = {}, users = [] }, isTeamPage) =
 const UserTrends = ({
     usersData = [],
     userIds = [],
+    setUser = () => {},
 } = {}) => {
     const radarData = formatRadarData(usersData)
     const contributionsRadar = radialChartsContributions(radarData, userIds.length > 0)
 
     return contributionsRadar.length > 0 && (
         <Paper>
-            <ChartDescription title="Top contributor's" />
+            <ChartDescription title="Top contributors" />
             {
                 contributionsRadar
-                    .map((info, i) => <Radar key={i} {...info} />)
+                    .map((info = {}, i) => <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+                        <Radar
+                            key={i}
+                            showTitle={false}
+                            height={240}
+                            colors={[
+                                (i + 1) % 2 === 0
+                                    ? '#1f77b4'
+                                    : '#e82573'
+                            ]}
+                            {...info}
+                        />
+                    <Button
+                            value={info.title}
+                            key={i}
+                            color={
+                                (i + 1) % 2 === 0
+                                    ? 'secondary'
+                                    : 'primary'
+                            }
+                            onClick={(e) => {
+                                e.preventDefault()
+                                setUser(e.currentTarget.value)
+                                window && window.scrollTo(0, 0)
+                            }}
+                        />
+                        </div>)
             }
         </Paper>
     )
 }
+
+const mapDispatchToProps = dispatch => ({
+    setUser: (x) => dispatch(setUserAction(x)),
+})
 
 const mapStateToProps = (state) => ({
     usersData: state.usersData,
     userIds: state.fetches.userIds,
 })
 
-export default connect(mapStateToProps)(UserTrends)
+export default connect(mapStateToProps, mapDispatchToProps)(UserTrends)

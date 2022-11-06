@@ -152,7 +152,7 @@ const PullRequestCustom = ({
                         />
                 }
                 <Button
-                    value={"Make another graph"}
+                    value={"Add another custom graph"}
                     color="primary"
                     onClick={(event) => {
                         event.preventDefault()

@@ -24,20 +24,20 @@ const formatRadarData = (userData, filterAuthor) => {
         .filter(({
             commentsGiven,
             commentsReceived,
-            approvalsGiven,
-            approvalsReceived,
+            uniquePRsApproved,
+            totalPRs,
         }) => [
             commentsGiven,
             commentsReceived,
-            approvalsGiven,
-            approvalsReceived,
+            uniquePRsApproved,
+            totalPRs,
         ].some(x => x > 1))
 
     const keys = [
         'commentsGiven',
         'commentsReceived',
-        'approvalsGiven',
-        'approvalsReceived',
+        'uniquePRsApproved',
+        'totalPRs',
     ]
 
     const sortedUsers = filteredContributors

@@ -16,11 +16,10 @@ const Page = () => (
                 title={(
                     <H level={1}>Code Community Health</H>
                 )}
-                intro="The aim of this tool is to help teams learn from their contribution trends. Also to see the contribution trends of popular repositories and teams"
+                intro="Coding is a team activity, healthy collaboration produces better code, this tool gives in depth contribution and collaboration metrics for teams to analyze their code health. You can create your own reports for repos and teams from public or enterprise GitHub. I have added reports of some popular repos as an example."
             >
                 <div>
-                    <P>This tool is not a 'lines of code' metric, it contains in depth contribution based metrics meant to help teams find good and bad trends. Also helps show if changes to ways of working have an impact over time. Understanding of the team's way of working is needed to get the full value from this data.</P>
-                    <P>Context is king, data that looks 'good' might be 'bad' and data that looks 'bad' might be 'good'. For example little feedback in PRs may be expected if the team is doing small changes in an established code base or not getting enough feedback working on a greenfield project.</P>
+                    <P>This tool is not a 'lines of code' metric or focused on individual user's metrics, it contains in depth contribution based metrics meant to help teams find good and bad trends. Also helps show if changes to ways of working have an impact over time. Understanding of the team's way of working is needed to get the full value from this data.</P>
                 </div>
             </ChartDescription>
         </Paper>
