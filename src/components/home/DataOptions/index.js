@@ -15,7 +15,10 @@ import Button from '../../shared/Button'
 import PrefetchedOptions from './PrefetchedOptions'
 import FormSection from './FormSection'
 import styles from './styles'
-
+import {
+    onlyShowMyReports,
+    myPreFetchedReports,
+} from '../../../myReports/myReportsConfig'
 const FetchForm = ({ classes, clearReport }) => {
      const [selectedOption, setLocalOption] = useState('oss')
 
@@ -25,12 +28,20 @@ const FetchForm = ({ classes, clearReport }) => {
         setLocalOption(option)
      }
 
+     const ossCopy = myPreFetchedReports.length > 0
+        ? 'Saved and OSS Reports'
+        : 'Popular repos/teams'
+
+     const preFetchedText = onlyShowMyReports
+        ? 'Saved Reports'
+        : ossCopy
+
      return (
         <Paper className={classes.dataPaper} >
             <div className={classes.typeOptions}>
                 {
                     [
-                        ['Popular repos/teams', 'oss'],
+                        [preFetchedText, 'oss'],
                         ['Make repo report', 'repo'],
                         ['Make team report', 'team'],
                     ]

@@ -86,9 +86,8 @@ const UserTrends = ({
             <ChartDescription title="Top contributors" />
             {
                 contributionsRadar
-                    .map((info = {}, i) => <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+                    .map((info = {}, i) => <div key={i} style={{ textAlign: 'center', marginBottom: '2rem' }}>
                         <Radar
-                            key={i}
                             showTitle={false}
                             height={240}
                             colors={[
@@ -98,9 +97,8 @@ const UserTrends = ({
                             ]}
                             {...info}
                         />
-                    <Button
+                        <Button
                             value={info.title}
-                            key={i}
                             color={
                                 (i + 1) % 2 === 0
                                     ? 'secondary'
@@ -112,7 +110,7 @@ const UserTrends = ({
                                 window && window.scrollTo(0, 0)
                             }}
                         />
-                        </div>)
+                    </div>)
             }
         </Paper>
     )
