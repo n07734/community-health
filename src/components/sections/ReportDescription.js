@@ -68,10 +68,10 @@ const ReportDescription = ({
                     </P>
             }
             <P>{pullRequests.length > 0 && `Pull requests: ${pullRequests.length}`}{ issues.length > 0 && `, Issues: ${issues.length}`}{ releaseCount > 0 && `, Releases: ${releaseCount}`}</P>
-           {
-              preFetchedName.length > 0
-                && <PretetchedForm />
-           }
+            {
+                preFetchedName.length > 0
+                    && <PretetchedForm />
+            }
         </Paper>)
 }
 

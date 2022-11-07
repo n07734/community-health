@@ -91,6 +91,28 @@ const PullRequestTrends = ({
                     {
                         lines: [
                             {
+                                label: 'PRs over time',
+                                color: '#1f77b4',
+                                dataKey: 'comments',
+                                groupMath: 'count',
+                            },
+                        ],
+                        xAxis: 'left',
+                        data: pullRequests,
+                    },
+                ]}
+            />
+            <ItemsTable
+                dataKeys={['author']}
+                data={chunkyData}
+            />
+
+            <Line
+                markers={releases}
+                data={[
+                    {
+                        lines: [
+                            {
                                 label: 'Comments',
                                 color: '#1f77b4',
                                 dataKey: 'comments',
