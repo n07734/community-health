@@ -212,7 +212,6 @@ const Line = styledCharts(({
                     {...(
                         formattedMarkers.length
                         && { markers: formattedMarkers }
-
                     )}
                     {...(
                         convertedRightLines.length
