@@ -514,7 +514,12 @@ const parseJSON = response => new Promise((resolve, reject) => {
         })
 })
 
-const getPreFetched = ({ name = '', file = '' }) => async (dispatch) => {
+const getPreFetched = ({
+    name = '',
+    fileName = '',
+    externalURL = '',
+    localData,
+} = {}) => async (dispatch) => {
     clearData(dispatch)
     dispatch({
         type: types.CLEAR_PRE_FETCH_ERROR,
@@ -525,11 +530,15 @@ const getPreFetched = ({ name = '', file = '' }) => async (dispatch) => {
         payload: { savedReportName: name }
     })
 
+    const fetchLink = externalURL
+        ? `${externalURL}${fileName}.json`
+        : `https://n07734.github.io/community-health/data/${fileName}.json`
+
     try {
-        const reportData = await fetch(`https://n07734.github.io/community-health/data/${file}.json`)
-            .then(parseJSON)
-        // For local dev
-        // const reportData = require(`./${file}.json`)
+        const reportData = localData
+            ? localData
+            : await fetch(fetchLink)
+                .then(parseJSON)
 
         setPreFetchedData(reportData, dispatch)
 
@@ -537,8 +546,8 @@ const getPreFetched = ({ name = '', file = '' }) => async (dispatch) => {
         console.log('-=-=--api data error', error, error.status)
 
         const message = error.status !== 200
-            ? `Error status code ${error.status} loading ${file}`
-            : `${error.message} loading ${file}`
+            ? `Error status code ${error.status} loading ${fileName}`
+            : `${error.message} loading ${fileName}`
 
         dispatch({
             type: types.PRE_FETCH_ERROR,
@@ -561,6 +570,7 @@ const getDownloadProps = (dispatch, getState) => {
         : `${path(['fetches', 'org'], state)}-${repo}`
 
     const getReportData = pipe(
+        assoc('HOW_TO', '1: Add this file to ./src/myReports. 2: Update ./src/myReports/myReportsConfig.js.'),
         pickAll(['fetches', 'pullRequests', 'filteredPRs', 'userData', 'issues', 'filteredIssues', 'releases', 'teamName']),
         dissocPath(['fetches', 'token']),
         dissocPath(['fetches', 'amountOfData']),

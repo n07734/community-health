@@ -1,94 +1,94 @@
 const preFetchedRepos = [
     {
         name: 'React',
-        file: 'facebook-react',
+        fileName: 'facebook-react',
     },
     {
         name: 'Vite',
-        file: 'vitejs-vite',
+        fileName: 'vitejs-vite',
     },
     {
         name: 'Typescript',
-        file: 'microsoft-typescript'
+        fileName: 'microsoft-typescript'
     },
     {
         name: 'Typescript 10th anniversary',
-        file: 'microsoft-typescript-10'
+        fileName: 'microsoft-typescript-10'
     },
     {
         name: 'Jest',
-        file: 'facebook-jest',
+        fileName: 'facebook-jest',
     },
     {
         name: 'Vitest',
-        file: 'vitest-dev-vitest',
+        fileName: 'vitest-dev-vitest',
     },
     {
         name: 'Prettier',
-        file: 'prettier-prettier',
+        fileName: 'prettier-prettier',
     },
     {
         name: 'Cypress',
-        file: 'cypress-io-cypress',
+        fileName: 'cypress-io-cypress',
     },
     {
         name: 'Playwright',
-        file: 'microsoft-playwright',
+        fileName: 'microsoft-playwright',
     },
     {
         name: 'React Testing Library',
-        file: 'testing-library-react-testing-library',
+        fileName: 'testing-library-react-testing-library',
     },
     {
         name: 'vscode',
-        file: 'microsoft-vscode',
+        fileName: 'microsoft-vscode',
     },
     {
         name: 'Material',
-        file: 'mui-org-material',
+        fileName: 'mui-org-material',
     },
     {
         name: 'Remix',
-        file: 'remix-run-remix',
+        fileName: 'remix-run-remix',
     },
     {
         name: 'Node',
-        file: 'nodejs-node',
+        fileName: 'nodejs-node',
     },
     {
         name: 'Deno',
-        file: 'denoland-deno',
+        fileName: 'denoland-deno',
     },
     {
         name: 'Swift',
-        file: 'apple-swift',
+        fileName: 'apple-swift',
     },
     {
         name: 'Kotlin',
-        file: 'JetBrains-Kotlin',
+        fileName: 'JetBrains-Kotlin',
     },
     {
         name: 'Babel',
-        file: 'babel-babel',
+        fileName: 'babel-babel',
     },
 ]
 
 const preFetchedTeams = [
     {
         name: 'ReactCore',
-        file: 'ReactCore',
+        fileName: 'ReactCore',
     },
     {
         name: 'ViteCore',
-        file: 'ViteCore',
+        fileName: 'ViteCore',
     },
     {
         name: 'SvelteCore',
-        file: 'SvelteCore',
+        fileName: 'SvelteCore',
     },
     {
         name: 'TypeScriptCore',
-        file: 'TypeScriptCore',
+        fileName: 'TypeScriptCore',
     },
 ]
 
