@@ -50,9 +50,6 @@ const DateRange = ({
         trim(leftDate, rightDate)
     }
 
-    console.log('-=-=--leftDate', leftDate)
-    console.log('-=-=--rightDate', rightDate)
-
     return pullRequests.length > 0 && leftDate && <>
             <P className={classes.title}>Show Pull requests in this date range</P>
             <div className={classes.dates}>
