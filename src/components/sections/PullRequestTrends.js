@@ -93,7 +93,7 @@ const PullRequestTrends = ({
                             {
                                 label: 'PRs over time',
                                 color: '#1f77b4',
-                                dataKey: 'comments',
+                                dataKey: 'url',
                                 groupMath: 'count',
                             },
                         ],

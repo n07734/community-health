@@ -49,12 +49,12 @@ const TeamTrends = ({
                     {
                         dataKey: 'commentsGiven',
                         color: '#1f77b4',
-                        label: 'given*',
+                        label: 'given',
                     },
                     {
                         dataKey: 'commentsReceived',
                         color: '#e82573',
-                        label: 'received',
+                        label: '*received',
                     },
                 ]}
             />
@@ -68,7 +68,7 @@ const TeamTrends = ({
                     {
                         dataKey: 'uniquePRsApproved',
                         color: '#1f77b4',
-                        label: 'approved*',
+                        label: 'approved',
                     },
                     {
                         dataKey: 'totalPRs',
@@ -77,7 +77,7 @@ const TeamTrends = ({
                     },
                 ]}
             />
-            <P>*Given comments and approvals are taken from the PRs in the dataset, i.e. not all comments/approvals that user has many given over the same time period.</P>
+            <P>*Received comments may be higher than given as those contributions can come from users not in this list</P>
         </Paper>
     )
 }

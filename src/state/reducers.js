@@ -71,6 +71,20 @@ const reducers = combineReducers({
         action.type === types.CLEAR_PRS && [],
         prs,
     ].find(Boolean),
+    itemsDateRange: (dates = ['',''], action) => [
+        action.type === types.ADD_ITEMS_DATE_RANGE
+            && action.payload,
+        action.type === types.CLEAR_ITEMS_DATE_RANGE && ['',''],
+        dates,
+    ].find(Boolean),
+    // trimmedItems are PRs and issues temporarily moved out of their main state when the user is changing the date slider
+    trimmedItems: (items = {}, action) => [
+        action.type === types.ADD_TRIMMED_ITEMS
+            && action.payload,
+        action.type === types.CLEAR_TRIMMED_ITEMS && {},
+        items,
+    ].find(Boolean),
+    // filteredPRs are PRs outside of the date range of the new report data request
     filteredPRs: (filteredPRs = [], action) => [
         action.type === types.ADD_FILTERED_PRS
             && action.payload,
@@ -97,9 +111,15 @@ const reducers = combineReducers({
     ].find(Boolean),
     releases: (releases = [], action) => [
         action.type === types.ADD_RELEASES
-            && releases.concat(action.payload),
+            && action.payload,
         action.type === types.CLEAR_RELEASES && [],
         releases,
+    ].find(Boolean),
+    filteredReleases: (filteredReleases = [], action) => [
+        action.type === types.ADD_FILTERED_RELEASES
+            && action.payload,
+        action.type === types.CLEAR_FILTERED_RELEASES && [],
+        filteredReleases,
     ].find(Boolean),
     themeType: (themeType = 'dark', action) =>
         action.type === types.TOGGLE_THEME

@@ -2,11 +2,23 @@ const onlyShowMyReports = false
 const myPreFetchedReports = [
     // {
     //     name: 'REPORT_NAME',
-    //     file: 'REPORT_FILE_NAME',
-    //     localData: require('/REPORT_FILE_NAME.json'), // Use this if the report is from a local file
+    //     fileName: 'REPORT_FILE_NAME',
+    //     localData: require('./REPORT_FILE_NAME.json'), // Use this if the report is from a local file
     //     externalURL: 'https://THING.github.io/PATH/', // Or use this if you host the report file via a website eg GitHub pages
     // },
 ]
+
+try {
+    // If user adds myReport1 to this dir they will see the report when running the app
+    const myReport = {
+        name: 'My Report 1',
+        fileName: 'myReport1',
+        localData: require('./myReport1.json')
+    }
+    myPreFetchedReports.push(myReport)
+} catch (error) {
+    // Expected as they may not have added a myReport1.json file
+}
 
 export {
     onlyShowMyReports,

@@ -6,6 +6,7 @@ import { always, cond, T, propSatisfies, where } from 'ramda'
 import { H, P } from '../shared/StyledTags'
 import Paper from '../shared/Paper'
 import PretetchedForm from '../home/DataOptions/PretetchedForm'
+import DateRange from './DateRange'
 
 const RepoOrgCopy = ({ repo, org } = {}) => org === repo
     ? (<span style={{ color: '#e82573' }}>{repo}</span>)
@@ -40,13 +41,10 @@ const ReportDescription = ({
     preFetchedName = '',
     pullRequests = [],
     issues = [],
-    releases = [],
     userIds = [],
     reportDescription = '',
     classes
 } = {}) => {
-    const releaseCount = releases.length
-
     const hasReportData = pullRequests.length > 0 || issues.length > 0
 
     return hasReportData && (<Paper className={classes.root}>
@@ -67,7 +65,7 @@ const ReportDescription = ({
                         }
                     </P>
             }
-            <P>{pullRequests.length > 0 && `Pull requests: ${pullRequests.length}`}{ issues.length > 0 && `, Issues: ${issues.length}`}{ releaseCount > 0 && `, Releases: ${releaseCount}`}</P>
+            <DateRange />
             {
                 preFetchedName.length > 0
                     && <PretetchedForm />
@@ -80,7 +78,6 @@ const mapStateToProps = (state) => ({
     preFetchedName: state.preFetchedName,
     pullRequests: state.pullRequests,
     issues: state.issues,
-    releases: state.releases,
     userIds: state.fetches.userIds,
     reportDescription: state.reportDescription,
 })

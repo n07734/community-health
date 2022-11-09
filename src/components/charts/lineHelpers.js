@@ -189,7 +189,9 @@ const chunkData = (data = []) => {
             const prDate = new Date(itemData.mergedAt)
 
             const daysFromStart = differenceInDays(prDate,startDate)
-            const prsChunkNumber = Math.ceil(daysFromStart/daysPerChunk)
+            const prsChunkNumber = daysPerChunk > 0
+                ? Math.ceil(daysFromStart/daysPerChunk)
+                : 1
 
             prsChunkNumber <= 10 && (prsChunkNumber > chunkCount || chunkCount < 1)
                 ? chunkyData.push([itemData])

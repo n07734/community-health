@@ -188,15 +188,24 @@ const prData = (exclude = []) => (data = {}) => {
 
     return prInfo
 }
-
-const dateSort = (sortDirection) => ({ mergedAt: a }, { mergedAt: b }) => sortDirection === 'DESC'
+const dateSort = (dateKey = '', sortDirection) => ({ [dateKey]: a }, { [dateKey]: b }) => sortDirection === 'DESC'
     ? new Date(a).getTime() > new Date(b).getTime()
     : new Date(a).getTime() - new Date(b).getTime()
+
+const formatPullRequests = ({ excludeIds = [] } = {}, results = []) => {
+    const pullRequests = compose(
+        map(prData(excludeIds)),
+        flatten,
+        map(pathOr([], ['data', 'result', 'pullRequests', 'edges'])),
+    )(results)
+
+    return pullRequests
+}
 
 const filterSortPullRequests = ({ excludeIds = [], sortDirection }, untilDate, allPullRequests = []) => {
     const filteredPRs = []
     const remainingPRs = compose(
-        sort(dateSort('ASC')),
+        sort(dateSort('mergedAt', 'ASC')),
         filter(item => {
             const author = propOr('', 'author', item)
             const hasExcludedAuthor = any(y => y === author, ['GIT_APP_PR', ...excludeIds])
@@ -211,22 +220,12 @@ const filterSortPullRequests = ({ excludeIds = [], sortDirection }, untilDate, a
     return [remainingPRs, filteredPRs]
 }
 
-const formatPullRequests = ({ excludeIds = [] } = {}, results = []) => {
-    const pullRequests = compose(
-        map(prData(excludeIds)),
-        flatten,
-        map(pathOr([], ['data', 'result', 'pullRequests', 'edges'])),
-    )(results)
-
-    return pullRequests
-}
-
-const filterSortIssues = ({ sortDirection }, untilDate, allIssues = []) => {
+const filterSortItems = (dateKey = '') => ({ sortDirection }, untilDate, allIssues = []) => {
     const filteredIssues = []
     const remainingIssues = compose(
-        sort(dateSort('ASC')),
+        sort(dateSort(dateKey, 'ASC')),
         filter(item => {
-            const keepItem = filterByUntilDate(['mergedAt'], sortDirection, untilDate)(item)
+            const keepItem = filterByUntilDate([dateKey], sortDirection, untilDate)(item)
 
             !keepItem && filteredIssues.push(item)
             return keepItem
@@ -235,6 +234,10 @@ const filterSortIssues = ({ sortDirection }, untilDate, allIssues = []) => {
 
     return [remainingIssues, filteredIssues]
 }
+
+const filterSortIssues = filterSortItems('mergedAt')
+
+const filterSortReleases = filterSortItems('date')
 
 const formatIssue = (data) => {
     const createdAt = pathOr('', ['node', 'createdAt'], data)
@@ -277,5 +280,6 @@ export {
     filterSortPullRequests,
     formatIssues,
     filterSortIssues,
+    filterSortReleases,
     formatReleases,
 }

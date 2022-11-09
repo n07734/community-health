@@ -17,6 +17,8 @@ import {
     toPairs,
     values,
 } from 'ramda'
+import { isAfter, isBefore } from 'date-fns'
+
 import api from '../api/api'
 import getUsersData from '../api/getUsersData'
 import getUntilDate from '../api/getUntilDate'
@@ -26,6 +28,7 @@ import {
     formatIssues,
     filterSortIssues,
     formatReleases,
+    filterSortReleases,
 } from '../format/rawData'
 import { slimObject } from '../format/lightenData'
 import { batchedQuery } from '../api/queries'
@@ -112,7 +115,7 @@ const storeAmountOfData = (amountOfData = '') => (dispatch) => dispatch({
 
 const storeFormUntilDate = (amountOfData = '') => (dispatch, getState) => {
     const {
-        fetches  = {},
+        fetches = {},
         pullRequests = [],
     } = getState();
 
@@ -178,8 +181,10 @@ const clearData = (dispatch) => {
     dispatch({ type: types.CLEAR_REPO })
     dispatch({ type: types.CLEAR_USER })
     dispatch({ type: types.CLEAR_PVP })
+    dispatch({ type: types.CLEAR_TRIMMED_ITEMS })
     dispatch({ type: types.CLEAR_PRS })
     dispatch({ type: types.CLEAR_FILTERED_PRS })
+    dispatch({ type: types.CLEAR_ITEMS_DATE_RANGE })
     dispatch({ type: types.CLEAR_PR_PAGINATION })
     dispatch({ type: types.CLEAR_PREFETCHED_NAME })
     dispatch({ type: types.CLEAR_DESC })
@@ -225,7 +230,7 @@ const getErrorMessage = state => {
     const missing = [
         noUserIds && !org && 'Organization',
         noUserIds && !repo && 'Repository',
-        !token &&'GitHib token',
+        !token && 'GitHib token',
         !org && !repo && noUserIds && 'GitHub Ids',
     ]
         .filter(Boolean)
@@ -286,6 +291,109 @@ const validateRequest = state => {
     }
 }
 
+const trimmer = (dateFrom = '', dateTo = '') => (dateKey = 'mergedAt', items = []) => {
+    const newTrimmedLeft = []
+    const keptItems = []
+    const newTrimmedRight = []
+
+    const trimmer = (items = []) => items
+        .forEach((item = {}) => {
+            const itemsDate = new Date(item[dateKey])
+            if (isBefore(itemsDate, new Date(dateFrom))) {
+                newTrimmedLeft.push(item)
+            } else if (isAfter(itemsDate, new Date(dateTo))) {
+                newTrimmedRight.unshift(item)
+            } else {
+                keptItems.push(item)
+            }
+        })
+
+    // There can be a lot of prs so don't think ...[] would be a good idea for this
+    items
+        .forEach(trimmer)
+
+    return [
+        newTrimmedLeft,
+        keptItems,
+        newTrimmedRight,
+    ]
+}
+
+const trimItems = (dateFrom = '', dateTo = '') => async (dispatch, getState) => {
+    const {
+        trimmedItems: {
+            trimmedPRs : {
+                trimmedLeftPrs = [],
+                trimmedRightPrs = [],
+            } = {},
+            trimmedReleases: {
+                trimmedLeftReleases = [],
+                trimmedRightReleases = [],
+            } = {}
+        } = {},
+        pullRequests = [],
+        releases = [],
+    } = getState();
+
+    const itemsTrimmer = trimmer(dateFrom, dateTo)
+
+    const allPrs = [
+        trimmedLeftPrs,
+        pullRequests,
+        trimmedRightPrs,
+    ]
+    const [
+        newTrimmedLeftPrs,
+        keptPrs,
+        newTrimmedRightPrs,
+    ] = itemsTrimmer('mergedAt', allPrs)
+
+    dispatch({
+        type: types.ADD_PRS,
+        payload: keptPrs,
+    })
+
+    const allReleases = [
+        trimmedLeftReleases,
+        releases,
+        trimmedRightReleases,
+    ]
+    const [
+        newTrimmedLeftReleases,
+        keptReleases,
+        newTrimmedRightReleases,
+    ] = itemsTrimmer('date', allReleases)
+
+    dispatch({
+        type: types.ADD_RELEASES,
+        payload: keptReleases,
+    })
+
+    dispatch({
+        type: types.ADD_TRIMMED_ITEMS,
+        payload: {
+            trimmedPRs: {
+                trimmedLeftPrs: newTrimmedLeftPrs,
+                trimmedRightPrs: newTrimmedRightPrs,
+            },
+            trimmedReleases: {
+                trimmedLeftReleases: newTrimmedLeftReleases,
+                trimmedRightReleases: newTrimmedRightReleases,
+            },
+        },
+    })
+}
+
+const getStartEndDates = (prs = []) => {
+    const { mergedAt: prStartDate = '' } = prs.at(0) || {}
+    const { mergedAt: prEndDate = '' } = prs.at(-1) || {}
+
+    return [
+        prStartDate,
+        prEndDate,
+    ]
+}
+
 const getAPIData = () => async (dispatch, getState) => {
     const state = getState();
 
@@ -312,6 +420,7 @@ const getAPIData = () => async (dispatch, getState) => {
             filteredIssues = [],
             formUntilDate = '',
             releases = [],
+            filteredReleases = [],
         } = getState();
         const userIds = propOr([], 'userIds', fetches)
 
@@ -324,40 +433,47 @@ const getAPIData = () => async (dispatch, getState) => {
         const newPullrequests = formatPullRequests(fetches, results)
         // Get all prs together so then can be cleanly filtered and sorted
         const allPullrequests = pullRequests.concat(filteredPRs).concat(newPullrequests)
-        const [newRemainingPRs, newFilteredPRs] = filterSortPullRequests(fetches, untilDate, allPullrequests)
-
-        const newReleases = formatReleases(results)
-        const allReleases = formatReleaseData([
-            ...releases,
-            ...newReleases,
-        ])
-
-        const newIssues = formatIssues(results)
-        const allIssues = issues.concat(filteredIssues).concat(newIssues)
-        const [newRemainingIssues, newFilteredIssues] = filterSortIssues(fetches, untilDate, allIssues)
-
+        const [includedPRs, newFilteredPRs] = filterSortPullRequests(fetches, untilDate, allPullrequests)
         dispatch({
             type: types.ADD_PRS,
-            payload: newRemainingPRs,
+            payload: includedPRs,
         })
-
         dispatch({
             type: types.ADD_FILTERED_PRS,
             payload: newFilteredPRs,
         })
 
+        const dates = getStartEndDates(includedPRs)
+        dispatch({
+            type: types.ADD_ITEMS_DATE_RANGE,
+            payload: dates,
+        })
+
         dispatch(updateUsersData)
 
+        const newReleases = formatReleases(results)
+        const allReleases = formatReleaseData([
+            ...filteredReleases,
+            ...releases,
+            ...newReleases,
+        ])
+        const [includesReleases, newFilteredReleases] = filterSortReleases(fetches, untilDate, allReleases)
         dispatch({
             type: types.ADD_RELEASES,
-            payload: allReleases,
+            payload: includesReleases,
+        })
+        dispatch({
+            type: types.ADD_FILTERED_RELEASES,
+            payload: newFilteredReleases,
         })
 
+        const newIssues = formatIssues(results)
+        const allIssues = issues.concat(filteredIssues).concat(newIssues)
+        const [includedIssues, newFilteredIssues] = filterSortIssues(fetches, untilDate, allIssues)
         dispatch({
             type: types.ADD_ISSUES,
-            payload: newRemainingIssues,
+            payload: includedIssues,
         })
-
         dispatch({
             type: types.ADD_FILTERED_ISSUES,
             payload: newFilteredIssues,
@@ -419,7 +535,7 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
         preFetchedName = '',
         reportDescription = '',
         pullRequests = [],
-        usersData= [],
+        usersData = [],
         issues = [],
         releases = [],
     } = repoData
@@ -474,10 +590,17 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
         payload: excludeIds,
     })
 
+    const dates = getStartEndDates(pullRequests, issues)
+    dispatch({
+        type: types.ADD_ITEMS_DATE_RANGE,
+        payload: dates,
+    })
+
     dispatch({
         type: types.ADD_PRS,
         payload: pullRequests,
     })
+
     dispatch({
         type: types.ADD_USERS_DATA,
         payload: usersData.length
@@ -565,12 +688,12 @@ const getDownloadProps = (dispatch, getState) => {
 
     const repo = path(['fetches', 'repo'], state)
     const teamName = path(['fetches', 'teamName'], state)
-    const fileName = teamName
+    const name = teamName
         ? teamName
         : `${path(['fetches', 'org'], state)}-${repo}`
 
     const getReportData = pipe(
-        assoc('HOW_TO', '1: Add this file to ./src/myReports. 2: Update ./src/myReports/myReportsConfig.js.'),
+        assoc('HOW_TO', '1: Add this file to ./src/myReports 2: Run the app. If you want multiple reports you will need to edit ./src/myReports/myReportsConfig.js.'),
         pickAll(['fetches', 'pullRequests', 'filteredPRs', 'userData', 'issues', 'filteredIssues', 'releases', 'teamName']),
         dissocPath(['fetches', 'token']),
         dissocPath(['fetches', 'amountOfData']),
@@ -578,18 +701,18 @@ const getDownloadProps = (dispatch, getState) => {
         dissocPath(['fetches', 'prPagination', 'hasNextPage']),
         dissocPath(['fetches', 'issuesPagination', 'hasNextPage']),
         dissocPath(['fetches', 'releasesPagination', 'hasNextPage']),
-        assoc('preFetchedName', fileName),
+        assoc('preFetchedName', name),
         slimObject
     )
 
     const reportData = getReportData(state)
     const json = JSON.stringify(reportData, null, 2)
     const blob = new Blob([json], { type: "application/json" })
-    const href  = URL.createObjectURL(blob)
+    const href = URL.createObjectURL(blob)
 
     return {
         href,
-        download: `${fileName}.json`,
+        download: 'myReport1.json',
     }
 }
 
@@ -626,4 +749,5 @@ export {
     toggleTheme,
     getDownloadProps,
     checkUntilDate,
+    trimItems,
 }

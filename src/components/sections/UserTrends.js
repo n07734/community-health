@@ -81,9 +81,13 @@ const UserTrends = ({
     const radarData = formatRadarData(usersData)
     const contributionsRadar = radialChartsContributions(radarData, userIds.length > 0)
 
+    const title = userIds.length > 0
+        ? 'Team members'
+        : 'Top contributors'
+
     return contributionsRadar.length > 0 && (
         <Paper>
-            <ChartDescription title="Top contributors" />
+            <ChartDescription title={title} />
             {
                 contributionsRadar
                     .map((info = {}, i) => <div key={i} style={{ textAlign: 'center', marginBottom: '2rem' }}>
