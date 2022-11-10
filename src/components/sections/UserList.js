@@ -6,7 +6,6 @@ import Paper from '../shared/Paper'
 import Button from '../shared/Button'
 import { H } from '../shared/StyledTags'
 
-
 import {
     setUser as setUserAction,
     setPvP as setPvPAction,

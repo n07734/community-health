@@ -117,7 +117,7 @@ const StatBars = ({
             const lColor = colourA
             const rColor = colourB
 
-            const lPercent = Math.ceil((100 *  lValue) / (lValue + rValue))
+            const lPercent = Math.ciel((100 *  lValue) / (lValue + rValue))
             const rPercent = 100 - lPercent
 
             return {
@@ -195,6 +195,7 @@ const styles = theme => ({
         maxWidth: '1200px',
         marginBottom: '1em',
         '& > p': {
+            zIndex: 1,
             position: 'absolute',
             width: '100%',
             top: '8px',
@@ -209,17 +210,27 @@ const styles = theme => ({
         alignContent: 'stretch',
     },
     pvpL: {
+        position: 'relative',
         textAlign: 'left',
-        padding: '8px',
+        height: '2.2rem',
         '& p': {
-            margin: 0
+            zIndex: 1,
+            margin: 0,
+            position: 'absolute',
+            top: '8px',
+            left: '8px'
         }
     },
     pvpR: {
+        position: 'relative',
         textAlign: 'right',
-        padding: '8px',
+        height: '2.2rem',
         '& p': {
-            margin: 0
+            zIndex: 1,
+            margin: 0,
+            position: 'absolute',
+            top: '8px',
+            right: '8px'
         }
     },
 })

@@ -182,7 +182,7 @@ const ItemsTable = ({
             }
         </div>
         {
-            showTable && <DataGrid
+            (data[dataIndex] || []).length > 0 && showTable && <DataGrid
                 rows={data[dataIndex]}
                 columns={makeColumns(dataKeys)}
                 pageSize={5}

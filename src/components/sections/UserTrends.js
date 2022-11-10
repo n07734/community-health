@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { withStyles } from '@material-ui/core/styles'
 
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
@@ -10,6 +11,7 @@ import { sortByKeys } from '../../utils'
 
 import {
     setUser as setUserAction,
+    setPvP as setPvPAction,
 } from '../../state/actions'
 
 const radialChartsContributions = ({ maxValues = {}, users = [] }, isTeamPage) => {
@@ -40,7 +42,7 @@ const radialChartsContributions = ({ maxValues = {}, users = [] }, isTeamPage) =
             dataKey: 'uniquePRsApproved',
         },
         {
-            area: 'Merged PRs',
+            area: 'PR count',
             dataKey: 'totalPRs',
         },
         {
@@ -76,12 +78,15 @@ const radialChartsContributions = ({ maxValues = {}, users = [] }, isTeamPage) =
 const UserTrends = ({
     usersData = [],
     userIds = [],
+    classes = {},
     setUser = () => {},
+    setPvP = () => {},
 } = {}) => {
     const radarData = formatRadarData(usersData)
     const contributionsRadar = radialChartsContributions(radarData, userIds.length > 0)
 
-    const title = userIds.length > 0
+    const isTeamReport = userIds.length > 0
+    const title = isTeamReport
         ? 'Team members'
         : 'Top contributors'
 
@@ -116,12 +121,25 @@ const UserTrends = ({
                         />
                     </div>)
             }
+            {
+                isTeamReport && <Button
+                    className={classes.fullW}
+                    value="PvP arena"
+                    color="primary"
+                    onClick={(e) => {
+                        e.preventDefault()
+                        setPvP()
+                        window && window.scrollTo(0, 0)
+                    }}
+                />
+            }
         </Paper>
     )
 }
 
 const mapDispatchToProps = dispatch => ({
     setUser: (x) => dispatch(setUserAction(x)),
+    setPvP: (x) => dispatch(setPvPAction(x)),
 })
 
 const mapStateToProps = (state) => ({
@@ -129,4 +147,10 @@ const mapStateToProps = (state) => ({
     userIds: state.fetches.userIds,
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserTrends)
+const styles = theme => ({
+    'fullW': {
+        width: '100%',
+    },
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(UserTrends))

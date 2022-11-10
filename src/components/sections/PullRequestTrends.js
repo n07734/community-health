@@ -74,7 +74,7 @@ const PullRequestTrends = ({
             {
                 isTeamPage && <>
                     <Line
-                        title="Merged PRs by author"
+                        title="PRs by author"
                         markers={releases}
                         showLegends={true}
                         data={byAuthorData}

@@ -137,45 +137,43 @@ const UserView = ({
     const [userData, averagedData] = usersAverageData(usersData, user)
 
     return (
-        <>
-            <Paper>
-                <Button
-                    className={classes.fill}
-                    variant="outlined"
-                    size="small"
-                    value="Back to main view"
-                    color="secondary"
-                    onClick={(e) => {
-                        e.preventDefault()
-                        removeUser()
-                        window && window.scrollTo(0, 0)
-                    }} />
+        <Paper>
+            <Button
+                className={classes.fill}
+                variant="outlined"
+                size="small"
+                value="Back to main view"
+                color="secondary"
+                onClick={(e) => {
+                    e.preventDefault()
+                    removeUser()
+                    window && window.scrollTo(0, 0)
+                }} />
 
-                <P>A collection metrics showing {user}'s data and average data from the top {averagedData.userCount} peers</P>
+            <P className={classes.copy}>A collection metrics showing {user}'s data and average data from the top {averagedData.userCount} peers</P>
 
-                <StatBars user1={userData} user2={averagedData} />
-                {
-                    graphs.length
-                        && graphs
-                            .map(([itemsInfo, lineInfo], i) => <>
-                                <Line key={i} {...lineInfo} />
-                                <ItemsTable key={i + graphs.length} {...itemsInfo} />
-                            </>)
-                }
+            <StatBars user1={userData} user2={averagedData} />
+            {
+                graphs.length
+                    && graphs
+                        .map(([itemsInfo, lineInfo], i) => <>
+                            <Line key={i} {...lineInfo} />
+                            <ItemsTable key={i + graphs.length} {...itemsInfo} />
+                        </>)
+            }
 
-                <Button
-                    className={classes.fill}
-                    variant="outlined"
-                    size="small"
-                    value="Back to main view"
-                    color="secondary"
-                    onClick={(e) => {
-                        e.preventDefault()
-                        removeUser()
-                        window && window.scrollTo(0, 0)
-                    }} />
-            </Paper>
-        </>
+            <Button
+                className={classes.fill}
+                variant="outlined"
+                size="small"
+                value="Back to main view"
+                color="secondary"
+                onClick={(e) => {
+                    e.preventDefault()
+                    removeUser()
+                    window && window.scrollTo(0, 0)
+                }} />
+        </Paper>
     )
 }
 
@@ -199,6 +197,10 @@ const styles = theme => ({
     },
     fill: {
         flexBasis: '100%',
+    },
+    copy: {
+        flexBasis: '100%',
+        textAlign: 'center',
     },
     topButton: {
         marginLeft: theme.mySpacing.y.large,
