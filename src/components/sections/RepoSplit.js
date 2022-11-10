@@ -1,5 +1,5 @@
 import React from 'react'
-import { includes, splitAt } from 'ramda'
+import { splitAt } from 'ramda'
 import { useTheme } from '@material-ui/core/styles';
 
 import ChartDescription from '../shared/ChartDescription'

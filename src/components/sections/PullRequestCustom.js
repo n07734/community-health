@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
 
-
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
 import { P } from '../shared/StyledTags'
@@ -10,7 +9,6 @@ import Button from '../shared/Button'
 import Line from '../charts/Line'
 import GraphUi from '../charts/GraphUi'
 import ItemsTable from './ItemsTable'
-import { chunkData } from '../charts/lineHelpers'
 
 const formatGraphData = (pullRequests = [], prTransformer) => (data = {}) => {
     const {

@@ -11,18 +11,14 @@ import ChartDescription from '../shared/ChartDescription'
 import { P } from '../shared/StyledTags'
 import ItemsTable from './ItemsTable'
 
-import { chunkData } from '../charts/lineHelpers'
-
-
 const Sentiment = ({
+    chunkyData = [],
     pullRequests = [],
     releases = [],
     userIds = [],
     classes = {}
 } = {}) => {
     const theme = useTheme();
-
-    const chunkyData = chunkData(pullRequests)
 
     const lines = userIds
         .map((userId, i) => ([
@@ -151,7 +147,6 @@ const Sentiment = ({
 }
 
 const mapStateToProps = (state) => ({
-    pullRequests: state.pullRequests,
     releases: state.releases,
     userIds: state.fetches.userIds,
 })

@@ -8,7 +8,6 @@ import { P } from '../shared/StyledTags'
 import { colors } from '../colors'
 import Line from '../charts/Line'
 import ItemsTable from './ItemsTable'
-import { chunkData } from '../charts/lineHelpers'
 
 const getByAuthorData = (pullRequests = []) => {
     const authorsPrs = {}
@@ -47,6 +46,7 @@ const getByAuthorData = (pullRequests = []) => {
 }
 
 const PullRequestTrends = ({
+    chunkyData = [],
     pullRequests = [],
     releases = [],
     userIds = [],
@@ -57,8 +57,6 @@ const PullRequestTrends = ({
     const byAuthorData = isTeamPage
         ? getByAuthorData(pullRequests)
         : []
-
-    const chunkyData = chunkData(pullRequests)
 
     return pullRequests.length > 0 && (
         <Paper>

@@ -22,7 +22,9 @@ const Team = ({ pullRequests = [] } = {}) => {
             return {
                 ...prData,
                 [`repo-${prData.repo}`]: 1,
-                commentSentimentTotalScore: (prData.commentSentimentScore || 0) + (prData.commentAuthorSentimentScore || 0)
+                commentSentimentTotalScore: (prData.commentSentimentScore || 0) + (prData.commentAuthorSentimentScore || 0),
+                [`${prData.author}-commentsSentimentScore`]: prData.commentSentimentScore,
+                [`${prData.author}-commentAuthorSentimentScore`]: prData.commentAuthorSentimentScore,
             }
         })
 
@@ -35,7 +37,10 @@ const Team = ({ pullRequests = [] } = {}) => {
             pullRequests={updatedPullRequests}
             chunkyData={chunkyData}
         />
-        <Sentiment chunkyData={chunkyData} />
+        <Sentiment
+            pullRequests={updatedPullRequests}
+            chunkyData={chunkyData}
+        />
         <RepoSplit
             pullRequests={updatedPullRequests}
             chunkyData={chunkyData}

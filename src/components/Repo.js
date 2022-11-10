@@ -13,9 +13,11 @@ import { chunkData } from './charts/lineHelpers'
 
 const RepoView = ({ pullRequests = [] } = {}) => {
     const updatedPullRequests = pullRequests
-        .map((pr = {}) => ({
-            ...pr,
-            commentSentimentTotalScore: (pr.commentSentimentScore || 0) + (pr.commentAuthorSentimentScore || 0)
+        .map((prData = {}) => ({
+            ...prData,
+            commentSentimentTotalScore: (prData.commentSentimentScore || 0) + (prData.commentAuthorSentimentScore || 0),
+            [`${prData.author}-commentsSentimentScore`]: prData.commentSentimentScore,
+            [`${prData.author}-commentAuthorSentimentScore`]: prData.commentAuthorSentimentScore,
         }))
 
     const chunkyData = chunkData(updatedPullRequests)
@@ -27,7 +29,10 @@ const RepoView = ({ pullRequests = [] } = {}) => {
             pullRequests={updatedPullRequests}
             chunkyData={chunkyData}
         />
-        <Sentiment chunkyData={chunkyData} />
+        <Sentiment
+            pullRequests={updatedPullRequests}
+            chunkyData={chunkyData}
+        />
         <PullRequestTrends  chunkyData={chunkyData} />
         <IssuesTrends />
         <UserTrends />
