@@ -117,7 +117,7 @@ const StatBars = ({
             const lColor = colourA
             const rColor = colourB
 
-            const lPercent = Math.ciel((100 *  lValue) / (lValue + rValue))
+            const lPercent = Math.ceil((100 *  lValue) / (lValue + rValue))
             const rPercent = 100 - lPercent
 
             return {
