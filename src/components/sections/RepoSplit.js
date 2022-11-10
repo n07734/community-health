@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import { includes, splitAt } from 'ramda'
 import { useTheme } from '@material-ui/core/styles';
 
@@ -9,8 +8,6 @@ import Pie from '../charts/Pie'
 import Paper from '../shared/Paper'
 import ItemsTable from './ItemsTable'
 import { colors } from '../colors'
-import { chunkData } from '../charts/lineHelpers'
-
 
 const rainbowData = (type = '', data = {}) => {
     const sortedData = Object.entries(data)
@@ -44,25 +41,14 @@ const rainbowData = (type = '', data = {}) => {
 
 const RepoSplit = ({
     pullRequests = [],
+    chunkyData = [],
+    allRepos = {},
+    allOrgs = {},
 } = {}) => {
     const theme = useTheme();
 
-    const allRepos = {}
-    const allOrgs = {}
-    const allPRdata = pullRequests.map(prData => {
-        allRepos[prData.repo] = (allRepos[prData.repo] || 0) + 1
-        allOrgs[prData.org] = (allOrgs[prData.org] || 0) + 1
-        return ({
-            ...prData,
-            [`repo-${prData.repo}`]: 1,
-        })
-    })
-
     const repoPie = rainbowData('repo', allRepos)
     const uniqueRepos = repoPie.reportItems
-
-    const filteredPRData = allPRdata
-        .filter(({ repo = ''} = {}) => includes(repo, uniqueRepos))
 
     const lines = uniqueRepos
         .map((repo, i) => ({
@@ -115,11 +101,9 @@ const RepoSplit = ({
         }
     ]
 
-    const chunkyData = chunkData(pullRequests)
-
     const orgPie = rainbowData('org', allOrgs)
 
-    return filteredPRData.length > 0 && (<>
+    return pullRequests.length > 0 && (<>
         <Paper>
             <ChartDescription title={repoPie.sectionTitle} />
             <Pie
@@ -134,7 +118,7 @@ const RepoSplit = ({
                     {
                         lines,
                         xAxis: 'left',
-                        data: filteredPRData,
+                        data: pullRequests,
                     },
                 ]}
             />
@@ -151,8 +135,4 @@ const RepoSplit = ({
     </>)
 }
 
-const mapStateToProps = (state) => ({
-    pullRequests: state.pullRequests,
-})
-
-export default connect(mapStateToProps)(RepoSplit)
+export default RepoSplit

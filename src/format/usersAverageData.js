@@ -24,26 +24,22 @@ const usersAverageData = (userData, filterAuthor) => {
         repoCount: 0,
     }
 
-    const filteredContributors = userData
-        .filter(x => x.author !== filterAuthor)
-        .filter(({
-            commentsGiven,
-            commentsReceived,
-            approvalsGiven,
-            approvalsReceived,
-        }) => [
-            commentsGiven,
-            commentsReceived,
-            approvalsGiven,
-            approvalsReceived,
-        ].some(x => x > 1))
-
     const keys = [
         'commentsGiven',
         'commentsReceived',
         'approvalsGiven',
         'approvalsReceived',
     ]
+
+    const filteredContributors = userData
+        .filter((user = {}) => {
+            const okAuthor = user.author !== filterAuthor
+
+            const hasData = keys
+                .some((x) => user[x] > 1)
+
+            return okAuthor && hasData
+        })
 
     const sortedUsers = filteredContributors
         .sort(sortByKeys(keys))

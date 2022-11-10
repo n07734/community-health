@@ -22,11 +22,17 @@ const colourA = '#1f77b4'
 const colourB = '#e82573'
 
 const prTransformer = (user1 = '', user2 = '') => (left = [], right = [], pullRequests = []) => {
-    const user1Prs = pullRequests
-        .filter(({ author }) => author === user1)
-
-    const user2Prs = pullRequests
-        .filter(({ author }) => author === user2)
+    const user1Prs = []
+    const user2Prs = []
+    pullRequests
+        .forEach((item = {}) => {
+            const author = item.author
+            if (author === user1) {
+                user1Prs.push(item)
+            } else if (author === user2) {
+                user2Prs.push(item)
+            }
+        })
 
     const linesTransform = (lines = []) => lines
         .map((line = {}) => {
@@ -142,17 +148,22 @@ const PvP = ({
     const userData2 = usersData
         .find(x => x.author === user2) || {}
 
-    const mergedPrData = pullRequests
-        .filter(({ mergedAt } = {}) => mergedAt)
+    const user1PrData = []
+    const user2PrData = []
+    const bothUsers = []
+    pullRequests
+        .forEach((item = {}) => {
+            const author = item.author
+            if (author === user1) {
+                user1PrData.push(item)
+                bothUsers.push(item)
+            } else if (author === user2) {
+                user2PrData.push(item)
+                bothUsers.push(item)
+            }
+        })
 
-    const user1PrData = mergedPrData
-        .filter(({ author }) => author === user1)
-
-    const user2PrData = mergedPrData
-        .filter(({ author }) => author === user2)
-
-    const chunkyData = chunkData(mergedPrData
-        .filter(({ author }) => [user1, user2].includes(author)))
+    const chunkyData = chunkData(bothUsers)
 
     return usersData.length > 0 && (
         <>

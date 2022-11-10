@@ -73,7 +73,8 @@ let id = 1
 const getGraphId = () => ++id
 
 const PullRequestCustom = ({
-    pullRequests: rawPullRequests = [],
+    chunkyData = [],
+    pullRequests = [],
     prTransformer,
     releases = [],
     classes = {},
@@ -90,14 +91,6 @@ const PullRequestCustom = ({
         right: []
     }]
     const [graphs, setGraph] = useState(defaultState)
-
-    const pullRequests = rawPullRequests
-        .map((pr = {}) => ({
-            ...pr,
-            commentSentimentTotalScore: (pr.commentSentimentScore || 0) + (pr.commentAuthorSentimentScore || 0)
-        }))
-
-    const chunkyData = chunkData(pullRequests)
 
     const makeGraphData = formatGraphData(pullRequests, prTransformer)
 
@@ -172,7 +165,6 @@ const PullRequestCustom = ({
 }
 
 const mapStateToProps = (state) => ({
-    pullRequests: state.pullRequests,
     releases: state.releases,
 })
 

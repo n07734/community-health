@@ -22,13 +22,7 @@ const Sentiment = ({
 } = {}) => {
     const theme = useTheme();
 
-    const sentPRData = pullRequests.map(prData => ({
-        ...prData,
-        [`${prData.author}-commentsSentimentScore`]: prData.commentSentimentScore,
-        [`${prData.author}-commentAuthorSentimentScore`]: prData.commentAuthorSentimentScore,
-    }))
-
-    const chunkyData = chunkData(sentPRData)
+    const chunkyData = chunkData(pullRequests)
 
     const lines = userIds
         .map((userId, i) => ([
@@ -94,7 +88,7 @@ const Sentiment = ({
         ]
         : []
 
-    return sentPRData.length > 0 && (<>
+    return pullRequests.length > 0 && (<>
         <Paper>
             <ChartDescription
                 title="Sentiment analysis*"
@@ -123,7 +117,7 @@ const Sentiment = ({
                             },
                         ],
                         xAxis: 'left',
-                        data: sentPRData,
+                        data: pullRequests,
                     },
                 ]}
             />
@@ -142,7 +136,7 @@ const Sentiment = ({
                             {
                                 lines,
                                 xAxis: 'left',
-                                data: sentPRData,
+                                data: pullRequests,
                             },
                         ]}
                     />

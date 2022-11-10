@@ -17,28 +17,24 @@ const formatRadarData = (userData, filterAuthor) => {
         uniquePRsContributedTo: 0,
     }
 
-    const filteredContributors = userData
-        .filter(x => filterAuthor
-            ? x.author !== filterAuthor
-            : true)
-        .filter(({
-            commentsGiven,
-            commentsReceived,
-            uniquePRsApproved,
-            totalPRs,
-        }) => [
-            commentsGiven,
-            commentsReceived,
-            uniquePRsApproved,
-            totalPRs,
-        ].some(x => x > 1))
-
     const keys = [
         'commentsGiven',
         'commentsReceived',
         'uniquePRsApproved',
         'totalPRs',
     ]
+
+    const filteredContributors = userData
+        .filter((user = {}) => {
+            const okAuthor = filterAuthor
+                ? user.author !== filterAuthor
+                : true
+
+            const hasData = keys
+                .some((x) => user[x] > 1)
+
+            return okAuthor && hasData
+        })
 
     const sortedUsers = filteredContributors
         .sort(sortByKeys(keys))

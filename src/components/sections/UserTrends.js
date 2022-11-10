@@ -14,7 +14,10 @@ import {
     setPvP as setPvPAction,
 } from '../../state/actions'
 
-const radialChartsContributions = ({ maxValues = {}, users = [] }, isTeamPage) => {
+const radialChartsContributions = ({
+    maxValues = {},
+    users = []
+}, isTeamPage) => {
     const keys = [
         'commentsGiven',
         'commentsReceived',

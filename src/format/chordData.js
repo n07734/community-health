@@ -74,20 +74,22 @@ const getMatrix = (
             return martixRow(nameData)
         })
 
-    const matrixRowForOther = data
-        .filter(({ author }) => !showNames.some(x => x === author))
-        .reduce((acc, item) => {
-            const currentMatrix = martixRow(item)
+    let matrixRowForOther = []
+    data
+        .forEach((item) => {
+            if (!showNames.some(x => x === item.author)) {
+                const currentMatrix = martixRow(item)
 
-            const mergedMatrix = currentMatrix
-                .map((value, i) => value + (acc[i] || 0))
+                const mergedMatrix = currentMatrix
+                    .map((value, i) => value + (matrixRowForOther[i] || 0))
 
-            // Matrix other row can not have data to self logged, must be 0
-            return [
-                ...mergedMatrix.slice(0, mergedMatrix.length - 1),
-                0,
-            ]
-        }, [])
+                // Matrix other row can not have data to self logged, must be 0
+                matrixRowForOther = [
+                    ...mergedMatrix.slice(0, mergedMatrix.length - 1),
+                    0,
+                ]
+            }
+        })
 
     return [
         ...matrixRowsForNamed,

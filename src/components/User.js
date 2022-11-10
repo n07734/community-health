@@ -17,15 +17,18 @@ import usersAverageData from '../format/usersAverageData'
 const colourA = '#1f77b4'
 const colourB = '#e82573'
 
-const userGraphs = (data = [], releases = [], userName) => {
-    const mergedPrData = data
-        .filter(({ mergedAt } = {}) => mergedAt)
-
-    const peerPrData = mergedPrData
-        .filter(({ author }) => author !== userName)
-
-    const userPrData = mergedPrData
-        .filter(({ author }) => author === userName)
+const userGraphs = (pullRequests = [], releases = [], userName) => {
+    const peerPrData = []
+    const userPrData = []
+    pullRequests
+    .forEach((item = {}) => {
+        const author = item.author
+        if (author === userName) {
+            userPrData.push(item)
+        } else {
+            peerPrData.push(item)
+        }
+    })
 
     const chunkyData = chunkData(userPrData)
 
