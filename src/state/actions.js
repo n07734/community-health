@@ -205,16 +205,6 @@ const clearData = (dispatch) => {
 
 const clearAllData = clearData
 
-// Hmm: full users format per new pr results
-const updateUsersData = (dispatch, getState) => {
-    const { pullRequests } = getState()
-
-    dispatch({
-        type: types.ADD_USERS_DATA,
-        payload: formatUserData(pullRequests),
-    })
-}
-
 const getErrorMessage = state => {
     const {
         fetches: {
@@ -352,6 +342,10 @@ const trimItems = (dateFrom = '', dateTo = '') => async (dispatch, getState) => 
         type: types.ADD_PRS,
         payload: keptPrs,
     })
+    dispatch({
+        type: types.ADD_USERS_DATA,
+        payload: formatUserData(keptPrs),
+    })
 
     const allReleases = [
         trimmedLeftReleases,
@@ -449,7 +443,10 @@ const getAPIData = () => async (dispatch, getState) => {
             payload: dates,
         })
 
-        dispatch(updateUsersData)
+        dispatch({
+            type: types.ADD_USERS_DATA,
+            payload: formatUserData(includedPRs),
+        })
 
         const newReleases = formatReleases(results)
         const allReleases = formatReleaseData([
@@ -599,6 +596,11 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
     dispatch({
         type: types.ADD_PRS,
         payload: pullRequests,
+    })
+
+    dispatch({
+        type: types.ADD_USERS_DATA,
+        payload: formatUserData(pullRequests),
     })
 
     dispatch({
