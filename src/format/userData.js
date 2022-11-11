@@ -61,9 +61,10 @@ const updateByUsersCount = (currentData, objKey, obj, author) => {
 
 const formatUserData = (data = []) => {
     // TODO: This is too complex, break it down into something that makes more sense
-    // Also not reduce
-    const userData = data
-        .reduce((acc, prData) => {
+    const authors = new Set()
+    const userData = {}
+    data
+        .forEach((prData) => {
             const {
                 org,
                 repo,
@@ -85,26 +86,28 @@ const formatUserData = (data = []) => {
                 commentAuthorSentimentScore = 0,
             } = prData
 
-            const updatedCommentsByUser = updateByUsersCount(acc, 'commentsByUser', commenters, author)
-            Object.assign(acc, updatedCommentsByUser)
+            authors.add(author)
 
-            const updatedApprovalsByUser = updateByUsersCount(acc, 'approvalsByUser', approvers, author)
-            Object.assign(acc, updatedApprovalsByUser)
+            const updatedCommentsByUser = updateByUsersCount(userData, 'commentsByUser', commenters, author)
+            Object.assign(userData, updatedCommentsByUser)
 
-            const updatedCommentsGiven = updateContributorCount(acc, 'commentsGiven', commenters)
-            Object.assign(acc, updatedCommentsGiven)
+            const updatedApprovalsByUser = updateByUsersCount(userData, 'approvalsByUser', approvers, author)
+            Object.assign(userData, updatedApprovalsByUser)
 
-            const updatedCodeCommentsGiven = updateContributorCount(acc, 'codeCommentsGiven', codeCommenters)
-            Object.assign(acc, updatedCodeCommentsGiven)
+            const updatedCommentsGiven = updateContributorCount(userData, 'commentsGiven', commenters)
+            Object.assign(userData, updatedCommentsGiven)
 
-            const updatedGeneralCommentsGiven = updateContributorCount(acc, 'generalCommentsGiven', generalCommenters)
-            Object.assign(acc, updatedGeneralCommentsGiven)
+            const updatedCodeCommentsGiven = updateContributorCount(userData, 'codeCommentsGiven', codeCommenters)
+            Object.assign(userData, updatedCodeCommentsGiven)
 
-            const updatedApprovalsGiven = updateContributorCount(acc, 'approvalsGiven', approvers)
-            Object.assign(acc, updatedApprovalsGiven)
+            const updatedGeneralCommentsGiven = updateContributorCount(userData, 'generalCommentsGiven', generalCommenters)
+            Object.assign(userData, updatedGeneralCommentsGiven)
 
-            const updatedUniquePRsApproved = updateContributorCount(acc, 'uniquePRsApproved', approvers, 1)
-            Object.assign(acc, updatedUniquePRsApproved)
+            const updatedApprovalsGiven = updateContributorCount(userData, 'approvalsGiven', approvers)
+            Object.assign(userData, updatedApprovalsGiven)
+
+            const updatedUniquePRsApproved = updateContributorCount(userData, 'uniquePRsApproved', approvers, 1)
+            Object.assign(userData, updatedUniquePRsApproved)
 
             const contrtibutors = [...new Set([
                 ...Object.keys(codeCommenters),
@@ -114,7 +117,7 @@ const formatUserData = (data = []) => {
 
             contrtibutors
                 .forEach((key) => {
-                    const prevData = acc[key] || {}
+                    const prevData = userData[key] || {}
                     const updated = {
                         ...baseUserData,
                         ...prevData,
@@ -122,11 +125,11 @@ const formatUserData = (data = []) => {
                         uniquePRsContributedTo: (prevData.uniquePRsContributedTo || 0) + 1,
                     }
 
-                    Object.assign(acc, { [key]: updated })
+                    userData[key] = updated
                 })
 
 
-            const prevData = acc[author] || {}
+            const prevData = userData[author] || {}
 
             const prSizes = [...(prevData.prSizes || []), prSize]
             const averagePrSize = Math.round(sum(prSizes) / prSizes.length)
@@ -160,45 +163,39 @@ const formatUserData = (data = []) => {
             const repos = [...new Set([...(prevData.repos || []), repo])]
             const repoCount = repos.length
 
-            return Object.assign(acc, {
-                [author]: {
-                    ...baseUserData,
-                    ...prevData,
-                    orgs,
-                    orgCount,
-                    repos,
-                    repoCount,
-                    author,
-                    user: author,
-                    approvalsReceived: (prevData.approvalsReceived || 0) + approvals,
-                    commentsReceived: (prevData.commentsReceived || 0) + comments,
-                    codeCommentsReceived: (prevData.codeCommentsReceived || 0) + codeComments,
-                    generalCommentsReceived: (prevData.generalCommentsReceived || 0) + generalComments,
-                    totalPRs: (prevData.totalPRs || 0) + 1,
-                    prSizes,
-                    prAdditions,
-                    prTotalAdditions,
-                    prDeletions,
-                    prTotalDeletions,
-                    prSize: averagePrSize,
-                    prAges,
-                    prTotalAge,
-                    age: averagePrAge,
-                    sentimentTotalScores,
-                    sentimentAveragePositiveScore,
-                    sentimentTotalPositiveScore,
-                    sentimentAverageNegativeScore,
-                    sentimentTotalNegativeScore,
-                },
-            })
-
-        }, {})
-
-
-    const uniqueAuthors = [...new Set(data.map(x => x.author))]
+            userData[author] = {
+                ...baseUserData,
+                ...prevData,
+                orgs,
+                orgCount,
+                repos,
+                repoCount,
+                author,
+                user: author,
+                approvalsReceived: (prevData.approvalsReceived || 0) + approvals,
+                commentsReceived: (prevData.commentsReceived || 0) + comments,
+                codeCommentsReceived: (prevData.codeCommentsReceived || 0) + codeComments,
+                generalCommentsReceived: (prevData.generalCommentsReceived || 0) + generalComments,
+                totalPRs: (prevData.totalPRs || 0) + 1,
+                prSizes,
+                prAdditions,
+                prTotalAdditions,
+                prDeletions,
+                prTotalDeletions,
+                prSize: averagePrSize,
+                prAges,
+                prTotalAge,
+                age: averagePrAge,
+                sentimentTotalScores,
+                sentimentAveragePositiveScore,
+                sentimentTotalPositiveScore,
+                sentimentAverageNegativeScore,
+                sentimentTotalNegativeScore,
+            }
+        })
 
     const newUsersData = Object.values(userData)
-        .filter(({ author }) => uniqueAuthors.some(x => x === author))
+        .filter(({ author }) => authors.has(author))
 
     const keys = [
         'commentsGiven',
