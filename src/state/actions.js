@@ -36,19 +36,50 @@ import formatUserData from '../format/userData'
 import formatReleaseData from '../format/releaseData'
 import types from './types'
 
-const setUser = (user = '') => ({
-    type: types.SET_USER,
-    payload: user,
-})
 
-const setPvP = (pvp = false) => ({
-    type: types.SET_PVP,
-    payload: true,
-})
+const hideUserNames = (hideNames = false) => (dispatch, getState) => {
+    const {
+        usersData = [],
+        hiddenNames = false,
+    } = getState();
 
-const clearPvP = (pvp = false) => ({
+    if (hideNames !== hiddenNames) {
+        dispatch({
+            type: hideNames
+                ? types.HIDE_NAMES
+                : types.SHOW_NAMES,
+        })
+
+        const updatedData = usersData
+            .map((user = {}, i) => ({
+                ...user,
+                author: hideNames
+                    ? `Spartacus${i + 1}`
+                    : user.user
+            }))
+
+        dispatch({
+            type: types.ADD_USERS_DATA,
+            payload: updatedData,
+        })
+    }
+}
+
+const setUser = (user = '') =>  (dispatch) => {
+    dispatch({
+        type: types.SET_USER,
+        payload: user,
+    })
+    dispatch(hideUserNames(false))
+}
+
+const setPvP = () => (dispatch) => {
+    dispatch({ type: types.SET_PVP })
+    dispatch(hideUserNames(false))
+}
+
+const clearPvP = () => ({
     type: types.CLEAR_PVP,
-    payload: false,
 })
 
 const toggleTheme = () => ({
@@ -201,6 +232,7 @@ const clearData = (dispatch) => {
     dispatch({ type: types.CLEAR_ISSUES_PAGINATION })
     dispatch({ type: types.CLEAR_FETCH_ERROR })
     dispatch({ type: types.CLEAR_PRE_FETCH_ERROR })
+    dispatch(hideUserNames(false))
 }
 
 const clearAllData = clearData
@@ -747,4 +779,5 @@ export {
     getDownloadProps,
     checkUntilDate,
     trimItems,
+    hideUserNames,
 }

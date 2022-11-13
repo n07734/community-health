@@ -125,6 +125,14 @@ const reducers = combineReducers({
         action.type === types.TOGGLE_THEME
             ? (themeType === 'dark' ? 'light' : 'dark')
             : themeType,
+    hiddenNames: (hiddenNames = false, action) => [
+        action.type === types.HIDE_NAMES
+            && (() => true),
+        action.type === types.SHOW_NAMES
+            && (() => false),
+        () => hiddenNames,
+    ]
+        .find(Boolean)()
 })
 
 export default reducers

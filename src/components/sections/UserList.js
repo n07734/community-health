@@ -34,14 +34,14 @@ const UserList = ({
         <div className={classes.allButons}>
             {
                 usersData
-                    .map(({ author }, i) => (
+                    .map(({ author, user }, i) => (
                         <Button
                             value={author}
                             key={i}
                             color="secondary"
                             onClick={(e) => {
                                 e.preventDefault()
-                                setUser(e.currentTarget.value)
+                                setUser(user)
                                 window && window.scrollTo(0, 0)
                             }}
                         />
