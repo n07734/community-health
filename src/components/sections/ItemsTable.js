@@ -189,6 +189,7 @@ const ItemsTable = ({
                 rowsPerPageOptions={[5]}
                 disableColumnFilter
                 disableColumnMenu
+                isRowSelectable={false}
                 autoHeight={true}
             />
         }

@@ -600,11 +600,6 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
 
     dispatch({
         type: types.ADD_USERS_DATA,
-        payload: formatUserData(pullRequests),
-    })
-
-    dispatch({
-        type: types.ADD_USERS_DATA,
         payload: usersData.length
             ? usersData
             : formatUserData(pullRequests),

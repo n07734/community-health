@@ -1,5 +1,5 @@
 
-import { sum } from 'ramda'
+import {  pick } from 'ramda'
 import { sortByKeys } from '../utils'
 
 const baseUserData = {
@@ -15,6 +15,15 @@ const baseUserData = {
     totalPRs: 0,
     uniquePRsContributedTo: 0,
     commentsByUser: {},
+    prSizes: [],
+    prTotalAdditions: 0,
+    prTotalDeletions: 0,
+    prAdditions: [],
+    prDeletions: [],
+    prAges: [],
+    sentimentTotalScores: [],
+    orgs: new Set(),
+    repos: new Set(),
 }
 
 const updateContributorCount = (currentData, objKey, obj, addition) => {
@@ -60,7 +69,6 @@ const updateByUsersCount = (currentData, objKey, obj, author) => {
 }
 
 const formatUserData = (data = []) => {
-    // TODO: This is too complex, break it down into something that makes more sense
     const authors = new Set()
     const userData = {}
     data
@@ -69,7 +77,6 @@ const formatUserData = (data = []) => {
                 org,
                 repo,
                 author,
-                prSize = 0,
                 additions = 0,
                 deletions = 0,
                 age = 0,
@@ -128,74 +135,118 @@ const formatUserData = (data = []) => {
                     userData[key] = updated
                 })
 
+            if (!userData[author]) {
+                userData[author] = {
+                    ...baseUserData,
+                }
+            }
 
-            const prevData = userData[author] || {}
-
-            const prSizes = [...(prevData.prSizes || []), prSize]
-            const averagePrSize = Math.round(sum(prSizes) / prSizes.length)
-
-            const prAdditions = [...(prevData.prAdditions || []), additions]
-            const prTotalAdditions = sum(prAdditions)
-
-            const prDeletions = [...(prevData.prDeletions || []), deletions]
-            const prTotalDeletions = sum(prDeletions)
-
-            const prAges = [...(prevData.prAges || []), age]
-            const prTotalAge = sum(prAges)
-            const averagePrAge = Math.round(sum(prAges) / prAges.length)
+            userData[author].orgs.add(org)
+            userData[author].repos.add(repo)
 
             const sentimentTotal = commentSentimentTotalScore || (commentSentimentScore + commentAuthorSentimentScore)
-            const sentimentTotalScores = [...(prevData.sentimentTotalScores || []), sentimentTotal]
+            userData[author].sentimentTotalScores.push(sentimentTotal)
 
-            const positiveScores = sentimentTotalScores
-                .filter(x => x >= 0)
-            const sentimentAveragePositiveScore = Math.round(sum(positiveScores) / positiveScores.length)
-            const sentimentTotalPositiveScore = sum(positiveScores)
+            const addPRsValue = (key = '', addValue = 0) =>
+                (userData[author][key] || 0) + addValue
 
-            const negativeScores = sentimentTotalScores
-                .filter(x => x < 0)
-            const sentimentAverageNegativeScore = Math.round(sum(negativeScores) / negativeScores.length)
-            const sentimentTotalNegativeScore = sum(negativeScores)
+            const totalPRs = addPRsValue('totalPRs', 1)
+            const prTotalAge = addPRsValue('prTotalAge', age)
+            const averagePrAge = Math.round(prTotalAge /totalPRs)
 
-            const orgs = [...new Set([...(prevData.orgs || []), org])]
-            const orgCount = orgs.length
+            const prTotalAdditions = addPRsValue('prTotalAdditions', additions)
+            const prTotalDeletions = addPRsValue('prTotalDeletions', deletions)
 
-            const repos = [...new Set([...(prevData.repos || []), repo])]
-            const repoCount = repos.length
+            const prSize = Math.round((prTotalAdditions + prTotalDeletions) / totalPRs)
 
-            userData[author] = {
-                ...baseUserData,
-                ...prevData,
-                orgs,
-                orgCount,
-                repos,
-                repoCount,
+            const sentimentTotalPositiveScoreValue = sentimentTotal > 0
+                ? sentimentTotal
+                : 0
+
+            const sentimentPositiveIncrement = sentimentTotal > 0
+                ? 1
+                : 0
+
+            const sentimentTotalPositiveScore = addPRsValue('sentimentTotalPositiveScore', sentimentTotalPositiveScoreValue)
+            const sentimentPositiveCount = addPRsValue('sentimentPositiveCount', sentimentPositiveIncrement)
+            const sentimentAveragePositiveScore = Math.round(sentimentTotalPositiveScore / sentimentPositiveCount)
+
+
+            const sentimentTotalNegativeScoreValue = sentimentTotal < 0
+                ? sentimentTotal
+                : 0
+
+            const sentimentNegativeIncrement = sentimentTotal < 0
+                ? 1
+                : 0
+
+            const sentimentNegativeCount = addPRsValue('sentimentNegativeCount', sentimentNegativeIncrement)
+            const sentimentTotalNegativeScore = addPRsValue('sentimentTotalNegativeScore', sentimentTotalNegativeScoreValue)
+            const sentimentAverageNegativeScore = Math.round(sentimentTotalNegativeScore / sentimentNegativeCount)
+
+            const moreData = {
                 author,
                 user: author,
-                approvalsReceived: (prevData.approvalsReceived || 0) + approvals,
-                commentsReceived: (prevData.commentsReceived || 0) + comments,
-                codeCommentsReceived: (prevData.codeCommentsReceived || 0) + codeComments,
-                generalCommentsReceived: (prevData.generalCommentsReceived || 0) + generalComments,
-                totalPRs: (prevData.totalPRs || 0) + 1,
-                prSizes,
-                prAdditions,
-                prTotalAdditions,
-                prDeletions,
-                prTotalDeletions,
-                prSize: averagePrSize,
-                prAges,
-                prTotalAge,
+                totalPRs,
                 age: averagePrAge,
-                sentimentTotalScores,
-                sentimentAveragePositiveScore,
+                prTotalAge,
+                prSize,
+                prTotalAdditions,
+                prTotalDeletions,
+                approvalsReceived: addPRsValue('approvalsReceived', approvals),
+                commentsReceived: addPRsValue('commentsReceived', comments),
+                codeCommentsReceived: addPRsValue('codeCommentsReceived', codeComments),
+                generalCommentsReceived: addPRsValue('generalCommentsReceived', generalComments),
+                commentSentimentTotalScore: addPRsValue('commentSentimentTotalScore', sentimentTotal),
+                sentimentPositiveCount,
                 sentimentTotalPositiveScore,
-                sentimentAverageNegativeScore,
+                sentimentAveragePositiveScore,
+                sentimentNegativeCount,
                 sentimentTotalNegativeScore,
+                sentimentAverageNegativeScore,
+
+                orgCount: userData[author].orgs.size,
+                repoCount: userData[author].repos.size,
             }
+
+            Object.assign(userData[author], moreData)
         })
 
     const newUsersData = Object.values(userData)
         .filter(({ author }) => authors.has(author))
+        .map((user = {}) => {
+            const picked = pick([
+                'author',
+                'user',
+                'approvalsGiven',
+                'approvalsByUser',
+                'uniquePRsApproved',
+                'commentsGiven',
+                'commentsReceived',
+                'codeCommentsGiven',
+                'codeCommentsReceived',
+                'generalCommentsGiven',
+                'generalCommentsReceived',
+                'totalPRs',
+                'uniquePRsContributedTo',
+                'commentsByUser',
+                'prTotalAdditions',
+                'prTotalDeletions',
+                'orgCount',
+                'repoCount',
+                'user',
+                'approvalsReceived',
+                'prSize',
+                'prTotalAge',
+                'age',
+                'sentimentAveragePositiveScore',
+                'sentimentTotalPositiveScore',
+                'sentimentAverageNegativeScore',
+                'sentimentTotalNegativeScore',
+            ], user)
+
+            return picked
+        })
 
     const keys = [
         'commentsGiven',
