@@ -183,13 +183,14 @@ const ItemsTable = ({
         </div>
         {
             (data[dataIndex] || []).length > 0 && showTable && <DataGrid
+                sortingOrder={['desc', 'asc']}
                 rows={data[dataIndex]}
                 columns={makeColumns(dataKeys)}
                 pageSize={5}
                 rowsPerPageOptions={[5]}
                 disableColumnFilter
                 disableColumnMenu
-                isRowSelectable={false}
+                isRowSelectable={() => false}
                 autoHeight={true}
             />
         }
