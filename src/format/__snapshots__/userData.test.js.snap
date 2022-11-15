@@ -16,36 +16,15 @@ exports[`formatUserData: Basic PR data transfers to result 1`] = `
     'generalCommentsGiven': 0,
     'generalCommentsReceived': 4,
     'orgCount': 1,
-    'orgs': [
-      'org',
-    ],
-    'prAdditions': [
-      0,
-    ],
-    'prAges': [
-      0,
-    ],
-    'prDeletions': [
-      0,
-    ],
     'prSize': 0,
-    'prSizes': [
-      0,
-    ],
     'prTotalAdditions': 0,
     'prTotalAge': 0,
     'prTotalDeletions': 0,
     'repoCount': 1,
-    'repos': [
-      'repo',
-    ],
-    'sentimentAverageNegativeScore': NaN,
+    'sentimentAverageNegativeScore': 0,
     'sentimentAveragePositiveScore': 0,
     'sentimentTotalNegativeScore': 0,
     'sentimentTotalPositiveScore': 0,
-    'sentimentTotalScores': [
-      0,
-    ],
     'totalPRs': 1,
     'uniquePRsContributedTo': 0,
     'user': 'bob',
@@ -69,41 +48,15 @@ exports[`formatUserData: PR data from two authors with no contributors to match 
     'generalCommentsGiven': 0,
     'generalCommentsReceived': 0,
     'orgCount': 1,
-    'orgs': [
-      'org',
-    ],
-    'prAdditions': [
-      0,
-      0,
-    ],
-    'prAges': [
-      0,
-      0,
-    ],
-    'prDeletions': [
-      0,
-      0,
-    ],
     'prSize': 0,
-    'prSizes': [
-      0,
-      0,
-    ],
     'prTotalAdditions': 0,
     'prTotalAge': 0,
     'prTotalDeletions': 0,
     'repoCount': 1,
-    'repos': [
-      'repo',
-    ],
-    'sentimentAverageNegativeScore': NaN,
+    'sentimentAverageNegativeScore': 0,
     'sentimentAveragePositiveScore': 0,
     'sentimentTotalNegativeScore': 0,
     'sentimentTotalPositiveScore': 0,
-    'sentimentTotalScores': [
-      0,
-      0,
-    ],
     'totalPRs': 2,
     'uniquePRsContributedTo': 0,
     'user': 'bob',
@@ -122,36 +75,15 @@ exports[`formatUserData: PR data from two authors with no contributors to match 
     'generalCommentsGiven': 0,
     'generalCommentsReceived': 0,
     'orgCount': 1,
-    'orgs': [
-      'org',
-    ],
-    'prAdditions': [
-      0,
-    ],
-    'prAges': [
-      0,
-    ],
-    'prDeletions': [
-      0,
-    ],
     'prSize': 0,
-    'prSizes': [
-      0,
-    ],
     'prTotalAdditions': 0,
     'prTotalAge': 0,
     'prTotalDeletions': 0,
     'repoCount': 1,
-    'repos': [
-      'repo',
-    ],
-    'sentimentAverageNegativeScore': NaN,
+    'sentimentAverageNegativeScore': 0,
     'sentimentAveragePositiveScore': 0,
     'sentimentTotalNegativeScore': 0,
     'sentimentTotalPositiveScore': 0,
-    'sentimentTotalScores': [
-      0,
-    ],
     'totalPRs': 1,
     'uniquePRsContributedTo': 0,
     'user': 'smith',

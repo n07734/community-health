@@ -13,6 +13,7 @@ import {
 
 const UserList = ({
     usersData = [],
+    hiddenNames = false,
     setUser,
     setPvP,
     classes,
@@ -36,7 +37,7 @@ const UserList = ({
                 usersData
                     .map(({ author, user }, i) => (
                         <Button
-                            value={author}
+                            value={hiddenNames ? 'Spartacus' : author}
                             key={i}
                             color="secondary"
                             onClick={(e) => {
@@ -72,6 +73,7 @@ const styles = theme => ({
 
 const mapStateToProps = (state) => ({
     usersData: state.usersData,
+    hiddenNames: state.hiddenNames,
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(UserList))

@@ -81,6 +81,7 @@ const radialChartsContributions = ({
 const UserTrends = ({
     usersData = [],
     userIds = [],
+    hiddenNames = false,
     classes = {},
     setUser = () => {},
     setPvP = () => {},
@@ -110,7 +111,7 @@ const UserTrends = ({
                             {...info}
                         />
                         <Button
-                            value={info.title}
+                            value={hiddenNames ? 'Spartacus' : info.title}
                             color={
                                 (i + 1) % 2 === 0
                                     ? 'secondary'
@@ -148,6 +149,7 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = (state) => ({
     usersData: state.usersData,
     userIds: state.fetches.userIds,
+    hiddenNames: state.hiddenNames,
 })
 
 const styles = theme => ({

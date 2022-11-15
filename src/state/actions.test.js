@@ -11,10 +11,12 @@ describe('Basic actions:', () => {
     } = require('./actions')
 
     it('setUser returns correct type', () => {
-        expect(setUser('USER')).toEqual({
-            type: types.SET_USER,
-            payload: 'USER',
+        const dispatch = jest.fn()
+        setUser('USER')(dispatch)
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+            payload: 'USER', type: 'SET_USER'
         })
+
     })
 
     it('clearUser returns correct type', () => {

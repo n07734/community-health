@@ -37,33 +37,11 @@ import formatReleaseData from '../format/releaseData'
 import types from './types'
 
 
-const hideUserNames = (hideNames = false) => (dispatch, getState) => {
-    const {
-        usersData = [],
-        hiddenNames = false,
-    } = getState();
-
-    if (hideNames !== hiddenNames) {
-        dispatch({
-            type: hideNames
-                ? types.HIDE_NAMES
-                : types.SHOW_NAMES,
-        })
-
-        const updatedData = usersData
-            .map((user = {}, i) => ({
-                ...user,
-                author: hideNames
-                    ? `Spartacus${i + 1}`
-                    : user.user
-            }))
-
-        dispatch({
-            type: types.ADD_USERS_DATA,
-            payload: updatedData,
-        })
-    }
-}
+const hideUserNames = (hideNames = false) => ({
+    type: hideNames
+        ? types.HIDE_NAMES
+        : types.SHOW_NAMES,
+})
 
 const setUser = (user = '') =>  (dispatch) => {
     dispatch({

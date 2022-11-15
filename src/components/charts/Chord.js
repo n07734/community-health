@@ -11,6 +11,7 @@ const Chord = styledCharts(({
     title,
     data = [],
     preSorted = false,
+    hideNames = false,
     dataKey = '',
     classes,
 } = {}) => {
@@ -18,7 +19,7 @@ const Chord = styledCharts(({
     const {
         names,
         matrix,
-    } = formatChordData(data, dataKey, preSorted)
+    } = formatChordData(data, dataKey, preSorted, hideNames)
 
     const hasMatrixData = (matrix) => matrix
         .some(row => row

@@ -12,11 +12,19 @@ import { sortByKeys } from '../../utils'
 const TeamTrends = ({
     usersData = [],
     userIds = [],
+    hiddenNames = false,
     classes,
 } = {}) => {
     const maxAuthors = userIds.length || 7
     const sortedUsers = usersData
         .sort(sortByKeys(['commentsByUser, approvalsByUser']))
+
+    const barData = sortedUsers
+        .map((x,i) => ({
+            ...x,
+            // Needs white space padding to keep the bars
+            author: hiddenNames ? `${Array(i).fill(' ').join('')}Spartacus` : x.author,
+        }))
 
     return usersData.length > 0 && (
         <Paper>
@@ -29,18 +37,20 @@ const TeamTrends = ({
                 <Chord
                     data={sortedUsers}
                     preSorted={true}
+                    hideNames={hiddenNames}
                     dataKey="commentsByUser"
                     title="Comment contributions"
                 />
                 <Chord
                     data={sortedUsers}
                     preSorted={true}
+                    hideNames={hiddenNames}
                     dataKey="approvalsByUser"
                     title="Approval contributions"
                 />
             </div>
             <Bar
-                data={sortedUsers}
+                data={barData}
                 indexBy="author"
                 titlePrefix="Comments"
                 sortBy="commentsGiven"
@@ -59,7 +69,7 @@ const TeamTrends = ({
                 ]}
             />
             <Bar
-                data={sortedUsers}
+                data={barData}
                 indexBy="author"
                 titlePrefix="PRs"
                 sortBy="uniquePRsApproved"
@@ -95,6 +105,7 @@ const styles = theme => ({
 const mapStateToProps = (state) => ({
     usersData: state.usersData,
     userIds: state.fetches.userIds,
+    hiddenNames: state.hiddenNames,
 })
 
 export default connect(mapStateToProps)(withStyles(styles)(TeamTrends))

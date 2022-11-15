@@ -24,6 +24,12 @@ const baseUserData = {
     sentimentTotalScores: [],
     orgs: new Set(),
     repos: new Set(),
+    sentimentTotalPositiveScore: 0,
+    sentimentAveragePositiveScore: 0,
+    sentimentPositiveCount: 0,
+    sentimentTotalNegativeScore: 0,
+    sentimentNegativeCount: 0,
+    sentimentAverageNegativeScore: 0,
 }
 
 const updateContributorCount = (currentData, objKey, obj, addition) => {
@@ -169,8 +175,9 @@ const formatUserData = (data = []) => {
 
             const sentimentTotalPositiveScore = addPRsValue('sentimentTotalPositiveScore', sentimentTotalPositiveScoreValue)
             const sentimentPositiveCount = addPRsValue('sentimentPositiveCount', sentimentPositiveIncrement)
-            const sentimentAveragePositiveScore = Math.round(sentimentTotalPositiveScore / sentimentPositiveCount)
-
+            const sentimentAveragePositiveScore = sentimentPositiveCount
+                ? Math.round(sentimentTotalPositiveScore / sentimentPositiveCount)
+                : 0
 
             const sentimentTotalNegativeScoreValue = sentimentTotal < 0
                 ? sentimentTotal
@@ -182,7 +189,9 @@ const formatUserData = (data = []) => {
 
             const sentimentNegativeCount = addPRsValue('sentimentNegativeCount', sentimentNegativeIncrement)
             const sentimentTotalNegativeScore = addPRsValue('sentimentTotalNegativeScore', sentimentTotalNegativeScoreValue)
-            const sentimentAverageNegativeScore = Math.round(sentimentTotalNegativeScore / sentimentNegativeCount)
+            const sentimentAverageNegativeScore = sentimentNegativeCount
+                ? Math.round(sentimentTotalNegativeScore / sentimentNegativeCount)
+                : 0
 
             const moreData = {
                 author,

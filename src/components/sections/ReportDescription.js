@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
 import Switch from '@material-ui/core/Switch';
@@ -48,9 +48,7 @@ const ReportDescription = ({
     hideNames = () => {},
     classes
 } = {}) => {
-    const [state, setState] = useState(false);
     const handleChange = (event) => {
-        setState(event.target.checked);
         hideNames(event.target.checked)
     };
 
@@ -75,7 +73,6 @@ const ReportDescription = ({
                     </P>
             }
             <Switch
-                checked={state}
                 onChange={handleChange}
                 name="checkedA"
                 inputProps={{ 'aria-label': 'secondary checkbox' }}
