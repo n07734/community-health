@@ -47,15 +47,15 @@ describe('formatUserData:', () => {
         const [user] = formatUserData([
             {
                 ...pr,
-                prSize: 100,
+                additions: 100,
             },
             {
                 ...pr,
-                prSize: 300,
+                additions: 300,
             },
         ])
         expect(user.prSize).toEqual(200)
-        expect(user.prSizes).toEqual([ 100, 300 ])
+        expect(user.totalPRs).toEqual(2)
     })
 
     it('age data formats corretly', () => {
@@ -70,7 +70,6 @@ describe('formatUserData:', () => {
             },
         ])
         expect(user.age).toEqual(5)
-        expect(user.prAges).toEqual([4, 6])
     })
 
     // BUG un PRed approver not counted properly
