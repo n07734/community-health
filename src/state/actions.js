@@ -614,10 +614,15 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
             ? usersData
             : formatUserData(pullRequests),
     })
-
+    // old saved reports did not sort the issues
+    const sortedIssues = issues
+        .sort((
+            { mergedAt: dateA = '' },
+            { mergedAt: dateB = '' },
+        ) => new Date(dateA).getTime() - new Date(dateB).getTime())
     dispatch({
         type: types.ADD_ISSUES,
-        payload: issues,
+        payload: sortedIssues,
     })
 
     const allReleases = formatReleaseData(releases)

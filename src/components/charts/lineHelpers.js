@@ -54,48 +54,59 @@ const formatDate = (date) => {
     return `${info.getFullYear()}-${month < 10 ? `0${month}` : month}-${dayM < 10 ? `0${dayM}` : dayM}`
 }
 
-const formatBatches = batches => dataKey => groupMath => batches
-    .map((batch) => {
-        const value = sumKeysValue(dataKey)(batch)
+const formatBatches = ({ filterForKey = '', dataKey = '', groupMath = 'average' } = {}) => (batches = []) => {
+    const lineData = []
+    batches
+        .forEach((batch) => {
+            const value = sumKeysValue(dataKey || filterForKey)(batch)
+            const filteredBatch = batch.filter(x => /\d+/.test(x[filterForKey]))
+            const batchLength = filterForKey
+                ? filteredBatch.length
+                : batch.length
 
-        const valueByTypes = {
-            'average': Math.round(value / batch.length),
-            'sum': value,
-            'count': batch.length,
-        }
+            const valueByTypes = {
+                'average': Math.round(value / batchLength),
+                'sum': value,
+                'count': batchLength,
+            }
 
-        return {
-            y: valueByTypes[groupMath],
-            x: formatDate(batch[0].mergedAt),
-        }
-    })
+            if (!filterForKey || batchLength > 0) {
+                lineData.push({
+                    y: valueByTypes[groupMath],
+                    x: formatDate(batch[0].mergedAt),
+                })
+            }
+        })
 
-const formatLineData = ({ data, dataKey, groupMath = 'average' }) => {
-    const filteredData = data
-        .filter(item => item.mergedAt && /\d+/.test(item[dataKey]))
-
-    const sortedData = filteredData
-        .sort(dateSort)
-
-    const batchedData = batchBy('mergedAt')(sortedData)
-    const formattedData = formatBatches(batchedData)(dataKey)(groupMath)
-
-    return formattedData
+        return lineData
 }
 
-const formatLinesData = (axix) => axix.lines
-    .map(({ label, color, dataKey, groupMath, data: lineData }) => {
-        const data = lineData || axix.data || []
-        const formattedData = formatLineData({ data, dataKey, groupMath })
+const formatLinesData = ({lines = [], data} = {}) => {
+    const sharedAxisData = data
+        ? batchBy('mergedAt')(data)
+        : []
 
-        return formattedData.length
-            && ({
-                id: label,
-                color,
-                data: formattedData,
-            })
-    })
-    .filter(Boolean)
+    const formatedLines = []
+    lines
+        .forEach((line = {}) => {
+            const { label, color, data: lineData } = line
+            const batchedData = lineData && lineData.length > 0
+                ? batchBy('mergedAt')(lineData)
+                : sharedAxisData
+
+            const formattedData = formatBatches(line)(batchedData)
+
+            if (formattedData.length) {
+                formatedLines.push({
+                    id: label,
+                    color,
+                    data: formattedData,
+                })
+            }
+        })
+
+    return formatedLines
+}
 
 const formatGraphMarkers = (markers, theme, lineData) => {
     let dateStart

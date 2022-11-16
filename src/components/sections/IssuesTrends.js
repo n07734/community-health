@@ -42,13 +42,13 @@ const IssuesTrends = ({
                             {
                                 label: 'Issues',
                                 color: '#1f77b4',
-                                dataKey: 'issue',
+                                filterForKey: 'issue',
                                 groupMath: 'count',
                             },
                             {
                                 label: 'Bugs*',
                                 color: '#e82573',
-                                dataKey: 'bug',
+                                filterForKey: 'bug',
                                 groupMath: 'count',
                             },
                         ],

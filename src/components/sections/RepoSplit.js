@@ -54,7 +54,7 @@ const RepoSplit = ({
         .map((repo, i) => ({
             label: repo,
             color: colors[i % colors.length],
-            dataKey: `repo-${repo}`,
+            filterForKey: `repo-${repo}`,
             groupMath: 'count',
         }))
 

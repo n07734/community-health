@@ -25,12 +25,12 @@ const Sentiment = ({
             {
                 label: `To ${userId}`,
                 color: colors[i % colors.length],
-                dataKey: `${userId}-commentsSentimentScore`,
+                filterForKey: `${userId}-commentsSentimentScore`,
             },
             {
                 label: `From ${userId}`,
                 color: colors[i % colors.length],
-                dataKey: `${userId}-commentAuthorSentimentScore`,
+                filterForKey: `${userId}-commentAuthorSentimentScore`,
             }
         ]))
         .flat()

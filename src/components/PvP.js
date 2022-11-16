@@ -190,7 +190,12 @@ const PvP = ({
                 />
 
                 <P className={classes.copy}>And the winner is.... Both! Thanks for your great work!</P>
-                <PullRequestCustom prTransformer={prTransformer(user1, user2)} />
+                {/*
+                Need to fix legend also make correct chunky data
+                <PullRequestCustom
+                    prTransformer={prTransformer(user1, user2)}
+                    pullRequests={pullRequests}
+                /> */}
 
                 <Line
                     markers={releases}
