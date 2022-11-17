@@ -48,12 +48,16 @@ const PrefetchedOptions = (props = {}) => {
             ...preFetchedTeams,
         ]
 
-        const report = reportPath || urlParams.get('report') || myPreFetchedReports[0]?.fileName || 'facebook-react';
+        const reportFromPath = allItems.some(x => x.fileName === reportPath)
+            ?  reportPath
+            : ''
+
+        const report = myPreFetchedReports[0]?.fileName || reportFromPath || urlParams.get('report') || 'facebook-react';
 
         const repoInfo = allItems
             .find(x => x.fileName === report)
 
-        if (player1 && player2) {
+        if (reportFromPath && player1 && player2) {
             setPvPArena()
         }
 

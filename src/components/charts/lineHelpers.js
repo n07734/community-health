@@ -183,30 +183,40 @@ const smoothNumber = (ruffledNumber) => {
 }
 
 const chunkData = (data = []) => {
-    const startDate = data.at(0) && new Date(data.at(0)?.mergedAt)
-    const endDate = data.at(-1)  && new Date(data.at(-1)?.mergedAt)
+    // This batches up the data the same way as the points on the line graph
+    // doing this means the items in each table section matches the lines on the graph better.
+    const batchedData = batchBy('mergedAt')(data)
+    const firstBatch = batchedData.at(0) || []
+    const lastBatch = batchedData.at(-1) || []
+
+    const startDate = firstBatch.at(0) && new Date(firstBatch.at(0)?.mergedAt)
+    const endDate = lastBatch.at(0)  && new Date(lastBatch.at(0)?.mergedAt)
 
     const totalDays = startDate && endDate
         ? differenceInDays(endDate,startDate)
         : 0
 
-    const daysPerChunk = Math.round(totalDays/10)
-
     const chunkyData = []
-    data
-        .forEach((itemData, i) => {
+    batchedData
+        .forEach((items = [], i) => {
             const chunkCount = chunkyData.length
-            itemData.id = i
-            const prDate = new Date(itemData.mergedAt)
+            // Need to add id for table component
+            const tableItems = items
+                .map((item = {}, j) => ({
+                    ...item,
+                    id: `${i}-${j}`,
+                }))
+
+            const prDate = new Date(tableItems.at(0).mergedAt)
 
             const daysFromStart = differenceInDays(prDate,startDate)
-            const prsChunkNumber = daysPerChunk > 0
-                ? Math.ceil(daysFromStart/daysPerChunk)
-                : 1
 
-            prsChunkNumber <= 10 && (prsChunkNumber > chunkCount || chunkCount < 1)
-                ? chunkyData.push([itemData])
-                : chunkyData.at(-1).push(itemData)
+            const percentToEndDate = Math.floor((daysFromStart/totalDays) * 100)
+            const percentChunked = 10 * chunkCount
+
+            chunkCount < 1 || (percentToEndDate >= percentChunked && chunkCount < 10 )
+                ? chunkyData.push(tableItems)
+                : chunkyData.at(-1).push(...tableItems)
         })
 
     return chunkyData
