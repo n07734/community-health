@@ -9,7 +9,7 @@ import { colors } from '../colors'
 import Line from '../charts/Line'
 import ItemsTable from './ItemsTable'
 
-const getByAuthorData = (pullRequests = []) => {
+const getByAuthorData = (pullRequests = [], hideNames = false) => {
     const authorsPrs = {}
     pullRequests
         .forEach((pr) => {
@@ -29,7 +29,9 @@ const getByAuthorData = (pullRequests = []) => {
                 }))
 
             return {
-                label: author,
+                label: hideNames
+                    ? `${Array(i).fill(' ').join('')}Spartacus`
+                    : author,
                 color: colors[i % colors.length],
                 dataKey: 'value',
                 groupMath: 'count',
@@ -50,12 +52,13 @@ const PullRequestTrends = ({
     pullRequests = [],
     releases = [],
     userIds = [],
+    hiddenNames = false,
 } = {}) => {
     const { type } = useTheme();
 
     const isTeamPage = userIds.length > 0
     const byAuthorData = isTeamPage
-        ? getByAuthorData(pullRequests)
+        ? getByAuthorData(pullRequests, hiddenNames)
         : []
 
     return pullRequests.length > 0 && (
@@ -181,6 +184,7 @@ const mapStateToProps = (state) => ({
     pullRequests: state.pullRequests,
     releases: state.releases,
     userIds: state.fetches.userIds,
+    hiddenNames: state.hiddenNames,
 })
 
 export default connect(mapStateToProps)(PullRequestTrends)

@@ -16,24 +16,31 @@ const Sentiment = ({
     pullRequests = [],
     releases = [],
     userIds = [],
-    classes = {}
+    hiddenNames = false,
+    classes = {},
 } = {}) => {
     const theme = useTheme();
 
     const lines = userIds
-        .map((userId, i) => ([
-            {
-                label: `To ${userId}`,
-                color: colors[i % colors.length],
-                filterForKey: `${userId}-commentsSentimentScore`,
-            },
-            {
-                label: `From ${userId}`,
-                color: colors[i % colors.length],
-                filterForKey: `${userId}-commentAuthorSentimentScore`,
-            }
-        ]))
-        .flat()
+        .map((userId, i) => {
+            const label = hiddenNames
+                ? `Spartacus${Array(i).fill(' ').join('')}`
+                : userId
+
+            return ([
+                {
+                    label: `To ${label}`,
+                    color: colors[i % colors.length],
+                    filterForKey: `${userId}-commentsSentimentScore`,
+                },
+                {
+                    label: `From ${label}`,
+                    color: colors[i % colors.length],
+                    filterForKey: `${userId}-commentAuthorSentimentScore`,
+                }
+            ])
+        })
+            .flat()
 
     const [leftLines, rightLines] = lines.length > 10
         ? splitAt(Math.ceil(lines.length/2),lines)
@@ -149,6 +156,7 @@ const Sentiment = ({
 const mapStateToProps = (state) => ({
     releases: state.releases,
     userIds: state.fetches.userIds,
+    hiddenNames: state.hiddenNames,
 })
 
 const styles = theme => ({
