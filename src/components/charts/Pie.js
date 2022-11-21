@@ -39,7 +39,6 @@ const Pie = styledCharts(({
                     arcLinkLabelsDiagonalLength={10}
                     arcLinkLabelsStraightLength={15}
                     arcLinkLabelsTextColor={theme.palette.text.primary}
-                    // legends={legends}
                     theme={theme.charts}
                 />
             </div>

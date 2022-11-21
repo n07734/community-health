@@ -208,6 +208,7 @@ const styles = theme => ({
         display: 'flex',
         flexWrap: 'nowrap',
         alignContent: 'stretch',
+        justifyContent: 'space-between',
     },
     pvpL: {
         position: 'relative',

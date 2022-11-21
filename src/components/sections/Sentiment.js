@@ -1,8 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
-import { useTheme } from '@material-ui/core/styles';
-import { splitAt } from 'ramda'
 
 import Line from '../charts/Line'
 import Paper from '../shared/Paper'
@@ -19,8 +17,6 @@ const Sentiment = ({
     hiddenNames = false,
     classes = {},
 } = {}) => {
-    const theme = useTheme();
-
     const lines = userIds
         .map((userId, i) => {
             const label = hiddenNames
@@ -41,55 +37,6 @@ const Sentiment = ({
             ])
         })
             .flat()
-
-    const [leftLines, rightLines] = lines.length > 10
-        ? splitAt(Math.ceil(lines.length/2),lines)
-        :[lines, []]
-
-    const showLegends = userIds.length > 10
-        ? false
-        : true
-
-    const legends = showLegends
-        ? [
-            {
-                data: leftLines,
-                anchor: 'top-left',
-                direction: 'column',
-                justify: false,
-                translateX: 10,
-                translateY: 10,
-                itemsSpacing: 0,
-                itemDirection: 'left-to-right',
-                itemWidth: 80,
-                itemHeight: 20,
-                itemOpacity: 1,
-                symbolSize: 12,
-                symbolShape: 'square',
-                symbolBorderColor: 'rgba(0, 0, 0, .9)',
-                toggleSerie: true,
-                itemTextColor: theme.palette.text.primary,
-            },
-            {
-                data: rightLines,
-                anchor: 'top-right',
-                direction: 'column',
-                justify: false,
-                translateX: -10,
-                translateY: 10,
-                itemsSpacing: 0,
-                itemDirection: 'right-to-left',
-                itemWidth: 80,
-                itemHeight: 20,
-                itemOpacity: 1,
-                symbolSize: 12,
-                symbolShape: 'square',
-                symbolBorderColor: 'rgba(0, 0, 0, .9)',
-                toggleSerie: true,
-                itemTextColor: theme.palette.text.primary,
-            }
-        ]
-        : []
 
     return pullRequests.length > 0 && (<>
         <Paper>
@@ -132,8 +79,7 @@ const Sentiment = ({
             {
                 userIds.length > 0 && <>
                     <Line
-                        showLegends={showLegends}
-                        legends={legends}
+                        showLegends={true}
                         title="Sentiment in PRs between authors and reviewers"
                         data={[
                             {

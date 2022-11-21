@@ -1,5 +1,5 @@
 import React from 'react'
-import { pathOr, propOr } from 'ramda'
+import { pathOr, propOr, splitAt } from 'ramda'
 import { ResponsiveLine as NivoLine } from '@nivo/line'
 import { TableTooltip } from '@nivo/tooltip'
 import { useTheme } from '@material-ui/core/styles';
@@ -44,7 +44,7 @@ const ToolTip = convertedRightLines => data => {
                     .map((point) => [
                         <Chip color={point.serieColor} />,
                         point.serieId,
-                        <strong>{getYValue(point)}</strong>,
+                        <strong>{getYValue(point)} {point.data.xFormatted}</strong>,
                     ])
             }
         />
@@ -99,33 +99,54 @@ const Line = styledCharts(({
         })
         .filter(Boolean)
 
+    const leftLines = leftAxis.lines
     const leftHeadingItems = title || blockHeading
         ? []
-        : leftAxis.lines
+        : leftLines
 
     const rightHeadingItems = rightAxis.lines
 
+    const defaultLegendInfo = {
+        anchor: 'top-right',
+        direction: 'column',
+        justify: false,
+        translateX: -10,
+        translateY: 10,
+        itemsSpacing: 0,
+        itemDirection: 'right-to-left',
+        itemWidth: 80,
+        itemHeight: 20,
+        itemOpacity: 1,
+        symbolSize: 12,
+        symbolShape: 'square',
+        symbolBorderColor: 'rgba(0, 0, 0, .9)',
+        toggleSerie: true,
+        itemTextColor: theme.palette.text.primary,
+    }
+
+    // If single axis and total and over x lines, then split, just for left lines
+    if (legends.length < 1 && rightAxis.lines < 0 && leftLines.length > 10) {
+        const [leftData, rightData] = splitAt(Math.ceil(leftLines.length/2),leftLines)
+
+        legends.push(
+            {
+                ...defaultLegendInfo,
+                data: leftData,
+                anchor: 'top-left',
+                direction: 'column',
+                translateX: 10,
+                itemDirection: 'left-to-right',
+            },
+            {
+                ...defaultLegendInfo,
+                data: rightData,
+            }
+        )
+    }
+
     const legendsArray = legends.length
         ? legends
-        : [
-            {
-                anchor: 'top-right',
-                direction: 'column',
-                justify: false,
-                translateX: -10,
-                translateY: 10,
-                itemsSpacing: 0,
-                itemDirection: 'right-to-left',
-                itemWidth: 80,
-                itemHeight: 20,
-                itemOpacity: 1,
-                symbolSize: 12,
-                symbolShape: 'square',
-                symbolBorderColor: 'rgba(0, 0, 0, .9)',
-                toggleSerie: true,
-                itemTextColor: theme.palette.text.primary,
-            },
-        ]
+        : [ defaultLegendInfo ]
 
     const lineData = leftLinesData.concat(convertedRightLines)
 

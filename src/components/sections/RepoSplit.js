@@ -1,7 +1,4 @@
 import React from 'react'
-import { splitAt } from 'ramda'
-import { useTheme } from '@material-ui/core/styles';
-
 import ChartDescription from '../shared/ChartDescription'
 import Line from '../charts/Line'
 import Pie from '../charts/Pie'
@@ -45,8 +42,6 @@ const RepoSplit = ({
     allRepos = {},
     allOrgs = {},
 } = {}) => {
-    const theme = useTheme();
-
     const repoPie = rainbowData('repo', allRepos)
     const uniqueRepos = repoPie.reportItems
 
@@ -57,49 +52,6 @@ const RepoSplit = ({
             filterForKey: `repo-${repo}`,
             groupMath: 'count',
         }))
-
-    const [leftData, rightData] = lines.length > 10
-        ? splitAt(Math.ceil(lines.length/2),lines)
-        :[lines, []]
-
-    const legends = [
-        {
-            data: leftData,
-            anchor: 'top-left',
-            direction: 'column',
-            justify: false,
-            translateX: 10,
-            translateY: 10,
-            itemsSpacing: 0,
-            itemDirection: 'left-to-right',
-            itemWidth: 80,
-            itemHeight: 20,
-            itemOpacity: 1,
-            symbolSize: 12,
-            symbolShape: 'square',
-            symbolBorderColor: 'rgba(0, 0, 0, .9)',
-            toggleSerie: true,
-            itemTextColor: theme.palette.text.primary,
-        },
-        {
-            data: rightData,
-            anchor: 'top-right',
-            direction: 'column',
-            justify: false,
-            translateX: -10,
-            translateY: 10,
-            itemsSpacing: 0,
-            itemDirection: 'right-to-left',
-            itemWidth: 80,
-            itemHeight: 20,
-            itemOpacity: 1,
-            symbolSize: 12,
-            symbolShape: 'square',
-            symbolBorderColor: 'rgba(0, 0, 0, .9)',
-            toggleSerie: true,
-            itemTextColor: theme.palette.text.primary,
-        }
-    ]
 
     const orgPie = rainbowData('org', allOrgs)
 
@@ -112,7 +64,6 @@ const RepoSplit = ({
             />
             <Line
                 title="Repository PRs over time"
-                legends={legends}
                 showLegends={true}
                 data={[
                     {
