@@ -5,7 +5,7 @@ import min from 'date-fns/min'
 import max from 'date-fns/max'
 
 import { batchBy } from './batchBy'
-import { sumKeysValue } from '../../utils'
+import { sumKeysValue, sortByKeys } from '../../utils'
 
 const getAllYValues = data => {
     const allValues = []
@@ -58,21 +58,29 @@ const formatBatches = ({ filterForKey = '', dataKey = '', groupMath = 'average' 
     const lineData = []
     batches
         .forEach((batch) => {
-            const value = sumKeysValue(dataKey || filterForKey)(batch)
-            const filteredBatch = batch.filter(x => /\d+/.test(x[filterForKey]))
-            const batchLength = filterForKey
-                ? filteredBatch.length
-                : batch.length
+            const filteredBatch = batch
+                .filter(x => filterForKey
+                    ? /\d+/.test(x[filterForKey])
+                    : true
+                )
 
-            const valueByTypes = {
-                'average': Math.round(value / batchLength),
-                'sum': value,
-                'count': batchLength,
-            }
+            const key = dataKey || filterForKey
+            const batchLength = filteredBatch.length
 
             if (!filterForKey || batchLength > 0) {
+                const valueByTypes = {
+                    'average': () => Math.round(sumKeysValue(key)(filteredBatch) / filteredBatch.length),
+                    'sum': () => sumKeysValue(key)(filteredBatch),
+                    'count': () => filteredBatch.length,
+                    'mean': () => {
+                        const sortedBatch = filteredBatch
+                            .sort(sortByKeys([key]))
+                        return sortedBatch[Math.floor(batchLength / 2)][key] || 0
+                    }
+                }
+
                 lineData.push({
-                    y: valueByTypes[groupMath],
+                    y: valueByTypes[groupMath](),
                     x: formatDate(batch[0].mergedAt),
                 })
             }

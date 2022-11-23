@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { pathOr, propOr, splitAt } from 'ramda'
 import { ResponsiveLine as NivoLine } from '@nivo/line'
 import { TableTooltip } from '@nivo/tooltip'
@@ -50,6 +50,27 @@ const ToolTip = convertedRightLines => data => {
         />
     )
 }
+
+const DashedLine = (colors = [], allLines = []) => ({ series, lineGenerator, xScale, yScale }) => series
+    .map((item = {}) => {
+        const { id, data: lineData, color } = item
+        const { lineStyles = { strokeWidth: 2 } } = allLines.find(x => x.label === id) || {}
+
+        return (
+            <path
+                key={id}
+                d={lineGenerator(
+                    lineData.map(d => ({
+                        x: xScale(d.data.x),
+                        y: yScale(d.data.y),
+                    }))
+                )}
+                fill="none"
+                stroke={color}
+                style={lineStyles}
+            />
+        )
+    })
 
 const Line = styledCharts(({
     title,
@@ -106,6 +127,61 @@ const Line = styledCharts(({
 
     const rightHeadingItems = rightAxis.lines
 
+    const allLines = [
+        ...leftAxis.lines,
+        ...rightAxis.lines,
+    ]
+
+    const colorsInfo = allLines.map(x => ({
+        label: x.label,
+        default: x.color,
+        current: x.color,
+        clicked: false,
+    }))
+
+    const [ hookedColors = [], setState] = useState(colorsInfo)
+
+    const fadeColor = 'rgba(120, 119, 120, 0.27)'
+
+    const enter = (data = {}) => {
+        const itemsIndex = colorsInfo.findIndex(x => x.label === data.label)
+        setState(hookedColors.map((info = {}, i) => ({
+            ...info,
+            current: i === itemsIndex || info.clicked
+                ? info.default
+                : fadeColor
+        })))
+    }
+
+    const exit = (data = {}) => {
+        const hasClicked = hookedColors.some(x => x.clicked)
+        setState(hookedColors.map((info = {}) => ({
+            ...info,
+            current: (hasClicked && info.clicked || !hasClicked)
+                ? info.default
+                : fadeColor
+        })))
+    }
+
+    const click = (data = {}) => {
+        const itemsIndex = colorsInfo.findIndex(x => x.label === data.label)
+        const updated = hookedColors
+            .map((info = {}, i) => {
+                const selectedClicked = i === itemsIndex && !info.clicked
+
+                return ({
+                    ...info,
+                    current: selectedClicked || (i !== itemsIndex && info.clicked)
+                        ? info.default
+                        : fadeColor,
+                    clicked: i === itemsIndex
+                        ? selectedClicked
+                        : info.clicked
+                })
+            })
+        setState(updated)
+    }
+
     const defaultLegendInfo = {
         anchor: 'top-right',
         direction: 'column',
@@ -120,13 +196,27 @@ const Line = styledCharts(({
         symbolSize: 12,
         symbolShape: 'square',
         symbolBorderColor: 'rgba(0, 0, 0, .9)',
-        toggleSerie: true,
         itemTextColor: theme.palette.text.primary,
     }
 
     // If single axis and total and over x lines, then split, just for left lines
-    if (legends.length < 1 && rightAxis.lines < 0 && leftLines.length > 10) {
-        const [leftData, rightData] = splitAt(Math.ceil(leftLines.length/2),leftLines)
+    if (legends.length < 1 && rightAxis.lines < 1 && leftLines.length > 10) {
+        const leftData = []
+        const rightData = []
+        const splitIndex = Math.ceil(leftLines.length / 2)
+        leftLines
+            .forEach(({ label, color } = {}, i) => {
+                const { current } = hookedColors.find(x => x.label === label) || {}
+                const item = {
+                    label,
+                    color: current || color,
+                }
+                if (i < splitIndex) {
+                    leftData.push(item)
+                } else {
+                    rightData.push(item)
+                }
+            })
 
         legends.push(
             {
@@ -146,7 +236,18 @@ const Line = styledCharts(({
 
     const legendsArray = legends.length
         ? legends
-        : [ defaultLegendInfo ]
+            .map((item) => ({
+                ...item,
+                onMouseEnter: enter,
+                onMouseLeave: exit,
+                onClick: click,
+            }))
+        : [{
+            ...defaultLegendInfo,
+            onMouseEnter: enter,
+            onMouseLeave: exit,
+            onClick: click,
+        }]
 
     const lineData = leftLinesData.concat(convertedRightLines)
 
@@ -160,39 +261,13 @@ const Line = styledCharts(({
         ? '%Y'
         : '%y/%m'
 
-    const allLines = [
-        ...leftAxis.lines,
-        ...rightAxis.lines,
-    ]
-
-    const DashedLine = ({ series, lineGenerator, xScale, yScale }) => series
-        .map((item = {}) => {
-            const { id, data: lineData, color } = item
-            const { lineStyles = { strokeWidth: 2 } } = allLines.find(x => x.label === id) || {}
-
-            return (
-                <path
-                    key={id}
-                    d={lineGenerator(
-                        lineData.map(d => ({
-                            x: xScale(d.data.x),
-                            y: yScale(d.data.y),
-                        }))
-                    )}
-                    fill="none"
-                    stroke={color}
-                    style={lineStyles}
-                />
-            )
-        })
-
     return hasData(lineData) && (
         <div className={classes.lineChartComponentWrap}>
             <div className={classes.headingWrap}>
                 <ChartHeading type='line' text={title} items={leftHeadingItems} />
                 {
                     !blockHeading && rightHeadingItems.length > 0
-                        && <ChartHeading type='line' items={rightHeadingItems} />
+                    && <ChartHeading type='line' items={rightHeadingItems} />
                 }
             </div>
 
@@ -200,14 +275,11 @@ const Line = styledCharts(({
                 <NivoLine
                     margin={{ top: 14, right: 50, bottom: 50, left: 50 }}
                     data={lineData}
-                    colors={[
-                        ...leftAxis.lines.map(x => x.color),
-                        ...rightAxis.lines.map(x => x.color),
-                    ]}
+                    colors={hookedColors.map(x => x.current)}
                     lineWidth={2}
                     curve='monotoneX'
                     animate={false}
-                    toggleSerie={showLegends && true}
+                    toggleSerie={false}
                     xScale={{
                         type: 'time',
                         format: '%Y-%m-%d',
@@ -253,7 +325,7 @@ const Line = styledCharts(({
                     enableSlices="x"
                     sliceTooltip={ToolTip(convertedRightLines)}
                     theme={theme.charts}
-                    layers={['grid', 'markers', 'areas', DashedLine, 'slices', 'points', 'axes', 'legends']}
+                    layers={['grid', 'markers', 'areas', DashedLine(hookedColors, allLines), 'slices', 'points', 'axes', 'legends']}
                 />
             </div>
         </div>
