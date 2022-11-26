@@ -44,6 +44,7 @@ const ReportDescription = ({
     pullRequests = [],
     issues = [],
     userIds = [],
+    excludeIds = [],
     reportDescription = '',
     hideNames = () => {},
     classes
@@ -66,18 +67,21 @@ const ReportDescription = ({
             }
             {
                 userIds.length > 0
-                    && <P>
-                        {
-                            userIds.join(', ')
-                        }
-                    </P>
+                    && <P>Team's GitHub IDs: { userIds.join(', ') }</P>
             }
-            <Switch
-                onChange={handleChange}
-                name="checkedA"
-                inputProps={{ 'aria-label': 'secondary checkbox' }}
-            />
-            <P className={classes.toggle}>Toggle to hide GitHub usernames, this can help look for trends.</P>
+            {
+                excludeIds.length > 0
+                    && <P>Excluded GitHub IDs, usually bots: { excludeIds.join(', ') }</P>
+            }
+
+            <P className={classes.toggle}>
+                <Switch
+                    onChange={handleChange}
+                    name="checkedA"
+                    inputProps={{ 'aria-label': 'secondary checkbox' }}
+                />
+                Toggle to hide GitHub usernames, this can help look for trends.
+            </P>
             <DateRange />
             {
                 preFetchedName.length > 0
@@ -92,6 +96,7 @@ const mapStateToProps = (state) => ({
     pullRequests: state.pullRequests,
     issues: state.issues,
     userIds: state.fetches.userIds,
+    excludeIds: state.fetches.excludeIds,
     reportDescription: state.reportDescription,
 })
 

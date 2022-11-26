@@ -286,7 +286,7 @@ const styles = theme => ({
         borderRadius: '15px',
         paddingTop:' 0.5em',
         justifyContent: 'center',
-        backgroundImage: 'linear-gradient(0deg, rgba(102,102,102,0) 80%, rgba(102,102,102,1) 100%)',
+        backgroundImage: `linear-gradient(0deg, rgba(0,0,0,0) 80%, ${theme.palette.shadow} 100%)`,
         '& p': {
             margin: '0'
         },

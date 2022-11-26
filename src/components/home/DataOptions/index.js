@@ -30,7 +30,7 @@ const FetchForm = ({ classes, clearReport }) => {
 
      const ossCopy = myPreFetchedReports.length > 0
         ? 'Saved and OSS Reports'
-        : 'Popular repos/teams'
+        : 'Popular repos and teams'
 
      const preFetchedText = onlyShowMyReports
         ? 'Saved Reports'

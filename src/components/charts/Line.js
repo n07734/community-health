@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { pathOr, propOr, splitAt } from 'ramda'
+import { pathOr, propOr } from 'ramda'
 import { ResponsiveLine as NivoLine } from '@nivo/line'
 import { TableTooltip } from '@nivo/tooltip'
 import { useTheme } from '@material-ui/core/styles';
@@ -44,7 +44,7 @@ const ToolTip = convertedRightLines => data => {
                     .map((point) => [
                         <Chip color={point.serieColor} />,
                         point.serieId,
-                        <strong>{getYValue(point)} {point.data.xFormatted}</strong>,
+                        <strong>{getYValue(point)}</strong>,
                     ])
             }
         />
@@ -140,6 +140,10 @@ const Line = styledCharts(({
     }))
 
     const [ hookedColors = [], setState] = useState(colorsInfo)
+
+    if (colorsInfo.length > hookedColors.length) {
+        setState(colorsInfo)
+    }
 
     const fadeColor = 'rgba(120, 119, 120, 0.27)'
 
@@ -267,7 +271,7 @@ const Line = styledCharts(({
                 <ChartHeading type='line' text={title} items={leftHeadingItems} />
                 {
                     !blockHeading && rightHeadingItems.length > 0
-                    && <ChartHeading type='line' items={rightHeadingItems} />
+                        && <ChartHeading type='line' items={rightHeadingItems} />
                 }
             </div>
 

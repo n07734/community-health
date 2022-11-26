@@ -17,17 +17,22 @@ const getAllYValues = data => {
             allValues.push(...values)
         })
 
-    return allValues
+    return allValues.sort((a,b) => a - b)
 }
 
 const getMaxYValue = (data) => {
     const allValues = getAllYValues(data)
 
-    const maxValue = allValues.length > 0
-        ? apply(Math.max, allValues)
-        : 0
+    const tp95Index = Math.round(allValues.length * 0.95)
+    const tp95Value = allValues[tp95Index] || 0
 
-    return maxValue
+    const maxValue = allValues.at(-1) || 0
+    const percentOf = tp95Value && Math.round(((tp95Value/maxValue) * 100)) || 0
+
+    // Use tp95Value if the values' % of total is low, this trims the top values off the graphs so the trends are more easy to see
+    return tp95Value && percentOf < 30
+        ?  tp95Value
+        : maxValue
 }
 
 const getMinYValue = (data) => {
@@ -69,9 +74,9 @@ const formatBatches = ({ filterForKey = '', dataKey = '', groupMath = 'average' 
 
             if (!filterForKey || batchLength > 0) {
                 const valueByTypes = {
-                    'average': () => Math.round(sumKeysValue(key)(filteredBatch) / filteredBatch.length),
+                    'average': () => Math.round(sumKeysValue(key)(filteredBatch) / batchLength),
                     'sum': () => sumKeysValue(key)(filteredBatch),
-                    'count': () => filteredBatch.length,
+                    'count': () => batchLength,
                     'mean': () => {
                         const sortedBatch = filteredBatch
                             .sort(sortByKeys([key]))
