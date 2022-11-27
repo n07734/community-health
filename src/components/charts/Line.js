@@ -141,7 +141,7 @@ const Line = styledCharts(({
 
     const [ hookedColors = [], setState] = useState(colorsInfo)
 
-    if (!equals(colorsInfo, hookedColors)) {
+    if ((colorsInfo.length !== hookedColors.length) || hookedColors.length === 1 && hookedColors[0].color !== colorsInfo[0].color) {
         setState(colorsInfo)
     }
 
