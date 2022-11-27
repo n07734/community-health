@@ -77,7 +77,7 @@ const formatBatches = ({ filterForKey = '', dataKey = '', groupMath = 'average' 
                     'average': () => Math.round(sumKeysValue(key)(filteredBatch) / batchLength),
                     'sum': () => sumKeysValue(key)(filteredBatch),
                     'count': () => batchLength,
-                    'mean': () => {
+                    'median': () => {
                         const sortedBatch = filteredBatch
                             .sort(sortByKeys([key]))
                         return sortedBatch[Math.floor(batchLength / 2)][key] || 0

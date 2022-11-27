@@ -67,6 +67,7 @@ const lineOptions = [
 const mathWords = {
     average: 'Average',
     sum: 'Total',
+    median: 'Median',
 }
 
 const addedLine = (removeLine, classes) => ({
@@ -224,7 +225,7 @@ const GraphUi = ({
                         >
                             <MenuItem value="average">Average</MenuItem>
                             <MenuItem value="sum">Total</MenuItem>
-                            <MenuItem value="mean">Mean</MenuItem>
+                            <MenuItem value="median">Median</MenuItem>
                         </Select>
                 }
                 <RadioGroup
