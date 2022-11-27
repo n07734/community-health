@@ -215,6 +215,26 @@ const GraphUi = ({
                             </MenuItem>)
                     }
                 </Select>
+                {
+                    formInfo.dataKey !== 'author'
+                        && <Select
+                            onChange={(e) => setValue({ groupMath: e.target.value })}
+                            value={formInfo.groupMath}
+                            inputProps={{ 'aria-label': 'Choose a line calculation' }}
+                        >
+                            <MenuItem value="average">Average</MenuItem>
+                            <MenuItem value="sum">Total</MenuItem>
+                            <MenuItem value="mean">Mean</MenuItem>
+                        </Select>
+                }
+                <RadioGroup
+                    value={formInfo.lineSide}
+                    onChange={(e) => setValue({ lineSide: e.target.value })}
+                    row name="side"
+                >
+                    <FormLabel>Axis: Left<Radio name="side" value="left" /></FormLabel>
+                    <FormLabel>Right<Radio name="side" value="right" /></FormLabel>
+                </RadioGroup>
                 <Select
                     onChange={(e) => setValue({ color: e.target.value })}
                     value={formInfo.color}
@@ -232,27 +252,6 @@ const GraphUi = ({
                             </MenuItem>)
                     }
                 </Select>
-                <RadioGroup
-                    value={formInfo.lineSide}
-                    onChange={(e) => setValue({ lineSide: e.target.value })}
-                    row name="side"
-                >
-                    <FormLabel>Axis: Left<Radio name="side" value="left" /></FormLabel>
-                    <FormLabel>Right<Radio name="side" value="right" /></FormLabel>
-                </RadioGroup>
-                {
-                    formInfo.dataKey !== 'author'
-                        && <RadioGroup
-                            value={formInfo.groupMath}
-                            onChange={(e) => setValue({ groupMath: e.target.value })}
-                            row
-                            name="lineMaths"
-                        >
-
-                        <FormLabel>Line points: Averaged<Radio name="lineMaths" value="average" /></FormLabel>
-                        <FormLabel>Totaled<Radio name="lineMaths" value="sum" /></FormLabel>
-                    </RadioGroup>
-                }
                 <Button value={"Add to graph"} color="primary" type='submit'/>
             </form>
         }

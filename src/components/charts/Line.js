@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { pathOr, propOr } from 'ramda'
+import { pathOr, propOr, equals } from 'ramda'
 import { ResponsiveLine as NivoLine } from '@nivo/line'
 import { TableTooltip } from '@nivo/tooltip'
 import { useTheme } from '@material-ui/core/styles';
@@ -141,7 +141,7 @@ const Line = styledCharts(({
 
     const [ hookedColors = [], setState] = useState(colorsInfo)
 
-    if (colorsInfo.length > hookedColors.length) {
+    if (!equals(colorsInfo, hookedColors)) {
         setState(colorsInfo)
     }
 
