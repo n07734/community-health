@@ -10,7 +10,15 @@ import Line from '../charts/Line'
 import GraphUi from '../charts/GraphUi'
 import ItemsTable from './ItemsTable'
 
-const formatGraphData = (pullRequests = [], prTransformer) => (data = {}) => {
+const formatGraphData = (pullRequests = [], prTransformer, issues = []) => (data = {}) => {
+    const getData = (lineInfo = {}) => {
+        const dataKey = lineInfo.dataKey
+        const useIssues = ['isBug', 'isFeature'].includes(dataKey)
+
+        return useIssues
+            ? issues.filter(({ isBug = false} = {}) =>  (isBug && dataKey === 'isBug') || (!isBug && dataKey === 'isFeature'))
+            : pullRequests
+    }
     const {
         left = [],
         right = [],
@@ -23,14 +31,14 @@ const formatGraphData = (pullRequests = [], prTransformer) => (data = {}) => {
     const leftLines = {
         lines: customLeft.length > 0
             ? customLeft
-            : left.map(x => ({...x, data: pullRequests})),
+            : left.map(x => ({...x, data: getData(x)})),
         xAxis: 'left',
     }
 
     const rightLines = {
         lines: customRight.length > 0
             ? customRight
-            : right.map(x => ({...x, data: pullRequests})),
+            : right.map(x => ({...x, data: getData(x)})),
         xAxis: 'right',
     }
 
@@ -70,10 +78,11 @@ const getTableKeys = (graphInfo = {}) => {
 let id = 1
 const getGraphId = () => ++id
 
-const PullRequestCustom = ({
+const CustomGraphs = ({
     chunkyData = [],
     pullRequests = [],
     prTransformer,
+    issues = [],
     releases = [],
     classes = {},
 } = {}) => {
@@ -90,12 +99,12 @@ const PullRequestCustom = ({
     }]
     const [graphs, setGraph] = useState(defaultState)
 
-    const makeGraphData = formatGraphData(pullRequests, prTransformer)
+    const makeGraphData = formatGraphData(pullRequests, prTransformer, issues)
 
     return pullRequests.length > 0 && (
         <Paper className={classes.block}>
             <ChartDescription
-                title="Pull Requests: build your own graphs"
+                title="Build your own graphs"
             >
                 {
                     releases.length > 1 && <div>
@@ -164,6 +173,7 @@ const PullRequestCustom = ({
 
 const mapStateToProps = (state) => ({
     releases: state.releases,
+    issues: state.issues,
 })
 
 const styles = theme => ({
@@ -187,4 +197,4 @@ const styles = theme => ({
     },
 })
 
-export default connect(mapStateToProps)(withStyles(styles)(PullRequestCustom))
+export default connect(mapStateToProps)(withStyles(styles)(CustomGraphs))

@@ -12,7 +12,6 @@ import {
     propOr,
     path,
     is,
-    isNil,
     cond,
     T as alwaysTrue,
 } from 'ramda'
@@ -46,7 +45,7 @@ const getUntilDate = (fetches = {}, allPrs = []) => {
     const isAsc = propEq('sortDirection', 'ASC')
 
     const noDateUntil = compose(
-        isNil,
+        x => !(typeof x === 'string' && x.length > 1),
         prop('untilDate')
     )
 

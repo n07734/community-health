@@ -730,7 +730,9 @@ const getDownloadProps = (dispatch, getState) => {
 
 const checkUntilDate = (newSortDirection = '') => (dispatch, getState) => {
     const {
-        sortDirection = '',
+        fetches: {
+            sortDirection = '',
+        } = {},
     } = getState();
 
     sortDirection !== newSortDirection

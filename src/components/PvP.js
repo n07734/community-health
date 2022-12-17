@@ -10,7 +10,7 @@ import Line from './charts/Line'
 import StatBars from './charts/StatBars'
 import ItemsTable from './sections/ItemsTable'
 import { chunkData } from './charts/lineHelpers'
-import PullRequestCustom from './sections/PullRequestCustom'
+import CustomGraphs from './sections/CustomGraphs'
 
 import {
     colors,
@@ -192,7 +192,7 @@ const PvP = ({
                 <P className={classes.copy}>And the winner is.... Both! Thanks for your great work!</P>
                 {/*
                 Need to fix legend also make correct chunky data
-                <PullRequestCustom
+                <CustomGraphs
                     prTransformer={prTransformer(user1, user2)}
                     pullRequests={pullRequests}
                 /> */}

@@ -62,7 +62,18 @@ const lineOptions = [
         label: 'Sentiment from team',
         dataKey: 'commentAuthorSentimentScore',
     },
+    {
+        label: 'Bug count',
+        dataKey: 'isBug',
+    },
+    {
+        label: 'Feature count',
+        dataKey: 'isFeature',
+    },
 ]
+
+// TODO: set groupMath in form so don't have to do this way
+const isACountBasedKey = (key) => ['author', 'isBug', 'isFeature'].includes(key)
 
 const mathWords = {
     average: 'Average',
@@ -129,7 +140,7 @@ const GraphUi = ({
         const lines = graphInfo[side] || []
         lines.push({
             ...formInfo,
-            groupMath: formInfo.dataKey === 'author'
+            groupMath: isACountBasedKey(formInfo.dataKey)
                 ? 'count'
                 : formInfo.groupMath || 'average'
         })
@@ -157,7 +168,7 @@ const GraphUi = ({
             dataKey: firstline.dataKey,
             color: colors[(chosenColorIndex + 1) % colors.length],
             lineSide: 'left',
-            groupMath: firstline.dataKey === 'author'
+            groupMath: isACountBasedKey(firstline.dataKey)
                 ? 'count'
                 : firstline.groupMath || 'average',
         })
@@ -217,7 +228,7 @@ const GraphUi = ({
                     }
                 </Select>
                 {
-                    formInfo.dataKey !== 'author'
+                    !isACountBasedKey(formInfo.dataKey)
                         && <Select
                             onChange={(e) => setValue({ groupMath: e.target.value })}
                             value={formInfo.groupMath}

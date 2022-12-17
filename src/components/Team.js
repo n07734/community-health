@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import PullRequestTrends from './sections/PullRequestTrends'
-import PullRequestCustom from './sections/PullRequestCustom'
+import CustomGraphs from './sections/CustomGraphs'
 import IssuesTrends from './sections/IssuesTrends'
 import TeamTrends from './sections/TeamTrends'
 import UserTrends from './sections/UserTrends'
@@ -33,7 +33,7 @@ const Team = ({ pullRequests = [] } = {}) => {
     return <>
         <ReportDescription />
         <TeamTrends />
-        <PullRequestCustom
+        <CustomGraphs
             pullRequests={updatedPullRequests}
             chunkyData={chunkyData}
         />
