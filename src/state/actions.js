@@ -110,6 +110,7 @@ const getUsersInfo = (usersString = '') => {
             let [, startDate = ''] = dates.match(/start:([\d-/]*)/i) || []
             let [, endDate = ''] = dates.match(/end:([\d-/]*)/i) || []
 
+            // TODO: deal with multiple dates, i.e. person left and joined again
             usersInfo[userId] = {
                 userId,
                 startDate,

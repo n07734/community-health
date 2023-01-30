@@ -11,7 +11,7 @@ const styles = theme => ({
         '& button': {
             minHeight: '3rem',
         },
-        '& .tokenText' : {
+        '& .inputDesc' : {
             gridColumn:'1 / -1'
         }
     },

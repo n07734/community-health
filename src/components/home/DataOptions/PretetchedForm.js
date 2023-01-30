@@ -120,7 +120,7 @@ const PrefetchedForm = (props) => {
                             type="token"
                             { ...inputStates }
                         />
-                        <P className="tokenText">
+                        <P className="inputDesc">
                             * To create a token go to your GitHub <a className={classes.link} href="https://github.com/settings/tokens">tokens</a> page, click on 'generate new token', choose the settings 'repo' (all) and 'read:org' then click 'Generate token'.
                         </P>
                         {

@@ -10,7 +10,7 @@ import {
 const inputLabels = {
     org: 'Organization',
     repo: 'Repository',
-    token: 'Token*',
+    token: 'Token',
     excludeIds: "Exclude GitHub users e.g. remove bot PRs and comments, ',' separated",
     enterpriseAPI: 'Enterprise API full url',
     userIds: 'Comma separated list GitHub users',

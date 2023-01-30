@@ -45,6 +45,10 @@ const FormSection = (props) => {
         enterpriseAPI: '',
     }
 
+    const formTitle = reportType === 'repo'
+        ? 'Get community data for any repo'
+        : 'Get community data for any Team(list of users)'
+
     const primaryInputs = reportType === 'repo'
         ? {
             org: '',
@@ -94,26 +98,48 @@ const FormSection = (props) => {
 
     return (
         <div className={classes.formDescription} >
-            <H level={3}>Get community data for any Team(list of users)</H>
+            <H level={3}>{formTitle}</H>
             <form
                 onSubmit={handleSubmit}
             >
                 <div className={classes.inputGrid}>
                     <SelectAmountData setValue={setValue} amountOfData={formInfo.amountOfData} />
                     {
-                        keys(primaryInputs)
-                            .map((inputKey) => <TextInput
-                                key={inputKey}
-                                type={inputKey}
-                                { ...inputStates }
-                            />)
+                        reportType === 'repo'
+                            ? <>
+                                <TextInput
+                                    key='org'
+                                    type='org'
+                                    { ...inputStates }
+                                />
+                                <TextInput
+                                    key='repo'
+                                    type='repo'
+                                    { ...inputStates }
+                                />
+                            </>
+                            : <>
+                                <TextInput
+                                    key='userIds'
+                                    type='userIds'
+                                    { ...inputStates }
+                                />
+                                <P className="inputDesc">
+                                    You can also define the start and/or end date for a user in the team e.g. userA=start:2023-01,userB=start:2020-01end:2022-12.
+                                </P>
+                                <TextInput
+                                    key='teamName'
+                                    type='teamName'
+                                    { ...inputStates }
+                                />
+                            </>
                     }
                     <TextInput
                         type="token"
                         { ...inputStates }
                     />
-                    <P className="tokenText">
-                        * To create a token go to your GitHub <a className={classes.link} href="https://github.com/settings/tokens">tokens</a> page, click on 'generate new token', choose the settings 'repo' (all) and 'read:org' then click 'Generate token'.
+                    <P className="inputDesc">
+                        To create a token go to your GitHub <a className={classes.link} href="https://github.com/settings/tokens">tokens</a> page, click on 'generate new token', choose the settings 'repo' (all) and 'read:org' then click 'Generate token'.
                     </P>
                 </div>
 
