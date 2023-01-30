@@ -14,6 +14,7 @@ const setClear = startValue => (storKey, clearKey) => (current = startValue, act
 
 const setClearString = setClear('')
 const setClearArray = setClear([])
+const setClearObject = setClear({})
 const setClearPagination = setClear({ hasNextPage: true })
 
 const reducers = combineReducers({
@@ -44,6 +45,7 @@ const reducers = combineReducers({
             ? action.payload
             : enterpriseAPI,
         userIds: setClearArray('STORE_USER_IDS', 'CLEAR_USER_IDS'),
+        usersInfo: setClearObject('STORE_USERS_INFO', 'CLEAR_USERS_INFO'),
         excludeIds: setClearArray('STORE_EX_IDS', 'CLEAR_EX_IDS'),
         prPagination: setClearPagination('SET_PR_PAGINATION', 'CLEAR_PR_PAGINATION'),
         releasesPagination: setClearPagination('SET_RELEASES_PAGINATION', 'CLEAR_RELEASES_PAGINATION'),

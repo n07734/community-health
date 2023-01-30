@@ -9,7 +9,12 @@ import {
     propOr,
     sort,
 } from 'ramda'
-import differenceInDays from 'date-fns/differenceInDays'
+import {
+    differenceInDays,
+    isAfter,
+    isBefore
+} from 'date-fns'
+
 import Sentiment from 'sentiment'
 import filterByUntilDate from './filterByUntilDate'
 import { sumKeysValue } from '../utils'
@@ -202,6 +207,32 @@ const formatPullRequests = ({ excludeIds = [] } = {}, results = []) => {
     return pullRequests
 }
 
+const filterByUsersInfo = (fetchInfo = {}, prs = []) => {
+    const usersInfo = fetchInfo.usersInfo || {}
+    const filteredItems = prs
+        .filter((pr = {}) => {
+            const user = pr.author
+            const {
+                startDate = '',
+                endDate = ''
+            } = usersInfo[user] || {}
+
+            const prDate = new Date(pr.mergedAt)
+
+            const isAfterStart = !startDate
+                ? true
+                : isAfter(prDate, new Date(startDate))
+
+            const isBeforeEnd = !endDate
+                ? true
+                : isBefore(prDate, new Date(endDate))
+
+            return isAfterStart && isBeforeEnd
+        })
+
+    return filteredItems
+}
+
 const filterSortPullRequests = ({ excludeIds = [], sortDirection }, untilDate, allPullRequests = []) => {
     const filteredPRs = []
     const remainingPRs = compose(
@@ -278,6 +309,7 @@ const formatReleases = compose(
 export {
     formatPullRequests,
     filterSortPullRequests,
+    filterByUsersInfo,
     formatIssues,
     filterSortIssues,
     filterSortReleases,

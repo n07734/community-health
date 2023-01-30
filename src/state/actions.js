@@ -1,6 +1,7 @@
 import {
     anyPass,
     assoc,
+    difference,
     dissocPath,
     equals,
     filter,
@@ -25,6 +26,7 @@ import getUntilDate from '../api/getUntilDate'
 import {
     formatPullRequests,
     filterSortPullRequests,
+    filterByUsersInfo,
     formatIssues,
     filterSortIssues,
     formatReleases,
@@ -43,7 +45,7 @@ const hideUserNames = (hideNames = false) => ({
         : types.SHOW_NAMES,
 })
 
-const setUser = (user = '') =>  (dispatch) => {
+const setUser = (user = '') => (dispatch) => {
     dispatch({
         type: types.SET_USER,
         payload: user,
@@ -94,12 +96,48 @@ const userIdsFromString = pipe(
     filter(Boolean)
 )
 
-const storeUserIds = (userIds = '') => (dispatch) => {
-    const userIdsArray = userIdsFromString(userIds)
+const getUsersInfo = (usersString = '') => {
+    const usersArray = userIdsFromString(usersString)
+
+    const userIds = []
+    const usersInfo = {}
+
+    usersArray
+        .forEach((user = '') => {
+            // eg with dates userName=start:2020-12-12|end:2020
+            const [userId = '', dates = ''] = user.split('=')
+            userIds.push(userId)
+            let [, startDate = ''] = dates.match(/start:([\d-/]*)/i) || []
+            let [, endDate = ''] = dates.match(/end:([\d-/]*)/i) || []
+
+            usersInfo[userId] = {
+                userId,
+                startDate,
+                endDate,
+            }
+        })
+
+    return {
+        userIds,
+        usersInfo,
+    }
+}
+
+const storeUserIds = (usersString = '') => (dispatch) => {
+    const {
+        userIds = [],
+        usersInfo = {},
+    } = getUsersInfo(usersString)
+
+
+    dispatch({
+        type: types.STORE_USERS_INFO,
+        payload: usersInfo,
+    })
 
     return dispatch({
         type: types.STORE_USER_IDS,
-        payload: userIdsArray,
+        payload: userIds,
     })
 }
 
@@ -163,6 +201,22 @@ const notSameArrayValues = (formValues = {}) => (key = '') => (fetches = {}) => 
     return currentIds.length && not(equals(currentIds, formIds))
 }
 
+const notSameUsersInfo = (formValues = {}) => (fetches = {}) => {
+    const usersString = propOr('', 'userIds', formValues)
+    const {
+        userIds = [],
+        usersInfo = {},
+    } = getUsersInfo(usersString)
+
+    const currentIds = fetches.userIds
+    const currentUsersInfo = fetches.usersInfo || {}
+
+    const hasDifferentUserList = difference(currentIds, userIds).length > 0
+    const hasDifferentUsersInfo = not(equals(usersInfo, currentUsersInfo))
+
+    return hasDifferentUserList || hasDifferentUsersInfo
+}
+
 // TODO: regression test
 const clearPastSearch = (values) => (dispatch, getState) => {
     const {
@@ -177,7 +231,7 @@ const clearPastSearch = (values) => (dispatch, getState) => {
         notSameValues('repo'),
         notSameValues('teamName'),
         notSameValues('enterpriseAPI'),
-        notSameIds('userIds'),
+        notSameUsersInfo(values),
         notSameIds('excludeIds'),
     ])(fetches)
 
@@ -200,6 +254,7 @@ const clearData = (dispatch) => {
     dispatch({ type: types.CLEAR_UNTIL_DATE })
     dispatch({ type: types.CLEAR_FORM_UNTIL_DATE })
     dispatch({ type: types.CLEAR_USER_IDS })
+    dispatch({ type: types.CLEAR_USERS_INFO })
     dispatch({ type: types.CLEAR_EX_IDS })
     dispatch({ type: types.CLEAR_USERS_DATA })
     dispatch({ type: types.CLEAR_TEAM_NAME })
@@ -322,7 +377,7 @@ const trimmer = (dateFrom = '', dateTo = '') => (dateKey = 'mergedAt', items = [
 const trimItems = (dateFrom = '', dateTo = '') => async (dispatch, getState) => {
     const {
         trimmedItems: {
-            trimmedPRs : {
+            trimmedPRs: {
                 trimmedLeftPrs = [],
                 trimmedRightPrs = [],
             } = {},
@@ -435,8 +490,10 @@ const getAPIData = () => async (dispatch, getState) => {
             : await api({ fetchInfo: fetches, queryInfo: batchedQuery(untilDate), dispatch })
 
         const newPullrequests = formatPullRequests(fetches, results)
+        const filteredNewPullrequests = filterByUsersInfo(fetches, newPullrequests)
+
         // Get all prs together so then can be cleanly filtered and sorted
-        const allPullrequests = pullRequests.concat(filteredPRs).concat(newPullrequests)
+        const allPullrequests = pullRequests.concat(filteredPRs).concat(filteredNewPullrequests)
         const [includedPRs, newFilteredPRs] = filterSortPullRequests(fetches, untilDate, allPullrequests)
         dispatch({
             type: types.ADD_PRS,
