@@ -207,27 +207,36 @@ const formatPullRequests = ({ excludeIds = [] } = {}, results = []) => {
     return pullRequests
 }
 
+const usersPrWasInTeam = (prMergeDate = '') => ({
+    startDate = '',
+    endDate = ''
+} = {}) => {
+
+    const prDate = new Date(prMergeDate)
+
+    const isAfterStart = !startDate
+        ? true
+        : isAfter(prDate, new Date(startDate))
+
+    const isBeforeEnd = !endDate
+        ? true
+        : isBefore(prDate, new Date(endDate))
+
+    return isAfterStart && isBeforeEnd
+}
+
 const filterByUsersInfo = (fetchInfo = {}, prs = []) => {
     const usersInfo = fetchInfo.usersInfo || {}
     const filteredItems = prs
         .filter((pr = {}) => {
             const user = pr.author
             const {
-                startDate = '',
-                endDate = ''
+                dates = []
             } = usersInfo[user] || {}
 
-            const prDate = new Date(pr.mergedAt)
+            const wasInTeam = usersPrWasInTeam(pr.mergedAt)
 
-            const isAfterStart = !startDate
-                ? true
-                : isAfter(prDate, new Date(startDate))
-
-            const isBeforeEnd = !endDate
-                ? true
-                : isBefore(prDate, new Date(endDate))
-
-            return isAfterStart && isBeforeEnd
+            return dates.every(wasInTeam)
         })
 
     return filteredItems

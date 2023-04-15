@@ -5,8 +5,8 @@ import { withStyles } from '@material-ui/core/styles'
 import { P } from '../shared/StyledTags'
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
+import GraphsWrap from '../shared/GraphsWrap'
 import Line from '../charts/Line'
-import ItemsTable from './ItemsTable'
 import { chunkData } from '../charts/lineHelpers'
 
 
@@ -34,33 +34,33 @@ const IssuesTrends = ({
             <ChartDescription
                 title="Feature and bug trends"
             />
-            <Line
-                markers={releases}
-                data={[
-                    {
-                        lines: [
-                            {
-                                label: 'Issues',
-                                color: '#1f77b4',
-                                filterForKey: 'issue',
-                                groupMath: 'count',
-                            },
-                            {
-                                label: 'Bugs*',
-                                color: '#e82573',
-                                filterForKey: 'bug',
-                                groupMath: 'count',
-                            },
-                        ],
-                        xAxis: 'left',
-                        data,
-                    },
-                ]}
-            />
-            <ItemsTable
-                dataKeys={['isBug']}
-                data={chunkyData}
-            />
+            <GraphsWrap>
+                <Line
+                    markers={releases}
+                    data={[
+                        {
+                            lines: [
+                                {
+                                    label: 'Issues',
+                                    color: '#1f77b4',
+                                    filterForKey: 'issue',
+                                    groupMath: 'count',
+                                },
+                                {
+                                    label: 'Bugs*',
+                                    color: '#e82573',
+                                    filterForKey: 'bug',
+                                    groupMath: 'count',
+                                },
+                            ],
+                            xAxis: 'left',
+                            data,
+                        },
+                    ]}
+                    tableKeys={['isBug']}
+                    tableData={chunkyData}
+                />
+            </GraphsWrap>
             <P className={classes.fullP}>*Bugs in this graph are issues that have a title or a label that contains the word 'bug'</P>
         </Paper>
     )

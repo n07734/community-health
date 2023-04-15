@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import { keys } from 'ramda'
 import { withStyles } from '@material-ui/core/styles'
 
 import ChartDescription from '../../shared/ChartDescription'
@@ -66,6 +65,9 @@ const FormSection = (props) => {
 
     const [inputError, setInputError] = useState({})
     const [formInfo, setFormInfo] = useState(defaultInputs)
+    useEffect(() => {
+        setFormInfo(defaultInputs)
+    }, [reportType, setFormInfo])
 
     const setValue = (key, value) => setFormInfo({
         ...formInfo,

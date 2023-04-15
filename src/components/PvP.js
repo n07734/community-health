@@ -6,11 +6,10 @@ import { pathOr } from 'ramda'
 import { P } from './shared/StyledTags'
 import Button from './shared/Button'
 import Paper from './shared/Paper'
+import GraphsWrap from './shared/GraphsWrap'
 import Line from './charts/Line'
 import StatBars from './charts/StatBars'
-import ItemsTable from './sections/ItemsTable'
 import { chunkData } from './charts/lineHelpers'
-import CustomGraphs from './sections/CustomGraphs'
 
 import {
     colors,
@@ -196,87 +195,88 @@ const PvP = ({
                     prTransformer={prTransformer(user1, user2)}
                     pullRequests={pullRequests}
                 /> */}
-
-                <Line
-                    markers={releases}
-                    showLegends={true}
-                    title="Sentiments in PR"
-                    data={[{
-                        lines: [
-                            {
-                                label: `${user1} received`,
-                                color: colors[2],
-                                dataKey: 'commentSentimentScore',
-                                data: user1PrData,
-                            },
-                            {
-                                label: `${user1} given`,
-                                color: colors[1],
-                                dataKey: 'commentAuthorSentimentScore',
-                                data: user1PrData,
-                            },
-                            {
-                                label: `${user2} received`,
-                                color: colors[2],
-                                dataKey: 'commentSentimentScore',
-                                data: user2PrData,
-                            },
-                            {
-                                label: `${user2} given`,
-                                color: colors[1],
-                                dataKey: 'commentAuthorSentimentScore',
-                                data: user2PrData,
-                            },
-                        ],
-                        xAxis: 'left',
-                    }]}
-                />
-                <ItemsTable  dataKeys={['author', 'commentSentimentScore', 'commentAuthorSentimentScore']} data={chunkyData} />
-
-                <Line
-                    markers={releases}
-                    data={[{
-                        lines: [
-                            {
-                                label: `${user1} PR size`,
-                                color: colourA,
-                                dataKey: 'prSize',
-                                data: user1PrData,
-                            },
-                            {
-                                label: `${user2} PR size`,
-                                color: colourB,
-                                dataKey: 'prSize',
-                                data: user2PrData,
-                            },
-                        ],
-                        xAxis: 'left',
-                    }]}
-                />
-                <ItemsTable  dataKeys={['author', 'prSize']} data={chunkyData} />
-
-                <Line
-                    markers={releases}
-                    data={[{
-                        lines: [
-                            {
-                                label: `${user1} PR age`,
-                                color: colourA,
-                                dataKey: 'age',
-                                data: user1PrData,
-                            },
-                            {
-                                label: `${user2} PR age`,
-                                color: colourB,
-                                dataKey: 'age',
-                                data: user2PrData,
-                            },
-                        ],
-                        xAxis: 'left',
-                    }]}
-                />
-                <ItemsTable  dataKeys={['author', 'age']} data={chunkyData} />
-
+                <GraphsWrap>
+                    <Line
+                        markers={releases}
+                        showLegends={true}
+                        title="Sentiments in PR"
+                        data={[{
+                            lines: [
+                                {
+                                    label: `${user1} received`,
+                                    color: colors[2],
+                                    dataKey: 'commentSentimentScore',
+                                    data: user1PrData,
+                                },
+                                {
+                                    label: `${user1} given`,
+                                    color: colors[1],
+                                    dataKey: 'commentAuthorSentimentScore',
+                                    data: user1PrData,
+                                },
+                                {
+                                    label: `${user2} received`,
+                                    color: colors[2],
+                                    dataKey: 'commentSentimentScore',
+                                    data: user2PrData,
+                                },
+                                {
+                                    label: `${user2} given`,
+                                    color: colors[1],
+                                    dataKey: 'commentAuthorSentimentScore',
+                                    data: user2PrData,
+                                },
+                            ],
+                            xAxis: 'left',
+                        }]}
+                        tableData={chunkyData}
+                        tableKeys={['author', 'commentSentimentScore', 'commentAuthorSentimentScore']}
+                    />
+                    <Line
+                        markers={releases}
+                        data={[{
+                            lines: [
+                                {
+                                    label: `${user1} PR size`,
+                                    color: colourA,
+                                    dataKey: 'prSize',
+                                    data: user1PrData,
+                                },
+                                {
+                                    label: `${user2} PR size`,
+                                    color: colourB,
+                                    dataKey: 'prSize',
+                                    data: user2PrData,
+                                },
+                            ],
+                            xAxis: 'left',
+                        }]}
+                        tableKeys={['author', 'prSize']}
+                        tableData={chunkyData}
+                    />
+                    <Line
+                        markers={releases}
+                        data={[{
+                            lines: [
+                                {
+                                    label: `${user1} PR age`,
+                                    color: colourA,
+                                    dataKey: 'age',
+                                    data: user1PrData,
+                                },
+                                {
+                                    label: `${user2} PR age`,
+                                    color: colourB,
+                                    dataKey: 'age',
+                                    data: user2PrData,
+                                },
+                            ],
+                            xAxis: 'left',
+                        }]}
+                        tableKeys={['author', 'age']}
+                        tableData={chunkyData}
+                    />
+                </GraphsWrap>
                 <Button
                     className={classes.fill}
                     variant="outlined"
@@ -304,17 +304,12 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const styles = theme => ({
-    'groupedCharts': {
-        width: '100%',
-        display: 'flex',
-        flexWrap: 'wrap',
-    },
     fill: {
-        flexBasis: '100%',
+        width: '100%',
         marginRight: 0,
     },
     copy: {
-        flexBasis: '100%',
+        width: '100%',
         textAlign: 'center',
     },
     topButton: {

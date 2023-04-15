@@ -1,9 +1,9 @@
 import React from 'react'
 import ChartDescription from '../shared/ChartDescription'
+import GraphsWrap from '../shared/GraphsWrap'
 import Line from '../charts/Line'
 import Pie from '../charts/Pie'
 import Paper from '../shared/Paper'
-import ItemsTable from './ItemsTable'
 import { colors } from '../colors'
 
 const rainbowData = (type = '', data = {}) => {
@@ -58,30 +58,33 @@ const RepoSplit = ({
     return pullRequests.length > 0 && (<>
         <Paper>
             <ChartDescription title={repoPie.sectionTitle} />
-            <Pie
-                data={repoPie.pieData}
-                title="PR repository rainbow"
-            />
-            <Line
-                title="Repository PRs over time"
-                showLegends={true}
-                data={[
-                    {
-                        lines,
-                        xAxis: 'left',
-                        data: pullRequests,
-                    },
-                ]}
-            />
-            <ItemsTable
-                dataKeys={['repo', 'author']}
-                data={chunkyData}
-            />
+            <GraphsWrap>
+                <Pie
+                    data={repoPie.pieData}
+                    title="PR repository rainbow"
+                />
+                <Line
+                    title="Repository PRs over time"
+                    showLegends={true}
+                    data={[
+                        {
+                            lines,
+                            xAxis: 'left',
+                            data: pullRequests,
+                        },
+                    ]}
+                    tableKeys={['repo', 'author']}
+                    tableData={chunkyData}
+                />
+            </GraphsWrap>
+
             <ChartDescription title={orgPie.sectionTitle} />
-            <Pie
-                data={orgPie.pieData}
-                title="PR Orgs rainbow"
-            />
+            <GraphsWrap>
+                <Pie
+                    data={orgPie.pieData}
+                    title="PR Orgs rainbow"
+                />
+            </GraphsWrap>
         </Paper>
     </>)
 }

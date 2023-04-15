@@ -6,8 +6,8 @@ import Line from '../charts/Line'
 import Paper from '../shared/Paper'
 import { colors } from '../colors'
 import ChartDescription from '../shared/ChartDescription'
+import GraphsWrap from '../shared/GraphsWrap'
 import { P } from '../shared/StyledTags'
-import ItemsTable from './ItemsTable'
 
 const Sentiment = ({
     chunkyData = [],
@@ -48,53 +48,50 @@ const Sentiment = ({
                     <P>Uses npm package <a className={classes.link} href="https://github.com/thisandagain/sentiment" alt="sentiment github package">sentiment</a> which uses AFINN-165 word list and Emoji ranking to perform sentiment analysis.</P>
                 </div>
             </ChartDescription>
-            <Line
-                markers={releases}
-                showLegends={true}
-                title="Sentiment in PRs between team and reviewers"
-                data={[
-                    {
-                        lines: [
-                            {
-                                label: 'To team',
-                                color: colors[0],
-                                dataKey: 'commentSentimentScore',
-                            },
-                            {
-                                label: 'From team',
-                                color: colors[2],
-                                dataKey: 'commentAuthorSentimentScore',
-                            },
-                        ],
-                        xAxis: 'left',
-                        data: pullRequests,
-                    },
-                ]}
-            />
-            <ItemsTable
-                dataKeys={['commentSentimentScore', 'commentAuthorSentimentScore', 'author']}
-                data={chunkyData}
-            />
-
-            {
-                userIds.length > 0 && <>
-                    <Line
-                        showLegends={true}
-                        title="Sentiment in PRs between authors and reviewers"
-                        data={[
-                            {
-                                lines,
-                                xAxis: 'left',
-                                data: pullRequests,
-                            },
-                        ]}
-                    />
-                    <ItemsTable
-                        dataKeys={['commentSentimentScore', 'commentAuthorSentimentScore', 'author']}
-                        data={chunkyData}
-                    />
-                </>
-            }
+            <GraphsWrap>
+                <Line
+                    markers={releases}
+                    showLegends={true}
+                    title="Sentiment in PRs between team and reviewers"
+                    data={[
+                        {
+                            lines: [
+                                {
+                                    label: 'To team',
+                                    color: colors[0],
+                                    dataKey: 'commentSentimentScore',
+                                },
+                                {
+                                    label: 'From team',
+                                    color: colors[2],
+                                    dataKey: 'commentAuthorSentimentScore',
+                                },
+                            ],
+                            xAxis: 'left',
+                            data: pullRequests,
+                        },
+                    ]}
+                    tableKeys={['commentSentimentScore', 'commentAuthorSentimentScore', 'author']}
+                    tableData={chunkyData}
+                />
+                {
+                    userIds.length > 0 && <>
+                        <Line
+                            showLegends={true}
+                            title="Sentiment in PRs between authors and reviewers"
+                            data={[
+                                {
+                                    lines,
+                                    xAxis: 'left',
+                                    data: pullRequests,
+                                },
+                            ]}
+                            tableKeys={['commentSentimentScore', 'commentAuthorSentimentScore', 'author']}
+                            tableData={chunkyData}
+                        />
+                    </>
+                }
+            </GraphsWrap>
         </Paper>
     </>)
 }

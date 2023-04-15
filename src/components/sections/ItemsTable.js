@@ -264,10 +264,6 @@ const styles = theme => ({
     wrapper: {
         padding: '0 50px',
         marginBottom: theme.mySpacing.y.medium,
-        width: '100%',
-        display: 'flex',
-        flexGrow: 1,
-        flexWrap: 'wrap',
         maxWidth: '1100px',
         '& .MuiDataGrid-root': {
             borderColor: theme.palette.primary.main,

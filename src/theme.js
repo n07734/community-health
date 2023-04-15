@@ -67,12 +67,6 @@ const theme =  (type = 'light') => createTheme({
             fontWeight: '400',
             fontFamily,
         },
-        groupedCharts: {
-            width: '100%',
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-evenly',
-        },
         iconHover: ({
             light: '#d65287',
             dark: '#e82573',

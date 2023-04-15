@@ -131,7 +131,7 @@ const StatBars = ({
             }
         })
 
-    return <>
+    return <div className={classes.root}>
         <div className={classes.title}>
             {
                 users.length > 0
@@ -177,10 +177,16 @@ const StatBars = ({
                     </div>
                 </div>)
         }
-    </>
+    </div>
 }
 
 const styles = theme => ({
+    root: {
+        flexBasis: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
     title: {
         width: '100%',
         maxWidth: '1200px',

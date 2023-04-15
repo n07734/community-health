@@ -16,9 +16,7 @@ const styles = theme => ({
         }
     },
     typeOptions: {
-        display: 'flex',
         '& button': {
-            flexGrow: 1,
             fontSize: '1.3rem',
             textTransform: 'none',
         },

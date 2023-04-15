@@ -10,12 +10,9 @@ const styles = () => ({
         justifyContent: 'space-between',
     },
     barChartComponentWrap: {
-        width: '50%',
+        width: '100%',
         maxWidth: '1200px',
         margin: '0 0 1rem 0',
-        '@media (max-width: 950px)': {
-            width: '100%',
-        },
     },
     lineChartComponentWrap: {
         zIndex: 10,

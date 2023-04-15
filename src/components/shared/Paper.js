@@ -9,10 +9,6 @@ const styles = theme => ({
         backgroundSize: '100% 20px',
         backgroundImage: `linear-gradient(${theme.palette.shadow}, rgba(0,0,0,0))`,
         position: 'relative',
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
     },
     'bg-none': {
         background: 'none'

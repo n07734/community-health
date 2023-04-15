@@ -6,9 +6,9 @@ import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
 import { P } from '../shared/StyledTags'
 import Button from '../shared/Button'
+import GraphsWrap from '../shared/GraphsWrap'
 import Line from '../charts/Line'
 import GraphUi from '../charts/GraphUi'
-import ItemsTable from './ItemsTable'
 
 const formatGraphData = (pullRequests = [], prTransformer, issues = []) => (data = {}) => {
     const getData = (lineInfo = {}) => {
@@ -102,7 +102,7 @@ const CustomGraphs = ({
     const makeGraphData = formatGraphData(pullRequests, prTransformer, issues)
 
     return pullRequests.length > 0 && (
-        <Paper className={classes.block}>
+        <Paper>
             <ChartDescription
                 title="Build your own graphs"
             >
@@ -112,33 +112,39 @@ const CustomGraphs = ({
                     </div>
                 }
             </ChartDescription>
-            {
-                graphs
-                    .map((graphInfo, i) => {
-                        // TODO: fix legend toggle for custom graphs
-                        const [legends =[], data = []] = makeGraphData(graphInfo)
-                        return <div className={classes.addedGraph} key={i}>
-                            <GraphUi
-                                graphInfo={graphInfo}
-                                setGraph={setGraph}
-                                graphs={graphs}
-                            />
-                            <Line
-                                blockHeading={true}
-                                markers={releases}
-                                legends={legends}
-                                showLegends={legends.length > 0}
-                                data={data}
-                            />
-                            {
-                                (graphInfo.left.length > 0 || graphInfo.right.length > 0) && <ItemsTable
-                                    dataKeys={getTableKeys(graphInfo)}
-                                    data={chunkyData}
-                                />
-                            }
-                        </div>
-                    })
-            }
+            <GraphsWrap>
+                {
+                    graphs
+                        .map((graphInfo, i) => {
+                            // TODO: fix legend toggle for custom graphs
+                            const [legends =[], data = []] = makeGraphData(graphInfo)
+                            return <>
+                                {
+                                    graphInfo?.left?.length < 1 && graphInfo?.right?.length < 1
+                                        ? <GraphUi
+                                            key={i}
+                                            graphInfo={graphInfo}
+                                            setGraph={setGraph}
+                                            graphs={graphs}
+                                        />
+                                        : <Line
+                                            key={i}
+                                            graphInfo={graphInfo}
+                                            setGraph={setGraph}
+                                            graphs={graphs}
+                                            blockHeading={true}
+                                            markers={releases}
+                                            legends={legends}
+                                            showLegends={legends.length > 0}
+                                            data={data}
+                                            tableKeys={getTableKeys(graphInfo)}
+                                            tableData={chunkyData}
+                                        />
+                                }
+                            </>
+                        })
+                }
+            </GraphsWrap>
             <div className={classes.buttons}>
                 {
                     graphs.length > 1
@@ -177,23 +183,11 @@ const mapStateToProps = (state) => ({
 })
 
 const styles = theme => ({
-    addedGraph: {
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'top left',
-        backgroundSize: '100% 20px',
-        position: 'relative',
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-    },
     buttons: {
         display: 'flex',
         flexWrap: 'nowrap',
+        flexBasis: '100%',
         justifyContent: 'center',
-    },
-    block: {
-        display: 'block',
     },
 })
 

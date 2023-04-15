@@ -96,6 +96,7 @@ const userIdsFromString = pipe(
     filter(Boolean)
 )
 
+// TODO: not in right place. needs to be in form validation
 const getUsersInfo = (usersString = '') => {
     const usersArray = userIdsFromString(usersString)
 
@@ -104,17 +105,28 @@ const getUsersInfo = (usersString = '') => {
 
     usersArray
         .forEach((user = '') => {
-            // eg with dates userName=start:2020-12-12|end:2020
-            const [userId = '', dates = ''] = user.split('=')
+            // eg with dates userName=start:2020-12-12;end:2020|start:2020-12-12
+            const [userId = '', datesString = ''] = user.split('=')
             userIds.push(userId)
-            let [, startDate = ''] = dates.match(/start:([\d-/]*)/i) || []
-            let [, endDate = ''] = dates.match(/end:([\d-/]*)/i) || []
 
-            // TODO: deal with multiple dates, i.e. person left and joined again
-            usersInfo[userId] = {
-                userId,
-                startDate,
-                endDate,
+            const dates = datesString
+                .split('|')
+                .map((dateChunk = '') => {
+                    const [, startDate = ''] = dateChunk.match(/start:([\d-/]*)/i) || []
+                    const [, endDate = ''] = dateChunk.match(/end:([\d-/]*)/i) || []
+
+                    return (startDate || endDate) && {
+                        ...(startDate && { startDate }),
+                        ...(endDate && { endDate }),
+                    }
+                })
+                .filter(Boolean)
+
+            if (dates.length > 0) {
+                usersInfo[userId] = {
+                    userId,
+                    dates,
+                }
             }
         })
 
@@ -608,6 +620,7 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
     const {
         teamName = '',
         userIds = [],
+        usersInfo = {},
         excludeIds = [],
     } = fetches
 
@@ -648,6 +661,11 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
     dispatch({
         type: types.STORE_USER_IDS,
         payload: userIds,
+    })
+
+    dispatch({
+        type: types.STORE_USERS_INFO,
+        payload: usersInfo,
     })
 
     dispatch({
@@ -799,6 +817,7 @@ const checkUntilDate = (newSortDirection = '') => (dispatch, getState) => {
 }
 
 export {
+    getUsersInfo,
     setUser,
     clearAllData,
     clearUser,

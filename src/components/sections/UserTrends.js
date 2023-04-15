@@ -95,7 +95,7 @@ const UserTrends = ({
         : 'Top contributors'
 
     return contributionsRadar.length > 0 && (
-        <Paper>
+        <Paper className={classes.row}>
             <ChartDescription title={title} />
             {
                 contributionsRadar
@@ -156,6 +156,12 @@ const styles = theme => ({
     'fullW': {
         width: '100%',
     },
+    row: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        justifyContent: 'center',
+    }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(UserTrends))

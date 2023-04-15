@@ -5,9 +5,9 @@ import { withStyles } from '@material-ui/core/styles'
 import { P } from './shared/StyledTags'
 import Button from './shared/Button'
 import Paper from './shared/Paper'
+import GraphsWrap from './shared/GraphsWrap'
 import Line from './charts/Line'
 import StatBars from './charts/StatBars'
-import ItemsTable from './sections/ItemsTable'
 import { chunkData } from './charts/lineHelpers'
 
 import { colors } from './colors'
@@ -34,10 +34,6 @@ const userGraphs = (pullRequests = [], releases = [], userName) => {
 
     return [
         [
-            {
-                dataKeys:['commentSentimentScore', 'commentAuthorSentimentScore'],
-                data: chunkyData,
-            },
             {
                 markers: releases,
                 showLegends: true,
@@ -71,13 +67,11 @@ const userGraphs = (pullRequests = [], releases = [], userName) => {
                     ],
                     xAxis: 'left',
                 }],
+                tableKeys:['commentSentimentScore', 'commentAuthorSentimentScore'],
+                tableData: chunkyData,
             },
         ],
         [
-            {
-                dataKeys:['prSize'],
-                data: chunkyData,
-            },
             {
                 markers: releases,
                 data: [{
@@ -97,13 +91,11 @@ const userGraphs = (pullRequests = [], releases = [], userName) => {
                     ],
                     xAxis: 'left',
                 }],
+                tableKeys:['prSize'],
+                tableData: chunkyData,
             },
         ],
         [
-            {
-                dataKeys:['age'],
-                data: chunkyData,
-            },
             {
                 markers: releases,
                 data: [{
@@ -123,6 +115,8 @@ const userGraphs = (pullRequests = [], releases = [], userName) => {
                     ],
                     xAxis: 'left',
                 }],
+                tableKeys:['age'],
+                tableData: chunkyData,
             },
         ],
     ]
@@ -154,16 +148,16 @@ const UserView = ({
                 }} />
 
             <P className={classes.copy}>A collection metrics showing {user}'s data and average data from the top {averagedData.userCount} peers</P>
-
-            <StatBars user1={userData} user2={averagedData} />
-            {
-                graphs.length
-                    && graphs
-                        .map(([itemsInfo, lineInfo], i) => <>
-                            <Line key={i} {...lineInfo} />
-                            <ItemsTable key={i + graphs.length} {...itemsInfo} />
-                        </>)
-            }
+            <GraphsWrap>
+                <StatBars user1={userData} user2={averagedData} />
+                {
+                    graphs.length
+                        && graphs
+                            .map((lineInfo, i) => <>
+                                <Line key={i} {...lineInfo} />
+                            </>)
+                }
+            </GraphsWrap>
 
             <Button
                 className={classes.fill}
@@ -192,17 +186,11 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const styles = theme => ({
-    'groupedCharts': {
-        width: '100%',
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-evenly',
-    },
     fill: {
-        flexBasis: '100%',
+        width: '100%',
     },
     copy: {
-        flexBasis: '100%',
+        width: '100%',
         textAlign: 'center',
     },
     topButton: {

@@ -106,7 +106,7 @@ const mapDispatchToProps = dispatch => ({
 
 const styles = theme => ({
     root: {
-        display: 'block'
+        display: 'block',
     },
     heading: theme.copy.h1,
     toggle: {

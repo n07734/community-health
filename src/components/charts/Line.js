@@ -6,6 +6,8 @@ import { useTheme } from '@material-ui/core/styles';
 
 import ChartHeading from './ChartHeading'
 import styledCharts from './styledCharts'
+import ItemsTable from '../sections/ItemsTable'
+import GraphUi from './GraphUi'
 
 import {
     getMaxYValue,
@@ -80,6 +82,11 @@ const Line = styledCharts(({
     showLegends = false,
     legends = [],
     classes,
+    tableData = [],
+    tableKeys = [],
+    graphInfo = {},
+    setGraph = () => {},
+    graphs = [],
 } = {}) => {
     const theme = useTheme();
     // TODO: function to see time gap in data to help format date e.g. should add year
@@ -267,6 +274,13 @@ const Line = styledCharts(({
 
     return hasData(lineData) && (
         <div className={classes.lineChartComponentWrap}>
+            {
+                graphs.length > 0 && <GraphUi
+                    graphInfo={graphInfo}
+                    setGraph={setGraph}
+                    graphs={graphs}
+                />
+            }
             <div className={classes.headingWrap}>
                 <ChartHeading type='line' text={title} items={leftHeadingItems} />
                 {
@@ -332,6 +346,12 @@ const Line = styledCharts(({
                     layers={['grid', 'markers', 'areas', DashedLine(hookedColors, allLines), 'slices', 'points', 'axes', 'legends']}
                 />
             </div>
+            {
+                  tableData.length > 0 && <ItemsTable
+                    data={tableData}
+                    dataKeys={tableKeys}
+                />
+            }
         </div>
     )
 })
