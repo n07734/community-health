@@ -236,7 +236,7 @@ const filterByUsersInfo = (fetchInfo = {}, prs = []) => {
 
             const wasInTeam = usersPrWasInTeam(pr.mergedAt)
 
-            return dates.every(wasInTeam)
+            return dates.some(wasInTeam)
         })
 
     return filteredItems
@@ -249,7 +249,10 @@ const filterSortPullRequests = ({ excludeIds = [], sortDirection }, untilDate, a
         filter(item => {
             const author = propOr('', 'author', item)
             const hasExcludedAuthor = any(y => y === author, ['GIT_APP_PR', ...excludeIds])
-            const shouldFilterIn = filterByUntilDate(['mergedAt'], sortDirection, untilDate)(item)
+            const shouldFilterIn = untilDate
+                ? filterByUntilDate(['mergedAt'], sortDirection, untilDate)(item)
+                : true
+
             const keepItem = shouldFilterIn && !hasExcludedAuthor
 
             !keepItem && filteredPRs.push(item)
@@ -265,7 +268,9 @@ const filterSortItems = (dateKey = '') => ({ sortDirection }, untilDate, allIssu
     const remainingIssues = compose(
         sort(dateSort(dateKey, 'ASC')),
         filter(item => {
-            const keepItem = filterByUntilDate([dateKey], sortDirection, untilDate)(item)
+            const keepItem = untilDate
+                ? filterByUntilDate([dateKey], sortDirection, untilDate)(item)
+                : true
 
             !keepItem && filteredIssues.push(item)
             return keepItem

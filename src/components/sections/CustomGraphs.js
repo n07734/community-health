@@ -118,9 +118,7 @@ const CustomGraphs = ({
                         .map((graphInfo, i) => {
                             // TODO: fix legend toggle for custom graphs
                             const [legends =[], data = []] = makeGraphData(graphInfo)
-                            return <>
-                                {
-                                    graphInfo?.left?.length < 1 && graphInfo?.right?.length < 1
+                            return graphInfo?.left?.length < 1 && graphInfo?.right?.length < 1
                                         ? <GraphUi
                                             key={i}
                                             graphInfo={graphInfo}
@@ -140,8 +138,6 @@ const CustomGraphs = ({
                                             tableKeys={getTableKeys(graphInfo)}
                                             tableData={chunkyData}
                                         />
-                                }
-                            </>
                         })
                 }
             </GraphsWrap>

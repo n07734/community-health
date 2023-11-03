@@ -53,7 +53,12 @@ const PrefetchedForm = (props) => {
 
     const inputs = pick(inputKeys, fetches)
 
-    const [formInfo, setFormInfo] = useState(inputs)
+    const [formInfo, setFormInfo] = useState({
+        ...inputs,
+        sortDirection: 'ASC',
+        amountOfData: 'all',
+    })
+
     const [inputError, setInputError] = useState({})
 
     const setValue = (key, value) => setFormInfo({
