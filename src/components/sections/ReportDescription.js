@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
 import Switch from '@material-ui/core/Switch';
@@ -6,11 +6,11 @@ import { always, cond, T, propSatisfies, where } from 'ramda'
 
 import { H, P } from '../shared/StyledTags'
 import Paper from '../shared/Paper'
-import PretetchedForm from '../home/DataOptions/PretetchedForm'
+import PrefetchedForm from '../home/DataOptions/PrefetchedForm'
 import DateRange from './DateRange'
 import { hideUserNames } from '../../state/actions'
 
-const RepoOrgCopy = ({ repo, org } = {}) => org === repo
+const RepoTitle = ({ repo, org } = {}) => org === repo
     ? (<span style={{ color: '#e82573' }}>{repo}</span>)
     : (
         <>
@@ -18,7 +18,8 @@ const RepoOrgCopy = ({ repo, org } = {}) => org === repo
         </>
     )
 
-const TeamName = ({ teamName }) => <span style={{ color: '#e82573' }}>{teamName}</span>
+const TeamTitle = ({ teamName }) => <span style={{ color: '#e82573' }}>{teamName}</span>
+const OrgTitle = ({ org } = {}) => <span style={{ color: '#e82573' }}>{org}</span>
 
 const titleCopy = cond([
     [
@@ -26,11 +27,17 @@ const titleCopy = cond([
             org: Boolean,
             repo: Boolean,
         }),
-        RepoOrgCopy,
+        RepoTitle,
+    ],
+    [
+        where({
+            org: Boolean,
+        }),
+        OrgTitle,
     ],
     [
         propSatisfies(Boolean,'teamName'),
-        TeamName,
+        TeamTitle,
     ],
     [
         T,
@@ -47,7 +54,7 @@ const ReportDescription = ({
     excludeIds = [],
     reportDescription = '',
     hideNames = () => {},
-    classes
+    classes,
 } = {}) => {
     const handleChange = (event) => {
         hideNames(event.target.checked)
@@ -85,7 +92,7 @@ const ReportDescription = ({
             <DateRange />
             {
                 preFetchedName.length > 0
-                    && <PretetchedForm />
+                    && <PrefetchedForm />
             }
         </Paper>)
 }
@@ -110,8 +117,8 @@ const styles = theme => ({
     },
     heading: theme.copy.h1,
     toggle: {
-        display: 'inline-block'
-    }
+        display: 'inline-block',
+    },
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(withStyles(styles)(ReportDescription))

@@ -1,14 +1,9 @@
-import {
-    cond,
-    always,
-    T,
-} from 'ramda'
- const {
+const {
     getYear,
     getMonth,
     getWeek,
     getDay,
-    differenceInMonths,
+    differenceInDays,
  } = require('date-fns')
 
  const isNewDay = (prev, current) => {
@@ -33,19 +28,18 @@ const isNewNthWeek = mod => (prev, current) => {
 }
 
 const isNewMonth = (prev, current) => {
-    const prevItemsMonth = prev && getMonth(new Date(prev))
-    const currentItemsYear = current && getMonth(new Date(current))
+    const prevItemsMonth = prev && getMonth(new Date(prev)) + 1
+    const currentItemsYear = current && getMonth(new Date(current)) + 1
 
     return (prevItemsMonth && currentItemsYear) && prevItemsMonth !== currentItemsYear
 }
 
 const isNewNthMonth = mod => (prev, current) => {
-    const prevItemsMonth = prev && getMonth(new Date(prev))
-    const currentItemsMonth = current && getMonth(new Date(current))
+    const prevItemsMonth = prev && getMonth(new Date(prev)) + 1
+    const currentItemsMonth = current && getMonth(new Date(current)) + 1
 
     return (prevItemsMonth && currentItemsMonth) && (prevItemsMonth % mod) > 0 && (currentItemsMonth % mod) === 0
 }
-
 
 const isNewYear = (prev, current) => {
     const prevItemsYear = prev && getYear(new Date(prev))
@@ -64,7 +58,6 @@ const isNew = {
     '1year': isNewYear,
 }
 
-
 const batchByType = (key, batchType) => data => {
     const batchedData = []
     data
@@ -82,24 +75,53 @@ const batchByType = (key, batchType) => data => {
     return batchedData;
 }
 
-const batchByData = key => (data = []) => {
-    const { [key]: startDate } = data.at(0)
-    const { [key]: endDate } = data.at(-1)
-    const totalMonths = differenceInMonths(new Date(endDate), new Date(startDate))
+const batchByData = (data = []) => {
+    const { mergedAt: startDate } = data.at(0)
+    const { mergedAt: endDate } = data.at(-1)
+    const totalDays = differenceInDays(new Date(endDate), new Date(startDate))
 
-    return cond([
-        [always(totalMonths >= 288), batchByType(key, '1year')],
-        [always(totalMonths >= 84), batchByType(key, '1quarter')],
-        [always(totalMonths >= 60), batchByType(key, '3week')],
-        [always(totalMonths >= 12), batchByType(key, '2week')],
-        [always(totalMonths >= 6), batchByType(key, '1week')],
-        [T, batchByType(key, '1day')],
-    ])(data)
+
+    const batchTypePointCounts = [
+        {
+            batchType: '1year',
+            maxPoints: Math.ceil(totalDays/365),
+        },
+        {
+            batchType: '1quarter',
+            maxPoints: Math.ceil(totalDays/89),
+        },
+        {
+            batchType: '1month',
+            maxPoints: Math.ceil(totalDays/30),
+        },
+        {
+            batchType: '2week',
+            maxPoints: Math.ceil(totalDays/14),
+        },
+        {
+            batchType: '1week',
+            maxPoints: Math.ceil(totalDays/7),
+        },
+        {
+            batchType: '1day',
+            maxPoints: totalDays,
+        },
+    ]
+
+    // Batch the data up by time type that will be closest to 15 items
+    const { batchType } = batchTypePointCounts
+        .reduce((current = {}, next = {}) =>
+            !current.maxPoints || (Math.abs(next.maxPoints - 15) < Math.abs(current.maxPoints - 15))
+                ? next
+                : current
+        ,{})
+
+    return batchByType('mergedAt', batchType)(data)
 }
 
-const batchBy = key => (data = []) => data.length < 1
+const batchBy = (data = []) => data.length < 1
     ? []
-    : batchByData(key)(data)
+    : batchByData(data)
 
 export {
     batchBy,

@@ -2,6 +2,7 @@ const { path, prop, sum } = require('ramda');
 
 const getNameList = (data, key, preSorted = false) => {
     const scoredData = {}
+    const nameMap = {}
     data
         .forEach((userData) => {
             const author = userData.author
@@ -9,6 +10,7 @@ const getNameList = (data, key, preSorted = false) => {
             const given = sum(Object.values(keyData))
 
             scoredData[author] = given
+            nameMap[author] = userData.name || author
         })
 
     const sortedValues = Object.entries(scoredData)
@@ -38,11 +40,13 @@ const getNameList = (data, key, preSorted = false) => {
         ? sortedValues.map(([x]) => x)
         : showNames
 
-    return preSorted
+    const gitIds = preSorted
         ? data
             .filter(x => names.includes(x.author))
             .map(x => x.author)
         : names
+
+    return [gitIds, gitIds.map(name => nameMap[name] || name)]
 }
 
 const otherTotal = (ignoreNames = [], data = {}) => {
@@ -57,12 +61,12 @@ const getMatrix = (
     data = [],
     key = '',
     showNames = [],
-    otherAppened = false,
+    otherAppended = false,
 ) => {
     const martixRow = (item) => [
         ...showNames.map(x => path([key, x], item) || 0),
         ...(
-            otherAppened
+            otherAppended
                 ? [otherTotal(showNames, prop(key, item))]
                 : []
         ),
@@ -102,15 +106,15 @@ const getMatrix = (
 }
 
 const formatChordData = (data, key, preSorted, hideNames) => {
-    const showNames = getNameList(data, key, preSorted)
-    const otherAppened = showNames.length < data.length
+    const [showGitIds, showNames] = getNameList(data, key, preSorted)
+    const otherAppended = showNames.length < data.length
 
-    const matrix = getMatrix(data, key, showNames, otherAppened)
+    const matrix = getMatrix(data, key, showGitIds, otherAppended)
 
     const names = [
         ...showNames,
         ...(
-            otherAppened
+            otherAppended
                 ? ['Others']
                 : []
         ),

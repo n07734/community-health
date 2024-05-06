@@ -50,7 +50,7 @@ const updateContributorCount = (currentData, objKey, obj, addition) => {
     return contributorCount
 }
 
-const updateByUsersCount = (currentData, objKey, obj, author) => {
+const updateByUsersCount = (currentData, objKey, obj, author, increment) => {
     const byUsersCount = {}
     Object.entries(obj)
         .forEach(([key, value]) => {
@@ -58,7 +58,7 @@ const updateByUsersCount = (currentData, objKey, obj, author) => {
             const currentKeyData = currentUserData[objKey] || {}
             const updatedKeyData = {
                 ...currentKeyData,
-                [author]: (currentKeyData[author] || 0) + (value || 0),
+                [author]: (currentKeyData[author] || 0) + (increment || value || 0),
             }
 
             const updated = {
@@ -74,7 +74,7 @@ const updateByUsersCount = (currentData, objKey, obj, author) => {
     return byUsersCount
 }
 
-const formatUserData = (data = []) => {
+const formatUserData = (data = [], usersInfo = {}) => {
     const authors = new Set()
     const userData = {}
     data
@@ -104,7 +104,7 @@ const formatUserData = (data = []) => {
             const updatedCommentsByUser = updateByUsersCount(userData, 'commentsByUser', commenters, author)
             Object.assign(userData, updatedCommentsByUser)
 
-            const updatedApprovalsByUser = updateByUsersCount(userData, 'approvalsByUser', approvers, author)
+            const updatedApprovalsByUser = updateByUsersCount(userData, 'approvalsByUser', approvers, author, 1)
             Object.assign(userData, updatedApprovalsByUser)
 
             const updatedCommentsGiven = updateContributorCount(userData, 'commentsGiven', commenters)
@@ -195,6 +195,7 @@ const formatUserData = (data = []) => {
 
             const moreData = {
                 author,
+                name: usersInfo[author]?.name || author,
                 user: author,
                 totalPRs,
                 age: averagePrAge,
@@ -227,6 +228,7 @@ const formatUserData = (data = []) => {
             const picked = pick([
                 'author',
                 'user',
+                'name',
                 'approvalsGiven',
                 'approvalsByUser',
                 'uniquePRsApproved',

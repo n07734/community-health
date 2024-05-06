@@ -1,4 +1,4 @@
-import React from 'react'
+
 import ErrorIcon from '@material-ui/icons/Error'
 import WarningIcon from '@material-ui/icons/Warning'
 import { withStyles } from '@material-ui/core/styles'

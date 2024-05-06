@@ -12,7 +12,7 @@ import {
 import {
     differenceInDays,
     isAfter,
-    isBefore
+    isBefore,
 } from 'date-fns'
 
 import Sentiment from 'sentiment'
@@ -93,8 +93,8 @@ const formatComments = (type = '', exclude, data) => {
         code: codeComments,
         all: [
             ...codeComments,
-            ...generalComments
-        ]
+            ...generalComments,
+        ],
     }
     const allComments = commentsMap[type]
 
@@ -162,6 +162,11 @@ const prData = (exclude = []) => (data = {}) => {
     const deletions = pathOr(0, ['node', 'deletions'], data)
     const createdAt = pathOr('', ['node', 'createdAt'], data)
     const mergedAt = pathOr('', ['node', 'mergedAt'], data)
+    const committedDate = data?.node?.commits?.[0]?.edges?.[0]?.node?.committedDate || ''
+
+    const startDate = isBefore(new Date(committedDate), new Date(createdAt))
+        ? committedDate
+        : createdAt
 
     const allCommentsInfo = formatAllComments(exclude, data)
 
@@ -183,12 +188,13 @@ const prData = (exclude = []) => (data = {}) => {
         prSize: additions + deletions,
 
         mergedAt,
+        cycleTime: differenceInDays(new Date(mergedAt), new Date(startDate)) || 1,
         age: differenceInDays(new Date(mergedAt), new Date(createdAt)) || 1,
 
         approvals,
         approvers,
 
-        ...allCommentsInfo
+        ...allCommentsInfo,
     }
 
     return prInfo
@@ -209,7 +215,7 @@ const formatPullRequests = ({ excludeIds = [] } = {}, results = []) => {
 
 const usersPrWasInTeam = (prMergeDate = '') => ({
     startDate = '',
-    endDate = ''
+    endDate = '',
 } = {}) => {
 
     const prDate = new Date(prMergeDate)
@@ -231,12 +237,14 @@ const filterByUsersInfo = (fetchInfo = {}, prs = []) => {
         .filter((pr = {}) => {
             const user = pr.author
             const {
-                dates = []
+                dates = [],
             } = usersInfo[user] || {}
 
             const wasInTeam = usersPrWasInTeam(pr.mergedAt)
 
-            return dates.some(wasInTeam)
+            return dates.length > 0
+                ? dates.some(wasInTeam)
+                : true
         })
 
     return filteredItems
@@ -249,10 +257,7 @@ const filterSortPullRequests = ({ excludeIds = [], sortDirection }, untilDate, a
         filter(item => {
             const author = propOr('', 'author', item)
             const hasExcludedAuthor = any(y => y === author, ['GIT_APP_PR', ...excludeIds])
-            const shouldFilterIn = untilDate
-                ? filterByUntilDate(['mergedAt'], sortDirection, untilDate)(item)
-                : true
-
+            const shouldFilterIn = !untilDate || filterByUntilDate(['mergedAt'], sortDirection, untilDate)(item)
             const keepItem = shouldFilterIn && !hasExcludedAuthor
 
             !keepItem && filteredPRs.push(item)
@@ -268,9 +273,7 @@ const filterSortItems = (dateKey = '') => ({ sortDirection }, untilDate, allIssu
     const remainingIssues = compose(
         sort(dateSort(dateKey, 'ASC')),
         filter(item => {
-            const keepItem = untilDate
-                ? filterByUntilDate([dateKey], sortDirection, untilDate)(item)
-                : true
+            const keepItem = filterByUntilDate([dateKey], sortDirection, untilDate)(item)
 
             !keepItem && filteredIssues.push(item)
             return keepItem
@@ -286,12 +289,14 @@ const filterSortReleases = filterSortItems('date')
 
 const formatIssue = (data) => {
     const createdAt = pathOr('', ['node', 'createdAt'], data)
+    const closedAt = pathOr('', ['node', 'closedAt'], data)
     const title = pathOr('', ['node', 'title'], data)
     const url = pathOr('', ['node', 'url'], data)
     const labels = pathOr([], ['node', 'labels', 'edges'], data)
 
     return {
         mergedAt: createdAt,
+        age: differenceInDays(new Date(closedAt), new Date(createdAt)) || 1,
         url,
         isBug: /bug/i.test(title) || labels.some(x => /bug/i.test(path(['node', 'name'], x))),
     }
@@ -320,6 +325,7 @@ const formatReleases = compose(
     flatten,
     map(pathOr([], ['data', 'result', 'releases', 'edges'])),
 )
+
 export {
     formatPullRequests,
     filterSortPullRequests,

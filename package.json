@@ -30,7 +30,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build && cp -r data build/data",
     "test": "TZ=GMT react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src",
+    "lint:fix": "eslint --fix src"
   },
   "eslintConfig": {
     "extends": [
@@ -55,5 +57,10 @@
     "snapshotSerializers": [
       "./snapshotSerializer"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-plugin-jest": "^28.5.0",
+    "eslint-plugin-react": "^7.34.1"
   }
 }

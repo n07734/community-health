@@ -20,7 +20,7 @@ const parseJSON = response => new Promise((resolve, reject) => {
     response.json()
         .then(data => response.status === 200
             ? resolve(data)
-            : reject(Object.assign(data, { status: response.status }))
+            : reject(Object.assign(data, { status: response.status })),
         )
         .catch(error => {
             console.log('-=-=--parseJSON error', error)
@@ -63,7 +63,7 @@ const pauseThenRetry = async(apiInfo, results) => {
         : {
             errorMessage: {
                 level: 'error',
-                message: 'Hit rate limit over ten times'
+                message: 'Hit rate limit over ten times',
             },
             fetchInfo: apiInfo.fetchInfo,
             results: results,
@@ -98,7 +98,9 @@ const dateSort = (sortDirection) => (a, b) => sortDirection === 'DESC'
     ? new Date(b).getTime() - new Date(a).getTime()
     : new Date(a).getTime() - new Date(b).getTime()
 
-const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
+const hasValue = (data = {}) => (path = []) => pathOr(false, path, data)
+
+const api = async({ fetchInfo, queryInfo, dispatch = () => {} }, results = []) => {
     const {
         query,
         resultInfo,
@@ -107,10 +109,12 @@ const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
         sortDirection,
     } = queryInfo(fetchInfo)
 
+    const fetchInfoHas = hasValue(fetchInfo)
+
     const [oldestItemWithNextPage] = [
-        fetchInfo.prPagination.hasNextPageForDate && getLatestDate('pullRequests', results),
-        fetchInfo.issuesPagination.hasNextPageForDate && getLatestDate('issues', results),
-        fetchInfo.releasesPagination.hasNextPageForDate && getLatestDate('releases', results),
+        fetchInfoHas(['prPagination','hasNextPageForDate']) && getLatestDate('pullRequests', results),
+        fetchInfoHas(['issuesPagination','hasNextPageForDate']) && getLatestDate('issues', results),
+        fetchInfoHas(['releasesPagination','hasNextPageForDate']) && getLatestDate('releases', results),
     ]
         .filter(Boolean)
         .sort(dateSort(sortDirection))
@@ -123,7 +127,7 @@ const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
             latestItemDate: oldestItemWithNextPage,
             issueCount: getCurrentItemsByType('issues', results),
             releaseCount: getCurrentItemsByType('releases', results),
-        }
+        },
     })
 
     const apiCallWithToken = apiCall(fetchInfo)
@@ -136,12 +140,12 @@ const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
         const fullData = await fillData(apiCallWithToken)(fillerType)(result)
         const updatedResults = [
             ...results,
-            fullData
+            fullData,
         ]
 
         const {
             hasNextPage,
-            nextPageInfo,
+            nextPageInfo = {},
         } = resultInfo(result)
 
         const updatedFetchInfo = mergeDeepRight(fetchInfo, nextPageInfo)
@@ -169,7 +173,7 @@ const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
                 always({
                     level: 'warn',
                     message: 'You may have triggered the api\'s abuse detection, please wait a minute before trying again',
-                })
+                }),
             ],
             [
                 compose(test(/50\d/i), propOr('', 'status')),
@@ -190,22 +194,22 @@ const api = async({ fetchInfo, queryInfo, dispatch }, results = []) => {
                 always({
                     level: 'error',
                     message: `Auth error: ${error.message || 'UNKOWN'}`,
-                })
+                }),
             ],
             [
                 propEq('status', undefined),
                 always({
                     level: 'error',
                     message: 'Error while processing data after, please check the console',
-                })
+                }),
             ],
             [
                 alwaysTrue,
                 always({
                     level: 'error',
                     message: `ERROR: ${error.message || 'UNKOWN'}`,
-                })
-            ]
+                }),
+            ],
         ])
 
         const errorMessage = getErrorMessage(error)

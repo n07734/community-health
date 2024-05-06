@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { ResponsiveChord as NivoChord } from '@nivo/chord'
 import { useTheme } from '@material-ui/core/styles';
 
@@ -23,7 +23,7 @@ const Chord = styledCharts(({
 
     const hasMatrixData = (matrix) => matrix
         .some(row => row
-            .some(Boolean)
+            .some(Boolean),
         )
 
     return hasMatrixData(matrix) && (

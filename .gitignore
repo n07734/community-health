@@ -4,3 +4,4 @@ TMP.md
 build
 .eslintcache
 coverage
+package-lock.json

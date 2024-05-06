@@ -6,6 +6,7 @@ import max from 'date-fns/max'
 
 import { batchBy } from './batchBy'
 import { sumKeysValue, sortByKeys } from '../../utils'
+import { colors } from '../colors'
 
 const getAllYValues = data => {
     const allValues = []
@@ -59,6 +60,98 @@ const formatDate = (date) => {
     return `${info.getFullYear()}-${month < 10 ? `0${month}` : month}-${dayM < 10 ? `0${dayM}` : dayM}`
 }
 
+const averagePerDev = ({ filteredBatch = [] } = {}) => {
+    const activeTeam = {}
+    filteredBatch
+        .forEach((pr = {}) => activeTeam[pr.author] = 1)
+
+    return Math.round(filteredBatch.length / Object.keys(activeTeam).length)
+}
+
+const teamDistribution = ({ filteredBatch, dataKey } = {}) => {
+    // Distribution is only of active team members within the data
+    const activeTeam = new Set([])
+
+    const batchedData = {}
+
+    filteredBatch
+        .forEach((pr = {}) => {
+            const {
+                teamApprovers = {},
+                teamCommenters = {},
+            } = pr
+
+            const data = /approvals/i.test(dataKey)
+                ? teamApprovers
+                : teamCommenters
+
+            Object.entries(data)
+                .forEach(([gitId, value]) => {
+                    batchedData[gitId] = (batchedData[gitId] || 0) + value
+
+                })
+
+            const activeInPr = [
+                ...(Object.keys(teamApprovers) || []),
+                ...(Object.keys(teamCommenters) || []),
+            ]
+            activeInPr.length > 0 && activeTeam.add(...activeInPr)
+        })
+
+    const zeroedTeam = {}
+    activeTeam
+        .forEach(x => zeroedTeam[x] = 0)
+
+    const mergedData = {
+        ...zeroedTeam,
+        ...batchedData,
+    }
+
+    const values = Object.values(mergedData)
+    const contributorCount = values.length
+
+    const total = values.reduce((acc, value) => acc + value, 0)
+    const average = total / contributorCount
+    const max = (average * (contributorCount - 1)) + (total - average)
+    const distance = values
+        .reduce((acc, value) => acc + Math.abs(value - average),0)
+    const difference = max - distance
+    const distributionPercent = Math.round((100/max) * difference)
+
+    return isNaN(distributionPercent)
+        ? 0
+        : distributionPercent
+}
+
+const percentWith = ({ filteredBatch = [], dataKey } = {}) => {
+    const batchLength = filteredBatch.length
+    const withoutValues = filteredBatch
+        .filter(x => !x[dataKey])
+
+    const withoutValuesLength = withoutValues.length
+    const percentageWithValues = withoutValuesLength > 0
+        ? Math.round((batchLength - withoutValuesLength) / (batchLength) * 100)
+        : 0
+
+    return percentageWithValues;
+}
+
+const median = ({ filteredBatch, key } = {}) => {
+    const batchLength = filteredBatch.length
+    const sortedBatch = filteredBatch
+        .sort(sortByKeys([key]))
+    return sortedBatch[Math.floor(batchLength / 2)][key] || 0
+}
+
+const growth = ({ filteredBatch } = {}) => {
+    const growth = filteredBatch
+        .reduce((acc = 0, { additions = 0, deletions = 0 } = {}) => (
+            acc + (additions - deletions)
+        ),0)
+
+    return growth
+}
+
 const formatBatches = ({ filterForKey = '', dataKey = '', groupMath = 'average' } = {}) => (batches = []) => {
     const lineData = []
     batches
@@ -66,7 +159,7 @@ const formatBatches = ({ filterForKey = '', dataKey = '', groupMath = 'average' 
             const filteredBatch = batch
                 .filter(x => filterForKey
                     ? /\d+/.test(x[filterForKey])
-                    : true
+                    : true,
                 )
 
             const key = dataKey || filterForKey
@@ -74,18 +167,18 @@ const formatBatches = ({ filterForKey = '', dataKey = '', groupMath = 'average' 
 
             if (!filterForKey || batchLength > 0) {
                 const valueByTypes = {
-                    'average': () => Math.round(sumKeysValue(key)(filteredBatch) / batchLength),
-                    'sum': () => sumKeysValue(key)(filteredBatch),
-                    'count': () => batchLength,
-                    'median': () => {
-                        const sortedBatch = filteredBatch
-                            .sort(sortByKeys([key]))
-                        return sortedBatch[Math.floor(batchLength / 2)][key] || 0
-                    }
+                    average: () => Math.round(sumKeysValue(key)(filteredBatch) / batchLength),
+                    sum: () => sumKeysValue(key)(filteredBatch),
+                    count: () => batchLength,
+                    averagePerDev,
+                    median,
+                    percentWith,
+                    teamDistribution,
+                    growth,
                 }
 
                 lineData.push({
-                    y: valueByTypes[groupMath](),
+                    y: valueByTypes[groupMath]({ filteredBatch, dataKey, key }),
                     x: formatDate(batch[0].mergedAt),
                 })
             }
@@ -96,7 +189,7 @@ const formatBatches = ({ filterForKey = '', dataKey = '', groupMath = 'average' 
 
 const formatLinesData = ({lines = [], data} = {}) => {
     const sharedAxisData = data
-        ? batchBy('mergedAt')(data)
+        ? batchBy(data)
         : []
 
     const formatedLines = []
@@ -104,7 +197,7 @@ const formatLinesData = ({lines = [], data} = {}) => {
         .forEach((line = {}) => {
             const { label, color, data: lineData } = line
             const batchedData = lineData && lineData.length > 0
-                ? batchBy('mergedAt')(lineData)
+                ? batchBy(lineData)
                 : sharedAxisData
 
             const formattedData = formatBatches(line)(batchedData)
@@ -149,13 +242,19 @@ const formatGraphMarkers = (markers, theme, lineData) => {
 
             return currentDate > dateStart && currentDate < dateEnd
         })
-        .map((item) => ({
+        .map((item, i) => ({
             axis: 'x',
             value: new Date(item.date).getTime(),
             legend: item.releaseType === 'MAJOR'
                 ? item.description
                 : '',
             ...(theme.charts.markers[markerType(item.releaseType)] || {}),
+            // TODO: review
+            legendOffsetY: {
+                MAJOR: (theme.charts.markers[markerType(item.releaseType)]?.legendOffsetY || 0) + (i%2 === 1 ? 14 : 0 ),
+                MINOR: (i%2 === 1 ? 30 : 40 ),
+                PATCH: (i%2 === 1 ? 60 : 80 ),
+            }[item.releaseType],
         }))
 
     return formattedMarkers
@@ -198,7 +297,7 @@ const smoothNumber = (ruffledNumber) => {
 const chunkData = (data = []) => {
     // This batches up the data the same way as the points on the line graph
     // doing this means the items in each table section matches the lines on the graph better.
-    const batchedData = batchBy('mergedAt')(data)
+    const batchedData = batchBy(data)
     const firstBatch = batchedData.at(0) || []
     const lastBatch = batchedData.at(-1) || []
 
@@ -260,14 +359,84 @@ const getReportMonthCount = (leftItems = [], rightItems = []) => {
     return totalMonths
 }
 
+const splitByAuthor = (pullRequests = [], hideNames = false, usersInfo = {}) => {
+    const authorsPrs = {}
+    pullRequests
+        .forEach((pr) => {
+            const { author } = pr
+            const theirPrs = authorsPrs[author] || []
+            theirPrs.push(pr)
+            authorsPrs[author] = theirPrs
+        })
+
+    const byAuthorLines = Object.entries(authorsPrs)
+        .map(([author = '', prs = []], i) => {
+            const data = prs
+                .map(pr => ({
+                    value: 1,
+                    mergedAt: pr.mergedAt,
+                }))
+
+            return {
+                label: hideNames
+                    ? `${Array(i).fill(' ').join('')}Spartacus`
+                    : usersInfo[author]?.name || author,
+                color: colors[i % colors.length],
+                dataKey: 'value',
+                groupMath: 'count',
+                data,
+            }
+        })
+
+    const byAuthor = {
+        lines: byAuthorLines,
+        xAxis: 'left',
+    }
+
+    return [byAuthor]
+}
+
+const rainbowData = (type = '', data = {}) => {
+    const sortedData = Object.entries(data)
+        .sort(([,a],[,b]) => a - b)
+
+    const topItems = sortedData.slice(-20)
+
+    const reportItems = sortedData.length > 19
+        ? topItems.map(([item]) => item)
+        : Object.keys(data)
+
+    const pieData = topItems
+        .map(([item, value], i) => ({
+            id: item,
+            label: item,
+            color: colors[i % colors.length],
+            value: value,
+        }))
+
+    const sectionTitle = sortedData.length > reportItems.length
+        ? `PR total from top 20 ${type}s out of ${sortedData.length}`
+        : `PR total from ${type}s (${reportItems.length})`
+
+    return {
+        pieData,
+        reportItems,
+        pieTitle: `PR by ${type} rainbow`,
+        sectionTitle,
+    }
+}
+
 export {
     getMaxYValue,
     getMinYValue,
     formatLinesData,
+    formatBatches,
     formatGraphMarkers,
     smoothNumber,
     dateSort,
     chunkData,
     sumKeysValue,
     getReportMonthCount,
+    splitByAuthor,
+    rainbowData,
 }

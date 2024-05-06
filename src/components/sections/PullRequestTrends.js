@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { connect } from 'react-redux'
 import { useTheme } from '@material-ui/core/styles';
 
@@ -6,59 +6,22 @@ import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
 import GraphsWrap from '../shared/GraphsWrap'
 import { P } from '../shared/StyledTags'
-import { colors } from '../colors'
 import Line from '../charts/Line'
-
-const getByAuthorData = (pullRequests = [], hideNames = false) => {
-    const authorsPrs = {}
-    pullRequests
-        .forEach((pr) => {
-            const { author } = pr
-            const theirPrs = authorsPrs[author] || []
-            theirPrs.push(pr)
-
-            authorsPrs[author] = theirPrs
-        })
-
-    const byAuthorLines = Object.entries(authorsPrs)
-        .map(([author = '', prs = []], i) => {
-            const data = prs
-                .map(pr => ({
-                    value: 1,
-                    mergedAt: pr.mergedAt,
-                }))
-
-            return {
-                label: hideNames
-                    ? `${Array(i).fill(' ').join('')}Spartacus`
-                    : author,
-                color: colors[i % colors.length],
-                dataKey: 'value',
-                groupMath: 'count',
-                data,
-            }
-        })
-
-    const byAuthor = {
-        lines: byAuthorLines,
-        xAxis: 'left',
-    }
-
-    return [byAuthor]
-}
+import { splitByAuthor } from '../charts/lineHelpers'
 
 const PullRequestTrends = ({
     chunkyData = [],
     pullRequests = [],
     releases = [],
     userIds = [],
+    usersInfo = {},
     hiddenNames = false,
 } = {}) => {
     const { type } = useTheme();
 
     const isTeamPage = userIds.length > 0
     const byAuthorData = isTeamPage
-        ? getByAuthorData(pullRequests, hiddenNames)
+        ? splitByAuthor(pullRequests, hiddenNames, usersInfo)
         : []
 
     return pullRequests.length > 0 && (
@@ -178,6 +141,7 @@ const mapStateToProps = (state) => ({
     pullRequests: state.pullRequests,
     releases: state.releases,
     userIds: state.fetches.userIds,
+    usersInfo: state.fetches.usersInfo,
     hiddenNames: state.hiddenNames,
 })
 

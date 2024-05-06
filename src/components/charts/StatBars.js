@@ -6,42 +6,37 @@ import {
 
 import { P, H } from '../shared/StyledTags'
 
-const colourA = '#1f77b4'
-const colourB = '#e82573'
+const colorA = '#1f77b4'
+const colorB = '#e82573'
 
-const SelectUser = (props = {}) => {
-    const {
-        setUser,
-        user = '',
-        color,
-        otherUser,
-        users = [],
-    } = props
-
-    return <Select
-            value={user}
-            style={{
-                color,
-                fontSize: '2rem'
-            }}
-
-            onChange={(e) => setUser(e.target.value)}
-            inputProps={{ 'aria-label': 'Select a user' }}
-        >
-        {
-            users
-                .filter(user => user !== otherUser)
-                .map(user => <MenuItem  key={user} value={user} >{user}</MenuItem>)
-        }
-    </Select>
-}
+const SelectUser = ({
+    player = '',
+    color,
+    otherPlayer,
+    setPlayerId,
+    players = [],
+} = {}) => <Select
+        value={player}
+        style={{
+            color,
+            fontSize: '2rem',
+        }}
+        onChange={(e) => setPlayerId(e.target.value)}
+        inputProps={{ 'aria-label': 'Select a user' }}
+    >
+    {
+        players
+            .filter(({ author } = {}) => author !== otherPlayer)
+            .map(({ author, name } = {}) => <MenuItem  key={author} value={author} >{name}</MenuItem>)
+    }
+</Select>
 
 const StatBars = ({
-    user1 = {},
-    user2 = {},
-    users = [],
-    setUser1,
-    setUser2,
+    player1 = {},
+    player2 = {},
+    setPlayer1Id,
+    setPlayer2Id,
+    players = [],
     classes,
 } = {}) => {
     const statsKeys = [
@@ -105,17 +100,17 @@ const StatBars = ({
 
     const stats = statsKeys
         .filter(({ id } = {}) =>
-            Number.isInteger(user1[id]) && Number.isInteger(user2[id])
+            Number.isInteger(player1[id]) && Number.isInteger(player2[id])
                 && (!['orgCount', 'repoCount'].includes(id)
-                    || (['orgCount', 'repoCount'].includes(id) && user1[id] !== 1 && user2[id] !==1)) // don't want these in repo pvp pages
+                    || (['orgCount', 'repoCount'].includes(id) && player1[id] !== 1 && player2[id] !==1)), // don't want these in repo pvp pages
         )
         .map((stat = {}) => {
             const id = stat.id
-            const lValue = user1[id]
-            const rValue = user2[id]
+            const lValue = player1[id]
+            const rValue = player2[id]
 
-            const lColor = colourA
-            const rColor = colourB
+            const lColor = colorA
+            const rColor = colorB
 
             const lPercent = Math.ceil((100 *  lValue) / (lValue + rValue))
             const rPercent = 100 - lPercent
@@ -134,26 +129,26 @@ const StatBars = ({
     return <div className={classes.root}>
         <div className={classes.title}>
             {
-                users.length > 0
+                players.length > 0
                     ? <>
                         <SelectUser
-                            user={user1.user}
-                            color={colourA}
-                            otherUser={user2.user}
-                            setUser={setUser1}
-                            users={users}
+                            player={player1.author}
+                            color={colorA}
+                            otherPlayer={player2.author}
+                            setPlayerId={setPlayer1Id}
+                            players={players}
                         />
                         <SelectUser
-                            user={user2.user}
-                            color={colourB}
-                            otherUser={user1.user}
-                            setUser={setUser2}
-                            users={users}
+                            player={player2.author}
+                            color={colorB}
+                            otherPlayer={player1.author}
+                            setPlayerId={setPlayer2Id}
+                            players={players}
                         />
                     </>
                     : <>
-                        <H level={3} style={{ color:colourA, margin: 0 }}>{user1.user}</H>
-                        <H level={3} style={{ color:colourB, margin: 0 }}>{user2.user}</H>
+                        <H level={3} style={{ color:colorA, margin: 0 }}>{player1.name}</H>
+                        <H level={3} style={{ color:colorB, margin: 0 }}>{player2.name}</H>
                     </>
             }
         </div>
@@ -180,7 +175,7 @@ const StatBars = ({
     </div>
 }
 
-const styles = theme => ({
+const styles = () => ({
     root: {
         flexBasis: '100%',
         display: 'flex',
@@ -193,7 +188,7 @@ const styles = theme => ({
         flexWrap: 'nowrap',
         display: 'flex',
         justifyContent: 'space-between',
-        marginBottom: '1em'
+        marginBottom: '1em',
     },
     pvpWrapper: {
         position: 'relative',
@@ -207,7 +202,7 @@ const styles = theme => ({
             top: '8px',
             textAlign: 'center',
             margin: '0',
-        }
+        },
     },
     pvpBarWrapper: {
         width: '100%',
@@ -225,8 +220,8 @@ const styles = theme => ({
             margin: 0,
             position: 'absolute',
             top: '8px',
-            left: '8px'
-        }
+            left: '8px',
+        },
     },
     pvpR: {
         position: 'relative',
@@ -237,8 +232,8 @@ const styles = theme => ({
             margin: 0,
             position: 'absolute',
             top: '8px',
-            right: '8px'
-        }
+            right: '8px',
+        },
     },
 })
 

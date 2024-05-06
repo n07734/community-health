@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Collapse from '@material-ui/core/Collapse'
 import { withStyles } from '@material-ui/core/styles'
 
@@ -80,8 +80,8 @@ const styles = theme => ({
     },
     rootRows: {
         '& > *': {
-            flexBasis: '100%'
-        }
+            flexBasis: '100%',
+        },
     },
     link: {
         color: theme.palette.link,
@@ -94,11 +94,11 @@ const styles = theme => ({
         '& a': {
             fontSize: '1rem',
             marginLeft: '0.5rem',
-        }
+        },
     },
     wrapperFlex: {
-        flexBasis: '100%'
-    }
+        flexBasis: '100%',
+    },
 })
 
 export default withStyles(styles)(ChartDescription)

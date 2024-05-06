@@ -1,40 +1,11 @@
-import React from 'react'
+
 import ChartDescription from '../shared/ChartDescription'
 import GraphsWrap from '../shared/GraphsWrap'
 import Line from '../charts/Line'
 import Pie from '../charts/Pie'
+import { rainbowData } from '../charts/lineHelpers'
 import Paper from '../shared/Paper'
 import { colors } from '../colors'
-
-const rainbowData = (type = '', data = {}) => {
-    const sortedData = Object.entries(data)
-        .sort(([,a],[,b]) => a - b)
-
-    const topItems = sortedData.slice(-20)
-
-    const reportItems = sortedData.length > 19
-        ? topItems.map(([item]) => item)
-        : Object.keys(data)
-
-    const pieData = topItems
-        .map(([item, value], i) => ({
-            id: item,
-            label: item,
-            color: colors[i % colors.length],
-            value: value,
-        }))
-
-    const sectionTitle = sortedData.length > reportItems.length
-        ? `PR total from top 20 ${type}s out of ${sortedData.length}`
-        : `PR total from ${type}s (${reportItems.length})`
-
-    return {
-        pieData,
-        reportItems,
-        pieTitle: `PR by ${type} rainbow`,
-        sectionTitle,
-    }
-}
 
 const RepoSplit = ({
     pullRequests = [],

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
 import { pathOr } from 'ramda'
@@ -11,125 +11,21 @@ import Line from './charts/Line'
 import StatBars from './charts/StatBars'
 import { chunkData } from './charts/lineHelpers'
 
-import {
-    colors,
-    colorsRGBValues,
-} from './colors'
+import { colors } from './colors'
 import { clearPvP } from '../state/actions'
 
-const colourA = '#1f77b4'
-const colourB = '#e82573'
+const colorA = '#1f77b4'
+const colorB = '#e82573'
+const queryString = pathOr('', ['location', 'search'], window)
+const urlParams = new URLSearchParams(queryString);
 
-const prTransformer = (user1 = '', user2 = '') => (left = [], right = [], pullRequests = []) => {
-    const user1Prs = []
-    const user2Prs = []
-    pullRequests
-        .forEach((item = {}) => {
-            const author = item.author
-            if (author === user1) {
-                user1Prs.push(item)
-            } else if (author === user2) {
-                user2Prs.push(item)
-            }
-        })
-
-    const linesTransform = (lines = []) => lines
-        .map((line = {}) => {
-            const line1 = {
-                ...line,
-                label: `${user1} ${line.label}`,
-                lineStyles: {
-                    strokeDasharray: '6, 6',
-                    strokeWidth: 2,
-                },
-                data: user1Prs
-            }
-
-            const line2 = {
-                ...line,
-                label: `${user2} ${line.label}`,
-                color: `rgba(${colorsRGBValues[line.color]}, 0.6)`,
-                data: user2Prs
-            }
-            return [
-                line1,
-                line2,
-            ]
-        })
-        .flat()
-
-    const newLeft = linesTransform(left)
-    const newRight = linesTransform(right)
-
-    const legendDefaults = {
-        anchor: 'top-left',
-        direction: 'column',
-        justify: false,
-        translateX: 10,
-        translateY: 10,
-        itemsSpacing: 0,
-        itemDirection: 'left-to-right',
-        itemWidth: 80,
-        itemHeight: 20,
-        itemOpacity: 1,
-        symbolSize: 12,
-        symbolShape: 'square',
-        symbolBorderColor: 'rgba(0, 0, 0, .9)',
-        toggleSerie: true,
-        itemTextColor: 'white', // TODO: use theme theme.palette.text.primary
-    }
-
-    const legends = [
-        ...(left.length > 0
-            ? [{
-                ...legendDefaults,
-                data: newLeft,
-            }]
-            : []
-        ),
-        ...(right.length > 0
-            ? [{
-                ...legendDefaults,
-                data: newRight,
-                anchor: 'top-right',
-                translateX: -10,
-                itemDirection: 'right-to-left',
-            }]
-            : []
-        ),
-    ]
-
-    return [newLeft, newRight, legends]
+const getPlayer1Id = (usersData = []) => {
+    return urlParams.get('player1') || usersData[0]?.author
+}
+const getPlayer2Id = (usersData = []) => {
+    return urlParams.get('player2') || usersData[1]?.author
 }
 
-
-const getUsers = (users = []) => {
-    const quertString = pathOr('', ['location', 'search'], window)
-    const urlParams = new URLSearchParams(quertString);
-    const path = pathOr('', ['location', 'pathname'], window)
-    const [, p1Path, p2Path] = /^[\w-/]+$/.test(path)
-        ? path
-            .split('/')
-            .filter(x => x && x !== 'community-health')
-        : []
-    const player1 = p1Path || urlParams.get('player1') || '';
-    const player2 = p2Path || urlParams.get('player2') || '';
-
-    const [userA, userB] = users
-
-    return [
-        /\w+/.test(player1)
-            ? player1
-            : userA,
-        player1 !== player2 && /\w+/.test(player2)
-            ? player2
-            : userB,
-    ]
-}
-
-// battle duration
-// winner is, sore breakdown
-// colour per user or for winner?
 const PvP = ({
     pullRequests = [],
     releases = [],
@@ -137,15 +33,13 @@ const PvP = ({
     removePvP,
     classes,
 } = {}) => {
-    const users = usersData.map(x => x.author)
-    const [userA, userB] = getUsers(users)
-    const [user1 = userA, setUser1] = useState()
-    const [user2 = userB, setUser2] = useState()
+    const [player1Id, setPlayer1Id] = useState(getPlayer1Id(usersData))
+    const [player2Id, setPlayer2Id] = useState(getPlayer2Id(usersData))
 
-    const userData1 = usersData
-        .find(x => x.author === user1) || {}
-    const userData2 = usersData
-        .find(x => x.author === user2) || {}
+    const player1 = usersData
+        .find(x => x.author === player1Id) || {}
+    const player2 = usersData
+        .find(x => x.author === player2Id) || {}
 
     const user1PrData = []
     const user2PrData = []
@@ -153,17 +47,16 @@ const PvP = ({
     pullRequests
         .forEach((item = {}) => {
             const author = item.author
-            if (author === user1) {
+            if (author === player1Id) {
                 user1PrData.push(item)
                 bothUsers.push(item)
-            } else if (author === user2) {
+            } else if (author === player2Id) {
                 user2PrData.push(item)
                 bothUsers.push(item)
             }
         })
 
     const chunkyData = chunkData(bothUsers)
-
     return usersData.length > 0 && (
         <>
             <Paper>
@@ -181,20 +74,14 @@ const PvP = ({
                 <P className={classes.copy}>This page is just for fun, a bigger or smaller number could be good, bar or not mean much, it depends on context.</P>
 
                 <StatBars
-                    user1={userData1}
-                    user2={userData2}
-                    setUser1={setUser1}
-                    setUser2={setUser2}
-                    users={users}
+                    player1={player1}
+                    player2={player2}
+                    setPlayer1Id={setPlayer1Id}
+                    setPlayer2Id={setPlayer2Id}
+                    players={usersData}
                 />
 
                 <P className={classes.copy}>And the winner is.... Both! Thanks for your great work!</P>
-                {/*
-                Need to fix legend also make correct chunky data
-                <CustomGraphs
-                    prTransformer={prTransformer(user1, user2)}
-                    pullRequests={pullRequests}
-                /> */}
                 <GraphsWrap>
                     <Line
                         markers={releases}
@@ -203,25 +90,25 @@ const PvP = ({
                         data={[{
                             lines: [
                                 {
-                                    label: `${user1} received`,
+                                    label: `${player1.name} received`,
                                     color: colors[2],
                                     dataKey: 'commentSentimentScore',
                                     data: user1PrData,
                                 },
                                 {
-                                    label: `${user1} given`,
+                                    label: `${player1.name} given`,
                                     color: colors[1],
                                     dataKey: 'commentAuthorSentimentScore',
                                     data: user1PrData,
                                 },
                                 {
-                                    label: `${user2} received`,
+                                    label: `${player2.name} received`,
                                     color: colors[2],
                                     dataKey: 'commentSentimentScore',
                                     data: user2PrData,
                                 },
                                 {
-                                    label: `${user2} given`,
+                                    label: `${player2.name} given`,
                                     color: colors[1],
                                     dataKey: 'commentAuthorSentimentScore',
                                     data: user2PrData,
@@ -237,14 +124,14 @@ const PvP = ({
                         data={[{
                             lines: [
                                 {
-                                    label: `${user1} PR size`,
-                                    color: colourA,
+                                    label: `${player1.name} PR size`,
+                                    color: colorA,
                                     dataKey: 'prSize',
                                     data: user1PrData,
                                 },
                                 {
-                                    label: `${user2} PR size`,
-                                    color: colourB,
+                                    label: `${player2.name} PR size`,
+                                    color: colorB,
                                     dataKey: 'prSize',
                                     data: user2PrData,
                                 },
@@ -259,14 +146,14 @@ const PvP = ({
                         data={[{
                             lines: [
                                 {
-                                    label: `${user1} PR age`,
-                                    color: colourA,
+                                    label: `${player1.name} PR age`,
+                                    color: colorA,
                                     dataKey: 'age',
                                     data: user1PrData,
                                 },
                                 {
-                                    label: `${user2} PR age`,
-                                    color: colourB,
+                                    label: `${player2.name} PR age`,
+                                    color: colorB,
                                     dataKey: 'age',
                                     data: user2PrData,
                                 },
@@ -303,7 +190,7 @@ const mapDispatchToProps = dispatch => ({
     removePvP: (x) => dispatch(clearPvP(x)),
 })
 
-const styles = theme => ({
+const styles = () => ({
     fill: {
         width: '100%',
         marginRight: 0,

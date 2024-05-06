@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import { withStyles } from '@material-ui/core/styles'
+import { withStyles } from '@material-ui/core'
 
 import ChartDescription from '../../shared/ChartDescription'
 import SelectAmountData from './SelectAmountData'
 import ButtonWithMessage from './ButtonWithMessage'
+import TeamModal from './TeamModal'
 import TextInput from './TextInput'
 
 import Download from './Download'
@@ -18,14 +19,50 @@ import {
     storeRepo,
     storeToken,
     storeUserIds,
+    storeUsersInfo,
     storeTeamName,
     storeEnterpriseAPI,
     storeExcludeIds,
+    storeEvents,
     storeAmountOfData,
     storeFormUntilDate,
     storeSortDirection,
     getAPIData,
 } from '../../../state/actions'
+
+const userTextInfo = ({ userId, name, dates = [] }) => {
+    const nameString = name ? ` (${name})` : ''
+    const dateStrings = dates
+        .map(({ startDate, endDate }) => {
+            const startString = startDate ? `joined ${startDate}` : ''
+            const endString = endDate ? `left ${endDate}` : ''
+            return `${startString}${startString && endString ? ' and ' : ''}${endString}`
+        })
+        .join(', ')
+
+    return `${userId}${nameString} ${dateStrings}`
+}
+
+const usersText = (users = []) =>  users
+    .map(userTextInfo)
+    .join(', ')
+
+const teamStyles = () => ({
+    teamCopy: {
+        margin: '0.5rem 0 0 0',
+    },
+})
+
+const TeamInfo = withStyles(teamStyles)(({ usersInfo = {}, classes = {}}) => {
+    const users = Object.values(usersInfo)
+    const teamText = usersText(users)
+    return users.length > 0 && (
+        <P className={classes.teamCopy}>
+            {users.length > 0 && `Team members: `}
+            {teamText}
+        </P>
+    )
+})
 
 const FormSection = (props) => {
     const {
@@ -44,34 +81,53 @@ const FormSection = (props) => {
         enterpriseAPI: '',
     }
 
-    const formTitle = reportType === 'repo'
-        ? 'Get community data for any repo'
-        : 'Get community data for any Team(list of users)'
+    const titles = {
+        repo: 'Get community data for any repo',
+        team: 'Get community data for any Team(list of users)',
+        org: 'Get community data for any Org',
+    }
+    const formTitle = titles[reportType]
 
-    const primaryInputs = reportType === 'repo'
-        ? {
+    const reportTypeInputsHash = {
+        repo: {
             org: '',
             repo: '',
-        }
-        : {
-            userIds: '',
+        },
+        org: {
+            org: '',
+        },
+        team: {
+            usersInfo: {},
             teamName: '',
-        }
+        },
+    }
+    const reportInputs = reportTypeInputsHash[reportType]
 
     const defaultInputs = {
         ...commonInputs,
-        ...primaryInputs,
+        ...reportInputs,
     }
 
     const [inputError, setInputError] = useState({})
     const [formInfo, setFormInfo] = useState(defaultInputs)
+
+    const setFormValues = (newValues = {}) => {
+        const updatedInfo = {
+            ...formInfo,
+            ...newValues,
+        }
+
+        setFormInfo(updatedInfo)
+    }
+
     useEffect(() => {
         setFormInfo(defaultInputs)
     }, [reportType, setFormInfo])
 
+
     const setValue = (key, value) => setFormInfo({
         ...formInfo,
-        [key]: value
+        [key]: value,
     })
 
     const inputStates = {
@@ -82,6 +138,7 @@ const FormSection = (props) => {
     }
 
     const handleSubmit = (event) => {
+        console.log('handleSubmit main')
         event.preventDefault()
 
         const {
@@ -98,6 +155,20 @@ const FormSection = (props) => {
             && getData()
     }
 
+    const inputsHash = {
+        repo: [
+            {type:'org'},
+            {type:'repo'},
+        ],
+        org: [
+            {type:'org', className: 'inputDesc'},
+        ],
+        team: [
+            {type:'teamName', className: 'inputDesc'},
+        ],
+    }
+    const inputs = inputsHash[reportType]
+
     return (
         <div className={classes.formDescription} >
             <H level={3}>{formTitle}</H>
@@ -105,53 +176,48 @@ const FormSection = (props) => {
                 onSubmit={handleSubmit}
             >
                 <div className={classes.inputGrid}>
-                    <SelectAmountData setValue={setValue} amountOfData={formInfo.amountOfData} />
                     {
-                        reportType === 'repo'
-                            ? <>
-                                <TextInput
-                                    key='org'
-                                    type='org'
-                                    { ...inputStates }
-                                />
-                                <TextInput
-                                    key='repo'
-                                    type='repo'
-                                    { ...inputStates }
-                                />
-                            </>
-                            : <>
-                                <TextInput
-                                    key='userIds'
-                                    type='userIds'
-                                    { ...inputStates }
-                                />
-                                <P className="inputDesc">
-                                    You can also define the start and/or end date for a user in the team e.g. userA=start:2023-01,userB=start:2020-01end:2022-12.
-                                </P>
-                                <TextInput
-                                    key='teamName'
-                                    type='teamName'
-                                    { ...inputStates }
-                                />
-                            </>
+                        inputs
+                            .map((input = {}) => <TextInput
+                                className={input.className}
+                                key={input.type}
+                                type={input.type}
+                                { ...inputStates }
+                            />)
+                    }
+                    {
+                        reportType === 'team' && <>
+                            <TeamInfo usersInfo={formInfo.usersInfo} />
+                            <TeamModal
+                                usersInfo={formInfo.usersInfo}
+                                setParentValues={setFormValues}
+                            />
+                        </>
                     }
                     <TextInput
                         type="token"
                         { ...inputStates }
                     />
+                    <SelectAmountData setValue={setValue} amountOfData={formInfo.amountOfData} />
                     <P className="inputDesc">
-                        To create a token go to your GitHub <a className={classes.link} href="https://github.com/settings/tokens">tokens</a> page, click on 'generate new token', choose the settings 'repo' (all) and 'read:org' then click 'Generate token'.
+                        To create a token go to your GitHub <a className={classes.link} href="https://github.com/settings/tokens">tokens</a> page, click on 'generate new token', choose the settings 'repo' (all), 'read:org' and 'user' then click 'Generate token'.
                     </P>
                 </div>
 
                 <ChartDescription
                     className={`${classes.formDescription} ${classes.fullRow}`}
-                    title=""
-                    expandText="add this"
+                    expandText="show"
                     intro="Advanced options"
                 >
                     <div className={classes.inputGrid}>
+                        <TextInput
+                            className="inputDesc"
+                            type='events'
+                            { ...inputStates }
+                        />
+                        <P className="inputDesc">
+                            Key events can impact the data e.g. starting or launching a new feature or major version. These events can help give more context while viewing the data. e.g. ProjectA=2013-12-01.
+                        </P>
                         <TextInput
                             type="excludeIds"
                             { ...inputStates }
@@ -185,8 +251,10 @@ const mapDispatchToProps = dispatch => ({
             sortDirection,
             teamName,
             userIds,
+            usersInfo,
             enterpriseAPI,
             excludeIds,
+            events,
         } = values
 
         dispatch(clearPastSearch(values))
@@ -199,10 +267,12 @@ const mapDispatchToProps = dispatch => ({
         org && dispatch(storeOrg(org))
         repo && dispatch(storeRepo(repo))
         userIds && dispatch(storeUserIds(userIds))
+        usersInfo && dispatch(storeUsersInfo(usersInfo))
         teamName && dispatch(storeTeamName(teamName))
 
         dispatch(storeEnterpriseAPI(enterpriseAPI))
         dispatch(storeExcludeIds(excludeIds))
+        events && dispatch(storeEvents(events))
     },
     getData: (x) => dispatch(getAPIData(x)),
 })

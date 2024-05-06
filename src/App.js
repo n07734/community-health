@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import { pathOr } from 'ramda'
@@ -11,7 +11,7 @@ import './fonts.css'
 
 const App = ({
     themeType,
-    setReposUserId
+    setReposUserId,
 } = {}) => {
     useEffect(() => {
         const quertString = pathOr('', ['location', 'search'], window)

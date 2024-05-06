@@ -18,7 +18,7 @@ describe('getUntilDate: Get the date to request data util', () => {
                 amountOfData: 1,
                 sortDirection: 'DESC',
             },
-            prs
+            prs,
         )
 
         expect(result).toEqual(new Date('2022-01-01T00:00:00.000Z'))
@@ -30,7 +30,7 @@ describe('getUntilDate: Get the date to request data util', () => {
                 amountOfData: 2,
                 sortDirection: 'ASC',
             },
-            prs
+            prs,
         )
 
         expect(result).toEqual(new Date('2022-05-01T00:00:00.000Z'))
@@ -41,9 +41,9 @@ describe('getUntilDate: Get the date to request data util', () => {
             {
                 amountOfData: 2,
                 sortDirection: 'ASC',
-                untilDate: '2022-04-01'
+                untilDate: '2022-04-01',
             },
-            prs
+            prs,
         )
 
         expect(result).toEqual(new Date('2022-06-01T00:00:00.000Z'))
@@ -54,9 +54,9 @@ describe('getUntilDate: Get the date to request data util', () => {
             {
                 amountOfData: 2,
                 sortDirection: 'DESC',
-                untilDate: '2022-04-01'
+                untilDate: '2022-04-01',
             },
-            prs
+            prs,
         )
 
         expect(result).toEqual(new Date('2022-02-01T00:00:00.000Z'))

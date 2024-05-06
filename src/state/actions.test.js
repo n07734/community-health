@@ -14,7 +14,7 @@ describe('Basic actions:', () => {
         const dispatch = jest.fn()
         setUser('USER')(dispatch)
         expect(dispatch).toHaveBeenNthCalledWith(1, {
-            payload: 'USER', type: 'SET_USER'
+            payload: 'USER', type: 'SET_USER',
         })
     })
 
@@ -61,7 +61,7 @@ describe('Basic actions:', () => {
 
 describe('getAPIData:', () => {
     jest.resetModules()
-    jest.mock('../api/api', (x) => {
+    jest.mock('../api/api', () => {
         return ({ apiError }) => () => () => apiError
             ? Promise.reject('Oops')
             : Promise.resolve()
@@ -167,7 +167,7 @@ describe('storeUserIds:', () => {
             {
                 userName1: { userId: 'userName1', dates: [{ endDate: '2023-12-12' }] },
                 userName2: { userId: 'userName2', dates: [{ startDate: '2020-12-12' }] },
-            }
+            },
         ],
         [
             'userName4=start:2020-12-12;end:2021|start:2022-12-12,userName5',
@@ -177,21 +177,21 @@ describe('storeUserIds:', () => {
                     userId: 'userName4',
                     dates: [
                         { startDate: '2020-12-12', endDate: '2021' },
-                        { startDate: '2022-12-12' }
-                    ]
-                }
-            }
+                        { startDate: '2022-12-12' },
+                    ],
+                },
+            },
         ],
       ])('input %i', (input, userIds, usersInfo) => {
         const dispatch = jest.fn()
         storeUserIds(input)(dispatch)
 
         expect(dispatch).toHaveBeenNthCalledWith(1, {
-            payload: usersInfo, type: 'STORE_USERS_INFO'
+            payload: usersInfo, type: 'STORE_USERS_INFO',
         })
 
         expect(dispatch).toHaveBeenNthCalledWith(2, {
-            payload: userIds, type: 'STORE_USER_IDS'
+            payload: userIds, type: 'STORE_USER_IDS',
         })
       })
 })

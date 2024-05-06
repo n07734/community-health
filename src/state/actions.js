@@ -8,7 +8,6 @@ import {
     is,
     not,
     map,
-    path,
     pickAll,
     pipe,
     split,
@@ -22,6 +21,7 @@ import { isAfter, isBefore } from 'date-fns'
 
 import api from '../api/api'
 import getUsersData from '../api/getUsersData'
+import getOrgData from '../api/getOrgData'
 import getUntilDate from '../api/getUntilDate'
 import {
     formatPullRequests,
@@ -35,7 +35,7 @@ import {
 import { slimObject } from '../format/lightenData'
 import { batchedQuery } from '../api/queries'
 import formatUserData from '../format/userData'
-import formatReleaseData from '../format/releaseData'
+import { formatReleaseData } from '../format/releaseData'
 import types from './types'
 
 
@@ -93,7 +93,7 @@ const storeTeamName = (teamName = '') => (dispatch) => dispatch({
 const userIdsFromString = pipe(
     split(','),
     map(trim),
-    filter(Boolean)
+    filter(Boolean),
 )
 
 // TODO: not in right place. needs to be in form validation
@@ -106,25 +106,29 @@ const getUsersInfo = (usersString = '') => {
     usersArray
         .forEach((user = '') => {
             // eg with dates userName=start:2020-12-12;end:2020|start:2020-12-12
-            const [userId = '', datesString = ''] = user.split('=')
+            const [userId = '', usersInfoString = ''] = user.split('=')
             userIds.push(userId)
 
-            const dates = datesString
+            const dates = []
+            usersInfoString
                 .split('|')
-                .map((dateChunk = '') => {
-                    const [, startDate = ''] = dateChunk.match(/start:([\d-/]*)/i) || []
-                    const [, endDate = ''] = dateChunk.match(/end:([\d-/]*)/i) || []
+                .forEach((detailsChunk = '') => {
+                    const [, startDate = ''] = detailsChunk.match(/start:([\d-/]*)/i) || []
+                    const [, endDate = ''] = detailsChunk.match(/end:([\d-/]*)/i) || []
 
-                    return (startDate || endDate) && {
-                        ...(startDate && { startDate }),
-                        ...(endDate && { endDate }),
+                    if (startDate || endDate) {
+                        dates.push({
+                            ...(startDate && { startDate }),
+                            ...(endDate && { endDate }),
+                        })
                     }
                 })
-                .filter(Boolean)
 
-            if (dates.length > 0) {
+            const [, name = ''] = usersInfoString.match(/name:([^|,]+)/i) || []
+            if (dates.length > 0 || name) {
                 usersInfo[userId] = {
                     userId,
+                    name,
                     dates,
                 }
             }
@@ -142,6 +146,19 @@ const storeUserIds = (usersString = '') => (dispatch) => {
         usersInfo = {},
     } = getUsersInfo(usersString)
 
+    dispatch({
+        type: types.STORE_USERS_INFO,
+        payload: usersInfo,
+    })
+
+    return dispatch({
+        type: types.STORE_USER_IDS,
+        payload: userIds,
+    })
+}
+
+const storeUsersInfo = (usersInfo = {}) => (dispatch) => {
+    const userIds = Object.keys(usersInfo)
 
     dispatch({
         type: types.STORE_USERS_INFO,
@@ -156,10 +173,26 @@ const storeUserIds = (usersString = '') => (dispatch) => {
 
 const storeExcludeIds = (excludeIds = '') => (dispatch) => {
     const excludeArray = userIdsFromString(excludeIds)
-
     return dispatch({
         type: types.STORE_EX_IDS,
         payload: excludeArray,
+    })
+}
+
+const storeEvents = (eventsString = '') => (dispatch) => {
+    const items = userIdsFromString(eventsString)
+    const events = items
+        .map((item = '') => {
+            const [name, date] = item.split('=')
+            return {
+                name,
+                date,
+            }
+        })
+
+    return dispatch({
+        type: types.STORE_EVENTS,
+        payload: events,
     })
 }
 
@@ -182,9 +215,9 @@ const storeFormUntilDate = (amountOfData = '') => (dispatch, getState) => {
     const formUntilDate = getUntilDate(
         {
             ...fetches,
-            amountOfData
+            amountOfData,
         },
-        pullRequests
+        pullRequests,
     )
 
     dispatch({
@@ -233,7 +266,7 @@ const notSameUsersInfo = (formValues = {}) => (fetches = {}) => {
 // TODO: regression test
 const clearPastSearch = (values) => (dispatch, getState) => {
     const {
-        fetches = {}
+        fetches = {},
     } = getState()
 
     const notSameValues = notSameStringValues(values)
@@ -269,6 +302,7 @@ const clearData = (dispatch) => {
     dispatch({ type: types.CLEAR_USER_IDS })
     dispatch({ type: types.CLEAR_USERS_INFO })
     dispatch({ type: types.CLEAR_EX_IDS })
+    dispatch({ type: types.CLEAR_EVENTS })
     dispatch({ type: types.CLEAR_USERS_DATA })
     dispatch({ type: types.CLEAR_TEAM_NAME })
     dispatch({ type: types.CLEAR_RELEASES })
@@ -332,9 +366,9 @@ const validateRequest = state => {
         } = {},
     } = state
 
-    const stringArgs = userIds.length
-        ? [token]
-        : [org, repo, token]
+    const stringArgs = [token]
+    org && stringArgs.push(org)
+    repo && stringArgs.push(repo)
 
     const validStringArgs = stringArgs
         .every(item => typeof item === 'string' && item.length > 0)
@@ -343,10 +377,10 @@ const validateRequest = state => {
         ? [userIds]
         : []
 
-    const validArraygArgs = arrayArgs
+    const validArrayArgs = arrayArgs
         .every(item => item.length > 0)
 
-    const isValid = validStringArgs && validArraygArgs
+    const isValid = validStringArgs && validArrayArgs
 
     return {
         isValid,
@@ -370,7 +404,7 @@ const trimmer = (dateFrom = '', dateTo = '') => (dateKey = 'mergedAt', items = [
             if (isBefore(itemsDate, new Date(dateFrom))) {
                 newTrimmedLeft.push(item)
             } else if (isAfter(itemsDate, new Date(dateTo))) {
-                newTrimmedRight.unshift(item)
+                newTrimmedRight.push(item)
             } else {
                 keptItems.push(item)
             }
@@ -397,10 +431,11 @@ const trimItems = (dateFrom = '', dateTo = '') => async (dispatch, getState) => 
             trimmedReleases: {
                 trimmedLeftReleases = [],
                 trimmedRightReleases = [],
-            } = {}
+            } = {},
         } = {},
         pullRequests = [],
         releases = [],
+        usersInfo = {},
     } = getState();
 
     const itemsTrimmer = trimmer(dateFrom, dateTo)
@@ -422,7 +457,7 @@ const trimItems = (dateFrom = '', dateTo = '') => async (dispatch, getState) => 
     })
     dispatch({
         type: types.ADD_USERS_DATA,
-        payload: formatUserData(keptPrs),
+        payload: formatUserData(keptPrs, usersInfo),
     })
 
     const allReleases = [
@@ -493,21 +528,32 @@ const getAPIData = () => async (dispatch, getState) => {
             formUntilDate = '',
             releases = [],
             filteredReleases = [],
+            usersInfo = {},
         } = getState();
         const userIds = propOr([], 'userIds', fetches)
+        const repo = propOr([], 'repo', fetches)
+        const org = propOr([], 'org', fetches)
 
         const untilDate = formUntilDate
 
-        const { fetchInfo = {}, results = [] } = userIds.length
-            ? await getUsersData({ fetchInfo: fetches, untilDate, dispatch })
-            : await api({ fetchInfo: fetches, queryInfo: batchedQuery(untilDate), dispatch })
+        const reportType = (userIds.length > 0 && 'team')
+            || (repo && org && 'repo')
+            || org && 'org'
 
-        const newPullrequests = formatPullRequests(fetches, results)
-        const filteredNewPullrequests = filterByUsersInfo(fetches, newPullrequests)
+        const reportTypeMap = {
+            team: () => getUsersData({ fetchInfo: fetches, untilDate, dispatch }),
+            repo: () => api({ fetchInfo: fetches, queryInfo: batchedQuery(untilDate), dispatch }),
+            org: () => getOrgData({ fetchInfo: fetches, untilDate, dispatch }),
+        }
+
+        const { fetchInfo = {}, results = [] } = await reportTypeMap[reportType]();
+
+        const newPullRequests = formatPullRequests(fetches, results)
+        const filteredNewPullRequests = filterByUsersInfo(fetches, newPullRequests)
 
         // Get all prs together so then can be cleanly filtered and sorted
-        const allPullrequests = pullRequests.concat(filteredPRs).concat(filteredNewPullrequests)
-        const [includedPRs, newFilteredPRs] = filterSortPullRequests(fetches, untilDate, allPullrequests)
+        const allPullRequests = pullRequests.concat(filteredPRs).concat(filteredNewPullRequests)
+        const [includedPRs, newFilteredPRs] = filterSortPullRequests(fetches, untilDate, allPullRequests)
         dispatch({
             type: types.ADD_PRS,
             payload: includedPRs,
@@ -525,7 +571,7 @@ const getAPIData = () => async (dispatch, getState) => {
 
         dispatch({
             type: types.ADD_USERS_DATA,
-            payload: formatUserData(includedPRs),
+            payload: formatUserData(includedPRs, usersInfo),
         })
 
         const newReleases = formatReleases(results)
@@ -612,9 +658,12 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
         preFetchedName = '',
         reportDescription = '',
         pullRequests = [],
+        filteredPRs = [],
         usersData = [],
         issues = [],
+        filteredIssues = [],
         releases = [],
+        filteredReleases = [],
     } = repoData
 
     const {
@@ -622,6 +671,7 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
         userIds = [],
         usersInfo = {},
         excludeIds = [],
+        events = [],
     } = fetches
 
     clearData(dispatch)
@@ -633,7 +683,7 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
         ['enterpriseAPI', 'STORE_ENT_URL'],
         ['prPagination', 'SET_PR_PAGINATION', {}],
         ['releasesPagination', 'SET_RELEASES_PAGINATION', {}],
-        ['issuesPagination', 'SET_ISSUES_PAGINATION', {}]
+        ['issuesPagination', 'SET_ISSUES_PAGINATION', {}],
     ];
 
     fetchesInfo.forEach(([payload, type, fallback = '']) => {
@@ -646,6 +696,16 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
     dispatch({
         type: types.PREFETCHED_NAME,
         payload: preFetchedName,
+    })
+
+    dispatch({
+        type: types.STORE_SORT,
+        payload: 'ASC',
+    })
+
+    dispatch({
+        type: types.STORE_AMOUNT,
+        payload: 'all',
     })
 
     dispatch({
@@ -673,6 +733,11 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
         payload: excludeIds,
     })
 
+    dispatch({
+        type: types.STORE_EVENTS,
+        payload: events,
+    })
+
     const dates = getStartEndDates(pullRequests, issues)
     dispatch({
         type: types.ADD_ITEMS_DATE_RANGE,
@@ -683,12 +748,16 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
         type: types.ADD_PRS,
         payload: pullRequests,
     })
+    dispatch({
+        type: types.ADD_FILTERED_PRS,
+        payload: filteredPRs,
+    })
 
     dispatch({
         type: types.ADD_USERS_DATA,
         payload: usersData.length
             ? usersData
-            : formatUserData(pullRequests),
+            : formatUserData(pullRequests, usersInfo),
     })
     // old saved reports did not sort the issues
     const sortedIssues = issues
@@ -701,11 +770,22 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
         payload: sortedIssues,
     })
 
+    dispatch({
+        type: types.ADD_FILTERED_ISSUES,
+        payload: filteredIssues,
+    })
+
     const allReleases = formatReleaseData(releases)
     dispatch({
         type: types.ADD_RELEASES,
         payload: allReleases,
     })
+
+    dispatch({
+        type: types.ADD_FILTERED_RELEASES,
+        payload: filteredReleases,
+    })
+
 
     dispatch({
         type: types.FETCH_END,
@@ -716,7 +796,7 @@ const parseJSON = response => new Promise((resolve, reject) => {
     response.json()
         .then(data => response.status === 200
             ? resolve(data)
-            : reject(new Error(`Error status code ${response.status}`))
+            : reject(new Error(`Error status code ${response.status}`)),
         )
         .catch(error => {
             console.log('-=-=--parseJSON error', error)
@@ -726,7 +806,6 @@ const parseJSON = response => new Promise((resolve, reject) => {
 })
 
 const getPreFetched = ({
-    name = '',
     fileName = '',
     externalURL = '',
     localData,
@@ -738,7 +817,7 @@ const getPreFetched = ({
     dispatch({ type: types.FETCH_START })
     dispatch({
         type: types.FETCH_STATUS,
-        payload: { savedReportName: name }
+        payload: { savedReportName: fileName },
     })
 
     const fetchLink = externalURL
@@ -774,23 +853,25 @@ const getPreFetched = ({
 const getDownloadProps = (dispatch, getState) => {
     const state = getState()
 
-    const repo = path(['fetches', 'repo'], state)
-    const teamName = path(['fetches', 'teamName'], state)
+    const repo = state?.fetches?.repo
+    const org = state?.fetches?.org
+    const teamName = state?.fetches?.teamName
     const name = teamName
         ? teamName
-        : `${path(['fetches', 'org'], state)}-${repo}`
+        : `${org}${repo ? `-${repo}` : ''}`
 
     const getReportData = pipe(
         assoc('HOW_TO', '1: Add this file to ./src/myReports 2: Run the app. If you want multiple reports you will need to edit ./src/myReports/myReportsConfig.js.'),
         pickAll(['fetches', 'pullRequests', 'filteredPRs', 'userData', 'issues', 'filteredIssues', 'releases', 'teamName']),
         dissocPath(['fetches', 'token']),
+        dissocPath(['sortDirection']),
         dissocPath(['fetches', 'amountOfData']),
         // TODO: strip hasNextPage from user's pagination data
         dissocPath(['fetches', 'prPagination', 'hasNextPage']),
         dissocPath(['fetches', 'issuesPagination', 'hasNextPage']),
         dissocPath(['fetches', 'releasesPagination', 'hasNextPage']),
         assoc('preFetchedName', name),
-        slimObject
+        slimObject,
     )
 
     const reportData = getReportData(state)
@@ -800,7 +881,7 @@ const getDownloadProps = (dispatch, getState) => {
 
     return {
         href,
-        download: 'myReport1.json',
+        download: `${name}.json`,
     }
 }
 
@@ -830,7 +911,9 @@ export {
     storeTeamName,
     storeEnterpriseAPI,
     storeUserIds,
+    storeUsersInfo,
     storeExcludeIds,
+    storeEvents,
     storeAmountOfData,
     storeFormUntilDate,
     storeUntilDate,

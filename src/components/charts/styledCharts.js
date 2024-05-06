@@ -26,7 +26,7 @@ const styles = () => ({
             width: '370px',
             height: '370px',
             '& svg text': {
-                fontSize: '10px !important'
+                fontSize: '10px !important',
             },
         },
     },
@@ -45,27 +45,27 @@ const styles = () => ({
         width: '100%',
         height: '500px',
         '& svg g line': {
-            opacity: '0.6'
+            opacity: '0.6',
         },
         '@media (max-width: 768px)': {
             height: '350px',
             '& svg g line': {
-                opacity: '0.2'
+                opacity: '0.2',
             },
             '& svg g line:first-child': {
-                opacity: '1'
+                opacity: '1',
             },
         },
         '@media (max-width: 668px)': {
             height: '300px',
             '& svg g circle': {
-                display: 'none'
+                display: 'none',
             },
             '& svg path': {
-                opacity: '1'
+                opacity: '1',
             },
             '& svg text': {
-                fontSize: '10px !important'
+                fontSize: '10px !important',
             },
         },
     },

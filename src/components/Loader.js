@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
 import LinearProgress from '@material-ui/core/LinearProgress'
@@ -8,7 +8,7 @@ import {
     always,
     cond,
     equals,
-    T as alwaysTrue
+    T as alwaysTrue,
 } from 'ramda'
 
 const styles = theme => ({
@@ -32,7 +32,7 @@ const styles = theme => ({
         '& .MuiLinearProgress-root': {
             height: '14px',
             marginBottom: theme.mySpacing.y.large,
-        }
+        },
     },
     'overlay': {
         position: 'fixed',
@@ -49,7 +49,7 @@ const styles = theme => ({
         '100%': {
             opacity: 0.9,
         },
-    }
+    },
 })
 
 const daysRemainingText = cond([

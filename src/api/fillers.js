@@ -7,6 +7,18 @@ import {
     reviewCommentsQuery,
 } from './queries'
 
+const getData = (type, data) => {
+    const pathMap = {
+        org: ['data', 'organization', 'repositories', 'edges'],
+        team: ['data', 'organization', 'team', 'members', 'edges'],
+    }
+
+    const path = pathMap[type]
+    return  path
+        ? pathOr([], path, data)
+        : data
+}
+
 // TODO: make this file more understandable
 // TODO: retry errored fill
 const fillData = apiCall => {
@@ -31,12 +43,12 @@ const fillData = apiCall => {
         return (data) => fillers.length
             ? Promise.all(
                 fillers
-                    .map((filler) => filler(data))
+                    .map((filler) => filler(data)),
             )
                 .then((resolvedFillers) => resolvedFillers
-                    .reduce((currentItem, applyFillerResult) => applyFillerResult(currentItem), data)
+                    .reduce((currentItem, applyFillerResult) => applyFillerResult(currentItem), data),
                 )
-            : data
+            : getData(type, data)
     }
 
     const recursiveFiller = makeQuery => (queryInfo = {}) => async (currentResults = []) => {
@@ -125,7 +137,7 @@ const fillData = apiCall => {
                             ['data', 'result'],
                             data,
                         )),
-                    }
+                    },
                 ),
             }
         }
@@ -178,9 +190,9 @@ const fillData = apiCall => {
                                 pullRequests: updatedpullRequestsData,
                             },
                             ['data', 'result'],
-                            data
+                            data,
                         )),
-                    }
+                    },
                 ),
             }
         }

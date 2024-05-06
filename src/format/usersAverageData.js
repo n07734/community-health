@@ -65,6 +65,7 @@ const usersAverageData = (userData, filterAuthor) => {
     const averagedData = {
         ...defaultValues,
         user: 'Peers',
+        name: 'Peers',
         userCount,
     }
     Object.entries(totalled)
@@ -76,7 +77,11 @@ const usersAverageData = (userData, filterAuthor) => {
         .find(x => x.author === filterAuthor) || { approvalsGivenByTeam: {} }
 
     return [
-        usersData,
+        {
+            ...usersData,
+            user: usersData.author,
+            name: usersData.name || usersData.author,
+        },
         averagedData,
     ]
 }

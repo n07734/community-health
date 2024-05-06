@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
 
@@ -33,7 +33,7 @@ const Sentiment = ({
                     label: `From ${label}`,
                     color: colors[i % colors.length],
                     filterForKey: `${userId}-commentAuthorSentimentScore`,
-                }
+                },
             ])
         })
             .flat()

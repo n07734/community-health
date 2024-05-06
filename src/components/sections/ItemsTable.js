@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { DataGrid } from '@material-ui/data-grid'
 import { withStyles } from '@material-ui/core/styles'
 import AddCircleIcon from '@material-ui/icons/AddCircle';
@@ -58,14 +58,14 @@ const columnMap = {
     },
     age: {
         field: 'age',
-        headerName: 'Age (days)',
+        headerName: 'PR Age (days)',
         flex: 1,
     },
     mergedAt: {
         field: 'mergedAt',
         headerName: 'Date',
         flex: 1,
-        renderCell: (params) => format(new Date(params.value), 'do MMM yy')
+        renderCell: (params) => format(new Date(params.value), 'do MMM yy'),
     },
     commentSentimentScore: {
         field: 'commentSentimentScore',
@@ -119,7 +119,7 @@ const columnMap = {
         flex: 1,
         renderCell: (params) => params.value
             ? 'true'
-            : 'false'
+            : 'false',
     },
 }
 
@@ -141,7 +141,7 @@ const selectedClass = (classes, selectedIndex, tableVisible) => (itemsIndex) => 
 
 const ChunkIcon = ({
     classes,
-    tableShowing
+    tableShowing,
 }) =>  tableShowing
     ? <RemoveCircleIcon className={classes.arrow} />
     : <AddCircleIcon className={classes.arrow} />
@@ -157,32 +157,34 @@ const ItemsTable = ({
     const selectedClassFor = selectedClass(classes, dataIndex, showTable)
 
     return <div className={classes.wrapper}>
-        <div className={classes.bar}>
-            {
-                data
-                    .map((item = [],i) => <div
-                        key={i}
-                        className={selectedClassFor(i)}
-                        onClick={() => {
-                            dataIndex === i
-                                && setShowTable(!showTable)
-
-                            dataIndex !== i
-                                && !showTable
-                                && setShowTable(true)
-
-                            setIndex(i)
-                        }}
-                    >
-                        {
-                            dataIndex === i
-                                && <ChunkIcon tableShowing={showTable} classes={classes} />
-                        }
-                    </div>)
-            }
-        </div>
         {
-            (data[dataIndex] || []).length > 0 && showTable && <DataGrid
+             data.length > 1 && <div className={classes.bar}>
+             {
+                data
+                     .map((item, i) => <div
+                         key={i}
+                         className={selectedClassFor(i)}
+                         onClick={() => {
+                             dataIndex === i
+                                 && setShowTable(!showTable)
+
+                             dataIndex !== i
+                                 && !showTable
+                                 && setShowTable(true)
+
+                             setIndex(i)
+                         }}
+                     >
+                         {
+                             dataIndex === i
+                                 && <ChunkIcon tableShowing={showTable} classes={classes} />
+                         }
+                     </div>)
+             }
+         </div>
+        }
+        {
+            (data[dataIndex] || []).length > 0 && (data.length === 1 || showTable) && <DataGrid
                 sortingOrder={['desc', 'asc']}
                 rows={data[dataIndex]}
                 columns={makeColumns(dataKeys)}
@@ -242,6 +244,7 @@ const styles = theme => ({
             height:'500px',
             position: 'absolute',
             bottom: '0px',
+            zIndex: '-1',
             background: 'linear-gradient(0deg, rgba(232,37,115,.12) 16%,rgba(232,37,115,.40) 16%, rgba(232,37,115,0) 90%)',
             '@media (max-width: 768px)': {
                 height: '400px',
@@ -251,7 +254,7 @@ const styles = theme => ({
                 height: '320px',
                 background: 'linear-gradient(0deg, rgba(232,37,115,.12) 25%,rgba(232,37,115,.40) 16%, rgba(232,37,115,0) 90%)',
             },
-        }
+        },
     },
     arrow: {
         fontSize: '25px',

@@ -9,11 +9,11 @@ const preFetchedRepos = [
     },
     {
         name: 'Typescript',
-        fileName: 'microsoft-typescript'
+        fileName: 'microsoft-typescript',
     },
     {
         name: 'Typescript 10th anniversary',
-        fileName: 'microsoft-typescript-10'
+        fileName: 'microsoft-typescript-10',
     },
     {
         name: 'Jest',

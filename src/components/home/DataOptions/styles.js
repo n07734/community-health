@@ -12,8 +12,8 @@ const styles = theme => ({
             minHeight: '3rem',
         },
         '& .inputDesc' : {
-            gridColumn:'1 / -1'
-        }
+            gridColumn:'1 / -1',
+        },
     },
     typeOptions: {
         '& button': {
@@ -35,7 +35,12 @@ const styles = theme => ({
     },
     child: {
         margin: 0,
-        width: '100%'
+        width: '100%',
+    },
+    button: {
+        marginRight: 0,
+        width: '100%',
+        minHeight: '3rem',
     },
     copy: {
         display: 'inline',

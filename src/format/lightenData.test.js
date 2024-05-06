@@ -19,7 +19,7 @@ describe('lightenData:', () => {
             mix1: [1, 0, { a:1, b:false },'four', {}],
             mix2: {
                 n1: 0,
-                m1: [1,0, true]
+                m1: [1,0, true],
             },
         })
 
@@ -27,7 +27,7 @@ describe('lightenData:', () => {
             mix1: [1, {a: 1}, 'four'],
             mix2: {'m1': [1, true]},
             yes1: 1,
-            yes2: 'two'
+            yes2: 'two',
         })
     })
 })

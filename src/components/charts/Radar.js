@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Radar as NivoRadar } from '@nivo/radar'
 import { TableTooltip, Chip } from '@nivo/tooltip'
 import { useTheme } from '@material-ui/core/styles';

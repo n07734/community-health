@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { pathOr, propOr, equals } from 'ramda'
+import { useState } from 'react'
+import { pathOr, propOr } from 'ramda'
 import { ResponsiveLine as NivoLine } from '@nivo/line'
 import { TableTooltip } from '@nivo/tooltip'
 import { useTheme } from '@material-ui/core/styles';
@@ -18,7 +18,7 @@ import {
     getReportMonthCount,
 } from './lineHelpers'
 
-const ToolTip = convertedRightLines => data => {
+const ToolTip = () => (data) => {
     // NOTE: this is needed to use the original Y value for the tool tip
     const getYValue = (point) => {
         const yCurrentValue = point.data.yFormatted
@@ -53,7 +53,7 @@ const ToolTip = convertedRightLines => data => {
     )
 }
 
-const DashedLine = (colors = [], allLines = []) => ({ series, lineGenerator, xScale, yScale }) => series
+const DashedLine = (colors, allLines = []) => ({ series, lineGenerator, xScale, yScale }) => series
     .map((item = {}) => {
         const { id, data: lineData, color } = item
         const { lineStyles = { strokeWidth: 2 } } = allLines.find(x => x.label === id) || {}
@@ -65,7 +65,7 @@ const DashedLine = (colors = [], allLines = []) => ({ series, lineGenerator, xSc
                     lineData.map(d => ({
                         x: xScale(d.data.x),
                         y: yScale(d.data.y),
-                    }))
+                    })),
                 )}
                 fill="none"
                 stroke={color}
@@ -74,8 +74,15 @@ const DashedLine = (colors = [], allLines = []) => ({ series, lineGenerator, xSc
         )
     })
 
+const getAllYMax = (data = []) => data
+    .filter(x => x.yMax)
+    .map(x => x.yMax)
+
+const sortDesc = (a,b) => b - a
+
 const Line = styledCharts(({
     title,
+    combineTitles = false,
     blockHeading = false,
     data = [],
     markers = [],
@@ -92,17 +99,22 @@ const Line = styledCharts(({
     // TODO: function to see time gap in data to help format date e.g. should add year
     const leftAxis = data
         .find(({ xAxis } = {}) => xAxis === 'left') || { data: [], lines: [] }
+    const allLeftLineMaxYs = getAllYMax(leftAxis.lines)
+
     const leftLinesData = formatLinesData(leftAxis)
+    const [maxLeftLineValue] = [...allLeftLineMaxYs, getMaxYValue(leftLinesData)].sort(sortDesc)
     const minLeftValue = getMinYValue(leftLinesData)
 
     const rightAxis = data
         .find(({ xAxis } = {}) => xAxis === 'right') || { data: [], lines: [] }
+
+    const rightLineMaxYs = getAllYMax(rightAxis.lines)
     const rightLinesData = formatLinesData(rightAxis)
-    const maxRightValue = getMaxYValue(rightLinesData)
+    const [maxRightValue] = [...rightLineMaxYs, getMaxYValue(rightLinesData)].sort(sortDesc)
     const minRightValue = getMinYValue(rightLinesData)
 
     // if no left try right mas as there may be a right line being used
-    const maxLeftValue = getMaxYValue(leftLinesData) || maxRightValue
+    const maxLeftValue = maxLeftLineValue || maxRightValue
 
     const minValue = minLeftValue > minRightValue
         ? minRightValue
@@ -128,7 +140,8 @@ const Line = styledCharts(({
         .filter(Boolean)
 
     const leftLines = leftAxis.lines
-    const leftHeadingItems = title || blockHeading
+
+    const leftHeadingItems = !combineTitles || title || blockHeading
         ? []
         : leftLines
 
@@ -160,17 +173,17 @@ const Line = styledCharts(({
             ...info,
             current: i === itemsIndex || info.clicked
                 ? info.default
-                : fadeColor
+                : fadeColor,
         })))
     }
 
-    const exit = (data = {}) => {
+    const exit = () => {
         const hasClicked = hookedColors.some(x => x.clicked)
         setState(hookedColors.map((info = {}) => ({
             ...info,
             current: (hasClicked && info.clicked || !hasClicked)
                 ? info.default
-                : fadeColor
+                : fadeColor,
         })))
     }
 
@@ -187,7 +200,7 @@ const Line = styledCharts(({
                         : fadeColor,
                     clicked: i === itemsIndex
                         ? selectedClicked
-                        : info.clicked
+                        : info.clicked,
                 })
             })
         setState(updated)
@@ -241,7 +254,7 @@ const Line = styledCharts(({
             {
                 ...defaultLegendInfo,
                 data: rightData,
-            }
+            },
         )
     }
 

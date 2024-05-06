@@ -114,10 +114,10 @@ const theme =  (type = 'light') => createTheme({
             fontSize: '2rem',
             fontWeight: '500',
             '@media (max-width: 768px)': {
-                fontSize: '1.5rem'
+                fontSize: '1.5rem',
             },
             '@media (max-width: 668px)': {
-                fontSize: '1.3rem'
+                fontSize: '1.3rem',
             },
         },
         h2: {
@@ -125,10 +125,10 @@ const theme =  (type = 'light') => createTheme({
             fontSize: '3rem',
             fontWeight: '200',
             '@media (max-width: 768px)': {
-                fontSize: '2.5rem'
+                fontSize: '2.5rem',
             },
             '@media (max-width: 668px)': {
-                fontSize: '2rem'
+                fontSize: '2rem',
             },
         },
         h1: {
@@ -136,10 +136,10 @@ const theme =  (type = 'light') => createTheme({
             fontSize: '4rem',
             fontWeight: '300',
             '@media (max-width: 768px)': {
-                fontSize: '3rem'
+                fontSize: '3rem',
             },
             '@media (max-width: 668px)': {
-                fontSize: '2.5rem'
+                fontSize: '2.5rem',
             },
         },
     },

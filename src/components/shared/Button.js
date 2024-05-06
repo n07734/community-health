@@ -1,4 +1,4 @@
-import React from 'react'
+
 import {
     Button as CoreButton,
 } from '@material-ui/core'
@@ -12,7 +12,7 @@ const Button = ({
     value,
     text,
     type = 'submit',
-    color = 'inherit',
+    color = 'primary',
 } = {}) => (
     <CoreButton
         className={[classes.root, (className || '')].join(' ')}

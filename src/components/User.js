@@ -1,11 +1,10 @@
-import React from 'react'
+
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
 
 import { P } from './shared/StyledTags'
 import Button from './shared/Button'
 import Paper from './shared/Paper'
-import GraphsWrap from './shared/GraphsWrap'
 import Line from './charts/Line'
 import StatBars from './charts/StatBars'
 import { chunkData } from './charts/lineHelpers'
@@ -14,21 +13,41 @@ import { colors } from './colors'
 import { clearUser } from '../state/actions'
 import usersAverageData from '../format/usersAverageData'
 
-const colourA = '#1f77b4'
-const colourB = '#e82573'
+const colorA = '#1f77b4'
+const colorB = '#e82573'
 
 const userGraphs = (pullRequests = [], releases = [], userName) => {
     const peerPrData = []
     const userPrData = []
+    const repos = new Set()
+
     pullRequests
-    .forEach((item = {}) => {
-        const author = item.author
-        if (author === userName) {
-            userPrData.push(item)
-        } else {
-            peerPrData.push(item)
-        }
-    })
+        .forEach((item = {}) => {
+            const {
+                author,
+                repo,
+            } = item
+            repos.add(repo)
+            item[`repo-${repo}`] = 1
+
+            if (author === userName) {
+                userPrData.push(item)
+            } else {
+                peerPrData.push(item)
+            }
+        })
+
+    const repoLines = []
+    repos
+        .forEach((repo, i) => {
+            repoLines.push({
+                label: repo,
+                color: colors[i % colors.length],
+                groupMath: 'count',
+                filterForKey: `repo-${repo}`,
+                data: userPrData,
+            })
+        })
 
     const chunkyData = chunkData(userPrData)
 
@@ -78,13 +97,13 @@ const userGraphs = (pullRequests = [], releases = [], userName) => {
                     lines: [
                         {
                             label: 'User PR size',
-                            color: colourA,
+                            color: colorA,
                             dataKey: 'prSize',
                             data: userPrData,
                         },
                         {
                             label: 'Peer PR size',
-                            color: colourB,
+                            color: colorB,
                             dataKey: 'prSize',
                             data: peerPrData,
                         },
@@ -102,13 +121,13 @@ const userGraphs = (pullRequests = [], releases = [], userName) => {
                     lines: [
                         {
                             label: 'User PR age',
-                            color: colourA,
+                            color: colorA,
                             dataKey: 'age',
                             data: userPrData,
                         },
                         {
                             label: 'Peer PR age',
-                            color: colourB,
+                            color: colorB,
                             dataKey: 'age',
                             data: peerPrData,
                         },
@@ -117,6 +136,20 @@ const userGraphs = (pullRequests = [], releases = [], userName) => {
                 }],
                 tableKeys:['age'],
                 tableData: chunkyData,
+            },
+        ],
+        [
+            {
+                dataKeys:['repo', 'author'],
+                data: chunkyData,
+            },
+            {
+                title:"Repository PRs over time",
+                showLegends:false,
+                data: [{
+                    lines: repoLines,
+                    xAxis: 'left',
+                }],
             },
         ],
     ]
@@ -133,6 +166,8 @@ const UserView = ({
     const graphs = userGraphs(pullRequests, releases, user)
     const [userData, averagedData] = usersAverageData(usersData, user)
 
+    const usersName = userData.name || user
+
     return (
         <Paper>
             <Button
@@ -147,17 +182,15 @@ const UserView = ({
                     window && window.scrollTo(0, 0)
                 }} />
 
-            <P className={classes.copy}>A collection metrics showing {user}'s data and average data from the top {averagedData.userCount} peers</P>
-            <GraphsWrap>
-                <StatBars user1={userData} user2={averagedData} />
-                {
-                    graphs.length
-                        && graphs
-                            .map((lineInfo, i) => <>
-                                <Line key={i} {...lineInfo} />
-                            </>)
-                }
-            </GraphsWrap>
+            <P className={classes.copy}>A collection metrics showing {usersName}'s data and average data from the top {averagedData.userCount} peers</P>
+            <StatBars player1={userData} player2={averagedData} />
+            {
+                graphs.length
+                    && graphs
+                        .map((lineInfo, i) =>
+                            <Line key={`${i}-${user}`} {...lineInfo} />,
+                        )
+            }
 
             <Button
                 className={classes.fill}

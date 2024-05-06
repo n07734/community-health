@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
 
@@ -16,7 +16,7 @@ import {
 
 const radialChartsContributions = ({
     maxValues = {},
-    users = []
+    users = [],
 }, isTeamPage) => {
     const keys = [
         'commentsGiven',
@@ -81,6 +81,7 @@ const radialChartsContributions = ({
 const UserTrends = ({
     usersData = [],
     userIds = [],
+    usersInfo = {},
     hiddenNames = false,
     classes = {},
     setUser = () => {},
@@ -99,31 +100,35 @@ const UserTrends = ({
             <ChartDescription title={title} />
             {
                 contributionsRadar
-                    .map((info = {}, i) => <div key={i} style={{ textAlign: 'center', marginBottom: '2rem' }}>
-                        <Radar
-                            showTitle={false}
-                            height={240}
-                            colors={[
-                                (i + 1) % 2 === 0
-                                    ? '#1f77b4'
-                                    : '#e82573'
-                            ]}
-                            {...info}
-                        />
-                        <Button
-                            value={hiddenNames ? 'Spartacus' : info.title}
-                            color={
-                                (i + 1) % 2 === 0
-                                    ? 'secondary'
-                                    : 'primary'
-                            }
-                            onClick={(e) => {
-                                e.preventDefault()
-                                setUser(e.currentTarget.value)
-                                window && window.scrollTo(0, 0)
-                            }}
-                        />
-                    </div>)
+                    .map((info = {}, i) => {
+                        const gitName = info.title
+                        const name = usersInfo[gitName]?.name || gitName
+                        return <div key={i} style={{ textAlign: 'center', marginBottom: '2rem' }}>
+                            <Radar
+                                showTitle={false}
+                                height={240}
+                                colors={[
+                                    (i + 1) % 2 === 0
+                                        ? '#1f77b4'
+                                        : '#e82573',
+                                ]}
+                                {...info}
+                            />
+                            <Button
+                                value={hiddenNames ? 'Spartacus' :  name}
+                                color={
+                                    (i + 1) % 2 === 0
+                                        ? 'secondary'
+                                        : 'primary'
+                                }
+                                onClick={(e) => {
+                                    e.preventDefault()
+                                    setUser(gitName)
+                                    window && window.scrollTo(0, 0)
+                                }}
+                            />
+                        </div>
+                    })
             }
             {
                 isTeamReport && <Button
@@ -149,10 +154,11 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = (state) => ({
     usersData: state.usersData,
     userIds: state.fetches.userIds,
+    usersInfo: state.fetches.usersInfo,
     hiddenNames: state.hiddenNames,
 })
 
-const styles = theme => ({
+const styles = () => ({
     'fullW': {
         width: '100%',
     },
@@ -161,7 +167,7 @@ const styles = theme => ({
         flexWrap: 'wrap',
         flexDirection: 'row',
         justifyContent: 'center',
-    }
+    },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(UserTrends))

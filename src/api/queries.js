@@ -8,8 +8,8 @@ import {
 } from 'ramda'
 import filterByUntilDate from '../format/filterByUntilDate'
 
-const cursorQ = (cursor, key = 'after') => cursor
-    ? ` ${key}:"${cursor}" `
+const cursorQ = (cursor) => cursor
+    ? ` after:"${cursor}" `
     : ''
 
 const getCursor = order => ({oldest, newest}) => {
@@ -60,6 +60,15 @@ pullRequests(
       deletions
       mergedAt
       createdAt
+      commits(first:1) {
+        edges {
+          node {
+            commit {
+              committedDate
+            }
+          }
+        }
+      }
       ${reviews()}
       ${comments()}
     }
@@ -196,7 +205,7 @@ const userQuery = (untilDate) => ({
   query: `{
     result: user(login: "${user}") {
       login
-      ${prPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? pullRequests(sortDirection)(prPagination) : ''}
+      ${prPagination[untilDate ? 'hasNextPageForDate' : ' '] !== false ? pullRequests(sortDirection)(prPagination) : ''}
       ${issuesPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? issues(sortDirection)(issuesPagination) : ''}
     }
   }`,
@@ -211,13 +220,14 @@ const userQuery = (untilDate) => ({
           },
           untilDate,
           data,
-          sortDirection
+          sortDirection,
       )
 
       const updatedAmountOfData = cond([
+        [always(amountOfData === 'all'), always(amountOfData)],
         [always(isDate(untilDate)), always(amountOfData)],
         [always(Number.isInteger(amountOfData)), always(amountOfData - 1)],
-        [alwaysTrue, getRemainingPageCount]
+        [alwaysTrue, getRemainingPageCount],
       ])(data)
 
       const nextPageInfo = {
@@ -263,7 +273,8 @@ const batchedQuery = (untilDate) => ({
         name
         owner {
           org: login
-        }${prPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? pullRequests(sortDirection)(prPagination) : ''}
+        }
+        ${prPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? pullRequests(sortDirection)(prPagination) : ''}
         ${issuesPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? issues(sortDirection)(issuesPagination) : ''}
         ${releasesPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? releases(sortDirection)(releasesPagination) : ''}
       }
@@ -278,13 +289,14 @@ const batchedQuery = (untilDate) => ({
             },
             untilDate,
             data,
-            sortDirection
+            sortDirection,
         )
 
         const updatedAmountOfData = cond([
+          [always(amountOfData === 'all'), always(amountOfData)],
           [always(isDate(untilDate)), always(amountOfData)],
           [always(Number.isInteger(amountOfData)), always(amountOfData - 1)],
-          [alwaysTrue, getRemainingPageCount]
+          [alwaysTrue, getRemainingPageCount],
         ])(data)
 
         const nextPageInfo = {
@@ -381,10 +393,75 @@ const reviewCommentsQuery = ({ nodeId, cursor }) => ({
     }),
 })
 
+const orgQuery = ({ org, cursor }) => ({
+  query: `{
+    organization(login: "${org}") {
+      repositories(
+        first:100
+        ${cursorQ(cursor)}
+        orderBy: {field: NAME, direction: ASC}
+      ) {
+        edges {
+          node {
+            name
+          }
+          cursor
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
+        }
+      }
+    }
+  }`,
+  fillerType: 'org',
+  resultInfo: (data) => ({
+    rawData: data,
+    results: pathOr([], ['data', 'organization', 'repositories', 'edges'], data),
+    hasNextPage: pathOr(false, ['data', 'organization', 'repositories', 'pageInfo', 'hasNextPage'], data),
+    nextArgs: {
+        nodeId: pathOr('', ['data', 'organization', 'id'], data),
+        cursor: pathOr('', ['data', 'organization', 'repositories', 'pageInfo', 'endCursor'], data),
+    },
+  }),
+})
+
+const teamIDsQuery = ({ org, team }) => ({
+  query: `{
+    organization(login: "${org}") {
+      team(slug:"${team}") {
+        members(
+          first:100
+        ) {
+          edges {
+            node {
+              name
+              email
+              login
+              createdAt
+            }
+          }
+          pageInfo {
+            endCursor
+            hasNextPage
+          }
+        }
+      }
+    }
+  }`,
+  fillerType: 'team',
+  resultInfo: (data) => ({
+    results: pathOr([], ['data', 'organization', 'team', 'members', 'edges'], data[0]),
+    hasNextPage: false,
+}),
+})
+
 export {
-    userQuery,
     batchedQuery,
-    reviewCommentsQuery,
     commentsQuery,
+    orgQuery,
+    userQuery,
+    reviewCommentsQuery,
     reviewsQuery,
+    teamIDsQuery,
 }

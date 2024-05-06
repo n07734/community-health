@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { connect } from 'react-redux'
 import {
     cond,
@@ -19,31 +19,33 @@ import {
     onlyShowMyReports,
     myPreFetchedReports,
 } from '../../../myReports/myReportsConfig'
-const FetchForm = ({ classes, clearReport }) => {
-     const [selectedOption, setLocalOption] = useState('oss')
 
-     const setOption = (option = '') => {
+const FetchForm = ({ classes, clearReport }) => {
+    const [selectedOption, setLocalOption] = useState('oss')
+
+    const setOption = (option = '') => {
         option !== selectedOption
             && clearReport()
         setLocalOption(option)
-     }
+    }
 
-     const ossCopy = myPreFetchedReports.length > 0
+    const ossCopy = myPreFetchedReports.length > 0
         ? 'Saved and OSS Reports'
         : 'Popular repos and teams'
 
-     const preFetchedText = onlyShowMyReports
+    const preFetchedText = onlyShowMyReports
         ? 'Saved Reports'
         : ossCopy
 
-     return (
+    return (
         <Paper className={classes.dataPaper} >
             <div className={classes.typeOptions}>
                 {
                     [
                         [preFetchedText, 'oss'],
-                        ['Make repo report', 'repo'],
                         ['Make team report', 'team'],
+                        ['Make repo report', 'repo'],
+                        ['Make org report', 'org'],
                     ]
                         .map(([text, type], i) => <Button
                             value={text}
@@ -60,6 +62,7 @@ const FetchForm = ({ classes, clearReport }) => {
                 cond([
                     [equals('oss'), always(<PrefetchedOptions />)],
                     [equals('repo'), always(<FormSection reportType="repo" />)],
+                    [equals('org'), always(<FormSection reportType="org" />)],
                     [equals('team'), always(<FormSection reportType="team" />)],
                 ])(selectedOption)
             }

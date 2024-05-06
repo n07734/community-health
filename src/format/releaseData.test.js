@@ -1,6 +1,6 @@
-import releaseData from './releaseData'
+import { formatReleaseData } from './releaseData'
 
-describe('releaseData:', () => {
+describe('formatReleaseData:', () => {
     it('correct versioning and date sorting', () => {
         const data = [
             { description: 'v0.0.1', date: '2020-10-30' },
@@ -13,7 +13,7 @@ describe('releaseData:', () => {
             { description: 'v3.0.0', date: '2020-10-10' },
         ]
 
-        const result = releaseData(data)
+        const result = formatReleaseData(data)
 
         expect(result).toMatchSnapshot()
     })
@@ -25,7 +25,7 @@ describe('releaseData:', () => {
             { description: 'v0.3.0', date: '2020-10-20' },
         ]
 
-        const result = releaseData(data)
+        const result = formatReleaseData(data)
 
         expect(result).toMatchSnapshot()
     })

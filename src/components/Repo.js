@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { connect } from 'react-redux'
 
 import PullRequestTrends from './sections/PullRequestTrends'
@@ -24,7 +24,10 @@ const RepoView = ({ pullRequests = [] } = {}) => {
 
     return <>
         <ReportDescription />
-        <TeamTrends />
+        <TeamTrends
+            pullRequests={updatedPullRequests}
+            chunkyData={chunkyData}
+        />
         <CustomGraphs
             pullRequests={updatedPullRequests}
             chunkyData={chunkyData}

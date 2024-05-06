@@ -21,7 +21,7 @@ const semVerSort = (a, b) => {
     return sortResult
 }
 
-const releaseData = (results = []) => {
+const formatReleaseData = (results = []) => {
     const semVerSortedResults = results
         .filter(x => /^v\d+\.\d+\.\d+$/.test(getTag(x)))
         .sort(semVerSort)
@@ -38,18 +38,20 @@ const releaseData = (results = []) => {
 
                 const diffType = diff(prevTag, currentTag) || ''
 
+                // eslint-disable-next-line no-unused-vars
                 releaseType = ({
                     'minor': 'MINOR',
-                    'major': 'MAJOR'
+                    'major': 'MAJOR',
                 })[diffType] || 'PATCH'
 
             } catch (error) {
+                // eslint-disable-next-line no-unused-vars
                 releaseType = 'PATCH'
             }
 
             return {
                 ...release,
-                releaseType,
+                releaseType: release.releaseType || 'MAJOR',
             }
         })
 
@@ -64,4 +66,50 @@ const releaseData = (results = []) => {
     return dateSortedReleases
 }
 
-export default releaseData
+const formatMarkers = ({ usersInfo = {}, events = [] } = {}) => {
+    const teamMarkers = []
+    Object.values(usersInfo)
+        .forEach(({
+            name,
+            userId,
+            dates = [],
+        } = {}) => {
+            dates
+                .forEach((dateInfo = {}) => {
+                    const {
+                        startDate,
+                        endDate,
+                    } = dateInfo
+                    if (startDate) {
+                        teamMarkers.push({
+                            date: startDate,
+                            description: name || userId,
+                            releaseType: 'MINOR',
+                        })
+                    }
+                    if (endDate) {
+                        teamMarkers.push({
+                            date: endDate,
+                            description: name || userId,
+                            releaseType: 'PATCH',
+                        })
+                    }
+                })
+        })
+
+    const eventMarkers = events
+        .map(({date, name} = {}) => ({
+            date,
+            description: name,
+            releaseType: 'MAJOR',
+        }))
+    const dateSort = ({ date: a }, { date: b }) => new Date(a).getTime() - new Date(b).getTime()
+    const sortedMarkers = [...teamMarkers, ...eventMarkers].sort(dateSort)
+
+    return sortedMarkers
+}
+
+export {
+    formatMarkers,
+    formatReleaseData,
+}

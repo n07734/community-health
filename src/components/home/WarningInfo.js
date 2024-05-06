@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { SnackbarContent } from '@material-ui/core'
 import { Warning } from '@material-ui/icons'
 

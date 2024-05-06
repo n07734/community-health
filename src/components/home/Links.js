@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles';
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -36,36 +36,37 @@ const Links = ({ classes, themeType, themeToggle }) => {
 const styles = theme => ({
     wrapper: {
         position: 'absolute',
+        zIndex: 1,
         top: theme.mySpacing.x.small,
         right: theme.mySpacing.x.small,
         '& > a': {
-            marginLeft: theme.mySpacing.x.small
+            marginLeft: theme.mySpacing.x.small,
         },
         '& a:hover $icon': {
-            color: theme.palette.iconHover
+            color: theme.palette.iconHover,
         },
         '& .dark .moon': {
-            display: 'none'
+            display: 'none',
         },
         '& .dark:hover .moon': {
-            display: 'inline'
+            display: 'inline',
         },
         '& .dark:hover .sun': {
-            display: 'none'
+            display: 'none',
         },
         '& .light .sun': {
-            display: 'none'
+            display: 'none',
         },
         '& .light:hover .sun': {
-            display: 'inline'
+            display: 'inline',
         },
         '& .light:hover .moon': {
-            display: 'none'
+            display: 'none',
         },
     },
     icon: {
         color: theme.palette.text.primary,
-    }
+    },
 })
 
 const mapStateToProps = (state) => ({

@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { withStyles } from '@material-ui/core/styles'
 
 const styles = theme => ({
@@ -11,7 +11,7 @@ const styles = theme => ({
         position: 'relative',
     },
     'bg-none': {
-        background: 'none'
+        background: 'none',
     },
     'justify': {
         justifyContent: 'space-between',

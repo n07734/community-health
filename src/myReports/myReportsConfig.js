@@ -13,7 +13,7 @@ try {
     const myReport = {
         name: 'My Report 1',
         fileName: 'myReport1',
-        localData: require('./myReport1.json')
+        localData: require('./myReport1.json'),
     }
     myPreFetchedReports.push(myReport)
 } catch (error) {

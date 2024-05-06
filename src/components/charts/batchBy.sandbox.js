@@ -29,6 +29,7 @@ const batchWeekly = key => data => {
     return batches
 }
 
+// eslint-disable-next-line no-unused-vars
 const batchBy = type => key => data => ({
     'week': batchWeekly(key)(data),
 })[type]

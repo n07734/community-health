@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
 
@@ -90,12 +90,20 @@ const CustomGraphs = ({
         graphId: 1,
         left: [
             {
-                label: 'Comments',
-                color: '#E82573',
-                dataKey: 'comments',
+                label: 'PR Age (days)',
+                color: '#1F77B4',
+                dataKey: 'age',
+                groupMath: 'average',
             },
         ],
-        right: []
+        right: [
+            {
+                label: 'PR Size',
+                color: '#E82573',
+                dataKey: 'prSize',
+                groupMath: 'average',
+            },
+        ],
     }]
     const [graphs, setGraph] = useState(defaultState)
 
@@ -119,25 +127,25 @@ const CustomGraphs = ({
                             // TODO: fix legend toggle for custom graphs
                             const [legends =[], data = []] = makeGraphData(graphInfo)
                             return graphInfo?.left?.length < 1 && graphInfo?.right?.length < 1
-                                        ? <GraphUi
-                                            key={i}
-                                            graphInfo={graphInfo}
-                                            setGraph={setGraph}
-                                            graphs={graphs}
-                                        />
-                                        : <Line
-                                            key={i}
-                                            graphInfo={graphInfo}
-                                            setGraph={setGraph}
-                                            graphs={graphs}
-                                            blockHeading={true}
-                                            markers={releases}
-                                            legends={legends}
-                                            showLegends={legends.length > 0}
-                                            data={data}
-                                            tableKeys={getTableKeys(graphInfo)}
-                                            tableData={chunkyData}
-                                        />
+                                ? <GraphUi
+                                    key={i}
+                                    graphInfo={graphInfo}
+                                    setGraph={setGraph}
+                                    graphs={graphs}
+                                />
+                                : <Line
+                                    key={i}
+                                    graphInfo={graphInfo}
+                                    setGraph={setGraph}
+                                    graphs={graphs}
+                                    blockHeading={true}
+                                    markers={releases}
+                                    legends={legends}
+                                    showLegends={legends.length > 0}
+                                    data={data}
+                                    tableKeys={getTableKeys(graphInfo)}
+                                    tableData={chunkyData}
+                                />
                         })
                 }
             </GraphsWrap>
@@ -178,7 +186,7 @@ const mapStateToProps = (state) => ({
     issues: state.issues,
 })
 
-const styles = theme => ({
+const styles = () => ({
     buttons: {
         display: 'flex',
         flexWrap: 'nowrap',

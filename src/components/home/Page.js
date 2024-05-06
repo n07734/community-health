@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 import { H, P } from '../shared/StyledTags'
 import ChartDescription from '../shared/ChartDescription'

@@ -38,7 +38,7 @@ const getUntilDate = (fetches = {}, allPrs = []) => {
 
     const amountOfDataIsString = compose(
         is(String),
-        prop('amountOfData')
+        prop('amountOfData'),
     )
 
     const isDesc = propEq('sortDirection', 'DESC')
@@ -46,7 +46,7 @@ const getUntilDate = (fetches = {}, allPrs = []) => {
 
     const noDateUntil = compose(
         x => !(typeof x === 'string' && x.length > 1),
-        prop('untilDate')
+        prop('untilDate'),
     )
 
     const subtractDate = compose(
@@ -61,7 +61,7 @@ const getUntilDate = (fetches = {}, allPrs = []) => {
             : add(prDate, changeBy),
         sortDirection => ({
             prDate: getPrDate(sortDirection, allPrs),
-            sortDirection
+            sortDirection,
         }),
         propOr('', 'sortDirection'),
     )

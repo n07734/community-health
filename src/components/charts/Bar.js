@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { filter } from 'ramda'
 import { ResponsiveBar as NivoBar } from '@nivo/bar'
 import { useTheme } from '@material-ui/core/styles';
@@ -10,12 +10,12 @@ import hasChartData from './hasChartData'
 const Bar = styledCharts(({
     data = [],
     bars = [],
-    sortBy = 'comments',
+    sortBy = '',
     indexBy = 'user',
     max = 20,
     classes,
     layout = "vertical",
-    titlePrefix = ''
+    title = '',
 } = {}) => {
     const theme = useTheme();
     const trimmedData = filter(item => bars.some(x => item[x.dataKey]), data)
@@ -35,7 +35,7 @@ const Bar = styledCharts(({
 
     return hasChartData(data)(keys) && (
         <div className={classes.barChartComponentWrap}>
-            <ChartHeading text={titlePrefix} items={bars} />
+            <ChartHeading text={title} items={bars} />
             <div className={classes.chartWrap}>
                 <NivoBar
                     data={finalData}

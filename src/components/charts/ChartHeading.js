@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import { Fragment } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
 import { H } from '../shared/StyledTags'
@@ -17,7 +17,7 @@ const ChartHeading = ({ className, items = [], text = '', type = '' } = {}) => {
         ].find(Boolean)()
     }
 
-    const useStyles = makeStyles(theme => ({
+    const useStyles = makeStyles(() => ({
         root: props => ({
             color: props.color,
             borderBottom: `solid 2px ${props.color}`,
@@ -37,7 +37,7 @@ const ChartHeading = ({ className, items = [], text = '', type = '' } = {}) => {
                 position: 'absolute',
                 bottom: '-1px',
                 right: '-3px',
-            }
+            },
         }),
     }))
 
@@ -65,10 +65,11 @@ const ChartHeading = ({ className, items = [], text = '', type = '' } = {}) => {
         sum: 'Total',
         count: 'Total',
         multiple: '',
+        teamDistribution: '',
     }
 
     const uniqueLinesMaths = [
-        ...new Set(items.map(x => x.groupMath))
+        ...new Set(items.map(x => x.groupMath)),
     ]
 
     const singleMathType = items.length > 0

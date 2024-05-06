@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import {
     Select,
@@ -13,72 +13,113 @@ import { colors } from '../colors'
 import { P } from '../shared/StyledTags'
 import Button from '../shared/Button'
 
+const defaultGroupMaths = [
+    'average',
+    'sum',
+    'median',
+]
+
 const lineOptions = [
     {
-        label: 'All comments',
+        label: 'Comments',
         dataKey: 'comments',
+        groupMaths: [
+            ...defaultGroupMaths,
+            'percentWith',
+            'teamDistribution',
+        ],
     },
     {
         label: 'Code comments',
         dataKey: 'codeComments',
+        groupMaths: [
+            ...defaultGroupMaths,
+            'percentWith',
+        ],
     },
     {
         label: 'Review comments',
         dataKey: 'generalComments',
+        groupMaths: [
+            ...defaultGroupMaths,
+            'percentWith',
+        ],
     },
     {
         label: 'Approvals',
         dataKey: 'approvals',
+        groupMaths: [
+            ...defaultGroupMaths,
+            'percentWith',
+            'teamDistribution',
+        ],
     },
     {
         label: 'Additions',
-        dataKey: 'additions'
+        dataKey: 'additions',
+        groupMaths: defaultGroupMaths,
     },
     {
         label: 'Deletions',
-        dataKey: 'deletions'
+        dataKey: 'deletions',
+        groupMaths: defaultGroupMaths,
     },
     {
-        label: 'PR size',
+        label: 'PR size (additions + deletions)',
         dataKey: 'prSize',
+        groupMaths: defaultGroupMaths,
+    },
+    {
+        label: 'Codebase change (additions - deletions)',
+        dataKey: 'growth',
+        groupMaths: ['growth'],
     },
     {
         label: 'PR count',
         dataKey: 'author',
+        groupMaths: ['count', 'averagePerDev'],
     },
     {
-        label: 'Age(days)',
+        label: 'PR Age(days)',
         dataKey: 'age',
+        groupMaths: defaultGroupMaths,
     },
     {
         label: 'Sentiment',
         dataKey: 'commentSentimentTotalScore',
+        groupMaths: defaultGroupMaths,
     },
     {
         label: 'Sentiment to team',
         dataKey: 'commentSentimentScore',
+        groupMaths: defaultGroupMaths,
     },
     {
         label: 'Sentiment from team',
         dataKey: 'commentAuthorSentimentScore',
+        groupMaths: defaultGroupMaths,
     },
     {
         label: 'Bug count',
         dataKey: 'isBug',
+        groupMaths: ['count'],
     },
     {
         label: 'Feature count',
         dataKey: 'isFeature',
+        groupMaths: ['count'],
     },
 ]
-
-// TODO: set groupMath in form so don't have to do this way
-const isACountBasedKey = (key) => ['author', 'isBug', 'isFeature'].includes(key)
 
 const mathWords = {
     average: 'Average',
     sum: 'Total',
+    count: 'Total',
     median: 'Median',
+    teamDistribution: "Team's % spread of",
+    percentWith: '% of PRs with',
+    growth: '',
+    averagePerDev: 'Average per Dev',
 }
 
 const addedLine = (removeLine, classes) => ({
@@ -87,26 +128,78 @@ const addedLine = (removeLine, classes) => ({
     dataKey = '',
     groupMath = 'average',
 } = {}, i) => <div key={i}>
-        <P className={`${classes.savedLine} ${classes[color]}`}>{mathWords[groupMath]} {label} </P>
+        <P className={`${classes.savedLine} ${classes[color]}`}>{label}</P>
         <RemoveCircleIcon
             className={`${classes.remove} ${classes[color]}`}
             onClick={event => {
                 event.preventDefault()
-                removeLine(dataKey)
+                removeLine(dataKey, groupMath)
             }}
         />
     </div>
 
-const getRemainingLines = (graphInfo = {}) => {
-    const activeLines = [
-        ...(graphInfo.left || []),
-        ...(graphInfo.right || []),
-    ]
+const getActiveLines = (graphInfo = {}) => [
+    ...(graphInfo.left || []),
+    ...(graphInfo.right || []),
+]
 
-    const remainingLines = lineOptions
-        .filter(({ dataKey = '' } = {}) => activeLines.every(x => x.dataKey !== dataKey))
+const getRemainingLines = (graphInfo = {}) => {
+    const activeLines = getActiveLines(graphInfo)
+
+    const remainingLines = []
+    lineOptions
+        .forEach(({ label = '', dataKey = '', groupMaths = [] } = {}) => {
+            const activeDataKeys = activeLines
+                .filter(activeLine => activeLine?.dataKey === dataKey)
+
+            const remainingGroupMaths = groupMaths
+                .filter(groupMath => (
+                    activeDataKeys
+                        .every(activeLine => activeLine?.groupMath !== groupMath)
+                ))
+
+            if (remainingGroupMaths.length > 0) {
+                remainingLines.push({
+                    label,
+                    dataKey,
+                    groupMaths: remainingGroupMaths,
+                })
+            }
+        })
 
     return remainingLines
+}
+
+
+// TODO: do you need two get lines?
+const getNextDataKeyLine = (graphInfo = {}) => {
+    const activeLines = getActiveLines(graphInfo)
+    const activeDataKeys = activeLines
+        .map(activeLine => activeLine?.dataKey)
+
+    const nextLine = lineOptions
+        .find(({ dataKey = '' } = {}) => !activeDataKeys.includes(dataKey))
+
+    return nextLine
+}
+
+const getNextLine = (formInfo = {}, graphItem = {}) => {
+    const remainingLines = getRemainingLines(graphItem)
+    const addedDataKey = formInfo.dataKey
+    const addedIndex = remainingLines.findIndex(line => line.dataKey === addedDataKey)
+
+    return  remainingLines[addedIndex + 1] || remainingLines[0] || lineOptions[0]
+}
+
+const menuItemTextMap = {
+    average: () => 'Average',
+    sum: () => 'Total',
+    median: () => 'Median',
+    growth: () => 'Growth',
+    percentWith: ({ label = ''} = {}) => `% of PRs with ${label}`,
+    teamDistribution: ({ label = ''} = {}) => `Team's % spread of ${label}`,
+    count: () => 'Total',
+    averagePerDev: ({ label = ''} = {}) => `Average ${label} per DEV`,
 }
 
 const GraphUi = ({
@@ -115,16 +208,16 @@ const GraphUi = ({
     graphs = [],
     classes = {},
 }) =>  {
-    const remainingLines = getRemainingLines(graphInfo)
 
+    const nextDataKeyLine = getNextDataKeyLine(graphInfo)
     const [formInfo, setFormInfo] = useState({
-        label: remainingLines[0]?.label || 'Comments',
-        dataKey: remainingLines[0]?.dataKey || 'comments',
+        label: nextDataKeyLine?.label || 'Comments',
+        dataKey: nextDataKeyLine?.dataKey || 'comments',
         color: graphs.length > 1
             ? colors[0]
             : colors[1],
         lineSide: 'left',
-        groupMath: remainingLines[0]?.groupMath || 'average',
+        groupMath: nextDataKeyLine?.groupMaths?.[0],
     })
 
     const setValue = (newValue = {}) => {
@@ -136,51 +229,53 @@ const GraphUi = ({
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        const side = formInfo.lineSide
-        const lines = graphInfo[side] || []
+        const {
+            lineSide,
+            label,
+            groupMath,
+        } = formInfo
+        const lines = graphInfo[lineSide] || []
         lines.push({
             ...formInfo,
-            groupMath: isACountBasedKey(formInfo.dataKey)
-                ? 'count'
-                : formInfo.groupMath || 'average'
+            label: `${mathWords[groupMath]} ${label}`,
+            groupMath,
+            ...(
+                /teamDistribution|percentWith/.test(groupMath)
+                    && { yMax: 100 }
+            ),
         })
 
         const graphItem = {
             ...graphInfo,
-            [side]: lines,
+            [lineSide]: lines,
         }
 
         const updatedGraphs = graphs
             .map(x => graphItem.graphId === x.graphId
                 ? graphItem
-                : x
+                : x,
             )
 
         setGraph(updatedGraphs)
 
-        const [firstline = {}] = getRemainingLines(graphItem)
+        const nextLine = getNextLine(formInfo, graphItem)
 
         const chosenColorIndex = colors
             .findIndex(x => x === formInfo.color)
 
         setFormInfo({
-            label: firstline.label,
-            dataKey: firstline.dataKey,
+            label: nextLine.label,
+            dataKey: nextLine.dataKey,
             color: colors[(chosenColorIndex + 1) % colors.length],
             lineSide: 'left',
-            groupMath: isACountBasedKey(firstline.dataKey)
-                ? 'count'
-                : firstline.groupMath || 'average',
+            groupMath: nextLine?.groupMaths[0],
         })
     }
 
-    const removeLine = (side) => (dataKey) => {
+    const removeLine = (side) => (dataKey, groupMath) => {
         const lines = graphInfo[side] || []
         const updatedLines = lines
-            .filter(x => x.dataKey !== dataKey)
-
-        const removedLine = lines
-            .find(x => x.dataKey === dataKey)
+            .filter(x => !(x.dataKey === dataKey && x.groupMath === groupMath))
 
         const graphItem = {
             ...graphInfo,
@@ -190,7 +285,7 @@ const GraphUi = ({
         const updatedGraphs = graphs
             .map(x => graphItem.graphId === x.graphId
                 ? graphItem
-                : x
+                : x,
             )
         setGraph(updatedGraphs)
 
@@ -198,22 +293,27 @@ const GraphUi = ({
         setFormInfo({
             label: firstline.label,
             dataKey: firstline.dataKey,
-            color: removedLine.color,
+            color: colors[0],
             lineSide: 'left',
-            groupMath: firstline.groupMath || 'average',
+            groupMath: firstline.groupMaths[0],
         })
     }
 
+    const remainingLines = getRemainingLines(graphInfo)
+    const selectedLine = remainingLines.find(x => x.dataKey === formInfo.dataKey)
+    const lineMaths = (selectedLine?.groupMaths || [])
+        .filter(x => !/growth/.test(x))
     return <div className={classes.graphForm}>
         {
             remainingLines.length > 0 && <form className={classes.graphLine} onSubmit={handleSubmit}>
                 <Select
                     onChange={(e) => {
                         const value = e.target.value
-                        const { label } = remainingLines.find(x => x.dataKey === value)
+                        const line = remainingLines.find(x => x.dataKey === value)
                         setValue({
                             dataKey: value,
-                            label
+                            groupMath: line.groupMath || line.groupMaths[0],
+                            label: line.label,
                         })
 
                     }}
@@ -228,16 +328,20 @@ const GraphUi = ({
                     }
                 </Select>
                 {
-                    !isACountBasedKey(formInfo.dataKey)
-                        && <Select
+                    lineMaths.length > 0 && <Select
                             onChange={(e) => setValue({ groupMath: e.target.value })}
                             value={formInfo.groupMath}
                             inputProps={{ 'aria-label': 'Choose a line calculation' }}
                         >
-                            <MenuItem value="average">Average</MenuItem>
-                            <MenuItem value="sum">Total</MenuItem>
-                            <MenuItem value="median">Median</MenuItem>
-                        </Select>
+                        {
+                            lineMaths
+                                .map((value) => <MenuItem key={`${formInfo.dataKey}${value}`} value={value} >
+                                    {
+                                        menuItemTextMap[value](formInfo)
+                                    }
+                                </MenuItem>)
+                        }
+                    </Select>
                 }
                 <RadioGroup
                     value={formInfo.lineSide}
@@ -254,7 +358,7 @@ const GraphUi = ({
                 >
                     {
                         colors
-                            .map((color, i) => <MenuItem key={color} value={color} >
+                            .map((color) => <MenuItem key={color} value={color} >
                                 <div style={{
                                     backgroundColor: color,
                                     width: '70px',
@@ -299,7 +403,7 @@ const styles = theme => ({
         justifyContent: 'center',
         backgroundImage: `linear-gradient(0deg, rgba(0,0,0,0) 80%, ${theme.palette.shadow} 100%)`,
         '& p': {
-            margin: '0'
+            margin: '0',
         },
         '& > *': {
             marginRight: '20px',

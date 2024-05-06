@@ -47,6 +47,7 @@ const reducers = combineReducers({
         userIds: setClearArray('STORE_USER_IDS', 'CLEAR_USER_IDS'),
         usersInfo: setClearObject('STORE_USERS_INFO', 'CLEAR_USERS_INFO'),
         excludeIds: setClearArray('STORE_EX_IDS', 'CLEAR_EX_IDS'),
+        events: setClearArray('STORE_EVENTS', 'CLEAR_EVENTS'),
         prPagination: setClearPagination('SET_PR_PAGINATION', 'CLEAR_PR_PAGINATION'),
         releasesPagination: setClearPagination('SET_RELEASES_PAGINATION', 'CLEAR_RELEASES_PAGINATION'),
         issuesPagination: setClearPagination('SET_ISSUES_PAGINATION', 'CLEAR_ISSUES_PAGINATION'),
@@ -134,7 +135,7 @@ const reducers = combineReducers({
             && (() => false),
         () => hiddenNames,
     ]
-        .find(Boolean)()
+        .find(Boolean)(),
 })
 
 export default reducers

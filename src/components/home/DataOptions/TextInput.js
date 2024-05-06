@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { TextField } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 
@@ -15,15 +15,16 @@ const TextInput = (props) => {
     const {
         type,
         classes,
-        inputError,
-        setInputError,
-        formInfo,
+        className = '',
+        inputError = {},
+        setInputError = () => {},
+        formInfo = {},
         setValue,
     } = props
 
     const inputProps = {
         label: inputLabels[type],
-        className: classes.child,
+        className: `${className} ${classes.child}`,
         error: inputError[type] || false,
         value: formValue(formInfo, type),
         variant: 'outlined',
@@ -35,7 +36,7 @@ const TextInput = (props) => {
             const isValid = validate({ key: type, value })
             setInputError({
                 ...inputError,
-                [type]: isValid ? false : true
+                [type]: isValid ? false : true,
             })
 
             isValid
@@ -53,7 +54,7 @@ const TextInput = (props) => {
         onFocus: () => setInputError({
             ...inputError,
             [type]: false,
-        })
+        }),
     }
 
 

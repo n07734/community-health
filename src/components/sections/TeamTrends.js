@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
 
@@ -8,15 +8,23 @@ import GraphsWrap from '../shared/GraphsWrap'
 import ChartDescription from '../shared/ChartDescription'
 import Bar from '../charts/Bar'
 import Chord from '../charts/Chord'
+import Line from '../charts/Line'
+import Pie from '../charts/Pie'
+import { splitByAuthor, rainbowData } from '../charts/lineHelpers'
 import { sortByKeys } from '../../utils'
 
 const TeamTrends = ({
+    pullRequests = [],
+    releases = [],
+    chunkyData = [],
     usersData = [],
+    allRepos = {},
     userIds = [],
+    usersInfo = {},
     hiddenNames = false,
     classes,
 } = {}) => {
-    const maxAuthors = userIds.length || 7
+    const maxAuthors = userIds.length || 15
     const sortedUsers = usersData
         .sort(sortByKeys(['commentsByUser, approvalsByUser']))
 
@@ -25,37 +33,31 @@ const TeamTrends = ({
             ...x,
             // Needs white space padding to keep the bars
             author: hiddenNames ? `${Array(i).fill(' ').join('')}Spartacus` : x.author,
+            name: hiddenNames ? `${Array(i).fill(' ').join('')}Spartacus` : usersInfo[x.author]?.name || x.author,
         }))
+
+    const chordDataWithName = sortedUsers
+        .map((x) => ({
+            ...x,
+            name: usersInfo[x.author]?.name || x.author,
+        }))
+
+    const repoPie = rainbowData('repo', allRepos)
+    const byAuthorData = splitByAuthor(pullRequests, hiddenNames, usersInfo)
 
     return usersData.length > 0 && (
         <Paper>
             <ChartDescription
-                title="Contribution distribution"
+                title="Contributions"
             />
             <GraphsWrap>
-                <div className={classes.groupedCharts}>
-                    <P>These chord charts show how contributions are given and received, the dominant colours indicate the higher contributions</P>
-                    <Chord
-                        data={sortedUsers}
-                        preSorted={true}
-                        hideNames={hiddenNames}
-                        dataKey="commentsByUser"
-                        title="Comment contributions"
-                    />
-                    <Chord
-                        data={sortedUsers}
-                        preSorted={true}
-                        hideNames={hiddenNames}
-                        dataKey="approvalsByUser"
-                        title="Approval contributions"
-                    />
-                </div>
                 <div className={classes.barsWrap}>
                     <div className={classes.barWrap}>
                         <Bar
                             data={barData}
-                            indexBy="author"
-                            titlePrefix="Comments"
+                            indexBy="name"
+                            title="Comments"
+                            combineTitles={true}
                             sortBy="commentsGiven"
                             max={maxAuthors}
                             bars={[
@@ -71,13 +73,14 @@ const TeamTrends = ({
                                 },
                             ]}
                         />
-                        <P>*Received comments may be higher than given as those contributions can come from users not in this list</P>
+                        <P>*Received comments can also come from out of team so can be higher.</P>
                     </div>
 
                     <Bar
                         data={barData}
-                        indexBy="author"
-                        titlePrefix="PRs"
+                        indexBy="name"
+                        title="PRs"
+                        combineTitles={true}
                         sortBy="uniquePRsApproved"
                         max={maxAuthors}
                         bars={[
@@ -94,12 +97,47 @@ const TeamTrends = ({
                         ]}
                     />
                 </div>
+                <div className={classes.groupedCharts}>
+                    <Chord
+                        data={chordDataWithName}
+                        preSorted={true}
+                        hideNames={hiddenNames}
+                        dataKey="commentsByUser"
+                        title="Comment contributions"
+                    />
+                    <Chord
+                        data={chordDataWithName}
+                        preSorted={true}
+                        hideNames={hiddenNames}
+                        dataKey="approvalsByUser"
+                        title="Approval contributions"
+                    />
+                </div>
+                <P>These chord charts show how contributions are given and received, the dominant colour indicates more contribution</P>
+                {
+                    byAuthorData.length > 0 && byAuthorData?.[0]?.lines?.length < 21 &&
+                        <Line
+                            title="PRs by author"
+                            markers={releases}
+                            showLegends={true}
+                            data={byAuthorData}
+                            tableData={chunkyData}
+                            tableKeys={['author', 'repo']}
+                        />
+                }
+                {
+                    repoPie.pieData.length > 0 &&
+                        <Pie
+                            data={repoPie.pieData}
+                            title={repoPie.sectionTitle}
+                        />
+                }
             </GraphsWrap>
         </Paper>
     )
 }
 
-const styles = theme => ({
+const styles = () => ({
     groupedCharts: {
         width: '100%',
         display: 'flex',
@@ -121,7 +159,7 @@ const styles = theme => ({
             '@media (max-width: 750px)': {
                 width: '100%',
             },
-        }
+        },
     },
     bars: {
         width: '100%',
@@ -129,13 +167,14 @@ const styles = theme => ({
         margin: '0 0 1rem 0',
         '& > div': {
             width: '100%',
-        }
+        },
     },
 })
 
 const mapStateToProps = (state) => ({
     usersData: state.usersData,
     userIds: state.fetches.userIds,
+    usersInfo: state.fetches.usersInfo,
     hiddenNames: state.hiddenNames,
 })
 

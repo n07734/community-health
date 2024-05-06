@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
 import Slider from '@material-ui/core/Slider';
@@ -16,7 +16,6 @@ const DateRange = ({
     pullRequests = [],
     itemsDateRange = ['', ''],
     issues = [],
-    releases = [],
     trim,
     classes,
 } = {}) => {
@@ -51,7 +50,7 @@ const DateRange = ({
     }
 
     return pullRequests.length > 0 && leftDate && <>
-            <P className={classes.title}>Show Pull requests in this date range</P>
+            <P className={classes.title}>Showing data within this date range. Pull requests: ${pullRequests.length}`, Issues: ${issues.length}</P>
             <div className={classes.dates}>
                 <P>{format(new Date(leftDate), 'do MMM yy')}</P><P>{format(new Date(rightDate), 'do MMM yy')}</P>
             </div>
@@ -61,14 +60,12 @@ const DateRange = ({
                 onChangeCommitted={handleDone}
                 aria-labelledby="date-slider"
             />
-            <P>{pullRequests.length > 0 && `Pull requests: ${pullRequests.length}`}{ issues.length > 0 && `, Issues: ${issues.length}`}</P>
         </>
 }
 
 const mapStateToProps = (state) => ({
     pullRequests: state.pullRequests,
     issues: state.issues,
-    releases: state.releases,
     itemsDateRange: state.itemsDateRange,
 })
 

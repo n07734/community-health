@@ -13,11 +13,18 @@ import { getUsersInfo } from '../../../state/actions'
 const inputLabels = {
     org: 'Organization',
     repo: 'Repository',
+    team: 'Team name (from GitHub Org team url)',
+    gitTeamUrl: "Org's team url",
     token: 'Token',
     excludeIds: "Exclude GitHub users e.g. remove bot PRs and comments, ',' separated",
     enterpriseAPI: 'Enterprise API full url',
     userIds: 'Comma separated list GitHub users',
+    userId: 'GitHub user ID',
+    startDate: 'Joined yyyy/mm/dd',
+    endDate: 'Left yyyy/mm/dd',
+    events: 'Comma separated list of events (optional)',
     teamName: 'Team name',
+    name: 'Name',
 }
 const userHasCorrectDates = ({ dates = []} = {}) => {
     const hasValidDates = dates
@@ -57,11 +64,20 @@ const hasValidUsersInfo = (usersString = '') => {
         && validUsersDates
 }
 
+const validDate = (date = '') =>
+    !date || /^\d{4}\/\d{2}\/\d{2}$/.test(date) && isValid(new Date(date))
+
 const validate = ({ key, value }) => {
     const isValid = cond([
+        [equals('gitTeamUrl'), always(/^(https:\/\/.+\..+$)/.test(value))],
         [equals('enterpriseAPI'), always(/^(https:\/\/.+\..+|^$)/.test(value))],
         [equals('excludeIds'), always(/^([\w-.,\s]+|)$/.test(value))],
+        [equals('events'), always(/^([\w-.,&\s=]+|)$/.test(value))],
+        [equals('name'), always(/.?/.test(value))],
         [equals('userIds'), () => hasValidUsersInfo(value)],
+        [equals('usersInfo'), () => Object.keys(value).length > 0],
+        [equals('startDate'), () => validDate(value)],
+        [equals('endDate'), () => validDate(value)],
         [alwaysTrue, always(/^[\w-.]+$/.test(value))],
     ])(key)
     return isValid
@@ -85,7 +101,7 @@ const validateForm = (formInfo) => {
 
     return {
         isValid,
-        validationErrors
+        validationErrors,
     }
 }
 
@@ -103,6 +119,31 @@ const formValue = (data, key) => {
         : value
 }
 
+const usersInfoToText = (usersInfo = {}) => Object.values(usersInfo)
+        .map(({
+            dates = [],
+            name = '',
+            userId = '',
+        } = {}) => {
+            const usersValues = []
+            name
+                && usersValues.push(`name:${name}`)
+
+            dates
+                .forEach(({startDate, endDate} = {}) => {
+                    const dates = []
+                    startDate && dates.push(`start:${startDate}`)
+                    endDate && dates.push(`start:${endDate}`)
+
+                    const textValue = dates.join(';')
+                    usersValues.push(textValue)
+                })
+
+            // e.g. userA=start:2023-12-12;end:2023|start:2023-12-12|name:Name
+            return `${userId}${usersValues.length > 0 ? `=${usersValues.join('|')}` : ''}`
+        })
+        .join(', ')
+
 export {
     buttonText,
     errorValue,
@@ -110,4 +151,5 @@ export {
     validate,
     formValue,
     validateForm,
+    usersInfoToText,
 }

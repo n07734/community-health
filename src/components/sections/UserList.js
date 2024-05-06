@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
 
@@ -57,14 +57,14 @@ const mapDispatchToProps = dispatch => ({
     setPvP: (x) => dispatch(setPvPAction(x)),
 })
 
-const styles = theme => ({
+const styles = () => ({
     'allButons': {
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'space-between',
         '& button': {
-            flexGrow: 1
-        }
+            flexGrow: 1,
+        },
     },
     'fullW': {
         width: '100%',

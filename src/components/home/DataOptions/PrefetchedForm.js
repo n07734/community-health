@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { connect } from 'react-redux'
-import { pick } from 'ramda'
 import {
     Select,
     MenuItem,
@@ -19,13 +18,16 @@ import {
     inputLabels,
     formValue,
     validateForm,
+    usersInfoToText,
 } from './utils'
 
 import {
     storeToken,
     storeAmountOfData,
+    storeEvents,
     storeFormUntilDate,
     storeSortDirection,
+    storeExcludeIds,
     getAPIData,
     getDownloadProps,
     checkUntilDate,
@@ -39,31 +41,45 @@ const PrefetchedForm = (props) => {
         fetching,
         classes,
         userIds = [],
+        usersInfo = {},
+        events = [],
     } = props
 
-    const reportType = userIds.length > 0
-        ? 'team'
-        : 'repo'
+    const {
+        repo,
+        org,
+        excludeIds = [],
+    } = fetches
 
-    const inputKeys = [
-        'sortDirection',
-        'amountOfData',
-        'token',
-    ]
+    const reportType = userIds.length > 0 && 'team'
+        || repo && org && 'repo'
+        || org && 'org'
 
-    const inputs = pick(inputKeys, fetches)
+    const usersInputText = usersInfoToText(usersInfo)
+
+    const eventsText = events
+        .map(({name, date} = {}) => `${name}=${date}`)
+        .join(', ')
+
+    const excludeIdsText = excludeIds
+        .join(', ')
 
     const [formInfo, setFormInfo] = useState({
-        ...inputs,
-        sortDirection: 'ASC',
-        amountOfData: 'all',
+        sortDirection: fetches.sortDirection,
+        amountOfData: fetches.amountOfData,
+        token: fetches.token,
+        ...( usersInputText && { userIds: usersInputText }),
+        ...( eventsText && { events: eventsText }),
+        ...( excludeIdsText && { excludeIds: excludeIdsText }),
+        ...( fetches.org && { org: fetches.org }),
+        ...( fetches.repo && { repo: fetches.repo }),
     })
 
     const [inputError, setInputError] = useState({})
 
     const setValue = (key, value) => setFormInfo({
         ...formInfo,
-        [key]: value
+        [key]: value,
     })
 
     const inputStates = {
@@ -90,13 +106,15 @@ const PrefetchedForm = (props) => {
             && getData()
     }
 
-    const reportKeys = reportType === 'repo'
-        ? ['org', 'repo']
-        : ['userIds', 'teamName']
+    const reportInputsHash = {
+        'repo': ['org', 'repo'],
+        'org': ['org'],
+        'team': ['teamName'],
+    }
+    const reportKeys = reportInputsHash[reportType]
 
     const hardCodedKeys = [
         ...reportKeys,
-        'excludeIds',
         'enterpriseAPI',
     ]
 
@@ -112,6 +130,43 @@ const PrefetchedForm = (props) => {
                     onSubmit={handleSubmit}
                 >
                     <div className={classes.inputGrid}>
+                        {
+                            hardCodedKeys
+                                .filter((inputKey) => formValue(fetches, inputKey))
+                                .map((inputKey) => <P key={inputKey}>{inputLabels[inputKey]}: <b>{formValue(fetches, inputKey) || 'N/A'}</b></P>)
+                        }
+                        {
+                            userIds.length > 0 && <>
+                                <TextInput
+                                    className="inputDesc"
+                                    type='userIds'
+                                    { ...inputStates }
+                                />
+                                <P className="inputDesc">
+                                    You can also optionally define name and join and/or leave dates for a user e.g. userA=start:2023-12-12;end:2023|start:2023-12-12|name:Name.
+                                </P>
+                            </>
+                        }
+                        <TextInput
+                            type="events"
+                            className="inputDesc"
+                            { ...inputStates }
+                        />
+                        <P className="inputDesc">
+                            Key events can impact the data e.g. starting or launching a new feature or major version. These events can help give more context while viewing the data. e.g. ProjectA=2013-12-01.
+                        </P>
+                        <TextInput
+                            type='excludeIds'
+                            { ...inputStates }
+                        />
+                        <TextInput
+                            type="token"
+                            { ...inputStates }
+                        />
+                        <P className="inputDesc">
+                            To create a token go to your GitHub <a className={classes.link} href="https://github.com/settings/tokens">tokens</a> page, click on 'generate new token', choose the settings 'repo' (all), 'read:org' and 'user' then click 'Generate token'.
+                        </P>
+
                         <Select
                             value={formInfo.sortDirection}
                             onChange={(e) => setValue('sortDirection', e.target.value)}
@@ -121,18 +176,6 @@ const PrefetchedForm = (props) => {
                             <MenuItem value="ASC">Append data</MenuItem>
                         </Select>
                         <SelectAmountData setValue={setValue} amountOfData={formInfo.amountOfData} />
-                        <TextInput
-                            type="token"
-                            { ...inputStates }
-                        />
-                        <P className="inputDesc">
-                            * To create a token go to your GitHub <a className={classes.link} href="https://github.com/settings/tokens">tokens</a> page, click on 'generate new token', choose the settings 'repo' (all) and 'read:org' then click 'Generate token'.
-                        </P>
-                        {
-                            hardCodedKeys
-                                .filter((inputKey) => formValue(fetches, inputKey))
-                                .map((inputKey) => <P key={inputKey}>{inputLabels[inputKey]}: <b>{formValue(fetches, inputKey) || 'N/A'}</b></P>)
-                        }
                     </div>
                     <ButtonWithMessage />
                 </form>
@@ -148,6 +191,8 @@ const mapStateToProps = (state) => ({
     error: state.error,
     pullRequests: state.pullRequests,
     userIds: state.fetches.userIds,
+    usersInfo: state.fetches.usersInfo,
+    events: state.fetches.events,
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -155,14 +200,18 @@ const mapDispatchToProps = dispatch => ({
         const {
             token,
             amountOfData,
-            sortDirection
+            sortDirection,
+            excludeIds,
+            events,
         } = values
 
         dispatch(checkUntilDate(sortDirection))
         dispatch(storeToken(token))
+        dispatch(storeExcludeIds(excludeIds))
         dispatch(storeAmountOfData(amountOfData))
         dispatch(storeSortDirection(sortDirection))
         dispatch(storeFormUntilDate(amountOfData))
+        dispatch(storeEvents(events))
     },
     getData: (x) => dispatch(getAPIData(x)),
     getDownloadInfo: () => dispatch(getDownloadProps),
