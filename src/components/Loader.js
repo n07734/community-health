@@ -80,7 +80,7 @@ const Loader = ({
         savedReportName = '',
     } = fetchStatus
 
-    const isTeamSearch = userIds.length > 0
+    const isTeamSearch = userIds.length > 1
 
     const dayDiff = (a,b) => sortDirection === 'DESC'
         ? differenceInDays(a, b)

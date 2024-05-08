@@ -108,6 +108,12 @@ const columnMap = {
         headerName: 'author',
         flex: 1,
     },
+    growth: {
+        field: 'prSize',
+        headerName: 'PR Size',
+        flex: 1,
+        ...zeroOut,
+    },
     repo: {
         field: 'repo',
         headerName: 'repo',
@@ -177,7 +183,8 @@ const ItemsTable = ({
                      >
                          {
                              dataIndex === i
-                                 && <ChunkIcon tableShowing={showTable} classes={classes} />
+                                 ? <ChunkIcon tableShowing={showTable} classes={classes} />
+                                 : <AddCircleIcon className={classes.arrow} />
                          }
                      </div>)
              }
@@ -218,6 +225,7 @@ const styles = theme => ({
     },
     'chunk': {
         ...chunksRules,
+        position: 'relative',
         backgroundColor: theme.palette.secondary.main,
         cursor: 'pointer',
     },

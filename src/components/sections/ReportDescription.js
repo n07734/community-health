@@ -18,6 +18,17 @@ const RepoTitle = ({ repo, org } = {}) => org === repo
         </>
     )
 
+const IndividualTitle = ({ usersInfo = {}, userIds = [] } = {}) => {
+    const { userId , name } = usersInfo[userIds[0]] || {}
+    return !name
+        ? (<span style={{ color: '#e82573' }}>{userId}</span>)
+        : (
+            <>
+                <span style={{ color: '#1f77b4' }}>{userId}</span>: <span style={{ color: '#e82573' }}>{name}</span>
+            </>
+        )
+}
+
 const TeamTitle = ({ teamName }) => <span style={{ color: '#e82573' }}>{teamName}</span>
 const OrgTitle = ({ org } = {}) => <span style={{ color: '#e82573' }}>{org}</span>
 
@@ -38,6 +49,10 @@ const titleCopy = cond([
     [
         propSatisfies(Boolean,'teamName'),
         TeamTitle,
+    ],
+    [
+        propSatisfies(x => x.length === 1, 'userIds'),
+        IndividualTitle
     ],
     [
         T,
@@ -73,22 +88,25 @@ const ReportDescription = ({
                     && <P>{reportDescription}</P>
             }
             {
-                userIds.length > 0
+                userIds.length > 1
                     && <P>Team's GitHub IDs: { userIds.join(', ') }</P>
             }
             {
                 excludeIds.length > 0
                     && <P>Excluded GitHub IDs, usually bots: { excludeIds.join(', ') }</P>
             }
+            {
+                userIds.length !== 1
+                    &&  <P className={classes.toggle}>
+                    <Switch
+                        onChange={handleChange}
+                        name="checkedA"
+                        inputProps={{ 'aria-label': 'secondary checkbox' }}
+                    />
+                    Toggle to hide GitHub usernames, this can help look for trends.
+                </P>
+            }
 
-            <P className={classes.toggle}>
-                <Switch
-                    onChange={handleChange}
-                    name="checkedA"
-                    inputProps={{ 'aria-label': 'secondary checkbox' }}
-                />
-                Toggle to hide GitHub usernames, this can help look for trends.
-            </P>
             <DateRange />
             {
                 preFetchedName.length > 0

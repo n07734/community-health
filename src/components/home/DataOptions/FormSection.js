@@ -84,6 +84,7 @@ const FormSection = (props) => {
     const titles = {
         repo: 'Get community data for any repo',
         team: 'Get community data for any Team(list of users)',
+        user: 'Get data for an individual',
         org: 'Get community data for any Org',
     }
     const formTitle = titles[reportType]
@@ -99,6 +100,10 @@ const FormSection = (props) => {
         team: {
             usersInfo: {},
             teamName: '',
+        },
+        user: {
+            userId: '',
+            name: '',
         },
     }
     const reportInputs = reportTypeInputsHash[reportType]
@@ -138,7 +143,6 @@ const FormSection = (props) => {
     }
 
     const handleSubmit = (event) => {
-        console.log('handleSubmit main')
         event.preventDefault()
 
         const {
@@ -166,6 +170,10 @@ const FormSection = (props) => {
         team: [
             {type:'teamName', className: 'inputDesc'},
         ],
+        user: [
+            {type:'userId'},
+            {type:'name'},
+        ]
     }
     const inputs = inputsHash[reportType]
 
@@ -251,13 +259,25 @@ const mapDispatchToProps = dispatch => ({
             sortDirection,
             teamName,
             userIds,
-            usersInfo,
+            usersInfo = {},
+            userId,
+            name,
             enterpriseAPI,
             excludeIds,
             events,
         } = values
 
-        dispatch(clearPastSearch(values))
+        if (userId) {
+            usersInfo[userId] = {
+                userId,
+                name,
+            }
+        }
+
+        dispatch(clearPastSearch({
+            ...values,
+            usersInfo,
+        }))
 
         dispatch(storeToken(token))
         dispatch(storeAmountOfData(amountOfData))
@@ -267,7 +287,7 @@ const mapDispatchToProps = dispatch => ({
         org && dispatch(storeOrg(org))
         repo && dispatch(storeRepo(repo))
         userIds && dispatch(storeUserIds(userIds))
-        usersInfo && dispatch(storeUsersInfo(usersInfo))
+        Object.keys(usersInfo).length > 0 && dispatch(storeUsersInfo(usersInfo))
         teamName && dispatch(storeTeamName(teamName))
 
         dispatch(storeEnterpriseAPI(enterpriseAPI))

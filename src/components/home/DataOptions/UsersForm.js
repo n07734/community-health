@@ -82,7 +82,6 @@ const UserForm = ({
     }
 
     const handleSubmit = (event) => {
-        console.log('handleSubmit users')
         event.preventDefault()
         const backToUsersInfo = {}
         users

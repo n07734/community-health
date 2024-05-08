@@ -143,13 +143,7 @@ const getUsersInfo = (usersString = '') => {
 const storeUserIds = (usersString = '') => (dispatch) => {
     const {
         userIds = [],
-        usersInfo = {},
     } = getUsersInfo(usersString)
-
-    dispatch({
-        type: types.STORE_USERS_INFO,
-        payload: usersInfo,
-    })
 
     return dispatch({
         type: types.STORE_USER_IDS,
@@ -251,13 +245,16 @@ const notSameUsersInfo = (formValues = {}) => (fetches = {}) => {
     const usersString = propOr('', 'userIds', formValues)
     const {
         userIds = [],
-        usersInfo = {},
     } = getUsersInfo(usersString)
 
+    const formUserId = formValues.userId
+    const formUserIds = formUserId ? [formUserId] : userIds
+
+    const usersInfo = formValues?.usersInfo || {}
     const currentIds = fetches.userIds
     const currentUsersInfo = fetches.usersInfo || {}
 
-    const hasDifferentUserList = difference(currentIds, userIds).length > 0
+    const hasDifferentUserList = difference(currentIds, formUserIds).length > 0
     const hasDifferentUsersInfo = not(equals(usersInfo, currentUsersInfo))
 
     return hasDifferentUserList || hasDifferentUsersInfo
@@ -280,6 +277,16 @@ const clearPastSearch = (values) => (dispatch, getState) => {
         notSameUsersInfo(values),
         notSameIds('excludeIds'),
     ])(fetches)
+
+    console.log('isNewSearch', isNewSearch)
+    console.log('values', values)
+    console.log('fetches', fetches)
+    console.log("notSameValues('org')(fetches)", notSameValues('org')(fetches))
+    console.log("notSameValues('repo')(fetches)", notSameValues('repo')(fetches))
+    console.log("notSameValues('teamName')(fetches)", notSameValues('teamName')(fetches))
+    console.log("notSameValues('enterpriseAPI')(fetches)", notSameValues('enterpriseAPI')(fetches))
+    console.log("notSameUsersInfo(values)(fetches)", notSameUsersInfo(values)(fetches))
+    console.log("notSameIds('excludeIds')(fetches)", notSameIds('excludeIds')(fetches))
 
     isNewSearch
         && clearData(dispatch)
@@ -530,6 +537,7 @@ const getAPIData = () => async (dispatch, getState) => {
             filteredReleases = [],
             usersInfo = {},
         } = getState();
+
         const userIds = propOr([], 'userIds', fetches)
         const repo = propOr([], 'repo', fetches)
         const org = propOr([], 'org', fetches)
@@ -853,12 +861,19 @@ const getPreFetched = ({
 const getDownloadProps = (dispatch, getState) => {
     const state = getState()
 
-    const repo = state?.fetches?.repo
-    const org = state?.fetches?.org
-    const teamName = state?.fetches?.teamName
+    const {
+        repo,
+        org,
+        teamName,
+        userIds = [],
+    } = state?.fetches || {}
+
+    const user = userIds?.length === 1
+        ? userIds[0]
+        : ''
     const name = teamName
-        ? teamName
-        : `${org}${repo ? `-${repo}` : ''}`
+        || user
+        || `${org}${repo ? `-${repo}` : ''}`
 
     const getReportData = pipe(
         assoc('HOW_TO', '1: Add this file to ./src/myReports 2: Run the app. If you want multiple reports you will need to edit ./src/myReports/myReportsConfig.js.'),

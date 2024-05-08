@@ -50,17 +50,19 @@ const userHasCorrectDates = ({ dates = []} = {}) => {
         && hasCorrectOrder
 }
 
-const hasValidUsersInfo = (usersString = '') => {
-    console.log('hasValidUsersInfo')
+const hasValidUsersIds = (usersString = '') => {
     const {
         userIds = [],
-        usersInfo = {},
     } = getUsersInfo(usersString)
 
+    return userIds.length > 0
+}
+
+const hasValidUsersInfo = (usersInfo = {}) => {
     const validUsersDates = Object.values(usersInfo)
         .every(userHasCorrectDates)
 
-    return userIds.length > 0
+    return  Object.keys(usersInfo).length > 0
         && validUsersDates
 }
 
@@ -74,8 +76,8 @@ const validate = ({ key, value }) => {
         [equals('excludeIds'), always(/^([\w-.,\s]+|)$/.test(value))],
         [equals('events'), always(/^([\w-.,&\s=]+|)$/.test(value))],
         [equals('name'), always(/.?/.test(value))],
-        [equals('userIds'), () => hasValidUsersInfo(value)],
-        [equals('usersInfo'), () => Object.keys(value).length > 0],
+        [equals('userIds'), () => hasValidUsersIds(value)],
+        [equals('usersInfo'), () => hasValidUsersInfo(value)],
         [equals('startDate'), () => validDate(value)],
         [equals('endDate'), () => validDate(value)],
         [alwaysTrue, always(/^[\w-.]+$/.test(value))],

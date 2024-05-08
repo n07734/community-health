@@ -71,9 +71,7 @@ const averagePerDev = ({ filteredBatch = [] } = {}) => {
 const teamDistribution = ({ filteredBatch, dataKey } = {}) => {
     // Distribution is only of active team members within the data
     const activeTeam = new Set([])
-
     const batchedData = {}
-
     filteredBatch
         .forEach((pr = {}) => {
             const {
@@ -415,8 +413,8 @@ const rainbowData = (type = '', data = {}) => {
         }))
 
     const sectionTitle = sortedData.length > reportItems.length
-        ? `PR total from top 20 ${type}s out of ${sortedData.length}`
-        : `PR total from ${type}s (${reportItems.length})`
+        ? `PR rainbow split by top 20 ${type}s out of ${sortedData.length}`
+        : `PRs rainbow split by ${type}s (${reportItems.length})`
 
     return {
         pieData,

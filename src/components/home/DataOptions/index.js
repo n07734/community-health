@@ -43,6 +43,7 @@ const FetchForm = ({ classes, clearReport }) => {
                 {
                     [
                         [preFetchedText, 'oss'],
+                        ['Make individual report', 'user'],
                         ['Make team report', 'team'],
                         ['Make repo report', 'repo'],
                         ['Make org report', 'org'],
@@ -64,6 +65,7 @@ const FetchForm = ({ classes, clearReport }) => {
                     [equals('repo'), always(<FormSection reportType="repo" />)],
                     [equals('org'), always(<FormSection reportType="org" />)],
                     [equals('team'), always(<FormSection reportType="team" />)],
+                    [equals('user'), always(<FormSection reportType="user" />)],
                 ])(selectedOption)
             }
         </Paper>
