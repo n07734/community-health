@@ -15,6 +15,7 @@ import Button from '../shared/Button'
 
 const defaultGroupMaths = [
     'average',
+    'trimmedAverage',
     'sum',
     'median',
 ]
@@ -113,6 +114,7 @@ const lineOptions = [
 
 const mathWords = {
     average: 'Average',
+    trimmedAverage: 'Trimmed Average',
     sum: 'Total',
     count: 'Total',
     median: 'Median',
@@ -193,6 +195,7 @@ const getNextLine = (formInfo = {}, graphItem = {}) => {
 
 const menuItemTextMap = {
     average: () => 'Average',
+    trimmedAverage: () => 'Trimmed Average',
     sum: () => 'Total',
     median: () => 'Median',
     growth: () => 'Growth',

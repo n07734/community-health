@@ -68,6 +68,23 @@ const averagePerDev = ({ filteredBatch = [] } = {}) => {
     return Math.round(filteredBatch.length / Object.keys(activeTeam).length)
 }
 
+const trimmedAverage = ({ filteredBatch = [], key } = {}) => {
+    const sortedBatch = filteredBatch
+        .sort(sortByKeys([key]))
+
+    const batchLength = sortedBatch.length
+
+    const trimmedValues = batchLength > 4
+        ? sortedBatch
+            .slice(Math.ceil(batchLength * 0.05), Math.floor(batchLength * 0.95))
+        : sortedBatch
+
+    const average = trimmedValues
+        .reduce((acc, pr) => acc + (pr[key] || 0), 0) / trimmedValues.length
+
+    return Math.round(average)
+}
+
 const teamDistribution = ({ filteredBatch, dataKey } = {}) => {
     // Distribution is only of active team members within the data
     const activeTeam = new Set([])
@@ -166,6 +183,7 @@ const formatBatches = ({ filterForKey = '', dataKey = '', groupMath = 'average' 
             if (!filterForKey || batchLength > 0) {
                 const valueByTypes = {
                     average: () => Math.round(sumKeysValue(key)(filteredBatch) / batchLength),
+                    trimmedAverage,
                     sum: () => sumKeysValue(key)(filteredBatch),
                     count: () => batchLength,
                     averagePerDev,

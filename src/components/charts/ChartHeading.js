@@ -62,6 +62,7 @@ const ChartHeading = ({ className, items = [], text = '', type = '' } = {}) => {
 
     const mathTypeMap = {
         average: 'Average',
+        trimmedAverage: 'Trimmed Average',
         sum: 'Total',
         count: 'Total',
         multiple: '',
