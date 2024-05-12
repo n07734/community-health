@@ -261,15 +261,12 @@ const formatGraphMarkers = (markers, theme, lineData) => {
         .map((item, i) => ({
             axis: 'x',
             value: new Date(item.date).getTime(),
-            legend: item.releaseType === 'MAJOR'
-                ? item.description
-                : '',
+            legend: item.description,
             ...(theme.charts.markers[markerType(item.releaseType)] || {}),
-            // TODO: review
             legendOffsetY: {
-                MAJOR: (theme.charts.markers[markerType(item.releaseType)]?.legendOffsetY || 0) + (i%2 === 1 ? 14 : 0 ),
-                MINOR: (i%2 === 1 ? 30 : 40 ),
-                PATCH: (i%2 === 1 ? 60 : 80 ),
+                MAJOR: (theme.charts.markers[markerType(item.releaseType)]?.legendOffsetY || 0) + (i%2 === 1 ? 18 : 0 ),
+                MINOR: (i%2 === 1 ? 30 : 45 ),
+                PATCH: (i%2 === 1 ? 60 : 85 ),
             }[item.releaseType],
         }))
 

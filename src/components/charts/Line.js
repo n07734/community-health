@@ -141,7 +141,7 @@ const Line = styledCharts(({
 
     const leftLines = leftAxis.lines
 
-    const leftHeadingItems = !combineTitles || title || blockHeading
+    const leftHeadingItems = !combineTitles && title || blockHeading
         ? []
         : leftLines
 

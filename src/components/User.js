@@ -52,106 +52,90 @@ const userGraphs = (pullRequests = [], releases = [], userName) => {
     const chunkyData = chunkData(userPrData)
 
     return [
-        [
-            {
-                markers: releases,
-                showLegends: true,
-                title: 'Sentiments in PR',
-                data: [{
-                    lines: [
-                        {
-                            label: `${userName} received`,
-                            color: colors[2],
-                            dataKey: 'commentSentimentScore',
-                            data: userPrData,
-                        },
-                        {
-                            label: `${userName} given`,
-                            color: colors[1],
-                            dataKey: 'commentAuthorSentimentScore',
-                            data: userPrData,
-                        },
-                        {
-                            label: 'Peer received',
-                            color: colors[4],
-                            dataKey: 'commentSentimentScore',
-                            data: peerPrData,
-                        },
-                        {
-                            label: 'Peer given',
-                            color: colors[5],
-                            dataKey: 'commentAuthorSentimentScore',
-                            data: peerPrData,
-                        },
-                    ],
-                    xAxis: 'left',
-                }],
-                tableKeys:['commentSentimentScore', 'commentAuthorSentimentScore'],
-                tableData: chunkyData,
-            },
-        ],
-        [
-            {
-                markers: releases,
-                data: [{
-                    lines: [
-                        {
-                            label: 'User PR size',
-                            color: colorA,
-                            dataKey: 'prSize',
-                            data: userPrData,
-                        },
-                        {
-                            label: 'Peer PR size',
-                            color: colorB,
-                            dataKey: 'prSize',
-                            data: peerPrData,
-                        },
-                    ],
-                    xAxis: 'left',
-                }],
-                tableKeys:['prSize'],
-                tableData: chunkyData,
-            },
-        ],
-        [
-            {
-                markers: releases,
-                data: [{
-                    lines: [
-                        {
-                            label: 'User PR age',
-                            color: colorA,
-                            dataKey: 'age',
-                            data: userPrData,
-                        },
-                        {
-                            label: 'Peer PR age',
-                            color: colorB,
-                            dataKey: 'age',
-                            data: peerPrData,
-                        },
-                    ],
-                    xAxis: 'left',
-                }],
-                tableKeys:['age'],
-                tableData: chunkyData,
-            },
-        ],
-        [
-            {
-                dataKeys:['repo', 'author'],
-                data: chunkyData,
-            },
-            {
-                title:"Repository PRs over time",
-                showLegends:false,
-                data: [{
-                    lines: repoLines,
-                    xAxis: 'left',
-                }],
-            },
-        ],
+        {
+            markers: releases,
+            showLegends: true,
+            title: 'Sentiments in PR',
+            data: [{
+                lines: [
+                    {
+                        label: `${userName} received`,
+                        color: colors[2],
+                        dataKey: 'commentSentimentScore',
+                        data: userPrData,
+                    },
+                    {
+                        label: `${userName} given`,
+                        color: colors[1],
+                        dataKey: 'commentAuthorSentimentScore',
+                        data: userPrData,
+                    },
+                    {
+                        label: 'Peer received',
+                        color: colors[4],
+                        dataKey: 'commentSentimentScore',
+                        data: peerPrData,
+                    },
+                    {
+                        label: 'Peer given',
+                        color: colors[5],
+                        dataKey: 'commentAuthorSentimentScore',
+                        data: peerPrData,
+                    },
+                ],
+                xAxis: 'left',
+            }],
+            tableKeys:['commentSentimentScore', 'commentAuthorSentimentScore'],
+            tableData: chunkyData,
+        },
+        {
+            markers: releases,
+            data: [{
+                lines: [
+                    {
+                        label: 'User PR size',
+                        color: colorA,
+                        dataKey: 'prSize',
+                        data: userPrData,
+                    },
+                    {
+                        label: 'Peer PR size',
+                        color: colorB,
+                        dataKey: 'prSize',
+                        data: peerPrData,
+                    },
+                ],
+                xAxis: 'left',
+            }],
+            tableKeys:['prSize'],
+            tableData: chunkyData,
+        },
+        {
+            markers: releases,
+            data: [{
+                lines: [
+                    {
+                        label: 'User PR age',
+                        color: colorA,
+                        dataKey: 'age',
+                        data: userPrData,
+                    },
+                    {
+                        label: 'Peer PR age',
+                        color: colorB,
+                        dataKey: 'age',
+                        data: peerPrData,
+                    },
+                ],
+                xAxis: 'left',
+            }],
+            tableKeys:['age'],
+            tableData: chunkyData,
+        },
+        {
+            dataKeys:['repo', 'author'],
+            data: chunkyData,
+        },
     ]
 }
 
