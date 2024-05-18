@@ -38,14 +38,14 @@ const mergedStyles = (theme) => ({
     },
     removeDate: {
         minHeight: '3rem',
-        backgroundColor: '#bd2d22',
+        backgroundColor: theme.palette.destructive.main,
         color: theme.palette.primary.contrastText,
         borderRadius: '4px',
         padding: '0 0.5rem',
         height: 'auto',
     },
     remove: {
-        backgroundColor: '#bd2d22',
+        backgroundColor: theme.palette.destructive.main,
         color: theme.palette.primary.contrastText,
     },
 })

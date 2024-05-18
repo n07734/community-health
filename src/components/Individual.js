@@ -1,5 +1,6 @@
 
 import { connect } from 'react-redux'
+import { useTheme } from '@material-ui/core/styles'
 
 import Paper from './shared/Paper'
 import GraphsWrap from './shared/GraphsWrap'
@@ -13,6 +14,8 @@ const Individual = ({
     pullRequests = [],
     releases = [],
 } = {}) => {
+    const theme = useTheme();
+    const colorA = theme.palette.secondary.main
 
     const allRepos = {}
     const allOrgs = {}
@@ -59,7 +62,7 @@ const Individual = ({
                         lines: [
                             {
                                 label: 'PRs over time',
-                                color: '#1f77b4',
+                                color: colorA,
                                 dataKey: 'url',
                                 groupMath: 'count',
                             },

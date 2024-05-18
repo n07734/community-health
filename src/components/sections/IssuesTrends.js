@@ -1,6 +1,6 @@
 
 import { connect } from 'react-redux'
-import { withStyles } from '@material-ui/core/styles'
+import { withStyles, useTheme } from '@material-ui/core/styles'
 
 import { P } from '../shared/StyledTags'
 import Paper from '../shared/Paper'
@@ -26,6 +26,10 @@ const IssuesTrends = ({
     releases = [],
     classes,
 } = {}) => {
+    const theme = useTheme();
+    const colorA = theme.palette.secondary.main
+    const colorB = theme.palette.primary.main
+
     const data = formatIssueData(issues)
     const chunkyData = chunkData(issues)
 
@@ -42,13 +46,13 @@ const IssuesTrends = ({
                             lines: [
                                 {
                                     label: 'Issues',
-                                    color: '#1f77b4',
+                                    color: colorA,
                                     filterForKey: 'issue',
                                     groupMath: 'count',
                                 },
                                 {
                                     label: 'Bugs*',
-                                    color: '#e82573',
+                                    color: colorB,
                                     filterForKey: 'bug',
                                     groupMath: 'count',
                                 },

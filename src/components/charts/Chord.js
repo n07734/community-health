@@ -5,7 +5,6 @@ import { useTheme } from '@material-ui/core/styles';
 import ChartHeading from './ChartHeading'
 import formatChordData from '../../format/chordData'
 import styledCharts from './styledCharts'
-import { colors } from '../colors'
 
 const Chord = styledCharts(({
     title,
@@ -16,6 +15,8 @@ const Chord = styledCharts(({
     classes,
 } = {}) => {
     const theme = useTheme();
+    const colors = theme.palette.colorList
+
     const {
         names,
         matrix,

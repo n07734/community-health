@@ -1,11 +1,11 @@
 
+import { useTheme } from '@material-ui/core/styles'
 import ChartDescription from '../shared/ChartDescription'
 import GraphsWrap from '../shared/GraphsWrap'
 import Line from '../charts/Line'
 import Pie from '../charts/Pie'
 import { rainbowData } from '../charts/lineHelpers'
 import Paper from '../shared/Paper'
-import { colors } from '../colors'
 
 const RepoSplit = ({
     pullRequests = [],
@@ -13,6 +13,9 @@ const RepoSplit = ({
     allRepos = {},
     allOrgs = {},
 } = {}) => {
+    const theme = useTheme();
+    const colors = theme.palette.colorList
+
     const repoPie = rainbowData('repo', allRepos)
     const uniqueRepos = repoPie.reportItems
 

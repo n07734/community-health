@@ -1,6 +1,6 @@
 
 import { connect } from 'react-redux'
-import { withStyles } from '@material-ui/core/styles'
+import { withStyles, useTheme } from '@material-ui/core/styles'
 
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
@@ -87,6 +87,10 @@ const UserTrends = ({
     setUser = () => {},
     setPvP = () => {},
 } = {}) => {
+    const theme = useTheme();
+    const colorA = theme.palette.secondary.main
+    const colorB = theme.palette.primary.main
+
     const radarData = formatRadarData(usersData)
     const contributionsRadar = radialChartsContributions(radarData, userIds.length > 0)
 
@@ -109,8 +113,8 @@ const UserTrends = ({
                                 height={240}
                                 colors={[
                                     (i + 1) % 2 === 0
-                                        ? '#1f77b4'
-                                        : '#e82573',
+                                        ? colorA
+                                        : colorB,
                                 ]}
                                 {...info}
                             />

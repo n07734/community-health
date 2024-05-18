@@ -1,6 +1,6 @@
 
 import { connect } from 'react-redux'
-import { withStyles } from '@material-ui/core/styles'
+import { withStyles, useTheme } from '@material-ui/core/styles'
 import Switch from '@material-ui/core/Switch';
 import { always, cond, T, propSatisfies, where } from 'ramda'
 
@@ -10,27 +10,27 @@ import PrefetchedForm from '../home/DataOptions/PrefetchedForm'
 import DateRange from './DateRange'
 import { hideUserNames } from '../../state/actions'
 
-const RepoTitle = ({ repo, org } = {}) => org === repo
-    ? (<span style={{ color: '#e82573' }}>{repo}</span>)
+const RepoTitle = ({ repo, org, colorA, colorB } = {}) => org === repo
+    ? (<span style={{ color: colorB }}>{repo}</span>)
     : (
         <>
-            <span style={{ color: '#1f77b4' }}>{org}</span>/<span style={{ color: '#e82573' }}>{repo}</span>
+            <span style={{ color: colorA }}>{org}</span>/<span style={{ color: colorB }}>{repo}</span>
         </>
     )
 
-const IndividualTitle = ({ usersInfo = {}, userIds = [] } = {}) => {
+const IndividualTitle = ({ usersInfo = {}, userIds = [], colorA, colorB } = {}) => {
     const { userId , name } = usersInfo[userIds[0]] || {}
     return !name
-        ? (<span style={{ color: '#e82573' }}>{userId}</span>)
+        ? (<span style={{ color: colorB }}>{userId}</span>)
         : (
             <>
-                <span style={{ color: '#1f77b4' }}>{userId}</span>: <span style={{ color: '#e82573' }}>{name}</span>
+                <span style={{ color: colorA }}>{userId}</span>: <span style={{ color: colorB }}>{name}</span>
             </>
         )
 }
 
-const TeamTitle = ({ teamName }) => <span style={{ color: '#e82573' }}>{teamName}</span>
-const OrgTitle = ({ org } = {}) => <span style={{ color: '#e82573' }}>{org}</span>
+const TeamTitle = ({ teamName, colorB }) => <span style={{ color: colorB }}>{teamName}</span>
+const OrgTitle = ({ org, colorB } = {}) => <span style={{ color: colorB }}>{org}</span>
 
 const titleCopy = cond([
     [
@@ -52,7 +52,7 @@ const titleCopy = cond([
     ],
     [
         propSatisfies(x => x.length === 1, 'userIds'),
-        IndividualTitle
+        IndividualTitle,
     ],
     [
         T,
@@ -71,6 +71,10 @@ const ReportDescription = ({
     hideNames = () => {},
     classes,
 } = {}) => {
+    const theme = useTheme();
+    const colorA = theme.palette.secondary.main
+    const colorB = theme.palette.primary.main
+
     const handleChange = (event) => {
         hideNames(event.target.checked)
     };
@@ -80,7 +84,11 @@ const ReportDescription = ({
     return hasReportData && (<Paper className={classes.root}>
             <H className={classes.heading} level={2}>
                 {
-                    titleCopy(fetches)
+                    titleCopy({
+                        ...fetches,
+                        colorA,
+                        colorB,
+                    })
                 }
             </H>
             {

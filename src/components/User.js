@@ -1,6 +1,6 @@
 
 import { connect } from 'react-redux'
-import { withStyles } from '@material-ui/core/styles'
+import { withStyles, useTheme } from '@material-ui/core/styles'
 
 import { P } from './shared/StyledTags'
 import Button from './shared/Button'
@@ -9,17 +9,16 @@ import Line from './charts/Line'
 import StatBars from './charts/StatBars'
 import { chunkData } from './charts/lineHelpers'
 
-import { colors } from './colors'
 import { clearUser } from '../state/actions'
 import usersAverageData from '../format/usersAverageData'
 
-const colorA = '#1f77b4'
-const colorB = '#e82573'
-
-const userGraphs = (pullRequests = [], releases = [], userName) => {
+const userGraphs = (pullRequests = [], releases = [], userName, theme) => {
     const peerPrData = []
     const userPrData = []
     const repos = new Set()
+    const colorA = theme.palette.secondary.main
+    const colorB = theme.palette.primary.main
+    const colorList = theme.palette.colorList
 
     pullRequests
         .forEach((item = {}) => {
@@ -42,7 +41,7 @@ const userGraphs = (pullRequests = [], releases = [], userName) => {
         .forEach((repo, i) => {
             repoLines.push({
                 label: repo,
-                color: colors[i % colors.length],
+                color: colorList[i % colorList.length],
                 groupMath: 'count',
                 filterForKey: `repo-${repo}`,
                 data: userPrData,
@@ -60,25 +59,25 @@ const userGraphs = (pullRequests = [], releases = [], userName) => {
                 lines: [
                     {
                         label: `${userName} received`,
-                        color: colors[2],
+                        color: colorList[2],
                         dataKey: 'commentSentimentScore',
                         data: userPrData,
                     },
                     {
                         label: `${userName} given`,
-                        color: colors[1],
+                        color: colorList[1],
                         dataKey: 'commentAuthorSentimentScore',
                         data: userPrData,
                     },
                     {
                         label: 'Peer received',
-                        color: colors[4],
+                        color: colorList[4],
                         dataKey: 'commentSentimentScore',
                         data: peerPrData,
                     },
                     {
                         label: 'Peer given',
-                        color: colors[5],
+                        color: colorList[5],
                         dataKey: 'commentAuthorSentimentScore',
                         data: peerPrData,
                     },
@@ -147,7 +146,8 @@ const UserView = ({
     removeUser,
     classes,
 } = {}) => {
-    const graphs = userGraphs(pullRequests, releases, user)
+    const theme = useTheme();
+    const graphs = userGraphs(pullRequests, releases, user, theme)
     const [userData, averagedData] = usersAverageData(usersData, user)
 
     const usersName = userData.name || user

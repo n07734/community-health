@@ -1,10 +1,9 @@
 
 import { connect } from 'react-redux'
-import { withStyles } from '@material-ui/core/styles'
+import { withStyles, useTheme } from '@material-ui/core/styles'
 
 import Line from '../charts/Line'
 import Paper from '../shared/Paper'
-import { colors } from '../colors'
 import ChartDescription from '../shared/ChartDescription'
 import GraphsWrap from '../shared/GraphsWrap'
 import { P } from '../shared/StyledTags'
@@ -17,6 +16,9 @@ const Sentiment = ({
     hiddenNames = false,
     classes = {},
 } = {}) => {
+    const theme = useTheme();
+    const colors = theme.palette.colorList
+
     const lines = userIds
         .map((userId, i) => {
             const label = hiddenNames

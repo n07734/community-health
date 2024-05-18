@@ -24,12 +24,15 @@ const Radar = styledCharts(({
     showTitle = true,
     data = [],
     keys = [],
-    colors = ['#1f77b4', '#e82573'],
+    colors = [],
     width = 410,
     height = 300,
     classes,
 } = {}) => {
     const theme = useTheme();
+    const colorA = theme.palette.secondary.main
+    const colorB = theme.palette.primary.main
+    const radarColors = colors.length > 1 ? colors : [colorA, colorB]
 
     return hasChartData(data)(keys) && (
         <div>
@@ -48,7 +51,7 @@ const Radar = styledCharts(({
                 dotSize={8}
                 dotBorderColor={theme.charts.dotColor}
                 dotBorderWidth={2}
-                colors={colors}
+                colors={radarColors}
                 gridShape="linear"
                 enableDotLabel={false}
                 gridLabelOffset={10}

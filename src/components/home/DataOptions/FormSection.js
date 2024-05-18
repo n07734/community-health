@@ -173,7 +173,7 @@ const FormSection = (props) => {
         user: [
             {type:'userId'},
             {type:'name'},
-        ]
+        ],
     }
     const inputs = inputsHash[reportType]
 

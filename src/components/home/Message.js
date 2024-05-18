@@ -35,13 +35,13 @@ const styles = theme => ({
         margin: 0,
         marginLeft: theme.mySpacing.y.medium,
         padding: 0,
-        color: '#000',
+        color: theme.palette.text.primary,
     },
     error: {
-        backgroundColor: '#e02e2e',
+        backgroundColor: theme.palette.error.main,
     },
     warn: {
-        backgroundColor: '#dc7e09',
+        backgroundColor: theme.palette.warn.main,
     },
 })
 export default withStyles(styles)(Message)

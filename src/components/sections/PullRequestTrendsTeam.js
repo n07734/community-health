@@ -1,5 +1,7 @@
 
 
+import { useTheme } from '@material-ui/core/styles';
+
 import Paper from '../shared/Paper'
 import { P } from '../shared/StyledTags'
 import ChartDescription from '../shared/ChartDescription'
@@ -10,6 +12,9 @@ const PullRequestTrendsTeam = ({
     pullRequests = [],
     releases = [],
 } = {}) => {
+    const theme = useTheme();
+    const colorA = theme.palette.secondary.main
+    const colorB = theme.palette.primary.main
     return pullRequests.length > 0 && (
         <Paper>
             <ChartDescription
@@ -26,14 +31,14 @@ const PullRequestTrendsTeam = ({
                             lines: [
                                 {
                                     label: 'Comments given',
-                                    color: '#1F77B4',
+                                    color: colorA,
                                     dataKey: 'teamOnlyComments',
                                     groupMath: 'teamDistribution',
                                     yMax: 100,
                                 },
                                 {
                                     label: 'Approvals given',
-                                    color: '#E82573',
+                                    color: colorB,
                                     dataKey: 'teamOnlyApprovals',
                                     groupMath: 'teamDistribution',
                                     yMax: 100,

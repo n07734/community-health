@@ -17,7 +17,10 @@ const PullRequestTrends = ({
     usersInfo = {},
     hiddenNames = false,
 } = {}) => {
-    const { type } = useTheme();
+    const theme = useTheme();
+    const colorA = theme.palette.secondary.main
+    const colorB = theme.palette.primary.main
+    const colorC = theme.palette.secondaryLine
 
     const isTeamPage = userIds.length > 0
     const byAuthorData = isTeamPage
@@ -55,7 +58,7 @@ const PullRequestTrends = ({
                             lines: [
                                 {
                                     label: 'PRs over time',
-                                    color: '#1f77b4',
+                                    color: colorA,
                                     dataKey: 'url',
                                     groupMath: 'count',
                                 },
@@ -75,12 +78,12 @@ const PullRequestTrends = ({
                             lines: [
                                 {
                                     label: 'Comments',
-                                    color: '#1f77b4',
+                                    color: colorA,
                                     dataKey: 'comments',
                                 },
                                 {
                                     label: 'Approvals',
-                                    color: '#e82573',
+                                    color: colorB,
                                     dataKey: 'approvals',
                                 },
                             ],
@@ -91,7 +94,7 @@ const PullRequestTrends = ({
                             lines: [
                                 {
                                     label: 'PR Size',
-                                    color: type === 'dark' ? '#e2e2e2' : '#777',
+                                    color: colorC,
                                     dataKey: 'prSize',
                                 },
                             ],
@@ -110,7 +113,7 @@ const PullRequestTrends = ({
                             lines: [
                                 {
                                     label: 'Age (days)',
-                                    color: '#e82573',
+                                    color: colorB,
                                     dataKey: 'age',
                                 },
                             ],
@@ -121,7 +124,7 @@ const PullRequestTrends = ({
                             lines: [
                                 {
                                     label: 'PR Size',
-                                    color: type === 'dark' ? '#e2e2e2' : '#777',
+                                    color: colorC,
                                     dataKey: 'prSize',
                                 },
                             ],

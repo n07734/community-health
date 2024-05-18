@@ -26,7 +26,7 @@ const styles = theme => ({
         padding: `${theme.mySpacing.x.large} ${theme.mySpacing.y.large}`,
         '& .MuiLinearProgress-dashed': {
             background: 'none',
-            backgroundColor: '#b10e4f',
+            backgroundColor: theme.palette.primary.dark,
             animation: 'none',
         },
         '& .MuiLinearProgress-root': {
@@ -41,7 +41,7 @@ const styles = theme => ({
         width: '100%',
         height: '100%',
         zIndex: 999,
-        backgroundColor: '#b10e4f',
+        backgroundColor: theme.palette.primary.dark,
         animation: 'pulse 1s infinite alternate',
         opacity: 0.6,
     },

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { connect } from 'react-redux'
-import { withStyles } from '@material-ui/core/styles'
+import { withStyles, useTheme } from '@material-ui/core/styles'
 
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
@@ -86,12 +86,15 @@ const CustomGraphs = ({
     releases = [],
     classes = {},
 } = {}) => {
+    const theme = useTheme()
+    const colorA = theme.palette.primary.main
+    const colorB = theme.palette.secondary.main
     const defaultState = [{
         graphId: 1,
         left: [
             {
                 label: 'PR Age (days)',
-                color: '#1F77B4',
+                color: colorA,
                 dataKey: 'age',
                 groupMath: 'average',
             },
@@ -99,7 +102,7 @@ const CustomGraphs = ({
         right: [
             {
                 label: 'PR Size',
-                color: '#E82573',
+                color: colorB,
                 dataKey: 'prSize',
                 groupMath: 'average',
             },

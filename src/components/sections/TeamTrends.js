@@ -1,6 +1,6 @@
 
 import { connect } from 'react-redux'
-import { withStyles } from '@material-ui/core/styles'
+import { withStyles, useTheme } from '@material-ui/core/styles'
 
 import { P } from '../shared/StyledTags'
 import Paper from '../shared/Paper'
@@ -24,6 +24,10 @@ const TeamTrends = ({
     hiddenNames = false,
     classes,
 } = {}) => {
+    const theme = useTheme();
+    const colorA = theme.palette.secondary.main
+    const colorB = theme.palette.primary.main
+
     const maxAuthors = userIds.length || 15
     const sortedUsers = usersData
         .sort(sortByKeys(['commentsByUser, approvalsByUser']))
@@ -63,12 +67,12 @@ const TeamTrends = ({
                             bars={[
                                 {
                                     dataKey: 'commentsGiven',
-                                    color: '#1f77b4',
+                                    color: colorA,
                                     label: 'given',
                                 },
                                 {
                                     dataKey: 'commentsReceived',
-                                    color: '#e82573',
+                                    color: colorB,
                                     label: '*received',
                                 },
                             ]}
@@ -86,12 +90,12 @@ const TeamTrends = ({
                         bars={[
                             {
                                 dataKey: 'uniquePRsApproved',
-                                color: '#1f77b4',
+                                color: colorA,
                                 label: 'approved',
                             },
                             {
                                 dataKey: 'totalPRs',
-                                color: '#e82573',
+                                color: colorB,
                                 label: 'opened',
                             },
                         ]}

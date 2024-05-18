@@ -1,13 +1,10 @@
-import { withStyles } from '@material-ui/core/styles'
+import { withStyles, useTheme } from '@material-ui/core/styles'
 import {
     Select,
     MenuItem,
 } from '@material-ui/core'
 
 import { P, H } from '../shared/StyledTags'
-
-const colorA = '#1f77b4'
-const colorB = '#e82573'
 
 const SelectUser = ({
     player = '',
@@ -39,6 +36,10 @@ const StatBars = ({
     players = [],
     classes,
 } = {}) => {
+    const theme = useTheme();
+    const colorA = theme.palette.secondary.main
+    const colorB = theme.palette.primary.main
+
     const statsKeys = [
         {
             title: 'Total Merged',

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { withStyles } from '@material-ui/core/styles'
+import { withStyles, useTheme } from '@material-ui/core/styles'
 import {
     Select,
     MenuItem,
@@ -9,7 +9,6 @@ import {
 } from '@material-ui/core'
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 
-import { colors } from '../colors'
 import { P } from '../shared/StyledTags'
 import Button from '../shared/Button'
 
@@ -211,6 +210,8 @@ const GraphUi = ({
     graphs = [],
     classes = {},
 }) =>  {
+    const theme = useTheme();
+    const colors = theme.palette.colorList
 
     const nextDataKeyLine = getNextDataKeyLine(graphInfo)
     const [formInfo, setFormInfo] = useState({
@@ -391,80 +392,83 @@ const GraphUi = ({
     </div>
 }
 
-const colorClasses = {}
-colors
-    .forEach((color) => {
-        colorClasses[color] = {color: color, borderColor: color}
-    })
 
-const styles = theme => ({
-    graphLine: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        borderRadius: '15px',
-        paddingTop:' 0.5em',
-        justifyContent: 'center',
-        backgroundImage: `linear-gradient(0deg, rgba(0,0,0,0) 80%, ${theme.palette.shadow} 100%)`,
-        '& p': {
-            margin: '0',
-        },
-        '& > *': {
-            marginRight: '20px',
-            marginBottom: '15px',
-        },
-        '& .MuiFormLabel-root': {
-            color: theme.palette.mainCopy.color,
-        },
-    },
-    graphForm: {
-        width: '100%',
-        maxWidth: '1200px',
-    },
-    remove: {
-        fontSize: '22px',
-        marginLeft: '5px',
-        marginBottom: '-5px',
-    },
-    savedLine: {
-        fontSize: '1.3em',
-        borderBottom: `solid 2px`,
-        display: 'inline-block',
-        lineHeight: '2rem',
-        position: 'relative',
-        '&:before': {
-            lineHeight: '0',
-            content: '"•"',
-            position: 'absolute',
-            bottom: '-1px',
-            left: '-3px',
-        },
-        '&:after': {
-            lineHeight: '0',
-            content: '"•"',
-            position: 'absolute',
-            bottom: '-1px',
-            right: '-3px',
-        },
-    },
-    customLines: {
-        width: '100%',
-        display: 'flex',
-        flexWrap: 'nowrap',
-        justifyContent: 'space-between',
-        '& > div': {
-            columnGap: '20px',
+
+const styles = theme => {
+    const colorClasses = {}
+    theme.palette.colorList
+        .forEach((color) => {
+            colorClasses[color] = {color: color, borderColor: color}
+        })
+    return ({
+        graphLine: {
             display: 'flex',
             flexWrap: 'wrap',
-            maxWidth: '50%',
-            justifyContent: 'flex-start',
-            flexDirection: 'column',
+            borderRadius: '15px',
+            paddingTop:' 0.5em',
+            justifyContent: 'center',
+            backgroundImage: `linear-gradient(0deg, rgba(0,0,0,0) 80%, ${theme.palette.shadow} 100%)`,
+            '& p': {
+                margin: '0',
+            },
+            '& > *': {
+                marginRight: '20px',
+                marginBottom: '15px',
+            },
+            '& .MuiFormLabel-root': {
+                color: theme.palette.mainCopy.color,
+            },
         },
-        '& > div:nth-child(2)': {
-            justifyContent: 'flex-end',
-            textAlign: 'right',
+        graphForm: {
+            width: '100%',
+            maxWidth: '1200px',
         },
-    },
-    ...colorClasses,
-})
+        remove: {
+            fontSize: '22px',
+            marginLeft: '5px',
+            marginBottom: '-5px',
+        },
+        savedLine: {
+            fontSize: '1.3em',
+            borderBottom: `solid 2px`,
+            display: 'inline-block',
+            lineHeight: '2rem',
+            position: 'relative',
+            '&:before': {
+                lineHeight: '0',
+                content: '"•"',
+                position: 'absolute',
+                bottom: '-1px',
+                left: '-3px',
+            },
+            '&:after': {
+                lineHeight: '0',
+                content: '"•"',
+                position: 'absolute',
+                bottom: '-1px',
+                right: '-3px',
+            },
+        },
+        customLines: {
+            width: '100%',
+            display: 'flex',
+            flexWrap: 'nowrap',
+            justifyContent: 'space-between',
+            '& > div': {
+                columnGap: '20px',
+                display: 'flex',
+                flexWrap: 'wrap',
+                maxWidth: '50%',
+                justifyContent: 'flex-start',
+                flexDirection: 'column',
+            },
+            '& > div:nth-child(2)': {
+                justifyContent: 'flex-end',
+                textAlign: 'right',
+            },
+        },
+        ...colorClasses,
+    })
+}
 
 export default withStyles(styles)(GraphUi)

@@ -1,4 +1,5 @@
 import { createTheme } from '@material-ui/core/styles'
+import { colors } from './components/colors'
 
 const themeColor = type => ({
     light: '#232023',
@@ -49,18 +50,32 @@ const theme =  (type = 'light') => createTheme({
     type,
     palette: {
         type,
+        colorList: colors,
+        error: {
+            main:'#E02E2E',
+        },
+        destructive: {
+            main:'#BD2D22',
+        },
+        warn: {
+            main: '#DC7E09',
+        },
         secondary: {
-            contrastText: '#ccc',
-            dark: '#1e6392',
-            light: '#7986cb',
-            main: '#1f77b4',
+            contrastText: '#CCC',
+            dark: '#1E6392',
+            light: '#7986Cb',
+            main: '#1F77B4',
         },
         primary: {
-            contrastText: '#ccc',
-            dark: '#b10e4f',
-            light: '#d65287',
-            main: '#e82573',
+            contrastText: '#CCC',
+            dark: '#B10E4F',
+            light: '#D65287',
+            main: '#E82573',
         },
+        secondaryLine: ({
+            light: '#777',
+            dark: '#E2E2E2',
+        })[type],
         mainCopy: {
             color: themeColor(type),
             fontSize: '1rem',
@@ -68,22 +83,22 @@ const theme =  (type = 'light') => createTheme({
             fontFamily,
         },
         iconHover: ({
-            light: '#d65287',
-            dark: '#e82573',
+            light: '#D65287',
+            dark: '#E82573',
         })[type],
         text: {
             primary: themeColor(type),
         },
         link: ({
-            light: '#1f77b4',
-            dark: '#e82573',
+            light: '#1F77B4',
+            dark: '#E82573',
         })[type],
         background: {
             default: themeColorBg(type),
             paper: themeColorBg(type),
         },
         shadow:({
-            light: '#ccc',
+            light: '#CCC',
             dark: '#666',
         })[type],
         switch: themeColor(type),

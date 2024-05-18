@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { connect } from 'react-redux'
-import { withStyles } from '@material-ui/core/styles'
+import { withStyles, useTheme } from '@material-ui/core/styles'
 import { pathOr } from 'ramda'
 
 import { P } from './shared/StyledTags'
@@ -11,11 +11,8 @@ import Line from './charts/Line'
 import StatBars from './charts/StatBars'
 import { chunkData } from './charts/lineHelpers'
 
-import { colors } from './colors'
 import { clearPvP } from '../state/actions'
 
-const colorA = '#1f77b4'
-const colorB = '#e82573'
 const queryString = pathOr('', ['location', 'search'], window)
 const urlParams = new URLSearchParams(queryString);
 
@@ -33,6 +30,11 @@ const PvP = ({
     removePvP,
     classes,
 } = {}) => {
+    const theme = useTheme();
+    const colorA = theme.palette.secondary.main
+    const colorB = theme.palette.primary.main
+    const colorList = theme.palette.colorList
+
     const [player1Id, setPlayer1Id] = useState(getPlayer1Id(usersData))
     const [player2Id, setPlayer2Id] = useState(getPlayer2Id(usersData))
 
@@ -91,25 +93,25 @@ const PvP = ({
                             lines: [
                                 {
                                     label: `${player1.name} received`,
-                                    color: colors[2],
+                                    color: colorList[2],
                                     dataKey: 'commentSentimentScore',
                                     data: user1PrData,
                                 },
                                 {
                                     label: `${player1.name} given`,
-                                    color: colors[1],
+                                    color: colorList[1],
                                     dataKey: 'commentAuthorSentimentScore',
                                     data: user1PrData,
                                 },
                                 {
                                     label: `${player2.name} received`,
-                                    color: colors[2],
+                                    color: colorList[2],
                                     dataKey: 'commentSentimentScore',
                                     data: user2PrData,
                                 },
                                 {
                                     label: `${player2.name} given`,
-                                    color: colors[1],
+                                    color: colorList[1],
                                     dataKey: 'commentAuthorSentimentScore',
                                     data: user2PrData,
                                 },
