@@ -203,6 +203,14 @@ const FormSection = (props) => {
                         </>
                     }
                     <TextInput
+                        className="inputDesc"
+                        type='events'
+                        { ...inputStates }
+                    />
+                    <P className="inputDesc">
+                        Key events can give context when viewing the data e.g. started using copilot, launched a feature. These events can help give more context while viewing the data. e.g. Copilot adopted=2024-02-01,Feature A=2024-04-10.
+                    </P>
+                    <TextInput
                         type="token"
                         { ...inputStates }
                     />
@@ -218,14 +226,6 @@ const FormSection = (props) => {
                     intro="Advanced options"
                 >
                     <div className={classes.inputGrid}>
-                        <TextInput
-                            className="inputDesc"
-                            type='events'
-                            { ...inputStates }
-                        />
-                        <P className="inputDesc">
-                            Key events can impact the data e.g. starting or launching a new feature or major version. These events can help give more context while viewing the data. e.g. ProjectA=2013-12-01.
-                        </P>
                         <TextInput
                             type="excludeIds"
                             { ...inputStates }

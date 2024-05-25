@@ -7,6 +7,7 @@ import ChartDescription from '../shared/ChartDescription'
 import GraphsWrap from '../shared/GraphsWrap'
 import { P } from '../shared/StyledTags'
 import Line from '../charts/Line'
+import Scatterplot from '../charts/Scatterplot'
 import { splitByAuthor } from '../charts/lineHelpers'
 
 const PullRequestTrends = ({
@@ -51,6 +52,24 @@ const PullRequestTrends = ({
                         />
                     </>
                 }
+                <Scatterplot
+                    markers={releases}
+                    data={[
+                        {
+                            lines: [
+                                {
+                                    label: 'PR size',
+                                    color: colorA,
+                                    dataKey: 'prSize',
+                                },
+                            ],
+                            xAxis: 'left',
+                            data: pullRequests,
+                        },
+                    ]}
+                    tableData={chunkyData}
+                    tableKeys={['author', 'prSize']}
+                />
                 <Line
                     markers={releases}
                     data={[

@@ -172,7 +172,7 @@ const UserForm = ({
                         </div>
                     ))}
                     <Button type="text" value={`Add ${ user.dates.length > 0 ? 'more dates' : 'dates'}`} color="primary" onClick={(e) => handleAddDates(userIndex,e)} />
-                    <Button type="text" className={classes.remove} value="Remove User" color="destructive" onClick={(e) => handleRemoveUser(userIndex,e)} />
+                    <Button type="text" className={classes.remove} value="Remove User" onClick={(e) => handleRemoveUser(userIndex,e)} />
                 </div>
             ))}
             <Button type="text"  className={classes.button} value="Create new user" color="primary" onClick={(e) => handleCreateUser(e)} />

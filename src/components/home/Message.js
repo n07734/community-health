@@ -30,6 +30,9 @@ const styles = theme => ({
         display: 'flex',
         alignItems: 'center',
         borderRadius: '4px',
+        '& .MuiSvgIcon-root': {
+            color: theme.palette.text.primary,
+        },
     },
     copy: {
         margin: 0,

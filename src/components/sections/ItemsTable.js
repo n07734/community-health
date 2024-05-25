@@ -191,7 +191,9 @@ const ItemsTable = ({
          </div>
         }
         {
-            (data[dataIndex] || []).length > 0 && (data.length === 1 || showTable) && <DataGrid
+            (data[dataIndex] || []).length > 0 && (data.length === 1 || showTable) &&
+            <DataGrid
+                id={`table-${dataIndex}`}
                 sortingOrder={['desc', 'asc']}
                 rows={data[dataIndex]}
                 columns={makeColumns(dataKeys)}
@@ -279,6 +281,32 @@ const styles = theme => ({
         '& .MuiDataGrid-root': {
             borderColor: theme.palette.primary.main,
             borderWidth: '2px',
+        },
+        '& .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper > div.MuiDataGrid-cell:last-child:empty': {
+            width: '0 !important',
+            minWidth: '0 !important',
+            maxWidth: '0 !important',
+        },
+        '& .MuiDataGrid-root .MuiDataGrid-columnHeader': {
+            maxWidth: '100% !important',
+            width: '100% !important',
+        },
+        '& .MuiDataGrid-root .MuiDataGrid-row > div.MuiDataGrid-cell:last-child:empty': {
+            width: '0 !important',
+            minWidth: '0 !important',
+            maxWidth: '0 !important',
+        },
+        '& .MuiDataGrid-root .MuiDataGrid-cell--textLeft': {
+            maxWidth: '100% !important',
+            width: '100% !important',
+        },
+        "& .MuiDataGrid-renderingZone": {
+            maxWidth: '100% !important',
+            width: '100% !important',
+        },
+        '& .MuiDataGrid-root .MuiDataGrid-row': {
+            maxWidth: '100% !important',
+            width: '100% !important',
         },
     },
 })

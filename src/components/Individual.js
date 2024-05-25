@@ -9,6 +9,7 @@ import ReportDescription from './sections/ReportDescription'
 import { chunkData, rainbowData } from './charts/lineHelpers'
 import Pie from './charts/Pie'
 import Line from './charts/Line'
+import IssuesTrends from './sections/IssuesTrends'
 
 const Individual = ({
     pullRequests = [],
@@ -80,6 +81,7 @@ const Individual = ({
             pullRequests={updatedPullRequests}
             chunkyData={chunkyData}
         />
+        <IssuesTrends />
     </>
 }
 

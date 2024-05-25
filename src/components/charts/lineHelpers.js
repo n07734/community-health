@@ -203,6 +203,36 @@ const formatBatches = ({ filterForKey = '', dataKey = '', groupMath = 'average' 
         return lineData
 }
 
+const formatUnbatchedData = ({lines = [], data} = {}) => {
+    const formattedLines = []
+    lines
+        .forEach((line = {}) => {
+            const { label, color, dataKey, data: lineData } = line
+
+            const formattedData = (data || lineData)
+                .map((pr = {}) => {
+                    const valueA = pr[dataKey] || 0
+                    // const valueB = pr.comments || 0
+                    return {
+                        // x: valueA,
+                        // y: valueB,
+                        y: valueA,
+                        x: formatDate(pr.mergedAt),
+                    }
+                })
+
+            if (formattedData.length) {
+                formattedLines.push({
+                    id: label,
+                    color,
+                    data: formattedData,
+                })
+            }
+        })
+
+    return formattedLines
+}
+
 const formatLinesData = ({lines = [], data} = {}) => {
     const sharedAxisData = data
         ? batchBy(data)
@@ -443,6 +473,7 @@ export {
     getMaxYValue,
     getMinYValue,
     formatLinesData,
+    formatUnbatchedData,
     formatBatches,
     formatGraphMarkers,
     smoothNumber,

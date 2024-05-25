@@ -24,7 +24,7 @@ const IndividualTitle = ({ usersInfo = {}, userIds = [], colorA, colorB } = {}) 
         ? (<span style={{ color: colorB }}>{userId}</span>)
         : (
             <>
-                <span style={{ color: colorA }}>{userId}</span>: <span style={{ color: colorB }}>{name}</span>
+                <span style={{ color: colorA }}>{name}</span>: <span style={{ color: colorB }}>{userId}</span>
             </>
         )
 }
