@@ -10,6 +10,7 @@ import { chunkData, rainbowData } from './charts/lineHelpers'
 import Pie from './charts/Pie'
 import Line from './charts/Line'
 import IssuesTrends from './sections/IssuesTrends'
+import Bar from './charts/Bar'
 
 const Individual = ({
     pullRequests = [],
@@ -17,11 +18,31 @@ const Individual = ({
 } = {}) => {
     const theme = useTheme();
     const colorA = theme.palette.secondary.main
+    const colorB = theme.palette.primary.main
 
     const allRepos = {}
     const allOrgs = {}
+    const barMap = {}
     const updatedPullRequests = pullRequests
         .map((prData = {}) => {
+            const commenters = prData.commenters || {}
+            Object.keys(commenters).forEach((author) => {
+                if (!barMap[author]) {
+                    barMap[author] = {}
+                }
+                const value = commenters[author] || 0
+                barMap[author].comments = (barMap[author].comments || 0) + value
+            })
+
+            const approvers = prData.approvers || {}
+            Object.keys(approvers).forEach((author) => {
+                if (!barMap[author]) {
+                    barMap[author] = {}
+                }
+                const value = approvers[author] || 0
+                barMap[author].approvals = (barMap[author].approvals || 0) + value
+            })
+
             allRepos[prData.repo] = (allRepos[prData.repo] || 0) + 1
             allOrgs[prData.org] = (allOrgs[prData.org] || 0) + 1
             return {
@@ -33,26 +54,39 @@ const Individual = ({
             }
         })
 
+    const commentBarData = Object.entries(barMap)
+        .map(([author, { comments = 0,  approvals = 0}]) => ({ author, comments,  approvals}))
+
     const chunkyData = chunkData(updatedPullRequests)
     const repoPie = rainbowData('repo', allRepos)
-    const orgPie = rainbowData('org', allOrgs)
 
     return <>
         <ReportDescription />
         <Paper>
             <GraphsWrap>
+            <Bar
+                data={commentBarData}
+                indexBy="author"
+                title="Received"
+                sortBy="comments"
+                bars={[
+                    {
+                        dataKey: 'comments',
+                        color: colorA,
+                        label: 'comments',
+                    },
+                    {
+                        dataKey: 'approvals',
+                        color: colorB,
+                        label: 'approvals',
+                    },
+                ]}
+            />
             {
                 repoPie.pieData.length > 0 &&
                     <Pie
                         data={repoPie.pieData}
                         title={repoPie.sectionTitle}
-                    />
-            }
-            {
-                orgPie.pieData.length > 0 &&
-                    <Pie
-                        data={orgPie.pieData}
-                        title={orgPie.sectionTitle}
                     />
             }
             <Line
