@@ -178,6 +178,7 @@ const StatBars = ({
 
 const styles = () => ({
     root: {
+        width: '100%',
         flexBasis: '100%',
         display: 'flex',
         flexDirection: 'column',

@@ -73,7 +73,7 @@ const PvP = ({
                         removePvP()
                     }} />
 
-                <P className={classes.copy}>This page is just for fun, a bigger or smaller number could be good, bar or not mean much, it depends on context.</P>
+                <P className={classes.copy}>This page is just for fun, a bigger or smaller number could be good, bad or not mean much, it depends on context.</P>
 
                 <StatBars
                     player1={player1}

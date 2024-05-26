@@ -459,7 +459,7 @@ const rainbowData = (type = '', data = {}) => {
 
     const sectionTitle = sortedData.length > reportItems.length
         ? `PR rainbow split by top 20 ${type}s out of ${sortedData.length}`
-        : `PRs rainbow split by ${type}s (${reportItems.length})`
+        : `PR ${type} rainbow (${reportItems.length})`
 
     return {
         pieData,
