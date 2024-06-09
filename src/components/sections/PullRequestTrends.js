@@ -5,6 +5,8 @@ import { useTheme } from '@material-ui/core/styles';
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
 import GraphsWrap from '../shared/GraphsWrap'
+import SingleTable from './SingleTable';
+
 import { P } from '../shared/StyledTags'
 import Line from '../charts/Line'
 // import Scatterplot from '../charts/Scatterplot'
@@ -39,7 +41,14 @@ const PullRequestTrends = ({
                     </div>
                 }
             </ChartDescription>
+            <div>
+                <SingleTable
+                    data={pullRequests}
+                    dataKeys={['mergedAt', 'comments', 'prSize', 'age', 'url']}
+                />
+            </div>
             <GraphsWrap>
+
                 {
                     isTeamPage && <>
                         <Line
@@ -161,7 +170,6 @@ const PullRequestTrends = ({
 }
 
 const mapStateToProps = (state) => ({
-    pullRequests: state.pullRequests,
     releases: state.releases,
     userIds: state.fetches.userIds,
     usersInfo: state.fetches.usersInfo,

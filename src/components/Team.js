@@ -31,10 +31,11 @@ const Team = ({
 
     const allRepos = {}
     const updatedPullRequests = pullRequests
-        .map((prData = {}) => {
+        .map((prData = {}, i) => {
             allRepos[prData.repo] = (allRepos[prData.repo] || 0) + 1
             return {
                 ...prData,
+                id: `${i}-${prData.repo}-${prData.number}`,
                 teamApprovers: teamOnlyData(prData.approvers),
                 teamCommenters: teamOnlyData(prData.commenters),
                 [`repo-${prData.repo}`]: 1,

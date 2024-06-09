@@ -208,7 +208,7 @@ const FormSection = (props) => {
                         { ...inputStates }
                     />
                     <P className="inputDesc">
-                        Key events can give context when viewing the data e.g. started using copilot, launched a feature. These events can help give more context while viewing the data. e.g. Copilot adopted=2024-02-01,Feature A=2024-04-10.
+                        Key events can give context when viewing the data e.g. started using copilot, launched a feature. These events can help give more context while viewing the data. e.g.  Copilot adopted=2024-02-01,Feature A=2024-04-10.
                     </P>
                     <TextInput
                         type="token"

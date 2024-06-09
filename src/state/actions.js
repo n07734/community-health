@@ -21,6 +21,7 @@ import { isAfter, isBefore } from 'date-fns'
 
 import api from '../api/api'
 import getUsersData from '../api/getUsersData'
+import getUserData from '../api/getUserData'
 import getOrgData from '../api/getOrgData'
 import getUntilDate from '../api/getUntilDate'
 import {
@@ -544,11 +545,13 @@ const getAPIData = () => async (dispatch, getState) => {
 
         const untilDate = formUntilDate
 
-        const reportType = (userIds.length > 0 && 'team')
+        const reportType = (userIds.length === 1 && 'user')
+            || (userIds.length > 1 && 'team')
             || (repo && org && 'repo')
             || org && 'org'
 
         const reportTypeMap = {
+            user: () => getUserData({ fetchInfo: fetches, untilDate, dispatch }),
             team: () => getUsersData({ fetchInfo: fetches, untilDate, dispatch }),
             repo: () => api({ fetchInfo: fetches, queryInfo: batchedQuery(untilDate), dispatch }),
             org: () => getOrgData({ fetchInfo: fetches, untilDate, dispatch }),

@@ -1,8 +1,5 @@
-import { useState } from 'react'
 import { DataGrid } from '@material-ui/data-grid'
 import { withStyles } from '@material-ui/core/styles'
-import AddCircleIcon from '@material-ui/icons/AddCircle';
-import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 
 import { format } from 'date-fns'
 
@@ -16,7 +13,7 @@ const zeroOut = {
 const columnMap = {
     comments: {
         field: 'comments',
-        headerName: 'All comments',
+        headerName: 'Comments',
         flex: 1,
         ...zeroOut,
     },
@@ -40,30 +37,30 @@ const columnMap = {
     },
     prSize: {
         field: 'prSize',
-        headerName: 'PR Size',
+        headerName: 'Size',
         flex: 1,
         ...zeroOut,
     },
     additions: {
         field: 'additions',
-        headerName: 'PR additions',
+        headerName: 'Additions',
         flex: 1,
         ...zeroOut,
     },
     deletions: {
         field: 'deletions',
-        headerName: 'PR deletions',
+        headerName: 'Deletions',
         flex: 1,
         ...zeroOut,
     },
     age: {
         field: 'age',
-        headerName: 'PR Age (days)',
+        headerName: 'Age',
         flex: 1,
     },
     mergedAt: {
         field: 'mergedAt',
-        headerName: 'Date',
+        headerName: 'Merged',
         flex: 1,
         renderCell: (params) => format(new Date(params.value), 'do MMM yy'),
     },
@@ -141,70 +138,24 @@ export const makeColumns = dataKeys => {
     return columns
 }
 
-const selectedClass = (classes, selectedIndex, tableVisible) => (itemsIndex) => itemsIndex === selectedIndex
-    ? `${classes.selected} ${tableVisible ? classes.hasTable : ''}`
-    : classes.chunk
-
-const ChunkIcon = ({
-    classes,
-    tableShowing,
-}) =>  tableShowing
-    ? <RemoveCircleIcon className={classes.arrow} />
-    : <AddCircleIcon className={classes.arrow} />
-
-const ItemsTable = ({
+const SingleTable = ({
     data = [],
     dataKeys = [],
     classes = {},
 } = {}) => {
-    const [dataIndex, setIndex] = useState(data.length - 1);
-    const [showTable, setShowTable] = useState(false);
-
-    const selectedClassFor = selectedClass(classes, dataIndex, showTable)
-
     return <div className={classes.wrapper}>
-        {
-             data.length > 1 && <div className={classes.bar}>
-             {
-                data
-                     .map((item, i) => <div
-                         key={i}
-                         className={selectedClassFor(i)}
-                         onClick={() => {
-                             dataIndex === i
-                                 && setShowTable(!showTable)
-
-                             dataIndex !== i
-                                 && !showTable
-                                 && setShowTable(true)
-
-                             setIndex(i)
-                         }}
-                     >
-                         {
-                             dataIndex === i
-                                 ? <ChunkIcon tableShowing={showTable} classes={classes} />
-                                 : <AddCircleIcon className={classes.arrow} />
-                         }
-                     </div>)
-             }
-         </div>
-        }
-        {
-            (data[dataIndex] || []).length > 0 && (data.length === 1 || showTable) &&
-            <DataGrid
-                id={`table-${dataIndex}`}
-                sortingOrder={['desc', 'asc']}
-                rows={data[dataIndex]}
-                columns={makeColumns(dataKeys)}
-                pageSize={5}
-                rowsPerPageOptions={[5]}
-                disableColumnFilter
-                disableColumnMenu
-                isRowSelectable={() => false}
-                autoHeight={true}
-            />
-        }
+        <DataGrid
+            id={`table-single`}
+            sortingOrder={['desc', 'asc']}
+            rows={data}
+            columns={makeColumns(dataKeys)}
+            pageSize={5}
+            rowsPerPageOptions={[5]}
+            disableColumnFilter
+            disableColumnMenu
+            isRowSelectable={() => false}
+            autoHeight={true}
+        />
     </div>
 }
 
@@ -311,4 +262,4 @@ const styles = theme => ({
     },
 })
 
-export default withStyles(styles)(ItemsTable)
+export default withStyles(styles)(SingleTable)

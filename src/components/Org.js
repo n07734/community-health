@@ -16,10 +16,11 @@ const Org = ({
 
     const allRepos = {}
     const updatedPullRequests = pullRequests
-        .map((prData = {}) => {
+        .map((prData = {}, i) => {
             allRepos[prData.repo] = (allRepos[prData.repo] || 0) + 1
             return {
                 ...prData,
+                id: `${i}-${prData.repo}-${prData.number}`,
                 [`repo-${prData.repo}`]: 1,
                 commentSentimentTotalScore: (prData.commentSentimentScore || 0) + (prData.commentAuthorSentimentScore || 0),
             }
@@ -42,6 +43,7 @@ const Org = ({
             releases={markers}
         />
         <PullRequestTrends
+            pullRequests={updatedPullRequests}
             chunkyData={chunkyData}
         />
 
