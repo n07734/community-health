@@ -575,21 +575,23 @@ const getAPIData = () => async (dispatch, getState) => {
             payload: formatUserData(includedPRs, usersInfo),
         })
 
-        const newReleases = formatReleases(results)
-        const allReleases = formatReleaseData([
-            ...filteredReleases,
-            ...releases,
-            ...newReleases,
-        ])
-        const [includesReleases, newFilteredReleases] = filterSortReleases(fetches, untilDate, allReleases)
-        dispatch({
-            type: types.ADD_RELEASES,
-            payload: includesReleases,
-        })
-        dispatch({
-            type: types.ADD_FILTERED_RELEASES,
-            payload: newFilteredReleases,
-        })
+        if (reportType === 'repo') {
+            const newReleases = formatReleases(results)
+            const allReleases = formatReleaseData([
+                ...filteredReleases,
+                ...releases,
+                ...newReleases,
+            ])
+            const [includesReleases, newFilteredReleases] = filterSortReleases(fetches, untilDate, allReleases)
+            dispatch({
+                type: types.ADD_RELEASES,
+                payload: includesReleases,
+            })
+            dispatch({
+                type: types.ADD_FILTERED_RELEASES,
+                payload: newFilteredReleases,
+            })
+        }
 
         const newIssues = formatIssues(results)
         const allIssues = issues.concat(filteredIssues).concat(newIssues)
