@@ -1,4 +1,3 @@
-const onlyShowMyReports = false
 const myPreFetchedReports = [
     // {
     //     name: 'REPORT_NAME',
@@ -10,17 +9,16 @@ const myPreFetchedReports = [
 
 try {
     // If user adds myReport1 to this dir they will see the report when running the app
-    const myReport = {
-        name: 'My Report 1',
-        fileName: 'myReport1',
-        localData: require('./myReport1.json'),
-    }
-    myPreFetchedReports.push(myReport)
+    // const myReport = {
+    //     name: 'My Report 1',
+    //     fileName: 'myReport1',
+    //     localData: require('./myReport1.json'),
+    // }
+    // myPreFetchedReports.push(myReport)
 } catch (error) {
     // Expected as they may not have added a myReport1.json file
 }
 
 export {
-    onlyShowMyReports,
     myPreFetchedReports,
 }

@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
-import { pathOr } from 'ramda'
 
 import Button from '../../shared/Button'
 import Message from '../Message'
@@ -17,7 +16,6 @@ import {
 } from '../../../preFetchedInfo'
 
 import {
-    onlyShowMyReports,
     myPreFetchedReports,
 } from '../../../myReports/myReportsConfig'
 
@@ -29,40 +27,38 @@ const PrefetchedOptions = (props = {}) => {
         getPreFetchedReport,
         setPvPArena,
     } = props
+    const queryString = window?.location?.search
+    const urlParams = new URLSearchParams(queryString)
+    const path = window?.location?.pathname
+    const [, p1Path, p2Path] = /^[\w-/]+$/.test(path)
+        ? path
+            .split('/')
+            .filter(x => x && x !== 'community-health')
+        : []
+    const player1 = p1Path || urlParams.get('player1') || ''
+    const player2 = p2Path || urlParams.get('player2') || ''
+
+    const allItems = [
+        ...myPreFetchedReports,
+        ...preFetchedRepos,
+        ...preFetchedTeams,
+    ]
+
+    const report = urlParams.get('report') || myPreFetchedReports[0]?.fileName || 'facebook-react'
+
+    const isAPreFetchedReport = allItems
+        .some(x => x.fileName === report)
+    const repoInfo = isAPreFetchedReport
+        ? allItems
+            .find(x => x.fileName === report)
+        : { fileName: report }
 
     useEffect(() => {
-        const quertString = pathOr('', ['location', 'search'], window)
-        const urlParams = new URLSearchParams(quertString);
-        const path = pathOr('', ['location', 'pathname'], window)
-        const [reportPath, p1Path, p2Path] = /^[\w-/]+$/.test(path)
-            ? path
-                .split('/')
-                .filter(x => x && x !== 'community-health')
-            : []
-        const player1 = p1Path || urlParams.get('player1') || '';
-        const player2 = p2Path || urlParams.get('player2') || '';
-
-        const allItems = [
-            ...myPreFetchedReports,
-            ...preFetchedRepos,
-            ...preFetchedTeams,
-        ]
-
-        const reportFromPath = allItems.some(x => x.fileName === reportPath)
-            ?  reportPath
-            : ''
-
-        const report = myPreFetchedReports[0]?.fileName || reportFromPath || urlParams.get('report') || 'facebook-react';
-
-        const repoInfo = allItems
-            .find(x => x.fileName === report)
-
-        if (reportFromPath && player1 && player2) {
+        if (player1 && player2) {
             setPvPArena()
         }
-
         getPreFetchedReport(repoInfo)
-    }, [getPreFetchedReport, setPvPArena])
+    }, [getPreFetchedReport, player1, player2, setPvPArena])
 
     const preFetchButton = (repoInfo = {}, i) => <Button
         value={repoInfo.name}
@@ -74,7 +70,6 @@ const PrefetchedOptions = (props = {}) => {
         }}
     />
 
-    // TODO: ajax prefetched on load? or have first in bundle
     return (
         <div className={classes.preFetched}>
             {
@@ -82,7 +77,7 @@ const PrefetchedOptions = (props = {}) => {
                     .map(preFetchButton)
             }
             {
-                !onlyShowMyReports && <>
+                !myPreFetchedReports.length > 0 && isAPreFetchedReport && <>
                     <P>
                         See community contribution health of some popular Open Source repositories.
                     </P>

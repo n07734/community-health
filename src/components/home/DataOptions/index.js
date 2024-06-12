@@ -16,11 +16,26 @@ import PrefetchedOptions from './PrefetchedOptions'
 import FormSection from './FormSection'
 import styles from './styles'
 import {
-    onlyShowMyReports,
     myPreFetchedReports,
 } from '../../../myReports/myReportsConfig'
+import {
+    preFetchedRepos,
+    preFetchedTeams,
+} from '../../../preFetchedInfo'
 
 const FetchForm = ({ classes, clearReport }) => {
+    const queryString = window?.location?.search
+    const urlParams = new URLSearchParams(queryString);
+    const chosenReport =  urlParams.get('report') || myPreFetchedReports[0]?.fileName || 'facebook-react'
+
+    const allPreFetched = [
+        ...preFetchedRepos,
+        ...preFetchedTeams,
+        ...myPreFetchedReports,
+    ]
+    const isAnOSSReport = allPreFetched
+        .some(x => x.fileName === chosenReport)
+
     const [selectedOption, setLocalOption] = useState('oss')
 
     const setOption = (option = '') => {
@@ -33,7 +48,7 @@ const FetchForm = ({ classes, clearReport }) => {
         ? 'Saved and OSS Reports'
         : 'Popular repos and teams'
 
-    const preFetchedText = onlyShowMyReports
+    const preFetchedText = myPreFetchedReports.length > 0
         ? 'Saved Reports'
         : ossCopy
 
@@ -42,7 +57,7 @@ const FetchForm = ({ classes, clearReport }) => {
             <div className={classes.typeOptions}>
                 {
                     [
-                        [preFetchedText, 'oss'],
+                        ...( isAnOSSReport ? [[preFetchedText, 'oss']] : []),
                         ['Make individual report', 'user'],
                         ['Make team report', 'team'],
                         ['Make repo report', 'repo'],

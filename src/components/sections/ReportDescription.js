@@ -67,7 +67,6 @@ const ReportDescription = ({
     pullRequests = [],
     issues = [],
     userIds = [],
-    excludeIds = [],
     reportDescription = '',
     classes,
 } = {}) => {
@@ -97,10 +96,6 @@ const ReportDescription = ({
             {
                 userIds.length > 1
                     && <P>Team's GitHub IDs: { userIds.join(', ') }</P>
-            }
-            {
-                excludeIds.length > 0
-                    && <P>Excluded GitHub IDs, usually bots: { excludeIds.join(', ') }</P>
             }
             {
                 userIds.length !== 1
@@ -141,7 +136,6 @@ const mapStateToProps = (state) => ({
     pullRequests: state.pullRequests,
     issues: state.issues,
     userIds: state.fetches.userIds,
-    excludeIds: state.fetches.excludeIds,
     reportDescription: state.reportDescription,
 })
 

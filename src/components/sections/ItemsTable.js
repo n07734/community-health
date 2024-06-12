@@ -162,11 +162,18 @@ const ItemsTable = ({
 
     const selectedClassFor = selectedClass(classes, dataIndex, showTable)
 
+    const flatData = data.flat()
+    const total = flatData.length
+
+    const updatedData = total > 30
+        ? data
+        : [flatData]
+
     return <div className={classes.wrapper}>
         {
-             data.length > 1 && <div className={classes.bar}>
+             updatedData.length > 0 && <div className={classes.bar}>
              {
-                data
+                updatedData
                      .map((item, i) => <div
                          key={i}
                          className={selectedClassFor(i)}
@@ -191,11 +198,11 @@ const ItemsTable = ({
          </div>
         }
         {
-            (data[dataIndex] || []).length > 0 && (data.length === 1 || showTable) &&
+            (updatedData[dataIndex] || []).length > 0 && showTable &&
             <DataGrid
                 id={`table-${dataIndex}`}
                 sortingOrder={['desc', 'asc']}
-                rows={data[dataIndex]}
+                rows={updatedData[dataIndex]}
                 columns={makeColumns(dataKeys)}
                 pageSize={5}
                 rowsPerPageOptions={[5]}
