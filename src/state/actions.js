@@ -39,24 +39,15 @@ import formatUserData from '../format/userData'
 import { formatReleaseData } from '../format/releaseData'
 import types from './types'
 
-
-const hideUserNames = (hideNames = false) => ({
-    type: hideNames
-        ? types.HIDE_NAMES
-        : types.SHOW_NAMES,
-})
-
 const setUser = (user = '') => (dispatch) => {
     dispatch({
         type: types.SET_USER,
         payload: user,
     })
-    dispatch(hideUserNames(false))
 }
 
 const setPvP = () => (dispatch) => {
     dispatch({ type: types.SET_PVP })
-    dispatch(hideUserNames(false))
 }
 
 const clearPvP = () => ({
@@ -320,7 +311,6 @@ const clearData = (dispatch) => {
     dispatch({ type: types.CLEAR_ISSUES_PAGINATION })
     dispatch({ type: types.CLEAR_FETCH_ERROR })
     dispatch({ type: types.CLEAR_PRE_FETCH_ERROR })
-    dispatch(hideUserNames(false))
 }
 
 const clearAllData = clearData
@@ -942,5 +932,4 @@ export {
     getDownloadProps,
     checkUntilDate,
     trimItems,
-    hideUserNames,
 }

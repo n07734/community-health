@@ -12,7 +12,7 @@ jobs:
 
       - name: Install, Test and Build
         run: |
-          npm install
+          npm install --force
           npm run test
           CI=false && npm run build
 

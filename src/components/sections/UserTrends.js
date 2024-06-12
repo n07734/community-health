@@ -2,6 +2,7 @@
 import { connect } from 'react-redux'
 import { withStyles, useTheme } from '@material-ui/core/styles'
 
+import { useShowNames } from '../../state/ShowNamesProvider'
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
 import Radar from '../charts/Radar'
@@ -82,7 +83,6 @@ const UserTrends = ({
     usersData = [],
     userIds = [],
     usersInfo = {},
-    hiddenNames = false,
     classes = {},
     setUser = () => {},
     setPvP = () => {},
@@ -90,6 +90,8 @@ const UserTrends = ({
     const theme = useTheme();
     const colorA = theme.palette.secondary.main
     const colorB = theme.palette.primary.main
+
+    const { showNames } = useShowNames()
 
     const radarData = formatRadarData(usersData)
     const contributionsRadar = radialChartsContributions(radarData, userIds.length > 0)
@@ -119,7 +121,7 @@ const UserTrends = ({
                                 {...info}
                             />
                             <Button
-                                value={hiddenNames ? 'Spartacus' :  name}
+                                value={showNames ? name : 'Spartacus'}
                                 color={
                                     (i + 1) % 2 === 0
                                         ? 'secondary'
@@ -159,7 +161,6 @@ const mapStateToProps = (state) => ({
     usersData: state.usersData,
     userIds: state.fetches.userIds,
     usersInfo: state.fetches.usersInfo,
-    hiddenNames: state.hiddenNames,
 })
 
 const styles = () => ({

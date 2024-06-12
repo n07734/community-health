@@ -2,6 +2,7 @@
 import { connect } from 'react-redux'
 import { withStyles, useTheme } from '@material-ui/core/styles'
 
+import { useShowNames } from '../../state/ShowNamesProvider'
 import { P } from '../shared/StyledTags'
 import Paper from '../shared/Paper'
 import GraphsWrap from '../shared/GraphsWrap'
@@ -21,12 +22,13 @@ const TeamTrends = ({
     allRepos = {},
     userIds = [],
     usersInfo = {},
-    hiddenNames = false,
     classes,
 } = {}) => {
     const theme = useTheme();
     const colorA = theme.palette.secondary.main
     const colorB = theme.palette.primary.main
+
+    const { showNames } = useShowNames()
 
     const maxAuthors = userIds.length || 15
     const sortedUsers = usersData
@@ -36,8 +38,8 @@ const TeamTrends = ({
         .map((x,i) => ({
             ...x,
             // Needs white space padding to keep the bars
-            author: hiddenNames ? `${Array(i).fill(' ').join('')}Spartacus` : x.author,
-            name: hiddenNames ? `${Array(i).fill(' ').join('')}Spartacus` : usersInfo[x.author]?.name || x.author,
+            author: showNames ? x.author : `${Array(i).fill(' ').join('')}Spartacus`,
+            name: showNames ? usersInfo[x.author]?.name || x.author : `${Array(i).fill(' ').join('')}Spartacus`,
         }))
 
     const chordDataWithName = sortedUsers
@@ -47,7 +49,7 @@ const TeamTrends = ({
         }))
 
     const repoPie = rainbowData('repo', allRepos)
-    const byAuthorData = splitByAuthor(pullRequests, hiddenNames, usersInfo)
+    const byAuthorData = splitByAuthor({ pullRequests, showNames, usersInfo })
 
     return usersData.length > 0 && (
         <Paper>
@@ -105,14 +107,12 @@ const TeamTrends = ({
                     <Chord
                         data={chordDataWithName}
                         preSorted={true}
-                        hideNames={hiddenNames}
                         dataKey="commentsByUser"
                         title="Comment contributions"
                     />
                     <Chord
                         data={chordDataWithName}
                         preSorted={true}
-                        hideNames={hiddenNames}
                         dataKey="approvalsByUser"
                         title="Approval contributions"
                     />
@@ -179,7 +179,6 @@ const mapStateToProps = (state) => ({
     usersData: state.usersData,
     userIds: state.fetches.userIds,
     usersInfo: state.fetches.usersInfo,
-    hiddenNames: state.hiddenNames,
 })
 
 export default connect(mapStateToProps)(withStyles(styles)(TeamTrends))

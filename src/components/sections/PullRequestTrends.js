@@ -1,12 +1,13 @@
 
 import { connect } from 'react-redux'
-import { useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@material-ui/core/styles'
 
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
 import GraphsWrap from '../shared/GraphsWrap'
-import SingleTable from './SingleTable';
+// import SingleTable from './SingleTable'
 
+import { useShowNames } from '../../state/ShowNamesProvider'
 import { P } from '../shared/StyledTags'
 import Line from '../charts/Line'
 // import Scatterplot from '../charts/Scatterplot'
@@ -18,16 +19,17 @@ const PullRequestTrends = ({
     releases = [],
     userIds = [],
     usersInfo = {},
-    hiddenNames = false,
 } = {}) => {
     const theme = useTheme();
     const colorA = theme.palette.secondary.main
     const colorB = theme.palette.primary.main
     const colorC = theme.palette.secondaryLine
 
+    const { showNames } = useShowNames()
+
     const isTeamPage = userIds.length > 0
     const byAuthorData = isTeamPage
-        ? splitByAuthor(pullRequests, hiddenNames, usersInfo)
+        ? splitByAuthor({pullRequests, showNames, usersInfo})
         : []
 
     return pullRequests.length > 0 && (
@@ -41,12 +43,12 @@ const PullRequestTrends = ({
                     </div>
                 }
             </ChartDescription>
-            <div>
+            {/* <div>
                 <SingleTable
                     data={pullRequests}
                     dataKeys={['mergedAt', 'comments', 'prSize', 'age', 'url']}
                 />
-            </div>
+            </div> */}
             <GraphsWrap>
 
                 {
@@ -173,7 +175,6 @@ const mapStateToProps = (state) => ({
     releases: state.releases,
     userIds: state.fetches.userIds,
     usersInfo: state.fetches.usersInfo,
-    hiddenNames: state.hiddenNames,
 })
 
 export default connect(mapStateToProps)(PullRequestTrends)

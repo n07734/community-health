@@ -1,7 +1,9 @@
 
 import { ResponsiveChord as NivoChord } from '@nivo/chord'
-import { useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@material-ui/core/styles'
 
+import { useShowNumbers } from '../../state/ShowNumbersProvider'
+import { useShowNames } from '../../state/ShowNamesProvider'
 import ChartHeading from './ChartHeading'
 import formatChordData from '../../format/chordData'
 import styledCharts from './styledCharts'
@@ -10,17 +12,18 @@ const Chord = styledCharts(({
     title,
     data = [],
     preSorted = false,
-    hideNames = false,
     dataKey = '',
     classes,
 } = {}) => {
     const theme = useTheme();
     const colors = theme.palette.colorList
+    const { showNumbers } = useShowNumbers()
+    const { showNames } = useShowNames()
 
     const {
         names,
         matrix,
-    } = formatChordData(data, dataKey, preSorted, hideNames)
+    } = formatChordData({data, dataKey, preSorted, showNames})
 
     const hasMatrixData = (matrix) => matrix
         .some(row => row
@@ -47,7 +50,7 @@ const Chord = styledCharts(({
                     labelOffset={-23}
                     labelTextColor={{ from: 'color', modifiers: [['darker', 2]] }}
                     colors={colors}
-                    isInteractive={true}
+                    isInteractive={showNumbers}
                     arcHoverOpacity={1}
                     arcHoverOthersOpacity={0.25}
                     ribbonHoverOpacity={0.75}

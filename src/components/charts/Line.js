@@ -2,8 +2,9 @@ import { useState } from 'react'
 import { pathOr, propOr } from 'ramda'
 import { ResponsiveLine as NivoLine } from '@nivo/line'
 import { TableTooltip } from '@nivo/tooltip'
-import { useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@material-ui/core/styles'
 
+import { useShowNumbers } from '../../state/ShowNumbersProvider'
 import ChartHeading from './ChartHeading'
 import styledCharts from './styledCharts'
 import ItemsTable from '../sections/ItemsTable'
@@ -96,6 +97,7 @@ const Line = styledCharts(({
     graphs = [],
 } = {}) => {
     const theme = useTheme();
+    const { showNumbers } = useShowNumbers()
     // TODO: function to see time gap in data to help format date e.g. should add year
     const leftAxis = data
         .find(({ xAxis } = {}) => xAxis === 'left') || { data: [], lines: [] }
@@ -311,6 +313,7 @@ const Line = styledCharts(({
                     curve='monotoneX'
                     animate={false}
                     toggleSerie={false}
+                    isInteractive={showNumbers}
                     xScale={{
                         type: 'time',
                         format: '%Y-%m-%d',
@@ -329,6 +332,7 @@ const Line = styledCharts(({
                     }}
                     legends={showLegends ? legendsArray : []}
                     axisLeft={{
+                        ...(!showNumbers && { renderTick: () => null}),
                         tickSize: 0,
                         tickValues: 8,
                     }}
@@ -341,6 +345,7 @@ const Line = styledCharts(({
                         convertedRightLines.length
                         && {
                             axisRight: {
+                                ...(!showNumbers && { renderTick: () => null}),
                                 tickSize: 0,
                                 tickValues: 8,
                                 format: (rawLeftValue) => {

@@ -15,7 +15,7 @@ const cursorQ = (cursor) => cursor
 
 const cursorWithDirection = (order, { oldest, newest }) => {
   const cursor = order === 'DESC' ? oldest : newest
-  const orderCursor = order === 'DESC' ? 'before' : 'after'
+  const orderCursor = order === 'DESC' ? 'after' : 'before'
   const cursorString = cursor
     ? ` ${orderCursor}:"${cursor}" `
     : ''
@@ -49,6 +49,7 @@ const comments = (cursor) => `
             login
             url
           }
+          publishedAt
           body
         }
       }
@@ -210,14 +211,20 @@ const getPaginationByType = (oldFetchInfo = {}, untilDate = '', data = {}, order
 }
 
 const getPaginationByDirectionType = (oldFetchInfo = {}, untilDate = '', data = {}, order) => type => {
+  const resultPath = type === 'usersReviews'
+    ? ['data', 'result']
+    : ['data', 'result', type]
   const {
     hasNextPage = false,
     hasPreviousPage = false,
     startCursor,
     endCursor,
-  } = pathOr({}, ['data', 'result', type, 'pageInfo'], data)
-
-  const items = pathOr([], ['data', 'result', type, 'edges'], data)
+  } = pathOr({}, [...resultPath, 'pageInfo'], data)
+  console.log('hasNextPage:', hasNextPage);
+  console.log('hasPreviousPage:', hasPreviousPage);
+  console.log('startCursor:', startCursor);
+  console.log('endCursor:', endCursor);
+  const items = pathOr([], [...resultPath, 'edges'], data)
 
   const dateKey = ['pullRequests', 'usersReviews'].includes(type)
     ? 'mergedAt'
@@ -233,15 +240,25 @@ const getPaginationByDirectionType = (oldFetchInfo = {}, untilDate = '', data = 
     usersReviews: 'usersReviewsPagination',
   }
 
-  const oldestDefault = startCursor
+  const direction = type === 'usersReviews' || order === 'ASC'
+    ? 'right'
+    : 'left'
+
+  const oldestDefault = direction === 'right'
+    ? endCursor
+    : startCursor
+
   const oldestCurrent = pathOr(oldestDefault, [typeStateMap[type], 'oldest'], oldFetchInfo)
 
-  const newestDefault = endCursor
+  const newestDefault = direction === 'right'
+    ? startCursor
+    : endCursor
+
   const newestCurrent = pathOr(newestDefault, [typeStateMap[type], 'newest'], oldFetchInfo)
 
-  const hasFollowingPage = order === 'DESC'
-    ? hasPreviousPage
-    : hasNextPage
+  const hasFollowingPage = direction === 'right'
+    ? hasNextPage
+    : hasPreviousPage
 
   // TODO: Don't clear if undefined cursor
   // TODO: add hasPrevPage
@@ -254,12 +271,15 @@ const getPaginationByDirectionType = (oldFetchInfo = {}, untilDate = '', data = 
     [alwaysTrue, always(hasFollowingPage)],
   ])()
 
-  return {
-    newest: order === 'ASC' && endCursor ? endCursor : newestCurrent,
-    oldest: order === 'DESC' && startCursor ? startCursor : oldestCurrent,
+  const nextInfo = {
+    newest: direction === 'right' && endCursor ? endCursor : newestCurrent,
+    oldest: direction === 'left' && startCursor ? startCursor : oldestCurrent,
     hasNextPage: hasFollowingPage,
     hasNextPageForDate: tryNextPage,
   }
+
+  console.log('nextInfo', nextInfo)
+  return nextInfo
 }
 
 const getRemainingPageCount = (data) => {
@@ -323,7 +343,8 @@ const issueComments = (order) => (cursor) => `
       ${pageInfo}
     }
 `
-// TODO: Get this working Nested pagination
+// TODO: Get pagination working, then nested pagination
+// last first with before and after, what is the order when there is no
 const reviewsByUserQuery = (untilDate) => ({
   user,
   sortDirection = 'DESC',
@@ -341,37 +362,19 @@ const reviewsByUserQuery = (untilDate) => ({
       edges {
         node {
           ... on PullRequest {
+            id
             number
             url
-            comments(first: 10) {
-              totalCount
-              ${pageInfo}
-              edges {
-                node {
-                  author {
-                    login
-                  }
-                  body
-                }
-              }
-            }
+            mergedAt
+            createdAt
+            ${comments()}
             reviews(last: 10 states: [COMMENTED,APPROVED,CHANGES_REQUESTED] author: "${user}") {
               totalCount
               ${pageInfo}
               edges {
                 node {
-                  comments(last: 10) {
-                    totalCount
-                    ${pageInfo}
-                    edges {
-                      node {
-                        author {
-                          login
-                        }
-                        body
-                      }
-                    }
-                  }
+                  id
+                  ${comments()}
                 }
               }
             }
@@ -383,6 +386,8 @@ const reviewsByUserQuery = (untilDate) => ({
   sortDirection,
   user,
   resultInfo: (data) => {
+    console.log('==resultInfo data', data)
+
     const byDirectionType = getPaginationByDirectionType(
       {
         usersReviewsPagination,

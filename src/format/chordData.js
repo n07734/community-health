@@ -105,14 +105,14 @@ const getMatrix = (
     ]
 }
 
-const formatChordData = (data, key, preSorted, hideNames) => {
-    const [showGitIds, showNames] = getNameList(data, key, preSorted)
-    const otherAppended = showNames.length < data.length
+const formatChordData = ({ data, key, preSorted, showNames = true }) => {
+    const [showGitIds, showTheseNames] = getNameList(data, key, preSorted)
+    const otherAppended = showTheseNames.length < data.length
 
     const matrix = getMatrix(data, key, showGitIds, otherAppended)
 
     const names = [
-        ...showNames,
+        ...showTheseNames,
         ...(
             otherAppended
                 ? ['Others']
@@ -121,13 +121,13 @@ const formatChordData = (data, key, preSorted, hideNames) => {
     ]
 
     return {
-        names: hideNames
-            ? names.map((x, i) => {
+        names: showNames
+            ? names
+            : names.map((x, i) => {
                 // whitespace needed to keep names unique
                 const append = Array(i).fill(' ').join('')
                 return `Spartacus${append}`
-            })
-            : names,
+            }),
         matrix,
     }
 }

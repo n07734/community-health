@@ -2,6 +2,7 @@
 import { connect } from 'react-redux'
 import { withStyles, useTheme } from '@material-ui/core/styles'
 
+import { useShowNames } from '../../state/ShowNamesProvider'
 import Line from '../charts/Line'
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
@@ -13,17 +14,18 @@ const Sentiment = ({
     pullRequests = [],
     releases = [],
     userIds = [],
-    hiddenNames = false,
     classes = {},
 } = {}) => {
     const theme = useTheme();
     const colors = theme.palette.colorList
 
+    const { showNames } = useShowNames()
+
     const lines = userIds
         .map((userId, i) => {
-            const label = hiddenNames
-                ? `Spartacus${Array(i).fill(' ').join('')}`
-                : userId
+            const label = showNames
+                ? userId
+                : `Spartacus${Array(i).fill(' ').join('')}`
 
             return ([
                 {
@@ -101,7 +103,6 @@ const Sentiment = ({
 const mapStateToProps = (state) => ({
     releases: state.releases,
     userIds: state.fetches.userIds,
-    hiddenNames: state.hiddenNames,
 })
 
 const styles = theme => ({

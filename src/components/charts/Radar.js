@@ -1,8 +1,9 @@
 
 import { Radar as NivoRadar } from '@nivo/radar'
 import { TableTooltip, Chip } from '@nivo/tooltip'
-import { useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@material-ui/core/styles'
 
+import { useShowNumbers } from '../../state/ShowNumbersProvider'
 import ChartHeading from './ChartHeading'
 import styledCharts from './styledCharts'
 import hasChartData from './hasChartData'
@@ -32,7 +33,9 @@ const Radar = styledCharts(({
     const theme = useTheme();
     const colorA = theme.palette.secondary.main
     const colorB = theme.palette.primary.main
-    const radarColors = colors.length > 1 ? colors : [colorA, colorB]
+    const radarColors = colors.length > 0 ? colors : [colorA, colorB]
+
+    const { showNumbers } = useShowNumbers()
 
     return hasChartData(data)(keys) && (
         <div>
@@ -65,6 +68,7 @@ const Radar = styledCharts(({
                 gridAngleStep={200}
                 angleStep={200}
                 sliceTooltip={radarSliceTooltip(data)}
+                isInteractive={showNumbers}
             />
         </div>
     )

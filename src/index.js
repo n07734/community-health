@@ -4,6 +4,8 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import { createStore, applyMiddleware, compose } from 'redux'
 
+import { ShowNumbersProvider } from './state/ShowNumbersProvider'
+import { ShowNamesProvider } from './state/ShowNamesProvider'
 import App from './App'
 import reducers from './state/reducers'
 
@@ -17,6 +19,10 @@ const store = createStore(reducers, composeEnhancers(
 
 root.render(
     <Provider store={store}>
-        <App />
+        <ShowNumbersProvider>
+            <ShowNamesProvider>
+                <App />
+            </ShowNamesProvider>
+        </ShowNumbersProvider>
     </Provider>,
 )

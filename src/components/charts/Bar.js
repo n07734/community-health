@@ -1,8 +1,9 @@
 
 import { filter } from 'ramda'
 import { ResponsiveBar as NivoBar } from '@nivo/bar'
-import { useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@material-ui/core/styles'
 
+import { useShowNumbers } from '../../state/ShowNumbersProvider'
 import ChartHeading from './ChartHeading'
 import styledCharts from './styledCharts'
 import hasChartData from './hasChartData'
@@ -18,6 +19,7 @@ const Bar = styledCharts(({
     title = '',
 } = {}) => {
     const theme = useTheme();
+    const { showNumbers } = useShowNumbers()
     const trimmedData = filter(item => bars.some(x => item[x.dataKey]), data)
 
     const byPropDesc = prop => (a, b) =>
@@ -54,8 +56,10 @@ const Bar = styledCharts(({
                         tickRotation: -45,
                     }}
                     axisLeft={{
+                        ...(!showNumbers && { renderTick: () => null}),
                         tickSize: 0,
                     }}
+                    isInteractive={showNumbers}
                     enableLabel={false}
                     animate={false}
                     theme={theme.charts}

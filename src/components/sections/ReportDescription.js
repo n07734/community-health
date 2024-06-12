@@ -1,14 +1,15 @@
 
 import { connect } from 'react-redux'
 import { withStyles, useTheme } from '@material-ui/core/styles'
-import Switch from '@material-ui/core/Switch';
+import Switch from '@material-ui/core/Switch'
 import { always, cond, T, propSatisfies, where } from 'ramda'
 
+import { useShowNumbers } from '../../state/ShowNumbersProvider'
+import { useShowNames } from '../../state/ShowNamesProvider'
 import { H, P } from '../shared/StyledTags'
 import Paper from '../shared/Paper'
 import PrefetchedForm from '../home/DataOptions/PrefetchedForm'
 import DateRange from './DateRange'
-import { hideUserNames } from '../../state/actions'
 
 const RepoTitle = ({ repo, org, colorA, colorB } = {}) => org === repo
     ? (<span style={{ color: colorB }}>{repo}</span>)
@@ -68,16 +69,14 @@ const ReportDescription = ({
     userIds = [],
     excludeIds = [],
     reportDescription = '',
-    hideNames = () => {},
     classes,
 } = {}) => {
     const theme = useTheme();
     const colorA = theme.palette.secondary.main
     const colorB = theme.palette.primary.main
 
-    const handleChange = (event) => {
-        hideNames(event.target.checked)
-    };
+    const { showNumbers, toggleShowNumbers } = useShowNumbers()
+    const { showNames, toggleShowNames } = useShowNames()
 
     const hasReportData = pullRequests.length > 0 || issues.length > 0
 
@@ -105,13 +104,26 @@ const ReportDescription = ({
             }
             {
                 userIds.length !== 1
-                    &&  <P className={classes.toggle}>
+                    &&  <P>
                     <Switch
-                        onChange={handleChange}
+                        onChange={toggleShowNames}
+                        checked={!showNames}
                         name="checkedA"
                         inputProps={{ 'aria-label': 'secondary checkbox' }}
                     />
                     Toggle to hide GitHub usernames, this can help look for trends.
+                </P>
+            }
+            {
+                userIds.length !== 1
+                    &&  <P>
+                    <Switch
+                        onChange={toggleShowNumbers}
+                        checked={!showNumbers}
+                        name="checkedB"
+                        inputProps={{ 'aria-label': 'secondary checkbox' }}
+                    />
+                    Toggle to hide graph numbers, this can help look for trends.
                 </P>
             }
 
@@ -133,18 +145,11 @@ const mapStateToProps = (state) => ({
     reportDescription: state.reportDescription,
 })
 
-const mapDispatchToProps = dispatch => ({
-    hideNames: (x) => dispatch(hideUserNames(x)),
-})
-
 const styles = theme => ({
     root: {
         display: 'block',
     },
     heading: theme.copy.h1,
-    toggle: {
-        display: 'inline-block',
-    },
 })
 
-export default connect(mapStateToProps,mapDispatchToProps)(withStyles(styles)(ReportDescription))
+export default connect(mapStateToProps)(withStyles(styles)(ReportDescription))

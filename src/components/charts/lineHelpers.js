@@ -402,7 +402,7 @@ const getReportMonthCount = (leftItems = [], rightItems = []) => {
     return totalMonths
 }
 
-const splitByAuthor = (pullRequests = [], hideNames = false, usersInfo = {}) => {
+const splitByAuthor = ({pullRequests = [], showNames = true, usersInfo = {}}) => {
     const authorsPrs = {}
     pullRequests
         .forEach((pr) => {
@@ -421,9 +421,9 @@ const splitByAuthor = (pullRequests = [], hideNames = false, usersInfo = {}) => 
                 }))
 
             return {
-                label: hideNames
-                    ? `${Array(i).fill(' ').join('')}Spartacus`
-                    : usersInfo[author]?.name || author,
+                label: showNames
+                    ? usersInfo[author]?.name || author
+                    : `${Array(i).fill(' ').join('')}Spartacus`,
                 color: colors[i % colors.length],
                 dataKey: 'value',
                 groupMath: 'count',
