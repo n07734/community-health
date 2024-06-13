@@ -554,13 +554,13 @@ const getAPIData = () => async (dispatch, getState) => {
 
         const newestOldPR = pullRequests.at(-1)?.mergedAt?.slice(0, 10)
         const oldestOldPR = pullRequests.at(0)?.mergedAt?.slice(0, 10)
+
         const lastPRDate = newPullRequests.at(-1)?.mergedAt?.slice(0, 10)
+        const nowDate = new Date().toISOString().slice(0, 10)
 
         const {
             sortDirection = 'DESC',
         } = fetches
-
-        const nowDate = new Date().toISOString().slice(0, 10)
 
         const reportDates = sortDirection === 'DESC'
             ? {
@@ -602,7 +602,7 @@ const getAPIData = () => async (dispatch, getState) => {
                 ...releases,
                 ...newReleases,
             ])
-            const [includesReleases, newFilteredReleases] = filterSortReleases(fetches, untilDate, allReleases)
+            const [includesReleases, newFilteredReleases] = filterSortReleases(reportDates, allReleases)
             dispatch({
                 type: types.ADD_RELEASES,
                 payload: includesReleases,
@@ -615,7 +615,7 @@ const getAPIData = () => async (dispatch, getState) => {
 
         const newIssues = formatIssues(results)
         const allIssues = issues.concat(filteredIssues).concat(newIssues)
-        const [includedIssues, newFilteredIssues] = filterSortIssues(fetches, untilDate, allIssues)
+        const [includedIssues, newFilteredIssues] = filterSortIssues(reportDates, allIssues)
         dispatch({
             type: types.ADD_ISSUES,
             payload: includedIssues,

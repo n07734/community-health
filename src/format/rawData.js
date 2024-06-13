@@ -16,7 +16,6 @@ import {
 } from 'date-fns'
 
 import Sentiment from 'sentiment'
-import filterByUntilDate from './filterByUntilDate'
 import { sumKeysValue } from '../utils'
 
 const formatCommentersObject = paths => items => {
@@ -269,12 +268,13 @@ const filterSortPullRequests = ({ excludeIds = [] }, { reportStartDate = '', rep
     return [remainingPRs, filteredPRs]
 }
 
-const filterSortItems = (dateKey = '') => ({ sortDirection }, untilDate, allIssues = []) => {
+const filterSortItems = (dateKey = '') => ({ reportStartDate = '', reportEndDate = '' }, allIssues = []) => {
     const filteredIssues = []
     const remainingIssues = compose(
         sort(dateSort(dateKey, 'ASC')),
         filter(item => {
-            const keepItem = filterByUntilDate([dateKey], sortDirection, untilDate)(item)
+            const itemDate = item?.[dateKey]
+            const keepItem = isAfter(new Date(itemDate), new Date(reportStartDate)) && isBefore(new Date(itemDate), new Date(reportEndDate))
 
             !keepItem && filteredIssues.push(item)
             return keepItem
