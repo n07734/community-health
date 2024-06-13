@@ -552,9 +552,29 @@ const getAPIData = () => async (dispatch, getState) => {
         const newPullRequests = formatPullRequests(fetches, results)
         const filteredNewPullRequests = filterByUsersInfo(fetches, newPullRequests)
 
+        const newestOldPR = pullRequests.at(-1)?.mergedAt?.slice(0, 10)
+        const oldestOldPR = pullRequests.at(0)?.mergedAt?.slice(0, 10)
+        const lastPRDate = newPullRequests.at(-1)?.mergedAt?.slice(0, 10)
+
+        const {
+            sortDirection = 'DESC',
+        } = fetches
+
+        const nowDate = new Date().toISOString().slice(0, 10)
+
+        const reportDates = sortDirection === 'DESC'
+            ? {
+                reportStartDate: untilDate || lastPRDate,
+                reportEndDate: newestOldPR || nowDate,
+            } : {
+                reportStartDate: oldestOldPR,
+                reportEndDate: untilDate || nowDate,
+            }
+
+
         // Get all prs together so then can be cleanly filtered and sorted
         const allPullRequests = pullRequests.concat(filteredPRs).concat(filteredNewPullRequests)
-        const [includedPRs, newFilteredPRs] = filterSortPullRequests(fetches, untilDate, allPullRequests)
+        const [includedPRs, newFilteredPRs] = filterSortPullRequests(fetches, reportDates, allPullRequests)
         dispatch({
             type: types.ADD_PRS,
             payload: includedPRs,
@@ -675,6 +695,8 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
         usersInfo = {},
         excludeIds = [],
         events = [],
+        repo = '',
+        org = '',
     } = fetches
 
     clearData(dispatch)
@@ -778,17 +800,18 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
         payload: filteredIssues,
     })
 
-    const allReleases = formatReleaseData(releases)
-    dispatch({
-        type: types.ADD_RELEASES,
-        payload: allReleases,
-    })
+    if (repo && org) {
+        const allReleases = formatReleaseData(releases)
+        dispatch({
+            type: types.ADD_RELEASES,
+            payload: allReleases,
+        })
 
-    dispatch({
-        type: types.ADD_FILTERED_RELEASES,
-        payload: filteredReleases,
-    })
-
+        dispatch({
+            type: types.ADD_FILTERED_RELEASES,
+            payload: filteredReleases,
+        })
+    }
 
     dispatch({
         type: types.FETCH_END,

@@ -4,7 +4,7 @@ import { withStyles, useTheme } from '@material-ui/core/styles'
 
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
-import { P } from '../shared/StyledTags'
+import { P, UL, LI } from '../shared/StyledTags'
 import Button from '../shared/Button'
 import GraphsWrap from '../shared/GraphsWrap'
 import Line from '../charts/Line'
@@ -93,18 +93,18 @@ const CustomGraphs = ({
         graphId: 1,
         left: [
             {
-                label: 'PR Age (days)',
+                label: 'Trimmed Average PR Age (days)',
                 color: colorA,
                 dataKey: 'age',
-                groupMath: 'average',
+                groupMath: 'trimmedAverage',
             },
         ],
         right: [
             {
-                label: 'PR Size',
+                label: 'Trimmed Average PR Size',
                 color: colorB,
                 dataKey: 'prSize',
-                groupMath: 'average',
+                groupMath: 'trimmedAverage',
             },
         ],
     }]
@@ -116,12 +116,15 @@ const CustomGraphs = ({
         <Paper>
             <ChartDescription
                 title="Build your own graphs"
+                expandText='guidance'
             >
-                {
-                    releases.length > 1 && <div>
-                        <P>Vertical lines are releases: Green is a Major release, solid purple is Minor and dotted purple is Patch or Alpha</P>
-                    </div>
-                }
+                <P>You can build multiple graphs with data you want to see to help you find insights and track trends.</P>
+                <P>Questions worth asking (with team context):</P>
+                <UL>
+                    <LI>what metrics do you want to look and and compare against?</LI>
+                    <LI>Any insights or things you would like to try to impact these metrics?</LI>
+                    <LI>This graph initially had PR age and size as they are often impactful metrics, what do you think about the trends of these metrics?</LI>
+                </UL>
             </ChartDescription>
             <GraphsWrap>
                 {

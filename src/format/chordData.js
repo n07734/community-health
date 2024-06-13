@@ -105,11 +105,11 @@ const getMatrix = (
     ]
 }
 
-const formatChordData = ({ data, key, preSorted, showNames = true }) => {
-    const [showGitIds, showTheseNames] = getNameList(data, key, preSorted)
+const formatChordData = ({ data, dataKey, preSorted, showNames = true }) => {
+    const [showGitIds, showTheseNames] = getNameList(data, dataKey, preSorted)
     const otherAppended = showTheseNames.length < data.length
 
-    const matrix = getMatrix(data, key, showGitIds, otherAppended)
+    const matrix = getMatrix(data, dataKey, showGitIds, otherAppended)
 
     const names = [
         ...showTheseNames,

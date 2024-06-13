@@ -250,14 +250,15 @@ const filterByUsersInfo = (fetchInfo = {}, prs = []) => {
     return filteredItems
 }
 
-const filterSortPullRequests = ({ excludeIds = [], sortDirection }, untilDate, allPullRequests = []) => {
+const filterSortPullRequests = ({ excludeIds = [] }, { reportStartDate = '', reportEndDate = '' }, allPullRequests = []) => {
     const filteredPRs = []
     const remainingPRs = compose(
         sort(dateSort('mergedAt', 'ASC')),
         filter(item => {
             const author = propOr('', 'author', item)
             const hasExcludedAuthor = any(y => y === author, ['GIT_APP_PR', ...excludeIds])
-            const shouldFilterIn = !untilDate || filterByUntilDate(['mergedAt'], sortDirection, untilDate)(item)
+            const prDate = item.mergedAt
+            const shouldFilterIn = isAfter(new Date(prDate), new Date(reportStartDate)) && isBefore(new Date(prDate), new Date(reportEndDate))
             const keepItem = shouldFilterIn && !hasExcludedAuthor
 
             !keepItem && filteredPRs.push(item)

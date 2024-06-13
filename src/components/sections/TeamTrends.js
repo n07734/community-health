@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withStyles, useTheme } from '@material-ui/core/styles'
 
 import { useShowNames } from '../../state/ShowNamesProvider'
-import { P } from '../shared/StyledTags'
+import { P, UL, LI } from '../shared/StyledTags'
 import Paper from '../shared/Paper'
 import GraphsWrap from '../shared/GraphsWrap'
 import ChartDescription from '../shared/ChartDescription'
@@ -55,7 +55,17 @@ const TeamTrends = ({
         <Paper>
             <ChartDescription
                 title="Contributions"
-            />
+                expandText='guidance'
+            >
+                <P>Questions worth asking (with team context):</P>
+                <UL>
+                    <LI>Is there a bus factor risk?</LI>
+                    <LI>Are there any data points that stand out?</LI>
+                    <LI>How do the given and received metrics look?</LI>
+                    <LI>How well spread are the collaboration metrics?</LI>
+                    <LI>Any insights or things you would like to try to impact these metrics?</LI>
+                </UL>
+            </ChartDescription>
             <GraphsWrap>
                 <div className={classes.barsWrap}>
                     <div className={classes.barWrap}>

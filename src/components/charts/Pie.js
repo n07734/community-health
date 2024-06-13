@@ -2,6 +2,7 @@
 import { ResponsivePie } from '@nivo/pie'
 import { useTheme } from '@material-ui/core/styles';
 
+import { useShowNumbers } from '../../state/ShowNumbersProvider'
 import ChartHeading from './ChartHeading'
 import styledCharts from './styledCharts'
 
@@ -11,6 +12,7 @@ const Pie = styledCharts(({
     classes,
 } = {}) => {
     const theme = useTheme();
+    const { showNumbers } = useShowNumbers()
 
     return data.length && (
         <div className={classes.lineChartComponentWrap}>
@@ -40,6 +42,7 @@ const Pie = styledCharts(({
                     arcLinkLabelsStraightLength={15}
                     arcLinkLabelsTextColor={theme.palette.text.primary}
                     theme={theme.charts}
+                    isInteractive={showNumbers}
                 />
             </div>
         </div>

@@ -3,7 +3,7 @@
 import { useTheme } from '@material-ui/core/styles';
 
 import Paper from '../shared/Paper'
-import { P } from '../shared/StyledTags'
+import { P, UL, LI } from '../shared/StyledTags'
 import ChartDescription from '../shared/ChartDescription'
 import GraphsWrap from '../shared/GraphsWrap'
 import Line from '../charts/Line'
@@ -19,7 +19,15 @@ const PullRequestTrendsTeam = ({
         <Paper>
             <ChartDescription
                 title="Team's contribution spread"
-            />
+                expandText='guidance'
+            >
+                <P>Questions worth asking (with team context):</P>
+                <UL>
+                    <LI>Is there a healthy percentage spread?</LI>
+                    <LI>Are the Approval and comments spreads similar?</LI>
+                    <LI>Any insights or things you would like to try to impact these metrics?</LI>
+                </UL>
+            </ChartDescription>
             <P>Y axis is the percentage spread of approvals and comments within the active team*, 100% is an EVEN spread across the team, 0% is contribution from only ONE engineer.</P>
             <GraphsWrap>
                 <Line
