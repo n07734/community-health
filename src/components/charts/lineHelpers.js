@@ -18,7 +18,7 @@ const getAllYValues = data => {
             allValues.push(...values)
         })
 
-    return allValues.sort((a,b) => a - b)
+    return allValues.sort((a, b) => a - b)
 }
 
 const getMaxYValue = (data) => {
@@ -28,11 +28,11 @@ const getMaxYValue = (data) => {
     const tp95Value = allValues[tp95Index] || 0
 
     const maxValue = allValues.at(-1) || 0
-    const percentOf = tp95Value && Math.round(((tp95Value/maxValue) * 100)) || 0
+    const percentOf = tp95Value && Math.round(((tp95Value / maxValue) * 100)) || 0
 
     // Use tp95Value if the values' % of total is low, this trims the top values off the graphs so the trends are more easy to see
     return tp95Value && percentOf < 30
-        ?  tp95Value
+        ? tp95Value
         : maxValue
 }
 
@@ -129,9 +129,9 @@ const teamDistribution = ({ filteredBatch, dataKey } = {}) => {
     const average = total / contributorCount
     const max = (average * (contributorCount - 1)) + (total - average)
     const distance = values
-        .reduce((acc, value) => acc + Math.abs(value - average),0)
+        .reduce((acc, value) => acc + Math.abs(value - average), 0)
     const difference = max - distance
-    const distributionPercent = Math.round((100/max) * difference)
+    const distributionPercent = Math.round((100 / max) * difference)
 
     return isNaN(distributionPercent)
         ? 0
@@ -162,7 +162,7 @@ const growth = ({ filteredBatch } = {}) => {
     const growth = filteredBatch
         .reduce((acc = 0, { additions = 0, deletions = 0 } = {}) => (
             acc + (additions - deletions)
-        ),0)
+        ), 0)
 
     return growth
 }
@@ -200,10 +200,10 @@ const formatBatches = ({ filterForKey = '', dataKey = '', groupMath = 'average' 
             }
         })
 
-        return lineData
+    return lineData
 }
 
-const formatUnbatchedData = ({lines = [], data} = {}) => {
+const formatUnbatchedData = ({ lines = [], data } = {}) => {
     const formattedLines = []
     lines
         .forEach((line = {}) => {
@@ -233,7 +233,7 @@ const formatUnbatchedData = ({lines = [], data} = {}) => {
     return formattedLines
 }
 
-const formatLinesData = ({lines = [], data} = {}) => {
+const formatLinesData = ({ lines = [], data } = {}) => {
     const sharedAxisData = data
         ? batchBy(data)
         : []
@@ -282,6 +282,9 @@ const formatGraphMarkers = (markers, theme, lineData) => {
         MINOR: 'secondary',
     })[type] || 'tertiary'
 
+    // colorList[i % colorList.length]
+    const offsetSteps = [0, 18, 36, 54, 72, 90]
+
     const formattedMarkers = markers
         .filter(({ date } = {}) => {
             const currentDate = new Date(date)
@@ -293,11 +296,7 @@ const formatGraphMarkers = (markers, theme, lineData) => {
             value: new Date(item.date).getTime(),
             legend: item.description,
             ...(theme.charts.markers[markerType(item.releaseType)] || {}),
-            legendOffsetY: {
-                MAJOR: (theme.charts.markers[markerType(item.releaseType)]?.legendOffsetY || 0) + (i%2 === 1 ? 18 : 0 ),
-                MINOR: (i%2 === 1 ? 30 : 45 ),
-                PATCH: (i%2 === 1 ? 60 : 85 ),
-            }[item.releaseType],
+            legendOffsetY: offsetSteps[i % offsetSteps.length],
         }))
 
     return formattedMarkers
@@ -345,10 +344,10 @@ const chunkData = (data = []) => {
     const lastBatch = batchedData.at(-1) || []
 
     const startDate = firstBatch.at(0) && new Date(firstBatch.at(0)?.mergedAt)
-    const endDate = lastBatch.at(0)  && new Date(lastBatch.at(0)?.mergedAt)
+    const endDate = lastBatch.at(0) && new Date(lastBatch.at(0)?.mergedAt)
 
     const totalDays = startDate && endDate
-        ? differenceInDays(endDate,startDate)
+        ? differenceInDays(endDate, startDate)
         : 0
 
     const chunkyData = []
@@ -364,12 +363,12 @@ const chunkData = (data = []) => {
 
             const prDate = new Date(tableItems.at(0).mergedAt)
 
-            const daysFromStart = differenceInDays(prDate,startDate)
+            const daysFromStart = differenceInDays(prDate, startDate)
 
-            const percentToEndDate = Math.floor((daysFromStart/totalDays) * 100)
+            const percentToEndDate = Math.floor((daysFromStart / totalDays) * 100)
             const percentChunked = 10 * chunkCount
 
-            chunkCount < 1 || (percentToEndDate >= percentChunked && chunkCount < 10 )
+            chunkCount < 1 || (percentToEndDate >= percentChunked && chunkCount < 10)
                 ? chunkyData.push(tableItems)
                 : chunkyData.at(-1).push(...tableItems)
         })
@@ -402,7 +401,7 @@ const getReportMonthCount = (leftItems = [], rightItems = []) => {
     return totalMonths
 }
 
-const splitByAuthor = ({pullRequests = [], showNames = true, usersInfo = {}}) => {
+const splitByAuthor = ({ pullRequests = [], showNames = true, usersInfo = {} }) => {
     const authorsPrs = {}
     pullRequests
         .forEach((pr) => {
@@ -441,7 +440,7 @@ const splitByAuthor = ({pullRequests = [], showNames = true, usersInfo = {}}) =>
 
 const rainbowData = (type = '', data = {}) => {
     const sortedData = Object.entries(data)
-        .sort(([,a],[,b]) => a - b)
+        .sort(([, a], [, b]) => a - b)
 
     const topItems = sortedData.slice(-20)
 

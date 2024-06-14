@@ -188,7 +188,6 @@ const CustomGraphs = ({
 }
 
 const mapStateToProps = (state) => ({
-    releases: state.releases,
     issues: state.issues,
 })
 

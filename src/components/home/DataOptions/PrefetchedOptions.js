@@ -94,7 +94,7 @@ const PrefetchedOptions = (props = {}) => {
                         preFetchedOrgs
                             .map(preFetchButton)
                     }
-                    <P>See contribution health of some popular OSS teams</P>
+                    <P>See data from some popular OSS teams.</P>
                     {
                         preFetchedTeams
                             .map(preFetchButton)

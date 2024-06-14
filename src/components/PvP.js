@@ -93,25 +93,25 @@ const PvP = ({
                             lines: [
                                 {
                                     label: `${player1.name} received`,
-                                    color: colorList[2],
+                                    color: colorList[0],
                                     dataKey: 'commentSentimentScore',
                                     data: user1PrData,
                                 },
                                 {
                                     label: `${player1.name} given`,
-                                    color: colorList[1],
+                                    color: colorList[2],
                                     dataKey: 'commentAuthorSentimentScore',
                                     data: user1PrData,
                                 },
                                 {
                                     label: `${player2.name} received`,
-                                    color: colorList[2],
+                                    color: colorList[0],
                                     dataKey: 'commentSentimentScore',
                                     data: user2PrData,
                                 },
                                 {
                                     label: `${player2.name} given`,
-                                    color: colorList[1],
+                                    color: colorList[2],
                                     dataKey: 'commentAuthorSentimentScore',
                                     data: user2PrData,
                                 },

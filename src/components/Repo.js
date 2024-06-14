@@ -11,7 +11,7 @@ import UserList from './sections/UserList'
 import ReportDescription from './sections/ReportDescription'
 import { chunkData } from './charts/lineHelpers'
 
-const RepoView = ({ pullRequests = [] } = {}) => {
+const RepoView = ({ pullRequests = [], releases = [] } = {}) => {
     const updatedPullRequests = pullRequests
         .map((prData = {}, i) => ({
             ...prData,
@@ -32,6 +32,7 @@ const RepoView = ({ pullRequests = [] } = {}) => {
         <CustomGraphs
             pullRequests={updatedPullRequests}
             chunkyData={chunkyData}
+            releases={releases}
         />
         <Sentiment
             pullRequests={updatedPullRequests}
@@ -49,6 +50,7 @@ const RepoView = ({ pullRequests = [] } = {}) => {
 
 const mapStateToProps = (state) => ({
     pullRequests: state.pullRequests,
+    releases: state.releases,
 })
 
 export default connect(mapStateToProps)(RepoView)
