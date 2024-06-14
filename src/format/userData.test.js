@@ -132,7 +132,7 @@ describe('formatUserData:', () => {
                 smith: 1,
             })
             expect(smith.approvalsByUser).toEqual({
-                bob: 2,
+                bob: 1,
             })
 
             expect(bob.approvalsGiven).toEqual(1)

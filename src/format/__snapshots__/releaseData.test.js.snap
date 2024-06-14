@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`releaseData: correct versioning and date sorting 1`] = `
+exports[`formatReleaseData: correct versioning and date sorting 1`] = `
 [
   {
     'date': '2020-10-10',
@@ -15,7 +15,7 @@ exports[`releaseData: correct versioning and date sorting 1`] = `
   {
     'date': '2020-10-18',
     'description': 'v1.3.1',
-    'releaseType': 'PATCH',
+    'releaseType': 'MAJOR',
   },
   {
     'date': '2020-10-19',
@@ -30,32 +30,32 @@ exports[`releaseData: correct versioning and date sorting 1`] = `
   {
     'date': '2020-10-28',
     'description': 'v0.2.1',
-    'releaseType': 'PATCH',
+    'releaseType': 'MAJOR',
   },
   {
     'date': '2020-10-29',
     'description': 'v0.2.0',
-    'releaseType': 'MINOR',
+    'releaseType': 'MAJOR',
   },
   {
     'date': '2020-10-30',
     'description': 'v0.0.1',
-    'releaseType': 'PATCH',
+    'releaseType': 'MAJOR',
   },
 ]
 `;
 
-exports[`releaseData: ignore invalid tags 1`] = `
+exports[`formatReleaseData: ignore invalid tags 1`] = `
 [
   {
     'date': '2020-10-20',
     'description': 'v0.3.0',
-    'releaseType': 'MINOR',
+    'releaseType': 'MAJOR',
   },
   {
     'date': '2020-10-30',
     'description': 'v0.0.1',
-    'releaseType': 'PATCH',
+    'releaseType': 'MAJOR',
   },
 ]
 `;

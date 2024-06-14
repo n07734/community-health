@@ -50,7 +50,7 @@ describe('formatChordData:', () => {
             },
         ]
 
-        const result = formatChordData(data, 'commentsByUser')
+        const result = formatChordData({data, dataKey:'commentsByUser'})
 
         expect(result).toMatchSnapshot()
     })
@@ -104,7 +104,7 @@ describe('formatChordData:', () => {
             },
         ]
 
-        const { names } = formatChordData(data, 'commentsByUser')
+        const { names } = formatChordData({data, dataKey:'commentsByUser'})
 
         expect(names.length).toEqual(4)
         expect(names.find(x => x === 'Others')).toEqual('Others')
@@ -160,7 +160,7 @@ describe('formatChordData:', () => {
             },
         ]
 
-        const { names } = formatChordData(data, 'commentsByUser')
+        const { names } = formatChordData({data, dataKey:'commentsByUser'})
 
         expect(names.length).toEqual(5)
         expect(names.every(x => x !== 'Other')).toEqual(true)

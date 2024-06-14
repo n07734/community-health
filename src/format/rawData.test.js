@@ -171,6 +171,7 @@ describe('formatIssues:', () => {
             },
         ]))
         expect(result).toEqual({
+            age: 1623138,
             mergedAt: '1234',
             isBug: false,
             url: 'url',
