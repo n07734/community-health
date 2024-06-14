@@ -164,33 +164,16 @@ describe('storeUserIds:', () => {
         [
             'userName1=end:2023-12-12,userName2=start:2020-12-12',
             ['userName1', 'userName2'],
-            {
-                userName1: { userId: 'userName1', dates: [{ endDate: '2023-12-12' }] },
-                userName2: { userId: 'userName2', dates: [{ startDate: '2020-12-12' }] },
-            },
         ],
         [
             'userName4=start:2020-12-12;end:2021|start:2022-12-12,userName5',
             ['userName4', 'userName5'],
-            {
-                userName4: {
-                    userId: 'userName4',
-                    dates: [
-                        { startDate: '2020-12-12', endDate: '2021' },
-                        { startDate: '2022-12-12' },
-                    ],
-                },
-            },
         ],
-      ])('input %i', (input, userIds, usersInfo) => {
+      ])('input %i', (input, userIds) => {
         const dispatch = jest.fn()
         storeUserIds(input)(dispatch)
 
-        expect(dispatch).toHaveBeenNthCalledWith(1, {
-            payload: usersInfo, type: 'STORE_USERS_INFO',
-        })
-
-        expect(dispatch).toHaveBeenNthCalledWith(2, {
+        expect(dispatch).toHaveBeenCalledWith({
             payload: userIds, type: 'STORE_USER_IDS',
         })
       })

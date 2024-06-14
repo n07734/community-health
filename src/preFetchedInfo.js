@@ -4,8 +4,16 @@ const preFetchedRepos = [
         fileName: 'facebook-react',
     },
     {
-        name: 'Vite',
-        fileName: 'vitejs-vite',
+        name: 'NextJS',
+        fileName: 'vercel-next.js',
+    },
+    {
+        name: 'Remix',
+        fileName: 'remix-run-remix',
+    },
+    {
+        name: 'Svelte',
+        fileName: 'sveltejs-svelte',
     },
     {
         name: 'Typescript',
@@ -16,60 +24,23 @@ const preFetchedRepos = [
         fileName: 'microsoft-typescript-10',
     },
     {
-        name: 'Jest',
-        fileName: 'facebook-jest',
-    },
-    {
-        name: 'Vitest',
-        fileName: 'vitest-dev-vitest',
-    },
-    {
-        name: 'Prettier',
-        fileName: 'prettier-prettier',
-    },
-    {
-        name: 'Cypress',
-        fileName: 'cypress-io-cypress',
-    },
-    {
-        name: 'Playwright',
-        fileName: 'microsoft-playwright',
-    },
-    {
-        name: 'React Testing Library',
-        fileName: 'testing-library-react-testing-library',
-    },
-    {
         name: 'vscode',
         fileName: 'microsoft-vscode',
-    },
-    {
-        name: 'Material',
-        fileName: 'mui-org-material',
-    },
-    {
-        name: 'Remix',
-        fileName: 'remix-run-remix',
     },
     {
         name: 'Node',
         fileName: 'nodejs-node',
     },
+]
+
+const preFetchedOrgs = [
     {
-        name: 'Deno',
-        fileName: 'denoland-deno',
+        name: 'Vite',
+        fileName: 'vitejs',
     },
     {
-        name: 'Swift',
-        fileName: 'apple-swift',
-    },
-    {
-        name: 'Kotlin',
-        fileName: 'JetBrains-Kotlin',
-    },
-    {
-        name: 'Babel',
-        fileName: 'babel-babel',
+        name: 'testing-library',
+        fileName: 'testing-library',
     },
 ]
 
@@ -94,5 +65,6 @@ const preFetchedTeams = [
 
 export {
     preFetchedRepos,
+    preFetchedOrgs,
     preFetchedTeams,
 }

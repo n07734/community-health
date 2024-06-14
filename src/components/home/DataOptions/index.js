@@ -20,6 +20,7 @@ import {
 } from '../../../myReports/myReportsConfig'
 import {
     preFetchedRepos,
+    preFetchedOrgs,
     preFetchedTeams,
 } from '../../../preFetchedInfo'
 
@@ -30,6 +31,7 @@ const FetchForm = ({ classes, clearReport }) => {
 
     const allPreFetched = [
         ...preFetchedRepos,
+        ...preFetchedOrgs,
         ...preFetchedTeams,
         ...myPreFetchedReports,
     ]

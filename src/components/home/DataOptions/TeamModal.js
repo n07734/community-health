@@ -99,7 +99,6 @@ const GitHubTeam = withStyles(modalStyles)((props) => {
         className={classes.form}
         onSubmit={async(event) => {
                 event.preventDefault()
-                console.log('formInfo', formInfo)
                 const {
                     gitTeamUrl = '',
                     token = '',
@@ -114,8 +113,6 @@ const GitHubTeam = withStyles(modalStyles)((props) => {
                 if (isValid) {
                     getTeamMembers({ fetchInfo:{ name, org, token }, setGitUsers, setInputError})
                 } else {
-                console.log('fff')
-
                     setInputError({level: 'error', message: 'Invalid inputs'})
                 }
         }}
@@ -183,7 +180,6 @@ const TeamModal =  withStyles(modalStyles)(({
                     usersInfo={usersInfo}
                     onSubmit={(x) => {
                         const xString = JSON.stringify(x)
-                        console.log('xString', xString)
                         setParentValues({userIds: xString, usersInfo: x})
                         handleClose()
                     }}

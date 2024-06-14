@@ -14,7 +14,7 @@ const Page = () => (
             <Links />
             <ChartDescription
                 title={(
-                    <H level={1}>Code Community Health</H>
+                    <H level={1}>Code Health</H>
                 )}
             />
             <P>Coding is a team activity, healthy collaboration produces better code, this tool gives in depth contribution and collaboration metrics for teams to analyze their code health.</P>

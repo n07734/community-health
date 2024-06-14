@@ -13,6 +13,7 @@ import {
 import {
     preFetchedRepos,
     preFetchedTeams,
+    preFetchedOrgs,
 } from '../../../preFetchedInfo'
 
 import {
@@ -42,6 +43,7 @@ const PrefetchedOptions = (props = {}) => {
         ...myPreFetchedReports,
         ...preFetchedRepos,
         ...preFetchedTeams,
+        ...preFetchedOrgs,
     ]
 
     const report = urlParams.get('report') || myPreFetchedReports[0]?.fileName || 'facebook-react'
@@ -79,10 +81,17 @@ const PrefetchedOptions = (props = {}) => {
             {
                 !myPreFetchedReports.length > 0 && isAPreFetchedReport && <>
                     <P>
-                        See community contribution health of some popular Open Source repositories.
+                        See data from some popular Open Source repositories.
                     </P>
                     {
                         preFetchedRepos
+                            .map(preFetchButton)
+                    }
+                    <P>
+                        See data from some popular Open Source orgs.
+                    </P>
+                    {
+                        preFetchedOrgs
                             .map(preFetchButton)
                     }
                     <P>See contribution health of some popular OSS teams</P>

@@ -13,6 +13,7 @@ exports[`queries: commentsQuery: query to match snapshot 1`] = `
             login
             url
           }
+          publishedAt
           body
         }
       }
@@ -37,6 +38,7 @@ exports[`queries: reviewCommentsQuery: query to match snapshot 1`] = `
             login
             url
           }
+          publishedAt
           body
         }
       }
@@ -71,6 +73,7 @@ exports[`queries: reviewsQuery: query to match snapshot 1`] = `
             login
             url
           }
+          publishedAt
           body
         }
       }

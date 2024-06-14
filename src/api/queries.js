@@ -220,10 +220,6 @@ const getPaginationByDirectionType = (oldFetchInfo = {}, untilDate = '', data = 
     startCursor,
     endCursor,
   } = pathOr({}, [...resultPath, 'pageInfo'], data)
-  console.log('hasNextPage:', hasNextPage);
-  console.log('hasPreviousPage:', hasPreviousPage);
-  console.log('startCursor:', startCursor);
-  console.log('endCursor:', endCursor);
   const items = pathOr([], [...resultPath, 'edges'], data)
 
   const dateKey = ['pullRequests', 'usersReviews'].includes(type)
@@ -278,7 +274,6 @@ const getPaginationByDirectionType = (oldFetchInfo = {}, untilDate = '', data = 
     hasNextPageForDate: tryNextPage,
   }
 
-  console.log('nextInfo', nextInfo)
   return nextInfo
 }
 
@@ -423,7 +418,7 @@ const reviewsByUserQuery = (untilDate) => ({
         amountOfData: updatedAmountOfData,
       },
     }
-    console.log('usersReviewsPagination', pageInfo)
+
     return pageInfo
   },
   hasMoreResults: [

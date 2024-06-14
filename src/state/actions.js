@@ -270,16 +270,6 @@ const clearPastSearch = (values) => (dispatch, getState) => {
         notSameIds('excludeIds'),
     ])(fetches)
 
-    console.log('isNewSearch', isNewSearch)
-    console.log('values', values)
-    console.log('fetches', fetches)
-    console.log("notSameValues('org')(fetches)", notSameValues('org')(fetches))
-    console.log("notSameValues('repo')(fetches)", notSameValues('repo')(fetches))
-    console.log("notSameValues('teamName')(fetches)", notSameValues('teamName')(fetches))
-    console.log("notSameValues('enterpriseAPI')(fetches)", notSameValues('enterpriseAPI')(fetches))
-    console.log("notSameUsersInfo(values)(fetches)", notSameUsersInfo(values)(fetches))
-    console.log("notSameIds('excludeIds')(fetches)", notSameIds('excludeIds')(fetches))
-
     isNewSearch
         && clearData(dispatch)
 }

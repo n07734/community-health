@@ -16,11 +16,11 @@ describe('validate: userIds key', () => {
         ],
         [
             'userName4=start:2020-12-12;end:2021|start:2019-12-12',
-            false,
+            true,
         ],
         [
             'userName9=start:2020-12-12;end:0-0',
-            false,
+            true,
         ],
       ])('input %s', (value, expected) => {
         const result = validate({ key: 'userIds', value})

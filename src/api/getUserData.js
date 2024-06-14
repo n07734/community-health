@@ -18,9 +18,6 @@ const getUserData = async({ fetchInfo, untilDate, dispatch }) => {
 
         const allUserData = await api(userData)
         const allResults = allUserData.results
-        console.log('issueComments', allResults.issueComments)
-        console.log('commitComments', allResults.commitComments)
-        console.log('pullRequests', allResults.pullRequests)
 
         const userReviewData = {
             fetchInfo: {
