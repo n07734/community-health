@@ -5,7 +5,7 @@ module.exports = {
         "jest": true
     },
     "plugins": ["react", "jest"],
-    "extends": ["eslint:recommended"],
+    "extends": ["eslint:recommended","plugin:react-hooks/recommended"],
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module",

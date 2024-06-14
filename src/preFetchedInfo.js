@@ -54,10 +54,6 @@ const preFetchedTeams = [
         fileName: 'ViteCore',
     },
     {
-        name: 'SvelteCore',
-        fileName: 'SvelteCore',
-    },
-    {
         name: 'TypeScriptCore',
         fileName: 'TypeScriptCore',
     },
