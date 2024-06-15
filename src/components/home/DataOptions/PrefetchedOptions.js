@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
 
@@ -52,7 +52,7 @@ const PrefetchedOptions = (props = {}) => {
         .some(x => x.fileName === report)
     const repoInfo = isAPreFetchedReport
         ? allItems
-            .find(x => x.fileName === report)
+            .find(x => x.fileName === (preFetchedName || report))
         : { fileName: report }
 
     useEffect(() => {
@@ -72,6 +72,8 @@ const PrefetchedOptions = (props = {}) => {
         }}
     />
 
+    const [showAllReports, setAllReports] = useState(false)
+
     return (
         <div className={classes.preFetched}>
             {
@@ -80,25 +82,42 @@ const PrefetchedOptions = (props = {}) => {
             }
             {
                 !myPreFetchedReports.length > 0 && isAPreFetchedReport && <>
-                    <P>
-                        See data from some popular Open Source repositories.
-                    </P>
                     {
-                        preFetchedRepos
-                            .map(preFetchButton)
+                        !showAllReports
+                            && preFetchButton(repoInfo)
                     }
-                    <P>
-                        See data from some popular Open Source orgs.
-                    </P>
                     {
-                        preFetchedOrgs
-                            .map(preFetchButton)
+                        showAllReports
+                            && <>
+                            <P>
+                                Repository reports
+                            </P>
+                            {
+                                preFetchedRepos
+                                    .map(preFetchButton)
+                            }
+                            <P>
+                                Org reports
+                            </P>
+                            {
+                                preFetchedOrgs
+                                    .map(preFetchButton)
+                            }
+                            <P>Team reports</P>
+                            {
+                                preFetchedTeams
+                                    .map(preFetchButton)
+                            }
+                        </>
                     }
-                    <P>See data from some popular OSS teams.</P>
-                    {
-                        preFetchedTeams
-                            .map(preFetchButton)
-                    }
+                     <Button
+                            value={showAllReports ? 'Hide other reports' : 'Show all OSS reports...'}
+                            color={showAllReports ? 'primary' : 'secondary'}
+                            onClick={(e) => {
+                                e.preventDefault()
+                                setAllReports(!showAllReports)
+                            }}
+                        />
                     {
                         error
                             && <Message

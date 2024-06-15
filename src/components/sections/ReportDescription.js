@@ -99,26 +99,26 @@ const ReportDescription = ({
             }
             {
                 userIds.length !== 1
-                    &&  <P>
+                    &&  <P className={classes.switch}>
                     <Switch
                         onChange={toggleShowNames}
                         checked={!showNames}
                         name="checkedA"
                         inputProps={{ 'aria-label': 'secondary checkbox' }}
                     />
-                    Toggle to hide GitHub usernames, this can help look for trends.
+                    Hide GitHub ids/names, this can help look for trends.
                 </P>
             }
             {
                 userIds.length !== 1
-                    &&  <P>
+                    &&  <P className={classes.switch}>
                     <Switch
                         onChange={toggleShowNumbers}
                         checked={!showNumbers}
                         name="checkedB"
                         inputProps={{ 'aria-label': 'secondary checkbox' }}
                     />
-                    Toggle to hide graph numbers, this can help look for trends.
+                    Hide graph numbers, this can help look for trends.
                 </P>
             }
 
@@ -144,6 +144,9 @@ const styles = theme => ({
         display: 'block',
     },
     heading: theme.copy.h1,
+    switch: {
+        marginBottom: '0',
+    },
 })
 
 export default connect(mapStateToProps)(withStyles(styles)(ReportDescription))

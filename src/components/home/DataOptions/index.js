@@ -48,23 +48,33 @@ const FetchForm = ({ classes, clearReport }) => {
 
     const ossCopy = myPreFetchedReports.length > 0
         ? 'Saved and OSS Reports'
-        : 'Popular repos and teams'
+        : 'OSS Reports'
 
     const preFetchedText = myPreFetchedReports.length > 0
         ? 'Saved Reports'
         : ossCopy
 
+    const allTypes = [
+        ...( isAnOSSReport ? [[preFetchedText, 'oss']] : []),
+        ['Make individual report', 'user'],
+        ['Make team report', 'team'],
+        ['Make repo report', 'repo'],
+        ['Make org report', 'org'],
+    ]
+    const [showAllTypes, setAllTypes] = useState(false)
+
+    const showTypes = showAllTypes
+        ? allTypes
+        : [allTypes.find(([, type]) => type === selectedOption)]
+
+    const showText = selectedOption === 'oss'
+        ? 'Make a report...'
+        : 'Show all'
     return (
         <Paper className={classes.dataPaper} >
             <div className={classes.typeOptions}>
                 {
-                    [
-                        ...( isAnOSSReport ? [[preFetchedText, 'oss']] : []),
-                        ['Make individual report', 'user'],
-                        ['Make team report', 'team'],
-                        ['Make repo report', 'repo'],
-                        ['Make org report', 'org'],
-                    ]
+                    showTypes
                         .map(([text, type], i) => <Button
                             value={text}
                             key={i}
@@ -74,6 +84,16 @@ const FetchForm = ({ classes, clearReport }) => {
                                 setOption(type)
                             }}
                         />)
+                }
+                {
+                    <Button
+                        value={showAllTypes ? 'Hide unselected' : showText}
+                        color={showAllTypes ? 'primary' : 'secondary'}
+                        onClick={(e) => {
+                            e.preventDefault()
+                            setAllTypes(!showAllTypes)
+                        }}
+                    />
                 }
             </div>
             {
