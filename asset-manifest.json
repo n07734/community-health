@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/community-health/static/css/main.596e1f42.css",
-    "main.js": "/community-health/static/js/main.1812927f.js",
+    "main.js": "/community-health/static/js/main.c2aa1a48.js",
     "static/media/nunito-v25-latin-regular.woff": "/community-health/static/media/nunito-v25-latin-regular.ca52c044715c95fdd0d8.woff",
     "static/media/nunito-v25-latin-regular.woff2": "/community-health/static/media/nunito-v25-latin-regular.b8644b6e04ecda1cf98b.woff2",
     "index.html": "/community-health/index.html",
     "main.596e1f42.css.map": "/community-health/static/css/main.596e1f42.css.map",
-    "main.1812927f.js.map": "/community-health/static/js/main.1812927f.js.map"
+    "main.c2aa1a48.js.map": "/community-health/static/js/main.c2aa1a48.js.map"
   },
   "entrypoints": [
     "static/css/main.596e1f42.css",
-    "static/js/main.1812927f.js"
+    "static/js/main.c2aa1a48.js"
   ]
 }
