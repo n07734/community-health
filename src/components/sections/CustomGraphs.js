@@ -121,7 +121,7 @@ const CustomGraphs = ({
                 <P>You can build multiple graphs with data you want to see to help you find insights and track trends.</P>
                 <P>Questions worth asking (with team context):</P>
                 <UL>
-                    <LI>what metrics do you want to look and and compare against?</LI>
+                    <LI>What metrics do you want to look and and compare against?</LI>
                     <LI>Any insights or things you would like to try to impact these metrics?</LI>
                     <LI>This graph initially had PR age and size as they are often impactful metrics, what do you think about the trends of these metrics?</LI>
                 </UL>

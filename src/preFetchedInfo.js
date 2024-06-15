@@ -12,6 +12,10 @@ const preFetchedRepos = [
         fileName: 'remix-run-remix',
     },
     {
+        name: 'Vue',
+        fileName: 'vuejs-core',
+    },
+    {
         name: 'Svelte',
         fileName: 'sveltejs-svelte',
     },

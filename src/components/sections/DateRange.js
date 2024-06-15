@@ -50,7 +50,7 @@ const DateRange = ({
     }
 
     return pullRequests.length > 0 && leftDate && <>
-            <P className={classes.title}>Drag the points to change the date range of the report. Pull requests: {pullRequests.length}, Issues: {issues.length}</P>
+            <P className={classes.title}>Drag the points to change the date range of the report. Showing {pullRequests.length} PRs and {issues.length} issues </P>
             <div className={classes.dates}>
                 <P>{format(new Date(leftDate), 'do MMM yy')}</P><P>{format(new Date(rightDate), 'do MMM yy')}</P>
             </div>
