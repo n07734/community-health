@@ -1,6 +1,6 @@
 
 import { connect } from 'react-redux'
-import { withStyles } from '@material-ui/core/styles'
+import { withStyles } from '@mui/styles'
 
 import { useShowNames } from '../../state/ShowNamesProvider'
 import Paper from '../shared/Paper'

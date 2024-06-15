@@ -1,8 +1,8 @@
-import { withStyles, useTheme } from '@material-ui/core/styles'
+import { withStyles, useTheme } from '@mui/styles'
 import {
     Select,
     MenuItem,
-} from '@material-ui/core'
+} from '@mui/material'
 
 import { P, H } from '../shared/StyledTags'
 

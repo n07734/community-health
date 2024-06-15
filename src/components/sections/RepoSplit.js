@@ -1,5 +1,5 @@
 
-import { useTheme } from '@material-ui/core/styles'
+import { useTheme } from '@mui/styles'
 import ChartDescription from '../shared/ChartDescription'
 import GraphsWrap from '../shared/GraphsWrap'
 import Line from '../charts/Line'

@@ -1,6 +1,6 @@
 
 import { connect } from 'react-redux'
-import { useTheme } from '@material-ui/core/styles'
+import { useTheme } from '@mui/styles'
 
 import Paper from './shared/Paper'
 import GraphsWrap from './shared/GraphsWrap'

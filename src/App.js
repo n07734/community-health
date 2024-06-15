@@ -1,16 +1,19 @@
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { MuiThemeProvider } from '@material-ui/core/styles'
+import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
+
 import { pathOr } from 'ramda'
 
-import theme from './theme'
+import { useThemeMode } from './state/ThemeModeProvider'
+
 import Page from './components/home/Page'
 import Loader from './components/Loader'
 import * as actions from './state/actions'
+import theme from './theme'
+
 import './fonts.css'
 
 const App = ({
-    themeType,
     setReposUserId,
 } = {}) => {
     useEffect(() => {
@@ -21,11 +24,16 @@ const App = ({
         setReposUserId(user)
     }, [setReposUserId])
 
+    const { themeMode } = useThemeMode()
+    const resolvedTheme = theme(themeMode);
+
     return (
-        <MuiThemeProvider theme={theme(themeType)}>
-            <Loader />
-            <Page />
-        </MuiThemeProvider>
+        <ThemeProvider theme={resolvedTheme}>
+            <StyledEngineProvider injectFirst>
+                <Loader />
+                <Page />
+            </StyledEngineProvider>
+        </ThemeProvider>
     )
 }
 

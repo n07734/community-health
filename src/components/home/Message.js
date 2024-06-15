@@ -1,7 +1,7 @@
 
-import ErrorIcon from '@material-ui/icons/Error'
-import WarningIcon from '@material-ui/icons/Warning'
-import { withStyles } from '@material-ui/core/styles'
+import ErrorIcon from '@mui/icons-material/Error'
+import WarningIcon from '@mui/icons-material/Warning'
+import { withStyles } from '@mui/styles'
 
 import { P } from '../shared/StyledTags'
 

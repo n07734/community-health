@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Box, Modal, withStyles} from '@material-ui/core'
+import { Box, Modal} from '@mui/material'
+import { withStyles} from '@mui/styles'
 
 import styles from './styles'
 import { H } from '../../shared/StyledTags'

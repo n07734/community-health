@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import { withStyles, useTheme } from '@material-ui/core/styles'
+import { withStyles, useTheme } from '@mui/styles'
 import {
     Select,
     MenuItem,
     RadioGroup,
     Radio,
     FormLabel,
-} from '@material-ui/core'
-import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
+} from '@mui/material'
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 
 import { P } from '../shared/StyledTags'
 import Button from '../shared/Button'
@@ -321,6 +321,7 @@ const GraphUi = ({
                         })
 
                     }}
+                    variant="filled"
                     value={formInfo.dataKey}
                     inputProps={{ 'aria-label': 'choose a line' }}
                 >
@@ -334,6 +335,7 @@ const GraphUi = ({
                 {
                     lineMaths.length > 0 && <Select
                             onChange={(e) => setValue({ groupMath: e.target.value })}
+                            variant="filled"
                             value={formInfo.groupMath}
                             inputProps={{ 'aria-label': 'Choose a line calculation' }}
                         >
@@ -357,6 +359,7 @@ const GraphUi = ({
                 </RadioGroup>
                 <Select
                     onChange={(e) => setValue({ color: e.target.value })}
+                    variant="filled"
                     value={formInfo.color}
                     inputProps={{ 'aria-label': 'Choose a color' }}
                 >

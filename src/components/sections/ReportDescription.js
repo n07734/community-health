@@ -1,7 +1,7 @@
 
 import { connect } from 'react-redux'
-import { withStyles, useTheme } from '@material-ui/core/styles'
-import Switch from '@material-ui/core/Switch'
+import { withStyles, useTheme } from '@mui/styles'
+import Switch from '@mui/material/Switch'
 import { always, cond, T, propSatisfies, where } from 'ramda'
 
 import { useShowNumbers } from '../../state/ShowNumbersProvider'

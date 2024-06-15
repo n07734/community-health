@@ -5,7 +5,7 @@ import {
     always,
     equals,
 } from 'ramda'
-import { withStyles } from '@material-ui/core/styles'
+import { withStyles } from '@mui/styles'
 
 import { clearAllData } from '../../../state/actions'
 

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { pathOr, propOr } from 'ramda'
 import { ResponsiveLine as NivoLine } from '@nivo/line'
 import { TableTooltip } from '@nivo/tooltip'
-import { useTheme } from '@material-ui/core/styles'
+import { useTheme } from '@mui/styles'
 
 import { useShowNumbers } from '../../state/ShowNumbersProvider'
 import ChartHeading from './ChartHeading'

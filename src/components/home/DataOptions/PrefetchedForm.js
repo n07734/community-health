@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import {
     Select,
     MenuItem,
-} from '@material-ui/core'
-import { withStyles } from '@material-ui/core/styles'
+} from '@mui/material'
+import { withStyles } from '@mui/styles'
 
 import ButtonWithMessage from './ButtonWithMessage'
 import SelectAmountData from './SelectAmountData'

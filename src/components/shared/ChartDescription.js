@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import Collapse from '@material-ui/core/Collapse'
-import { withStyles } from '@material-ui/core/styles'
+import Collapse from '@mui/material/Collapse'
+import { withStyles } from '@mui/styles'
 
 import { H, P } from './StyledTags'
 

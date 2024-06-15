@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { connect } from 'react-redux'
-import { withStyles, useTheme } from '@material-ui/core/styles'
+import { withStyles, useTheme } from '@mui/styles'
 
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'

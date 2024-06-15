@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { DataGrid } from '@material-ui/data-grid'
-import { withStyles } from '@material-ui/core/styles'
-import AddCircleIcon from '@material-ui/icons/AddCircle';
-import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
+import { DataGrid } from '@mui/x-data-grid'
+import { withStyles } from '@mui/styles'
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 
 import { format } from 'date-fns'
 
@@ -204,8 +204,11 @@ const ItemsTable = ({
                 sortingOrder={['desc', 'asc']}
                 rows={updatedData[dataIndex]}
                 columns={makeColumns(dataKeys)}
-                pageSize={5}
-                rowsPerPageOptions={[5]}
+                initialState={{
+                    pagination: { paginationModel: { pageSize: 5 } },
+                }}
+                pageSizeOptions={[5]}
+                autoPageSize={false}
                 disableColumnFilter
                 disableColumnMenu
                 isRowSelectable={() => false}

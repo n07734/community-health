@@ -1,5 +1,5 @@
 
-import { withStyles } from '@material-ui/core/styles'
+import { withStyles } from '@mui/styles'
 
 const CoreWrapper = ({ classes, children }) => <div className={classes.wrapper}>{children}</div>
 

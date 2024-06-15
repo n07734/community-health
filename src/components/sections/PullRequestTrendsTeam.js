@@ -1,6 +1,6 @@
 
 
-import { useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@mui/styles';
 
 import Paper from '../shared/Paper'
 import { P, UL, LI } from '../shared/StyledTags'

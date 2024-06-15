@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import { withStyles } from '@material-ui/core/styles'
+import { withStyles } from '@mui/styles'
 
 import Button from '../../shared/Button'
 import Message from '../Message'

@@ -1,6 +1,6 @@
 
 import { ResponsiveChord as NivoChord } from '@nivo/chord'
-import { useTheme } from '@material-ui/core/styles'
+import { useTheme } from '@mui/styles'
 
 import { useShowNumbers } from '../../state/ShowNumbersProvider'
 import { useShowNames } from '../../state/ShowNamesProvider'

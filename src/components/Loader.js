@@ -1,7 +1,7 @@
 
 import { connect } from 'react-redux'
-import { withStyles } from '@material-ui/core/styles'
-import LinearProgress from '@material-ui/core/LinearProgress'
+import { withStyles } from '@mui/styles'
+import LinearProgress from '@mui/material/LinearProgress'
 import { H, P } from './shared/StyledTags'
 import differenceInDays from 'date-fns/differenceInDays'
 import {

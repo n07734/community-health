@@ -1,14 +1,14 @@
 
-import { connect } from 'react-redux'
-import { withStyles } from '@material-ui/core/styles';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import Brightness3 from '@material-ui/icons/Brightness3';
-import WbSunny from '@material-ui/icons/WbSunny';
+import { withStyles } from '@mui/styles';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import Brightness3 from '@mui/icons-material/Brightness3';
+import WbSunny from '@mui/icons-material/WbSunny';
 
-import { toggleTheme } from '../../state/actions'
+import { useThemeMode } from '../../state/ThemeModeProvider'
 
-const Links = ({ classes, themeType, themeToggle }) => {
+const Links = ({ classes }) => {
+    const { themeMode, toggleThemeMode } = useThemeMode()
     return (
         <div className={classes.wrapper} >
             <a alt="My Twitter page" className={classes.link} href="https://twitter.com/chris_07734">
@@ -22,9 +22,9 @@ const Links = ({ classes, themeType, themeToggle }) => {
                 alt="Change theme"
                 onClick={(e) => {
                     e.preventDefault()
-                    themeToggle()
+                    toggleThemeMode()
                 }}
-                className={themeType}
+                className={themeMode}
             >
                 <WbSunny className={`${classes.icon} sun`} />
                 <Brightness3 className={`${classes.icon} moon`} />
@@ -69,12 +69,4 @@ const styles = theme => ({
     },
 })
 
-const mapStateToProps = (state) => ({
-    themeType: state.themeType,
-})
-
-const mapDispatchToProps = dispatch => ({
-    themeToggle: (x) => dispatch(toggleTheme(x)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Links))
+export default withStyles(styles)(Links)

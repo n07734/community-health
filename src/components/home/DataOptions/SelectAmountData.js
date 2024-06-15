@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import {
     Select,
     MenuItem,
-} from '@material-ui/core'
+} from '@mui/material'
 
 const SelectAmountData = (props = {}) => {
     const {

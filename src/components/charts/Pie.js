@@ -1,6 +1,6 @@
 
 import { ResponsivePie } from '@nivo/pie'
-import { useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@mui/styles';
 
 import { useShowNumbers } from '../../state/ShowNumbersProvider'
 import ChartHeading from './ChartHeading'

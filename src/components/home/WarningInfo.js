@@ -1,9 +1,9 @@
 
-import { SnackbarContent } from '@material-ui/core'
-import { Warning } from '@material-ui/icons'
+import { SnackbarContent } from '@mui/material'
+import { Warning } from '@mui/icons-material'
 
-import amber from '@material-ui/core/colors/amber'
-import { withStyles } from '@material-ui/core/styles'
+import amber from '@mui/material/colors/amber'
+import { withStyles } from '@mui/styles'
 
 const infoStyles = theme => ({
     warning: {

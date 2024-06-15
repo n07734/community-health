@@ -1,4 +1,5 @@
-import { createTheme } from '@material-ui/core/styles'
+/* eslint-disable no-unused-vars */
+import { createTheme } from '@mui/material/styles'
 import { colors } from './components/colors'
 
 const themeColor = type => ({
@@ -10,6 +11,13 @@ const themeColorBg = type => ({
     light: '#fff',
     dark: '#232023',
 })[type]
+
+const themeInputColor = type => ({
+    light: '#777',
+    dark: '#E2E2E2',
+})[type]
+
+
 
 const fontFamily = '"Nunito", "Roboto", "Helvetica", "Arial", sans-serif'
 const fontSize = 12
@@ -48,8 +56,46 @@ const spacing = {
 
 const theme =  (type = 'light') => createTheme({
     type,
+    components: {
+        MuiSelect: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: 'transparent',
+                    '&:hover':{
+                        backgroundColor: 'transparent',
+                    },
+                    '&:focus':{
+                        backgroundColor: 'transparent',
+                    },
+                    '&.Mui-focused': {
+                        backgroundColor: 'transparent',
+                    },
+                    '& .MuiInputBase-input': {
+                        paddingTop: 0,
+                        paddingLeft: 0,
+                        paddingRight: 0,
+                        paddingBottom: 0,
+                        '&:focus':{
+                            backgroundColor: 'transparent',
+                        },
+                    },
+                },
+            },
+        },
+        MuiPaper: {
+            styleOverrides: {
+                root: {
+                    '&.MuiMenu-paper':{
+                        backgroundColor: themeColorBg(type),
+                        backgroundImage: 'none',
+                    },
+                },
+            },
+        },
+    },
     palette: {
         type,
+        mode: type,
         colorList: colors,
         error: {
             main:'#E02E2E',
@@ -194,9 +240,9 @@ const theme =  (type = 'light') => createTheme({
         legendsTextFill: themeColor(type),
         dotColor: themeColor(type),
         tooltip: {
-            fontFamily,
-            fontSize,
             container: {
+                fontFamily,
+                fontSize,
                 background: themeColorBg(type),
                 color: themeColor(type),
                 boxShadow: `0 1px 2px ${themeColor(type)}`,

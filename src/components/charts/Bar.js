@@ -1,7 +1,7 @@
 
 import { filter } from 'ramda'
 import { ResponsiveBar as NivoBar } from '@nivo/bar'
-import { useTheme } from '@material-ui/core/styles'
+import { useTheme } from '@mui/styles'
 
 import { useShowNumbers } from '../../state/ShowNumbersProvider'
 import ChartHeading from './ChartHeading'

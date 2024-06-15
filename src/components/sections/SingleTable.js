@@ -1,5 +1,5 @@
-import { DataGrid } from '@material-ui/data-grid'
-import { withStyles } from '@material-ui/core/styles'
+import { DataGrid } from '@mui/x-data-grid'
+import { withStyles } from '@mui/styles'
 
 import { format } from 'date-fns'
 

@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { withStyles } from '@material-ui/core'
-import { Delete } from '@material-ui/icons'
+import { withStyles } from '@mui/styles'
+import { Delete } from '@mui/icons-material'
 
 import { H } from '../../shared/StyledTags'
 import styles from './styles'
@@ -56,8 +56,6 @@ const UserForm = ({
     usersInfo = {},
     classes = {},
 }) => {
-    console.log('UserForm usersInfo',usersInfo)
-
     const userEntries = Object.entries(usersInfo)
         .map(([userId, { name = '', dates = []}]) => ({ userId, name, dates }))
 
@@ -70,14 +68,12 @@ const UserForm = ({
     const handleInputChange = (userIndex) => (field, value) => {
         const newUsers = [...users]
         newUsers[userIndex][field] = value
-        console.log('newUsers input', newUsers)
         setUsers(newUsers)
     }
 
     const handleDateChange = (userIndex, dateIndex) => (field, value) => {
         const newUsers = [...users]
         newUsers[userIndex].dates[dateIndex][field] = value
-        console.log('newUsers date', newUsers)
         setUsers(newUsers)
     }
 
@@ -111,10 +107,7 @@ const UserForm = ({
     }
 
     const handleRemoveDate = ({ userIndex, dateIndex }) => {
-        console.log('User Index:', userIndex)
-        console.log('Date Index:', dateIndex)
         const newUsers = [...users]
-        console.log('Inputs:', newUsers[userIndex].dates[dateIndex])
 
         const currentDates = newUsers[userIndex].dates
         const newDates = currentDates.filter((date, index) => index !== dateIndex)
@@ -123,7 +116,6 @@ const UserForm = ({
     }
 
     const [inputError, setInputError] = useState({})
-    console.log('users c', users)
 
     const membersTitle = gitUsers.length > 0 && 'Edit Github Team members'
         || Object.keys(usersInfo).length > 0 && 'Edit team members'

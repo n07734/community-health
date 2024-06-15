@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { connect } from 'react-redux'
-import { withStyles } from '@material-ui/core/styles'
-import Slider from '@material-ui/core/Slider';
+import { withStyles } from '@mui/styles'
+import Slider from '@mui/material/Slider'
 import {
     add,
     sub,

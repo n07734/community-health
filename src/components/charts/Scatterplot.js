@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { pathOr, propOr } from 'ramda'
 import { ResponsiveScatterPlot as NivoScatter } from '@nivo/scatterplot'
 import { TableTooltip } from '@nivo/tooltip'
-import { useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@mui/styles';
 
 import ChartHeading from './ChartHeading'
 import styledCharts from './styledCharts'
