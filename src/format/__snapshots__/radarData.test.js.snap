@@ -1,59 +1,59 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`formatRadarData: averagedData 1`] = `
+exports[`formatRadarData: > averagedData 1`] = `
 {
-  'age': 3,
-  'approvalsGiven': 2,
-  'approvalsReceived': 2,
-  'codeCommentsGiven': 2,
-  'codeCommentsReceived': 2,
-  'commentsGiven': 4,
-  'commentsReceived': 4,
-  'generalCommentsGiven': 2,
-  'generalCommentsReceived': 2,
-  'prSize': 300,
-  'totalPRs': 1,
-  'uniquePRsApproved': 2,
-  'uniquePRsContributedTo': 2,
-  'user': 'Peers',
-  'userCount': 2,
+  "age": 3,
+  "approvalsGiven": 2,
+  "approvalsReceived": 2,
+  "codeCommentsGiven": 2,
+  "codeCommentsReceived": 2,
+  "commentsGiven": 4,
+  "commentsReceived": 4,
+  "generalCommentsGiven": 2,
+  "generalCommentsReceived": 2,
+  "prSize": 300,
+  "totalPRs": 1,
+  "uniquePRsApproved": 2,
+  "uniquePRsContributedTo": 2,
+  "user": "Peers",
+  "userCount": 2,
 }
 `;
 
-exports[`formatRadarData: filter author 1`] = `
+exports[`formatRadarData: > filter author 1`] = `
 {
-  'age': 2,
-  'approvalsGiven': 2,
-  'approvalsReceived': 2,
-  'codeCommentsGiven': 2,
-  'codeCommentsReceived': 2,
-  'commentsGiven': 2,
-  'commentsReceived': 6,
-  'generalCommentsGiven': 2,
-  'generalCommentsReceived': 2,
-  'prSize': 200,
-  'totalPRs': 0,
-  'uniquePRsApproved': 0,
-  'uniquePRsContributedTo': 0,
-  'user': 'Peers',
-  'userCount': 1,
+  "age": 2,
+  "approvalsGiven": 2,
+  "approvalsReceived": 2,
+  "codeCommentsGiven": 2,
+  "codeCommentsReceived": 2,
+  "commentsGiven": 2,
+  "commentsReceived": 6,
+  "generalCommentsGiven": 2,
+  "generalCommentsReceived": 2,
+  "prSize": 200,
+  "totalPRs": 0,
+  "uniquePRsApproved": 0,
+  "uniquePRsContributedTo": 0,
+  "user": "Peers",
+  "userCount": 1,
 }
 `;
 
-exports[`formatRadarData: maxValues 1`] = `
+exports[`formatRadarData: > maxValues 1`] = `
 {
-  'age': 4,
-  'approvalsGiven': 2,
-  'approvalsReceived': 2,
-  'codeCommentsGiven': 2,
-  'codeCommentsReceived': 2,
-  'commentsGiven': 6,
-  'commentsReceived': 6,
-  'generalCommentsGiven': 2,
-  'generalCommentsReceived': 2,
-  'prSize': 400,
-  'totalPRs': 2,
-  'uniquePRsApproved': 4,
-  'uniquePRsContributedTo': 4,
+  "age": 4,
+  "approvalsGiven": 2,
+  "approvalsReceived": 2,
+  "codeCommentsGiven": 2,
+  "codeCommentsReceived": 2,
+  "commentsGiven": 6,
+  "commentsReceived": 6,
+  "generalCommentsGiven": 2,
+  "generalCommentsReceived": 2,
+  "prSize": 400,
+  "totalPRs": 2,
+  "uniquePRsApproved": 4,
+  "uniquePRsContributedTo": 4,
 }
 `;

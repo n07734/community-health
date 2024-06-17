@@ -1,12 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`queries: commentsQuery: query to match snapshot 1`] = `
+exports[`queries: > commentsQuery: > query to match snapshot 1`] = `
 "{
-      node(id:\\"nodeId\\") {
+      node(id:"nodeId") {
           ... on PullRequest {
             id
             
-    comments(first: 100  after:\\"cursor\\" ) {
+    comments(first: 100  after:"cursor" ) {
       edges {
         node {
           author {
@@ -25,13 +25,13 @@ exports[`queries: commentsQuery: query to match snapshot 1`] = `
     }"
 `;
 
-exports[`queries: reviewCommentsQuery: query to match snapshot 1`] = `
+exports[`queries: > reviewCommentsQuery: > query to match snapshot 1`] = `
 "{
-      node(id:\\"nodeId\\") {
+      node(id:"nodeId") {
           ... on PullRequestReview {
             id
             
-    comments(first: 100  after:\\"cursor\\" ) {
+    comments(first: 100  after:"cursor" ) {
       edges {
         node {
           author {
@@ -50,13 +50,13 @@ exports[`queries: reviewCommentsQuery: query to match snapshot 1`] = `
     }"
 `;
 
-exports[`queries: reviewsQuery: query to match snapshot 1`] = `
+exports[`queries: > reviewsQuery: > query to match snapshot 1`] = `
 "{
-      node(id:\\"nodeId\\") {
+      node(id:"nodeId") {
           ... on PullRequest {
             id
             
-    reviews(first: 100  after:\\"cursor\\" ) {
+    reviews(first: 100  after:"cursor" ) {
       edges {
         node {
           id

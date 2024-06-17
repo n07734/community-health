@@ -1,17 +1,19 @@
+import { vi } from 'vitest'
 import types from './types'
+import {
+    setUser,
+    clearUser,
+    storeOrg,
+    storeToken,
+    storeRepo,
+    toggleTheme,
+    storeUserIds,
+} from './actions'
+import { getAPIData } from './actions'
 
 describe('Basic actions:', () => {
-    const {
-        setUser,
-        clearUser,
-        storeOrg,
-        storeToken,
-        storeRepo,
-        toggleTheme,
-    } = require('./actions')
-
     it('setUser returns correct type', () => {
-        const dispatch = jest.fn()
+        const dispatch = vi.fn()
         setUser('USER')(dispatch)
         expect(dispatch).toHaveBeenNthCalledWith(1, {
             payload: 'USER', type: 'SET_USER',
@@ -60,16 +62,17 @@ describe('Basic actions:', () => {
 })
 
 describe('getAPIData:', () => {
-    jest.resetModules()
-    jest.mock('../api/api', () => {
-        return ({ apiError }) => () => () => apiError
-            ? Promise.reject('Oops')
-            : Promise.resolve()
+    vi.resetModules()
+    vi.mock('../api/api', () => {
+        return {
+            default: ({ apiError }) => () => () => apiError
+                ? Promise.reject('Oops')
+                : Promise.resolve(),
+        }
     })
-    const { getAPIData } = require('./actions')
 
     it('Dispatches are called in correct order when there is preFetchedName', async() => {
-        const dispatch = jest.fn()
+        const dispatch = vi.fn()
         const getState = () => ({
             fetches: {
                 org: 'org',
@@ -121,7 +124,7 @@ describe('getAPIData:', () => {
     })
 
     it('Dispatches are called in correct order when there is an api error', async () => {
-        const dispatch = jest.fn()
+        const dispatch = vi.fn()
         const getState = () => ({
             fetches: {
                 org: 'org',
@@ -148,8 +151,6 @@ describe('getAPIData:', () => {
 })
 
 describe('toggleTheme:', () => {
-    const { toggleTheme } = require('./actions')
-
     it('Returns correct type', () => {
         const result = toggleTheme()
         expect(result).toEqual({ type: types.TOGGLE_THEME })
@@ -157,8 +158,6 @@ describe('toggleTheme:', () => {
 })
 
 describe('storeUserIds:', () => {
-    const { storeUserIds } = require('./actions')
-
     test.each([
         [ 'userName', ['userName'], {}],
         [
@@ -170,7 +169,7 @@ describe('storeUserIds:', () => {
             ['userName4', 'userName5'],
         ],
       ])('input %i', (input, userIds) => {
-        const dispatch = jest.fn()
+        const dispatch = vi.fn()
         storeUserIds(input)(dispatch)
 
         expect(dispatch).toHaveBeenCalledWith({

@@ -1,5 +1,5 @@
-const { propOr } = require('ramda')
-const { diff, lt } = require('semver')
+import { propOr } from 'ramda'
+import { diff, lt } from 'semver'
 
 const datePropSort = (a, b) => {
     const getDate = propOr('', 'date')

@@ -1,65 +1,65 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`fillData: fillType pullRequestReviewComments adds review comments 1`] = `
+exports[`fillData: > fillType pullRequestReviewComments adds review comments 1`] = `
 [
   {
-    'node': {
-      'comments': {
-        'edges': [
-          'reviewComment1',
-          'reviewComment2',
+    "node": {
+      "comments": {
+        "edges": [
+          "reviewComment1",
+          "reviewComment2",
         ],
       },
-      'id': 'id',
+      "id": "id",
     },
   },
   {
-    'node': {
-      'comments': {
-        'edges': [
-          'reviewComment1',
-          'reviewComment2',
+    "node": {
+      "comments": {
+        "edges": [
+          "reviewComment1",
+          "reviewComment2",
         ],
       },
-      'id': 'id',
+      "id": "id",
     },
   },
 ]
 `;
 
-exports[`fillData: fillType pullRequests adds comments and reviews 1`] = `
+exports[`fillData: > fillType pullRequests adds comments and reviews 1`] = `
 {
-  'data': {
-    'result': {
-      'pullRequests': {
-        'edges': [
+  "data": {
+    "result": {
+      "pullRequests": {
+        "edges": [
           {
-            'node': {
-              'comments': {
-                'edges': [
-                  'comment1',
-                  'comment2',
+            "node": {
+              "comments": {
+                "edges": [
+                  "comment1",
+                  "comment2",
                 ],
               },
-              'id': 'id',
-              'reviews': {
-                'edges': [
+              "id": "id",
+              "reviews": {
+                "edges": [
                   {
-                    'node': {
-                      'comments': {
-                        'edges': [
-                          'reviewComment1',
-                          'reviewComment2',
+                    "node": {
+                      "comments": {
+                        "edges": [
+                          "reviewComment1",
+                          "reviewComment2",
                         ],
                       },
                     },
                   },
                   {
-                    'node': {
-                      'comments': {
-                        'edges': [
-                          'reviewComment1',
-                          'reviewComment2',
+                    "node": {
+                      "comments": {
+                        "edges": [
+                          "reviewComment1",
+                          "reviewComment2",
                         ],
                       },
                     },

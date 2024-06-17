@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`formatChordData: Five users with equal contributions 1`] = `
+exports[`formatChordData: > Five users with equal contributions 1`] = `
 {
-  'matrix': [
+  "matrix": [
     [
       0,
       10,
@@ -39,12 +39,12 @@ exports[`formatChordData: Five users with equal contributions 1`] = `
       0,
     ],
   ],
-  'names': [
-    'one',
-    'two',
-    'three',
-    'four',
-    'five',
+  "names": [
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
   ],
 }
 `;

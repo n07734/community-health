@@ -1,10 +1,11 @@
+import { vi } from 'vitest'
 import types from './types'
+import reducers from './reducers'
 
-jest.mock('redux', () => ({
+vi.mock('redux', () => ({
     combineReducers: x => x,
 }))
 
-const reducers = require('./reducers').default
 
 const basicReducers = ({ parent, key, type }) => {
     it(`${key}`, () => {

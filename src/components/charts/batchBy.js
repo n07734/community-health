@@ -1,10 +1,10 @@
-const {
+import  {
     getYear,
     getMonth,
     getWeek,
     getDay,
     differenceInDays,
- } = require('date-fns')
+ } from 'date-fns'
 
  const isNewDay = (prev, current) => {
     const prevItemsDay = prev && getDay(new Date(prev)) + 1

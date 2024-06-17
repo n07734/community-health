@@ -1,4 +1,4 @@
-const { path, prop, sum } = require('ramda');
+import { path, prop, sum } from 'ramda'
 
 const getNameList = (data, key, preSorted = false) => {
     const scoredData = {}
