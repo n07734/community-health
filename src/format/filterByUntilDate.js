@@ -6,8 +6,8 @@ const filterByUntilDate = (datePath = [], order = 'DESC', untilDate = '') => (it
     const itemsDate = itemsDateValue && new Date(itemsDateValue)
     const until = untilDate ? new Date(untilDate) : new Date()
     const shouldFilterIn = order === 'DESC'
-        ? isAfter(itemsDate, until)
-        : isBefore(itemsDate, until)
+        ? itemsDate && isAfter(itemsDate, until)
+        : itemsDate && isBefore(itemsDate, until)
 
     return shouldFilterIn
 }

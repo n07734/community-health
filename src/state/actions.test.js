@@ -90,6 +90,8 @@ describe('getAPIData:', () => {
             types.FETCH_START,
             types.ADD_PRS,
             types.ADD_FILTERED_PRS,
+            types.ADD_REVIEWED_PRS,
+            types.ADD_REVIEWED_FILTERED_PRS,
             types.ADD_ITEMS_DATE_RANGE,
             types.ADD_USERS_DATA,
             types.ADD_RELEASES,

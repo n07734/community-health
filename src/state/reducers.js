@@ -74,6 +74,12 @@ const reducers = combineReducers({
         action.type === types.CLEAR_PRS && [],
         prs,
     ].find(Boolean),
+    reviewedPullRequests: (prs = [], action) => [
+        action.type === types.ADD_REVIEWED_PRS
+            && action.payload,
+        action.type === types.CLEAR_REVIEWED_PRS && [],
+        prs,
+    ].find(Boolean),
     itemsDateRange: (dates = ['',''], action) => [
         action.type === types.ADD_ITEMS_DATE_RANGE
             && action.payload,
@@ -93,6 +99,12 @@ const reducers = combineReducers({
             && action.payload,
         action.type === types.CLEAR_FILTERED_PRS && [],
         filteredPRs,
+    ].find(Boolean),
+    filteredReviewedPRs: (filteredReviewedPRs = [], action) => [
+        action.type === types.ADD_REVIEWED_FILTERED_PRS
+            && action.payload,
+        action.type === types.CLEAR_REVIEWED_FILTERED_PRS && [],
+        filteredReviewedPRs,
     ].find(Boolean),
     usersData: (users = [], action) => [
         action.type === types.ADD_USERS_DATA

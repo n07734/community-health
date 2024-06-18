@@ -267,6 +267,7 @@ const formatUserData = (data = [], usersInfo = {}) => {
     ]
 
     const sortedUsers = newUsersData
+        .filter(({ author }) => usersInfo[author])
         .sort(sortByKeys(keys))
 
     return sortedUsers

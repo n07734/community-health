@@ -282,6 +282,8 @@ const clearData = (dispatch) => {
     dispatch({ type: types.CLEAR_TRIMMED_ITEMS })
     dispatch({ type: types.CLEAR_PRS })
     dispatch({ type: types.CLEAR_FILTERED_PRS })
+    dispatch({ type: types.CLEAR_REVIEWED_PRS })
+    dispatch({ type: types.CLEAR_REVIEWED_FILTERED_PRS })
     dispatch({ type: types.CLEAR_ITEMS_DATE_RANGE })
     dispatch({ type: types.CLEAR_PR_PAGINATION })
     dispatch({ type: types.CLEAR_PREFETCHED_NAME })
@@ -411,10 +413,17 @@ const trimmer = (dateFrom = '', dateTo = '') => (dateKey = 'mergedAt', items = [
 
 const trimItems = (dateFrom = '', dateTo = '') => async (dispatch, getState) => {
     const {
+        fetches: {
+            usersInfo = {},
+        } = {},
         trimmedItems: {
             trimmedPRs: {
                 trimmedLeftPrs = [],
                 trimmedRightPrs = [],
+            } = {},
+            trimmedReviewedPRs: {
+                trimmedLeftReviewedPrs = [],
+                trimmedRightReviewedPrs = [],
             } = {},
             trimmedReleases: {
                 trimmedLeftReleases = [],
@@ -422,8 +431,8 @@ const trimItems = (dateFrom = '', dateTo = '') => async (dispatch, getState) => 
             } = {},
         } = {},
         pullRequests = [],
+        reviewedPullRequests = [],
         releases = [],
-        usersInfo = {},
     } = getState();
 
     const itemsTrimmer = trimmer(dateFrom, dateTo)
@@ -443,9 +452,26 @@ const trimItems = (dateFrom = '', dateTo = '') => async (dispatch, getState) => 
         type: types.ADD_PRS,
         payload: keptPrs,
     })
+
+    const allReviewedPrs = [
+        trimmedLeftReviewedPrs,
+        reviewedPullRequests,
+        trimmedRightReviewedPrs,
+    ]
+    const [
+        newTrimmedLeftReviewedPrs,
+        keptReviewedPrs,
+        newTrimmedRightReviewedPrs,
+    ] = itemsTrimmer('mergedAt', allReviewedPrs)
+
+    dispatch({
+        type: types.ADD_REVIEWED_PRS,
+        payload: keptReviewedPrs,
+    })
+
     dispatch({
         type: types.ADD_USERS_DATA,
-        payload: formatUserData(keptPrs, usersInfo),
+        payload: formatUserData(keptPrs.concat(keptReviewedPrs), usersInfo),
     })
 
     const allReleases = [
@@ -470,6 +496,10 @@ const trimItems = (dateFrom = '', dateTo = '') => async (dispatch, getState) => 
             trimmedPRs: {
                 trimmedLeftPrs: newTrimmedLeftPrs,
                 trimmedRightPrs: newTrimmedRightPrs,
+            },
+            trimmedReviewedPRs: {
+                trimmedLeftReviewedPrs: newTrimmedLeftReviewedPrs,
+                trimmedRightReviewedPrs: newTrimmedRightReviewedPrs,
             },
             trimmedReleases: {
                 trimmedLeftReleases: newTrimmedLeftReleases,
@@ -508,16 +538,21 @@ const getAPIData = () => async (dispatch, getState) => {
         }
 
         const {
-            fetches,
+            fetches = {},
             filteredPRs = [],
             pullRequests = [],
+            filteredReviewedPRs = [],
+            reviewedPullRequests = [],
             issues = [],
             filteredIssues = [],
             formUntilDate = '',
             releases = [],
             filteredReleases = [],
-            usersInfo = {},
         } = getState();
+
+        const {
+            usersInfo = {},
+        } = fetches
 
         const userIds = propOr([], 'userIds', fetches)
         const repo = propOr([], 'repo', fetches)
@@ -537,10 +572,15 @@ const getAPIData = () => async (dispatch, getState) => {
             org: () => getOrgData({ fetchInfo: fetches, untilDate, dispatch }),
         }
 
-        const { fetchInfo = {}, results = [] } = await reportTypeMap[reportType]();
+        const {
+            fetchInfo = {},
+            results = [],
+            reviewResults = [],
+        } = await reportTypeMap[reportType]();
 
         const newPullRequests = formatPullRequests(fetches, results)
         const filteredNewPullRequests = filterByUsersInfo(fetches, newPullRequests)
+        const allPullRequests = reviewedPullRequests.concat(filteredPRs).concat(filteredNewPullRequests)
 
         const newestOldPR = pullRequests.at(-1)?.mergedAt?.slice(0, 10)
         const oldestOldPR = pullRequests.at(0)?.mergedAt?.slice(0, 10)
@@ -561,9 +601,7 @@ const getAPIData = () => async (dispatch, getState) => {
                 reportEndDate: untilDate || nowDate,
             }
 
-
         // Get all prs together so then can be cleanly filtered and sorted
-        const allPullRequests = pullRequests.concat(filteredPRs).concat(filteredNewPullRequests)
         const [includedPRs, newFilteredPRs] = filterSortPullRequests(fetches, reportDates, allPullRequests)
         dispatch({
             type: types.ADD_PRS,
@@ -574,6 +612,18 @@ const getAPIData = () => async (dispatch, getState) => {
             payload: newFilteredPRs,
         })
 
+        const newReviewedPullRequests = formatPullRequests(fetches, reviewResults)
+        const allReviewedPullRequests = reviewedPullRequests.concat(filteredReviewedPRs).concat(newReviewedPullRequests)
+        const [includedReviewedPRs, newFilteredReviewedPRs] = filterSortPullRequests(fetches, reportDates, allReviewedPullRequests)
+        dispatch({
+            type: types.ADD_REVIEWED_PRS,
+            payload: includedReviewedPRs,
+        })
+        dispatch({
+            type: types.ADD_REVIEWED_FILTERED_PRS,
+            payload: newFilteredReviewedPRs,
+        })
+
         const dates = getStartEndDates(includedPRs)
         dispatch({
             type: types.ADD_ITEMS_DATE_RANGE,
@@ -582,7 +632,7 @@ const getAPIData = () => async (dispatch, getState) => {
 
         dispatch({
             type: types.ADD_USERS_DATA,
-            payload: formatUserData(includedPRs, usersInfo),
+            payload: formatUserData(includedPRs.concat(includedReviewedPRs), usersInfo),
         })
 
         if (reportType === 'repo') {
@@ -672,6 +722,8 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
         reportDescription = '',
         pullRequests = [],
         filteredPRs = [],
+        reviewedPullRequests = [],
+        filteredReviewedPRs = [],
         usersData = [],
         issues = [],
         filteredIssues = [],
@@ -769,10 +821,19 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
     })
 
     dispatch({
+        type: types.ADD_REVIEWED_PRS,
+        payload: reviewedPullRequests,
+    })
+    dispatch({
+        type: types.ADD_REVIEWED_FILTERED_PRS,
+        payload: filteredReviewedPRs,
+    })
+
+    dispatch({
         type: types.ADD_USERS_DATA,
         payload: usersData.length
             ? usersData
-            : formatUserData(pullRequests, usersInfo),
+            : formatUserData(pullRequests.concat(reviewedPullRequests), usersInfo),
     })
     // old saved reports did not sort the issues
     const sortedIssues = issues

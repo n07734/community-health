@@ -43,6 +43,7 @@ const pageInfo = 'pageInfo { endCursor hasNextPage hasPreviousPage startCursor }
 
 const comments = (cursor) => `
     comments(first: ${cursor ? 100 : 10} ${cursorQ(cursor)}) {
+      totalCount
       edges {
         node {
           author {
@@ -360,15 +361,31 @@ const reviewsByUserQuery = (untilDate) => ({
             id
             number
             url
+            author {
+              login
+              url
+            }
+            repository {
+              name
+              owner {
+                login
+              }
+            }
+            additions
+            deletions
             mergedAt
             createdAt
             ${comments()}
             reviews(last: 10 states: [COMMENTED,APPROVED,CHANGES_REQUESTED] author: "${user}") {
-              totalCount
               ${pageInfo}
               edges {
                 node {
                   id
+                  state
+                  author {
+                    login
+                    url
+                  }
                   ${comments()}
                 }
               }
@@ -421,6 +438,7 @@ const reviewsByUserQuery = (untilDate) => ({
 
     return pageInfo
   },
+  fillerType: 'pullRequests',
   hasMoreResults: [
     usersReviewsPagination.hasNextPage,
   ]
@@ -510,6 +528,7 @@ const userQuery = (untilDate) => ({
 
     return pageInfo
   },
+  // TODO: fillerType ?
   hasMoreResults: [
     prPagination.hasNextPage,
     issuesPagination.hasNextPage,

@@ -206,7 +206,8 @@ const formatPullRequests = ({ excludeIds = [] } = {}, results = []) => {
     const pullRequests = compose(
         map(prData(excludeIds)),
         flatten,
-        map(pathOr([], ['data', 'result', 'pullRequests', 'edges'])),
+        map(result => result?.data?.result?.pullRequests?.edges
+            || result?.data?.result?.edges),
     )(results)
 
     return pullRequests

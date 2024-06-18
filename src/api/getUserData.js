@@ -30,11 +30,11 @@ const getUserData = async({ fetchInfo, untilDate, dispatch }) => {
         }
         const allUserReviewData = await api(userReviewData)
         const allReviewResults = allUserReviewData.results
-        console.log('allReviewResults',allReviewResults.edges)
 
         const paginationInfo = {
             issuesPagination: prop('issuesPagination', allUserData.fetchInfo),
             prPagination: prop('prPagination', allUserData.fetchInfo),
+            usersReviewsPagination: prop('usersReviewsPagination', allUserReviewData.fetchInfo),
         }
 
         const finalFetchInfo = mergeDeepRight(fetchInfo, paginationInfo)
@@ -42,6 +42,7 @@ const getUserData = async({ fetchInfo, untilDate, dispatch }) => {
         const usersData = {
             fetchInfo: finalFetchInfo,
             results: allResults.flat(),
+            reviewResults: allReviewResults.flat(),
         }
 
         return usersData

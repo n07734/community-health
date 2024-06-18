@@ -7,6 +7,7 @@ exports[`queries: > commentsQuery: > query to match snapshot 1`] = `
             id
             
     comments(first: 100  after:"cursor" ) {
+      totalCount
       edges {
         node {
           author {
@@ -32,6 +33,7 @@ exports[`queries: > reviewCommentsQuery: > query to match snapshot 1`] = `
             id
             
     comments(first: 100  after:"cursor" ) {
+      totalCount
       edges {
         node {
           author {
@@ -67,6 +69,7 @@ exports[`queries: > reviewsQuery: > query to match snapshot 1`] = `
           }
           
     comments(first: 10 ) {
+      totalCount
       edges {
         node {
           author {
