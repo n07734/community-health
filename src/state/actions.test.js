@@ -93,6 +93,7 @@ describe('getAPIData:', () => {
             types.ADD_FILTERED_ISSUES,
             types.STORE_UNTIL_DATE,
             types.SET_PR_PAGINATION,
+            types.SET_PR_REVIEWED_PAGINATION,
             types.SET_ISSUES_PAGINATION,
             types.SET_RELEASES_PAGINATION,
             types.FETCH_END,
