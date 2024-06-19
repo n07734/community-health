@@ -609,8 +609,10 @@ const getAPIData = () => async (dispatch, getState) => {
         })
 
         const newReviewedPullRequests = formatPullRequests(fetches, reviewResults)
-        const allReviewedPullRequests = reviewedPullRequests.concat(filteredReviewedPRs).concat(newReviewedPullRequests)
-        const [includedReviewedPRs, newFilteredReviewedPRs] = filterSortPullRequests(fetches, reportDates, allReviewedPullRequests)
+        const filteredNewReviewedPRs = newReviewedPullRequests
+            .filter(({ author = '', mergedAt = '' }) => mergedAt && author !== userIds[0])
+        const allReviewedPullRequests = reviewedPullRequests.concat(filteredReviewedPRs).concat(filteredNewReviewedPRs)
+        const [includedReviewedPRs = [], newFilteredReviewedPRs = []] = filterSortPullRequests(fetches, reportDates, allReviewedPullRequests)
         dispatch({
             type: types.ADD_REVIEWED_PRS,
             payload: includedReviewedPRs,

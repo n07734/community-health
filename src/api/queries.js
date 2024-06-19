@@ -485,6 +485,8 @@ const reviewsByUserQuery = (untilDate) => ({
     // To go back in time from now, you need to use `last` then p2+ use `after` and the `endCursor`
     // also with this oldest is endCursor of each page and newest is the first startCursor
 
+    // TODO: remove author prs and prs without mergedAt and prs with no user comments or approvals
+
     return pageInfo
   },
   fillerType: 'pullRequests',
