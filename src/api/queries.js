@@ -1,4 +1,4 @@
- 
+
 import { pathOr } from 'ramda'
 import { isDate } from 'date-fns'
 import {
@@ -278,6 +278,53 @@ const getPaginationByDirectionType = (oldFetchInfo = {}, untilDate = '', data = 
   return nextInfo
 }
 
+const getPaginationForSearch = (oldFetchInfo = {}, untilDate = '', data = {}, order) => {
+  const {
+    hasNextPage = false,
+    hasPreviousPage = false,
+    startCursor,
+    endCursor,
+  } = pathOr({}, ['data', 'result', 'pageInfo'], data)
+  const items = pathOr([], ['data', 'result', 'edges'], data)
+
+  const filteredItems = isDate(untilDate)
+    ? items.filter(filterByUntilDate(['node', 'mergedAt'], order, untilDate))
+    : []
+
+  const oldestDefault = order === 'DESC'
+    ? endCursor
+    : startCursor
+
+  const oldestCurrent = pathOr(oldestDefault, ['usersReviewsPagination', 'oldest'], oldFetchInfo)
+
+  const newestDefault = order === 'DESC'
+    ? startCursor
+    : endCursor
+
+  const newestCurrent = pathOr(newestDefault, ['usersReviewsPagination', 'newest'], oldFetchInfo)
+
+  const hasFollowingPage = order === 'DESC'
+    ? hasNextPage
+    : hasPreviousPage
+
+  const dateFilteredLength = filteredItems.length
+  const tryNextPage = cond([
+    [always(hasFollowingPage === false), alwaysFalse],
+    [always(!isDate(untilDate)), always(hasFollowingPage)],
+    [always(dateFilteredLength === 0), alwaysFalse],
+    [alwaysTrue, always(hasFollowingPage)],
+  ])()
+
+  const nextInfo = {
+    newest: order === 'ASC' && startCursor ? startCursor : newestCurrent,
+    oldest: order === 'DESC' && endCursor ? endCursor : oldestCurrent,
+    hasNextPage: hasFollowingPage,
+    hasNextPageForDate: tryNextPage,
+  }
+
+  return nextInfo
+}
+
 const getRemainingPageCount = (data) => {
   const [maxItems] = ['issues', 'pullRequests', 'releases']
     .map(type => pathOr(0, ['data', 'result', type, 'totalCount'], data))
@@ -339,8 +386,6 @@ const issueComments = (order) => (cursor) => `
       ${pageInfo}
     }
 `
-// TODO: Get pagination working, then nested pagination
-// last first with before and after, what is the order when there is no
 const reviewsByUserQuery = (untilDate) => ({
   user,
   sortDirection = 'DESC',
@@ -400,7 +445,7 @@ const reviewsByUserQuery = (untilDate) => ({
   resultInfo: (data) => {
     console.log('==resultInfo data', data)
 
-    const byDirectionType = getPaginationByDirectionType(
+    const byDirectionType = getPaginationForSearch(
       {
         usersReviewsPagination,
         amountOfData,
@@ -423,18 +468,22 @@ const reviewsByUserQuery = (untilDate) => ({
       // asc: first should use newest || endCursor and endCursor = newest, startCursor = oldest, also checks hasNextPage
       usersReviewsPagination: {
         hasNextPage: false,
-        ...byDirectionType('usersReviews'),
+        ...byDirectionType,
       },
     }
 
     const hasNextPageKey = isDate(untilDate) ? 'hasNextPageForDate' : 'hasNextPage'
     const pageInfo = {
-      hasNextPage: Object.values(nextPageInfo).some(x => x[hasNextPageKey] === true),
+      hasNextPage: nextPageInfo.usersReviewsPagination[hasNextPageKey] === true,
       nextPageInfo: {
         ...nextPageInfo,
         amountOfData: updatedAmountOfData,
       },
     }
+
+    // Pagination via last/first and after/before is confusing
+    // To go back in time from now, you need to use `last` then p2+ use `after` and the `endCursor`
+    // also with this oldest is endCursor of each page and newest is the first startCursor
 
     return pageInfo
   },

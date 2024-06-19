@@ -123,6 +123,7 @@ const mathWords = {
     averagePerDev: 'Average per Dev',
 }
 
+// eslint-disable-next-line react/display-name
 const addedLine = (removeLine, classes) => ({
     color = '',
     label = '',
@@ -425,6 +426,12 @@ const styles = theme => {
         graphForm: {
             width: '100%',
             maxWidth: '1200px',
+            '& .MuiInputBase-input': {
+                paddingTop: 0,
+                paddingLeft: 0,
+                paddingRight: 0,
+                paddingBottom: 0,
+            },
         },
         remove: {
             fontSize: '22px',

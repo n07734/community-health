@@ -49,6 +49,7 @@ const reducers = combineReducers({
         excludeIds: setClearArray('STORE_EX_IDS', 'CLEAR_EX_IDS'),
         events: setClearArray('STORE_EVENTS', 'CLEAR_EVENTS'),
         prPagination: setClearPagination('SET_PR_PAGINATION', 'CLEAR_PR_PAGINATION'),
+        usersReviewsPagination: setClearPagination('SET_PR_REVIEWED_PAGINATION', 'CLEAR_PR_REVIEWED_PAGINATION'),
         releasesPagination: setClearPagination('SET_RELEASES_PAGINATION', 'CLEAR_RELEASES_PAGINATION'),
         issuesPagination: setClearPagination('SET_ISSUES_PAGINATION', 'CLEAR_ISSUES_PAGINATION'),
     }),

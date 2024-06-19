@@ -688,6 +688,11 @@ const getAPIData = () => async (dispatch, getState) => {
         })
 
         dispatch({
+            type: types.SET_PR_REVIEWED_PAGINATION,
+            payload: pageInfo(fetchInfo.usersReviewsPagination),
+        })
+
+        dispatch({
             type: types.SET_ISSUES_PAGINATION,
             payload: pageInfo(fetchInfo.issuesPagination),
         })
@@ -745,6 +750,7 @@ const setPreFetchedData = (repoData = {}, dispatch) => {
         ['repo', 'STORE_REPO'],
         ['enterpriseAPI', 'STORE_ENT_URL'],
         ['prPagination', 'SET_PR_PAGINATION', {}],
+        ['usersReviewsPagination', 'SET_PR_REVIEWED_PAGINATION', {}],
         ['releasesPagination', 'SET_RELEASES_PAGINATION', {}],
         ['issuesPagination', 'SET_ISSUES_PAGINATION', {}],
     ];
@@ -942,7 +948,7 @@ const getDownloadProps = (dispatch, getState) => {
 
     const getReportData = pipe(
         assoc('HOW_TO', '1: Add this file to ./src/myReports 2: Run the app. If you want multiple reports you will need to edit ./src/myReports/myReportsConfig.js.'),
-        pickAll(['fetches', 'pullRequests', 'filteredPRs', 'userData', 'issues', 'filteredIssues', 'releases', 'teamName']),
+        pickAll(['fetches', 'pullRequests', 'filteredPRs', 'reviewedPullRequests', 'filteredReviewedPRs', 'userData', 'issues', 'filteredIssues', 'releases', 'teamName']),
         dissocPath(['fetches', 'token']),
         dissocPath(['sortDirection']),
         dissocPath(['fetches', 'amountOfData']),

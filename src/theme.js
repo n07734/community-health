@@ -71,10 +71,6 @@ const theme =  (type = 'light') => createTheme({
                         backgroundColor: 'transparent',
                     },
                     '& .MuiInputBase-input': {
-                        paddingTop: 0,
-                        paddingLeft: 0,
-                        paddingRight: 0,
-                        paddingBottom: 0,
                         '&:focus':{
                             backgroundColor: 'transparent',
                         },
