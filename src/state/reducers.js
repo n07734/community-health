@@ -136,10 +136,6 @@ const reducers = combineReducers({
         action.type === types.CLEAR_FILTERED_RELEASES && [],
         filteredReleases,
     ].find(Boolean),
-    themeType: (themeType = 'dark', action) =>
-        action.type === types.TOGGLE_THEME
-            ? (themeType === 'dark' ? 'light' : 'dark')
-            : themeType,
 })
 
 export default reducers

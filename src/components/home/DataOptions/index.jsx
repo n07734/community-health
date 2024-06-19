@@ -63,7 +63,7 @@ const FetchForm = ({ classes, clearReport }) => {
     ]
     const [showAllTypes, setAllTypes] = useState(false)
 
-    const showTypes = showAllTypes
+    const showTypes = showAllTypes || (!isAnOSSReport && selectedOption === 'oss')
         ? allTypes
         : [allTypes.find(([, type]) => type === selectedOption)]
 

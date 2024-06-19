@@ -6,7 +6,6 @@ import {
     storeOrg,
     storeToken,
     storeRepo,
-    toggleTheme,
     storeUserIds,
 } from './actions'
 import { getAPIData } from './actions'
@@ -51,12 +50,6 @@ describe('Basic actions:', () => {
         expect(storeRepo('REPO')(x => x, () => fetchState)).toEqual({
             type: types.STORE_REPO,
             payload: 'REPO',
-        })
-    })
-
-    it('toggleTheme returns correct type', () => {
-        expect(toggleTheme()).toEqual({
-            type: types.TOGGLE_THEME,
         })
     })
 })
@@ -149,13 +142,6 @@ describe('getAPIData:', () => {
             })
 
         expect(dispatch).toHaveBeenCalledTimes(dispatchOrder.length)
-    })
-})
-
-describe('toggleTheme:', () => {
-    it('Returns correct type', () => {
-        const result = toggleTheme()
-        expect(result).toEqual({ type: types.TOGGLE_THEME })
     })
 })
 

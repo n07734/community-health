@@ -54,10 +54,6 @@ const clearPvP = () => ({
     type: types.CLEAR_PVP,
 })
 
-const toggleTheme = () => ({
-    type: types.TOGGLE_THEME,
-})
-
 const clearUser = () => ({
     type: types.CLEAR_USER,
 })
@@ -1004,7 +1000,6 @@ export {
     storeSortDirection,
     getAPIData,
     getPreFetched,
-    toggleTheme,
     getDownloadProps,
     checkUntilDate,
     trimItems,

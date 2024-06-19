@@ -30,40 +30,6 @@ import {
     getAPIData,
 } from '../../../state/actions'
 
-const userTextInfo = ({ userId, name, dates = [] }) => {
-    const nameString = name ? ` (${name})` : ''
-    const dateStrings = dates
-        .map(({ startDate, endDate }) => {
-            const startString = startDate ? `joined ${startDate}` : ''
-            const endString = endDate ? `left ${endDate}` : ''
-            return `${startString}${startString && endString ? ' and ' : ''}${endString}`
-        })
-        .join(', ')
-
-    return `${userId}${nameString} ${dateStrings}`
-}
-
-const usersText = (users = []) =>  users
-    .map(userTextInfo)
-    .join(', ')
-
-const teamStyles = () => ({
-    teamCopy: {
-        margin: '0.5rem 0 0 0',
-    },
-})
-
-const TeamInfo = withStyles(teamStyles)(({ usersInfo = {}, classes = {}}) => {
-    const users = Object.values(usersInfo)
-    const teamText = usersText(users)
-    return users.length > 0 && (
-        <P className={classes.teamCopy}>
-            {users.length > 0 && `Team members: `}
-            {teamText}
-        </P>
-    )
-})
-
 const FormSection = (props) => {
     const {
         setValues,
@@ -194,13 +160,11 @@ const FormSection = (props) => {
                             />)
                     }
                     {
-                        reportType === 'team' && <>
-                            <TeamInfo usersInfo={formInfo.usersInfo} />
+                        reportType === 'team' &&
                             <TeamModal
                                 usersInfo={formInfo.usersInfo}
                                 setParentValues={setFormValues}
                             />
-                        </>
                     }
                     <TextInput
                         className="inputDesc"
@@ -216,7 +180,7 @@ const FormSection = (props) => {
                     />
                     <SelectAmountData setValue={setValue} amountOfData={formInfo.amountOfData} />
                     <P className="inputDesc">
-                        To create a token go to your GitHub <a className={classes.link} href="https://github.com/settings/tokens">tokens</a> page, click on 'generate new token', choose the settings 'repo' (all), 'read:org' and 'user' then click 'Generate token'.
+                        To create a token go to your GitHub <a className={classes.link} href="https://github.com/settings/tokens">tokens</a> page, click on &#39;generate new token&#39;, choose the settings &#39;repo&#39; (all), &#39;read:org&#39; and &#39;user&#39; then click &#39;Generate token&#39;.
                     </P>
                 </div>
 

@@ -176,16 +176,4 @@ describe('reducers: ', () => {
             },
         )).toEqual([3, 4])
     })
-
-    it('themeType', () => {
-        const themeType = reducers.themeType
-
-        expect(themeType('dark', {})).toEqual('dark')
-        expect(themeType('light', {
-            type: types.TOGGLE_THEME,
-        })).toEqual('dark')
-        expect(themeType('dark', {
-            type: types.TOGGLE_THEME,
-        })).toEqual('light')
-    })
 })

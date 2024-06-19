@@ -3,7 +3,7 @@ import { Box, Modal} from '@mui/material'
 import { withStyles} from '@mui/styles'
 
 import styles from './styles'
-import { H } from '../../shared/StyledTags'
+import { H, P } from '../../shared/StyledTags'
 import Button from '../../shared/Button'
 import Message from '../Message'
 import UsersForm from './UsersForm'
@@ -53,6 +53,9 @@ const modalStyles = theme => ({
         '& > *': {
             marginBottom: '1rem',
         },
+    },
+    copy: {
+        marginBottom: '0.2rem',
     },
     fullWidth: {
         width: '100%',
@@ -157,6 +160,9 @@ const TeamModal =  withStyles(modalStyles)(({
     const [gitUsers, setGitUsers] = useState([])
 
     return (<div>
+        <P className={classes.copy}>
+            Team members: { Object.values(usersInfo).map(({ name, userId }) => name || userId).join(', ') || 'None'}
+        </P>
         <Button
             className={classes.fullWidth}
             type="text"
@@ -180,8 +186,13 @@ const TeamModal =  withStyles(modalStyles)(({
                     gitUsers={gitUsers}
                     usersInfo={usersInfo}
                     onSubmit={(x) => {
-                        const xString = JSON.stringify(x)
-                        setParentValues({userIds: xString, usersInfo: x})
+                        const hasFormValues = Object.keys(x).filter(Boolean).length > 0
+                        if (hasFormValues) {
+                            const xString = JSON.stringify(x)
+                            setParentValues({ userIds: xString, usersInfo: x })
+                        } else {
+                            setParentValues({ userIds: '', usersInfo: {} })
+                        }
                         handleClose()
                     }}
                 />

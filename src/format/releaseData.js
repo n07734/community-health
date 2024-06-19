@@ -38,7 +38,7 @@ const formatReleaseData = (results = []) => {
 
                 const diffType = diff(prevTag, currentTag) || ''
 
-                // eslint-disable-next-line no-unused-vars
+                 
                 releaseType = ({
                     'minor': 'MINOR',
                     'major': 'MAJOR',

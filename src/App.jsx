@@ -37,12 +37,8 @@ const App = ({
     )
 }
 
-const mapStateToProps = (state) => ({
-    themeType: state.themeType,
-})
-
 const mapDispatchToProps = dispatch => ({
     setReposUserId: (x) => dispatch(actions.setUser(x)),
 })
 
-export default connect(mapStateToProps,mapDispatchToProps)(App)
+export default connect(() => ({}),mapDispatchToProps)(App)

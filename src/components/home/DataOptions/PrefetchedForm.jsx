@@ -9,9 +9,10 @@ import { withStyles } from '@mui/styles'
 import ButtonWithMessage from './ButtonWithMessage'
 import SelectAmountData from './SelectAmountData'
 import TextInput from './TextInput'
-
+import TeamModal from './TeamModal'
 import Download from './Download'
 import ChartDescription from '../../shared/ChartDescription'
+
 import { P } from '../../shared/StyledTags'
 import styles from './styles'
 import {
@@ -51,7 +52,8 @@ const PrefetchedForm = (props) => {
         excludeIds = [],
     } = fetches
 
-    const reportType = userIds.length > 0 && 'team'
+    const reportType = userIds.length > 1 && 'team'
+        || userIds.length === 1 && 'user'
         || repo && org && 'repo'
         || org && 'org'
 
@@ -82,6 +84,15 @@ const PrefetchedForm = (props) => {
         [key]: value,
     })
 
+    const setFormValues = (newValues = {}) => {
+        const updatedInfo = {
+            ...formInfo,
+            ...newValues,
+        }
+
+        setFormInfo(updatedInfo)
+    }
+
     const inputStates = {
         inputError,
         setInputError,
@@ -107,9 +118,16 @@ const PrefetchedForm = (props) => {
     }
 
     const reportInputsHash = {
-        'repo': ['org', 'repo'],
+        'repo': [
+            'org',
+            'repo',
+        ],
         'org': ['org'],
         'team': ['teamName'],
+        'user': [
+            'userId',
+            'name',
+        ],
     }
     const reportKeys = reportInputsHash[reportType]
 
@@ -136,16 +154,11 @@ const PrefetchedForm = (props) => {
                                 .map((inputKey) => <P key={inputKey}>{inputLabels[inputKey]}: <b>{formValue(fetches, inputKey) || 'N/A'}</b></P>)
                         }
                         {
-                            userIds.length > 0 && <>
-                                <TextInput
-                                    className="inputDesc"
-                                    type='userIds'
-                                    { ...inputStates }
+                            reportType === 'team' &&
+                                <TeamModal
+                                    usersInfo={usersInfo}
+                                    setParentValues={setFormValues}
                                 />
-                                <P className="inputDesc">
-                                    You can also optionally define name and join and/or leave dates for a user e.g. userA=start:2023-12-12;end:2023|start:2023-12-12|name:Name.
-                                </P>
-                            </>
                         }
                         <TextInput
                             type="events"
