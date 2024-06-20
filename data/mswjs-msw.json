@@ -1,0 +1,5892 @@
+{
+  "fetches": {
+    "org": "mswjs",
+    "repo": "msw",
+    "sortDirection": "DESC",
+    "prPagination": {
+      "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0wN1QwODo1Mjo1NiswMTowMM5xw8so",
+      "oldest": "Y3Vyc29yOnYyOpK5MjAyMy0wNS0wNlQwODo1MDoyMyswMTowMM5P6T9r"
+    },
+    "releasesPagination": {
+      "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0wMVQxMDoyOTo0OSswMTowMM4Jcb6Y",
+      "oldest": "Y3Vyc29yOnYyOpK5MjAyMy0wMy0yMlQwMDoyNDo1MiswMDowMM4Fv0IH"
+    },
+    "issuesPagination": {
+      "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0xOFQyMDoyMzo1NCswMTowMM6Mswf7",
+      "oldest": "Y3Vyc29yOnYyOpK5MjAyMy0wNC0yNlQxNTo0MDo0MSswMTowMM5kcaGy"
+    }
+  },
+  "pullRequests": [
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1662",
+      "additions": 7,
+      "deletions": 29,
+      "prSize": 36,
+      "mergedAt": "2023-07-20T10:17:46Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "wjkawecki": 1
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "codeCommentsAuthor": 1,
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1673",
+      "additions": 2458,
+      "deletions": 2523,
+      "prSize": 4981,
+      "mergedAt": "2023-07-31T18:35:11Z",
+      "cycleTime": 2,
+      "age": 2
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "bartektelec",
+      "url": "https://github.com/mswjs/msw/pull/1676",
+      "additions": 6,
+      "deletions": 2,
+      "prSize": 8,
+      "mergedAt": "2023-08-04T07:36:38Z",
+      "cycleTime": 4,
+      "age": 4,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "kettanaito": 4,
+        "auskast": 1
+      },
+      "generalCommentSentimentScore": 7,
+      "generalCommentSentiments": {
+        "kettanaito": 18,
+        "auskast": -11
+      },
+      "generalCommentSentimentTotalScore": 7,
+      "codeComments": 2,
+      "codeCommenters": {
+        "kettanaito": 2
+      },
+      "codeCommentSentimentScore": 4,
+      "codeCommentSentiments": {
+        "kettanaito": 4
+      },
+      "codeCommentsAuthor": 2,
+      "codeCommentAuthorSentimentScore": -1,
+      "codeCommentSentimentTotalScore": 3,
+      "comments": 7,
+      "commenters": {
+        "kettanaito": 6,
+        "auskast": 1
+      },
+      "commentSentimentScore": 11,
+      "commentSentiments": {
+        "kettanaito": 22,
+        "auskast": -11
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": -1,
+      "commentSentimentTotalScore": 10
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1704",
+      "deletions": 4,
+      "prSize": 4,
+      "mergedAt": "2023-08-18T19:27:08Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1693",
+      "additions": 344,
+      "deletions": 4,
+      "prSize": 348,
+      "mergedAt": "2023-08-18T20:16:34Z",
+      "cycleTime": 10,
+      "age": 10
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "blowery",
+      "url": "https://github.com/mswjs/msw/pull/1639",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2023-08-22T08:11:27Z",
+      "cycleTime": 69,
+      "age": 69,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "kettanaito": 5
+      },
+      "generalCommentSentimentScore": 18,
+      "generalCommentSentiments": {
+        "kettanaito": 18
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentSentimentTotalScore": 18,
+      "comments": 5,
+      "commenters": {
+        "kettanaito": 5
+      },
+      "commentSentimentScore": 18,
+      "commentSentiments": {
+        "kettanaito": 18
+      },
+      "commentsAuthor": 1,
+      "commentSentimentTotalScore": 18
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1708",
+      "additions": 9,
+      "deletions": 4,
+      "prSize": 13,
+      "mergedAt": "2023-08-23T14:07:50Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1713",
+      "additions": 1,
+      "deletions": 2,
+      "prSize": 3,
+      "mergedAt": "2023-08-25T09:56:44Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1714",
+      "additions": 86,
+      "deletions": 4,
+      "prSize": 90,
+      "mergedAt": "2023-08-25T15:37:36Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1716",
+      "additions": 22,
+      "prSize": 22,
+      "mergedAt": "2023-08-25T17:21:47Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "chentsulin",
+      "url": "https://github.com/mswjs/msw/pull/1711",
+      "additions": 16,
+      "deletions": 9,
+      "prSize": 25,
+      "mergedAt": "2023-09-01T09:49:44Z",
+      "cycleTime": 7,
+      "age": 7,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 16,
+      "generalCommenters": {
+        "kettanaito": 10,
+        "mattcosta7": 4,
+        "azangru": 1,
+        "thomasburguiere": 1
+      },
+      "generalCommentSentimentScore": 19,
+      "generalCommentSentiments": {
+        "kettanaito": 21,
+        "mattcosta7": -5,
+        "azangru": 1,
+        "thomasburguiere": 2
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": -6,
+      "generalCommentSentimentTotalScore": 13,
+      "comments": 16,
+      "commenters": {
+        "kettanaito": 10,
+        "mattcosta7": 4,
+        "azangru": 1,
+        "thomasburguiere": 1
+      },
+      "commentSentimentScore": 19,
+      "commentSentiments": {
+        "kettanaito": 21,
+        "mattcosta7": -5,
+        "azangru": 1,
+        "thomasburguiere": 2
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": -6,
+      "commentSentimentTotalScore": 13
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1725",
+      "additions": 56,
+      "deletions": 14,
+      "prSize": 70,
+      "mergedAt": "2023-09-03T09:22:29Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1730",
+      "additions": 44,
+      "deletions": 82,
+      "prSize": 126,
+      "mergedAt": "2023-09-07T16:03:54Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1736",
+      "additions": 12,
+      "deletions": 12,
+      "prSize": 24,
+      "mergedAt": "2023-09-13T19:51:04Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "SerkanSipahi": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "SerkanSipahi": 2
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 7,
+      "generalCommentSentimentTotalScore": 9,
+      "comments": 1,
+      "commenters": {
+        "SerkanSipahi": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "SerkanSipahi": 2
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 7,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1739",
+      "additions": 35,
+      "deletions": 18,
+      "prSize": 53,
+      "mergedAt": "2023-09-16T13:19:37Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1734",
+      "additions": 10,
+      "deletions": 43,
+      "prSize": 53,
+      "mergedAt": "2023-09-16T13:43:17Z",
+      "cycleTime": 3,
+      "age": 3,
+      "generalComments": 2,
+      "generalCommenters": {
+        "thepassle": 2
+      },
+      "generalCommentSentimentScore": 11,
+      "generalCommentSentiments": {
+        "thepassle": 11
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": 4,
+      "generalCommentSentimentTotalScore": 15,
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 1,
+      "codeCommentSentimentTotalScore": 1,
+      "comments": 2,
+      "commenters": {
+        "thepassle": 2
+      },
+      "commentSentimentScore": 11,
+      "commentSentiments": {
+        "thepassle": 11
+      },
+      "commentsAuthor": 4,
+      "commentAuthorSentimentScore": 5,
+      "commentSentimentTotalScore": 16
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1740",
+      "additions": 34,
+      "deletions": 6,
+      "prSize": 40,
+      "mergedAt": "2023-09-16T14:39:06Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1741",
+      "additions": 22,
+      "deletions": 22,
+      "prSize": 44,
+      "mergedAt": "2023-09-16T16:37:49Z",
+      "cycleTime": 1,
+      "age": 1,
+      "codeCommentsAuthor": 2,
+      "codeCommentAuthorSentimentScore": 2,
+      "codeCommentSentimentTotalScore": 2,
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 2,
+      "commentSentimentTotalScore": 2
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1742",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2023-09-16T16:46:32Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1745",
+      "additions": 63,
+      "deletions": 121,
+      "prSize": 184,
+      "mergedAt": "2023-09-20T12:41:01Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "Kosai106",
+      "url": "https://github.com/mswjs/msw/pull/1737",
+      "additions": 8,
+      "deletions": 10,
+      "prSize": 18,
+      "mergedAt": "2023-09-21T13:12:12Z",
+      "cycleTime": 6,
+      "age": 6,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kettanaito": 1
+      },
+      "generalCommentSentimentScore": 6,
+      "generalCommentSentiments": {
+        "kettanaito": 6
+      },
+      "generalCommentSentimentTotalScore": 6,
+      "codeComments": 2,
+      "codeCommenters": {
+        "kettanaito": 2
+      },
+      "codeCommentSentimentScore": 2,
+      "codeCommentSentiments": {
+        "kettanaito": 2
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 3,
+      "codeCommentSentimentTotalScore": 5,
+      "comments": 3,
+      "commenters": {
+        "kettanaito": 3
+      },
+      "commentSentimentScore": 8,
+      "commentSentiments": {
+        "kettanaito": 8
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 3,
+      "commentSentimentTotalScore": 11
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1754",
+      "additions": 5,
+      "deletions": 5,
+      "prSize": 10,
+      "mergedAt": "2023-09-28T11:31:27Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "NiiyaDaiki": 1
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "comments": 1,
+      "commenters": {
+        "NiiyaDaiki": 1
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1759",
+      "additions": 3,
+      "prSize": 3,
+      "mergedAt": "2023-10-04T10:55:17Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1761",
+      "additions": 232,
+      "deletions": 168,
+      "prSize": 400,
+      "mergedAt": "2023-10-06T17:20:15Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "laryro",
+      "url": "https://github.com/mswjs/msw/pull/1762",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2023-10-10T10:00:54Z",
+      "cycleTime": 3,
+      "age": 3,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kettanaito": 1
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kettanaito": 9
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 11,
+      "generalCommentSentimentTotalScore": 20,
+      "codeComments": 1,
+      "codeCommenters": {
+        "kettanaito": 1
+      },
+      "codeCommentSentimentScore": 1,
+      "codeCommentSentiments": {
+        "kettanaito": 1
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentSentimentTotalScore": 1,
+      "comments": 2,
+      "commenters": {
+        "kettanaito": 2
+      },
+      "commentSentimentScore": 10,
+      "commentSentiments": {
+        "kettanaito": 10
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 11,
+      "commentSentimentTotalScore": 21
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1765",
+      "additions": 76,
+      "deletions": 3,
+      "prSize": 79,
+      "mergedAt": "2023-10-10T12:43:02Z",
+      "cycleTime": 1,
+      "age": 1,
+      "codeCommentsAuthor": 2,
+      "codeCommentAuthorSentimentScore": -1,
+      "codeCommentSentimentTotalScore": -1,
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": -1,
+      "commentSentimentTotalScore": -1
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "mattcosta7",
+      "url": "https://github.com/mswjs/msw/pull/1766",
+      "additions": 3,
+      "deletions": 40,
+      "prSize": 43,
+      "mergedAt": "2023-10-12T08:26:52Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": -2,
+      "codeCommentSentimentTotalScore": -2,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": -2,
+      "commentSentimentTotalScore": -2
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1770",
+      "additions": 75,
+      "prSize": 75,
+      "mergedAt": "2023-10-15T11:31:41Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "thepassle": 2
+      },
+      "generalCommentSentimentScore": -2,
+      "generalCommentSentiments": {
+        "thepassle": -2
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 4,
+      "generalCommentSentimentTotalScore": 2,
+      "comments": 2,
+      "commenters": {
+        "thepassle": 2
+      },
+      "commentSentimentScore": -2,
+      "commentSentiments": {
+        "thepassle": -2
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 4,
+      "commentSentimentTotalScore": 2
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1771",
+      "additions": 51,
+      "deletions": 16,
+      "prSize": 67,
+      "mergedAt": "2023-10-15T14:03:50Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "thepassle": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "thepassle": 1
+      },
+      "codeCommentSentimentScore": 4,
+      "codeCommentSentiments": {
+        "thepassle": 4
+      },
+      "codeCommentsAuthor": 4,
+      "codeCommentAuthorSentimentScore": 1,
+      "codeCommentSentimentTotalScore": 5,
+      "comments": 2,
+      "commenters": {
+        "thepassle": 2
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "thepassle": 4
+      },
+      "commentsAuthor": 4,
+      "commentAuthorSentimentScore": 1,
+      "commentSentimentTotalScore": 5
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1773",
+      "additions": 16,
+      "deletions": 11,
+      "prSize": 27,
+      "mergedAt": "2023-10-18T08:26:01Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "christoph-fricke",
+      "url": "https://github.com/mswjs/msw/pull/1779",
+      "additions": 99,
+      "deletions": 4,
+      "prSize": 103,
+      "mergedAt": "2023-10-20T09:48:52Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 7,
+      "generalCommenters": {
+        "kettanaito": 4,
+        "luchsamapparat": 2,
+        "weyert": 1
+      },
+      "generalCommentSentimentScore": 14,
+      "generalCommentSentiments": {
+        "kettanaito": 12,
+        "luchsamapparat": -2,
+        "weyert": 4
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 2,
+      "generalCommentSentimentTotalScore": 16,
+      "codeComments": 4,
+      "codeCommenters": {
+        "kettanaito": 4
+      },
+      "codeCommentSentimentScore": -9,
+      "codeCommentSentiments": {
+        "kettanaito": -9
+      },
+      "codeCommentsAuthor": 2,
+      "codeCommentAuthorSentimentScore": -2,
+      "codeCommentSentimentTotalScore": -11,
+      "comments": 11,
+      "commenters": {
+        "kettanaito": 8,
+        "luchsamapparat": 2,
+        "weyert": 1
+      },
+      "commentSentimentScore": 5,
+      "commentSentiments": {
+        "kettanaito": 3,
+        "luchsamapparat": -2,
+        "weyert": 4
+      },
+      "commentsAuthor": 3,
+      "commentSentimentTotalScore": 5
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "christoph-fricke",
+      "url": "https://github.com/mswjs/msw/pull/1774",
+      "additions": 1,
+      "prSize": 1,
+      "mergedAt": "2023-10-20T12:51:09Z",
+      "cycleTime": 2,
+      "age": 2,
+      "generalComments": 5,
+      "generalCommenters": {
+        "kettanaito": 5
+      },
+      "generalCommentSentimentScore": 34,
+      "generalCommentSentiments": {
+        "kettanaito": 34
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": 22,
+      "generalCommentSentimentTotalScore": 56,
+      "comments": 5,
+      "commenters": {
+        "kettanaito": 5
+      },
+      "commentSentimentScore": 34,
+      "commentSentiments": {
+        "kettanaito": 34
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 22,
+      "commentSentimentTotalScore": 56
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1797",
+      "additions": 55,
+      "prSize": 55,
+      "mergedAt": "2023-10-26T09:47:31Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1798",
+      "additions": 9,
+      "deletions": 1,
+      "prSize": 10,
+      "mergedAt": "2023-10-26T10:41:43Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kunmagg",
+      "url": "https://github.com/mswjs/msw/pull/1799",
+      "additions": 3,
+      "deletions": 2,
+      "prSize": 5,
+      "mergedAt": "2023-10-27T10:52:09Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kettanaito": 1
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kettanaito": 9
+      },
+      "generalCommentSentimentTotalScore": 9,
+      "comments": 1,
+      "commenters": {
+        "kettanaito": 1
+      },
+      "commentSentimentScore": 9,
+      "commentSentiments": {
+        "kettanaito": 9
+      },
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "mattcosta7",
+      "url": "https://github.com/mswjs/msw/pull/1813",
+      "additions": 19,
+      "deletions": 12,
+      "prSize": 31,
+      "mergedAt": "2023-11-01T11:25:17Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "pord911": 1,
+        "kettanaito": 2,
+        "sauldeleon": 1
+      },
+      "generalCommentSentimentScore": 15,
+      "generalCommentSentiments": {
+        "pord911": 2,
+        "kettanaito": 11,
+        "sauldeleon": 2
+      },
+      "generalCommentSentimentTotalScore": 15,
+      "codeCommentsAuthor": 1,
+      "comments": 4,
+      "commenters": {
+        "pord911": 1,
+        "kettanaito": 2,
+        "sauldeleon": 1
+      },
+      "commentSentimentScore": 15,
+      "commentSentiments": {
+        "pord911": 2,
+        "kettanaito": 11,
+        "sauldeleon": 2
+      },
+      "commentsAuthor": 1,
+      "commentSentimentTotalScore": 15
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1817",
+      "additions": 1104,
+      "deletions": 1608,
+      "prSize": 2712,
+      "mergedAt": "2023-11-01T12:05:12Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1821",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2023-11-01T12:48:47Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "joshkel",
+      "url": "https://github.com/mswjs/msw/pull/1822",
+      "additions": 142,
+      "deletions": 5,
+      "prSize": 147,
+      "mergedAt": "2023-11-01T15:11:33Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "kettanaito": 2
+      },
+      "generalCommentSentimentScore": 16,
+      "generalCommentSentiments": {
+        "kettanaito": 16
+      },
+      "generalCommentSentimentTotalScore": 16,
+      "comments": 2,
+      "commenters": {
+        "kettanaito": 2
+      },
+      "commentSentimentScore": 16,
+      "commentSentiments": {
+        "kettanaito": 16
+      },
+      "commentSentimentTotalScore": 16
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1820",
+      "additions": 16,
+      "deletions": 15,
+      "prSize": 31,
+      "mergedAt": "2023-11-01T15:36:01Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "signorettif": 1
+      },
+      "generalCommentSentimentScore": 6,
+      "generalCommentSentiments": {
+        "signorettif": 6
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": 16,
+      "generalCommentSentimentTotalScore": 22,
+      "comments": 1,
+      "commenters": {
+        "signorettif": 1
+      },
+      "commentSentimentScore": 6,
+      "commentSentiments": {
+        "signorettif": 6
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 16,
+      "commentSentimentTotalScore": 22
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1825",
+      "additions": 83,
+      "deletions": 1,
+      "prSize": 84,
+      "mergedAt": "2023-11-02T09:28:53Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1833",
+      "additions": 16,
+      "deletions": 6,
+      "prSize": 22,
+      "mergedAt": "2023-11-04T14:41:17Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "codeCommentsAuthor": 1,
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1824",
+      "additions": 12,
+      "deletions": 2,
+      "prSize": 14,
+      "mergedAt": "2023-11-04T15:21:08Z",
+      "cycleTime": 2,
+      "age": 2,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "codeCommentsAuthor": 3,
+      "codeCommentAuthorSentimentScore": 3,
+      "codeCommentSentimentTotalScore": 3,
+      "commentsAuthor": 4,
+      "commentAuthorSentimentScore": 12,
+      "commentSentimentTotalScore": 12
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1837",
+      "deletions": 21,
+      "prSize": 21,
+      "mergedAt": "2023-11-07T10:05:22Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1838",
+      "additions": 97,
+      "deletions": 8,
+      "prSize": 105,
+      "mergedAt": "2023-11-07T10:15:56Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "codeComments": 1,
+      "codeCommenters": {
+        "mattcosta7": 1
+      },
+      "codeCommentSentimentScore": 1,
+      "codeCommentSentiments": {
+        "mattcosta7": 1
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 1,
+      "codeCommentSentimentTotalScore": 2,
+      "comments": 1,
+      "commenters": {
+        "mattcosta7": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "mattcosta7": 1
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 10,
+      "commentSentimentTotalScore": 11
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1839",
+      "additions": 86,
+      "deletions": 19,
+      "prSize": 105,
+      "mergedAt": "2023-11-07T10:31:30Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1842",
+      "additions": 10,
+      "deletions": 6,
+      "prSize": 16,
+      "mergedAt": "2023-11-08T09:36:50Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1844",
+      "additions": 5,
+      "deletions": 5,
+      "prSize": 10,
+      "mergedAt": "2023-11-08T11:33:33Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1846",
+      "additions": 5,
+      "deletions": 5,
+      "prSize": 10,
+      "mergedAt": "2023-11-08T14:00:19Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1845",
+      "additions": 6,
+      "deletions": 6,
+      "prSize": 12,
+      "mergedAt": "2023-11-08T14:23:50Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "mattcosta7": 1
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "mattcosta7",
+      "url": "https://github.com/mswjs/msw/pull/1840",
+      "additions": 328,
+      "prSize": 328,
+      "mergedAt": "2023-11-08T14:57:46Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "kettanaito": 4
+      },
+      "generalCommentSentimentScore": 22,
+      "generalCommentSentiments": {
+        "kettanaito": 22
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 10,
+      "generalCommentSentimentTotalScore": 32,
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 1,
+      "codeCommentSentimentTotalScore": 1,
+      "comments": 4,
+      "commenters": {
+        "kettanaito": 4
+      },
+      "commentSentimentScore": 22,
+      "commentSentiments": {
+        "kettanaito": 22
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 11,
+      "commentSentimentTotalScore": 33
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1849",
+      "additions": 5,
+      "deletions": 5,
+      "prSize": 10,
+      "mergedAt": "2023-11-09T12:06:05Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "okkimus",
+      "url": "https://github.com/mswjs/msw/pull/1850",
+      "additions": 6,
+      "deletions": 6,
+      "prSize": 12,
+      "mergedAt": "2023-11-10T18:59:05Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kettanaito": 1
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kettanaito": 9
+      },
+      "generalCommentSentimentTotalScore": 9,
+      "comments": 1,
+      "commenters": {
+        "kettanaito": 1
+      },
+      "commentSentimentScore": 9,
+      "commentSentiments": {
+        "kettanaito": 9
+      },
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1853",
+      "additions": 118,
+      "deletions": 5,
+      "prSize": 123,
+      "mergedAt": "2023-11-12T15:50:48Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1855",
+      "additions": 158,
+      "prSize": 158,
+      "mergedAt": "2023-11-14T10:28:21Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "codeCommentsAuthor": 1,
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "ezzatron",
+      "url": "https://github.com/mswjs/msw/pull/1857",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2023-11-16T09:30:17Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "kettanaito": 2
+      },
+      "generalCommentSentimentScore": 21,
+      "generalCommentSentiments": {
+        "kettanaito": 21
+      },
+      "generalCommentSentimentTotalScore": 21,
+      "comments": 2,
+      "commenters": {
+        "kettanaito": 2
+      },
+      "commentSentimentScore": 21,
+      "commentSentiments": {
+        "kettanaito": 21
+      },
+      "commentSentimentTotalScore": 21
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1858",
+      "additions": 69,
+      "deletions": 39,
+      "prSize": 108,
+      "mergedAt": "2023-11-16T09:43:18Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "mattcosta7": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "DogukanTansuk": 1
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": 14,
+      "generalCommentSentimentTotalScore": 14,
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": -1,
+      "codeCommentSentimentTotalScore": -1,
+      "comments": 1,
+      "commenters": {
+        "DogukanTansuk": 1
+      },
+      "commentsAuthor": 4,
+      "commentAuthorSentimentScore": 13,
+      "commentSentimentTotalScore": 13
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "Jungzl",
+      "url": "https://github.com/mswjs/msw/pull/1815",
+      "additions": 10,
+      "deletions": 8,
+      "prSize": 18,
+      "mergedAt": "2023-11-16T10:00:58Z",
+      "cycleTime": 15,
+      "age": 15,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 7,
+      "generalCommenters": {
+        "Fallsleep": 3,
+        "kettanaito": 4
+      },
+      "generalCommentSentimentScore": 29,
+      "generalCommentSentiments": {
+        "Fallsleep": -1,
+        "kettanaito": 30
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 38,
+      "codeComments": 2,
+      "codeCommenters": {
+        "kettanaito": 2
+      },
+      "codeCommentSentimentScore": 4,
+      "codeCommentSentiments": {
+        "kettanaito": 4
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 4,
+      "codeCommentSentimentTotalScore": 8,
+      "comments": 9,
+      "commenters": {
+        "kettanaito": 6,
+        "Fallsleep": 3
+      },
+      "commentSentimentScore": 33,
+      "commentSentiments": {
+        "kettanaito": 34,
+        "Fallsleep": -1
+      },
+      "commentsAuthor": 4,
+      "commentAuthorSentimentScore": 13,
+      "commentSentimentTotalScore": 46
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1861",
+      "mergedAt": "2023-11-16T10:53:18Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1862",
+      "additions": 1,
+      "deletions": 2,
+      "prSize": 3,
+      "mergedAt": "2023-11-16T11:04:57Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1864",
+      "additions": 44,
+      "deletions": 62,
+      "prSize": 106,
+      "mergedAt": "2023-11-16T13:07:19Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1867",
+      "additions": 20,
+      "deletions": 2,
+      "prSize": 22,
+      "mergedAt": "2023-11-17T09:49:38Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "mattcosta7",
+      "url": "https://github.com/mswjs/msw/pull/1883",
+      "additions": 226,
+      "deletions": 217,
+      "prSize": 443,
+      "mergedAt": "2023-11-24T14:49:52Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kettanaito": 1
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kettanaito": 9
+      },
+      "generalCommentSentimentTotalScore": 9,
+      "codeComments": 2,
+      "codeCommenters": {
+        "kettanaito": 2
+      },
+      "codeCommentSentimentScore": 2,
+      "codeCommentSentiments": {
+        "kettanaito": 2
+      },
+      "codeCommentsAuthor": 6,
+      "codeCommentAuthorSentimentScore": 4,
+      "codeCommentSentimentTotalScore": 6,
+      "comments": 3,
+      "commenters": {
+        "kettanaito": 3
+      },
+      "commentSentimentScore": 11,
+      "commentSentiments": {
+        "kettanaito": 11
+      },
+      "commentsAuthor": 6,
+      "commentAuthorSentimentScore": 4,
+      "commentSentimentTotalScore": 15
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "mattcosta7",
+      "url": "https://github.com/mswjs/msw/pull/1885",
+      "additions": 144,
+      "deletions": 76,
+      "prSize": 220,
+      "mergedAt": "2023-11-24T15:10:32Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "kettanaito": 1
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kettanaito": 9
+      },
+      "generalCommentSentimentTotalScore": 9,
+      "codeComments": 7,
+      "codeCommenters": {
+        "kettanaito": 7
+      },
+      "codeCommentSentimentScore": -9,
+      "codeCommentSentiments": {
+        "kettanaito": -9
+      },
+      "codeCommentsAuthor": 2,
+      "codeCommentAuthorSentimentScore": -1,
+      "codeCommentSentimentTotalScore": -10,
+      "comments": 8,
+      "commenters": {
+        "kettanaito": 8
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": -1,
+      "commentSentimentTotalScore": -1
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1876",
+      "additions": 26,
+      "deletions": 11,
+      "prSize": 37,
+      "mergedAt": "2023-11-24T15:38:47Z",
+      "cycleTime": 3,
+      "age": 3,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "mattcosta7",
+      "url": "https://github.com/mswjs/msw/pull/1871",
+      "additions": 17151,
+      "deletions": 25,
+      "prSize": 17176,
+      "mergedAt": "2023-11-24T16:18:14Z",
+      "cycleTime": 6,
+      "age": 6,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "kettanaito": 4
+      },
+      "generalCommentSentimentScore": 30,
+      "generalCommentSentiments": {
+        "kettanaito": 30
+      },
+      "generalCommentsAuthor": 4,
+      "generalCommentAuthorSentimentScore": 24,
+      "generalCommentSentimentTotalScore": 54,
+      "codeComments": 7,
+      "codeCommenters": {
+        "kettanaito": 7
+      },
+      "codeCommentSentimentScore": 8,
+      "codeCommentSentiments": {
+        "kettanaito": 8
+      },
+      "codeCommentsAuthor": 7,
+      "codeCommentAuthorSentimentScore": 19,
+      "codeCommentSentimentTotalScore": 27,
+      "comments": 11,
+      "commenters": {
+        "kettanaito": 11
+      },
+      "commentSentimentScore": 38,
+      "commentSentiments": {
+        "kettanaito": 38
+      },
+      "commentsAuthor": 11,
+      "commentAuthorSentimentScore": 43,
+      "commentSentimentTotalScore": 81
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1891",
+      "additions": 29,
+      "prSize": 29,
+      "mergedAt": "2023-11-26T10:44:52Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "mattcosta7",
+      "url": "https://github.com/mswjs/msw/pull/1898",
+      "additions": 117,
+      "deletions": 30,
+      "prSize": 147,
+      "mergedAt": "2023-11-30T15:37:03Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kettanaito": 1
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kettanaito": 9
+      },
+      "generalCommentSentimentTotalScore": 9,
+      "comments": 1,
+      "commenters": {
+        "kettanaito": 1
+      },
+      "commentSentimentScore": 9,
+      "commentSentiments": {
+        "kettanaito": 9
+      },
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "mattcosta7",
+      "url": "https://github.com/mswjs/msw/pull/1895",
+      "additions": 152,
+      "deletions": 35,
+      "prSize": 187,
+      "mergedAt": "2023-12-01T13:08:52Z",
+      "cycleTime": 2,
+      "age": 2,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "kettanaito": 2
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kettanaito": 9
+      },
+      "generalCommentSentimentTotalScore": 9,
+      "codeComments": 7,
+      "codeCommenters": {
+        "kettanaito": 7
+      },
+      "codeCommentSentimentScore": 12,
+      "codeCommentSentiments": {
+        "kettanaito": 12
+      },
+      "codeCommentsAuthor": 8,
+      "codeCommentAuthorSentimentScore": -1,
+      "codeCommentSentimentTotalScore": 11,
+      "comments": 9,
+      "commenters": {
+        "kettanaito": 9
+      },
+      "commentSentimentScore": 21,
+      "commentSentiments": {
+        "kettanaito": 21
+      },
+      "commentsAuthor": 8,
+      "commentAuthorSentimentScore": -1,
+      "commentSentimentTotalScore": 20
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1918",
+      "additions": 16,
+      "deletions": 3,
+      "prSize": 19,
+      "mergedAt": "2023-12-10T10:37:06Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "thepassle",
+      "url": "https://github.com/mswjs/msw/pull/1922",
+      "additions": 1,
+      "prSize": 1,
+      "mergedAt": "2023-12-11T13:52:42Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kettanaito": 1
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kettanaito": 9
+      },
+      "generalCommentSentimentTotalScore": 9,
+      "codeComments": 1,
+      "codeCommenters": {
+        "kettanaito": 1
+      },
+      "codeCommentSentimentScore": 2,
+      "codeCommentSentiments": {
+        "kettanaito": 2
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 2,
+      "codeCommentSentimentTotalScore": 4,
+      "comments": 2,
+      "commenters": {
+        "kettanaito": 2
+      },
+      "commentSentimentScore": 11,
+      "commentSentiments": {
+        "kettanaito": 11
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 2,
+      "commentSentimentTotalScore": 13
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "falsepopsky",
+      "url": "https://github.com/mswjs/msw/pull/1874",
+      "additions": 9,
+      "deletions": 2,
+      "prSize": 11,
+      "mergedAt": "2024-01-05T11:51:34Z",
+      "cycleTime": 45,
+      "age": 45,
+      "generalComments": 9,
+      "generalCommenters": {
+        "epreston": 2,
+        "mattcosta7": 2,
+        "kettanaito": 4,
+        "danawoodman": 1
+      },
+      "generalCommentSentimentScore": 41,
+      "generalCommentSentiments": {
+        "epreston": 5,
+        "mattcosta7": 17,
+        "kettanaito": 15,
+        "danawoodman": 4
+      },
+      "generalCommentSentimentTotalScore": 41,
+      "codeComments": 12,
+      "codeCommenters": {
+        "kettanaito": 5,
+        "mattcosta7": 4,
+        "kibertoad": 3
+      },
+      "codeCommentSentimentScore": -1,
+      "codeCommentSentiments": {
+        "kettanaito": 4,
+        "mattcosta7": -4,
+        "kibertoad": -1
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 4,
+      "codeCommentSentimentTotalScore": 3,
+      "comments": 21,
+      "commenters": {
+        "kettanaito": 9,
+        "mattcosta7": 6,
+        "kibertoad": 3,
+        "epreston": 2,
+        "danawoodman": 1
+      },
+      "commentSentimentScore": 40,
+      "commentSentiments": {
+        "kettanaito": 19,
+        "mattcosta7": 13,
+        "kibertoad": -1,
+        "epreston": 5,
+        "danawoodman": 4
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 4,
+      "commentSentimentTotalScore": 44
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "mattcosta7",
+      "url": "https://github.com/mswjs/msw/pull/1914",
+      "additions": 287,
+      "deletions": 144,
+      "prSize": 431,
+      "mergedAt": "2024-01-05T11:59:54Z",
+      "cycleTime": 29,
+      "age": 29,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "kettanaito": 3
+      },
+      "generalCommentSentimentScore": -7,
+      "generalCommentSentiments": {
+        "kettanaito": -7
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 3,
+      "generalCommentSentimentTotalScore": -4,
+      "codeComments": 6,
+      "codeCommenters": {
+        "kettanaito": 6
+      },
+      "codeCommentSentimentScore": 28,
+      "codeCommentSentiments": {
+        "kettanaito": 28
+      },
+      "codeCommentsAuthor": 7,
+      "codeCommentAuthorSentimentScore": 12,
+      "codeCommentSentimentTotalScore": 40,
+      "comments": 9,
+      "commenters": {
+        "kettanaito": 9
+      },
+      "commentSentimentScore": 21,
+      "commentSentiments": {
+        "kettanaito": 21
+      },
+      "commentsAuthor": 8,
+      "commentAuthorSentimentScore": 15,
+      "commentSentimentTotalScore": 36
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1950",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2024-01-05T12:18:20Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1958",
+      "additions": 348,
+      "deletions": 187,
+      "prSize": 535,
+      "mergedAt": "2024-01-08T11:14:28Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1961",
+      "additions": 168,
+      "deletions": 39,
+      "prSize": 207,
+      "mergedAt": "2024-01-12T14:29:22Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "mattcosta7": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "mattcosta7": 1
+      },
+      "generalCommentSentimentScore": 5,
+      "generalCommentSentiments": {
+        "mattcosta7": 5
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 14,
+      "generalCommentSentimentTotalScore": 19,
+      "codeCommentsAuthor": 4,
+      "codeCommentAuthorSentimentScore": 7,
+      "codeCommentSentimentTotalScore": 7,
+      "comments": 1,
+      "commenters": {
+        "mattcosta7": 1
+      },
+      "commentSentimentScore": 5,
+      "commentSentiments": {
+        "mattcosta7": 5
+      },
+      "commentsAuthor": 6,
+      "commentAuthorSentimentScore": 21,
+      "commentSentimentTotalScore": 26
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "mattcosta7",
+      "url": "https://github.com/mswjs/msw/pull/1957",
+      "additions": 22,
+      "deletions": 5,
+      "prSize": 27,
+      "mergedAt": "2024-01-12T14:48:08Z",
+      "cycleTime": 4,
+      "age": 4,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kettanaito": 1
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kettanaito": 9
+      },
+      "generalCommentSentimentTotalScore": 9,
+      "codeComments": 1,
+      "codeCommenters": {
+        "kettanaito": 1
+      },
+      "codeCommentSentimentScore": 2,
+      "codeCommentSentiments": {
+        "kettanaito": 2
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": -2,
+      "comments": 2,
+      "commenters": {
+        "kettanaito": 2
+      },
+      "commentSentimentScore": 11,
+      "commentSentiments": {
+        "kettanaito": 11
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": -2,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "mattcosta7",
+      "url": "https://github.com/mswjs/msw/pull/1912",
+      "additions": 68,
+      "prSize": 68,
+      "mergedAt": "2024-01-13T13:08:54Z",
+      "cycleTime": 37,
+      "age": 37,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kettanaito": 1
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kettanaito": 9
+      },
+      "generalCommentSentimentTotalScore": 9,
+      "codeComments": 2,
+      "codeCommenters": {
+        "kettanaito": 2
+      },
+      "comments": 3,
+      "commenters": {
+        "kettanaito": 3
+      },
+      "commentSentimentScore": 9,
+      "commentSentiments": {
+        "kettanaito": 9
+      },
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1963",
+      "additions": 251,
+      "deletions": 10,
+      "prSize": 261,
+      "mergedAt": "2024-01-15T09:59:38Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": -1,
+      "codeCommentSentimentTotalScore": -1,
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 8,
+      "commentSentimentTotalScore": 8
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1964",
+      "additions": 31,
+      "deletions": 232,
+      "prSize": 263,
+      "mergedAt": "2024-01-15T10:09:57Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 6,
+      "generalCommentSentimentTotalScore": 6,
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 6,
+      "commentSentimentTotalScore": 6
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1832",
+      "additions": 502,
+      "deletions": 252,
+      "prSize": 754,
+      "mergedAt": "2024-01-15T10:25:29Z",
+      "cycleTime": 72,
+      "age": 72,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "skvale",
+      "url": "https://github.com/mswjs/msw/pull/1942",
+      "additions": 42,
+      "deletions": 9,
+      "prSize": 51,
+      "mergedAt": "2024-01-15T10:37:53Z",
+      "cycleTime": 18,
+      "age": 18,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "kettanaito": 3
+      },
+      "generalCommentSentimentScore": 16,
+      "generalCommentSentiments": {
+        "kettanaito": 16
+      },
+      "generalCommentSentimentTotalScore": 16,
+      "codeComments": 3,
+      "codeCommenters": {
+        "mattcosta7": 1,
+        "kettanaito": 2
+      },
+      "codeCommentSentimentScore": 2,
+      "codeCommentSentiments": {
+        "mattcosta7": -4,
+        "kettanaito": 6
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": -3,
+      "codeCommentSentimentTotalScore": -1,
+      "comments": 6,
+      "commenters": {
+        "mattcosta7": 1,
+        "kettanaito": 5
+      },
+      "commentSentimentScore": 18,
+      "commentSentiments": {
+        "mattcosta7": -4,
+        "kettanaito": 22
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": -3,
+      "commentSentimentTotalScore": 15
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1966",
+      "additions": 1157,
+      "deletions": 20795,
+      "prSize": 21952,
+      "mergedAt": "2024-01-15T11:00:46Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1967",
+      "additions": 3,
+      "prSize": 3,
+      "mergedAt": "2024-01-15T11:07:37Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "thepassle",
+      "url": "https://github.com/mswjs/msw/pull/1780",
+      "additions": 1,
+      "deletions": 4,
+      "prSize": 5,
+      "mergedAt": "2024-01-15T11:33:51Z",
+      "cycleTime": 86,
+      "age": 86,
+      "generalComments": 9,
+      "generalCommenters": {
+        "kettanaito": 9
+      },
+      "generalCommentSentimentScore": 18,
+      "generalCommentSentiments": {
+        "kettanaito": 18
+      },
+      "generalCommentsAuthor": 7,
+      "generalCommentAuthorSentimentScore": 31,
+      "generalCommentSentimentTotalScore": 49,
+      "codeComments": 1,
+      "codeCommenters": {
+        "kettanaito": 1
+      },
+      "codeCommentSentimentScore": -2,
+      "codeCommentSentiments": {
+        "kettanaito": -2
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": -2,
+      "codeCommentSentimentTotalScore": -4,
+      "comments": 10,
+      "commenters": {
+        "kettanaito": 10
+      },
+      "commentSentimentScore": 16,
+      "commentSentiments": {
+        "kettanaito": 16
+      },
+      "commentsAuthor": 8,
+      "commentAuthorSentimentScore": 29,
+      "commentSentimentTotalScore": 45
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "skvale",
+      "url": "https://github.com/mswjs/msw/pull/1969",
+      "additions": 15,
+      "deletions": 5,
+      "prSize": 20,
+      "mergedAt": "2024-01-16T19:47:30Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kettanaito": 1
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kettanaito": 9
+      },
+      "generalCommentSentimentTotalScore": 9,
+      "codeComments": 1,
+      "codeCommenters": {
+        "kettanaito": 1
+      },
+      "codeCommentSentimentScore": 2,
+      "codeCommentSentiments": {
+        "kettanaito": 2
+      },
+      "codeCommentSentimentTotalScore": 2,
+      "comments": 2,
+      "commenters": {
+        "kettanaito": 2
+      },
+      "commentSentimentScore": 11,
+      "commentSentiments": {
+        "kettanaito": 11
+      },
+      "commentSentimentTotalScore": 11
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1973",
+      "additions": 18,
+      "deletions": 9,
+      "prSize": 27,
+      "mergedAt": "2024-01-17T13:38:32Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "mattcosta7": 1
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 12,
+      "generalCommentSentimentTotalScore": 12,
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 12,
+      "commentSentimentTotalScore": 12
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1975",
+      "additions": 120,
+      "prSize": 120,
+      "mergedAt": "2024-01-17T17:05:23Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1974",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2024-01-17T17:15:30Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1980",
+      "additions": 5,
+      "deletions": 5,
+      "prSize": 10,
+      "mergedAt": "2024-01-20T11:29:13Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "thepassle",
+      "url": "https://github.com/mswjs/msw/pull/1987",
+      "additions": 3,
+      "deletions": 1,
+      "prSize": 4,
+      "mergedAt": "2024-01-21T09:51:45Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kettanaito": 1
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kettanaito": 9
+      },
+      "generalCommentSentimentTotalScore": 9,
+      "comments": 1,
+      "commenters": {
+        "kettanaito": 1
+      },
+      "commentSentimentScore": 9,
+      "commentSentiments": {
+        "kettanaito": 9
+      },
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1982",
+      "additions": 465,
+      "deletions": 35,
+      "prSize": 500,
+      "mergedAt": "2024-01-21T11:59:56Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "mattcosta7": 2
+      },
+      "generalCommentSentimentScore": 15,
+      "generalCommentSentiments": {
+        "mattcosta7": 15
+      },
+      "generalCommentsAuthor": 5,
+      "generalCommentAuthorSentimentScore": 14,
+      "generalCommentSentimentTotalScore": 29,
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 2,
+      "codeCommentSentimentTotalScore": 2,
+      "comments": 2,
+      "commenters": {
+        "mattcosta7": 2
+      },
+      "commentSentimentScore": 15,
+      "commentSentiments": {
+        "mattcosta7": 15
+      },
+      "commentsAuthor": 6,
+      "commentAuthorSentimentScore": 16,
+      "commentSentimentTotalScore": 31
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1990",
+      "additions": 19,
+      "deletions": 705,
+      "prSize": 724,
+      "mergedAt": "2024-01-22T14:10:58Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "mattcosta7": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "thepassle": 2
+      },
+      "generalCommentSentimentScore": 17,
+      "generalCommentSentiments": {
+        "thepassle": 17
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 15,
+      "generalCommentSentimentTotalScore": 32,
+      "codeComments": 1,
+      "codeCommenters": {
+        "mattcosta7": 1
+      },
+      "codeCommentSentimentScore": 2,
+      "codeCommentSentiments": {
+        "mattcosta7": 2
+      },
+      "codeCommentSentimentTotalScore": 2,
+      "comments": 3,
+      "commenters": {
+        "mattcosta7": 1,
+        "thepassle": 2
+      },
+      "commentSentimentScore": 19,
+      "commentSentiments": {
+        "mattcosta7": 2,
+        "thepassle": 17
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 15,
+      "commentSentimentTotalScore": 34
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "thepassle",
+      "url": "https://github.com/mswjs/msw/pull/1988",
+      "additions": 12,
+      "prSize": 12,
+      "mergedAt": "2024-01-22T17:13:57Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "kettanaito": 3
+      },
+      "generalCommentSentimentScore": 20,
+      "generalCommentSentiments": {
+        "kettanaito": 20
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": -3,
+      "generalCommentSentimentTotalScore": 17,
+      "codeComments": 3,
+      "codeCommenters": {
+        "kettanaito": 3
+      },
+      "codeCommentSentimentScore": -4,
+      "codeCommentSentiments": {
+        "kettanaito": -4
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 3,
+      "codeCommentSentimentTotalScore": -1,
+      "comments": 6,
+      "commenters": {
+        "kettanaito": 6
+      },
+      "commentSentimentScore": 16,
+      "commentSentiments": {
+        "kettanaito": 16
+      },
+      "commentsAuthor": 2,
+      "commentSentimentTotalScore": 16
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1995",
+      "additions": 35,
+      "deletions": 1,
+      "prSize": 36,
+      "mergedAt": "2024-01-25T10:24:16Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "codeCommentsAuthor": 1,
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1999",
+      "additions": 37,
+      "deletions": 5,
+      "prSize": 42,
+      "mergedAt": "2024-01-25T11:24:03Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1997",
+      "additions": 108,
+      "deletions": 64,
+      "prSize": 172,
+      "mergedAt": "2024-01-25T11:35:17Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1993",
+      "additions": 60,
+      "deletions": 27,
+      "prSize": 87,
+      "mergedAt": "2024-01-25T12:16:28Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "codeComments": 2,
+      "codeCommenters": {
+        "mattcosta7": 2
+      },
+      "codeCommentSentimentScore": 2,
+      "codeCommentSentiments": {
+        "mattcosta7": 2
+      },
+      "codeCommentsAuthor": 6,
+      "codeCommentAuthorSentimentScore": 4,
+      "codeCommentSentimentTotalScore": 6,
+      "comments": 2,
+      "commenters": {
+        "mattcosta7": 2
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "mattcosta7": 2
+      },
+      "commentsAuthor": 7,
+      "commentAuthorSentimentScore": 13,
+      "commentSentimentTotalScore": 15
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1998",
+      "additions": 3,
+      "deletions": 3,
+      "prSize": 6,
+      "mergedAt": "2024-01-25T12:33:15Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2008",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2024-01-31T09:48:55Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2002",
+      "additions": 29,
+      "deletions": 4,
+      "prSize": 33,
+      "mergedAt": "2024-02-04T20:58:53Z",
+      "cycleTime": 7,
+      "age": 7,
+      "approvals": 1,
+      "approvers": {
+        "mattcosta7": 1
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2016",
+      "additions": 5,
+      "deletions": 5,
+      "prSize": 10,
+      "mergedAt": "2024-02-06T15:20:09Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "sairus2k",
+      "url": "https://github.com/mswjs/msw/pull/2017",
+      "additions": 5,
+      "deletions": 1,
+      "prSize": 6,
+      "mergedAt": "2024-02-06T15:37:09Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kettanaito": 1
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kettanaito": 9
+      },
+      "generalCommentSentimentTotalScore": 9,
+      "codeComments": 4,
+      "codeCommenters": {
+        "kettanaito": 4
+      },
+      "codeCommentSentimentScore": 6,
+      "codeCommentSentiments": {
+        "kettanaito": 6
+      },
+      "codeCommentsAuthor": 3,
+      "codeCommentAuthorSentimentScore": -3,
+      "codeCommentSentimentTotalScore": 3,
+      "comments": 5,
+      "commenters": {
+        "kettanaito": 5
+      },
+      "commentSentimentScore": 15,
+      "commentSentiments": {
+        "kettanaito": 15
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": -3,
+      "commentSentimentTotalScore": 12
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2000",
+      "additions": 439,
+      "deletions": 139,
+      "prSize": 578,
+      "mergedAt": "2024-02-12T09:55:12Z",
+      "cycleTime": 16,
+      "age": 16,
+      "approvals": 1,
+      "approvers": {
+        "mattcosta7": 1
+      },
+      "generalComments": 8,
+      "generalCommenters": {
+        "christoph-fricke": 2,
+        "mattcosta7": 5,
+        "HristoKolev": 1
+      },
+      "generalCommentSentimentScore": 10,
+      "generalCommentSentiments": {
+        "christoph-fricke": 11,
+        "mattcosta7": 1,
+        "HristoKolev": -2
+      },
+      "generalCommentsAuthor": 9,
+      "generalCommentAuthorSentimentScore": 7,
+      "generalCommentSentimentTotalScore": 17,
+      "codeComments": 3,
+      "codeCommenters": {
+        "mattcosta7": 3
+      },
+      "codeCommentSentimentScore": 6,
+      "codeCommentSentiments": {
+        "mattcosta7": 6
+      },
+      "codeCommentsAuthor": 6,
+      "codeCommentAuthorSentimentScore": 9,
+      "codeCommentSentimentTotalScore": 15,
+      "comments": 11,
+      "commenters": {
+        "mattcosta7": 8,
+        "christoph-fricke": 2,
+        "HristoKolev": 1
+      },
+      "commentSentimentScore": 16,
+      "commentSentiments": {
+        "mattcosta7": 7,
+        "christoph-fricke": 11,
+        "HristoKolev": -2
+      },
+      "commentsAuthor": 15,
+      "commentAuthorSentimentScore": 16,
+      "commentSentimentTotalScore": 32
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1996",
+      "additions": 128,
+      "deletions": 9,
+      "prSize": 137,
+      "mergedAt": "2024-02-12T10:03:53Z",
+      "cycleTime": 18,
+      "age": 18,
+      "approvals": 1,
+      "approvers": {
+        "mattcosta7": 1
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "sairus2k",
+      "url": "https://github.com/mswjs/msw/pull/2020",
+      "additions": 130,
+      "deletions": 17,
+      "prSize": 147,
+      "mergedAt": "2024-02-12T10:12:26Z",
+      "cycleTime": 5,
+      "age": 5,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kettanaito": 1
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kettanaito": 9
+      },
+      "generalCommentSentimentTotalScore": 9,
+      "comments": 1,
+      "commenters": {
+        "kettanaito": 1
+      },
+      "commentSentimentScore": 9,
+      "commentSentiments": {
+        "kettanaito": 9
+      },
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "thepassle",
+      "url": "https://github.com/mswjs/msw/pull/2004",
+      "additions": 12,
+      "prSize": 12,
+      "mergedAt": "2024-02-12T10:24:52Z",
+      "cycleTime": 13,
+      "age": 13,
+      "generalComments": 7,
+      "generalCommenters": {
+        "pleunv": 2,
+        "kettanaito": 5
+      },
+      "generalCommentSentimentScore": 7,
+      "generalCommentSentiments": {
+        "kettanaito": 7
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 17,
+      "generalCommentSentimentTotalScore": 24,
+      "codeComments": 2,
+      "codeCommenters": {
+        "kettanaito": 2
+      },
+      "codeCommentSentimentScore": -1,
+      "codeCommentSentiments": {
+        "kettanaito": -1
+      },
+      "codeCommentsAuthor": 2,
+      "codeCommentSentimentTotalScore": -1,
+      "comments": 9,
+      "commenters": {
+        "kettanaito": 7,
+        "pleunv": 2
+      },
+      "commentSentimentScore": 6,
+      "commentSentiments": {
+        "kettanaito": 6
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 17,
+      "commentSentimentTotalScore": 23
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "sairus2k",
+      "url": "https://github.com/mswjs/msw/pull/2021",
+      "additions": 22,
+      "deletions": 25,
+      "prSize": 47,
+      "mergedAt": "2024-02-12T10:33:03Z",
+      "cycleTime": 5,
+      "age": 5,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kettanaito": 1
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kettanaito": 9
+      },
+      "generalCommentSentimentTotalScore": 9,
+      "comments": 1,
+      "commenters": {
+        "kettanaito": 1
+      },
+      "commentSentimentScore": 9,
+      "commentSentiments": {
+        "kettanaito": 9
+      },
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2031",
+      "additions": 18,
+      "deletions": 5,
+      "prSize": 23,
+      "mergedAt": "2024-02-12T10:44:57Z",
+      "cycleTime": 3,
+      "age": 3,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2043",
+      "deletions": 18,
+      "prSize": 18,
+      "mergedAt": "2024-02-16T21:22:17Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "mattcosta7": 1
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "codeCommentsAuthor": 1,
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "ZeroCho",
+      "url": "https://github.com/mswjs/msw/pull/2046",
+      "additions": 28,
+      "deletions": 2,
+      "prSize": 30,
+      "mergedAt": "2024-02-27T18:34:57Z",
+      "cycleTime": 7,
+      "age": 7,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "technikhil314": 1,
+        "Jesse1989pp": 1,
+        "kettanaito": 1
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kettanaito": 9
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentSentimentTotalScore": 9,
+      "comments": 3,
+      "commenters": {
+        "technikhil314": 1,
+        "Jesse1989pp": 1,
+        "kettanaito": 1
+      },
+      "commentSentimentScore": 9,
+      "commentSentiments": {
+        "kettanaito": 9
+      },
+      "commentsAuthor": 1,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2077",
+      "additions": 4,
+      "deletions": 9,
+      "prSize": 13,
+      "mergedAt": "2024-03-07T10:09:02Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "kibertoad": 1
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "kibertoad": 3
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 12,
+      "comments": 1,
+      "commenters": {
+        "kibertoad": 1
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "kibertoad": 3
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 12
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "harryzcy",
+      "url": "https://github.com/mswjs/msw/pull/2073",
+      "additions": 62,
+      "deletions": 55,
+      "prSize": 117,
+      "mergedAt": "2024-03-07T10:24:02Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kettanaito": 1
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kettanaito": 9
+      },
+      "generalCommentSentimentTotalScore": 9,
+      "comments": 1,
+      "commenters": {
+        "kettanaito": 1
+      },
+      "commentSentimentScore": 9,
+      "commentSentiments": {
+        "kettanaito": 9
+      },
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "mattcosta7",
+      "url": "https://github.com/mswjs/msw/pull/2084",
+      "additions": 1391,
+      "deletions": 1386,
+      "prSize": 2777,
+      "mergedAt": "2024-03-13T21:49:23Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kettanaito": 1
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kettanaito": 9
+      },
+      "generalCommentSentimentTotalScore": 9,
+      "comments": 1,
+      "commenters": {
+        "kettanaito": 1
+      },
+      "commentSentimentScore": 9,
+      "commentSentiments": {
+        "kettanaito": 9
+      },
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2086",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2024-03-15T09:40:03Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": 18,
+      "generalCommentSentimentTotalScore": 18,
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 18,
+      "commentSentimentTotalScore": 18
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2087",
+      "additions": 2180,
+      "deletions": 2175,
+      "prSize": 4355,
+      "mergedAt": "2024-03-15T11:11:01Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "ushiboy",
+      "url": "https://github.com/mswjs/msw/pull/2075",
+      "additions": 10,
+      "deletions": 4,
+      "prSize": 14,
+      "mergedAt": "2024-03-15T16:19:18Z",
+      "cycleTime": 8,
+      "age": 8,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "kettanaito": 2
+      },
+      "generalCommentSentimentScore": 13,
+      "generalCommentSentiments": {
+        "kettanaito": 13
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 2,
+      "generalCommentSentimentTotalScore": 15,
+      "codeComments": 9,
+      "codeCommenters": {
+        "mattcosta7": 6,
+        "kettanaito": 3
+      },
+      "codeCommentSentimentScore": 16,
+      "codeCommentSentiments": {
+        "kettanaito": 16
+      },
+      "codeCommentsAuthor": 2,
+      "codeCommentAuthorSentimentScore": -9,
+      "codeCommentSentimentTotalScore": 7,
+      "comments": 11,
+      "commenters": {
+        "mattcosta7": 6,
+        "kettanaito": 5
+      },
+      "commentSentimentScore": 29,
+      "commentSentiments": {
+        "kettanaito": 29
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": -7,
+      "commentSentimentTotalScore": 22
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2088",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2024-03-15T17:50:45Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2090",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2024-03-16T12:02:28Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2091",
+      "additions": 61,
+      "deletions": 46,
+      "prSize": 107,
+      "mergedAt": "2024-03-16T13:09:47Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": -1,
+      "codeCommentSentimentTotalScore": -1,
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 8,
+      "commentSentimentTotalScore": 8
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2093",
+      "additions": 31,
+      "deletions": 1,
+      "prSize": 32,
+      "mergedAt": "2024-03-17T11:28:39Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2094",
+      "additions": 108,
+      "deletions": 23,
+      "prSize": 131,
+      "mergedAt": "2024-03-17T11:51:29Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "dalhaan": 1,
+        "piotr-cz": 1
+      },
+      "generalCommentSentimentScore": -3,
+      "generalCommentSentiments": {
+        "dalhaan": -3
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": 7,
+      "generalCommentSentimentTotalScore": 4,
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": -2,
+      "codeCommentSentimentTotalScore": -2,
+      "comments": 2,
+      "commenters": {
+        "dalhaan": 1,
+        "piotr-cz": 1
+      },
+      "commentSentimentScore": -3,
+      "commentSentiments": {
+        "dalhaan": -3
+      },
+      "commentsAuthor": 4,
+      "commentAuthorSentimentScore": 5,
+      "commentSentimentTotalScore": 2
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2095",
+      "additions": 105,
+      "deletions": 20,
+      "prSize": 125,
+      "mergedAt": "2024-03-17T20:58:22Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2099",
+      "additions": 38,
+      "deletions": 29,
+      "prSize": 67,
+      "mergedAt": "2024-03-18T17:18:21Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "Andarist",
+      "url": "https://github.com/mswjs/msw/pull/2101",
+      "additions": 34,
+      "deletions": 7,
+      "prSize": 41,
+      "mergedAt": "2024-03-19T07:45:19Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kettanaito": 1
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kettanaito": 9
+      },
+      "generalCommentSentimentTotalScore": 9,
+      "comments": 1,
+      "commenters": {
+        "kettanaito": 1
+      },
+      "commentSentimentScore": 9,
+      "commentSentiments": {
+        "kettanaito": 9
+      },
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2103",
+      "additions": 8,
+      "deletions": 2,
+      "prSize": 10,
+      "mergedAt": "2024-03-21T10:55:37Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "psjostrom",
+      "url": "https://github.com/mswjs/msw/pull/2102",
+      "additions": 3,
+      "deletions": 3,
+      "prSize": 6,
+      "mergedAt": "2024-03-21T11:27:39Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "kettanaito": 3
+      },
+      "generalCommentSentimentScore": 21,
+      "generalCommentSentiments": {
+        "kettanaito": 21
+      },
+      "generalCommentSentimentTotalScore": 21,
+      "codeComments": 1,
+      "codeCommenters": {
+        "kettanaito": 1
+      },
+      "codeCommentSentimentScore": 1,
+      "codeCommentSentiments": {
+        "kettanaito": 1
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 2,
+      "codeCommentSentimentTotalScore": 3,
+      "comments": 4,
+      "commenters": {
+        "kettanaito": 4
+      },
+      "commentSentimentScore": 22,
+      "commentSentiments": {
+        "kettanaito": 22
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 2,
+      "commentSentimentTotalScore": 24
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "KaiSpencer",
+      "url": "https://github.com/mswjs/msw/pull/2033",
+      "additions": 1686,
+      "deletions": 1712,
+      "prSize": 3398,
+      "mergedAt": "2024-03-21T11:39:43Z",
+      "cycleTime": 40,
+      "age": 40,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "kettanaito": 5
+      },
+      "generalCommentSentimentScore": 23,
+      "generalCommentSentiments": {
+        "kettanaito": 23
+      },
+      "generalCommentsAuthor": 5,
+      "generalCommentAuthorSentimentScore": 21,
+      "generalCommentSentimentTotalScore": 44,
+      "codeComments": 4,
+      "codeCommenters": {
+        "kettanaito": 4
+      },
+      "codeCommentSentimentScore": 8,
+      "codeCommentSentiments": {
+        "kettanaito": 8
+      },
+      "codeCommentsAuthor": 2,
+      "codeCommentAuthorSentimentScore": 4,
+      "codeCommentSentimentTotalScore": 12,
+      "comments": 9,
+      "commenters": {
+        "kettanaito": 9
+      },
+      "commentSentimentScore": 31,
+      "commentSentiments": {
+        "kettanaito": 31
+      },
+      "commentsAuthor": 7,
+      "commentAuthorSentimentScore": 25,
+      "commentSentimentTotalScore": 56
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2107",
+      "additions": 163,
+      "deletions": 83,
+      "prSize": 246,
+      "mergedAt": "2024-03-25T12:53:11Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "VanTanev": 1
+      },
+      "generalCommentSentimentScore": -6,
+      "generalCommentSentiments": {
+        "VanTanev": -6
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 3,
+      "comments": 1,
+      "commenters": {
+        "VanTanev": 1
+      },
+      "commentSentimentScore": -6,
+      "commentSentiments": {
+        "VanTanev": -6
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 3
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2110",
+      "additions": 5,
+      "deletions": 5,
+      "prSize": 10,
+      "mergedAt": "2024-03-26T11:29:01Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2113",
+      "additions": 30,
+      "deletions": 34,
+      "prSize": 64,
+      "mergedAt": "2024-03-27T16:08:33Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2112",
+      "additions": 1107,
+      "deletions": 85,
+      "prSize": 1192,
+      "mergedAt": "2024-03-30T09:38:12Z",
+      "cycleTime": 2,
+      "age": 2,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": -2,
+      "generalCommentSentimentTotalScore": -2,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": -2,
+      "commentSentimentTotalScore": -2
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2122",
+      "additions": 2841,
+      "deletions": 2278,
+      "prSize": 5119,
+      "mergedAt": "2024-04-02T09:29:44Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2127",
+      "additions": 364,
+      "deletions": 91,
+      "prSize": 455,
+      "mergedAt": "2024-04-12T19:04:32Z",
+      "cycleTime": 5,
+      "age": 5,
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": -4,
+      "codeCommentSentimentTotalScore": -4,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": -4,
+      "commentSentimentTotalScore": -4
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2133",
+      "additions": 54,
+      "deletions": 10,
+      "prSize": 64,
+      "mergedAt": "2024-04-15T20:51:40Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "phryneas",
+      "url": "https://github.com/mswjs/msw/pull/2134",
+      "additions": 26,
+      "deletions": 5,
+      "prSize": 31,
+      "mergedAt": "2024-04-17T11:11:26Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kettanaito": 1
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kettanaito": 9
+      },
+      "generalCommentSentimentTotalScore": 9,
+      "codeComments": 3,
+      "codeCommenters": {
+        "kettanaito": 3
+      },
+      "codeCommentSentimentScore": 3,
+      "codeCommentSentiments": {
+        "kettanaito": 3
+      },
+      "codeCommentSentimentTotalScore": 3,
+      "comments": 4,
+      "commenters": {
+        "kettanaito": 4
+      },
+      "commentSentimentScore": 12,
+      "commentSentiments": {
+        "kettanaito": 12
+      },
+      "commentSentimentTotalScore": 12
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "nagadevkrishna",
+      "url": "https://github.com/mswjs/msw/pull/2128",
+      "additions": 31,
+      "deletions": 5,
+      "prSize": 36,
+      "mergedAt": "2024-04-17T11:33:12Z",
+      "cycleTime": 8,
+      "age": 8,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "kettanaito": 3
+      },
+      "generalCommentSentimentScore": 13,
+      "generalCommentSentiments": {
+        "kettanaito": 13
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 4,
+      "generalCommentSentimentTotalScore": 17,
+      "codeComments": 1,
+      "codeCommenters": {
+        "kettanaito": 1
+      },
+      "codeCommentSentimentScore": 1,
+      "codeCommentSentiments": {
+        "kettanaito": 1
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 2,
+      "codeCommentSentimentTotalScore": 3,
+      "comments": 4,
+      "commenters": {
+        "kettanaito": 4
+      },
+      "commentSentimentScore": 14,
+      "commentSentiments": {
+        "kettanaito": 14
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 6,
+      "commentSentimentTotalScore": 20
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2135",
+      "additions": 288,
+      "deletions": 142,
+      "prSize": 430,
+      "mergedAt": "2024-05-08T13:34:54Z",
+      "cycleTime": 21,
+      "age": 21,
+      "generalComments": 1,
+      "generalCommenters": {
+        "jrnail23": 1
+      },
+      "generalCommentSentimentScore": -2,
+      "generalCommentSentiments": {
+        "jrnail23": -2
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": -8,
+      "generalCommentSentimentTotalScore": -10,
+      "codeCommentsAuthor": 2,
+      "codeCommentAuthorSentimentScore": -6,
+      "codeCommentSentimentTotalScore": -6,
+      "comments": 1,
+      "commenters": {
+        "jrnail23": 1
+      },
+      "commentSentimentScore": -2,
+      "commentSentiments": {
+        "jrnail23": -2
+      },
+      "commentsAuthor": 5,
+      "commentAuthorSentimentScore": -14,
+      "commentSentimentTotalScore": -16
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2144",
+      "additions": 6,
+      "deletions": 3,
+      "prSize": 9,
+      "mergedAt": "2024-05-08T13:49:37Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2145",
+      "additions": 75,
+      "prSize": 75,
+      "mergedAt": "2024-05-08T15:15:46Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "codeCommentsAuthor": 2,
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "vic-fb",
+      "url": "https://github.com/mswjs/msw/pull/2149",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2024-05-13T18:11:52Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "kettanaito": 2
+      },
+      "generalCommentSentimentScore": 13,
+      "generalCommentSentiments": {
+        "kettanaito": 13
+      },
+      "generalCommentSentimentTotalScore": 13,
+      "comments": 2,
+      "commenters": {
+        "kettanaito": 2
+      },
+      "commentSentimentScore": 13,
+      "commentSentiments": {
+        "kettanaito": 13
+      },
+      "commentSentimentTotalScore": 13
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "dnicolson",
+      "url": "https://github.com/mswjs/msw/pull/2152",
+      "additions": 3,
+      "deletions": 9,
+      "prSize": 12,
+      "mergedAt": "2024-05-25T07:10:15Z",
+      "cycleTime": 10,
+      "age": 10,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "kettanaito": 3,
+        "franky47": 1
+      },
+      "generalCommentSentimentScore": 19,
+      "generalCommentSentiments": {
+        "kettanaito": 17,
+        "franky47": 2
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": -1,
+      "generalCommentSentimentTotalScore": 18,
+      "comments": 4,
+      "commenters": {
+        "kettanaito": 3,
+        "franky47": 1
+      },
+      "commentSentimentScore": 19,
+      "commentSentiments": {
+        "kettanaito": 17,
+        "franky47": 2
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": -1,
+      "commentSentimentTotalScore": 18
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "KaiSpencer",
+      "url": "https://github.com/mswjs/msw/pull/2170",
+      "additions": 51,
+      "deletions": 20,
+      "prSize": 71,
+      "mergedAt": "2024-06-01T09:08:12Z",
+      "cycleTime": 6,
+      "age": 6,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "codeComments": 3,
+      "codeCommenters": {
+        "kettanaito": 3
+      },
+      "codeCommentSentimentScore": 6,
+      "codeCommentSentiments": {
+        "kettanaito": 6
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 5,
+      "codeCommentSentimentTotalScore": 11,
+      "comments": 3,
+      "commenters": {
+        "kettanaito": 3
+      },
+      "commentSentimentScore": 6,
+      "commentSentiments": {
+        "kettanaito": 6
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 5,
+      "commentSentimentTotalScore": 11
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/2169",
+      "additions": 94,
+      "deletions": 20,
+      "prSize": 114,
+      "mergedAt": "2024-06-01T09:16:09Z",
+      "cycleTime": 7,
+      "age": 7,
+      "generalComments": 1,
+      "generalCommenters": {
+        "KaiSpencer": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "KaiSpencer": 2
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 11,
+      "generalCommentSentimentTotalScore": 13,
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 1,
+      "codeCommentSentimentTotalScore": 1,
+      "comments": 1,
+      "commenters": {
+        "KaiSpencer": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "KaiSpencer": 2
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 12,
+      "commentSentimentTotalScore": 14
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "DanielleHuisman",
+      "url": "https://github.com/mswjs/msw/pull/2175",
+      "additions": 6,
+      "deletions": 7,
+      "prSize": 13,
+      "mergedAt": "2024-06-13T08:48:14Z",
+      "cycleTime": 6,
+      "age": 6,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kettanaito": 1
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 4,
+      "generalCommentSentimentTotalScore": 4,
+      "comments": 1,
+      "commenters": {
+        "kettanaito": 1
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 4,
+      "commentSentimentTotalScore": 4
+    }
+  ],
+  "filteredPRs": [
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/mswjs/msw/pull/1979",
+      "additions": 25,
+      "deletions": 253,
+      "prSize": 278,
+      "mergedAt": "2024-01-25T12:49:40Z",
+      "cycleTime": 5,
+      "age": 5,
+      "generalComments": 1,
+      "generalCommenters": {
+        "kettanaito": 1
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kettanaito": 9
+      },
+      "generalCommentSentimentTotalScore": 9,
+      "comments": 1,
+      "commenters": {
+        "kettanaito": 1
+      },
+      "commentSentimentScore": 9,
+      "commentSentiments": {
+        "kettanaito": 9
+      },
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "gthb",
+      "url": "https://github.com/mswjs/msw/pull/1633",
+      "additions": 5,
+      "deletions": 2,
+      "prSize": 7,
+      "mergedAt": "2023-06-08T12:10:29Z",
+      "cycleTime": 3,
+      "age": 3,
+      "approvals": 1,
+      "approvers": {
+        "kettanaito": 1
+      },
+      "generalComments": 9,
+      "generalCommenters": {
+        "kettanaito": 5,
+        "merajshaikh": 1,
+        "urakymzhan": 1,
+        "azangru": 2
+      },
+      "generalCommentSentimentScore": 8,
+      "generalCommentSentiments": {
+        "kettanaito": 1,
+        "merajshaikh": 4,
+        "azangru": 3
+      },
+      "generalCommentsAuthor": 4,
+      "generalCommentAuthorSentimentScore": -26,
+      "generalCommentSentimentTotalScore": -18,
+      "comments": 9,
+      "commenters": {
+        "kettanaito": 5,
+        "merajshaikh": 1,
+        "urakymzhan": 1,
+        "azangru": 2
+      },
+      "commentSentimentScore": 8,
+      "commentSentiments": {
+        "kettanaito": 1,
+        "merajshaikh": 4,
+        "azangru": 3
+      },
+      "commentsAuthor": 4,
+      "commentAuthorSentimentScore": -26,
+      "commentSentimentTotalScore": -18
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1626",
+      "additions": 44,
+      "deletions": 6,
+      "prSize": 50,
+      "mergedAt": "2023-05-24T15:53:21Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "esquevin",
+      "url": "https://github.com/mswjs/msw/pull/1622",
+      "additions": 21,
+      "deletions": 14,
+      "prSize": 35,
+      "mergedAt": "2023-06-08T12:54:52Z",
+      "cycleTime": 22,
+      "age": 22,
+      "generalComments": 3,
+      "generalCommenters": {
+        "kettanaito": 3
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kettanaito": 9
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 7,
+      "generalCommentSentimentTotalScore": 16,
+      "codeComments": 10,
+      "codeCommenters": {
+        "kettanaito": 5,
+        "mattcosta7": 4,
+        "strativd": 1
+      },
+      "codeCommentSentimentScore": -6,
+      "codeCommentSentiments": {
+        "kettanaito": 1,
+        "mattcosta7": -1,
+        "strativd": -6
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": -1,
+      "codeCommentSentimentTotalScore": -7,
+      "comments": 13,
+      "commenters": {
+        "kettanaito": 8,
+        "mattcosta7": 4,
+        "strativd": 1
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "kettanaito": 10,
+        "mattcosta7": -1,
+        "strativd": -6
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 6,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "msw",
+      "org": "mswjs",
+      "author": "kettanaito",
+      "url": "https://github.com/mswjs/msw/pull/1609",
+      "additions": 21,
+      "deletions": 6,
+      "prSize": 27,
+      "mergedAt": "2023-05-06T07:52:52Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    }
+  ],
+  "issues": [
+    {
+      "mergedAt": "2023-06-22T10:40:46Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1643",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-06-23T09:26:15Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1644"
+    },
+    {
+      "mergedAt": "2023-06-23T11:50:43Z",
+      "age": 2,
+      "url": "https://github.com/mswjs/msw/issues/1645",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-06-28T19:34:26Z",
+      "age": 206,
+      "url": "https://github.com/mswjs/msw/issues/1647",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-07-04T21:40:58Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1652",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-07-05T07:17:06Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1653",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-07-06T12:02:29Z",
+      "age": 83,
+      "url": "https://github.com/mswjs/msw/issues/1655",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-07-11T22:00:56Z",
+      "age": 8,
+      "url": "https://github.com/mswjs/msw/issues/1657",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-07-13T08:57:30Z",
+      "age": 214,
+      "url": "https://github.com/mswjs/msw/issues/1658"
+    },
+    {
+      "mergedAt": "2023-07-14T17:21:20Z",
+      "age": 3,
+      "url": "https://github.com/mswjs/msw/issues/1660",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-07-19T06:20:01Z",
+      "age": 4,
+      "url": "https://github.com/mswjs/msw/issues/1661",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-07-21T07:47:01Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1664"
+    },
+    {
+      "mergedAt": "2023-07-21T19:33:14Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1666",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-07-29T01:28:07Z",
+      "age": 3,
+      "url": "https://github.com/mswjs/msw/issues/1671"
+    },
+    {
+      "mergedAt": "2023-07-29T04:20:30Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1672",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-08-01T11:31:03Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1678"
+    },
+    {
+      "mergedAt": "2023-08-01T14:34:46Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1680"
+    },
+    {
+      "mergedAt": "2023-08-02T08:35:40Z",
+      "age": 45,
+      "url": "https://github.com/mswjs/msw/issues/1683"
+    },
+    {
+      "mergedAt": "2023-08-02T22:21:01Z",
+      "age": 103,
+      "url": "https://github.com/mswjs/msw/issues/1684",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-08-05T14:36:58Z",
+      "age": 111,
+      "url": "https://github.com/mswjs/msw/issues/1689",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-08-07T19:51:12Z",
+      "age": 160,
+      "url": "https://github.com/mswjs/msw/issues/1690"
+    },
+    {
+      "mergedAt": "2023-08-07T20:00:33Z",
+      "age": 169,
+      "url": "https://github.com/mswjs/msw/issues/1691",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-08-07T20:39:01Z",
+      "age": 7,
+      "url": "https://github.com/mswjs/msw/issues/1692",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-08-10T20:24:54Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1694"
+    },
+    {
+      "mergedAt": "2023-08-14T20:53:43Z",
+      "age": 159,
+      "url": "https://github.com/mswjs/msw/issues/1697",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-08-14T21:33:54Z",
+      "age": 163,
+      "url": "https://github.com/mswjs/msw/issues/1698",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-08-15T08:13:15Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1699",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-08-17T21:18:52Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1700"
+    },
+    {
+      "mergedAt": "2023-08-18T12:26:18Z",
+      "age": 87,
+      "url": "https://github.com/mswjs/msw/issues/1701",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-08-18T15:36:48Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1702",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-08-18T16:00:54Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1703"
+    },
+    {
+      "mergedAt": "2023-08-21T20:08:38Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1705",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-08-23T18:07:29Z",
+      "age": 77,
+      "url": "https://github.com/mswjs/msw/issues/1709",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-08-24T06:52:21Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1710"
+    },
+    {
+      "mergedAt": "2023-08-25T08:50:28Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1712",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-08-28T06:59:05Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1717"
+    },
+    {
+      "mergedAt": "2023-08-29T10:54:00Z",
+      "age": 74,
+      "url": "https://github.com/mswjs/msw/issues/1718",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-08-30T20:25:05Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1720"
+    },
+    {
+      "mergedAt": "2023-09-01T15:41:58Z",
+      "age": 6,
+      "url": "https://github.com/mswjs/msw/issues/1722"
+    },
+    {
+      "mergedAt": "2023-09-03T04:22:03Z",
+      "age": 12,
+      "url": "https://github.com/mswjs/msw/issues/1724",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-09-06T04:33:45Z",
+      "age": 2,
+      "url": "https://github.com/mswjs/msw/issues/1728",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-09-14T17:07:43Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1738",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-09-17T10:41:25Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1743",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-09-18T16:55:20Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1744",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-09-22T09:53:24Z",
+      "age": 25,
+      "url": "https://github.com/mswjs/msw/issues/1746",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-09-24T20:49:25Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1747"
+    },
+    {
+      "mergedAt": "2023-09-26T02:15:55Z",
+      "age": 7,
+      "url": "https://github.com/mswjs/msw/issues/1748"
+    },
+    {
+      "mergedAt": "2023-09-27T09:23:07Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1749"
+    },
+    {
+      "mergedAt": "2023-09-27T09:31:21Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1750"
+    },
+    {
+      "mergedAt": "2023-09-27T19:28:57Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1752",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-09-27T20:57:25Z",
+      "age": 119,
+      "url": "https://github.com/mswjs/msw/issues/1753",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-10-03T09:16:26Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1757",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-10-04T13:47:35Z",
+      "age": 6,
+      "url": "https://github.com/mswjs/msw/issues/1760",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-10-09T03:46:25Z",
+      "age": 108,
+      "url": "https://github.com/mswjs/msw/issues/1763",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-10-10T08:25:34Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1764"
+    },
+    {
+      "mergedAt": "2023-10-14T15:54:58Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1768"
+    },
+    {
+      "mergedAt": "2023-10-17T10:09:07Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1772",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-10-18T08:32:28Z",
+      "age": 111,
+      "url": "https://github.com/mswjs/msw/issues/1775",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-10-18T13:58:47Z",
+      "age": 21,
+      "url": "https://github.com/mswjs/msw/issues/1777",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-10-22T09:45:58Z",
+      "age": 10,
+      "url": "https://github.com/mswjs/msw/issues/1782",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-10-23T10:32:43Z",
+      "age": 8,
+      "url": "https://github.com/mswjs/msw/issues/1785",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-10-23T12:28:22Z",
+      "age": 3,
+      "url": "https://github.com/mswjs/msw/issues/1786",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-10-23T12:31:35Z",
+      "age": 3,
+      "url": "https://github.com/mswjs/msw/issues/1787",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-10-23T14:10:59Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1788"
+    },
+    {
+      "mergedAt": "2023-10-23T18:53:20Z",
+      "age": 3,
+      "url": "https://github.com/mswjs/msw/issues/1789"
+    },
+    {
+      "mergedAt": "2023-10-24T13:24:32Z",
+      "age": 92,
+      "url": "https://github.com/mswjs/msw/issues/1792",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-10-25T13:28:37Z",
+      "age": 14,
+      "url": "https://github.com/mswjs/msw/issues/1794",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-10-25T18:51:55Z",
+      "age": 6,
+      "url": "https://github.com/mswjs/msw/issues/1795"
+    },
+    {
+      "mergedAt": "2023-10-26T09:35:54Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1796",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-10-27T05:31:28Z",
+      "age": 13,
+      "url": "https://github.com/mswjs/msw/issues/1800",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-10-27T08:10:26Z",
+      "age": 13,
+      "url": "https://github.com/mswjs/msw/issues/1801"
+    },
+    {
+      "mergedAt": "2023-10-27T14:00:06Z",
+      "age": 4,
+      "url": "https://github.com/mswjs/msw/issues/1803",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-10-27T17:08:31Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1804"
+    },
+    {
+      "mergedAt": "2023-10-27T17:10:24Z",
+      "age": 12,
+      "url": "https://github.com/mswjs/msw/issues/1805",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-10-30T09:20:02Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1808",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-10-30T15:36:23Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1809",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-10-30T17:34:19Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1810",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-10-31T01:34:44Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1811"
+    },
+    {
+      "mergedAt": "2023-11-01T07:20:07Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1814",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-01T09:45:55Z",
+      "age": 7,
+      "url": "https://github.com/mswjs/msw/issues/1816",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-01T12:14:38Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1819",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-01T14:12:41Z",
+      "age": 3,
+      "url": "https://github.com/mswjs/msw/issues/1823",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-02T21:44:47Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1827",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-03T12:39:50Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1830",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-04T16:29:37Z",
+      "age": 3,
+      "url": "https://github.com/mswjs/msw/issues/1834",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-04T17:28:52Z",
+      "age": 2,
+      "url": "https://github.com/mswjs/msw/issues/1835",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-06T17:44:34Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1836",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-08T03:35:23Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1841",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-08T09:24:10Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1843",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-08T15:11:28Z",
+      "age": 7,
+      "url": "https://github.com/mswjs/msw/issues/1847",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-09T11:44:44Z",
+      "age": 2,
+      "url": "https://github.com/mswjs/msw/issues/1848",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-11T05:35:46Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1851",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-11T16:36:04Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1852",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-14T22:28:31Z",
+      "age": 59,
+      "url": "https://github.com/mswjs/msw/issues/1856",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-15T16:55:12Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1859",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-15T19:49:58Z",
+      "age": 73,
+      "url": "https://github.com/mswjs/msw/issues/1860",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-16T10:58:21Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1863"
+    },
+    {
+      "mergedAt": "2023-11-16T15:35:41Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1866",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-17T09:57:48Z",
+      "age": 7,
+      "url": "https://github.com/mswjs/msw/issues/1868",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-17T21:20:45Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1870",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-20T12:55:12Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1873",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-21T08:15:07Z",
+      "age": 45,
+      "url": "https://github.com/mswjs/msw/issues/1875"
+    },
+    {
+      "mergedAt": "2023-11-21T18:08:35Z",
+      "age": 62,
+      "url": "https://github.com/mswjs/msw/issues/1877",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-22T05:54:07Z",
+      "age": 7,
+      "url": "https://github.com/mswjs/msw/issues/1878"
+    },
+    {
+      "mergedAt": "2023-11-22T15:18:05Z",
+      "age": 76,
+      "url": "https://github.com/mswjs/msw/issues/1881"
+    },
+    {
+      "mergedAt": "2023-11-22T15:55:52Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1882"
+    },
+    {
+      "mergedAt": "2023-11-25T18:13:02Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1889"
+    },
+    {
+      "mergedAt": "2023-11-27T03:23:26Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1893",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-30T03:26:08Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1899",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-12-01T01:14:18Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1902",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-12-01T15:45:47Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1903"
+    },
+    {
+      "mergedAt": "2023-12-01T21:46:58Z",
+      "age": 9,
+      "url": "https://github.com/mswjs/msw/issues/1904",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-12-06T15:31:43Z",
+      "age": 29,
+      "url": "https://github.com/mswjs/msw/issues/1911",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-12-06T19:55:45Z",
+      "age": 49,
+      "url": "https://github.com/mswjs/msw/issues/1913",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-12-07T10:58:30Z",
+      "age": 48,
+      "url": "https://github.com/mswjs/msw/issues/1916",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-12-11T12:18:26Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1921"
+    },
+    {
+      "mergedAt": "2023-12-12T05:24:19Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1924",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-12-13T12:11:30Z",
+      "age": 55,
+      "url": "https://github.com/mswjs/msw/issues/1926",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-12-14T18:05:34Z",
+      "age": 40,
+      "url": "https://github.com/mswjs/msw/issues/1929",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-12-15T03:15:23Z",
+      "age": 40,
+      "url": "https://github.com/mswjs/msw/issues/1930",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-12-15T05:55:07Z",
+      "age": 29,
+      "url": "https://github.com/mswjs/msw/issues/1931",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-12-16T20:36:35Z",
+      "age": 29,
+      "url": "https://github.com/mswjs/msw/issues/1933"
+    },
+    {
+      "mergedAt": "2023-12-18T19:31:57Z",
+      "age": 98,
+      "url": "https://github.com/mswjs/msw/issues/1935",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-12-19T07:16:58Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1936",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-12-20T21:53:18Z",
+      "age": 13,
+      "url": "https://github.com/mswjs/msw/issues/1938",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-12-21T21:06:24Z",
+      "age": 11,
+      "url": "https://github.com/mswjs/msw/issues/1940",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-12-28T20:18:55Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1944",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-01-01T14:25:11Z",
+      "age": 13,
+      "url": "https://github.com/mswjs/msw/issues/1946",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-01-03T14:30:13Z",
+      "age": 24,
+      "url": "https://github.com/mswjs/msw/issues/1948",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-01-05T02:35:24Z",
+      "age": 7,
+      "url": "https://github.com/mswjs/msw/issues/1949"
+    },
+    {
+      "mergedAt": "2024-01-05T18:04:15Z",
+      "age": 5,
+      "url": "https://github.com/mswjs/msw/issues/1951",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-01-05T20:47:39Z",
+      "age": 15,
+      "url": "https://github.com/mswjs/msw/issues/1952",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-01-06T13:50:18Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1954"
+    },
+    {
+      "mergedAt": "2024-01-06T16:11:10Z",
+      "age": 5,
+      "url": "https://github.com/mswjs/msw/issues/1955"
+    },
+    {
+      "mergedAt": "2024-01-10T16:49:46Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1960",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-01-12T09:36:41Z",
+      "age": 69,
+      "url": "https://github.com/mswjs/msw/issues/1962"
+    },
+    {
+      "mergedAt": "2024-01-15T08:57:53Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1965",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-01-15T11:34:57Z",
+      "age": 60,
+      "url": "https://github.com/mswjs/msw/issues/1968"
+    },
+    {
+      "mergedAt": "2024-01-15T21:37:36Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1971",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-01-16T17:36:01Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1972",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-01-18T01:58:46Z",
+      "age": 7,
+      "url": "https://github.com/mswjs/msw/issues/1976",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-01-18T10:19:17Z",
+      "age": 17,
+      "url": "https://github.com/mswjs/msw/issues/1977",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-01-19T16:42:48Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1978"
+    },
+    {
+      "mergedAt": "2024-01-20T11:41:26Z",
+      "age": 4,
+      "url": "https://github.com/mswjs/msw/issues/1981",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-01-20T18:39:21Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1983"
+    },
+    {
+      "mergedAt": "2024-01-21T09:20:33Z",
+      "age": 22,
+      "url": "https://github.com/mswjs/msw/issues/1984"
+    },
+    {
+      "mergedAt": "2024-01-21T09:22:27Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1985"
+    },
+    {
+      "mergedAt": "2024-01-21T09:25:02Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1986"
+    },
+    {
+      "mergedAt": "2024-01-24T11:48:58Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1992",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-01-29T07:44:34Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2003"
+    },
+    {
+      "mergedAt": "2024-01-30T10:00:32Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2006",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-02-02T09:20:56Z",
+      "age": 10,
+      "url": "https://github.com/mswjs/msw/issues/2009",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-02-05T10:41:28Z",
+      "age": 7,
+      "url": "https://github.com/mswjs/msw/issues/2012",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-02-05T11:09:59Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2013",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-02-05T14:06:22Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2014"
+    },
+    {
+      "mergedAt": "2024-02-06T00:15:42Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2015",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-02-06T14:16:39Z",
+      "age": 43,
+      "url": "https://github.com/mswjs/msw/issues/2019"
+    },
+    {
+      "mergedAt": "2024-02-07T12:49:48Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2023",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-02-07T13:58:21Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2024"
+    },
+    {
+      "mergedAt": "2024-02-08T17:03:18Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2025"
+    },
+    {
+      "mergedAt": "2024-02-08T17:44:48Z",
+      "age": 50,
+      "url": "https://github.com/mswjs/msw/issues/2026"
+    },
+    {
+      "mergedAt": "2024-02-09T06:35:28Z",
+      "age": 3,
+      "url": "https://github.com/mswjs/msw/issues/2027"
+    },
+    {
+      "mergedAt": "2024-02-09T08:52:09Z",
+      "age": 3,
+      "url": "https://github.com/mswjs/msw/issues/2030",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-02-09T12:25:29Z",
+      "age": 2,
+      "url": "https://github.com/mswjs/msw/issues/2032",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-02-12T10:15:11Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2038"
+    },
+    {
+      "mergedAt": "2024-02-16T14:50:07Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2042",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-02-20T07:19:06Z",
+      "age": 7,
+      "url": "https://github.com/mswjs/msw/issues/2045",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-02-20T14:24:45Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2047",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-02-21T08:48:15Z",
+      "age": 25,
+      "url": "https://github.com/mswjs/msw/issues/2049",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-02-21T14:20:56Z",
+      "age": 28,
+      "url": "https://github.com/mswjs/msw/issues/2051",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-02-22T17:53:13Z",
+      "age": 23,
+      "url": "https://github.com/mswjs/msw/issues/2053",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-02-23T10:04:19Z",
+      "age": 6,
+      "url": "https://github.com/mswjs/msw/issues/2055",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-02-23T11:39:03Z",
+      "age": 5,
+      "url": "https://github.com/mswjs/msw/issues/2056"
+    },
+    {
+      "mergedAt": "2024-02-26T22:13:10Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2058"
+    },
+    {
+      "mergedAt": "2024-03-01T13:57:10Z",
+      "age": 14,
+      "url": "https://github.com/mswjs/msw/issues/2063",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-03-02T12:05:07Z",
+      "age": 4,
+      "url": "https://github.com/mswjs/msw/issues/2064",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-03-05T20:29:27Z",
+      "age": 63,
+      "url": "https://github.com/mswjs/msw/issues/2067",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-03-06T13:42:08Z",
+      "age": 12,
+      "url": "https://github.com/mswjs/msw/issues/2069",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-03-06T15:27:05Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2070"
+    },
+    {
+      "mergedAt": "2024-03-06T16:42:20Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2071"
+    },
+    {
+      "mergedAt": "2024-03-07T03:35:07Z",
+      "age": 8,
+      "url": "https://github.com/mswjs/msw/issues/2074",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-03-07T04:20:54Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2076",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-03-07T10:23:16Z",
+      "age": 13,
+      "url": "https://github.com/mswjs/msw/issues/2078",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-03-08T14:07:03Z",
+      "age": 5,
+      "url": "https://github.com/mswjs/msw/issues/2082",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-03-12T20:55:11Z",
+      "age": 4,
+      "url": "https://github.com/mswjs/msw/issues/2083",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-03-15T04:40:47Z",
+      "age": 4,
+      "url": "https://github.com/mswjs/msw/issues/2085",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-03-15T22:36:24Z",
+      "age": 53,
+      "url": "https://github.com/mswjs/msw/issues/2089",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-03-16T21:55:32Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2092",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-03-18T03:21:59Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2097"
+    },
+    {
+      "mergedAt": "2024-03-18T09:38:40Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2098"
+    },
+    {
+      "mergedAt": "2024-03-22T05:11:52Z",
+      "age": 3,
+      "url": "https://github.com/mswjs/msw/issues/2105"
+    },
+    {
+      "mergedAt": "2024-03-22T08:22:16Z",
+      "age": 8,
+      "url": "https://github.com/mswjs/msw/issues/2106",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-03-25T12:02:03Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2109",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-03-27T12:26:02Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2111",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-03-28T14:56:49Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2114",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-03-28T21:31:33Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2115",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-03-29T17:21:09Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2117"
+    },
+    {
+      "mergedAt": "2024-04-01T09:49:57Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2119",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-04-01T15:02:02Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2120"
+    },
+    {
+      "mergedAt": "2024-04-01T17:11:51Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2121",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-04-02T22:05:47Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2123",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-04-05T13:47:10Z",
+      "age": 11,
+      "url": "https://github.com/mswjs/msw/issues/2125",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-04-05T19:31:59Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2126",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-04-10T18:05:14Z",
+      "age": 27,
+      "url": "https://github.com/mswjs/msw/issues/2129"
+    },
+    {
+      "mergedAt": "2024-04-11T08:39:15Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2130",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-04-19T22:55:04Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2136"
+    },
+    {
+      "mergedAt": "2024-05-07T17:27:13Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2142",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-05-09T14:37:09Z",
+      "age": 2,
+      "url": "https://github.com/mswjs/msw/issues/2147"
+    },
+    {
+      "mergedAt": "2024-05-10T07:34:24Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2146",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-05-13T00:02:54Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2150"
+    },
+    {
+      "mergedAt": "2024-05-15T08:09:18Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2153"
+    },
+    {
+      "mergedAt": "2024-05-15T15:14:36Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2156"
+    },
+    {
+      "mergedAt": "2024-05-15T21:21:46Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2157"
+    },
+    {
+      "mergedAt": "2024-05-20T07:57:44Z",
+      "age": 2,
+      "url": "https://github.com/mswjs/msw/issues/2160",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-05-20T13:03:26Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2161"
+    },
+    {
+      "mergedAt": "2024-05-21T17:36:36Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2162",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-05-22T09:00:26Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2163",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-05-23T16:12:08Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2164"
+    },
+    {
+      "mergedAt": "2024-05-24T06:55:09Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2165",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-05-24T09:35:08Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2166",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-05-24T12:19:00Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2167"
+    },
+    {
+      "mergedAt": "2024-05-24T17:31:03Z",
+      "age": 7,
+      "url": "https://github.com/mswjs/msw/issues/2168",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-06-03T16:08:02Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2172",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-06-06T23:01:19Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2174",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-06-12T06:55:09Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2176"
+    },
+    {
+      "mergedAt": "2024-06-12T14:58:38Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2177",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-06-14T11:36:42Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2178",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-06-16T12:32:32Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2180",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-06-17T16:19:06Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2181",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-06-18T11:57:28Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2184",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-06-18T19:23:54Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/2185",
+      "isBug": true
+    }
+  ],
+  "filteredIssues": [
+    {
+      "mergedAt": "2023-06-14T11:47:48Z",
+      "age": 35,
+      "url": "https://github.com/mswjs/msw/issues/1640",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-06-12T16:52:57Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1637"
+    },
+    {
+      "mergedAt": "2023-06-10T14:20:27Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1635"
+    },
+    {
+      "mergedAt": "2023-06-02T08:40:06Z",
+      "age": 6,
+      "url": "https://github.com/mswjs/msw/issues/1631"
+    },
+    {
+      "mergedAt": "2023-05-29T17:09:03Z",
+      "age": 240,
+      "url": "https://github.com/mswjs/msw/issues/1630",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-05-28T14:29:44Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1628",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-05-25T16:57:02Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1627",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-05-24T07:45:28Z",
+      "age": 246,
+      "url": "https://github.com/mswjs/msw/issues/1625",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-05-22T03:50:25Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1624",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-05-20T12:58:55Z",
+      "age": 4,
+      "url": "https://github.com/mswjs/msw/issues/1623",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-05-16T08:42:19Z",
+      "age": 184,
+      "url": "https://github.com/mswjs/msw/issues/1621",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-05-16T08:42:09Z",
+      "age": 23,
+      "url": "https://github.com/mswjs/msw/issues/1620"
+    },
+    {
+      "mergedAt": "2023-05-15T09:57:47Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1619"
+    },
+    {
+      "mergedAt": "2023-05-12T19:46:23Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1618",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-05-09T18:56:18Z",
+      "age": 188,
+      "url": "https://github.com/mswjs/msw/issues/1613"
+    },
+    {
+      "mergedAt": "2023-05-09T13:13:19Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1611",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-05-06T17:52:25Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1610",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-05-05T09:37:17Z",
+      "age": 254,
+      "url": "https://github.com/mswjs/msw/issues/1607"
+    },
+    {
+      "mergedAt": "2023-04-26T14:40:41Z",
+      "age": 1,
+      "url": "https://github.com/mswjs/msw/issues/1602",
+      "isBug": true
+    }
+  ],
+  "releases": [
+    {
+      "date": "2023-07-20T10:43:16Z",
+      "description": "v1.2.3",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-08-25T00:22:30Z",
+      "description": "v1.2.4",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-08-28T00:26:14Z",
+      "description": "v1.2.5",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-09-03T09:17:28Z",
+      "description": "v1.3.0",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-09-13T20:02:45Z",
+      "description": "v1.3.1",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-10-01T00:26:01Z",
+      "description": "v1.3.2",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-10-23T08:05:58Z",
+      "description": "v2.0.0",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-10-28T00:18:11Z",
+      "description": "v2.0.1",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-11-01T15:59:14Z",
+      "description": "v2.0.2",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-11-04T15:35:33Z",
+      "description": "v2.0.3",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-11-08T14:33:02Z",
+      "description": "v2.0.4",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-11-10T00:20:47Z",
+      "description": "v2.0.5",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-11-13T00:19:26Z",
+      "description": "v2.0.6",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-11-16T11:16:04Z",
+      "description": "v2.0.7",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-11-17T10:24:41Z",
+      "description": "v2.0.8",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-11-24T16:52:18Z",
+      "description": "v2.0.9",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-12-04T00:24:59Z",
+      "description": "v2.0.10",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-12-11T14:00:57Z",
+      "description": "v2.0.11",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-01-05T13:54:50Z",
+      "description": "v2.0.12",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-01-09T01:35:55Z",
+      "description": "v2.0.13",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-01-12T15:58:00Z",
+      "description": "v2.0.14",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-01-15T12:05:42Z",
+      "description": "v2.1.0",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-01-17T01:39:47Z",
+      "description": "v2.1.1",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-01-17T14:40:43Z",
+      "description": "v2.1.2",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-01-22T01:42:25Z",
+      "description": "v2.1.3",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-01-23T01:37:48Z",
+      "description": "v2.1.4",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-01-25T13:56:45Z",
+      "description": "v2.1.5",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-02-05T10:48:05Z",
+      "description": "v2.1.6",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-02-06T15:50:08Z",
+      "description": "v2.1.7",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-02-12T11:06:19Z",
+      "description": "v2.2.0",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-02-17T01:32:36Z",
+      "description": "v2.2.1",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-02-28T01:31:32Z",
+      "description": "v2.2.2",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-03-08T01:33:22Z",
+      "description": "v2.2.3",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-03-15T10:49:45Z",
+      "description": "v1.3.3",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-03-16T01:29:35Z",
+      "description": "v2.2.4",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-03-17T01:35:13Z",
+      "description": "v2.2.5",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-03-17T12:56:54Z",
+      "description": "v2.2.6",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-03-18T01:31:53Z",
+      "description": "v2.2.7",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-03-19T01:31:39Z",
+      "description": "v2.2.8",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-03-20T01:36:25Z",
+      "description": "v2.2.9",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-03-22T01:38:27Z",
+      "description": "v2.2.10",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-03-26T01:33:17Z",
+      "description": "v2.2.11",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-03-27T01:33:12Z",
+      "description": "v2.2.12",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-03-27T16:15:09Z",
+      "description": "v2.2.13",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-04-17T11:45:33Z",
+      "description": "v2.2.14",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-05-08T14:11:29Z",
+      "description": "v2.3.0",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-06-01T09:29:49Z",
+      "description": "v2.3.1",
+      "releaseType": "MAJOR"
+    }
+  ],
+  "preFetchedName": "mswjs-msw"
+}

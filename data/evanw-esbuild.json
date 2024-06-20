@@ -1,0 +1,4305 @@
+{
+  "fetches": {
+    "org": "evanw",
+    "repo": "esbuild",
+    "sortDirection": "DESC",
+    "prPagination": {
+      "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNS0wN1QwMjo1MToxOSswMTowMM5us8lH",
+      "oldest": "Y3Vyc29yOnYyOpK5MjAyMi0wNi0xNVQxODo1MjowMiswMTowMM45uZBF"
+    },
+    "releasesPagination": {
+      "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0wOVQyMjoxNjozMSswMTowMM4Jgupq",
+      "oldest": "Y3Vyc29yOnYyOpK5MjAyMy0wMy0yNFQxODo1NjowMCswMDowMM4Fxd-b"
+    },
+    "issuesPagination": {
+      "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0xN1QwOTo1NDo1MyswMTowMM6MebGh",
+      "oldest": "Y3Vyc29yOnYyOpK5MjAyMy0wNi0wNFQxNjowNzoyMSswMTowMM5nvMEP"
+    }
+  },
+  "pullRequests": [
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "evanw",
+      "url": "https://github.com/evanw/esbuild/pull/3192",
+      "additions": 2158,
+      "deletions": 14,
+      "prSize": 2172,
+      "mergedAt": "2023-06-23T23:44:46Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "evanw",
+      "url": "https://github.com/evanw/esbuild/pull/3194",
+      "additions": 983,
+      "deletions": 34,
+      "prSize": 1017,
+      "mergedAt": "2023-06-25T02:59:07Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "fedellen": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "fedellen": 2
+      },
+      "generalCommentSentimentTotalScore": 2,
+      "codeComments": 1,
+      "codeCommenters": {
+        "tido64": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "tido64": 1,
+        "fedellen": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "fedellen": 2
+      },
+      "commentSentimentTotalScore": 2
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "ArrayZoneYour",
+      "url": "https://github.com/evanw/esbuild/pull/3179",
+      "additions": 69,
+      "deletions": 9,
+      "prSize": 78,
+      "mergedAt": "2023-06-25T18:04:59Z",
+      "cycleTime": 7,
+      "age": 7,
+      "generalComments": 2,
+      "generalCommenters": {
+        "evanw": 1,
+        "kripod": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "evanw": 2,
+        "kripod": -1
+      },
+      "generalCommentSentimentTotalScore": 1,
+      "comments": 2,
+      "commenters": {
+        "evanw": 1,
+        "kripod": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "evanw": 2,
+        "kripod": -1
+      },
+      "commentSentimentTotalScore": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "secext2022",
+      "url": "https://github.com/evanw/esbuild/pull/3217",
+      "additions": 1,
+      "prSize": 1,
+      "mergedAt": "2023-07-13T13:10:47Z",
+      "cycleTime": 5,
+      "age": 5,
+      "codeComments": 1,
+      "codeCommenters": {
+        "evanw": 1
+      },
+      "codeCommentSentimentScore": 4,
+      "codeCommentSentiments": {
+        "evanw": 4
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentSentimentTotalScore": 4,
+      "comments": 1,
+      "commenters": {
+        "evanw": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "evanw": 4
+      },
+      "commentsAuthor": 1,
+      "commentSentimentTotalScore": 4
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "yisibl",
+      "url": "https://github.com/evanw/esbuild/pull/3249",
+      "additions": 51,
+      "prSize": 51,
+      "mergedAt": "2023-07-20T11:39:48Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "evanw": 1
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "evanw": 3
+      },
+      "generalCommentSentimentTotalScore": 3,
+      "comments": 1,
+      "commenters": {
+        "evanw": 1
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "evanw": 3
+      },
+      "commentSentimentTotalScore": 3
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "alex-kinokon",
+      "url": "https://github.com/evanw/esbuild/pull/3290",
+      "additions": 19,
+      "deletions": 17,
+      "prSize": 36,
+      "mergedAt": "2023-08-06T20:00:21Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "privatenumber",
+      "url": "https://github.com/evanw/esbuild/pull/3299",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2023-08-09T01:11:36Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "evanw": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "evanw": 2
+      },
+      "generalCommentSentimentTotalScore": 2,
+      "comments": 1,
+      "commenters": {
+        "evanw": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "evanw": 2
+      },
+      "commentSentimentTotalScore": 2
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "cpiro",
+      "url": "https://github.com/evanw/esbuild/pull/3391",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2023-09-16T17:14:52Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "JLHwung",
+      "url": "https://github.com/evanw/esbuild/pull/3424",
+      "additions": 30,
+      "deletions": 13,
+      "prSize": 43,
+      "mergedAt": "2023-10-11T06:17:52Z",
+      "cycleTime": 5,
+      "age": 5,
+      "generalComments": 1,
+      "generalCommenters": {
+        "evanw": 1
+      },
+      "generalCommentSentimentScore": -7,
+      "generalCommentSentiments": {
+        "evanw": -7
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 2,
+      "comments": 1,
+      "commenters": {
+        "evanw": 1
+      },
+      "commentSentimentScore": -7,
+      "commentSentiments": {
+        "evanw": -7
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 2
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "rtsao",
+      "url": "https://github.com/evanw/esbuild/pull/3441",
+      "additions": 3641,
+      "deletions": 1943,
+      "prSize": 5584,
+      "mergedAt": "2023-10-15T18:15:45Z",
+      "cycleTime": 3,
+      "age": 3,
+      "generalComments": 3,
+      "generalCommenters": {
+        "evanw": 3
+      },
+      "generalCommentSentimentScore": 18,
+      "generalCommentSentiments": {
+        "evanw": 18
+      },
+      "generalCommentSentimentTotalScore": 18,
+      "comments": 3,
+      "commenters": {
+        "evanw": 3
+      },
+      "commentSentimentScore": 18,
+      "commentSentiments": {
+        "evanw": 18
+      },
+      "commentSentimentTotalScore": 18
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "magic-akari",
+      "url": "https://github.com/evanw/esbuild/pull/3513",
+      "additions": 66,
+      "deletions": 10,
+      "prSize": 76,
+      "mergedAt": "2023-12-03T19:01:31Z",
+      "cycleTime": 4,
+      "age": 4
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "hi-ogawa",
+      "url": "https://github.com/evanw/esbuild/pull/3554",
+      "additions": 100,
+      "deletions": 3,
+      "prSize": 103,
+      "mergedAt": "2023-12-18T19:04:49Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "sapphi-red",
+      "url": "https://github.com/evanw/esbuild/pull/3520",
+      "additions": 5,
+      "deletions": 2,
+      "prSize": 7,
+      "mergedAt": "2023-12-18T20:44:52Z",
+      "cycleTime": 18,
+      "age": 18,
+      "generalComments": 1,
+      "generalCommenters": {
+        "evanw": 1
+      },
+      "generalCommentSentimentScore": 7,
+      "generalCommentSentiments": {
+        "evanw": 7
+      },
+      "generalCommentSentimentTotalScore": 7,
+      "comments": 1,
+      "commenters": {
+        "evanw": 1
+      },
+      "commentSentimentScore": 7,
+      "commentSentiments": {
+        "evanw": 7
+      },
+      "commentSentimentTotalScore": 7
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "evanw",
+      "url": "https://github.com/evanw/esbuild/pull/3550",
+      "additions": 36,
+      "prSize": 36,
+      "mergedAt": "2023-12-18T20:45:41Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "evanw",
+      "url": "https://github.com/evanw/esbuild/pull/3611",
+      "additions": 198,
+      "deletions": 62,
+      "prSize": 260,
+      "mergedAt": "2024-01-27T16:35:53Z",
+      "cycleTime": 1,
+      "age": 1,
+      "codeComments": 6,
+      "codeCommenters": {
+        "dbushell": 1,
+        "lucacasonato": 5
+      },
+      "codeCommentSentimentScore": -24,
+      "codeCommentSentiments": {
+        "dbushell": -2,
+        "lucacasonato": -22
+      },
+      "codeCommentsAuthor": 6,
+      "codeCommentAuthorSentimentScore": -2,
+      "codeCommentSentimentTotalScore": -26,
+      "comments": 6,
+      "commenters": {
+        "dbushell": 1,
+        "lucacasonato": 5
+      },
+      "commentSentimentScore": -24,
+      "commentSentiments": {
+        "dbushell": -2,
+        "lucacasonato": -22
+      },
+      "commentsAuthor": 6,
+      "commentAuthorSentimentScore": -2,
+      "commentSentimentTotalScore": -26
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "evanw",
+      "url": "https://github.com/evanw/esbuild/pull/3685",
+      "additions": 35,
+      "deletions": 39,
+      "prSize": 74,
+      "mergedAt": "2024-03-07T22:32:05Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "remcohaszing",
+      "url": "https://github.com/evanw/esbuild/pull/3679",
+      "additions": 38,
+      "deletions": 6,
+      "prSize": 44,
+      "mergedAt": "2024-03-07T22:58:12Z",
+      "cycleTime": 2,
+      "age": 2,
+      "generalComments": 1,
+      "generalCommenters": {
+        "evanw": 1
+      },
+      "generalCommentSentimentScore": -3,
+      "generalCommentSentiments": {
+        "evanw": -3
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 3,
+      "comments": 1,
+      "commenters": {
+        "evanw": 1
+      },
+      "commentSentimentScore": -3,
+      "commentSentiments": {
+        "evanw": -3
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 3
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "cuibuwei",
+      "url": "https://github.com/evanw/esbuild/pull/3728",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2024-04-13T23:15:21Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "evanw",
+      "url": "https://github.com/evanw/esbuild/pull/3754",
+      "additions": 9397,
+      "deletions": 35,
+      "prSize": 9432,
+      "mergedAt": "2024-05-07T02:37:07Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "waynebloss": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "waynebloss": 1
+      },
+      "generalCommentSentimentTotalScore": 1,
+      "comments": 1,
+      "commenters": {
+        "waynebloss": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "waynebloss": 1
+      },
+      "commentSentimentTotalScore": 1
+    }
+  ],
+  "filteredPRs": [
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "evanw",
+      "url": "https://github.com/evanw/esbuild/pull/3167",
+      "additions": 727,
+      "deletions": 401,
+      "prSize": 1128,
+      "mergedAt": "2023-06-16T04:46:33Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "ruiconti",
+      "url": "https://github.com/evanw/esbuild/pull/3069",
+      "additions": 28,
+      "deletions": 15,
+      "prSize": 43,
+      "mergedAt": "2023-04-22T20:22:11Z",
+      "cycleTime": 4,
+      "age": 4,
+      "generalComments": 2,
+      "generalCommenters": {
+        "evanw": 1,
+        "MLoughry": 1
+      },
+      "generalCommentSentimentScore": 7,
+      "generalCommentSentiments": {
+        "evanw": 4,
+        "MLoughry": 3
+      },
+      "generalCommentSentimentTotalScore": 7,
+      "comments": 2,
+      "commenters": {
+        "evanw": 1,
+        "MLoughry": 1
+      },
+      "commentSentimentScore": 7,
+      "commentSentiments": {
+        "evanw": 4,
+        "MLoughry": 3
+      },
+      "commentSentimentTotalScore": 7
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "BlueGreenMagick",
+      "url": "https://github.com/evanw/esbuild/pull/3042",
+      "additions": 1,
+      "prSize": 1,
+      "mergedAt": "2023-04-10T04:11:10Z",
+      "cycleTime": 3,
+      "age": 3
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "bmuskalla",
+      "url": "https://github.com/evanw/esbuild/pull/2982",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2023-03-11T17:49:18Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "evanw",
+      "url": "https://github.com/evanw/esbuild/pull/2816",
+      "additions": 3280,
+      "deletions": 1916,
+      "prSize": 5196,
+      "mergedAt": "2023-01-14T04:11:42Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 6,
+      "generalCommenters": {
+        "merceyz": 2,
+        "clshortfuse": 2,
+        "jasonwilliams": 2
+      },
+      "generalCommentSentimentScore": 14,
+      "generalCommentSentiments": {
+        "merceyz": -1,
+        "clshortfuse": 6,
+        "jasonwilliams": 9
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": 6,
+      "generalCommentSentimentTotalScore": 20,
+      "comments": 6,
+      "commenters": {
+        "merceyz": 2,
+        "clshortfuse": 2,
+        "jasonwilliams": 2
+      },
+      "commentSentimentScore": 14,
+      "commentSentiments": {
+        "merceyz": -1,
+        "clshortfuse": 6,
+        "jasonwilliams": 9
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 6,
+      "commentSentimentTotalScore": 20
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "Toilal",
+      "url": "https://github.com/evanw/esbuild/pull/2784",
+      "additions": 9,
+      "deletions": 7,
+      "prSize": 16,
+      "mergedAt": "2022-12-31T01:18:12Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "onebytegone",
+      "url": "https://github.com/evanw/esbuild/pull/2774",
+      "additions": 33,
+      "deletions": 25,
+      "prSize": 58,
+      "mergedAt": "2022-12-27T01:26:04Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "kwarabei",
+      "url": "https://github.com/evanw/esbuild/pull/2771",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2022-12-26T17:08:05Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "fz6m",
+      "url": "https://github.com/evanw/esbuild/pull/2755",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2022-12-17T01:54:33Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "byomess",
+      "url": "https://github.com/evanw/esbuild/pull/2743",
+      "additions": 2,
+      "deletions": 1,
+      "prSize": 3,
+      "mergedAt": "2022-12-14T01:51:49Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "daychongyang",
+      "url": "https://github.com/evanw/esbuild/pull/2708",
+      "additions": 20,
+      "deletions": 32,
+      "prSize": 52,
+      "mergedAt": "2022-12-03T23:28:23Z",
+      "cycleTime": 2,
+      "age": 2
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "sashashura",
+      "url": "https://github.com/evanw/esbuild/pull/2654",
+      "additions": 13,
+      "prSize": 13,
+      "mergedAt": "2022-11-15T04:42:00Z",
+      "cycleTime": 11,
+      "age": 11
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "Fdawgs",
+      "url": "https://github.com/evanw/esbuild/pull/2612",
+      "additions": 13,
+      "deletions": 13,
+      "prSize": 26,
+      "mergedAt": "2022-10-16T18:39:48Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "sapphi-red",
+      "url": "https://github.com/evanw/esbuild/pull/2568",
+      "additions": 6,
+      "deletions": 2,
+      "prSize": 8,
+      "mergedAt": "2022-09-23T15:18:07Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "evanw",
+      "url": "https://github.com/evanw/esbuild/pull/2547",
+      "additions": 72,
+      "deletions": 47,
+      "prSize": 119,
+      "mergedAt": "2022-09-29T14:34:06Z",
+      "cycleTime": 15,
+      "age": 15,
+      "generalComments": 2,
+      "generalCommenters": {
+        "F43nd1r": 1,
+        "merceyz": 1
+      },
+      "generalCommentSentimentScore": -1,
+      "generalCommentSentiments": {
+        "merceyz": -1
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 6,
+      "generalCommentSentimentTotalScore": 5,
+      "comments": 2,
+      "commenters": {
+        "F43nd1r": 1,
+        "merceyz": 1
+      },
+      "commentSentimentScore": -1,
+      "commentSentiments": {
+        "merceyz": -1
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 6,
+      "commentSentimentTotalScore": 5
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "rtsao",
+      "url": "https://github.com/evanw/esbuild/pull/2546",
+      "additions": 59,
+      "deletions": 2,
+      "prSize": 61,
+      "mergedAt": "2022-09-18T18:06:56Z",
+      "cycleTime": 4,
+      "age": 4
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "magic-akari",
+      "url": "https://github.com/evanw/esbuild/pull/2509",
+      "additions": 71,
+      "deletions": 2,
+      "prSize": 73,
+      "mergedAt": "2022-11-02T20:59:10Z",
+      "cycleTime": 63,
+      "age": 63,
+      "generalComments": 2,
+      "generalCommenters": {
+        "evanw": 2
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 1,
+      "generalCommentSentimentTotalScore": 1,
+      "comments": 2,
+      "commenters": {
+        "evanw": 2
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 1,
+      "commentSentimentTotalScore": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "kingyue737",
+      "url": "https://github.com/evanw/esbuild/pull/2505",
+      "additions": 2,
+      "prSize": 2,
+      "mergedAt": "2022-08-30T22:24:56Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "Abirdcfly",
+      "url": "https://github.com/evanw/esbuild/pull/2502",
+      "additions": 3,
+      "deletions": 3,
+      "prSize": 6,
+      "mergedAt": "2022-08-31T01:54:54Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "kidonng",
+      "url": "https://github.com/evanw/esbuild/pull/2471",
+      "additions": 3,
+      "deletions": 3,
+      "prSize": 6,
+      "mergedAt": "2022-08-15T17:33:46Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "jonaskuske",
+      "url": "https://github.com/evanw/esbuild/pull/2457",
+      "additions": 15,
+      "deletions": 6,
+      "prSize": 21,
+      "mergedAt": "2022-08-29T22:56:22Z",
+      "cycleTime": 18,
+      "age": 18,
+      "generalComments": 2,
+      "generalCommenters": {
+        "evanw": 2
+      },
+      "generalCommentSentimentScore": 5,
+      "generalCommentSentiments": {
+        "evanw": 5
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 7,
+      "generalCommentSentimentTotalScore": 12,
+      "comments": 2,
+      "commenters": {
+        "evanw": 2
+      },
+      "commentSentimentScore": 5,
+      "commentSentiments": {
+        "evanw": 5
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 7,
+      "commentSentimentTotalScore": 12
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "evanw",
+      "url": "https://github.com/evanw/esbuild/pull/2453",
+      "additions": 158,
+      "deletions": 36,
+      "prSize": 194,
+      "mergedAt": "2022-08-10T23:14:49Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "evanw",
+      "url": "https://github.com/evanw/esbuild/pull/2451",
+      "additions": 1602,
+      "prSize": 1602,
+      "mergedAt": "2022-08-10T02:59:21Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "mbrevda": 1
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 1,
+      "generalCommentSentimentTotalScore": 1,
+      "comments": 1,
+      "commenters": {
+        "mbrevda": 1
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 1,
+      "commentSentimentTotalScore": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "evanw",
+      "url": "https://github.com/evanw/esbuild/pull/2415",
+      "additions": 499,
+      "deletions": 107,
+      "prSize": 606,
+      "mergedAt": "2022-07-25T01:38:43Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "0kyn",
+      "url": "https://github.com/evanw/esbuild/pull/2376",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2022-07-10T15:50:29Z",
+      "cycleTime": 2,
+      "age": 2,
+      "approvals": 1,
+      "approvers": {
+        "evanw": 1
+      }
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "beyond-1234",
+      "url": "https://github.com/evanw/esbuild/pull/2373",
+      "additions": 45,
+      "deletions": 9,
+      "prSize": 54,
+      "mergedAt": "2022-08-02T21:19:11Z",
+      "cycleTime": 29,
+      "age": 29,
+      "codeComments": 4,
+      "codeCommenters": {
+        "evanw": 2,
+        "shipujin": 1,
+        "cheungxi": 1
+      },
+      "codeCommentSentimentScore": 7,
+      "codeCommentSentiments": {
+        "evanw": -2,
+        "shipujin": 9
+      },
+      "codeCommentSentimentTotalScore": 7,
+      "comments": 4,
+      "commenters": {
+        "evanw": 2,
+        "shipujin": 1,
+        "cheungxi": 1
+      },
+      "commentSentimentScore": 7,
+      "commentSentiments": {
+        "evanw": -2,
+        "shipujin": 9
+      },
+      "commentSentimentTotalScore": 7
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "magic-akari",
+      "url": "https://github.com/evanw/esbuild/pull/2371",
+      "additions": 29,
+      "deletions": 1,
+      "prSize": 30,
+      "mergedAt": "2022-07-06T03:03:40Z",
+      "cycleTime": 2,
+      "age": 2
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "evanw",
+      "url": "https://github.com/evanw/esbuild/pull/2359",
+      "additions": 343,
+      "deletions": 67,
+      "prSize": 410,
+      "mergedAt": "2022-06-30T03:08:59Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "rtsao",
+      "url": "https://github.com/evanw/esbuild/pull/2354",
+      "additions": 10,
+      "deletions": 4,
+      "prSize": 14,
+      "mergedAt": "2022-06-30T02:53:18Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "evanw": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "evanw": 4
+      },
+      "generalCommentSentimentTotalScore": 4,
+      "comments": 1,
+      "commenters": {
+        "evanw": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "evanw": 4
+      },
+      "commentSentimentTotalScore": 4
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "jgoz",
+      "url": "https://github.com/evanw/esbuild/pull/2349",
+      "additions": 1136,
+      "deletions": 94,
+      "prSize": 1230,
+      "mergedAt": "2022-07-28T15:20:17Z",
+      "cycleTime": 32,
+      "age": 32,
+      "approvals": 1,
+      "approvers": {
+        "evanw": 1
+      },
+      "generalComments": 8,
+      "generalCommenters": {
+        "evanw": 2,
+        "httpete": 2,
+        "alexgorbatchev": 2,
+        "pleunv": 1,
+        "mbrevda": 1
+      },
+      "generalCommentSentimentScore": 27,
+      "generalCommentSentiments": {
+        "evanw": 5,
+        "httpete": 9,
+        "alexgorbatchev": 5,
+        "pleunv": 5,
+        "mbrevda": 3
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 8,
+      "generalCommentSentimentTotalScore": 35,
+      "codeCommentsAuthor": 4,
+      "codeCommentAuthorSentimentScore": 13,
+      "codeCommentSentimentTotalScore": 13,
+      "comments": 8,
+      "commenters": {
+        "evanw": 2,
+        "httpete": 2,
+        "alexgorbatchev": 2,
+        "pleunv": 1,
+        "mbrevda": 1
+      },
+      "commentSentimentScore": 27,
+      "commentSentiments": {
+        "evanw": 5,
+        "httpete": 9,
+        "alexgorbatchev": 5,
+        "pleunv": 5,
+        "mbrevda": 3
+      },
+      "commentsAuthor": 6,
+      "commentAuthorSentimentScore": 21,
+      "commentSentimentTotalScore": 48
+    },
+    {
+      "repo": "esbuild",
+      "org": "evanw",
+      "author": "evanw",
+      "url": "https://github.com/evanw/esbuild/pull/2320",
+      "additions": 343,
+      "deletions": 73,
+      "prSize": 416,
+      "mergedAt": "2022-06-15T18:11:13Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    }
+  ],
+  "issues": [
+    {
+      "mergedAt": "2023-06-21T05:19:24Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3184"
+    },
+    {
+      "mergedAt": "2023-06-21T16:13:11Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3185"
+    },
+    {
+      "mergedAt": "2023-06-21T18:49:58Z",
+      "age": 22,
+      "url": "https://github.com/evanw/esbuild/issues/3186"
+    },
+    {
+      "mergedAt": "2023-06-21T19:32:02Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3187"
+    },
+    {
+      "mergedAt": "2023-06-21T22:32:40Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3188"
+    },
+    {
+      "mergedAt": "2023-06-23T02:31:18Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3189"
+    },
+    {
+      "mergedAt": "2023-06-23T07:58:50Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3190"
+    },
+    {
+      "mergedAt": "2023-06-23T10:31:58Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3191"
+    },
+    {
+      "mergedAt": "2023-06-24T12:34:17Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3193"
+    },
+    {
+      "mergedAt": "2023-06-26T13:47:54Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3195"
+    },
+    {
+      "mergedAt": "2023-06-26T15:30:21Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3196"
+    },
+    {
+      "mergedAt": "2023-06-26T15:31:52Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3197"
+    },
+    {
+      "mergedAt": "2023-06-28T18:55:52Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3198"
+    },
+    {
+      "mergedAt": "2023-06-28T19:28:00Z",
+      "age": 2,
+      "url": "https://github.com/evanw/esbuild/issues/3199"
+    },
+    {
+      "mergedAt": "2023-06-28T23:04:30Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3200"
+    },
+    {
+      "mergedAt": "2023-06-29T14:02:41Z",
+      "age": 13,
+      "url": "https://github.com/evanw/esbuild/issues/3201"
+    },
+    {
+      "mergedAt": "2023-06-30T06:09:56Z",
+      "age": 13,
+      "url": "https://github.com/evanw/esbuild/issues/3202"
+    },
+    {
+      "mergedAt": "2023-06-30T16:29:56Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3203"
+    },
+    {
+      "mergedAt": "2023-07-01T07:26:39Z",
+      "age": 9,
+      "url": "https://github.com/evanw/esbuild/issues/3204"
+    },
+    {
+      "mergedAt": "2023-07-01T22:16:30Z",
+      "age": 11,
+      "url": "https://github.com/evanw/esbuild/issues/3205"
+    },
+    {
+      "mergedAt": "2023-07-01T23:02:50Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3206"
+    },
+    {
+      "mergedAt": "2023-07-02T13:29:53Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3207"
+    },
+    {
+      "mergedAt": "2023-07-02T19:44:49Z",
+      "age": 7,
+      "url": "https://github.com/evanw/esbuild/issues/3208"
+    },
+    {
+      "mergedAt": "2023-07-02T22:58:15Z",
+      "age": 10,
+      "url": "https://github.com/evanw/esbuild/issues/3209"
+    },
+    {
+      "mergedAt": "2023-07-04T02:19:10Z",
+      "age": 8,
+      "url": "https://github.com/evanw/esbuild/issues/3210",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-07-04T09:18:37Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3211"
+    },
+    {
+      "mergedAt": "2023-07-04T12:26:16Z",
+      "age": 2,
+      "url": "https://github.com/evanw/esbuild/issues/3212"
+    },
+    {
+      "mergedAt": "2023-07-04T21:49:17Z",
+      "age": 30,
+      "url": "https://github.com/evanw/esbuild/issues/3213"
+    },
+    {
+      "mergedAt": "2023-07-05T09:59:26Z",
+      "age": 5,
+      "url": "https://github.com/evanw/esbuild/issues/3214"
+    },
+    {
+      "mergedAt": "2023-07-05T15:54:48Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3215"
+    },
+    {
+      "mergedAt": "2023-07-06T17:13:02Z",
+      "age": 6,
+      "url": "https://github.com/evanw/esbuild/issues/3216"
+    },
+    {
+      "mergedAt": "2023-07-10T05:57:35Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3218"
+    },
+    {
+      "mergedAt": "2023-07-11T05:43:51Z",
+      "age": 2,
+      "url": "https://github.com/evanw/esbuild/issues/3219"
+    },
+    {
+      "mergedAt": "2023-07-11T06:38:54Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3220"
+    },
+    {
+      "mergedAt": "2023-07-11T17:03:23Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3221"
+    },
+    {
+      "mergedAt": "2023-07-12T00:06:02Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3222"
+    },
+    {
+      "mergedAt": "2023-07-12T08:47:45Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3223"
+    },
+    {
+      "mergedAt": "2023-07-12T15:37:41Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3224"
+    },
+    {
+      "mergedAt": "2023-07-12T17:51:10Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3225"
+    },
+    {
+      "mergedAt": "2023-07-12T20:45:40Z",
+      "age": 30,
+      "url": "https://github.com/evanw/esbuild/issues/3226"
+    },
+    {
+      "mergedAt": "2023-07-13T07:01:05Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3227"
+    },
+    {
+      "mergedAt": "2023-07-13T08:29:16Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3228"
+    },
+    {
+      "mergedAt": "2023-07-13T11:58:28Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3229"
+    },
+    {
+      "mergedAt": "2023-07-13T12:05:25Z",
+      "age": 129,
+      "url": "https://github.com/evanw/esbuild/issues/3230"
+    },
+    {
+      "mergedAt": "2023-07-13T13:32:30Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3231"
+    },
+    {
+      "mergedAt": "2023-07-14T07:22:27Z",
+      "age": 20,
+      "url": "https://github.com/evanw/esbuild/issues/3232"
+    },
+    {
+      "mergedAt": "2023-07-14T13:29:09Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3233"
+    },
+    {
+      "mergedAt": "2023-07-15T10:59:43Z",
+      "age": 3,
+      "url": "https://github.com/evanw/esbuild/issues/3234"
+    },
+    {
+      "mergedAt": "2023-07-16T22:11:59Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3235"
+    },
+    {
+      "mergedAt": "2023-07-16T22:15:14Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3236"
+    },
+    {
+      "mergedAt": "2023-07-17T00:37:20Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3237"
+    },
+    {
+      "mergedAt": "2023-07-17T08:13:51Z",
+      "age": 22,
+      "url": "https://github.com/evanw/esbuild/issues/3238"
+    },
+    {
+      "mergedAt": "2023-07-17T13:08:54Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3239"
+    },
+    {
+      "mergedAt": "2023-07-17T13:35:18Z",
+      "age": 4,
+      "url": "https://github.com/evanw/esbuild/issues/3240"
+    },
+    {
+      "mergedAt": "2023-07-17T14:46:48Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3241"
+    },
+    {
+      "mergedAt": "2023-07-17T15:03:23Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3242"
+    },
+    {
+      "mergedAt": "2023-07-17T22:40:39Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3243"
+    },
+    {
+      "mergedAt": "2023-07-18T10:30:23Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3244"
+    },
+    {
+      "mergedAt": "2023-07-18T11:25:39Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3245"
+    },
+    {
+      "mergedAt": "2023-07-18T12:55:45Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3246"
+    },
+    {
+      "mergedAt": "2023-07-18T18:04:44Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3247"
+    },
+    {
+      "mergedAt": "2023-07-19T15:52:11Z",
+      "age": 2,
+      "url": "https://github.com/evanw/esbuild/issues/3250"
+    },
+    {
+      "mergedAt": "2023-07-19T19:43:32Z",
+      "age": 2,
+      "url": "https://github.com/evanw/esbuild/issues/3251"
+    },
+    {
+      "mergedAt": "2023-07-20T01:28:34Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3252"
+    },
+    {
+      "mergedAt": "2023-07-20T02:50:57Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3253"
+    },
+    {
+      "mergedAt": "2023-07-20T03:07:32Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3255"
+    },
+    {
+      "mergedAt": "2023-07-20T10:40:47Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3256"
+    },
+    {
+      "mergedAt": "2023-07-20T11:18:39Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3257"
+    },
+    {
+      "mergedAt": "2023-07-20T16:28:27Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3258"
+    },
+    {
+      "mergedAt": "2023-07-20T21:21:28Z",
+      "age": 16,
+      "url": "https://github.com/evanw/esbuild/issues/3259"
+    },
+    {
+      "mergedAt": "2023-07-21T05:00:39Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3261"
+    },
+    {
+      "mergedAt": "2023-07-21T08:46:19Z",
+      "age": 16,
+      "url": "https://github.com/evanw/esbuild/issues/3262"
+    },
+    {
+      "mergedAt": "2023-07-21T11:26:14Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3263"
+    },
+    {
+      "mergedAt": "2023-07-21T13:26:56Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3265"
+    },
+    {
+      "mergedAt": "2023-07-21T20:19:29Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3266"
+    },
+    {
+      "mergedAt": "2023-07-22T10:48:59Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3267"
+    },
+    {
+      "mergedAt": "2023-07-22T13:09:29Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3268"
+    },
+    {
+      "mergedAt": "2023-07-22T16:40:51Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3269"
+    },
+    {
+      "mergedAt": "2023-07-23T17:21:48Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3270"
+    },
+    {
+      "mergedAt": "2023-07-24T19:36:26Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3271"
+    },
+    {
+      "mergedAt": "2023-07-25T18:21:07Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3272"
+    },
+    {
+      "mergedAt": "2023-07-25T18:47:38Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3273"
+    },
+    {
+      "mergedAt": "2023-07-27T18:53:02Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3274"
+    },
+    {
+      "mergedAt": "2023-07-28T02:57:03Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3275"
+    },
+    {
+      "mergedAt": "2023-07-29T17:38:29Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3276"
+    },
+    {
+      "mergedAt": "2023-07-30T15:28:33Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3277"
+    },
+    {
+      "mergedAt": "2023-07-30T16:50:00Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3278"
+    },
+    {
+      "mergedAt": "2023-08-02T10:02:42Z",
+      "age": 4,
+      "url": "https://github.com/evanw/esbuild/issues/3279"
+    },
+    {
+      "mergedAt": "2023-08-02T16:27:40Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3281"
+    },
+    {
+      "mergedAt": "2023-08-03T10:33:16Z",
+      "age": 3,
+      "url": "https://github.com/evanw/esbuild/issues/3282"
+    },
+    {
+      "mergedAt": "2023-08-03T14:55:45Z",
+      "age": 4,
+      "url": "https://github.com/evanw/esbuild/issues/3283"
+    },
+    {
+      "mergedAt": "2023-08-03T23:19:55Z",
+      "age": 2,
+      "url": "https://github.com/evanw/esbuild/issues/3284"
+    },
+    {
+      "mergedAt": "2023-08-04T19:42:09Z",
+      "age": 4,
+      "url": "https://github.com/evanw/esbuild/issues/3285"
+    },
+    {
+      "mergedAt": "2023-08-05T01:25:36Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3286"
+    },
+    {
+      "mergedAt": "2023-08-05T02:38:29Z",
+      "age": 4,
+      "url": "https://github.com/evanw/esbuild/issues/3287"
+    },
+    {
+      "mergedAt": "2023-08-05T13:38:09Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3288"
+    },
+    {
+      "mergedAt": "2023-08-05T17:24:43Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3289"
+    },
+    {
+      "mergedAt": "2023-08-06T03:28:32Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3291"
+    },
+    {
+      "mergedAt": "2023-08-06T08:24:21Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3292"
+    },
+    {
+      "mergedAt": "2023-08-06T08:34:22Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3293"
+    },
+    {
+      "mergedAt": "2023-08-06T15:51:14Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3294"
+    },
+    {
+      "mergedAt": "2023-08-06T21:31:14Z",
+      "age": 4,
+      "url": "https://github.com/evanw/esbuild/issues/3295"
+    },
+    {
+      "mergedAt": "2023-08-07T09:21:15Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3296"
+    },
+    {
+      "mergedAt": "2023-08-07T22:58:00Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3298"
+    },
+    {
+      "mergedAt": "2023-08-09T07:38:55Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3300"
+    },
+    {
+      "mergedAt": "2023-08-09T11:14:22Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3301",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-08-10T09:59:26Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3303"
+    },
+    {
+      "mergedAt": "2023-08-11T05:26:55Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3304"
+    },
+    {
+      "mergedAt": "2023-08-11T06:02:06Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3305"
+    },
+    {
+      "mergedAt": "2023-08-11T06:56:10Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3306"
+    },
+    {
+      "mergedAt": "2023-08-11T10:38:56Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3307"
+    },
+    {
+      "mergedAt": "2023-08-11T11:09:51Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3308"
+    },
+    {
+      "mergedAt": "2023-08-11T22:08:45Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3309"
+    },
+    {
+      "mergedAt": "2023-08-11T22:39:13Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3310"
+    },
+    {
+      "mergedAt": "2023-08-13T09:56:32Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3311"
+    },
+    {
+      "mergedAt": "2023-08-13T10:49:15Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3312"
+    },
+    {
+      "mergedAt": "2023-08-13T14:41:36Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3313"
+    },
+    {
+      "mergedAt": "2023-08-14T17:52:19Z",
+      "age": 30,
+      "url": "https://github.com/evanw/esbuild/issues/3314"
+    },
+    {
+      "mergedAt": "2023-08-14T21:25:25Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3315"
+    },
+    {
+      "mergedAt": "2023-08-15T10:03:47Z",
+      "age": 29,
+      "url": "https://github.com/evanw/esbuild/issues/3316"
+    },
+    {
+      "mergedAt": "2023-08-15T16:35:19Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3317"
+    },
+    {
+      "mergedAt": "2023-08-16T16:32:47Z",
+      "age": 28,
+      "url": "https://github.com/evanw/esbuild/issues/3318"
+    },
+    {
+      "mergedAt": "2023-08-17T21:57:11Z",
+      "age": 122,
+      "url": "https://github.com/evanw/esbuild/issues/3319"
+    },
+    {
+      "mergedAt": "2023-08-18T16:27:50Z",
+      "age": 178,
+      "url": "https://github.com/evanw/esbuild/issues/3320"
+    },
+    {
+      "mergedAt": "2023-08-18T16:33:36Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3321"
+    },
+    {
+      "mergedAt": "2023-08-19T15:34:56Z",
+      "age": 25,
+      "url": "https://github.com/evanw/esbuild/issues/3322"
+    },
+    {
+      "mergedAt": "2023-08-20T03:20:00Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3323"
+    },
+    {
+      "mergedAt": "2023-08-20T07:47:47Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3324"
+    },
+    {
+      "mergedAt": "2023-08-21T06:43:54Z",
+      "age": 22,
+      "url": "https://github.com/evanw/esbuild/issues/3325"
+    },
+    {
+      "mergedAt": "2023-08-21T07:34:18Z",
+      "age": 90,
+      "url": "https://github.com/evanw/esbuild/issues/3326"
+    },
+    {
+      "mergedAt": "2023-08-21T15:04:04Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3327"
+    },
+    {
+      "mergedAt": "2023-08-21T16:13:41Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3328"
+    },
+    {
+      "mergedAt": "2023-08-21T20:49:02Z",
+      "age": 22,
+      "url": "https://github.com/evanw/esbuild/issues/3329"
+    },
+    {
+      "mergedAt": "2023-08-22T02:23:06Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3330"
+    },
+    {
+      "mergedAt": "2023-08-22T16:19:48Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3331"
+    },
+    {
+      "mergedAt": "2023-08-23T00:07:01Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3332"
+    },
+    {
+      "mergedAt": "2023-08-23T09:20:35Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3333"
+    },
+    {
+      "mergedAt": "2023-08-23T13:58:34Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3334"
+    },
+    {
+      "mergedAt": "2023-08-23T15:52:22Z",
+      "age": 2,
+      "url": "https://github.com/evanw/esbuild/issues/3335"
+    },
+    {
+      "mergedAt": "2023-08-23T17:38:39Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3336"
+    },
+    {
+      "mergedAt": "2023-08-23T20:29:42Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3337"
+    },
+    {
+      "mergedAt": "2023-08-23T20:52:42Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3338"
+    },
+    {
+      "mergedAt": "2023-08-23T22:05:39Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3339"
+    },
+    {
+      "mergedAt": "2023-08-24T21:11:53Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3340"
+    },
+    {
+      "mergedAt": "2023-08-25T11:33:49Z",
+      "age": 153,
+      "url": "https://github.com/evanw/esbuild/issues/3341"
+    },
+    {
+      "mergedAt": "2023-08-25T13:41:59Z",
+      "age": 22,
+      "url": "https://github.com/evanw/esbuild/issues/3342"
+    },
+    {
+      "mergedAt": "2023-08-25T14:21:56Z",
+      "age": 273,
+      "url": "https://github.com/evanw/esbuild/issues/3343"
+    },
+    {
+      "mergedAt": "2023-08-25T17:28:50Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3344"
+    },
+    {
+      "mergedAt": "2023-08-26T08:27:59Z",
+      "age": 9,
+      "url": "https://github.com/evanw/esbuild/issues/3345"
+    },
+    {
+      "mergedAt": "2023-08-27T00:03:48Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3346"
+    },
+    {
+      "mergedAt": "2023-08-27T06:30:11Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3347"
+    },
+    {
+      "mergedAt": "2023-08-28T01:53:56Z",
+      "age": 7,
+      "url": "https://github.com/evanw/esbuild/issues/3348"
+    },
+    {
+      "mergedAt": "2023-08-28T06:28:54Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3349"
+    },
+    {
+      "mergedAt": "2023-08-28T06:40:11Z",
+      "age": 7,
+      "url": "https://github.com/evanw/esbuild/issues/3350"
+    },
+    {
+      "mergedAt": "2023-08-28T07:30:42Z",
+      "age": 15,
+      "url": "https://github.com/evanw/esbuild/issues/3351"
+    },
+    {
+      "mergedAt": "2023-08-28T11:13:12Z",
+      "age": 112,
+      "url": "https://github.com/evanw/esbuild/issues/3353"
+    },
+    {
+      "mergedAt": "2023-08-28T18:41:35Z",
+      "age": 49,
+      "url": "https://github.com/evanw/esbuild/issues/3354"
+    },
+    {
+      "mergedAt": "2023-08-29T07:45:24Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3355"
+    },
+    {
+      "mergedAt": "2023-08-29T11:41:14Z",
+      "age": 5,
+      "url": "https://github.com/evanw/esbuild/issues/3356"
+    },
+    {
+      "mergedAt": "2023-08-30T00:15:37Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3357"
+    },
+    {
+      "mergedAt": "2023-08-30T00:17:48Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3358"
+    },
+    {
+      "mergedAt": "2023-08-30T07:37:31Z",
+      "age": 4,
+      "url": "https://github.com/evanw/esbuild/issues/3359"
+    },
+    {
+      "mergedAt": "2023-08-31T14:33:17Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3360"
+    },
+    {
+      "mergedAt": "2023-09-01T00:23:28Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3361"
+    },
+    {
+      "mergedAt": "2023-09-02T06:00:01Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3362"
+    },
+    {
+      "mergedAt": "2023-09-02T16:34:44Z",
+      "age": 2,
+      "url": "https://github.com/evanw/esbuild/issues/3363"
+    },
+    {
+      "mergedAt": "2023-09-03T21:30:21Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3364"
+    },
+    {
+      "mergedAt": "2023-09-05T14:43:19Z",
+      "age": 180,
+      "url": "https://github.com/evanw/esbuild/issues/3365"
+    },
+    {
+      "mergedAt": "2023-09-05T17:08:28Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3366"
+    },
+    {
+      "mergedAt": "2023-09-05T19:30:11Z",
+      "age": 41,
+      "url": "https://github.com/evanw/esbuild/issues/3367"
+    },
+    {
+      "mergedAt": "2023-09-06T01:05:39Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3368"
+    },
+    {
+      "mergedAt": "2023-09-07T01:56:57Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3369"
+    },
+    {
+      "mergedAt": "2023-09-08T08:36:41Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3370"
+    },
+    {
+      "mergedAt": "2023-09-10T00:15:28Z",
+      "age": 2,
+      "url": "https://github.com/evanw/esbuild/issues/3371"
+    },
+    {
+      "mergedAt": "2023-09-10T08:03:54Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3372"
+    },
+    {
+      "mergedAt": "2023-09-11T12:53:17Z",
+      "age": 2,
+      "url": "https://github.com/evanw/esbuild/issues/3374"
+    },
+    {
+      "mergedAt": "2023-09-11T12:57:51Z",
+      "age": 35,
+      "url": "https://github.com/evanw/esbuild/issues/3375"
+    },
+    {
+      "mergedAt": "2023-09-12T00:48:04Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3376"
+    },
+    {
+      "mergedAt": "2023-09-12T15:16:21Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3377"
+    },
+    {
+      "mergedAt": "2023-09-12T15:18:00Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3378"
+    },
+    {
+      "mergedAt": "2023-09-12T18:04:08Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3379"
+    },
+    {
+      "mergedAt": "2023-09-12T19:34:12Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3380"
+    },
+    {
+      "mergedAt": "2023-09-13T11:44:25Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3382"
+    },
+    {
+      "mergedAt": "2023-09-13T15:49:10Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3383"
+    },
+    {
+      "mergedAt": "2023-09-13T15:52:28Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3384"
+    },
+    {
+      "mergedAt": "2023-09-14T06:45:03Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3385"
+    },
+    {
+      "mergedAt": "2023-09-14T17:17:49Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3386"
+    },
+    {
+      "mergedAt": "2023-09-14T19:50:47Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3387"
+    },
+    {
+      "mergedAt": "2023-09-14T21:56:19Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3388"
+    },
+    {
+      "mergedAt": "2023-09-15T11:45:46Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3389"
+    },
+    {
+      "mergedAt": "2023-09-16T15:18:00Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3390"
+    },
+    {
+      "mergedAt": "2023-09-18T09:59:25Z",
+      "age": 91,
+      "url": "https://github.com/evanw/esbuild/issues/3392"
+    },
+    {
+      "mergedAt": "2023-09-18T13:57:59Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3393"
+    },
+    {
+      "mergedAt": "2023-09-18T22:42:50Z",
+      "age": 62,
+      "url": "https://github.com/evanw/esbuild/issues/3394"
+    },
+    {
+      "mergedAt": "2023-09-19T07:47:18Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3395"
+    },
+    {
+      "mergedAt": "2023-09-19T13:49:04Z",
+      "age": 4,
+      "url": "https://github.com/evanw/esbuild/issues/3396"
+    },
+    {
+      "mergedAt": "2023-09-19T18:50:27Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3397"
+    },
+    {
+      "mergedAt": "2023-09-20T22:06:38Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3399"
+    },
+    {
+      "mergedAt": "2023-09-21T09:44:01Z",
+      "age": 25,
+      "url": "https://github.com/evanw/esbuild/issues/3400"
+    },
+    {
+      "mergedAt": "2023-09-22T07:36:06Z",
+      "age": 24,
+      "url": "https://github.com/evanw/esbuild/issues/3401"
+    },
+    {
+      "mergedAt": "2023-09-22T07:49:13Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3402"
+    },
+    {
+      "mergedAt": "2023-09-22T17:59:33Z",
+      "age": 24,
+      "url": "https://github.com/evanw/esbuild/issues/3403"
+    },
+    {
+      "mergedAt": "2023-09-23T07:20:13Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3404"
+    },
+    {
+      "mergedAt": "2023-09-23T17:37:26Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3405"
+    },
+    {
+      "mergedAt": "2023-09-24T08:42:32Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3406"
+    },
+    {
+      "mergedAt": "2023-09-24T18:28:40Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3407"
+    },
+    {
+      "mergedAt": "2023-09-25T15:09:53Z",
+      "age": 172,
+      "url": "https://github.com/evanw/esbuild/issues/3408"
+    },
+    {
+      "mergedAt": "2023-09-25T18:48:46Z",
+      "age": 21,
+      "url": "https://github.com/evanw/esbuild/issues/3409"
+    },
+    {
+      "mergedAt": "2023-09-27T10:57:16Z",
+      "age": 19,
+      "url": "https://github.com/evanw/esbuild/issues/3410",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-09-28T10:15:29Z",
+      "age": 12,
+      "url": "https://github.com/evanw/esbuild/issues/3411"
+    },
+    {
+      "mergedAt": "2023-09-28T23:20:55Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3412"
+    },
+    {
+      "mergedAt": "2023-09-29T14:35:37Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3414"
+    },
+    {
+      "mergedAt": "2023-09-29T17:15:10Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3415"
+    },
+    {
+      "mergedAt": "2023-10-02T00:39:18Z",
+      "age": 235,
+      "url": "https://github.com/evanw/esbuild/issues/3416"
+    },
+    {
+      "mergedAt": "2023-10-02T06:40:44Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3417"
+    },
+    {
+      "mergedAt": "2023-10-02T07:52:38Z",
+      "age": 14,
+      "url": "https://github.com/evanw/esbuild/issues/3418"
+    },
+    {
+      "mergedAt": "2023-10-03T05:44:57Z",
+      "age": 13,
+      "url": "https://github.com/evanw/esbuild/issues/3419"
+    },
+    {
+      "mergedAt": "2023-10-04T09:55:01Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3420"
+    },
+    {
+      "mergedAt": "2023-10-04T15:10:24Z",
+      "age": 12,
+      "url": "https://github.com/evanw/esbuild/issues/3421"
+    },
+    {
+      "mergedAt": "2023-10-04T15:29:18Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3422"
+    },
+    {
+      "mergedAt": "2023-10-05T14:44:40Z",
+      "age": 10,
+      "url": "https://github.com/evanw/esbuild/issues/3423"
+    },
+    {
+      "mergedAt": "2023-10-05T15:53:24Z",
+      "age": 232,
+      "url": "https://github.com/evanw/esbuild/issues/3425"
+    },
+    {
+      "mergedAt": "2023-10-05T20:33:45Z",
+      "age": 11,
+      "url": "https://github.com/evanw/esbuild/issues/3426"
+    },
+    {
+      "mergedAt": "2023-10-05T21:57:38Z",
+      "age": 44,
+      "url": "https://github.com/evanw/esbuild/issues/3427"
+    },
+    {
+      "mergedAt": "2023-10-06T04:43:00Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3428"
+    },
+    {
+      "mergedAt": "2023-10-06T05:32:21Z",
+      "age": 5,
+      "url": "https://github.com/evanw/esbuild/issues/3429"
+    },
+    {
+      "mergedAt": "2023-10-07T05:07:46Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3431"
+    },
+    {
+      "mergedAt": "2023-10-08T01:22:27Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3432"
+    },
+    {
+      "mergedAt": "2023-10-08T06:10:54Z",
+      "age": 8,
+      "url": "https://github.com/evanw/esbuild/issues/3433"
+    },
+    {
+      "mergedAt": "2023-10-08T08:53:44Z",
+      "age": 15,
+      "url": "https://github.com/evanw/esbuild/issues/3434"
+    },
+    {
+      "mergedAt": "2023-10-08T14:11:50Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3435"
+    },
+    {
+      "mergedAt": "2023-10-08T19:56:22Z",
+      "age": 3,
+      "url": "https://github.com/evanw/esbuild/issues/3436"
+    },
+    {
+      "mergedAt": "2023-10-09T23:46:18Z",
+      "age": 7,
+      "url": "https://github.com/evanw/esbuild/issues/3437"
+    },
+    {
+      "mergedAt": "2023-10-10T08:09:04Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3438"
+    },
+    {
+      "mergedAt": "2023-10-10T17:06:47Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3439"
+    },
+    {
+      "mergedAt": "2023-10-10T20:04:23Z",
+      "age": 4,
+      "url": "https://github.com/evanw/esbuild/issues/3440"
+    },
+    {
+      "mergedAt": "2023-10-12T07:32:28Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3442"
+    },
+    {
+      "mergedAt": "2023-10-12T08:06:03Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3443"
+    },
+    {
+      "mergedAt": "2023-10-12T15:21:52Z",
+      "age": 3,
+      "url": "https://github.com/evanw/esbuild/issues/3444"
+    },
+    {
+      "mergedAt": "2023-10-12T18:04:08Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3445"
+    },
+    {
+      "mergedAt": "2023-10-12T22:21:08Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3446"
+    },
+    {
+      "mergedAt": "2023-10-13T07:11:59Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3447"
+    },
+    {
+      "mergedAt": "2023-10-13T10:26:14Z",
+      "age": 2,
+      "url": "https://github.com/evanw/esbuild/issues/3448"
+    },
+    {
+      "mergedAt": "2023-10-16T12:45:51Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3450"
+    },
+    {
+      "mergedAt": "2023-10-16T16:53:56Z",
+      "age": 20,
+      "url": "https://github.com/evanw/esbuild/issues/3451"
+    },
+    {
+      "mergedAt": "2023-10-16T21:54:13Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3452"
+    },
+    {
+      "mergedAt": "2023-10-17T08:15:45Z",
+      "age": 32,
+      "url": "https://github.com/evanw/esbuild/issues/3453"
+    },
+    {
+      "mergedAt": "2023-10-17T08:58:16Z",
+      "age": 32,
+      "url": "https://github.com/evanw/esbuild/issues/3454"
+    },
+    {
+      "mergedAt": "2023-10-17T12:04:12Z",
+      "age": 9,
+      "url": "https://github.com/evanw/esbuild/issues/3455"
+    },
+    {
+      "mergedAt": "2023-10-17T14:19:31Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3456"
+    },
+    {
+      "mergedAt": "2023-10-19T14:47:28Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3457"
+    },
+    {
+      "mergedAt": "2023-10-20T08:30:28Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3458"
+    },
+    {
+      "mergedAt": "2023-10-20T13:14:37Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3459"
+    },
+    {
+      "mergedAt": "2023-10-23T03:18:56Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3460"
+    },
+    {
+      "mergedAt": "2023-10-23T10:27:34Z",
+      "age": 37,
+      "url": "https://github.com/evanw/esbuild/issues/3461"
+    },
+    {
+      "mergedAt": "2023-10-23T10:45:38Z",
+      "age": 26,
+      "url": "https://github.com/evanw/esbuild/issues/3462"
+    },
+    {
+      "mergedAt": "2023-10-24T16:47:52Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3463"
+    },
+    {
+      "mergedAt": "2023-10-24T16:50:01Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3464"
+    },
+    {
+      "mergedAt": "2023-10-25T14:12:19Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3465"
+    },
+    {
+      "mergedAt": "2023-10-25T14:19:11Z",
+      "age": 12,
+      "url": "https://github.com/evanw/esbuild/issues/3466"
+    },
+    {
+      "mergedAt": "2023-10-26T13:13:19Z",
+      "age": 23,
+      "url": "https://github.com/evanw/esbuild/issues/3467"
+    },
+    {
+      "mergedAt": "2023-10-29T07:44:04Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3468"
+    },
+    {
+      "mergedAt": "2023-11-02T01:34:54Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3469"
+    },
+    {
+      "mergedAt": "2023-11-02T10:41:17Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3470"
+    },
+    {
+      "mergedAt": "2023-11-03T10:10:41Z",
+      "age": 15,
+      "url": "https://github.com/evanw/esbuild/issues/3471"
+    },
+    {
+      "mergedAt": "2023-11-04T02:07:57Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3472"
+    },
+    {
+      "mergedAt": "2023-11-04T11:02:08Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3474"
+    },
+    {
+      "mergedAt": "2023-11-06T02:02:01Z",
+      "age": 3,
+      "url": "https://github.com/evanw/esbuild/issues/3475"
+    },
+    {
+      "mergedAt": "2023-11-06T04:42:57Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3476"
+    },
+    {
+      "mergedAt": "2023-11-06T06:54:51Z",
+      "age": 13,
+      "url": "https://github.com/evanw/esbuild/issues/3477"
+    },
+    {
+      "mergedAt": "2023-11-07T09:22:26Z",
+      "age": 41,
+      "url": "https://github.com/evanw/esbuild/issues/3478"
+    },
+    {
+      "mergedAt": "2023-11-07T13:25:04Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3479"
+    },
+    {
+      "mergedAt": "2023-11-08T03:12:53Z",
+      "age": 40,
+      "url": "https://github.com/evanw/esbuild/issues/3480"
+    },
+    {
+      "mergedAt": "2023-11-08T06:40:49Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3481"
+    },
+    {
+      "mergedAt": "2023-11-09T14:28:54Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3482"
+    },
+    {
+      "mergedAt": "2023-11-09T20:11:57Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3483"
+    },
+    {
+      "mergedAt": "2023-11-10T14:51:08Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3484"
+    },
+    {
+      "mergedAt": "2023-11-11T23:57:19Z",
+      "age": 7,
+      "url": "https://github.com/evanw/esbuild/issues/3485"
+    },
+    {
+      "mergedAt": "2023-11-12T19:25:23Z",
+      "age": 6,
+      "url": "https://github.com/evanw/esbuild/issues/3486"
+    },
+    {
+      "mergedAt": "2023-11-13T12:43:53Z",
+      "age": 2,
+      "url": "https://github.com/evanw/esbuild/issues/3487"
+    },
+    {
+      "mergedAt": "2023-11-14T03:16:31Z",
+      "age": 34,
+      "url": "https://github.com/evanw/esbuild/issues/3488"
+    },
+    {
+      "mergedAt": "2023-11-14T13:11:10Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3489"
+    },
+    {
+      "mergedAt": "2023-11-14T17:07:27Z",
+      "age": 4,
+      "url": "https://github.com/evanw/esbuild/issues/3490"
+    },
+    {
+      "mergedAt": "2023-11-15T13:30:07Z",
+      "age": 33,
+      "url": "https://github.com/evanw/esbuild/issues/3492"
+    },
+    {
+      "mergedAt": "2023-11-15T14:49:24Z",
+      "age": 3,
+      "url": "https://github.com/evanw/esbuild/issues/3493"
+    },
+    {
+      "mergedAt": "2023-11-15T16:42:35Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3494"
+    },
+    {
+      "mergedAt": "2023-11-15T17:05:40Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3495"
+    },
+    {
+      "mergedAt": "2023-11-16T15:30:33Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3496"
+    },
+    {
+      "mergedAt": "2023-11-18T09:40:46Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3497"
+    },
+    {
+      "mergedAt": "2023-11-19T11:18:28Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3498"
+    },
+    {
+      "mergedAt": "2023-11-19T21:27:06Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3499"
+    },
+    {
+      "mergedAt": "2023-11-20T19:56:05Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3500"
+    },
+    {
+      "mergedAt": "2023-11-21T19:01:54Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3501"
+    },
+    {
+      "mergedAt": "2023-11-22T17:11:18Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3502"
+    },
+    {
+      "mergedAt": "2023-11-23T02:37:34Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3503"
+    },
+    {
+      "mergedAt": "2023-11-24T12:50:34Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3504"
+    },
+    {
+      "mergedAt": "2023-11-24T14:34:39Z",
+      "age": 19,
+      "url": "https://github.com/evanw/esbuild/issues/3505"
+    },
+    {
+      "mergedAt": "2023-11-25T08:39:57Z",
+      "age": 2,
+      "url": "https://github.com/evanw/esbuild/issues/3506"
+    },
+    {
+      "mergedAt": "2023-11-26T21:42:54Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3507"
+    },
+    {
+      "mergedAt": "2023-11-28T07:22:21Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3508"
+    },
+    {
+      "mergedAt": "2023-11-28T10:51:05Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3509"
+    },
+    {
+      "mergedAt": "2023-11-28T19:11:16Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3510",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-11-29T03:51:03Z",
+      "age": 19,
+      "url": "https://github.com/evanw/esbuild/issues/3511"
+    },
+    {
+      "mergedAt": "2023-11-29T08:16:06Z",
+      "age": 4,
+      "url": "https://github.com/evanw/esbuild/issues/3512"
+    },
+    {
+      "mergedAt": "2023-11-29T11:49:00Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3514"
+    },
+    {
+      "mergedAt": "2023-11-29T12:34:39Z",
+      "age": 4,
+      "url": "https://github.com/evanw/esbuild/issues/3515"
+    },
+    {
+      "mergedAt": "2023-11-29T15:17:59Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3516"
+    },
+    {
+      "mergedAt": "2023-11-29T16:34:13Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3517"
+    },
+    {
+      "mergedAt": "2023-11-29T20:25:36Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3518"
+    },
+    {
+      "mergedAt": "2023-11-30T00:21:15Z",
+      "age": 4,
+      "url": "https://github.com/evanw/esbuild/issues/3519"
+    },
+    {
+      "mergedAt": "2023-11-30T18:06:53Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3521"
+    },
+    {
+      "mergedAt": "2023-12-01T10:33:10Z",
+      "age": 6,
+      "url": "https://github.com/evanw/esbuild/issues/3522"
+    },
+    {
+      "mergedAt": "2023-12-01T10:44:35Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3523"
+    },
+    {
+      "mergedAt": "2023-12-02T18:20:10Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3524"
+    },
+    {
+      "mergedAt": "2023-12-04T12:46:57Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3525"
+    },
+    {
+      "mergedAt": "2023-12-07T01:26:32Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3526"
+    },
+    {
+      "mergedAt": "2023-12-07T11:19:40Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3529"
+    },
+    {
+      "mergedAt": "2023-12-08T14:37:22Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3531"
+    },
+    {
+      "mergedAt": "2023-12-09T14:31:23Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3533"
+    },
+    {
+      "mergedAt": "2023-12-11T05:14:39Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3535"
+    },
+    {
+      "mergedAt": "2023-12-11T16:02:18Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3536"
+    },
+    {
+      "mergedAt": "2023-12-11T16:35:25Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3537"
+    },
+    {
+      "mergedAt": "2023-12-12T07:13:38Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3538"
+    },
+    {
+      "mergedAt": "2023-12-12T14:23:27Z",
+      "age": 17,
+      "url": "https://github.com/evanw/esbuild/issues/3540"
+    },
+    {
+      "mergedAt": "2023-12-13T06:52:43Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3541"
+    },
+    {
+      "mergedAt": "2023-12-13T14:21:34Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3542"
+    },
+    {
+      "mergedAt": "2023-12-14T01:20:55Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3543"
+    },
+    {
+      "mergedAt": "2023-12-14T08:48:56Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3544"
+    },
+    {
+      "mergedAt": "2023-12-14T15:35:41Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3545"
+    },
+    {
+      "mergedAt": "2023-12-15T02:13:22Z",
+      "age": 3,
+      "url": "https://github.com/evanw/esbuild/issues/3546",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-12-15T02:13:37Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3547",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-12-15T14:35:13Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3548"
+    },
+    {
+      "mergedAt": "2023-12-16T12:26:51Z",
+      "age": 2,
+      "url": "https://github.com/evanw/esbuild/issues/3549"
+    },
+    {
+      "mergedAt": "2023-12-17T02:41:50Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3551"
+    },
+    {
+      "mergedAt": "2023-12-17T14:28:53Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3552"
+    },
+    {
+      "mergedAt": "2023-12-18T02:29:01Z",
+      "age": 17,
+      "url": "https://github.com/evanw/esbuild/issues/3553"
+    },
+    {
+      "mergedAt": "2023-12-18T07:39:45Z",
+      "age": 11,
+      "url": "https://github.com/evanw/esbuild/issues/3555"
+    },
+    {
+      "mergedAt": "2023-12-18T13:40:31Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3556"
+    },
+    {
+      "mergedAt": "2023-12-18T15:39:39Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3557"
+    },
+    {
+      "mergedAt": "2023-12-19T10:58:59Z",
+      "age": 2,
+      "url": "https://github.com/evanw/esbuild/issues/3558"
+    },
+    {
+      "mergedAt": "2023-12-20T18:14:17Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3559"
+    },
+    {
+      "mergedAt": "2023-12-23T23:29:27Z",
+      "age": 5,
+      "url": "https://github.com/evanw/esbuild/issues/3561"
+    },
+    {
+      "mergedAt": "2023-12-25T03:48:45Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3562"
+    },
+    {
+      "mergedAt": "2023-12-26T21:57:05Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3563"
+    },
+    {
+      "mergedAt": "2023-12-27T07:50:46Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3564"
+    },
+    {
+      "mergedAt": "2023-12-27T21:51:15Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3565"
+    },
+    {
+      "mergedAt": "2023-12-28T02:32:39Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3566"
+    },
+    {
+      "mergedAt": "2023-12-28T12:49:49Z",
+      "age": 21,
+      "url": "https://github.com/evanw/esbuild/issues/3567"
+    },
+    {
+      "mergedAt": "2023-12-28T23:18:59Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3568"
+    },
+    {
+      "mergedAt": "2023-12-31T14:10:28Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3569"
+    },
+    {
+      "mergedAt": "2023-12-31T15:55:53Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3570"
+    },
+    {
+      "mergedAt": "2023-12-31T18:15:34Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3571"
+    },
+    {
+      "mergedAt": "2024-01-01T18:17:20Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3572"
+    },
+    {
+      "mergedAt": "2024-01-02T08:48:19Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3573"
+    },
+    {
+      "mergedAt": "2024-01-02T20:11:07Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3574"
+    },
+    {
+      "mergedAt": "2024-01-03T19:21:49Z",
+      "age": 4,
+      "url": "https://github.com/evanw/esbuild/issues/3575"
+    },
+    {
+      "mergedAt": "2024-01-04T13:44:30Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3576"
+    },
+    {
+      "mergedAt": "2024-01-04T14:56:28Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3577"
+    },
+    {
+      "mergedAt": "2024-01-04T15:18:15Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3578"
+    },
+    {
+      "mergedAt": "2024-01-04T16:35:27Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3579"
+    },
+    {
+      "mergedAt": "2024-01-05T21:04:17Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3580"
+    },
+    {
+      "mergedAt": "2024-01-06T14:41:40Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3581"
+    },
+    {
+      "mergedAt": "2024-01-06T20:52:45Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3582"
+    },
+    {
+      "mergedAt": "2024-01-07T02:59:48Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3583"
+    },
+    {
+      "mergedAt": "2024-01-10T09:00:32Z",
+      "age": 13,
+      "url": "https://github.com/evanw/esbuild/issues/3584"
+    },
+    {
+      "mergedAt": "2024-01-11T14:40:27Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3585"
+    },
+    {
+      "mergedAt": "2024-01-12T08:37:54Z",
+      "age": 11,
+      "url": "https://github.com/evanw/esbuild/issues/3586"
+    },
+    {
+      "mergedAt": "2024-01-12T10:20:27Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3587"
+    },
+    {
+      "mergedAt": "2024-01-12T20:00:00Z",
+      "age": 9,
+      "url": "https://github.com/evanw/esbuild/issues/3588"
+    },
+    {
+      "mergedAt": "2024-01-14T16:41:58Z",
+      "age": 3,
+      "url": "https://github.com/evanw/esbuild/issues/3589"
+    },
+    {
+      "mergedAt": "2024-01-14T20:37:55Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3590"
+    },
+    {
+      "mergedAt": "2024-01-15T06:22:47Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3591"
+    },
+    {
+      "mergedAt": "2024-01-15T08:46:19Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3592"
+    },
+    {
+      "mergedAt": "2024-01-15T14:13:38Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3593"
+    },
+    {
+      "mergedAt": "2024-01-15T16:21:55Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3594"
+    },
+    {
+      "mergedAt": "2024-01-15T17:54:40Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3595"
+    },
+    {
+      "mergedAt": "2024-01-15T22:10:35Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3596"
+    },
+    {
+      "mergedAt": "2024-01-16T13:47:21Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3597"
+    },
+    {
+      "mergedAt": "2024-01-16T20:50:09Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3598"
+    },
+    {
+      "mergedAt": "2024-01-16T21:44:52Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3599"
+    },
+    {
+      "mergedAt": "2024-01-17T10:29:55Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3600"
+    },
+    {
+      "mergedAt": "2024-01-17T18:42:36Z",
+      "age": 9,
+      "url": "https://github.com/evanw/esbuild/issues/3601"
+    },
+    {
+      "mergedAt": "2024-01-18T13:43:23Z",
+      "age": 5,
+      "url": "https://github.com/evanw/esbuild/issues/3602"
+    },
+    {
+      "mergedAt": "2024-01-19T21:28:42Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3603"
+    },
+    {
+      "mergedAt": "2024-01-20T08:04:37Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3604"
+    },
+    {
+      "mergedAt": "2024-01-21T17:13:54Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3605"
+    },
+    {
+      "mergedAt": "2024-01-24T00:47:37Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3606"
+    },
+    {
+      "mergedAt": "2024-01-25T03:31:34Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3607"
+    },
+    {
+      "mergedAt": "2024-01-25T03:36:43Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3608"
+    },
+    {
+      "mergedAt": "2024-01-25T19:55:23Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3609"
+    },
+    {
+      "mergedAt": "2024-01-26T06:38:28Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3612"
+    },
+    {
+      "mergedAt": "2024-01-26T14:53:53Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3613"
+    },
+    {
+      "mergedAt": "2024-01-27T12:43:06Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3614"
+    },
+    {
+      "mergedAt": "2024-01-27T20:01:08Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3615"
+    },
+    {
+      "mergedAt": "2024-01-29T03:01:13Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3616"
+    },
+    {
+      "mergedAt": "2024-01-29T06:58:48Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3617"
+    },
+    {
+      "mergedAt": "2024-01-30T07:58:50Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3618"
+    },
+    {
+      "mergedAt": "2024-01-30T10:21:20Z",
+      "age": 3,
+      "url": "https://github.com/evanw/esbuild/issues/3619"
+    },
+    {
+      "mergedAt": "2024-01-31T12:50:36Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3620"
+    },
+    {
+      "mergedAt": "2024-02-01T08:39:53Z",
+      "age": 4,
+      "url": "https://github.com/evanw/esbuild/issues/3621"
+    },
+    {
+      "mergedAt": "2024-02-01T15:13:46Z",
+      "age": 3,
+      "url": "https://github.com/evanw/esbuild/issues/3622"
+    },
+    {
+      "mergedAt": "2024-02-01T21:52:51Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3623"
+    },
+    {
+      "mergedAt": "2024-02-02T06:57:45Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3624"
+    },
+    {
+      "mergedAt": "2024-02-02T15:29:17Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3625"
+    },
+    {
+      "mergedAt": "2024-02-02T17:03:51Z",
+      "age": 2,
+      "url": "https://github.com/evanw/esbuild/issues/3626"
+    },
+    {
+      "mergedAt": "2024-02-05T00:11:52Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3627"
+    },
+    {
+      "mergedAt": "2024-02-05T04:11:15Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3628"
+    },
+    {
+      "mergedAt": "2024-02-05T09:03:05Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3629"
+    },
+    {
+      "mergedAt": "2024-02-05T16:23:32Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3630"
+    },
+    {
+      "mergedAt": "2024-02-05T17:54:35Z",
+      "age": 2,
+      "url": "https://github.com/evanw/esbuild/issues/3631"
+    },
+    {
+      "mergedAt": "2024-02-07T09:04:59Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3632"
+    },
+    {
+      "mergedAt": "2024-02-07T11:40:01Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3633"
+    },
+    {
+      "mergedAt": "2024-02-07T19:38:08Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3634"
+    },
+    {
+      "mergedAt": "2024-02-07T23:05:24Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3635"
+    },
+    {
+      "mergedAt": "2024-02-08T08:41:55Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3636"
+    },
+    {
+      "mergedAt": "2024-02-09T02:48:51Z",
+      "age": 2,
+      "url": "https://github.com/evanw/esbuild/issues/3637"
+    },
+    {
+      "mergedAt": "2024-02-09T09:07:27Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3638"
+    },
+    {
+      "mergedAt": "2024-02-09T14:10:09Z",
+      "age": 105,
+      "url": "https://github.com/evanw/esbuild/issues/3639"
+    },
+    {
+      "mergedAt": "2024-02-11T15:21:04Z",
+      "age": 7,
+      "url": "https://github.com/evanw/esbuild/issues/3640"
+    },
+    {
+      "mergedAt": "2024-02-12T13:28:56Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3641"
+    },
+    {
+      "mergedAt": "2024-02-12T20:13:51Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3642"
+    },
+    {
+      "mergedAt": "2024-02-13T00:59:03Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3643"
+    },
+    {
+      "mergedAt": "2024-02-13T08:57:32Z",
+      "age": 2,
+      "url": "https://github.com/evanw/esbuild/issues/3644"
+    },
+    {
+      "mergedAt": "2024-02-13T19:02:18Z",
+      "age": 5,
+      "url": "https://github.com/evanw/esbuild/issues/3645"
+    },
+    {
+      "mergedAt": "2024-02-13T20:20:33Z",
+      "age": 101,
+      "url": "https://github.com/evanw/esbuild/issues/3646"
+    },
+    {
+      "mergedAt": "2024-02-15T06:38:06Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3648"
+    },
+    {
+      "mergedAt": "2024-02-15T09:18:21Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3649"
+    },
+    {
+      "mergedAt": "2024-02-15T20:51:25Z",
+      "age": 3,
+      "url": "https://github.com/evanw/esbuild/issues/3650"
+    },
+    {
+      "mergedAt": "2024-02-16T21:58:44Z",
+      "age": 70,
+      "url": "https://github.com/evanw/esbuild/issues/3652"
+    },
+    {
+      "mergedAt": "2024-02-17T15:33:00Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3653"
+    },
+    {
+      "mergedAt": "2024-02-18T01:31:06Z",
+      "age": 9,
+      "url": "https://github.com/evanw/esbuild/issues/3654"
+    },
+    {
+      "mergedAt": "2024-02-19T02:35:41Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3655"
+    },
+    {
+      "mergedAt": "2024-02-19T04:23:23Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3656"
+    },
+    {
+      "mergedAt": "2024-02-19T07:35:09Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3657"
+    },
+    {
+      "mergedAt": "2024-02-20T12:41:02Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3658"
+    },
+    {
+      "mergedAt": "2024-02-21T06:55:01Z",
+      "age": 2,
+      "url": "https://github.com/evanw/esbuild/issues/3659"
+    },
+    {
+      "mergedAt": "2024-02-21T10:21:52Z",
+      "age": 2,
+      "url": "https://github.com/evanw/esbuild/issues/3660"
+    },
+    {
+      "mergedAt": "2024-02-21T15:14:04Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3661"
+    },
+    {
+      "mergedAt": "2024-02-21T16:06:20Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3662"
+    },
+    {
+      "mergedAt": "2024-02-22T04:47:28Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3663",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-02-23T00:09:49Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3665"
+    },
+    {
+      "mergedAt": "2024-02-23T10:10:58Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3666"
+    },
+    {
+      "mergedAt": "2024-02-25T18:48:41Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3668"
+    },
+    {
+      "mergedAt": "2024-02-26T16:03:29Z",
+      "age": 10,
+      "url": "https://github.com/evanw/esbuild/issues/3669"
+    },
+    {
+      "mergedAt": "2024-02-27T15:02:37Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3670"
+    },
+    {
+      "mergedAt": "2024-02-28T11:57:16Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3672"
+    },
+    {
+      "mergedAt": "2024-02-29T07:35:36Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3673"
+    },
+    {
+      "mergedAt": "2024-03-01T15:06:07Z",
+      "age": 13,
+      "url": "https://github.com/evanw/esbuild/issues/3675"
+    },
+    {
+      "mergedAt": "2024-03-02T17:41:59Z",
+      "age": 5,
+      "url": "https://github.com/evanw/esbuild/issues/3676"
+    },
+    {
+      "mergedAt": "2024-03-03T03:51:31Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3677"
+    },
+    {
+      "mergedAt": "2024-03-03T10:42:01Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3678"
+    },
+    {
+      "mergedAt": "2024-03-06T06:14:43Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3680"
+    },
+    {
+      "mergedAt": "2024-03-06T09:08:55Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3681"
+    },
+    {
+      "mergedAt": "2024-03-06T11:36:45Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3682"
+    },
+    {
+      "mergedAt": "2024-03-07T20:26:35Z",
+      "age": 6,
+      "url": "https://github.com/evanw/esbuild/issues/3684"
+    },
+    {
+      "mergedAt": "2024-03-08T07:03:00Z",
+      "age": 49,
+      "url": "https://github.com/evanw/esbuild/issues/3686"
+    },
+    {
+      "mergedAt": "2024-03-08T22:17:22Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3687"
+    },
+    {
+      "mergedAt": "2024-03-09T13:31:23Z",
+      "age": 15,
+      "url": "https://github.com/evanw/esbuild/issues/3688"
+    },
+    {
+      "mergedAt": "2024-03-09T23:06:21Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3689"
+    },
+    {
+      "mergedAt": "2024-03-10T03:30:15Z",
+      "age": 4,
+      "url": "https://github.com/evanw/esbuild/issues/3690"
+    },
+    {
+      "mergedAt": "2024-03-10T08:35:14Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3691"
+    },
+    {
+      "mergedAt": "2024-03-11T17:48:02Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3692"
+    },
+    {
+      "mergedAt": "2024-03-12T20:10:40Z",
+      "age": 12,
+      "url": "https://github.com/evanw/esbuild/issues/3694"
+    },
+    {
+      "mergedAt": "2024-03-13T05:51:41Z",
+      "age": 54,
+      "url": "https://github.com/evanw/esbuild/issues/3695"
+    },
+    {
+      "mergedAt": "2024-03-13T21:01:07Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3696"
+    },
+    {
+      "mergedAt": "2024-03-14T05:29:22Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3697"
+    },
+    {
+      "mergedAt": "2024-03-14T08:45:34Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3698"
+    },
+    {
+      "mergedAt": "2024-03-14T18:46:51Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3700"
+    },
+    {
+      "mergedAt": "2024-03-15T15:18:22Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3702"
+    },
+    {
+      "mergedAt": "2024-03-18T22:18:40Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3703"
+    },
+    {
+      "mergedAt": "2024-03-19T20:00:57Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3704"
+    },
+    {
+      "mergedAt": "2024-03-20T21:10:27Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3705"
+    },
+    {
+      "mergedAt": "2024-03-21T16:38:10Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3706"
+    },
+    {
+      "mergedAt": "2024-03-22T10:39:28Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3707"
+    },
+    {
+      "mergedAt": "2024-03-24T20:15:43Z",
+      "age": 7,
+      "url": "https://github.com/evanw/esbuild/issues/3708"
+    },
+    {
+      "mergedAt": "2024-03-26T01:40:29Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3709"
+    },
+    {
+      "mergedAt": "2024-03-26T17:42:29Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3710"
+    },
+    {
+      "mergedAt": "2024-03-27T22:15:01Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3711"
+    },
+    {
+      "mergedAt": "2024-03-29T19:39:21Z",
+      "age": 6,
+      "url": "https://github.com/evanw/esbuild/issues/3712"
+    },
+    {
+      "mergedAt": "2024-04-01T10:41:31Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3713"
+    },
+    {
+      "mergedAt": "2024-04-02T21:50:18Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3714"
+    },
+    {
+      "mergedAt": "2024-04-02T22:58:24Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3715"
+    },
+    {
+      "mergedAt": "2024-04-03T10:18:58Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3716"
+    },
+    {
+      "mergedAt": "2024-04-04T18:03:14Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3717"
+    },
+    {
+      "mergedAt": "2024-04-05T08:15:26Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3718"
+    },
+    {
+      "mergedAt": "2024-04-05T08:35:50Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3719"
+    },
+    {
+      "mergedAt": "2024-04-06T13:20:25Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3720"
+    },
+    {
+      "mergedAt": "2024-04-08T11:53:27Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3721"
+    },
+    {
+      "mergedAt": "2024-04-08T17:26:58Z",
+      "age": 19,
+      "url": "https://github.com/evanw/esbuild/issues/3722"
+    },
+    {
+      "mergedAt": "2024-04-09T12:10:00Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3723"
+    },
+    {
+      "mergedAt": "2024-04-10T03:36:07Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3724"
+    },
+    {
+      "mergedAt": "2024-04-10T16:01:43Z",
+      "age": 13,
+      "url": "https://github.com/evanw/esbuild/issues/3725"
+    },
+    {
+      "mergedAt": "2024-04-11T07:57:10Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3726"
+    },
+    {
+      "mergedAt": "2024-04-12T12:24:41Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3727"
+    },
+    {
+      "mergedAt": "2024-04-14T12:04:04Z",
+      "age": 3,
+      "url": "https://github.com/evanw/esbuild/issues/3729"
+    },
+    {
+      "mergedAt": "2024-04-15T08:59:46Z",
+      "age": 11,
+      "url": "https://github.com/evanw/esbuild/issues/3730"
+    },
+    {
+      "mergedAt": "2024-04-16T01:59:56Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3731"
+    },
+    {
+      "mergedAt": "2024-04-18T14:59:18Z",
+      "age": 3,
+      "url": "https://github.com/evanw/esbuild/issues/3732"
+    },
+    {
+      "mergedAt": "2024-04-19T21:03:33Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3733"
+    },
+    {
+      "mergedAt": "2024-04-25T21:49:37Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3734"
+    },
+    {
+      "mergedAt": "2024-04-25T22:44:14Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3735"
+    },
+    {
+      "mergedAt": "2024-04-26T11:12:58Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3736"
+    },
+    {
+      "mergedAt": "2024-04-26T20:22:30Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3737"
+    },
+    {
+      "mergedAt": "2024-04-27T12:46:09Z",
+      "age": 9,
+      "url": "https://github.com/evanw/esbuild/issues/3738"
+    },
+    {
+      "mergedAt": "2024-04-29T04:58:13Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3739"
+    },
+    {
+      "mergedAt": "2024-04-29T09:06:25Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3740"
+    },
+    {
+      "mergedAt": "2024-04-29T09:10:55Z",
+      "age": 25,
+      "url": "https://github.com/evanw/esbuild/issues/3741"
+    },
+    {
+      "mergedAt": "2024-04-30T03:57:31Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3742"
+    },
+    {
+      "mergedAt": "2024-04-30T14:12:25Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3743"
+    },
+    {
+      "mergedAt": "2024-04-30T14:19:37Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3744"
+    },
+    {
+      "mergedAt": "2024-05-02T01:12:27Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3746"
+    },
+    {
+      "mergedAt": "2024-05-02T12:06:02Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3747"
+    },
+    {
+      "mergedAt": "2024-05-03T02:17:01Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3748"
+    },
+    {
+      "mergedAt": "2024-05-03T19:25:52Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3749"
+    },
+    {
+      "mergedAt": "2024-05-06T01:14:26Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3750"
+    },
+    {
+      "mergedAt": "2024-05-06T13:10:58Z",
+      "age": 6,
+      "url": "https://github.com/evanw/esbuild/issues/3751"
+    },
+    {
+      "mergedAt": "2024-05-06T22:48:33Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3752"
+    },
+    {
+      "mergedAt": "2024-05-07T00:34:21Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3753"
+    },
+    {
+      "mergedAt": "2024-05-07T06:05:51Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3755"
+    },
+    {
+      "mergedAt": "2024-05-07T08:55:27Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3756"
+    },
+    {
+      "mergedAt": "2024-05-07T15:58:28Z",
+      "age": 16,
+      "url": "https://github.com/evanw/esbuild/issues/3757"
+    },
+    {
+      "mergedAt": "2024-05-09T22:11:25Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3758"
+    },
+    {
+      "mergedAt": "2024-05-11T08:16:21Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3759"
+    },
+    {
+      "mergedAt": "2024-05-11T08:27:52Z",
+      "age": 4,
+      "url": "https://github.com/evanw/esbuild/issues/3760"
+    },
+    {
+      "mergedAt": "2024-05-12T03:06:13Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3761"
+    },
+    {
+      "mergedAt": "2024-05-12T12:36:25Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3762"
+    },
+    {
+      "mergedAt": "2024-05-12T19:38:18Z",
+      "age": 26,
+      "url": "https://github.com/evanw/esbuild/issues/3763"
+    },
+    {
+      "mergedAt": "2024-05-13T10:02:24Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3764"
+    },
+    {
+      "mergedAt": "2024-05-14T00:33:18Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3765"
+    },
+    {
+      "mergedAt": "2024-05-14T12:44:59Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3766"
+    },
+    {
+      "mergedAt": "2024-05-15T00:56:25Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3767"
+    },
+    {
+      "mergedAt": "2024-05-15T13:39:09Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3768",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-05-16T11:34:20Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3769"
+    },
+    {
+      "mergedAt": "2024-05-16T21:29:29Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3770"
+    },
+    {
+      "mergedAt": "2024-05-17T01:26:13Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3771"
+    },
+    {
+      "mergedAt": "2024-05-17T02:30:59Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3772"
+    },
+    {
+      "mergedAt": "2024-05-20T15:03:39Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3773"
+    },
+    {
+      "mergedAt": "2024-05-21T07:16:59Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3775"
+    },
+    {
+      "mergedAt": "2024-05-21T19:14:34Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3776"
+    },
+    {
+      "mergedAt": "2024-05-23T11:34:23Z",
+      "age": 15,
+      "url": "https://github.com/evanw/esbuild/issues/3777"
+    },
+    {
+      "mergedAt": "2024-05-24T06:40:41Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3778"
+    },
+    {
+      "mergedAt": "2024-05-25T16:25:24Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3780"
+    },
+    {
+      "mergedAt": "2024-05-25T23:32:01Z",
+      "age": 14,
+      "url": "https://github.com/evanw/esbuild/issues/3781"
+    },
+    {
+      "mergedAt": "2024-05-26T11:10:08Z",
+      "age": 12,
+      "url": "https://github.com/evanw/esbuild/issues/3782"
+    },
+    {
+      "mergedAt": "2024-05-26T11:45:01Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3783"
+    },
+    {
+      "mergedAt": "2024-05-27T03:57:28Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3786",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-05-27T07:45:00Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3787"
+    },
+    {
+      "mergedAt": "2024-05-29T11:32:40Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3788"
+    },
+    {
+      "mergedAt": "2024-05-30T07:22:45Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3789"
+    },
+    {
+      "mergedAt": "2024-05-30T14:53:20Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3790"
+    },
+    {
+      "mergedAt": "2024-05-31T09:43:14Z",
+      "age": 7,
+      "url": "https://github.com/evanw/esbuild/issues/3791"
+    },
+    {
+      "mergedAt": "2024-06-01T02:42:39Z",
+      "age": 6,
+      "url": "https://github.com/evanw/esbuild/issues/3792"
+    },
+    {
+      "mergedAt": "2024-06-01T14:47:02Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3793"
+    },
+    {
+      "mergedAt": "2024-06-06T16:37:55Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3794"
+    },
+    {
+      "mergedAt": "2024-06-06T19:25:59Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3795",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-06-07T03:28:42Z",
+      "age": 4,
+      "url": "https://github.com/evanw/esbuild/issues/3796"
+    },
+    {
+      "mergedAt": "2024-06-08T22:59:43Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3797"
+    },
+    {
+      "mergedAt": "2024-06-11T18:39:04Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3798"
+    },
+    {
+      "mergedAt": "2024-06-12T02:24:35Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3799"
+    },
+    {
+      "mergedAt": "2024-06-12T05:56:31Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3800"
+    },
+    {
+      "mergedAt": "2024-06-13T17:58:28Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3801"
+    },
+    {
+      "mergedAt": "2024-06-14T08:54:36Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3802"
+    },
+    {
+      "mergedAt": "2024-06-15T14:16:30Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3803"
+    },
+    {
+      "mergedAt": "2024-06-16T16:03:46Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3804"
+    },
+    {
+      "mergedAt": "2024-06-17T02:10:51Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3805"
+    },
+    {
+      "mergedAt": "2024-06-17T08:54:53Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3806"
+    }
+  ],
+  "filteredIssues": [
+    {
+      "mergedAt": "2023-06-20T19:25:18Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3183"
+    },
+    {
+      "mergedAt": "2023-06-20T14:56:43Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3182"
+    },
+    {
+      "mergedAt": "2023-06-19T10:29:37Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3181"
+    },
+    {
+      "mergedAt": "2023-06-18T21:14:43Z",
+      "age": 6,
+      "url": "https://github.com/evanw/esbuild/issues/3180"
+    },
+    {
+      "mergedAt": "2023-06-18T09:14:10Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3178"
+    },
+    {
+      "mergedAt": "2023-06-17T21:24:22Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3177"
+    },
+    {
+      "mergedAt": "2023-06-17T12:43:35Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3176"
+    },
+    {
+      "mergedAt": "2023-06-17T09:48:47Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3175"
+    },
+    {
+      "mergedAt": "2023-06-17T08:30:03Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3174"
+    },
+    {
+      "mergedAt": "2023-06-17T05:48:46Z",
+      "age": 8,
+      "url": "https://github.com/evanw/esbuild/issues/3173"
+    },
+    {
+      "mergedAt": "2023-06-16T16:05:13Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3172"
+    },
+    {
+      "mergedAt": "2023-06-16T12:45:41Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3171"
+    },
+    {
+      "mergedAt": "2023-06-16T08:44:53Z",
+      "age": 4,
+      "url": "https://github.com/evanw/esbuild/issues/3170"
+    },
+    {
+      "mergedAt": "2023-06-16T05:48:07Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3169"
+    },
+    {
+      "mergedAt": "2023-06-16T04:43:46Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3168"
+    },
+    {
+      "mergedAt": "2023-06-15T16:51:05Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3166",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-06-15T10:54:38Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3165",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-06-15T09:24:23Z",
+      "age": 5,
+      "url": "https://github.com/evanw/esbuild/issues/3164"
+    },
+    {
+      "mergedAt": "2023-06-15T06:44:07Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3163",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-06-14T21:54:26Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3162"
+    },
+    {
+      "mergedAt": "2023-06-14T16:20:03Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3161"
+    },
+    {
+      "mergedAt": "2023-06-14T09:40:25Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3160"
+    },
+    {
+      "mergedAt": "2023-06-14T07:05:42Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3159"
+    },
+    {
+      "mergedAt": "2023-06-12T09:55:32Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3157"
+    },
+    {
+      "mergedAt": "2023-06-10T15:53:11Z",
+      "age": 4,
+      "url": "https://github.com/evanw/esbuild/issues/3156"
+    },
+    {
+      "mergedAt": "2023-06-10T06:33:05Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3155"
+    },
+    {
+      "mergedAt": "2023-06-09T09:27:19Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3154"
+    },
+    {
+      "mergedAt": "2023-06-08T15:15:20Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3153"
+    },
+    {
+      "mergedAt": "2023-06-08T12:01:07Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3152"
+    },
+    {
+      "mergedAt": "2023-06-07T09:17:11Z",
+      "age": 3,
+      "url": "https://github.com/evanw/esbuild/issues/3149"
+    },
+    {
+      "mergedAt": "2023-06-07T01:05:55Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3147"
+    },
+    {
+      "mergedAt": "2023-06-06T07:42:20Z",
+      "age": 1,
+      "url": "https://github.com/evanw/esbuild/issues/3146"
+    },
+    {
+      "mergedAt": "2023-06-05T16:02:44Z",
+      "age": 2,
+      "url": "https://github.com/evanw/esbuild/issues/3145"
+    },
+    {
+      "mergedAt": "2023-06-04T15:07:21Z",
+      "age": 5,
+      "url": "https://github.com/evanw/esbuild/issues/3144"
+    }
+  ],
+  "releases": [
+    {
+      "date": "2023-06-20T23:24:21Z",
+      "description": "v0.18.6",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-06-24T02:44:45Z",
+      "description": "v0.18.7",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-06-25T03:18:39Z",
+      "description": "v0.18.8",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-06-26T05:27:26Z",
+      "description": "v0.18.9",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-06-26T21:20:01Z",
+      "description": "v0.18.10",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-07-01T06:03:33Z",
+      "description": "v0.18.11",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-07-13T01:33:08Z",
+      "description": "v0.18.12",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-07-15T02:36:47Z",
+      "description": "v0.18.13",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-07-18T04:59:53Z",
+      "description": "v0.18.14",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-07-20T12:52:44Z",
+      "description": "v0.18.15",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-07-23T04:47:35Z",
+      "description": "v0.18.16",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-07-26T01:40:31Z",
+      "description": "v0.18.17",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-08-05T17:06:05Z",
+      "description": "v0.18.18",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-08-07T02:50:53Z",
+      "description": "v0.18.19",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-08-08T04:14:26Z",
+      "description": "v0.18.20",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-08-08T15:50:55Z",
+      "description": "v0.19.0",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-08-11T15:57:05Z",
+      "description": "v0.19.1",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-08-14T01:57:39Z",
+      "description": "v0.19.2",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-09-14T01:11:20Z",
+      "description": "v0.19.3",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-09-28T01:46:12Z",
+      "description": "v0.19.4",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-10-17T05:09:22Z",
+      "description": "v0.19.5",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-11-19T07:10:44Z",
+      "description": "v0.19.6",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-11-21T01:00:20Z",
+      "description": "v0.19.7",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-11-26T23:06:35Z",
+      "description": "v0.19.8",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-12-10T05:08:45Z",
+      "description": "v0.19.9",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-12-19T00:21:04Z",
+      "description": "v0.19.10",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2023-12-29T20:31:12Z",
+      "description": "v0.19.11",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-01-23T17:38:57Z",
+      "description": "v0.19.12",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-01-27T16:48:37Z",
+      "description": "v0.20.0",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-02-19T06:37:33Z",
+      "description": "v0.20.1",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-03-14T19:49:11Z",
+      "description": "v0.20.2",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-05-07T02:51:35Z",
+      "description": "v0.21.0",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-05-07T16:54:25Z",
+      "description": "v0.21.1",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-05-12T20:32:35Z",
+      "description": "v0.21.2",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-05-15T20:52:06Z",
+      "description": "v0.21.3",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-05-25T02:09:57Z",
+      "description": "v0.21.4",
+      "releaseType": "MAJOR"
+    },
+    {
+      "date": "2024-06-09T21:16:31Z",
+      "description": "v0.21.5",
+      "releaseType": "MAJOR"
+    }
+  ],
+  "preFetchedName": "evanw-esbuild"
+}
