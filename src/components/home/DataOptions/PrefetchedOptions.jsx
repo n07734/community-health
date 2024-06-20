@@ -110,14 +110,14 @@ const PrefetchedOptions = (props = {}) => {
                             }
                         </>
                     }
-                     <Button
-                            value={showAllReports ? 'Hide other reports' : 'Show all OSS reports...'}
-                            color={showAllReports ? 'primary' : 'secondary'}
-                            onClick={(e) => {
-                                e.preventDefault()
-                                setAllReports(!showAllReports)
-                            }}
-                        />
+                    <Button
+                        value={showAllReports ? 'Hide other reports' : 'Show all OSS reports...'}
+                        color={showAllReports ? 'primary' : 'secondary'}
+                        onClick={(e) => {
+                            e.preventDefault()
+                            setAllReports(!showAllReports)
+                        }}
+                    />
                     {
                         error
                             && <Message
