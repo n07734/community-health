@@ -74,6 +74,7 @@ const ReportDescription = ({
     const colorA = theme.palette.secondary.main
     const colorB = theme.palette.primary.main
 
+    // eslint-disable-next-line no-unused-vars
     const { showNumbers, toggleShowNumbers } = useShowNumbers()
     const { showNames, toggleShowNames } = useShowNames()
 
@@ -109,7 +110,8 @@ const ReportDescription = ({
                     Hide GitHub ids/names, this can help look for trends.
                 </P>
             }
-            {
+            {/* {
+                // TODO: change this
                 userIds.length !== 1
                     &&  <P className={classes.switch}>
                     <Switch
@@ -120,7 +122,7 @@ const ReportDescription = ({
                     />
                     Hide graph numbers, this can help look for trends.
                 </P>
-            }
+            } */}
 
             <DateRange />
             {

@@ -19,6 +19,7 @@ import {
     myPreFetchedReports,
 } from '../../../myReports/myReportsConfig'
 import {
+    preFetchedSRank23,
     preFetchedRepos,
     preFetchedOrgs,
     preFetchedTeams,
@@ -30,6 +31,7 @@ const FetchForm = ({ classes, clearReport }) => {
     const chosenReport =  urlParams.get('report') || myPreFetchedReports[0]?.fileName || 'facebook-react'
 
     const allPreFetched = [
+        ...preFetchedSRank23,
         ...preFetchedRepos,
         ...preFetchedOrgs,
         ...preFetchedTeams,

@@ -4,13 +4,14 @@ import { withStyles } from '@mui/styles'
 
 import Button from '../../shared/Button'
 import Message from '../Message'
-import { P } from '../../shared/StyledTags'
+import { P, A } from '../../shared/StyledTags'
 import styles from './styles'
 import {
     getPreFetched,
     setPvP,
 } from '../../../state/actions'
 import {
+    preFetchedSRank23,
     preFetchedRepos,
     preFetchedTeams,
     preFetchedOrgs,
@@ -46,7 +47,7 @@ const PrefetchedOptions = (props = {}) => {
         ...preFetchedOrgs,
     ]
 
-    const report = urlParams.get('report') || myPreFetchedReports[0]?.fileName || 'facebook-react'
+    const report = urlParams.get('report') || myPreFetchedReports[0]?.fileName || 'vitejs'
 
     const isAPreFetchedReport = allItems
         .some(x => x.fileName === report)
@@ -80,8 +81,17 @@ const PrefetchedOptions = (props = {}) => {
                 myPreFetchedReports
                     .map(preFetchButton)
             }
+            <div>
+                <P><A href="https://2023.stateofjs.com/en-US/libraries/#tier_list">StateOfJS 23</A> S tire list</P>
+                {
+                    preFetchedSRank23
+                        .map(preFetchButton)
+                }
+            </div>
+            <P>Other reports</P>
+
             {
-                !myPreFetchedReports.length > 0 && isAPreFetchedReport && <>
+                !myPreFetchedReports.length > 0 && <>
                     {
                         !showAllReports
                             && preFetchButton(repoInfo)
@@ -110,14 +120,6 @@ const PrefetchedOptions = (props = {}) => {
                             }
                         </>
                     }
-                    <Button
-                        value={showAllReports ? 'Hide other reports' : 'Show all OSS reports...'}
-                        color={showAllReports ? 'primary' : 'secondary'}
-                        onClick={(e) => {
-                            e.preventDefault()
-                            setAllReports(!showAllReports)
-                        }}
-                    />
                     {
                         error
                             && <Message
@@ -127,6 +129,14 @@ const PrefetchedOptions = (props = {}) => {
                     }
                 </>
             }
+                <Button
+                    value={showAllReports ? 'Hide other reports' : 'Show all OSS reports...'}
+                    color={showAllReports ? 'primary' : 'secondary'}
+                    onClick={(e) => {
+                        e.preventDefault()
+                        setAllReports(!showAllReports)
+                    }}
+                />
             </div>
     )
 }

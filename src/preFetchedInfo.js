@@ -35,6 +35,10 @@ const preFetchedRepos = [
         name: 'Node',
         fileName: 'nodejs-node',
     },
+    {
+        name: 'Bluesky',
+        fileName: 'bluesky-social-social-app',
+    },
 ]
 
 const preFetchedOrgs = [
@@ -63,7 +67,51 @@ const preFetchedTeams = [
     },
 ]
 
+const preFetchedSRank23 = [
+    {
+        name: 'Vite',
+        fileName: 'vitejs',
+    },
+    {
+        name: 'Vitest',
+        fileName: 'vitest-dev-vitest',
+    },
+    {
+        name: 'Playwright',
+        fileName: 'microsoft-playwright',
+    },
+    {
+        name: 'PNPM',
+        fileName: 'pnpm-pnpm',
+    },
+    {
+        name: 'MSW',
+        fileName: 'mswjs-msw',
+    },
+    {
+        name: 'esbuild',
+        fileName: 'evanw-esbuild',
+    },
+    {
+        name: 'SWC',
+        fileName: 'swc-project-swc',
+    },
+    {
+        name: 'esbuild',
+        fileName: 'evanw-esbuild',
+    },
+    {
+        name: 'Testing Library',
+        fileName: 'testing-library',
+    },
+    {
+        name: 'Astro',
+        fileName: 'withastro-astro',
+    },
+]
+
 export {
+    preFetchedSRank23,
     preFetchedRepos,
     preFetchedOrgs,
     preFetchedTeams,
