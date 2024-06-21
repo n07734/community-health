@@ -6,10 +6,8 @@ import Button from '../../shared/Button'
 import Message from '../Message'
 import { P, A } from '../../shared/StyledTags'
 import styles from './styles'
-import {
-    getPreFetched,
-    setPvP,
-} from '../../../state/actions'
+import { getPreFetched } from '../../../state/actions'
+import { useSubPage } from '../../../state/SubPageProvider'
 import {
     preFetchedSRank23,
     preFetchedRepos,
@@ -27,18 +25,14 @@ const PrefetchedOptions = (props = {}) => {
         error,
         preFetchedName = '',
         getPreFetchedReport,
-        setPvPArena,
     } = props
+    const { togglePvPPage, setUserPage } = useSubPage()
     const queryString = window?.location?.search
     const urlParams = new URLSearchParams(queryString)
-    const path = window?.location?.pathname
-    const [, p1Path, p2Path] = /^[\w-/]+$/.test(path)
-        ? path
-            .split('/')
-            .filter(x => x && x !== 'community-health')
-        : []
-    const player1 = p1Path || urlParams.get('player1') || ''
-    const player2 = p2Path || urlParams.get('player2') || ''
+
+    const player1 = urlParams.get('player1') || ''
+    const player2 = urlParams.get('player2') || ''
+    const user = urlParams.get('user') || ''
 
     const allItems = [
         ...myPreFetchedReports,
@@ -57,11 +51,15 @@ const PrefetchedOptions = (props = {}) => {
         : { fileName: report }
 
     useEffect(() => {
-        if (player1 && player2) {
-            setPvPArena()
-        }
         getPreFetchedReport(repoInfo)
-    }, [getPreFetchedReport, player1, player2, setPvPArena])
+        if (player1 && player2) {
+            console.log('player1', player1)
+            console.log('player2', player2)
+            togglePvPPage()
+        } else if (user) {
+            setUserPage(user)
+        }
+    }, [getPreFetchedReport, player1, player2, user])
 
     const preFetchButton = (repoInfo = {}, i) => <Button
         value={repoInfo.name}
@@ -137,7 +135,7 @@ const PrefetchedOptions = (props = {}) => {
                         setAllReports(!showAllReports)
                     }}
                 />
-            </div>
+        </div>
     )
 }
 
@@ -147,7 +145,6 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    setPvPArena: (x) => dispatch(setPvP(x)),
     getPreFetchedReport: (x) => dispatch(getPreFetched(x)),
 })
 

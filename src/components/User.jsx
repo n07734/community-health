@@ -8,8 +8,7 @@ import Paper from './shared/Paper'
 import Line from './charts/Line'
 import StatBars from './charts/StatBars'
 import { chunkData } from './charts/lineHelpers'
-
-import { clearUser } from '../state/actions'
+import { useSubPage } from '../state/SubPageProvider'
 import usersAverageData from '../format/usersAverageData'
 
 const userGraphs = (pullRequests = [], releases = [], userName, theme) => {
@@ -142,11 +141,11 @@ const UserView = ({
     pullRequests = [],
     releases = [],
     usersData = [],
-    user,
-    removeUser,
     classes,
 } = {}) => {
     const theme = useTheme();
+    const { userPage: user, clearUserPage } = useSubPage()
+
     const graphs = userGraphs(pullRequests, releases, user, theme)
     const [userData, averagedData] = usersAverageData(usersData, user)
 
@@ -162,7 +161,7 @@ const UserView = ({
                 color="secondary"
                 onClick={(e) => {
                     e.preventDefault()
-                    removeUser()
+                    clearUserPage()
                     window && window.scrollTo(0, 0)
                 }} />
 
@@ -184,7 +183,7 @@ const UserView = ({
                 color="secondary"
                 onClick={(e) => {
                     e.preventDefault()
-                    removeUser()
+                    clearUserPage()
                     window && window.scrollTo(0, 0)
                 }} />
         </Paper>
@@ -195,11 +194,6 @@ const mapStateToProps = (state) => ({
     pullRequests: state.pullRequests,
     releases: state.releases,
     usersData: state.usersData,
-    user: state.user,
-})
-
-const mapDispatchToProps = dispatch => ({
-    removeUser: (x) => dispatch(clearUser(x)),
 })
 
 const styles = theme => ({
@@ -215,4 +209,4 @@ const styles = theme => ({
     },
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(UserView))
+export default connect(mapStateToProps)(withStyles(styles)(UserView))

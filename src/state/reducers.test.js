@@ -34,21 +34,6 @@ const paginationReducers = ({ parent, key, type }) => {
 }
 
 describe('reducers: ', () => {
-    it('user', () => {
-        const user = reducers.user
-
-        expect(user('foo', {
-            type: types.SET_USER,
-            payload: 'bar',
-        })).toEqual('bar')
-
-        expect(user('foo', {
-            type: types.CLEAR_USER,
-        })).toEqual('')
-
-        expect(user('foo', {})).toEqual('foo')
-    })
-
     describe('fetches: ', () => {
         const fetches = reducers.fetches
 

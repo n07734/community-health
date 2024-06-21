@@ -12,21 +12,25 @@ import User from '../User'
 import PvP from '../PvP'
 import Team from '../Team'
 import Individual from '../Individual'
+import { useSubPage } from '../../state/SubPageProvider'
 
-const Visualisation = (props) => (
-    <div>
-        {
-            cond([
-                [propSatisfies(Boolean, 'pvp'), always(<PvP />)],
-                [propSatisfies(Boolean, 'user'), always(<User />)],
-                [propSatisfies(Boolean, 'teamName'), always(<Team />)],
-                [propSatisfies(x => x.length === 1, 'userIds'), always(<Individual />)],
-                [({ repo, org }) => !repo && org, always(<Org />)],
-                [alwaysTrue, always(<Repo />)],
-            ])(props)
-        }
-    </div>
-)
+const Visualisation = (props) => {
+    const { showPvP, userPage } = useSubPage()
+    return (
+        <div>
+            {
+                cond([
+                    [always(showPvP), always(<PvP />)],
+                    [always(userPage), always(<User />)],
+                    [propSatisfies(Boolean, 'teamName'), always(<Team />)],
+                    [propSatisfies(x => x.length === 1, 'userIds'), always(<Individual />)],
+                    [({ repo, org }) => !repo && org, always(<Org />)],
+                    [alwaysTrue, always(<Repo />)],
+                ])(props)
+            }
+        </div>
+    )
+}
 
 const mapStateToProps = (state) => ({
     pvp: state.pvp,

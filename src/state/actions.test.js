@@ -1,8 +1,6 @@
 import { vi } from 'vitest'
 import types from './types'
 import {
-    setUser,
-    clearUser,
     storeOrg,
     storeToken,
     storeRepo,
@@ -11,20 +9,6 @@ import {
 import { getAPIData } from './actions'
 
 describe('Basic actions:', () => {
-    it('setUser returns correct type', () => {
-        const dispatch = vi.fn()
-        setUser('USER')(dispatch)
-        expect(dispatch).toHaveBeenNthCalledWith(1, {
-            payload: 'USER', type: 'SET_USER',
-        })
-    })
-
-    it('clearUser returns correct type', () => {
-        expect(clearUser()).toEqual({
-            type: types.CLEAR_USER,
-        })
-    })
-
     it('storeToken returns correct type', () => {
         expect(storeToken('TOKEN')).toEqual({
             type: types.STORE_TOKEN,

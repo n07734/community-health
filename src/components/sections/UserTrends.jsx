@@ -9,11 +9,7 @@ import Radar from '../charts/Radar'
 import Button from '../shared/Button'
 import formatRadarData from '../../format/radarData'
 import { sortByKeys } from '../../utils'
-
-import {
-    setUser as setUserAction,
-    setPvP as setPvPAction,
-} from '../../state/actions'
+import { useSubPage } from '../../state/SubPageProvider'
 
 const radialChartsContributions = ({
     maxValues = {},
@@ -84,10 +80,10 @@ const UserTrends = ({
     userIds = [],
     usersInfo = {},
     classes = {},
-    setUser = () => {},
-    setPvP = () => {},
 } = {}) => {
     const theme = useTheme();
+    const { togglePvPPage, setUserPage } = useSubPage()
+
     const colorA = theme.palette.secondary.main
     const colorB = theme.palette.primary.main
 
@@ -129,7 +125,7 @@ const UserTrends = ({
                                 }
                                 onClick={(e) => {
                                     e.preventDefault()
-                                    setUser(gitName)
+                                    setUserPage(gitName)
                                     window && window.scrollTo(0, 0)
                                 }}
                             />
@@ -143,7 +139,7 @@ const UserTrends = ({
                     color="primary"
                     onClick={(e) => {
                         e.preventDefault()
-                        setPvP()
+                        togglePvPPage()
                         window && window.scrollTo(0, 0)
                     }}
                 />
@@ -151,11 +147,6 @@ const UserTrends = ({
         </Paper>
     )
 }
-
-const mapDispatchToProps = dispatch => ({
-    setUser: (x) => dispatch(setUserAction(x)),
-    setPvP: (x) => dispatch(setPvPAction(x)),
-})
 
 const mapStateToProps = (state) => ({
     usersData: state.usersData,
@@ -175,4 +166,4 @@ const styles = () => ({
     },
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(UserTrends))
+export default connect(mapStateToProps)(withStyles(styles)(UserTrends))

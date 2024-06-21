@@ -10,8 +10,7 @@ import GraphsWrap from './shared/GraphsWrap'
 import Line from './charts/Line'
 import StatBars from './charts/StatBars'
 import { chunkData } from './charts/lineHelpers'
-
-import { clearPvP } from '../state/actions'
+import { useSubPage } from '../state/SubPageProvider'
 
 const queryString = pathOr('', ['location', 'search'], window)
 const urlParams = new URLSearchParams(queryString);
@@ -27,10 +26,10 @@ const PvP = ({
     pullRequests = [],
     releases = [],
     usersData = [],
-    removePvP,
     classes,
 } = {}) => {
     const theme = useTheme();
+    const { togglePvPPage } = useSubPage()
     const colorA = theme.palette.secondary.main
     const colorB = theme.palette.primary.main
     const colorList = theme.palette.colorList
@@ -70,7 +69,7 @@ const PvP = ({
                     color="secondary"
                     onClick={(e) => {
                         e.preventDefault()
-                        removePvP()
+                        togglePvPPage()
                     }} />
 
                 <P className={classes.copy}>This page is just for fun, a bigger or smaller number could be good, bad or not mean much, it depends on context.</P>
@@ -174,7 +173,7 @@ const PvP = ({
                     color="secondary"
                     onClick={(e) => {
                         e.preventDefault()
-                        removePvP()
+                        togglePvPPage()
                         window && window.scrollTo(0, 0)
                     }} />
             </Paper>
@@ -188,9 +187,6 @@ const mapStateToProps = (state) => ({
     usersData: state.usersData,
 })
 
-const mapDispatchToProps = dispatch => ({
-    removePvP: (x) => dispatch(clearPvP(x)),
-})
 
 const styles = () => ({
     fill: {
@@ -206,4 +202,4 @@ const styles = () => ({
     },
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(PvP))
+export default connect(mapStateToProps)(withStyles(styles)(PvP))

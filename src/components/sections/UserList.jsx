@@ -6,19 +6,14 @@ import { useShowNames } from '../../state/ShowNamesProvider'
 import Paper from '../shared/Paper'
 import Button from '../shared/Button'
 import { H } from '../shared/StyledTags'
-
-import {
-    setUser as setUserAction,
-    setPvP as setPvPAction,
-} from '../../state/actions'
+import { useSubPage } from '../../state/SubPageProvider'
 
 const UserList = ({
     usersData = [],
-    setUser,
-    setPvP,
     classes,
 } = {}) => {
     const { showNames } = useShowNames()
+    const { togglePvPPage, setUserPage } = useSubPage()
 
     return usersData.length > 0 && (<>
         <Paper className="justify">
@@ -28,7 +23,7 @@ const UserList = ({
                 color="primary"
                 onClick={(e) => {
                     e.preventDefault()
-                    setPvP()
+                    togglePvPPage()
                     window && window.scrollTo(0, 0)
                 }}
             />
@@ -45,7 +40,7 @@ const UserList = ({
                                 color="secondary"
                                 onClick={(e) => {
                                     e.preventDefault()
-                                    setUser(user)
+                                    setUserPage(user)
                                     window && window.scrollTo(0, 0)
                                 }}
                             />
@@ -55,11 +50,6 @@ const UserList = ({
         </Paper>
     </>)
 }
-
-const mapDispatchToProps = dispatch => ({
-    setUser: (x) => dispatch(setUserAction(x)),
-    setPvP: (x) => dispatch(setPvPAction(x)),
-})
 
 const styles = () => ({
     'allButons': {
@@ -79,4 +69,4 @@ const mapStateToProps = (state) => ({
     usersData: state.usersData,
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(UserList))
+export default connect(mapStateToProps)(withStyles(styles)(UserList))

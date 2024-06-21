@@ -7,6 +7,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { ThemeModeProvider } from './state/ThemeModeProvider'
 import { ShowNumbersProvider } from './state/ShowNumbersProvider'
 import { ShowNamesProvider } from './state/ShowNamesProvider'
+import { SubPageProvider } from './state/SubPageProvider'
 import App from './App.jsx'
 import reducers from './state/reducers'
 
@@ -17,12 +18,14 @@ const store = createStore(reducers, composeEnhancers(
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-        <ThemeModeProvider>
+      <ThemeModeProvider>
         <ShowNumbersProvider>
             <ShowNamesProvider>
+              <SubPageProvider>
                 <App />
+              </SubPageProvider>
             </ShowNamesProvider>
-        </ShowNumbersProvider>
+          </ShowNumbersProvider>
         </ThemeModeProvider>
     </Provider>
   </React.StrictMode>,

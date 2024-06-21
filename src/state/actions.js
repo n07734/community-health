@@ -39,25 +39,6 @@ import formatUserData from '../format/userData'
 import { formatReleaseData } from '../format/releaseData'
 import types from './types'
 
-const setUser = (user = '') => (dispatch) => {
-    dispatch({
-        type: types.SET_USER,
-        payload: user,
-    })
-}
-
-const setPvP = () => (dispatch) => {
-    dispatch({ type: types.SET_PVP })
-}
-
-const clearPvP = () => ({
-    type: types.CLEAR_PVP,
-})
-
-const clearUser = () => ({
-    type: types.CLEAR_USER,
-})
-
 const storeToken = (token = '') => ({
     type: types.STORE_TOKEN,
     payload: token,
@@ -273,8 +254,6 @@ const clearPastSearch = (values) => (dispatch, getState) => {
 const clearData = (dispatch) => {
     dispatch({ type: types.CLEAR_ORG })
     dispatch({ type: types.CLEAR_REPO })
-    dispatch({ type: types.CLEAR_USER })
-    dispatch({ type: types.CLEAR_PVP })
     dispatch({ type: types.CLEAR_TRIMMED_ITEMS })
     dispatch({ type: types.CLEAR_PRS })
     dispatch({ type: types.CLEAR_FILTERED_PRS })
@@ -987,11 +966,7 @@ const checkUntilDate = (newSortDirection = '') => (dispatch, getState) => {
 
 export {
     getUsersInfo,
-    setUser,
     clearAllData,
-    clearUser,
-    setPvP,
-    clearPvP,
     clearPastSearch,
     storeOrg,
     storeToken,
