@@ -86,8 +86,7 @@ const Individual = ({
     const commentsGivenBarData = Object.entries(givenBarMap)
         .map(([author, { comments = 0,  approvals = 0 }]) => ({ author, comments, approvals }))
 
-
-    const usersData = formatUserData(pullRequests.concat(reviewedPullRequests), udpatedUsersInfo)
+    const usersData = formatUserData(pullRequests.concat(reviewedPullRequests), udpatedUsersInfo, userId)
     const sortedUsers = usersData
         .sort(sortByKeys(['commentsByUser, approvalsByUser']))
 

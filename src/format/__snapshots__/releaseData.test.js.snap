@@ -15,7 +15,7 @@ exports[`formatReleaseData: > correct versioning and date sorting 1`] = `
   {
     "date": "2020-10-18",
     "description": "v1.3.1",
-    "releaseType": "MAJOR",
+    "releaseType": "PATCH",
   },
   {
     "date": "2020-10-19",
@@ -30,17 +30,17 @@ exports[`formatReleaseData: > correct versioning and date sorting 1`] = `
   {
     "date": "2020-10-28",
     "description": "v0.2.1",
-    "releaseType": "MAJOR",
+    "releaseType": "PATCH",
   },
   {
     "date": "2020-10-29",
     "description": "v0.2.0",
-    "releaseType": "MAJOR",
+    "releaseType": "MINOR",
   },
   {
     "date": "2020-10-30",
     "description": "v0.0.1",
-    "releaseType": "MAJOR",
+    "releaseType": "PATCH",
   },
 ]
 `;
@@ -50,12 +50,12 @@ exports[`formatReleaseData: > ignore invalid tags 1`] = `
   {
     "date": "2020-10-20",
     "description": "v0.3.0",
-    "releaseType": "MAJOR",
+    "releaseType": "MINOR",
   },
   {
     "date": "2020-10-30",
     "description": "v0.0.1",
-    "releaseType": "MAJOR",
+    "releaseType": "PATCH",
   },
 ]
 `;

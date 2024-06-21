@@ -50,9 +50,10 @@ const updateContributorCount = (currentData, objKey, obj, addition) => {
     return contributorCount
 }
 
-const updateByUsersCount = (currentData, objKey, obj, author, increment) => {
+const updateByUsersCount = (currentData, objKey, obj, author, increment, onlyUserId) => {
     const byUsersCount = {}
     Object.entries(obj)
+        .filter(([key]) => onlyUserId && author !== onlyUserId ? key === onlyUserId : true)
         .forEach(([key, value]) => {
             const currentUserData = currentData[key] || {}
             const currentKeyData = currentUserData[objKey] || {}
@@ -74,7 +75,8 @@ const updateByUsersCount = (currentData, objKey, obj, author, increment) => {
     return byUsersCount
 }
 
-const formatUserData = (data = [], usersInfo = {}) => {
+// TODO: Refactor this function to be more readable
+const formatUserData = (data = [], usersInfo = {}, onlyUserId = '') => {
     const authors = new Set()
     const userData = {}
     data
@@ -101,10 +103,10 @@ const formatUserData = (data = [], usersInfo = {}) => {
 
             authors.add(author)
 
-            const updatedCommentsByUser = updateByUsersCount(userData, 'commentsByUser', commenters, author)
+            const updatedCommentsByUser = updateByUsersCount(userData, 'commentsByUser', commenters, author, 0, onlyUserId)
             Object.assign(userData, updatedCommentsByUser)
 
-            const updatedApprovalsByUser = updateByUsersCount(userData, 'approvalsByUser', approvers, author, 1)
+            const updatedApprovalsByUser = updateByUsersCount(userData, 'approvalsByUser', approvers, author, 1, onlyUserId)
             Object.assign(userData, updatedApprovalsByUser)
 
             const updatedCommentsGiven = updateContributorCount(userData, 'commentsGiven', commenters)
