@@ -13,6 +13,7 @@ import IssuesTrends from './sections/IssuesTrends'
 import Bar from './charts/Bar'
 import { sortByKeys } from '../utils'
 import formatUserData from '../format/userData'
+import { useShowNames } from '../state/ShowNamesProvider'
 
 const Individual = ({
     pullRequests = [],
@@ -24,30 +25,32 @@ const Individual = ({
 } = {}) => {
     const [userId] = userIds
     const theme = useTheme();
+    const { showNames } = useShowNames()
+
     const colorA = theme.palette.secondary.main
     const colorB = theme.palette.primary.main
 
     const allRepos = {}
     const allOrgs = {}
-    const receivedBarMap = {}
+    const barMap = {}
     const updatedPullRequests = pullRequests
         .map((prData = {}) => {
             const commenters = prData.commenters || {}
             Object.keys(commenters).forEach((author) => {
-                if (!receivedBarMap[author]) {
-                    receivedBarMap[author] = {}
-                }
                 const value = commenters[author] || 0
-                receivedBarMap[author].comments = (receivedBarMap[author].comments || 0) + value
+                if (!barMap[author]) {
+                    barMap[author] = {}
+                }
+                barMap[author].commentsReceived = (barMap[author].commentsReceived || 0) + value
             })
 
             const approvers = prData.approvers || {}
             Object.keys(approvers).forEach((author) => {
-                if (!receivedBarMap[author]) {
-                    receivedBarMap[author] = {}
-                }
                 const value = approvers[author] || 0
-                receivedBarMap[author].approvals = (receivedBarMap[author].approvals || 0) + value
+                if (!barMap[author]) {
+                    barMap[author] = {}
+                }
+                barMap[author].approvalsReceived = (barMap[author].approvalsReceived || 0) + value
             })
 
             allRepos[prData.repo] = (allRepos[prData.repo] || 0) + 1
@@ -61,10 +64,6 @@ const Individual = ({
             }
         })
 
-    const commentsReceivedBarData = Object.entries(receivedBarMap)
-        .map(([author, { comments = 0,  approvals = 0 }]) => ({ author, comments, approvals }))
-
-    const givenBarMap = {}
     const udpatedUsersInfo = {
         ...usersInfo,
     }
@@ -72,19 +71,24 @@ const Individual = ({
         .map((prData = {}) => {
             const author = prData.author
             udpatedUsersInfo[author] = { userId: author }
-            if (!givenBarMap[author]) {
-                givenBarMap[author] = {}
-            }
 
             const commentCount = prData?.commenters?.[userId] || 0
-            givenBarMap[author].comments = (givenBarMap[author].comments || 0) + commentCount
-
             const approvalCount = prData?.approvers?.[userId] || 0
-            givenBarMap[author].approvals = (givenBarMap[author].approvals || 0) + approvalCount
+
+            if (!barMap[author]) {
+                barMap[author] = {}
+            }
+            barMap[author].commentsGiven = (barMap[author].commentsGiven || 0) + commentCount
+            barMap[author].approvalsGiven = (barMap[author].approvalsGiven || 0) + approvalCount
         })
 
-    const commentsGivenBarData = Object.entries(givenBarMap)
-        .map(([author, { comments = 0,  approvals = 0 }]) => ({ author, comments, approvals }))
+    const barData = Object.entries(barMap)
+        .map(([author, info],i) => ({
+            ...info,
+            // Needs white space padding to keep the bars
+            author: showNames ? author : `${Array(i).fill(' ').join('')}Spartacus`,
+            name: showNames ? usersInfo[author]?.name || author : `${Array(i).fill(' ').join('')}Spartacus`,
+        }))
 
     const usersData = formatUserData(pullRequests.concat(reviewedPullRequests), udpatedUsersInfo, userId)
     const sortedUsers = usersData
@@ -97,83 +101,88 @@ const Individual = ({
         <ReportDescription />
         <Paper>
             <GraphsWrap>
-            <Bar
-                data={commentsGivenBarData}
-                indexBy="author"
-                title="Given"
-                sortBy="comments"
-                bars={[
-                    {
-                        dataKey: 'comments',
-                        color: colorA,
-                        label: 'comments',
-                    },
-                    {
-                        dataKey: 'approvals',
-                        color: colorB,
-                        label: 'approvals',
-                    },
-                ]}
-            />
-            <Bar
-                data={commentsReceivedBarData}
-                indexBy="author"
-                title="Received"
-                sortBy="comments"
-                bars={[
-                    {
-                        dataKey: 'comments',
-                        color: colorA,
-                        label: 'comments',
-                    },
-                    {
-                        dataKey: 'approvals',
-                        color: colorB,
-                        label: 'approvals',
-                    },
-                ]}
-            />
-            <div className={classes.groupedCharts}>
-                <Chord
-                    data={sortedUsers}
-                    preSorted={true}
-                    dataKey="commentsByUser"
-                    title="Comment contributions"
-                />
-                <Chord
-                    data={sortedUsers}
-                    preSorted={true}
-                    dataKey="approvalsByUser"
-                    title="Approval contributions"
-                />
-            </div>
-            {
-                repoPie.pieData.length > 0 &&
-                    <Pie
-                        data={repoPie.pieData}
-                        title={repoPie.sectionTitle}
-                    />
-            }
-            <Line
-                title="PRs over time"
-                markers={releases}
-                data={[
-                    {
-                        lines: [
+            <div className={classes.barsWrap}>
+                    <Bar
+                        data={barData}
+                        indexBy="name"
+                        title="Comments"
+                        combineTitles={true}
+                        sortBy="commentsGiven"
+                        bars={[
                             {
-                                label: 'PRs over time',
+                                dataKey: 'commentsGiven',
                                 color: colorA,
-                                dataKey: 'url',
-                                groupMath: 'count',
+                                label: 'given',
                             },
-                        ],
-                        xAxis: 'left',
-                        data: updatedPullRequests,
-                    },
-                ]}
-                tableData={chunkyData}
-                tableKeys={['author']}
-            />
+                            {
+                                dataKey: 'commentsReceived',
+                                color: colorB,
+                                label: 'received',
+                            },
+                        ]}
+                    />
+                    <Bar
+                        data={barData}
+                        indexBy="name"
+                        title="Approvals"
+                        combineTitles={true}
+                        sortBy="approvalsGiven"
+                        bars={[
+                            {
+                                dataKey: 'approvalsGiven',
+                                color: colorA,
+                                label: 'given',
+                            },
+                            {
+                                dataKey: 'approvalsReceived',
+                                color: colorB,
+                                label: 'received',
+                            },
+                        ]}
+                    />
+                </div>
+
+                <div className={classes.groupedCharts}>
+                    <Chord
+                        data={sortedUsers}
+                        preSorted={true}
+                        dataKey="commentsByUser"
+                        title="Comment contributions"
+                    />
+                    <Chord
+                        data={sortedUsers}
+                        preSorted={true}
+                        dataKey="approvalsByUser"
+                        title="Approval contributions"
+                    />
+                </div>
+                {
+                    repoPie.pieData.length > 0 &&
+                        <Pie
+                            data={repoPie.pieData}
+                            title={repoPie.sectionTitle}
+                        />
+                }
+                <Line
+                    title="PRs over time"
+                    markers={releases}
+                    data={[
+                        {
+                            lines: [
+                                {
+                                    label: 'PRs over time',
+                                    color: colorA,
+                                    dataKey: 'url',
+                                    groupMath: 'count',
+                                },
+                            ],
+                            xAxis: 'left',
+                            data: updatedPullRequests,
+                        },
+                    ]}
+                    tableData={chunkyData}
+                    tableKeys={['author']}
+                />
             </GraphsWrap>
         </Paper>
         <CustomGraphs
@@ -194,6 +203,18 @@ const styles = () => ({
         '& p': {
             flexBasis: '100%',
             textAlign: 'center',
+        },
+    },
+    barsWrap: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        width: '100%',
+        '& > div': {
+            width: '50%',
+            '@media (max-width: 750px)': {
+                width: '100%',
+            },
         },
     },
 })

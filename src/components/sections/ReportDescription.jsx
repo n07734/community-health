@@ -98,18 +98,15 @@ const ReportDescription = ({
                 userIds.length > 1
                     && <P>Team's GitHub IDs: { userIds.join(', ') }</P>
             }
-            {
-                userIds.length !== 1
-                    &&  <P className={classes.switch}>
-                    <Switch
-                        onChange={toggleShowNames}
-                        checked={!showNames}
-                        name="checkedA"
-                        inputProps={{ 'aria-label': 'secondary checkbox' }}
-                    />
-                    Hide GitHub ids/names, this can help look for trends.
-                </P>
-            }
+            <P className={classes.switch}>
+                <Switch
+                    onChange={toggleShowNames}
+                    checked={!showNames}
+                    name="checkedA"
+                    inputProps={{ 'aria-label': 'secondary checkbox' }}
+                />
+                Hide GitHub ids/names, this can help look for trends.
+            </P>
             {/* {
                 // TODO: change this
                 userIds.length !== 1
