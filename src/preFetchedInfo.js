@@ -97,10 +97,6 @@ const preFetchedSRank23 = [
         fileName: 'swc-project-swc',
     },
     {
-        name: 'esbuild',
-        fileName: 'evanw-esbuild',
-    },
-    {
         name: 'Testing Library',
         fileName: 'testing-library',
     },

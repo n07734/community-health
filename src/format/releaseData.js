@@ -38,7 +38,6 @@ const formatReleaseData = (results = []) => {
 
                 const diffType = diff(prevTag, currentTag) || ''
 
-                 
                 releaseType = ({
                     'minor': 'MINOR',
                     'major': 'MAJOR',
@@ -51,7 +50,7 @@ const formatReleaseData = (results = []) => {
 
             return {
                 ...release,
-                releaseType: release.releaseType || 'MAJOR',
+                releaseType: releaseType || 'MAJOR',
             }
         })
 

@@ -4,16 +4,16 @@
     "repo": "playwright",
     "sortDirection": "DESC",
     "prPagination": {
-      "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0yMFQwMToxOTo1NiswMTowMM5zAxyK",
-      "oldest": "Y3Vyc29yOnYyOpK5MjAyMy0wNi0yMFQxOToyMDowNiswMTowMM5Tdw24"
+      "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0yMFQyMTo1OTo1NSswMTowMM5zHhuS",
+      "oldest": "Y3Vyc29yOnYyOpK5MjAyMy0wNi0xM1QwMToyMDowMyswMTowMM5S1Cwi"
     },
     "releasesPagination": {
       "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNS0yM1QwODoyOTo1MiswMTowMM4JWB-J",
       "oldest": "Y3Vyc29yOnYyOpK5MjAyMi0wNy0xNlQwMToyMzozNyswMTowMM4ETKOY"
     },
     "issuesPagination": {
-      "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0yMFQxNToyOToyOCswMTowMM6M8P2M",
-      "oldest": "Y3Vyc29yOnYyOpK5MjAyMy0wNi0yMFQxNToyNzoxNSswMTowMM5pO8_E"
+      "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0yMVQxMjoxODoyNSswMTowMM6NC0JB",
+      "oldest": "Y3Vyc29yOnYyOpK5MjAyMy0wNi0yMFQyMDo1NDoxNCswMTowMM5pQ-jE"
     }
   },
   "pullRequests": [
@@ -54,6 +54,28 @@
       "commentsAuthor": 1,
       "commentAuthorSentimentScore": 1,
       "commentSentimentTotalScore": 3
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "mxschmitt",
+      "url": "https://github.com/microsoft/playwright/pull/23814",
+      "additions": 4,
+      "deletions": 9,
+      "prSize": 13,
+      "mergedAt": "2023-06-21T12:04:16Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "aslushnikov": 1
+      },
+      "codeCommentsAuthor": 2,
+      "codeCommentAuthorSentimentScore": 2,
+      "codeCommentSentimentTotalScore": 2,
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 2,
+      "commentSentimentTotalScore": 2
     },
     {
       "repo": "playwright",
@@ -138,6 +160,22 @@
     {
       "repo": "playwright",
       "org": "microsoft",
+      "author": "mh0rst",
+      "url": "https://github.com/microsoft/playwright/pull/23813",
+      "additions": 2,
+      "deletions": 1,
+      "prSize": 3,
+      "mergedAt": "2023-06-22T14:14:19Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "aslushnikov": 1
+      }
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
       "author": "dgozman",
       "url": "https://github.com/microsoft/playwright/pull/23846",
       "additions": 46,
@@ -173,6 +211,28 @@
       "mergedAt": "2023-06-23T18:05:00Z",
       "cycleTime": 1,
       "age": 1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "zhengjitf",
+      "url": "https://github.com/microsoft/playwright/pull/23796",
+      "additions": 16,
+      "deletions": 2,
+      "prSize": 18,
+      "mergedAt": "2023-06-23T18:34:10Z",
+      "cycleTime": 3,
+      "age": 3,
+      "approvals": 1,
+      "approvers": {
+        "dgozman": 1
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 1,
+      "generalCommentSentimentTotalScore": 1,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 1,
+      "commentSentimentTotalScore": 1
     },
     {
       "repo": "playwright",
@@ -369,6 +429,48 @@
       "mergedAt": "2023-06-27T13:25:02Z",
       "cycleTime": 1,
       "age": 1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "debs-obrien",
+      "url": "https://github.com/microsoft/playwright/pull/23759",
+      "additions": 374,
+      "deletions": 197,
+      "prSize": 571,
+      "mergedAt": "2023-06-27T17:01:39Z",
+      "cycleTime": 11,
+      "age": 11,
+      "approvals": 1,
+      "approvers": {
+        "dgozman": 1
+      },
+      "codeComments": 66,
+      "codeCommenters": {
+        "mxschmitt": 34,
+        "dgozman": 32
+      },
+      "codeCommentSentimentScore": -28,
+      "codeCommentSentiments": {
+        "mxschmitt": -2,
+        "dgozman": -26
+      },
+      "codeCommentsAuthor": 2,
+      "codeCommentAuthorSentimentScore": 15,
+      "codeCommentSentimentTotalScore": -13,
+      "comments": 66,
+      "commenters": {
+        "mxschmitt": 34,
+        "dgozman": 32
+      },
+      "commentSentimentScore": -28,
+      "commentSentiments": {
+        "mxschmitt": -2,
+        "dgozman": -26
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 15,
+      "commentSentimentTotalScore": -13
     },
     {
       "repo": "playwright",
@@ -38125,20 +38227,6 @@
       "approvers": {
         "yury-s": 1
       }
-    }
-  ],
-  "filteredPRs": [
-    {
-      "repo": "playwright",
-      "org": "microsoft",
-      "author": "playwrightmachine",
-      "url": "https://github.com/microsoft/playwright/pull/31387",
-      "additions": 5,
-      "deletions": 1,
-      "prSize": 6,
-      "mergedAt": "2024-06-20T07:52:59Z",
-      "cycleTime": 1,
-      "age": 1
     },
     {
       "repo": "playwright",
@@ -38178,6 +38266,132 @@
       "commentsAuthor": 3,
       "commentSentimentTotalScore": -4
     },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "playwrightmachine",
+      "url": "https://github.com/microsoft/playwright/pull/31387",
+      "additions": 5,
+      "deletions": 1,
+      "prSize": 6,
+      "mergedAt": "2024-06-20T07:52:59Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "playwrightmachine",
+      "url": "https://github.com/microsoft/playwright/pull/31400",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2024-06-20T20:57:25Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "mxschmitt",
+      "url": "https://github.com/microsoft/playwright/pull/31401",
+      "additions": 4,
+      "deletions": 3,
+      "prSize": 7,
+      "mergedAt": "2024-06-20T21:33:46Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "yury-s": 1
+      }
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "mxschmitt",
+      "url": "https://github.com/microsoft/playwright/pull/31390",
+      "additions": 31,
+      "deletions": 2,
+      "prSize": 33,
+      "mergedAt": "2024-06-20T22:35:14Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "dgozman": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "dgozman": 1
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "dgozman": 3
+      },
+      "generalCommentSentimentTotalScore": 3,
+      "codeComments": 1,
+      "codeCommenters": {
+        "dgozman": 1
+      },
+      "codeCommentSentimentScore": 4,
+      "codeCommentSentiments": {
+        "dgozman": 4
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentSentimentTotalScore": 4,
+      "comments": 2,
+      "commenters": {
+        "dgozman": 2
+      },
+      "commentSentimentScore": 7,
+      "commentSentiments": {
+        "dgozman": 7
+      },
+      "commentsAuthor": 1,
+      "commentSentimentTotalScore": 7
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "mxschmitt",
+      "url": "https://github.com/microsoft/playwright/pull/30334",
+      "additions": 273,
+      "deletions": 393,
+      "prSize": 666,
+      "mergedAt": "2024-06-20T22:43:26Z",
+      "cycleTime": 70,
+      "age": 70,
+      "approvals": 1,
+      "approvers": {
+        "dgozman": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "pavelfeldman": 1
+      },
+      "codeComments": 3,
+      "codeCommenters": {
+        "dgozman": 3
+      },
+      "codeCommentSentimentScore": 6,
+      "codeCommentSentiments": {
+        "dgozman": 6
+      },
+      "codeCommentSentimentTotalScore": 6,
+      "comments": 4,
+      "commenters": {
+        "dgozman": 3,
+        "pavelfeldman": 1
+      },
+      "commentSentimentScore": 6,
+      "commentSentiments": {
+        "dgozman": 6
+      },
+      "commentSentimentTotalScore": 6
+    }
+  ],
+  "filteredPRs": [
     {
       "repo": "playwright",
       "org": "microsoft",
@@ -38369,6 +38583,816 @@
       }
     },
     {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "yury-s",
+      "url": "https://github.com/microsoft/playwright/pull/23819",
+      "additions": 179,
+      "deletions": 1,
+      "prSize": 180,
+      "mergedAt": "2023-06-20T19:11:32Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "dgozman": 1
+      },
+      "codeComments": 2,
+      "codeCommenters": {
+        "dgozman": 2
+      },
+      "codeCommentSentimentScore": 3,
+      "codeCommentSentiments": {
+        "dgozman": 3
+      },
+      "codeCommentSentimentTotalScore": 3,
+      "comments": 2,
+      "commenters": {
+        "dgozman": 2
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "dgozman": 3
+      },
+      "commentSentimentTotalScore": 3
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "playwrightmachine",
+      "url": "https://github.com/microsoft/playwright/pull/23806",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2023-06-20T14:15:23Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "mxschmitt",
+      "url": "https://github.com/microsoft/playwright/pull/23798",
+      "additions": 3,
+      "deletions": 3,
+      "prSize": 6,
+      "mergedAt": "2023-06-20T09:06:31Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "aslushnikov": 1
+      }
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "playwrightmachine",
+      "url": "https://github.com/microsoft/playwright/pull/23794",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2023-06-20T07:29:15Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "dgozman",
+      "url": "https://github.com/microsoft/playwright/pull/23792",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2023-06-19T21:13:11Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "yury-s": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "yury-s": 1
+      },
+      "codeCommentSentimentScore": 1,
+      "codeCommentSentiments": {
+        "yury-s": 1
+      },
+      "codeCommentSentimentTotalScore": 1,
+      "comments": 1,
+      "commenters": {
+        "yury-s": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "yury-s": 1
+      },
+      "commentSentimentTotalScore": 1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "mxschmitt",
+      "url": "https://github.com/microsoft/playwright/pull/23775",
+      "additions": 18,
+      "prSize": 18,
+      "mergedAt": "2023-06-19T15:07:37Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "dgozman": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "dgozman": 1
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 2,
+      "codeCommentSentimentTotalScore": 2,
+      "comments": 1,
+      "commenters": {
+        "dgozman": 1
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 2,
+      "commentSentimentTotalScore": 2
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "aslushnikov",
+      "url": "https://github.com/microsoft/playwright/pull/23768",
+      "additions": 32,
+      "deletions": 25,
+      "prSize": 57,
+      "mergedAt": "2023-06-17T19:10:21Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "yury-s",
+      "url": "https://github.com/microsoft/playwright/pull/23765",
+      "additions": 1918,
+      "deletions": 1873,
+      "prSize": 3791,
+      "mergedAt": "2023-06-17T04:30:56Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "dgozman": 1
+      }
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "dgozman",
+      "url": "https://github.com/microsoft/playwright/pull/23764",
+      "additions": 73,
+      "deletions": 66,
+      "prSize": 139,
+      "mergedAt": "2023-06-17T03:44:33Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "aslushnikov": 1
+      }
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "dgozman",
+      "url": "https://github.com/microsoft/playwright/pull/23763",
+      "additions": 42,
+      "deletions": 3,
+      "prSize": 45,
+      "mergedAt": "2023-06-17T13:58:17Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "yury-s": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "andrecasal": 1,
+        "BryantUng-at": 2,
+        "mxschmitt": 1
+      },
+      "generalCommentSentimentScore": 11,
+      "generalCommentSentiments": {
+        "andrecasal": 8,
+        "BryantUng-at": 2,
+        "mxschmitt": 1
+      },
+      "generalCommentSentimentTotalScore": 11,
+      "codeComments": 1,
+      "codeCommenters": {
+        "yury-s": 1
+      },
+      "comments": 5,
+      "commenters": {
+        "yury-s": 1,
+        "andrecasal": 1,
+        "BryantUng-at": 2,
+        "mxschmitt": 1
+      },
+      "commentSentimentScore": 11,
+      "commentSentiments": {
+        "andrecasal": 8,
+        "BryantUng-at": 2,
+        "mxschmitt": 1
+      },
+      "commentSentimentTotalScore": 11
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "yury-s",
+      "url": "https://github.com/microsoft/playwright/pull/23762",
+      "additions": 39,
+      "deletions": 49,
+      "prSize": 88,
+      "mergedAt": "2023-06-16T23:40:56Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "dgozman": 1
+      }
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "Machiel-B",
+      "url": "https://github.com/microsoft/playwright/pull/23757",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2023-06-16T16:16:02Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "playwrightmachine",
+      "url": "https://github.com/microsoft/playwright/pull/23756",
+      "additions": 52,
+      "deletions": 52,
+      "prSize": 104,
+      "mergedAt": "2023-06-16T15:57:45Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "mxschmitt",
+      "url": "https://github.com/microsoft/playwright/pull/23754",
+      "additions": 8,
+      "deletions": 3,
+      "prSize": 11,
+      "mergedAt": "2023-06-16T15:56:12Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "dgozman": 1
+      }
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "mxschmitt",
+      "url": "https://github.com/microsoft/playwright/pull/23748",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2023-06-16T19:50:30Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "dgozman": 1
+      }
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "dgozman",
+      "url": "https://github.com/microsoft/playwright/pull/23745",
+      "additions": 74,
+      "deletions": 51,
+      "prSize": 125,
+      "mergedAt": "2023-06-16T18:39:40Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "aslushnikov": 1
+      }
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "yury-s",
+      "url": "https://github.com/microsoft/playwright/pull/23743",
+      "additions": 104,
+      "deletions": 7,
+      "prSize": 111,
+      "mergedAt": "2023-06-16T16:22:57Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "dgozman": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "dgozman": 1
+      },
+      "codeCommentsAuthor": 1,
+      "comments": 1,
+      "commenters": {
+        "dgozman": 1
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "dgozman",
+      "url": "https://github.com/microsoft/playwright/pull/23740",
+      "additions": 57,
+      "deletions": 27,
+      "prSize": 84,
+      "mergedAt": "2023-06-19T22:22:26Z",
+      "cycleTime": 4,
+      "age": 4,
+      "approvals": 1,
+      "approvers": {
+        "yury-s": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "yury-s": 1
+      },
+      "codeCommentSentimentScore": -1,
+      "codeCommentSentiments": {
+        "yury-s": -1
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentSentimentTotalScore": -1,
+      "comments": 1,
+      "commenters": {
+        "yury-s": 1
+      },
+      "commentSentimentScore": -1,
+      "commentSentiments": {
+        "yury-s": -1
+      },
+      "commentsAuthor": 1,
+      "commentSentimentTotalScore": -1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "mxschmitt",
+      "url": "https://github.com/microsoft/playwright/pull/23739",
+      "additions": 32,
+      "deletions": 24,
+      "prSize": 56,
+      "mergedAt": "2023-06-16T18:40:16Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "aslushnikov": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "aslushnikov": 1
+      },
+      "codeCommentSentimentScore": 2,
+      "codeCommentSentiments": {
+        "aslushnikov": 2
+      },
+      "codeCommentsAuthor": 2,
+      "codeCommentAuthorSentimentScore": 3,
+      "codeCommentSentimentTotalScore": 5,
+      "comments": 1,
+      "commenters": {
+        "aslushnikov": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "aslushnikov": 2
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 3,
+      "commentSentimentTotalScore": 5
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "yury-s",
+      "url": "https://github.com/microsoft/playwright/pull/23737",
+      "additions": 3,
+      "deletions": 3,
+      "prSize": 6,
+      "mergedAt": "2023-06-15T18:10:04Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 2,
+      "approvers": {
+        "dgozman": 1,
+        "mxschmitt": 1
+      }
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "mxschmitt",
+      "url": "https://github.com/microsoft/playwright/pull/23735",
+      "additions": 7,
+      "deletions": 3,
+      "prSize": 10,
+      "mergedAt": "2023-06-15T16:46:19Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "aslushnikov": 1
+      }
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "playwrightmachine",
+      "url": "https://github.com/microsoft/playwright/pull/23734",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2023-06-15T18:10:54Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "playwrightmachine",
+      "url": "https://github.com/microsoft/playwright/pull/23733",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2023-06-15T15:08:53Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "yury-s",
+      "url": "https://github.com/microsoft/playwright/pull/23722",
+      "additions": 16,
+      "deletions": 16,
+      "prSize": 32,
+      "mergedAt": "2023-06-15T01:41:42Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "yury-s",
+      "url": "https://github.com/microsoft/playwright/pull/23720",
+      "additions": 49,
+      "deletions": 22,
+      "prSize": 71,
+      "mergedAt": "2023-06-15T00:10:39Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "dgozman": 1
+      }
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "DudaGod",
+      "url": "https://github.com/microsoft/playwright/pull/23719",
+      "additions": 2,
+      "prSize": 2,
+      "mergedAt": "2023-06-16T09:44:05Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "dgozman",
+      "url": "https://github.com/microsoft/playwright/pull/23717",
+      "additions": 44,
+      "deletions": 44,
+      "prSize": 88,
+      "mergedAt": "2023-06-15T19:30:18Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "aslushnikov": 1
+      },
+      "codeComments": 2,
+      "codeCommenters": {
+        "aslushnikov": 2
+      },
+      "codeCommentSentimentScore": -1,
+      "codeCommentSentiments": {
+        "aslushnikov": -1
+      },
+      "codeCommentSentimentTotalScore": -1,
+      "comments": 2,
+      "commenters": {
+        "aslushnikov": 2
+      },
+      "commentSentimentScore": -1,
+      "commentSentiments": {
+        "aslushnikov": -1
+      },
+      "commentSentimentTotalScore": -1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "mxschmitt",
+      "url": "https://github.com/microsoft/playwright/pull/23714",
+      "additions": 7,
+      "prSize": 7,
+      "mergedAt": "2023-06-14T22:26:27Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "aslushnikov",
+      "url": "https://github.com/microsoft/playwright/pull/23711",
+      "deletions": 2,
+      "prSize": 2,
+      "mergedAt": "2023-06-14T18:41:43Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "dgozman": 1
+      }
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "mxschmitt",
+      "url": "https://github.com/microsoft/playwright/pull/23710",
+      "additions": 7,
+      "prSize": 7,
+      "mergedAt": "2023-06-14T18:49:27Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "dgozman": 1
+      }
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "aslushnikov",
+      "url": "https://github.com/microsoft/playwright/pull/23708",
+      "additions": 65,
+      "deletions": 65,
+      "prSize": 130,
+      "mergedAt": "2023-06-14T22:27:35Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "mxschmitt",
+      "url": "https://github.com/microsoft/playwright/pull/23706",
+      "additions": 9,
+      "deletions": 4,
+      "prSize": 13,
+      "mergedAt": "2023-06-15T18:16:47Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "yury-s": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "yury-s": 1
+      },
+      "codeCommentSentimentScore": 2,
+      "codeCommentSentiments": {
+        "yury-s": 2
+      },
+      "codeCommentSentimentTotalScore": 2,
+      "comments": 1,
+      "commenters": {
+        "yury-s": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "yury-s": 2
+      },
+      "commentSentimentTotalScore": 2
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "playwrightmachine",
+      "url": "https://github.com/microsoft/playwright/pull/23701",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2023-06-14T07:51:21Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "aslushnikov",
+      "url": "https://github.com/microsoft/playwright/pull/23695",
+      "additions": 16,
+      "deletions": 13,
+      "prSize": 29,
+      "mergedAt": "2023-06-14T16:37:19Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "dgozman": 1
+      },
+      "codeComments": 2,
+      "codeCommenters": {
+        "mxschmitt": 2
+      },
+      "codeCommentsAuthor": 1,
+      "comments": 2,
+      "commenters": {
+        "mxschmitt": 2
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "dgozman",
+      "url": "https://github.com/microsoft/playwright/pull/23692",
+      "additions": 87,
+      "deletions": 63,
+      "prSize": 150,
+      "mergedAt": "2023-06-14T04:25:40Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "aslushnikov": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "aslushnikov": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "aslushnikov": 1
+      }
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "vemv",
+      "url": "https://github.com/microsoft/playwright/pull/23689",
+      "additions": 11,
+      "deletions": 1,
+      "prSize": 12,
+      "mergedAt": "2023-06-19T18:12:03Z",
+      "cycleTime": 5,
+      "age": 5,
+      "approvals": 1,
+      "approvers": {
+        "yury-s": 1
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 2,
+      "generalCommentSentimentTotalScore": 2,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 2,
+      "commentSentimentTotalScore": 2
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "yury-s",
+      "url": "https://github.com/microsoft/playwright/pull/23687",
+      "additions": 8,
+      "deletions": 26,
+      "prSize": 34,
+      "mergedAt": "2023-06-13T19:36:04Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "playwrightmachine",
+      "url": "https://github.com/microsoft/playwright/pull/23682",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2023-06-13T17:17:58Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "playwrightmachine",
+      "url": "https://github.com/microsoft/playwright/pull/23678",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2023-06-13T12:55:23Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "mxschmitt",
+      "url": "https://github.com/microsoft/playwright/pull/23675",
+      "additions": 13,
+      "deletions": 5,
+      "prSize": 18,
+      "mergedAt": "2023-06-14T13:33:07Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "yury-s": 1
+      },
+      "codeComments": 2,
+      "codeCommenters": {
+        "yury-s": 2
+      },
+      "codeCommentSentimentScore": -2,
+      "codeCommentSentiments": {
+        "yury-s": -2
+      },
+      "codeCommentSentimentTotalScore": -2,
+      "comments": 2,
+      "commenters": {
+        "yury-s": 2
+      },
+      "commentSentimentScore": -2,
+      "commentSentiments": {
+        "yury-s": -2
+      },
+      "commentSentimentTotalScore": -2
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "mxschmitt",
+      "url": "https://github.com/microsoft/playwright/pull/23674",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2023-06-13T16:03:51Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "yury-s": 1
+      }
+    },
+    {
+      "repo": "playwright",
+      "org": "microsoft",
+      "author": "playwrightmachine",
+      "url": "https://github.com/microsoft/playwright/pull/23671",
+      "additions": 69,
+      "prSize": 69,
+      "mergedAt": "2023-06-13T00:26:10Z",
       "cycleTime": 1,
       "age": 1
     },
@@ -38482,50 +39506,6 @@
     }
   ],
   "issues": [
-    {
-      "mergedAt": "2023-06-20T23:07:50Z",
-      "age": 15,
-      "url": "https://github.com/microsoft/playwright/issues/23823",
-      "isBug": true
-    },
-    {
-      "mergedAt": "2023-06-20T23:26:51Z",
-      "age": 3,
-      "url": "https://github.com/microsoft/playwright/issues/23824",
-      "isBug": true
-    },
-    {
-      "mergedAt": "2023-06-21T04:33:53Z",
-      "age": 1,
-      "url": "https://github.com/microsoft/playwright/issues/23826"
-    },
-    {
-      "mergedAt": "2023-06-21T06:40:14Z",
-      "age": 1,
-      "url": "https://github.com/microsoft/playwright/issues/23828",
-      "isBug": true
-    },
-    {
-      "mergedAt": "2023-06-21T07:52:06Z",
-      "age": 1,
-      "url": "https://github.com/microsoft/playwright/issues/23827"
-    },
-    {
-      "mergedAt": "2023-06-21T09:33:41Z",
-      "age": 1,
-      "url": "https://github.com/microsoft/playwright/issues/23829"
-    },
-    {
-      "mergedAt": "2023-06-21T09:49:40Z",
-      "age": 1,
-      "url": "https://github.com/microsoft/playwright/issues/23830",
-      "isBug": true
-    },
-    {
-      "mergedAt": "2023-06-21T11:44:14Z",
-      "age": 1,
-      "url": "https://github.com/microsoft/playwright/issues/23832"
-    },
     {
       "mergedAt": "2023-06-21T13:27:56Z",
       "age": 306,
@@ -56917,30 +57897,11 @@
       "age": 1,
       "url": "https://github.com/microsoft/playwright/issues/31382",
       "isBug": true
-    }
-  ],
-  "filteredIssues": [
-    {
-      "mergedAt": "2024-06-20T14:29:28Z",
-      "age": 1,
-      "url": "https://github.com/microsoft/playwright/issues/31398",
-      "isBug": true
     },
     {
-      "mergedAt": "2024-06-20T13:22:46Z",
+      "mergedAt": "2024-06-20T04:30:41Z",
       "age": 1,
-      "url": "https://github.com/microsoft/playwright/issues/31397"
-    },
-    {
-      "mergedAt": "2024-06-20T10:52:34Z",
-      "age": 1,
-      "url": "https://github.com/microsoft/playwright/issues/31393",
-      "isBug": true
-    },
-    {
-      "mergedAt": "2024-06-20T10:40:32Z",
-      "age": 1,
-      "url": "https://github.com/microsoft/playwright/issues/31392"
+      "url": "https://github.com/microsoft/playwright/issues/31388"
     },
     {
       "mergedAt": "2024-06-20T08:53:17Z",
@@ -56949,126 +57910,191 @@
       "isBug": true
     },
     {
-      "mergedAt": "2024-06-20T04:30:41Z",
+      "mergedAt": "2024-06-20T10:40:32Z",
       "age": 1,
-      "url": "https://github.com/microsoft/playwright/issues/31388"
+      "url": "https://github.com/microsoft/playwright/issues/31392"
+    },
+    {
+      "mergedAt": "2024-06-20T10:52:34Z",
+      "age": 1,
+      "url": "https://github.com/microsoft/playwright/issues/31393",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-06-20T13:22:46Z",
+      "age": 1,
+      "url": "https://github.com/microsoft/playwright/issues/31397"
+    },
+    {
+      "mergedAt": "2024-06-20T14:29:28Z",
+      "age": 1,
+      "url": "https://github.com/microsoft/playwright/issues/31398",
+      "isBug": true
+    }
+  ],
+  "filteredIssues": [
+    {
+      "mergedAt": "2024-06-21T11:18:25Z",
+      "age": 1,
+      "url": "https://github.com/microsoft/playwright/issues/31405",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-06-21T03:50:49Z",
+      "age": 1,
+      "url": "https://github.com/microsoft/playwright/issues/31403",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-06-21T01:46:37Z",
+      "age": 1,
+      "url": "https://github.com/microsoft/playwright/issues/31402"
+    },
+    {
+      "mergedAt": "2023-06-21T11:44:14Z",
+      "age": 1,
+      "url": "https://github.com/microsoft/playwright/issues/23832"
+    },
+    {
+      "mergedAt": "2023-06-21T09:49:40Z",
+      "age": 1,
+      "url": "https://github.com/microsoft/playwright/issues/23830",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-06-21T09:33:41Z",
+      "age": 1,
+      "url": "https://github.com/microsoft/playwright/issues/23829"
+    },
+    {
+      "mergedAt": "2023-06-21T07:52:06Z",
+      "age": 1,
+      "url": "https://github.com/microsoft/playwright/issues/23827"
+    },
+    {
+      "mergedAt": "2023-06-21T06:40:14Z",
+      "age": 1,
+      "url": "https://github.com/microsoft/playwright/issues/23828",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-06-21T04:33:53Z",
+      "age": 1,
+      "url": "https://github.com/microsoft/playwright/issues/23826"
+    },
+    {
+      "mergedAt": "2023-06-20T23:26:51Z",
+      "age": 3,
+      "url": "https://github.com/microsoft/playwright/issues/23824",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-06-20T23:07:50Z",
+      "age": 15,
+      "url": "https://github.com/microsoft/playwright/issues/23823",
+      "isBug": true
     },
     {
       "mergedAt": "2023-06-20T19:54:14Z",
       "age": 1,
       "url": "https://github.com/microsoft/playwright/issues/23821"
-    },
-    {
-      "mergedAt": "2023-06-20T15:05:26Z",
-      "age": 1,
-      "url": "https://github.com/microsoft/playwright/issues/23817"
-    },
-    {
-      "mergedAt": "2023-06-20T15:05:10Z",
-      "age": 1,
-      "url": "https://github.com/microsoft/playwright/issues/23816"
-    },
-    {
-      "mergedAt": "2023-06-20T14:27:15Z",
-      "age": 6,
-      "url": "https://github.com/microsoft/playwright/issues/23811"
     }
   ],
   "releases": [
     {
       "date": "2023-07-11T05:10:57Z",
       "description": "v1.36.0",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2023-07-14T14:39:42Z",
       "description": "v1.36.1",
-      "releaseType": "MAJOR"
+      "releaseType": "PATCH"
     },
     {
       "date": "2023-07-24T17:43:17Z",
       "description": "v1.36.2",
-      "releaseType": "MAJOR"
+      "releaseType": "PATCH"
     },
     {
       "date": "2023-08-10T22:35:25Z",
       "description": "v1.37.0",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2023-08-17T20:17:39Z",
       "description": "v1.37.1",
-      "releaseType": "MAJOR"
+      "releaseType": "PATCH"
     },
     {
       "date": "2023-09-13T22:55:57Z",
       "description": "v1.38.0",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2023-09-21T19:38:34Z",
       "description": "v1.38.1",
-      "releaseType": "MAJOR"
+      "releaseType": "PATCH"
     },
     {
       "date": "2023-10-11T20:58:19Z",
       "description": "v1.39.0",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2023-11-16T21:30:01Z",
       "description": "v1.40.0",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2023-11-28T18:48:24Z",
       "description": "v1.40.1",
-      "releaseType": "MAJOR"
+      "releaseType": "PATCH"
     },
     {
       "date": "2024-01-16T18:27:23Z",
       "description": "v1.41.0",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2024-01-19T23:05:04Z",
       "description": "v1.41.1",
-      "releaseType": "MAJOR"
+      "releaseType": "PATCH"
     },
     {
       "date": "2024-02-01T19:24:16Z",
       "description": "v1.41.2",
-      "releaseType": "MAJOR"
+      "releaseType": "PATCH"
     },
     {
       "date": "2024-02-27T19:05:24Z",
       "description": "v1.42.0",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2024-03-01T22:42:55Z",
       "description": "v1.42.1",
-      "releaseType": "MAJOR"
+      "releaseType": "PATCH"
     },
     {
       "date": "2024-04-04T19:25:32Z",
       "description": "v1.43.0",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2024-04-12T17:19:02Z",
       "description": "v1.43.1",
-      "releaseType": "MAJOR"
+      "releaseType": "PATCH"
     },
     {
       "date": "2024-05-06T18:26:54Z",
       "description": "v1.44.0",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2024-05-23T07:29:52Z",
       "description": "v1.44.1",
-      "releaseType": "MAJOR"
+      "releaseType": "PATCH"
     }
   ],
   "preFetchedName": "microsoft-playwright"

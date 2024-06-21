@@ -5513,7 +5513,7 @@
     },
     {
       "mergedAt": "2024-06-14T11:36:42Z",
-      "age": 1,
+      "age": 6,
       "url": "https://github.com/mswjs/msw/issues/2178",
       "isBug": true
     },
@@ -5538,8 +5538,7 @@
     {
       "mergedAt": "2024-06-18T19:23:54Z",
       "age": 1,
-      "url": "https://github.com/mswjs/msw/issues/2185",
-      "isBug": true
+      "url": "https://github.com/mswjs/msw/issues/2185"
     }
   ],
   "filteredIssues": [
@@ -5653,34 +5652,9 @@
   ],
   "releases": [
     {
-      "date": "2023-07-20T10:43:16Z",
-      "description": "v1.2.3",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-08-25T00:22:30Z",
-      "description": "v1.2.4",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-08-28T00:26:14Z",
-      "description": "v1.2.5",
-      "releaseType": "MAJOR"
-    },
-    {
       "date": "2023-09-03T09:17:28Z",
       "description": "v1.3.0",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-09-13T20:02:45Z",
-      "description": "v1.3.1",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-10-01T00:26:01Z",
-      "description": "v1.3.2",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2023-10-23T08:05:58Z",
@@ -5688,204 +5662,19 @@
       "releaseType": "MAJOR"
     },
     {
-      "date": "2023-10-28T00:18:11Z",
-      "description": "v2.0.1",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-11-01T15:59:14Z",
-      "description": "v2.0.2",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-11-04T15:35:33Z",
-      "description": "v2.0.3",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-11-08T14:33:02Z",
-      "description": "v2.0.4",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-11-10T00:20:47Z",
-      "description": "v2.0.5",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-11-13T00:19:26Z",
-      "description": "v2.0.6",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-11-16T11:16:04Z",
-      "description": "v2.0.7",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-11-17T10:24:41Z",
-      "description": "v2.0.8",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-11-24T16:52:18Z",
-      "description": "v2.0.9",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-12-04T00:24:59Z",
-      "description": "v2.0.10",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-12-11T14:00:57Z",
-      "description": "v2.0.11",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-01-05T13:54:50Z",
-      "description": "v2.0.12",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-01-09T01:35:55Z",
-      "description": "v2.0.13",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-01-12T15:58:00Z",
-      "description": "v2.0.14",
-      "releaseType": "MAJOR"
-    },
-    {
       "date": "2024-01-15T12:05:42Z",
       "description": "v2.1.0",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-01-17T01:39:47Z",
-      "description": "v2.1.1",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-01-17T14:40:43Z",
-      "description": "v2.1.2",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-01-22T01:42:25Z",
-      "description": "v2.1.3",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-01-23T01:37:48Z",
-      "description": "v2.1.4",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-01-25T13:56:45Z",
-      "description": "v2.1.5",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-02-05T10:48:05Z",
-      "description": "v2.1.6",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-02-06T15:50:08Z",
-      "description": "v2.1.7",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2024-02-12T11:06:19Z",
       "description": "v2.2.0",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-02-17T01:32:36Z",
-      "description": "v2.2.1",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-02-28T01:31:32Z",
-      "description": "v2.2.2",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-03-08T01:33:22Z",
-      "description": "v2.2.3",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-03-15T10:49:45Z",
-      "description": "v1.3.3",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-03-16T01:29:35Z",
-      "description": "v2.2.4",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-03-17T01:35:13Z",
-      "description": "v2.2.5",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-03-17T12:56:54Z",
-      "description": "v2.2.6",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-03-18T01:31:53Z",
-      "description": "v2.2.7",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-03-19T01:31:39Z",
-      "description": "v2.2.8",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-03-20T01:36:25Z",
-      "description": "v2.2.9",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-03-22T01:38:27Z",
-      "description": "v2.2.10",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-03-26T01:33:17Z",
-      "description": "v2.2.11",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-03-27T01:33:12Z",
-      "description": "v2.2.12",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-03-27T16:15:09Z",
-      "description": "v2.2.13",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-04-17T11:45:33Z",
-      "description": "v2.2.14",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2024-05-08T14:11:29Z",
       "description": "v2.3.0",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-06-01T09:29:49Z",
-      "description": "v2.3.1",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     }
   ],
   "preFetchedName": "mswjs-msw"

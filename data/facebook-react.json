@@ -126534,12 +126534,12 @@
     {
       "date": "2024-04-25T16:22:01Z",
       "description": "v18.3.0",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2024-04-26T16:17:57Z",
       "description": "v18.3.1",
-      "releaseType": "MAJOR"
+      "releaseType": "PATCH"
     }
   ],
   "preFetchedName": "facebook-react"

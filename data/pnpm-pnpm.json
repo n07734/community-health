@@ -12,8 +12,8 @@
       "oldest": "Y3Vyc29yOnYyOpK5MjAyMy0wNC0wNFQwMDo0MDo1OCswMTowMM4F1lXk"
     },
     "issuesPagination": {
-      "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0xOVQwNDo0MDoxNSswMTowMM6MvQtS",
-      "oldest": "Y3Vyc29yOnYyOpK5MjAyMy0wNi0xNlQxNDoxMjo1OSswMTowMM5o8OGc"
+      "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0yMVQxMDowMjoxMyswMTowMM6NB3EP",
+      "oldest": "Y3Vyc29yOnYyOpK5MjAyMy0wNi0yMFQwODo0NDoyNCswMTowMM5pMWFM"
     }
   },
   "pullRequests": [
@@ -10507,11 +10507,6 @@
   ],
   "issues": [
     {
-      "mergedAt": "2023-06-20T20:30:20Z",
-      "age": 1,
-      "url": "https://github.com/pnpm/pnpm/issues/6693"
-    },
-    {
       "mergedAt": "2023-06-21T14:24:08Z",
       "age": 1,
       "url": "https://github.com/pnpm/pnpm/issues/6696",
@@ -14506,6 +14501,23 @@
   ],
   "filteredIssues": [
     {
+      "mergedAt": "2024-06-21T09:02:13Z",
+      "age": 1,
+      "url": "https://github.com/pnpm/pnpm/issues/8228",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-06-21T04:25:44Z",
+      "age": 1,
+      "url": "https://github.com/pnpm/pnpm/issues/8227",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-06-20T20:30:20Z",
+      "age": 1,
+      "url": "https://github.com/pnpm/pnpm/issues/6693"
+    },
+    {
       "mergedAt": "2023-06-20T11:44:43Z",
       "age": 19,
       "url": "https://github.com/pnpm/pnpm/issues/6692"
@@ -14514,255 +14526,53 @@
       "mergedAt": "2023-06-20T07:44:24Z",
       "age": 1,
       "url": "https://github.com/pnpm/pnpm/issues/6690"
-    },
-    {
-      "mergedAt": "2023-06-19T02:48:00Z",
-      "age": 1,
-      "url": "https://github.com/pnpm/pnpm/issues/6689",
-      "isBug": true
-    },
-    {
-      "mergedAt": "2023-06-16T13:12:59Z",
-      "age": 1,
-      "url": "https://github.com/pnpm/pnpm/issues/6685",
-      "isBug": true
     }
   ],
   "releases": [
     {
-      "date": "2023-06-23T13:14:59Z",
-      "description": "v7.33.2",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-06-25T21:53:38Z",
-      "description": "v8.6.4",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-06-26T09:36:35Z",
-      "description": "v8.6.5",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-06-30T22:57:57Z",
-      "description": "v7.33.3",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-07-03T12:17:13Z",
-      "description": "v8.6.6",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-07-09T22:30:39Z",
-      "description": "v8.6.7",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-07-17T09:20:02Z",
-      "description": "v8.6.8",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-07-17T09:52:31Z",
-      "description": "v7.33.4",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-07-18T10:32:37Z",
-      "description": "v8.6.9",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-07-18T10:44:01Z",
-      "description": "v7.33.5",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-07-23T22:43:50Z",
-      "description": "v8.6.10",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-07-30T17:46:17Z",
-      "description": "v8.6.11",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-08-06T00:20:46Z",
-      "description": "v7.33.6",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-08-06T11:10:52Z",
-      "description": "v8.6.12",
-      "releaseType": "MAJOR"
-    },
-    {
       "date": "2023-08-26T18:25:28Z",
       "description": "v8.7.0",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-08-31T15:43:45Z",
-      "description": "v8.7.1",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-09-04T15:14:40Z",
-      "description": "v8.7.3",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-09-05T22:09:00Z",
-      "description": "v8.7.4",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-09-11T12:15:15Z",
-      "description": "v8.7.5",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-09-17T19:18:27Z",
-      "description": "v8.7.6",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2023-09-26T12:24:38Z",
       "description": "v8.8.0",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2023-10-09T11:44:02Z",
       "description": "v8.9.0",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-10-15T14:46:12Z",
-      "description": "v8.9.1",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-10-15T23:07:50Z",
-      "description": "v8.9.2",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2023-10-27T14:30:35Z",
       "description": "v8.10.0",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-11-01T12:30:08Z",
-      "description": "v8.10.1",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-11-01T16:23:10Z",
-      "description": "v8.10.2",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-11-12T12:03:04Z",
-      "description": "v8.10.3",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-11-13T15:01:03Z",
-      "description": "v8.10.4",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-11-14T11:58:55Z",
-      "description": "v8.10.5",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2023-11-24T16:27:25Z",
       "description": "v8.11.0",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2023-12-08T22:25:21Z",
       "description": "v8.12.0",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2023-12-13T10:18:17Z",
-      "description": "v8.12.1",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2023-12-26T14:39:31Z",
       "description": "v8.13.1",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2024-01-02T22:57:09Z",
       "description": "v8.14.0",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-01-10T14:58:01Z",
-      "description": "v8.14.1",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-01-22T09:10:38Z",
-      "description": "v8.14.2",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-01-23T09:09:45Z",
-      "description": "v8.14.3",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2024-01-27T15:48:16Z",
       "description": "v8.15.0",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-01-29T19:36:29Z",
-      "description": "v8.15.1",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-02-12T23:01:33Z",
-      "description": "v8.15.2",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-02-15T10:45:22Z",
-      "description": "v8.15.3",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-02-15T12:52:35Z",
-      "description": "v7.33.7",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-02-24T13:15:51Z",
-      "description": "v8.15.4",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-03-17T19:52:30Z",
-      "description": "v8.15.5",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-04-01T21:08:41Z",
-      "description": "v8.15.6",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-04-13T15:52:32Z",
-      "description": "v8.15.7",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2024-04-16T10:18:36Z",
@@ -14770,79 +14580,24 @@
       "releaseType": "MAJOR"
     },
     {
-      "date": "2024-04-16T14:00:51Z",
-      "description": "v9.0.1",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-04-17T16:38:38Z",
-      "description": "v9.0.2",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-04-18T16:27:08Z",
-      "description": "v9.0.3",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-04-19T00:49:57Z",
-      "description": "v9.0.4",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-04-21T21:02:42Z",
-      "description": "v9.0.5",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-04-24T13:01:48Z",
-      "description": "v9.0.6",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-04-29T23:35:42Z",
-      "description": "v8.15.8",
-      "releaseType": "MAJOR"
-    },
-    {
       "date": "2024-05-06T09:13:40Z",
       "description": "v9.1.0",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-05-12T21:50:07Z",
-      "description": "v9.1.1",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-05-20T22:08:05Z",
-      "description": "v9.1.2",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-05-27T08:41:54Z",
-      "description": "v9.1.3",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-05-30T10:59:37Z",
-      "description": "v9.1.4",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2024-06-05T12:46:29Z",
       "description": "v9.2.0",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2024-06-10T11:58:47Z",
       "description": "v9.3.0",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     },
     {
       "date": "2024-06-17T15:44:24Z",
       "description": "v9.4.0",
-      "releaseType": "MAJOR"
+      "releaseType": "MINOR"
     }
   ],
   "preFetchedName": "pnpm-pnpm"
