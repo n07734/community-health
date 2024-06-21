@@ -95,7 +95,6 @@ const UserTrends = ({
 
     const radarData = formatRadarData(usersData)
     const contributionsRadar = radialChartsContributions(radarData, userIds.length > 0)
-    console.log('contributionsRadar', contributionsRadar)
 
     const isTeamReport = userIds.length > 0
     const title = isTeamReport
