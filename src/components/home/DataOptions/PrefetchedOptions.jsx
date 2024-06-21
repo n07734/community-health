@@ -82,7 +82,7 @@ const PrefetchedOptions = (props = {}) => {
                     .map(preFetchButton)
             }
             <div>
-                <P><A href="https://2023.stateofjs.com/en-US/libraries/#tier_list">StateOfJS 23</A> S tire list</P>
+                <P><A href="https://2023.stateofjs.com/en-US/libraries/#tier_list">StateOfJS 23</A> S tier list</P>
                 {
                     preFetchedSRank23
                         .map(preFetchButton)
