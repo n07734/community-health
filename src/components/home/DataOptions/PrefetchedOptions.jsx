@@ -93,7 +93,7 @@ const PrefetchedOptions = (props = {}) => {
             {
                 !myPreFetchedReports.length > 0 && <>
                     {
-                        !showAllReports
+                        !showAllReports && repoInfo && Object.keys(repoInfo).length > 0
                             && preFetchButton(repoInfo)
                     }
                     {
@@ -130,7 +130,7 @@ const PrefetchedOptions = (props = {}) => {
                 </>
             }
                 <Button
-                    value={showAllReports ? 'Hide other reports' : 'Show all OSS reports...'}
+                    value={showAllReports ? 'Hide other reports' : 'Show more OSS reports...'}
                     color={showAllReports ? 'primary' : 'secondary'}
                     onClick={(e) => {
                         e.preventDefault()

@@ -51,6 +51,8 @@ const TeamTrends = ({
     const repoPie = rainbowData('repo', allRepos)
     const byAuthorData = splitByAuthor({ pullRequests, showNames, usersInfo })
 
+    const withApprovalsByUserLength = chordDataWithName.filter(x => x.approvalsGiven > 0).length
+    const withCommentsByUserLength = chordDataWithName.filter(x => x.commentsGiven > 0).length
     return usersData.length > 0 && (
         <Paper>
             <ChartDescription
@@ -113,20 +115,30 @@ const TeamTrends = ({
                         ]}
                     />
                 </div>
-                <div className={classes.groupedCharts}>
-                    <Chord
-                        data={chordDataWithName}
-                        preSorted={true}
-                        dataKey="commentsByUser"
-                        title="Comment contributions"
-                    />
-                    <Chord
-                        data={chordDataWithName}
-                        preSorted={true}
-                        dataKey="approvalsByUser"
-                        title="Approval contributions"
-                    />
-                </div>
+
+                {
+                    (withCommentsByUserLength > 0 || withApprovalsByUserLength > 0) &&
+                        <div className={classes.groupedCharts}>
+                            {
+                                withCommentsByUserLength > 0 &&
+                                    <Chord
+                                        data={chordDataWithName}
+                                        preSorted={true}
+                                        dataKey="commentsByUser"
+                                        title="Comment contributions"
+                                    />
+                            }
+                            {
+                                withApprovalsByUserLength > 0 &&
+                                    <Chord
+                                        data={chordDataWithName}
+                                        preSorted={true}
+                                        dataKey="approvalsByUser"
+                                        title="Approval contributions"
+                                    />
+                            }
+                        </div>
+                }
                 <P>These chord charts show how contributions are given and received, the dominant colour indicates more contribution</P>
                 {
                     byAuthorData.length > 0 && byAuthorData?.[0]?.lines?.length < 21 &&

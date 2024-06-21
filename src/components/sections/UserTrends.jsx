@@ -64,7 +64,7 @@ const radialChartsContributions = ({
 
                     return {
                         area,
-                        value: (originalUser / maxValue) * 100,
+                        value: originalUser && maxValue ? (originalUser / maxValue) * 100 : 0,
                         valueOriginal: originalUser,
                     }
                 })
@@ -95,6 +95,7 @@ const UserTrends = ({
 
     const radarData = formatRadarData(usersData)
     const contributionsRadar = radialChartsContributions(radarData, userIds.length > 0)
+    console.log('contributionsRadar', contributionsRadar)
 
     const isTeamReport = userIds.length > 0
     const title = isTeamReport
