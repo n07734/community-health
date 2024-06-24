@@ -59,6 +59,7 @@ const Team = ({
             pullRequests={updatedPullRequests}
             chunkyData={chunkyData}
             releases={markers}
+            tableOpenedByDefault={true}
         />
         <TeamTrends
             pullRequests={updatedPullRequests}

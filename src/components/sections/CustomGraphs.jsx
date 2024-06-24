@@ -85,6 +85,7 @@ const CustomGraphs = ({
     issues = [],
     releases = [],
     classes = {},
+    tableOpenedByDefault = false,
 } = {}) => {
     const theme = useTheme()
     const colorA = theme.palette.primary.main
@@ -151,6 +152,7 @@ const CustomGraphs = ({
                                     data={data}
                                     tableKeys={getTableKeys(graphInfo)}
                                     tableData={chunkyData}
+                                    tableOpenedByDefault={i === 0 && tableOpenedByDefault}
                                 />
                         })
                 }

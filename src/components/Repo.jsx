@@ -33,6 +33,7 @@ const RepoView = ({ pullRequests = [], releases = [] } = {}) => {
             pullRequests={updatedPullRequests}
             chunkyData={chunkyData}
             releases={releases}
+            tableOpenedByDefault={true}
         />
         <Sentiment
             pullRequests={updatedPullRequests}

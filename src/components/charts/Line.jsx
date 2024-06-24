@@ -19,6 +19,7 @@ import {
     getReportMonthCount,
 } from './lineHelpers'
 
+// eslint-disable-next-line react/display-name
 const ToolTip = () => (data) => {
     // NOTE: this is needed to use the original Y value for the tool tip
     const getYValue = (point) => {
@@ -30,24 +31,23 @@ const ToolTip = () => (data) => {
             : yCurrentValue
     }
 
-    const Chip = ({ color }) => <span
-        style={{
-            display: 'block',
-            width: '12px',
-            height: '12px',
-            background: color,
-        }}
-    />
-
     const points = pathOr([], ['slice', 'points'], data)
     return (
         <TableTooltip
             rows={
                 points
-                    .map((point) => [
-                        <Chip color={point.serieColor} />,
+                    .map((point, i) => [
+                        <span
+                            key={i}
+                            style={{
+                                display: 'block',
+                                width: '12px',
+                                height: '12px',
+                                background: point.serieColor,
+                            }}
+                        ></span>,
                         point.serieId,
-                        <strong>{getYValue(point)}</strong>,
+                        <strong key={i}>{getYValue(point)}</strong>,
                     ])
             }
         />
@@ -95,6 +95,7 @@ const Line = styledCharts(({
     graphInfo = {},
     setGraph = () => {},
     graphs = [],
+    tableOpenedByDefault = false,
 } = {}) => {
     const theme = useTheme();
     const { showNumbers } = useShowNumbers()
@@ -368,6 +369,7 @@ const Line = styledCharts(({
                   tableData.length > 0 && <ItemsTable
                     data={tableData}
                     dataKeys={tableKeys}
+                    tableOpenedByDefault={tableOpenedByDefault}
                 />
             }
         </div>

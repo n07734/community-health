@@ -41,6 +41,7 @@ const Org = ({
             pullRequests={updatedPullRequests}
             chunkyData={chunkyData}
             releases={markers}
+            tableOpenedByDefault={true}
         />
         <PullRequestTrends
             pullRequests={updatedPullRequests}

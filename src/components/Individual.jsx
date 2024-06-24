@@ -7,7 +7,6 @@ import CustomGraphs from './sections/CustomGraphs'
 import ReportDescription from './sections/ReportDescription'
 import { chunkData, rainbowData } from './charts/lineHelpers'
 import Pie from './charts/Pie'
-import Line from './charts/Line'
 import Chord from './charts/Chord'
 import IssuesTrends from './sections/IssuesTrends'
 import Bar from './charts/Bar'
@@ -18,7 +17,6 @@ import { useShowNames } from '../state/ShowNamesProvider'
 const Individual = ({
     pullRequests = [],
     reviewedPullRequests = [],
-    releases = [],
     userIds = [],
     usersInfo = {},
     classes = {},
@@ -163,31 +161,12 @@ const Individual = ({
                             title={repoPie.sectionTitle}
                         />
                 }
-                <Line
-                    title="PRs over time"
-                    markers={releases}
-                    data={[
-                        {
-                            lines: [
-                                {
-                                    label: 'PRs over time',
-                                    color: colorA,
-                                    dataKey: 'url',
-                                    groupMath: 'count',
-                                },
-                            ],
-                            xAxis: 'left',
-                            data: updatedPullRequests,
-                        },
-                    ]}
-                    tableData={chunkyData}
-                    tableKeys={['author']}
-                />
             </GraphsWrap>
         </Paper>
         <CustomGraphs
             pullRequests={updatedPullRequests}
             chunkyData={chunkyData}
+            tableOpenedByDefault={true}
         />
         <IssuesTrends />
     </>
@@ -224,7 +203,6 @@ const mapStateToProps = (state) => ({
     reviewedPullRequests: state.reviewedPullRequests,
     userIds: state.fetches.userIds,
     usersInfo: state.fetches.usersInfo,
-    releases: state.releases,
 })
 
 export default connect(mapStateToProps)(withStyles(styles)(Individual))
