@@ -41,7 +41,8 @@ const PrefetchedOptions = (props = {}) => {
         ...preFetchedOrgs,
     ]
 
-    const report = urlParams.get('report') || myPreFetchedReports[0]?.fileName || 'vitejs'
+    const urlReport = urlParams.get('report')
+    const report = urlReport || myPreFetchedReports[0]?.fileName || 'vitejs'
 
     const isAPreFetchedReport = allItems
         .some(x => x.fileName === report)
@@ -74,68 +75,70 @@ const PrefetchedOptions = (props = {}) => {
     const [showAllReports, setAllReports] = useState(false)
 
     return (
-        <div className={classes.preFetched}>
-            {
-                myPreFetchedReports
-                    .map(preFetchButton)
-            }
-            <div>
-                <P><A href="https://2023.stateofjs.com/en-US/libraries/#tier_list">StateOfJS 23</A> S tier list</P>
+        !isAPreFetchedReport && urlReport
+            ? <div></div>
+            : <div className={classes.preFetched}>
                 {
-                    preFetchedSRank23
+                    myPreFetchedReports
                         .map(preFetchButton)
                 }
-            </div>
-            <P>Other reports</P>
+                <div>
+                    <P><A href="https://2023.stateofjs.com/en-US/libraries/#tier_list">StateOfJS 23</A> S tier list</P>
+                    {
+                        preFetchedSRank23
+                            .map(preFetchButton)
+                    }
+                </div>
+                <P>Other reports</P>
 
-            {
-                !myPreFetchedReports.length > 0 && <>
-                    {
-                        !showAllReports && repoInfo && Object.keys(repoInfo).length > 0
-                            && preFetchButton(repoInfo)
-                    }
-                    {
-                        showAllReports
-                            && <>
-                            <P>
-                                Repository reports
-                            </P>
-                            {
-                                preFetchedRepos
-                                    .map(preFetchButton)
-                            }
-                            <P>
-                                Org reports
-                            </P>
-                            {
-                                preFetchedOrgs
-                                    .map(preFetchButton)
-                            }
-                            <P>Team reports</P>
-                            {
-                                preFetchedTeams
-                                    .map(preFetchButton)
-                            }
-                        </>
-                    }
-                    {
-                        error
-                            && <Message
-                                error={error}
-                                className={classes.fullRow}
-                            />
-                    }
-                </>
-            }
-                <Button
-                    value={showAllReports ? 'Hide other reports' : 'Show more OSS reports...'}
-                    color={showAllReports ? 'primary' : 'secondary'}
-                    onClick={(e) => {
-                        e.preventDefault()
-                        setAllReports(!showAllReports)
-                    }}
-                />
-        </div>
+                {
+                    !myPreFetchedReports.length > 0 && <>
+                        {
+                            !showAllReports && repoInfo && Object.keys(repoInfo).length > 0
+                                && preFetchButton(repoInfo)
+                        }
+                        {
+                            showAllReports
+                                && <>
+                                <P>
+                                    Repository reports
+                                </P>
+                                {
+                                    preFetchedRepos
+                                        .map(preFetchButton)
+                                }
+                                <P>
+                                    Org reports
+                                </P>
+                                {
+                                    preFetchedOrgs
+                                        .map(preFetchButton)
+                                }
+                                <P>Team reports</P>
+                                {
+                                    preFetchedTeams
+                                        .map(preFetchButton)
+                                }
+                            </>
+                        }
+                        {
+                            error
+                                && <Message
+                                    error={error}
+                                    className={classes.fullRow}
+                                />
+                        }
+                    </>
+                }
+                    <Button
+                        value={showAllReports ? 'Hide other reports' : 'Show more OSS reports...'}
+                        color={showAllReports ? 'primary' : 'secondary'}
+                        onClick={(e) => {
+                            e.preventDefault()
+                            setAllReports(!showAllReports)
+                        }}
+                    />
+            </div>
     )
 }
 
