@@ -1,7 +1,6 @@
 import {
     anyPass,
     assoc,
-    difference,
     dissocPath,
     equals,
     filter,
@@ -64,61 +63,6 @@ const userIdsFromString = pipe(
     map(trim),
     filter(Boolean),
 )
-
-// TODO: not in right place. needs to be in form validation
-const getUsersInfo = (usersString = '') => {
-    const usersArray = userIdsFromString(usersString)
-
-    const userIds = []
-    const usersInfo = {}
-
-    usersArray
-        .forEach((user = '') => {
-            // eg with dates userName=start:2020-12-12;end:2020|start:2020-12-12
-            const [userId = '', usersInfoString = ''] = user.split('=')
-            userIds.push(userId)
-
-            const dates = []
-            usersInfoString
-                .split('|')
-                .forEach((detailsChunk = '') => {
-                    const [, startDate = ''] = detailsChunk.match(/start:([\d-/]*)/i) || []
-                    const [, endDate = ''] = detailsChunk.match(/end:([\d-/]*)/i) || []
-
-                    if (startDate || endDate) {
-                        dates.push({
-                            ...(startDate && { startDate }),
-                            ...(endDate && { endDate }),
-                        })
-                    }
-                })
-
-            const [, name = ''] = usersInfoString.match(/name:([^|,]+)/i) || []
-            if (dates.length > 0 || name) {
-                usersInfo[userId] = {
-                    userId,
-                    name,
-                    dates,
-                }
-            }
-        })
-
-    return {
-        userIds,
-        usersInfo,
-    }
-}
-
-const storeUserIds = (usersString = '') => (dispatch) => {
-    const {
-        userIds = [],
-    } = getUsersInfo(usersString)
-
-    return dispatch({
-        type: types.STORE_USER_IDS,
-        payload: userIds,
-    })
-}
 
 const storeUsersInfo = (usersInfo = {}) => (dispatch) => {
     const userIds = Object.keys(usersInfo)
@@ -211,19 +155,13 @@ const notSameArrayValues = (formValues = {}) => (key = '') => (fetches = {}) => 
 }
 
 const notSameUsersInfo = (formValues = {}) => (fetches = {}) => {
-    const usersString = propOr('', 'userIds', formValues)
-    const {
-        userIds = [],
-    } = getUsersInfo(usersString)
-
     const formUserId = formValues.userId
-    const formUserIds = formUserId ? [formUserId] : userIds
+    const [currentUserId] = fetches.userIds
 
     const usersInfo = formValues?.usersInfo || {}
-    const currentIds = fetches.userIds
     const currentUsersInfo = fetches.usersInfo || {}
 
-    const hasDifferentUserList = difference(currentIds, formUserIds).length > 0
+    const hasDifferentUserList = formUserId && currentUserId && formUserId !== currentUserId
     const hasDifferentUsersInfo = not(equals(usersInfo, currentUsersInfo))
 
     return hasDifferentUserList || hasDifferentUsersInfo
@@ -965,7 +903,6 @@ const checkUntilDate = (newSortDirection = '') => (dispatch, getState) => {
 }
 
 export {
-    getUsersInfo,
     clearAllData,
     clearPastSearch,
     storeOrg,
@@ -973,7 +910,6 @@ export {
     storeRepo,
     storeTeamName,
     storeEnterpriseAPI,
-    storeUserIds,
     storeUsersInfo,
     storeExcludeIds,
     storeEvents,

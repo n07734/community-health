@@ -8,7 +8,6 @@ import {
     sort,
     T as alwaysTrue,
 } from 'ramda'
-import { getUsersInfo } from '../../../state/actions'
 
 const inputLabels = {
     org: 'Organization',
@@ -50,14 +49,6 @@ const userHasCorrectDates = ({ dates = []} = {}) => {
         && hasCorrectOrder
 }
 
-const hasValidUsersIds = (usersString = '') => {
-    const {
-        userIds = [],
-    } = getUsersInfo(usersString)
-
-    return userIds.length > 0
-}
-
 const hasValidUsersInfo = (usersInfo = {}) => {
     const validUsersDates = Object.values(usersInfo)
         .every(userHasCorrectDates)
@@ -76,7 +67,6 @@ const validate = ({ key, value }) => {
         [equals('excludeIds'), always(/^([\w-.,\s]+|)$/.test(value))],
         [equals('events'), always(/^([\w-.,&\s=]+|)$/.test(value))],
         [equals('name'), always(/.?/.test(value))],
-        [equals('userIds'), () => hasValidUsersIds(value)],
         [equals('usersInfo'), () => hasValidUsersInfo(value)],
         [equals('startDate'), () => validDate(value)],
         [equals('endDate'), () => validDate(value)],

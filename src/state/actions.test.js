@@ -4,7 +4,6 @@ import {
     storeOrg,
     storeToken,
     storeRepo,
-    storeUserIds,
 } from './actions'
 import { getAPIData } from './actions'
 
@@ -130,23 +129,3 @@ describe('getAPIData:', () => {
     })
 })
 
-describe('storeUserIds:', () => {
-    test.each([
-        [ 'userName', ['userName'], {}],
-        [
-            'userName1=end:2023-12-12,userName2=start:2020-12-12',
-            ['userName1', 'userName2'],
-        ],
-        [
-            'userName4=start:2020-12-12;end:2021|start:2022-12-12,userName5',
-            ['userName4', 'userName5'],
-        ],
-      ])('input %i', (input, userIds) => {
-        const dispatch = vi.fn()
-        storeUserIds(input)(dispatch)
-
-        expect(dispatch).toHaveBeenCalledWith({
-            payload: userIds, type: 'STORE_USER_IDS',
-        })
-      })
-})

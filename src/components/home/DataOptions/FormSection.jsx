@@ -18,7 +18,6 @@ import {
     storeOrg,
     storeRepo,
     storeToken,
-    storeUserIds,
     storeUsersInfo,
     storeTeamName,
     storeEnterpriseAPI,
@@ -222,7 +221,6 @@ const mapDispatchToProps = dispatch => ({
             amountOfData,
             sortDirection,
             teamName,
-            userIds,
             usersInfo = {},
             userId,
             name,
@@ -250,7 +248,6 @@ const mapDispatchToProps = dispatch => ({
 
         org && dispatch(storeOrg(org))
         repo && dispatch(storeRepo(repo))
-        userIds && dispatch(storeUserIds(userIds))
         Object.keys(usersInfo).length > 0 && dispatch(storeUsersInfo(usersInfo))
         teamName && dispatch(storeTeamName(teamName))
 
