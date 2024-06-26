@@ -52,7 +52,7 @@ const styles = theme => ({
     },
 })
 
-const daysRemainingText = cond([
+const getDaysRemainingText = cond([
     [equals(1), x => `${x} day remaining`],
     [x => x > 1 , x => `${x} days remaining`],
     [x => x < 0 , always('Wrapping up')],
@@ -74,10 +74,12 @@ const Loader = ({
 
     const {
         user = '',
+        callDescription = '',
         prCount = 0,
         latestItemDate = '',
         issueCount = 0,
         savedReportName = '',
+        reviewCount = 0,
     } = fetchStatus
 
     const isTeamSearch = userIds.length > 1
@@ -103,6 +105,8 @@ const Loader = ({
     const daysTotal = dayDiff(startDate, untilDate)
     const daysLoaded = dayDiff(startDate, uptoDate)
     const daysRemaining = daysTotal - daysLoaded
+    const daysRemainingText = getDaysRemainingText(daysRemaining)
+
     const oneDayPercent = 100 / (daysTotal || 10)
     const loadedPercent = (daysLoaded * oneDayPercent)
 
@@ -117,10 +121,14 @@ const Loader = ({
     const oneUserPercent = 100 / (userIds.length || 10)
     const loadedUserPercent = (usersPosition * oneUserPercent)
 
+
     return (
         fetching && <div>
             <div className={ classes.overlay }></div>
             <div className={ classes.modal }>
+                <H level={2}>
+                    {callDescription}
+                </H>
                 {
                     isTeamSearch
                         && <>
@@ -130,38 +138,41 @@ const Loader = ({
                             <LinearProgress className={classes.dashed} variant="determinate" value={loadedUserPercent} valueBuffer={oneUserPercent + loadedUserPercent}/>
                         </>
                 }
-                <H level={2}>
-                    {daysRemainingText(daysRemaining)}
-                </H>
+                {
+                    daysRemainingText && <H level={2}>
+                        {daysRemainingText}
+                    </H>
+                }
                 {
                     savedReportName
-                        && <>
-                            <H level={2}>
-                                Fetching {savedReportName}
-                            </H>
-                        </>
+                        && <H level={2}>
+                            Fetching {savedReportName}
+                        </H>
                 }
                 <LinearProgress className={classes.dashed} variant="determinate" value={loadedPercent} valueBuffer={oneDayPercent + loadedPercent}/>
+
                 {
-                    !savedReportName
-                        && !isTeamSearch
-                        && <>
-                            <H level={2}>
-                                {prCount} Pull Requests
-                            </H>
-                            <H level={2}>
-                                {issueCount} Issues
-                            </H>
-                        </>
+                    prCount > 0 && <H level={2}>
+                        {prCount} Pull Requests
+                    </H>
+                }
+                {
+                    issueCount > 0 && <H level={2}>
+                        {issueCount} Issues
+                    </H>
+                }
+                {
+                    reviewCount > 0
+                        && <H level={2}>
+                            {reviewCount} Reviews
+                        </H>
                 }
                 {
                     isTeamSearch
                         && loadedUsers.length > 0
-                        && <>
-                            <P>
-                                Loaded users: {loadedUsers.join(', ')}
-                            </P>
-                        </>
+                        && <P>
+                            Loaded users: {loadedUsers.join(', ')}
+                        </P>
                 }
             </div>
         </div>

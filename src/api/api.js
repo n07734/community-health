@@ -4,7 +4,6 @@ import {
     always,
     cond,
     propOr,
-    pathOr,
     propEq,
     mergeDeepRight,
     test,
@@ -70,64 +69,18 @@ const pauseThenRetry = async(apiInfo, results) => {
         }
 }
 
-const getCurrentItemsByType = (type = '', results = []) => {
-    const total = results
-        .reduce((acc, result) => {
-            const itemCount = pathOr([], ['data', 'result', type, 'edges'], result)
-                .length
-            return acc + itemCount
-        }, 0)
-
-    return total
-}
-
-const getLatestDate = (type = '', results = []) => {
-    const latestResult = results.at(-1)
-    const latestResultItems = pathOr([], ['data', 'result', type, 'edges'], latestResult)
-
-    const targetItem = latestResultItems.at(-1)
-
-    const dateKey = type === 'pullRequests'
-        ? 'mergedAt'
-        : 'createdAt'
-
-    return pathOr('', ['node', dateKey], targetItem)
-}
-
-const dateSort = (sortDirection) => (a, b) => sortDirection === 'DESC'
-    ? new Date(b).getTime() - new Date(a).getTime()
-    : new Date(a).getTime() - new Date(b).getTime()
-
-const hasValue = (data = {}) => (path = []) => pathOr(false, path, data)
-
 const api = async({ fetchInfo, queryInfo, dispatch = () => {} }, results = []) => {
     const {
         query,
         resultInfo,
         fillerType,
-        user,
-        sortDirection,
+        getFetchStatus,
     } = queryInfo(fetchInfo)
 
-    const fetchInfoHas = hasValue(fetchInfo)
-
-    const [oldestItemWithNextPage] = [
-        fetchInfoHas(['prPagination','hasNextPageForDate']) && getLatestDate('pullRequests', results),
-        fetchInfoHas(['issuesPagination','hasNextPageForDate']) && getLatestDate('issues', results),
-        fetchInfoHas(['releasesPagination','hasNextPageForDate']) && getLatestDate('releases', results),
-    ]
-        .filter(Boolean)
-        .sort(dateSort(sortDirection))
-
+    const fetchStatus = getFetchStatus(results)
     dispatch({
         type: types.FETCH_STATUS,
-        payload: {
-            user,
-            prCount: getCurrentItemsByType('pullRequests', results),
-            latestItemDate: oldestItemWithNextPage,
-            issueCount: getCurrentItemsByType('issues', results),
-            releaseCount: getCurrentItemsByType('releases', results),
-        },
+        payload: fetchStatus,
     })
 
     const apiCallWithToken = apiCall(fetchInfo)

@@ -9,6 +9,40 @@ import {
 } from 'ramda'
 import filterByUntilDate from '../format/filterByUntilDate'
 
+const dateSort = (sortDirection) => (a, b) => sortDirection === 'DESC'
+  ? new Date(b).getTime() - new Date(a).getTime()
+  : new Date(a).getTime() - new Date(b).getTime()
+
+const getLatestDate = (path = [], dateKey = '') => (results = []) => {
+  const latestResult = results.at(-1)
+  const latestResultItems = pathOr([], path, latestResult)
+
+  const targetItem = latestResultItems.at(-1)
+
+  return pathOr('', ['node', dateKey], targetItem)
+}
+
+const getLatestPRDate = getLatestDate(['data', 'result', 'pullRequests', 'edges'], 'mergedAt')
+const getLatestIssueDate = getLatestDate(['data', 'result', 'issues', 'edges'], 'createdAt')
+const getLatestReleaseDate = getLatestDate(['data', 'result', 'releases', 'edges'], 'createdAt')
+const getLatestReviewDate = getLatestDate(['data', 'result', 'edges'], 'mergedAt')
+
+const getItemsCount = (path = []) => (results = []) => {
+  const total = results
+      .reduce((acc, result) => {
+          const itemCount = pathOr([], path, result)
+              .length
+          return acc + itemCount
+      }, 0)
+
+  return total
+}
+
+const getPRCount = getItemsCount(['data', 'result', 'pullRequests', 'edges'])
+const getReviewsCount = getItemsCount(['data', 'result', 'edges'])
+const getIssueCount = getItemsCount(['data', 'result', 'issues', 'edges'])
+const getResultsCount = getItemsCount(['data', 'result', 'releases', 'edges'])
+
 const cursorQ = (cursor) => cursor
   ? ` after:"${cursor}" `
   : ''
@@ -490,6 +524,16 @@ const reviewsByUserQuery = (untilDate) => ({
     return pageInfo
   },
   fillerType: 'pullRequests',
+  getFetchStatus: (results = []) => {
+    const furthestDate = usersReviewsPagination?.hasNextPageForDate && getLatestReviewDate(results)
+
+    return {
+      user,
+      callDescription: `Getting reviews by ${user}`,
+      reviewCount: getReviewsCount(results),
+      latestItemDate: furthestDate,
+    }
+  },
   hasMoreResults: [
     usersReviewsPagination.hasNextPage,
   ]
@@ -580,6 +624,23 @@ const userQuery = (untilDate) => ({
     return pageInfo
   },
   // TODO: fillerType ?
+  getFetchStatus: (results = []) => {
+    const [furthestDate] = [
+      prPagination?.hasNextPageForDate && getLatestPRDate(results),
+      issuesPagination?.hasNextPageForDate && getLatestIssueDate(results),
+    ]
+      .filter(Boolean)
+      .sort(dateSort(sortDirection))
+
+    // TODO: add commitComments and issueComments
+    return {
+      user,
+      callDescription: `Getting ${user} PRs and Issues`,
+      prCount: getPRCount(results),
+      latestItemDate: furthestDate,
+      issueCount: getIssueCount(results),
+    }
+  },
   hasMoreResults: [
     prPagination.hasNextPage,
     issuesPagination.hasNextPage,
@@ -656,6 +717,24 @@ const batchedQuery = (untilDate) => ({
     }
   },
   fillerType: 'batchedQuery',
+  getFetchStatus: (results = []) => {
+    const [furthestDate] = [
+      prPagination?.hasNextPageForDate && getLatestPRDate(results),
+      issuesPagination?.hasNextPageForDate && getLatestIssueDate(results),
+      releasesPagination?.hasNextPageForDate && getLatestReleaseDate(results),
+    ]
+      .filter(Boolean)
+      .sort(dateSort(sortDirection))
+
+    return {
+      user: '',
+      callDescription: `Getting PRs, Issues, and Releases from ${repo}`,
+      prCount: getPRCount(results),
+      latestItemDate: furthestDate,
+      issueCount: getIssueCount(results),
+      releaseCount: getResultsCount(results),
+    }
+  },
   hasMoreResults: [
     prPagination.hasNextPage,
     issuesPagination.hasNextPage,
