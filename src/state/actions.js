@@ -555,7 +555,7 @@ const getAPIData = () => async (dispatch, getState) => {
 
         const newPullRequests = formatPullRequests(fetches, results)
         const filteredNewPullRequests = filterByUsersInfo(fetches, newPullRequests)
-        const allPullRequests = reviewedPullRequests.concat(filteredPRs).concat(filteredNewPullRequests)
+        const allPullRequests = pullRequests.concat(filteredPRs).concat(filteredNewPullRequests)
 
         const newestOldPR = pullRequests.at(-1)?.mergedAt?.slice(0, 10)
         const oldestOldPR = pullRequests.at(0)?.mergedAt?.slice(0, 10)
