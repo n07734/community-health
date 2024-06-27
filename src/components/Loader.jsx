@@ -80,6 +80,7 @@ const Loader = ({
         issueCount = 0,
         savedReportName = '',
         reviewCount = 0,
+        repoCount = 0,
     } = fetchStatus
 
     const isTeamSearch = userIds.length > 1
@@ -165,6 +166,12 @@ const Loader = ({
                     reviewCount > 0
                         && <H level={2}>
                             {reviewCount} Reviews
+                        </H>
+                }
+                {
+                    repoCount > 0
+                        && <H level={2}>
+                            {repoCount} Repos
                         </H>
                 }
                 {

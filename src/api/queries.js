@@ -42,6 +42,7 @@ const getPRCount = getItemsCount(['data', 'result', 'pullRequests', 'edges'])
 const getReviewsCount = getItemsCount(['data', 'result', 'edges'])
 const getIssueCount = getItemsCount(['data', 'result', 'issues', 'edges'])
 const getResultsCount = getItemsCount(['data', 'result', 'releases', 'edges'])
+const getRepoCount = getItemsCount(['data', 'organization', 'repositories', 'edges'])
 
 const cursorQ = (cursor) => cursor
   ? ` after:"${cursor}" `
@@ -477,8 +478,6 @@ const reviewsByUserQuery = (untilDate) => ({
   sortDirection,
   user,
   resultInfo: (data) => {
-    console.log('==resultInfo data', data)
-
     const byDirectionType = getPaginationForSearch(
       {
         usersReviewsPagination,
@@ -635,7 +634,7 @@ const userQuery = (untilDate) => ({
     // TODO: add commitComments and issueComments
     return {
       user,
-      callDescription: `Getting ${user} PRs and Issues`,
+      callDescription: `Getting PRs and Issues by ${user}`,
       prCount: getPRCount(results),
       latestItemDate: furthestDate,
       issueCount: getIssueCount(results),
@@ -835,6 +834,12 @@ const orgQuery = ({ org, cursor }) => ({
       cursor: pathOr('', ['data', 'organization', 'repositories', 'pageInfo', 'endCursor'], data),
     },
   }),
+  getFetchStatus: (results = []) => {
+    return {
+      callDescription: `Getting repo for ${org}`,
+      repoCount: getRepoCount(results),
+    }
+  },
 })
 
 const teamIDsQuery = ({ org, team }) => ({
