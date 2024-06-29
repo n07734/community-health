@@ -78,6 +78,27 @@ const getTableKeys = (graphInfo = {}) => {
 let id = 1
 const getGraphId = () => ++id
 
+const getAllMaths = (graphs = []) => {
+    const allMaths = []
+    graphs
+        .forEach(({ left = [], right = [] } = {}) => {
+            left
+                .forEach(x => x?.groupMath && allMaths.push(x.groupMath))
+
+            right
+                .forEach(x => x?.groupMath && allMaths.push(x.groupMath))
+        })
+
+    return allMaths
+}
+
+const hasTrimmedMaths = (graphs = []) => {
+    const allMaths = getAllMaths(graphs)
+    const hasTrimmed = allMaths.includes('trimmedAverage')
+
+    return hasTrimmed
+}
+
 const CustomGraphs = ({
     chunkyData = [],
     pullRequests = [],
@@ -94,7 +115,7 @@ const CustomGraphs = ({
         graphId: 1,
         left: [
             {
-                label: 'Trimmed Average PR Age (days)',
+                label: '*Trimmed Average PR Age (days)',
                 color: colorA,
                 dataKey: 'age',
                 groupMath: 'trimmedAverage',
@@ -102,7 +123,7 @@ const CustomGraphs = ({
         ],
         right: [
             {
-                label: 'Trimmed Average PR Size',
+                label: '*Trimmed Average PR Size',
                 color: colorB,
                 dataKey: 'prSize',
                 groupMath: 'trimmedAverage',
@@ -110,6 +131,7 @@ const CustomGraphs = ({
         ],
     }]
     const [graphs, setGraph] = useState(defaultState)
+    const showingTrimmed = hasTrimmedMaths(graphs)
 
     const makeGraphData = formatGraphData(pullRequests, prTransformer, issues)
 
@@ -156,6 +178,12 @@ const CustomGraphs = ({
                                 />
                         })
                 }
+                {
+                    showingTrimmed && <P>
+                        *Trimmed average is the average after the top and bottom 5% is trimmed.
+                    </P>
+                }
+
             </GraphsWrap>
             <div className={classes.buttons}>
                 {

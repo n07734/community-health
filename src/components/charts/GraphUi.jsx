@@ -113,7 +113,7 @@ const lineOptions = [
 
 const mathWords = {
     average: 'Average',
-    trimmedAverage: 'Trimmed Average',
+    trimmedAverage: '*Trimmed Average',
     sum: 'Total',
     count: 'Total',
     median: 'Median',
