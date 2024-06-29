@@ -19,7 +19,6 @@ import {
     inputLabels,
     formValue,
     validateForm,
-    usersInfoToText,
 } from './utils'
 
 import {
@@ -32,6 +31,7 @@ import {
     getAPIData,
     getDownloadProps,
     checkUntilDate,
+    storeUsersInfo,
 } from '../../../state/actions'
 
 const PrefetchedForm = (props) => {
@@ -57,8 +57,6 @@ const PrefetchedForm = (props) => {
         || repo && org && 'repo'
         || org && 'org'
 
-    const usersInputText = usersInfoToText(usersInfo)
-
     const eventsText = events
         .map(({name, date} = {}) => `${name}=${date}`)
         .join(', ')
@@ -70,7 +68,6 @@ const PrefetchedForm = (props) => {
         sortDirection: fetches.sortDirection,
         amountOfData: fetches.amountOfData,
         token: fetches.token,
-        ...( usersInputText && { userIds: usersInputText }),
         ...( eventsText && { events: eventsText }),
         ...( excludeIdsText && { excludeIds: excludeIdsText }),
         ...( fetches.org && { org: fetches.org }),
@@ -148,18 +145,20 @@ const PrefetchedForm = (props) => {
                     onSubmit={handleSubmit}
                 >
                     <div className={classes.inputGrid}>
-                        {
-                            hardCodedKeys
-                                .filter((inputKey) => formValue(fetches, inputKey))
-                                .map((inputKey) => <P key={inputKey}>{inputLabels[inputKey]}: <b>{formValue(fetches, inputKey) || 'N/A'}</b></P>)
-                        }
-                        {
-                            reportType === 'team' &&
-                                <TeamModal
-                                    usersInfo={usersInfo}
-                                    setParentValues={setFormValues}
-                                />
-                        }
+                        <div className="inputDesc">
+                            {
+                                hardCodedKeys
+                                    .filter((inputKey) => formValue(fetches, inputKey))
+                                    .map((inputKey) => <P key={inputKey}>{inputLabels[inputKey]}: <b>{formValue(fetches, inputKey) || 'N/A'}</b></P>)
+                            }
+                            {
+                                reportType === 'team' &&
+                                    <TeamModal
+                                        usersInfo={usersInfo}
+                                        setParentValues={setFormValues}
+                                    />
+                            }
+                        </div>
                         <TextInput
                             type="events"
                             className="inputDesc"
@@ -216,7 +215,16 @@ const mapDispatchToProps = dispatch => ({
             sortDirection,
             excludeIds,
             events,
+            userId,
+            usersInfo = {},
         } = values
+
+        if (userId) {
+            usersInfo[userId] = {
+                userId,
+                name,
+            }
+        }
 
         dispatch(checkUntilDate(sortDirection))
         dispatch(storeToken(token))
@@ -225,6 +233,7 @@ const mapDispatchToProps = dispatch => ({
         dispatch(storeSortDirection(sortDirection))
         dispatch(storeFormUntilDate(amountOfData))
         dispatch(storeEvents(events))
+        Object.keys(usersInfo).length > 0 && dispatch(storeUsersInfo(usersInfo))
     },
     getData: (x) => dispatch(getAPIData(x)),
     getDownloadInfo: () => dispatch(getDownloadProps),

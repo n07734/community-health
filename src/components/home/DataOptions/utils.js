@@ -70,7 +70,7 @@ const validate = ({ key, value }) => {
         [equals('usersInfo'), () => hasValidUsersInfo(value)],
         [equals('startDate'), () => validDate(value)],
         [equals('endDate'), () => validDate(value)],
-        [alwaysTrue, always(/^[\w-.]+$/.test(value))],
+        [alwaysTrue, always(/^[\w-_.]+$/.test(value))],
     ])(key)
     return isValid
 }
@@ -111,31 +111,6 @@ const formValue = (data, key) => {
         : value
 }
 
-const usersInfoToText = (usersInfo = {}) => Object.values(usersInfo)
-        .map(({
-            dates = [],
-            name = '',
-            userId = '',
-        } = {}) => {
-            const usersValues = []
-            name
-                && usersValues.push(`name:${name}`)
-
-            dates
-                .forEach(({startDate, endDate} = {}) => {
-                    const dates = []
-                    startDate && dates.push(`start:${startDate}`)
-                    endDate && dates.push(`start:${endDate}`)
-
-                    const textValue = dates.join(';')
-                    usersValues.push(textValue)
-                })
-
-            // e.g. userA=start:2023-12-12;end:2023|start:2023-12-12|name:Name
-            return `${userId}${usersValues.length > 0 ? `=${usersValues.join('|')}` : ''}`
-        })
-        .join(', ')
-
 export {
     buttonText,
     errorValue,
@@ -143,5 +118,4 @@ export {
     validate,
     formValue,
     validateForm,
-    usersInfoToText,
 }
