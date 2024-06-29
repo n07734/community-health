@@ -7,7 +7,7 @@ const styles = theme => ({
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'top left',
         backgroundSize: '100% 20px',
-        backgroundImage: `linear-gradient(${theme.palette.shadow}, rgba(0,0,0,0))`,
+        backgroundImage: theme.palette.paperGradient,
         position: 'relative',
     },
     'bg-none': {

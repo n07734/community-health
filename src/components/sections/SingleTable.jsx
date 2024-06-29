@@ -206,14 +206,14 @@ const styles = theme => ({
             position: 'absolute',
             bottom: '0px',
             zIndex: '-1',
-            background: 'linear-gradient(0deg, rgba(232,37,115,.12) 16%,rgba(232,37,115,.40) 16%, rgba(232,37,115,0) 90%)',
+            background: theme.palette.tableGraphGradient1,
             '@media (max-width: 768px)': {
                 height: '400px',
-                background: 'linear-gradient(0deg, rgba(232,37,115,.12) 20%,rgba(232,37,115,.40) 16%, rgba(232,37,115,0) 90%)',
+                background: theme.palette.tableGraphGradient2,
             },
             '@media (max-width: 668px)': {
                 height: '320px',
-                background: 'linear-gradient(0deg, rgba(232,37,115,.12) 25%,rgba(232,37,115,.40) 16%, rgba(232,37,115,0) 90%)',
+                background: theme.palette.tableGraphGradient3,
             },
         },
     },
