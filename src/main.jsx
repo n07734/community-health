@@ -8,7 +8,7 @@ import { ThemeModeProvider } from './state/ThemeModeProvider'
 import { ShowNumbersProvider } from './state/ShowNumbersProvider'
 import { ShowNamesProvider } from './state/ShowNamesProvider'
 import { SubPageProvider } from './state/SubPageProvider'
-import App from './App.jsx'
+import App from './App.tsx'
 import reducers from './state/reducers'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

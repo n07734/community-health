@@ -1,0 +1,108 @@
+export type AmountOfData = number | 'all'
+export type ApiResults = any[]
+
+export type ApiResponse = {
+    status: number
+    message?: string
+    [key: string]: any
+}
+
+export type ApiResult = {
+    errorMessage?: ApiError
+    fetchInfo: FetchInfo
+    results: ApiResults
+    reviewResults: any[]
+}
+
+export type SortDirection = 'ASC' | 'DESC'
+
+type QueryInfoToDo = {
+    (fetchInfo: FetchInfo): {
+        query: string
+        resultInfo: (result: ApiResponse) => {
+            hasNextPage: boolean
+            nextPageInfo?: FetchInfo
+        }
+        fillerType: FilterType
+        getFetchStatus: (results: any[]) => string
+    };
+}
+
+type QueryInfo = any
+
+type Dispatch = (action: { type: string, payload: any }) => void
+
+type ApiInfo = { fetchInfo: FetchInfo, queryInfo: QueryInfo, dispatch: Dispatch }
+
+type ApiError = {
+    level: string
+    message: string
+}
+
+type OldNew = {
+    oldest?: string
+    newest?: string
+    hasNextPageForDate?: boolean
+    hasNextPage?: boolean
+}
+
+type Cursor = undefined | string
+
+type RawDataTypeKey = 'pullRequests' | 'issues' | 'releases'
+type RawDataCommentTypeKey = 'usersReviews' | 'commitComments' | 'issueComments'
+
+type RawPageInfo = {
+    startCursor: string
+    endCursor: string
+    hasNextPage: boolean
+    hasPreviousPage: boolean
+}
+
+
+type Paginations = {
+    usersReviewsPagination?: OldNew
+    issuesPagination?: OldNew
+    prPagination?: OldNew
+    releasesPagination?: OldNew
+    commitCommentsPagination?: OldNew
+    issueCommentsPagination?: OldNew
+}
+
+type QueryDefault = Paginations & {
+    amountOfData: AmountOfData
+    sortDirection?: SortDirection
+}
+
+type UserQueryArgs = QueryDefault & {
+    user: string
+}
+
+type BatchedQueryArgs = QueryDefault & {
+    org: string
+    repo: string
+}
+
+type FetchInfoToDo = BatchedQueryArgs & {
+    name?: string
+    enterpriseAPI?: string
+    token: string
+}
+
+export type FetchInfo = any
+
+type UntilDate = string | undefined
+
+type NodeCursor = {
+    cursor: Cursor
+    nodeId: string
+}
+
+type FilterType = '' | 'pullRequests' | 'pullRequestReviewComments' | 'batchedQuery' | 'comments' | 'pullRequestReviewComments'
+
+type MakeQuery = (queryInfo: any) => { query: any, resultInfo: any, fillerType: FilterType }
+
+type GetUsersData = {
+    fetchInfo: FetchInfo
+    untilDate: UntilDate
+    dispatch: any
+}
