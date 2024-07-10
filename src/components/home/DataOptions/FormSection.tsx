@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { withStyles } from '@mui/styles'
 import { Users } from '../../../types/Components'
 import { ReportType } from '../../../types/State'
+import { AmountOfData } from '../../../types/Querys'
 
 import ChartDescription from '../../shared/ChartDescription'
 import SelectAmountData from './SelectAmountData'
@@ -268,7 +269,7 @@ const mapDispatchToProps = (dispatch: any) => ({
             amountOfData,
             sortDirection,
             teamName,
-            usersInfo,
+            usersInfo = {},
             userId,
             name,
             enterpriseAPI,

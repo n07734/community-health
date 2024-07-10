@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { connect } from 'react-redux'
-import { withStyles } from '@mui/styles'
+import { withStyles, useTheme } from '@mui/styles'
 import Slider from '@mui/material/Slider'
 import { Theme } from '@mui/material/styles'
 import {
@@ -11,24 +11,29 @@ import {
     differenceInDays,
 } from 'date-fns'
 import { PullRequest, Issue } from '../../types/FormattedData'
+import { trimItems } from '../../state/actions'
+import { FetchInfo, UsersInfo } from '../../types/State'
 
 import { P } from '../shared/StyledTags'
-import { trimItems } from '../../state/actions'
 
 type DateRangeProps = {
-    pullRequests: PullRequest[];
-    itemsDateRange: string[];
-    issues: Issue[];
-    trim: (from: string, to: string) => void;
-    classes: any;
+    pullRequests: PullRequest[]
+    itemsDateRange: string[]
+    issues: Issue[]
+    usersInfo: UsersInfo
+    trim: (from: string, to: string) => void
+    classes: any
 }
 const DateRange = ({
     pullRequests = [],
     itemsDateRange = ['', ''],
     issues = [],
+    usersInfo,
     trim,
     classes,
 }:DateRangeProps) => {
+    const theme: Theme = useTheme();
+
     /// need stable start and end dates
     const [startDate, endDate] = itemsDateRange
 
@@ -61,8 +66,17 @@ const DateRange = ({
         trim(leftDate, rightDate)
     }
 
+    const userCount = Object.keys(usersInfo).length
+    const userText = userCount > 1
+        ? `by ${userCount} contributors`
+        : ''
+
+    const issuesText = issues.length > 0
+        ? `and ${issues.length} issues`
+        : ''
+
     return pullRequests.length > 0 && leftDate && <>
-            <P className={classes.title}>Drag the points to change the date range of the report. Showing {pullRequests.length} PRs and {issues.length} issues </P>
+            <P className={classes.title}><b>Showing {pullRequests.length} PRs {userText} {issuesText}</b>. Drag the points to change the date range of the report.</P>
             <div className={classes.dates}>
                 <P>{format(new Date(leftDate), 'do MMM yy')}</P><P>{format(new Date(rightDate), 'do MMM yy')}</P>
             </div>
@@ -71,19 +85,43 @@ const DateRange = ({
                 onChange={handleChange}
                 onChangeCommitted={handleDone}
                 aria-labelledby="date-slider"
+                sx={{
+                    '&.MuiSlider-root .MuiSlider-thumb:nth-child(even)': {
+                        width: '30px',
+                        height: '30px',
+                        '&:after': {
+                            content: '">"'
+                        }
+                    },
+                    '& .MuiSlider-thumb': {
+                        width: '30px',
+                        height: '30px',
+                        '&:after': {
+                            content: '"<"',
+                            color: theme.palette.text.primary,
+                            fontWeight: '800',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            paddingBottom: '0.06rem',
+                        }
+                    }
+                }}
             />
         </>
 }
 
 type State = {
-    pullRequests: PullRequest[];
-    issues: Issue[];
+    pullRequests: PullRequest[]
+    issues: Issue[]
+    fetches: FetchInfo
     itemsDateRange: string[]
 }
 const mapStateToProps = (state:State) => ({
     pullRequests: state.pullRequests,
     issues: state.issues,
     itemsDateRange: state.itemsDateRange,
+    usersInfo: state.fetches.usersInfo,
 })
 
 const mapDispatchToProps = (dispatch:any) => ({

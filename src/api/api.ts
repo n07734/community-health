@@ -5,6 +5,7 @@ import {
     cond,
     propOr,
     propEq,
+    pathOr,
     mergeDeepRight,
     test,
     T as alwaysTrue,
@@ -12,9 +13,12 @@ import {
 } from 'ramda'
 import { compose } from 'redux'
 import { AmountOfData, ApiInfo, ApiResponse, ApiResult, ApiResults, FetchInfo } from '../types/Querys'
+import { ObjStrings } from '../types/Components'
+
+import types from '../state/types'
 
 import fillData from './fillers'
-import types from '../state/types'
+import { dateSort } from '../utils'
 
 const parseJSON = (response: Response): Promise<ApiResponse> => new Promise((resolve, reject) => {
     response.json()
@@ -73,18 +77,67 @@ const pauseThenRetry = async(apiInfo: ApiInfo, results: ApiResults): Promise<Api
         }
 }
 
+const getCurrentCount = (type: string, results: any[]):number => {
+    const total = results
+        .reduce((acc:number, result:any) => {
+            const items = result?.data?.result?.[type]?.edges || []
+            return acc + items.length
+        }, 0)
+
+    return total
+}
+
+const getLatestDate = (data:any) => (type:string, results: any[]):string => {
+    const paginationKeyMap:ObjStrings = {
+        pullRequests: 'prPagination',
+        issues: 'issuesPagination',
+        releases: 'releasesPagination',
+    }
+    const hasNextPage = pathOr(false, [paginationKeyMap[type], 'hasNextPageForDate'], data)
+
+    const latestResult = results[results.length - 1]
+    const latestItems = latestResult?.data?.result?.[type]?.edges || []
+
+    const latestItem = latestItems[latestItems.length - 1]
+
+    const dataKey = type === 'pullRequests'
+        ? 'createdAt'
+        : 'closedAt'
+
+    return hasNextPage
+        ? latestItem?.node?.[dataKey] || ''
+        : ''
+}
+
+
 const api = async({ fetchInfo, queryInfo, dispatch = () => {} }:ApiInfo, results: ApiResults = []): Promise<ApiResult>  => {
     const {
         query,
         resultInfo,
         fillerType,
-        getFetchStatus,
+        user,
+        sortDirection,
     } = queryInfo(fetchInfo)
 
-    const fetchStatus = getFetchStatus(results)
+    const getLatestDateFor = getLatestDate(fetchInfo)
+
+    const [furthestItemWithNextPage] = [
+        getLatestDateFor('pullRequests', results),
+        getLatestDateFor('issues', results),
+        getLatestDateFor('releases', results),
+    ]
+        .filter(Boolean)
+        .sort((a,b) => dateSort(sortDirection)(a as string,b as string))
+
     dispatch({
         type: types.FETCH_STATUS,
-        payload: fetchStatus,
+        payload: {
+            prCount: getCurrentCount('pullRequests', results),
+            issueCount: getCurrentCount('issues', results),
+            releasesCount: getCurrentCount('releases', results),
+            latestItemDate: furthestItemWithNextPage,
+            user
+        }
     })
 
     const apiCallWithToken = apiCall(fetchInfo)

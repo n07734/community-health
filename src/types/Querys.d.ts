@@ -24,7 +24,6 @@ type QueryInfoToDo = {
             nextPageInfo?: FetchInfo
         }
         fillerType: FilterType
-        getFetchStatus: (results: any[]) => string
     };
 }
 
@@ -32,26 +31,26 @@ type QueryInfo = any
 
 type Dispatch = (action: { type: string, payload: any }) => void
 
-type ApiInfo = { fetchInfo: FetchInfo, queryInfo: QueryInfo, dispatch: Dispatch }
+export type ApiInfo = { fetchInfo: FetchInfo, queryInfo: QueryInfo, dispatch: Dispatch }
 
 type ApiError = {
     level: string
     message: string
 }
 
-type OldNew = {
+export type OldNew = {
     oldest?: string
     newest?: string
     hasNextPageForDate?: boolean
     hasNextPage?: boolean
 }
 
-type Cursor = undefined | string
+export type Cursor = undefined | string
 
-type RawDataTypeKey = 'pullRequests' | 'issues' | 'releases'
-type RawDataCommentTypeKey = 'usersReviews' | 'commitComments' | 'issueComments'
+export type RawDataTypeKey = 'pullRequests' | 'issues' | 'releases'
+export type RawDataCommentTypeKey = 'usersReviews' | 'commitComments' | 'issueComments'
 
-type RawPageInfo = {
+export type RawPageInfo = {
     startCursor: string
     endCursor: string
     hasNextPage: boolean
@@ -73,11 +72,11 @@ type QueryDefault = Paginations & {
     sortDirection?: SortDirection
 }
 
-type UserQueryArgs = QueryDefault & {
+export type UserQueryArgs = QueryDefault & {
     user: string
 }
 
-type BatchedQueryArgs = QueryDefault & {
+export type BatchedQueryArgs = QueryDefault & {
     org: string
     repo: string
 }
@@ -92,14 +91,14 @@ export type FetchInfo = any
 
 export type UntilDate = string | undefined
 
-type NodeCursor = {
+export type NodeCursor = {
     cursor: Cursor
     nodeId: string
 }
 
 type FilterType = '' | 'pullRequests' | 'pullRequestReviewComments' | 'batchedQuery' | 'comments' | 'pullRequestReviewComments'
 
-type MakeQuery = (queryInfo: any) => { query: any, resultInfo: any, fillerType: FilterType }
+export type MakeQuery = (queryInfo: any) => { query: any, resultInfo: any, fillerType: FilterType }
 
 type GetUsersData = {
     fetchInfo: FetchInfo

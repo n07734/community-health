@@ -13,10 +13,13 @@ import {
     propOr,
     pick,
     values,
-    objOf,
 } from 'ramda'
 import { isAfter, isBefore } from 'date-fns'
 import { AnyAction, Dispatch } from 'redux'
+import { ReportType, State } from '../types/State'
+import { AmountOfData } from '../types/Querys'
+import { AnyObject } from '../types/Components'
+import { DateKeys } from '../types/rawData'
 
 import api from '../api/api'
 import getUsersData from '../api/getUsersData'
@@ -37,9 +40,6 @@ import { batchedQuery } from '../api/queries'
 import formatUserData from '../format/userData'
 import { formatReleaseData } from '../format/releaseData'
 import types from './types'
-import { ReportType, State } from '../types/State'
-import { AmountOfData } from '../types/Querys'
-import { AnyObject } from '../types/Components'
 
 const storeToken = (token = '') => ({
     type: types.STORE_TOKEN,
@@ -482,8 +482,8 @@ const getAPIData = () => async (dispatch: Dispatch<AnyAction>, getState: any) =>
         } = fetches
 
         const userIds = fetches?.userIds || []
-        const repo = fetches?.repo || []
-        const org = fetches?.org || []
+        const repo = fetches?.repo || ''
+        const org = fetches?.org || ''
 
         const untilDate = formUntilDate
 

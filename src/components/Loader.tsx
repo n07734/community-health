@@ -86,7 +86,6 @@ const Loader = ({
 
     const {
         user = '',
-        callDescription = '',
         prCount = 0,
         latestItemDate = '',
         issueCount = 0,
@@ -134,14 +133,10 @@ const Loader = ({
     const oneUserPercent = 100 / (userIds.length || 10)
     const loadedUserPercent = (usersPosition * oneUserPercent)
 
-
     return (
         fetching && <div>
             <div className={ classes.overlay }></div>
             <div className={ classes.modal }>
-                <H level={2}>
-                    {callDescription}
-                </H>
                 {
                     isTeamSearch
                         && <>
@@ -163,27 +158,28 @@ const Loader = ({
                         </H>
                 }
                 <LinearProgress className={classes.dashed} variant="determinate" value={loadedPercent} valueBuffer={oneDayPercent + loadedPercent}/>
-
                 {
-                    prCount > 0 && <H level={2}>
-                        {prCount} Pull Requests
-                    </H>
+                    repoCount > 0
+                        && <H level={2}>
+                            {repoCount} Repos
+                        </H>
                 }
                 {
-                    issueCount > 0 && <H level={2}>
-                        {issueCount} Issues
-                    </H>
+                    !savedReportName
+                        && !isTeamSearch
+                        && <>
+                            <H level={2}>
+                                {prCount} Pull Requests
+                            </H>
+                            <H level={2}>
+                                {issueCount} Issues
+                            </H>
+                        </>
                 }
                 {
                     reviewCount > 0
                         && <H level={2}>
                             {reviewCount} Reviews
-                        </H>
-                }
-                {
-                    repoCount > 0
-                        && <H level={2}>
-                            {repoCount} Repos
                         </H>
                 }
                 {

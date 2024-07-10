@@ -9,6 +9,8 @@ import {
     FormLabel,
 } from '@mui/material'
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
+import { CustomLineDataKey, Graph, GraphFormInfo, GraphLine, GraphOptions, GroupMath } from '../../types/Graphs';
+import { AllowedColors, ObjStrings } from '../../types/Components';
 
 import { P } from '../shared/StyledTags'
 import Button from '../shared/Button'

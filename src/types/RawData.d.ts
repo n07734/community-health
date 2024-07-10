@@ -8,8 +8,9 @@ type RawPullRequests = {
     }
 }
 
-type Cursors = {
+export type Cursors = {
     endCursor: string
+    startCursor?: string
     hasNextPage: boolean
 }
 

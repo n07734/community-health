@@ -1,4 +1,5 @@
-import { ObjNumbers } from "./types/Components"
+import { ObjNumbers } from './types/Components'
+import { SortDirection } from './types/Querys'
 
 const sumKeysValue = (key = '') => (items: any[] = []) => items
     .reduce((acc: number, current = {}) => (current[key] as number || 0) + acc, 0)
@@ -14,7 +15,12 @@ const sortByKeys = (keys: string[] = []) => (a: any, b: any) => {
     return bTotal - aTotal
 }
 
+const dateSort = (sortDirection: SortDirection) => (a:string, b:string) => sortDirection === 'DESC'
+  ? new Date(b).getTime() - new Date(a).getTime()
+  : new Date(a).getTime() - new Date(b).getTime()
+
 export {
     sumKeysValue,
     sortByKeys,
+    dateSort,
 }

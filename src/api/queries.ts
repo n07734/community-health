@@ -1,6 +1,7 @@
 
 import { pathOr } from 'ramda'
 import { isDate } from 'date-fns'
+import { BatchedQueryArgs, Cursor, MakeQuery, NodeCursor, OldNew, RawDataCommentTypeKey, RawDataTypeKey, RawPageInfo, SortDirection, UntilDate, UserQueryArgs } from '../types/Querys'
 import {
   always,
   T as alwaysTrue,
@@ -8,46 +9,11 @@ import {
   cond,
 } from 'ramda'
 import filterByUntilDate from '../format/filterByUntilDate'
-
-const dateSort = (sortDirection: SortDirection) => (a:string, b:string) => sortDirection === 'DESC'
-  ? new Date(b).getTime() - new Date(a).getTime()
-  : new Date(a).getTime() - new Date(b).getTime()
-
-const getLatestDate = (path: string[] = [], dateKey = '') => (results: any[] = []) => {
-  const latestResult = results.at(-1)
-  const latestResultItems = pathOr([], path, latestResult)
-
-  const targetItem = latestResultItems.at(-1)
-
-  return pathOr('', ['node', dateKey], targetItem)
-}
-
-const getLatestPRDate = getLatestDate(['data', 'result', 'pullRequests', 'edges'], 'mergedAt')
-const getLatestIssueDate = getLatestDate(['data', 'result', 'issues', 'edges'], 'createdAt')
-const getLatestReleaseDate = getLatestDate(['data', 'result', 'releases', 'edges'], 'createdAt')
-const getLatestReviewDate = getLatestDate(['data', 'result', 'edges'], 'mergedAt')
-
-const getItemsCount = (path: string[] = []) => (results = []) => {
-  const total = results
-      .reduce((acc, result) => {
-          const itemCount = pathOr([], path, result)
-              .length
-          return acc + itemCount
-      }, 0)
-
-  return total
-}
-
-const getPRCount = getItemsCount(['data', 'result', 'pullRequests', 'edges'])
-const getReviewsCount = getItemsCount(['data', 'result', 'edges'])
-const getIssueCount = getItemsCount(['data', 'result', 'issues', 'edges'])
-const getResultsCount = getItemsCount(['data', 'result', 'releases', 'edges'])
-const getRepoCount = getItemsCount(['data', 'organization', 'repositories', 'edges'])
+import { Cursors } from '../types/rawData'
 
 const cursorQ = (cursor: Cursor) => cursor
   ? ` after:"${cursor}" `
   : ''
-
 
 const cursorWithDirection = (order: SortDirection, { oldest, newest }: OldNew) => {
   const cursor = order === 'DESC' ? oldest : newest
@@ -209,7 +175,7 @@ const getPaginationByType = (
     hasNextPage = false,
     startCursor,
     endCursor,
-  } = pathOr({}, ['data', 'result', type, 'pageInfo'], data) as RawPageInfo
+  } = pathOr({}, ['data', 'result', type, 'pageInfo'], data) as Cursors
 
   const items = pathOr([], ['data', 'result', type, 'edges'], data)
 
@@ -530,16 +496,6 @@ const reviewsByUserQuery = (untilDate: UntilDate) => ({
     return pageInfo
   },
   fillerType: 'pullRequests',
-  getFetchStatus: (results = []) => {
-    const furthestDate = usersReviewsPagination?.hasNextPageForDate && getLatestReviewDate(results)
-
-    return {
-      user,
-      callDescription: `Getting reviews by ${user}`,
-      reviewCount: getReviewsCount(results),
-      latestItemDate: furthestDate,
-    }
-  },
   hasMoreResults: [
     usersReviewsPagination.hasNextPage,
   ]
@@ -625,23 +581,6 @@ const userQuery = (untilDate: UntilDate) => ({
     return pageInfo
   },
   // TODO: fillerType ?
-  getFetchStatus: (results = []) => {
-    const [furthestDate] = [
-      prPagination?.hasNextPageForDate && getLatestPRDate(results),
-      issuesPagination?.hasNextPageForDate && getLatestIssueDate(results),
-    ]
-      .filter(Boolean)
-      .sort((a,b) => dateSort(sortDirection)(a as string,b as string))
-
-    // TODO: add commitComments and issueComments
-    return {
-      user,
-      callDescription: `Getting PRs and Issues by ${user}`,
-      prCount: getPRCount(results),
-      latestItemDate: furthestDate,
-      issueCount: getIssueCount(results),
-    }
-  },
   hasMoreResults: [
     prPagination.hasNextPage,
     issuesPagination.hasNextPage,
@@ -710,25 +649,6 @@ const batchedQuery = (untilDate: UntilDate) => ({
     }
   },
   fillerType: 'batchedQuery',
-  getFetchStatus: (results = []) => {
-    const [furthestDate] = [
-      prPagination?.hasNextPageForDate && getLatestPRDate(results),
-      issuesPagination?.hasNextPageForDate && getLatestIssueDate(results),
-      releasesPagination?.hasNextPageForDate && getLatestReleaseDate(results),
-    ]
-      .filter(Boolean)
-      .sort((a,b) => dateSort(sortDirection)(a as string,b as string))
-
-
-    return {
-      user: '',
-      callDescription: `Getting PRs, Issues, and Releases from ${repo}`,
-      prCount: getPRCount(results),
-      latestItemDate: furthestDate,
-      issueCount: getIssueCount(results),
-      releaseCount: getResultsCount(results),
-    }
-  },
   hasMoreResults: [
     prPagination.hasNextPage,
     issuesPagination.hasNextPage,
@@ -800,12 +720,18 @@ const reviewCommentsQuery:MakeQuery = ({ nodeId, cursor }: NodeCursor) => ({
   fillerType: '',
 })
 
-const orgQuery = ({ org, cursor }: { org: string, cursor: Cursor}) => ({
+const orgQuery = ({
+  org,
+  orgPagination = {}
+}: {
+  org: string
+  orgPagination: any
+}) => ({
   query: `{
     organization(login: "${org}") {
       repositories(
         first:100
-        ${cursorQ(cursor)}
+        ${cursorQ(orgPagination?.cursor)}
         orderBy: {field: NAME, direction: ASC}
       ) {
         edges {
@@ -822,21 +748,23 @@ const orgQuery = ({ org, cursor }: { org: string, cursor: Cursor}) => ({
     }
   }`,
   fillerType: 'org',
-  resultInfo: (data: any) => ({
-    rawData: data,
-    results: pathOr([], ['data', 'organization', 'repositories', 'edges'], data),
-    hasNextPage: pathOr(false, ['data', 'organization', 'repositories', 'pageInfo', 'hasNextPage'], data),
-    nextArgs: {
-      nodeId: pathOr('', ['data', 'organization', 'id'], data),
-      cursor: pathOr('', ['data', 'organization', 'repositories', 'pageInfo', 'endCursor'], data),
-    },
-  }),
-  getFetchStatus: (results = []) => {
-    return {
-      callDescription: `Getting repo for ${org}`,
-      repoCount: getRepoCount(results),
-    }
-  },
+  resultInfo: (data: any) => {
+    const hasNextPage = pathOr(false, ['data', 'organization', 'repositories', 'pageInfo', 'hasNextPage'], data)
+    const cursor = pathOr('', ['data', 'organization', 'repositories', 'pageInfo', 'endCursor'], data)
+    return ({
+      rawData: data,
+      results: pathOr([], ['data', 'organization', 'repositories', 'edges'], data),
+      hasNextPage: pathOr(false, ['data', 'organization', 'repositories', 'pageInfo', 'hasNextPage'], data),
+      nextPageInfo: {
+        orgPagination: {
+          cursor: cursor,
+          hasNextPage,
+          hasNextPageForDate: hasNextPage,
+        },
+        amountOfData: 'all',
+      }
+    })
+},
 })
 
 const teamIDsQuery = ({ org, team }: { org: string, team: string }) => ({

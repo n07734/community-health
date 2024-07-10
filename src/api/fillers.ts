@@ -1,5 +1,7 @@
 import { pathOr } from 'ramda'
 import batch from './batch'
+import { FilterType, MakeQuery } from '../types/Querys'
+import { RawPullRequest, RawPullRequests } from '../types/rawData'
 
 import {
     commentsQuery,
