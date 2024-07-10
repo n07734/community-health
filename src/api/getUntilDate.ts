@@ -9,8 +9,11 @@ import {
     propOr,
     is,
 } from 'ramda'
+import { AnyObject } from '../types/Components'
+import { SortDirection, UntilDate } from '../types/Querys'
+import { PullRequest } from '../types/FormattedData'
 
-const getPrDate = (sortDirection: SortDirection, allPrs = []) => {
+const getPrDate = (sortDirection: SortDirection, allPrs:PullRequest[] = []) => {
     const prIndex = sortDirection === 'DESC'
         ? 0
         : -1
@@ -22,7 +25,13 @@ const getPrDate = (sortDirection: SortDirection, allPrs = []) => {
     return new Date(currentEndDate)
 }
 
-const getUntilDate = (fetches = { untilDate: '', amountOfData: '', sortDirection: ''}, allPrs = []) => {
+const getUntilDate = (
+    fetches:{
+        untilDate?: UntilDate,
+        amountOfData: number,
+        sortDirection: SortDirection
+    },
+    allPrs:PullRequest[] = []) => {
     const {
         untilDate = '',
         amountOfData = 0,

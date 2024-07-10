@@ -1,3 +1,4 @@
+import { UserData } from '../types/State'
 import formatUserData from './userData'
 
 const pr = {
@@ -121,8 +122,8 @@ describe('formatUserData:', () => {
             },
         ], { bob: { a:1 }, smith: { a:1 } })
 
-        const bob = results.find(x => x.author === 'bob')
-        const smith = results.find(x => x.author === 'smith')
+        const bob = results.find(x => x.author === 'bob') as UserData
+        const smith = results.find(x => x.author === 'smith') as UserData
 
         it('approvers', () => {
             expect(bob.approvalsReceived).toEqual(3)

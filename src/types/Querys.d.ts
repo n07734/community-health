@@ -90,7 +90,7 @@ type FetchInfoToDo = BatchedQueryArgs & {
 
 export type FetchInfo = any
 
-type UntilDate = string | undefined
+export type UntilDate = string | undefined
 
 type NodeCursor = {
     cursor: Cursor

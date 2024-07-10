@@ -1,13 +1,14 @@
 import { vi } from 'vitest'
 import types from './types'
 import reducers from './reducers'
+import { InferAnyAType } from 'ramda'
 
 vi.mock('redux', () => ({
-    combineReducers: x => x,
+    combineReducers: (x:any) => x,
 }))
 
 
-const basicReducers = ({ parent, key, type }) => {
+const basicReducers = ({ parent, key, type }:any) => {
     it(`${key}`, () => {
         const reducer = parent[key]
 
@@ -20,7 +21,7 @@ const basicReducers = ({ parent, key, type }) => {
     })
 }
 
-const paginationReducers = ({ parent, key, type }) => {
+const paginationReducers = ({ parent, key, type }:any) => {
     it(`${key}`, () => {
         const reducer = parent[key]
 
@@ -35,7 +36,7 @@ const paginationReducers = ({ parent, key, type }) => {
 
 describe('reducers: ', () => {
     describe('fetches: ', () => {
-        const fetches = reducers.fetches
+        const fetches = (reducers as any).fetches
 
         const tests = [
             {
@@ -80,7 +81,7 @@ describe('reducers: ', () => {
             .forEach(paginationReducers)
 
         it('pagination keeps newest cursor', () => {
-            const fetches = reducers.fetches.prPagination
+            const fetches = (reducers as any).fetches.prPagination
             expect(fetches({}, {
                 type: types.SET_PR_PAGINATION,
                 payload: { cursor: 'bar' },
@@ -94,7 +95,7 @@ describe('reducers: ', () => {
     })
 
     it('error', () => {
-        const error = reducers.error
+        const error = (reducers as any).error
 
         expect(error('foo', {
             type: types.FETCH_ERROR,
@@ -105,7 +106,7 @@ describe('reducers: ', () => {
     })
 
     it('fetching', () => {
-        const fetching = reducers.fetching
+        const fetching = (reducers as any).fetching
 
         expect(fetching('foo', {
             type: types.FETCH_START,
@@ -119,7 +120,7 @@ describe('reducers: ', () => {
     })
 
     it('pullRequests', () => {
-        const pullRequests = reducers.pullRequests
+        const pullRequests = (reducers as any).pullRequests
 
         expect(pullRequests([1, 2], {})).toEqual([1, 2])
         expect(pullRequests([1, 2], { type: types.CLEAR_PRS })).toEqual([])
@@ -133,7 +134,7 @@ describe('reducers: ', () => {
     })
 
     it('issues', () => {
-        const issues = reducers.issues
+        const issues = (reducers as any).issues
 
         expect(issues([1, 2], {})).toEqual([1, 2])
         expect(issues([1, 2], { type: types.CLEAR_ISSUES })).toEqual([])
@@ -147,7 +148,7 @@ describe('reducers: ', () => {
     })
 
     it('releases', () => {
-        const releases = reducers.releases
+        const releases = (reducers as any).releases
 
         expect(releases([1, 2], {})).toEqual([1, 2])
         expect(releases([1, 2], {

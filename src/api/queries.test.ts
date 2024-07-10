@@ -5,7 +5,7 @@ import {
 } from './queries'
 
 describe('queries:', () => {
-    const makeRawData = ({ type = 'repository', resultType }) => {
+    const makeRawData = ({ type = 'repository', resultType = '' }) => {
         return {
             data: {
                 [type]: {
@@ -22,7 +22,7 @@ describe('queries:', () => {
         }
     }
 
-    const makeStateArgs = (args) => ({
+    const makeStateArgs = (args:any) => ({
         fetches: {
             org: 'org',
             repo: 'repo',
@@ -56,6 +56,7 @@ describe('queries:', () => {
                 type: 'node',
                 resultType: 'comments',
             },
+            expectFillerType: '',
         },
         {
             name: 'reviewCommentsQuery',
@@ -68,11 +69,19 @@ describe('queries:', () => {
                 type: 'node',
                 resultType: 'comments',
             },
+            expectFillerType: '',
         },
     ]
 
     testArgs
-        .forEach(({ name, testFunction, stateArgs, queryArgs, rawDataArgs, expectFillerType }) => {
+        .forEach(({
+            name,
+            testFunction,
+            stateArgs,
+            queryArgs,
+            rawDataArgs,
+            expectFillerType,
+        }: any) => {
             describe(`${name}:`, () => {
                 const args = stateArgs
                     ? makeStateArgs(stateArgs)
@@ -88,7 +97,7 @@ describe('queries:', () => {
                     expect(query).toMatchSnapshot()
                 })
 
-                it('fillerType to be corretct', () => {
+                it('fillerType to be correct', () => {
                     expect(fillerType).toEqual(expectFillerType)
                 })
 

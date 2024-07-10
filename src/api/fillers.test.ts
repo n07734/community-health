@@ -2,7 +2,7 @@ import fillData from './fillers'
 
 describe('fillData:', () => {
     it('Returns data unchanged if fillType is not recognised', async () => {
-        const applyFiller = await fillData((x) => x)('nope')
+        const applyFiller = await fillData((x:any) => x)('nope')
 
         expect(applyFiller('sameOld')).toEqual('sameOld')
     })
@@ -92,7 +92,7 @@ describe('fillData:', () => {
     })
 
     it('fillType pullRequests adds comments and reviews', async () => {
-        const getMore = query => [
+        const getMore = (query:any) => [
             /PullRequestReview/.test(query)
                 && getMoreReviewComments(),
             /comments\(first: 100/.test(query)

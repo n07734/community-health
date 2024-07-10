@@ -316,7 +316,7 @@ const formatIssue = (data: RawData): Issue => {
     }
 }
 
-const formatIssues = (data: any) => {
+const formatIssues = (data: any[] = []) => {
     const rawResults = data
         .map((dataItem: any) => dataItem?.data?.result?.issues?.edges || [])
 
@@ -340,7 +340,7 @@ const formatRelease = (data: RawData) => {
     }
 }
 
-const formatReleases = (data: any) => {
+const formatReleases = (data: any[] = []) => {
     const rawResults = data
         .map((dataItem: any) => dataItem?.data?.result?.releases?.edges || [])
 

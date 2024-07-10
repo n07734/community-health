@@ -4,7 +4,7 @@ import {
     formatReleases,
 } from './rawData'
 
-const repoData = type => formatItems => (items = []) => [{
+const repoData = (type:string) => (formatItems:any) => (items:any[] = []) => [{
     data: {
         result: {
             [type]: {
@@ -17,8 +17,8 @@ const repoData = type => formatItems => (items = []) => [{
 
 describe('formatPullRequests:', () => {
     const makePullRequest = ({ overrides = {}, reviews = [], comments = [] } = {}) => {
-        const makeComments = comments => comments
-            .map(({ author } = {}) => ({
+        const makeComments = (comments:any) => comments
+            .map(({ author }:any = {}) => ({
                 node: {
                     author: {
                         login: author,
@@ -26,7 +26,7 @@ describe('formatPullRequests:', () => {
                 },
             }))
 
-        const makeReviews = reviews => reviews
+        const makeReviews = (reviews:any[]) => reviews
             .map(({ state, author, comments = [] } = {}) => ({
                 node: {
                     state,
@@ -79,7 +79,7 @@ describe('formatPullRequests:', () => {
     })
 
     it('Expect basic PR to match snapshot', () => {
-        const result = formatPullRequests({}, makePullRequests([{}]))
+        const result = formatPullRequests({ excludeIds: [] }, makePullRequests([{}]))
         expect(result).toMatchSnapshot()
     })
 
@@ -103,7 +103,7 @@ describe('formatPullRequests:', () => {
                 mergedAt: '2000-01-02',
             },
         }])
-        const result = formatPullRequests({}, data)
+        const result = formatPullRequests({ excludeIds: [] }, data)
         expect(result).toMatchSnapshot()
     })
 
@@ -132,7 +132,7 @@ describe('formatPullRequests:', () => {
             ],
         }])
 
-        const result = formatPullRequests({}, data)
+        const result = formatPullRequests({ excludeIds: [] }, data)
         expect(result).toMatchSnapshot()
     })
 })
@@ -157,7 +157,7 @@ describe('formatIssues:', () => {
     const makeIssues = repoData('issues')(makeIssue)
 
     it('Empty call to return an array', () => {
-        const result = formatIssues()
+        const result = formatIssues([])
         expect(result).toEqual([])
     })
 
@@ -198,7 +198,7 @@ describe('formatIssues:', () => {
 })
 
 describe('formatReleases:', () => {
-    const makeRelease = ({ createdAt = '2020', name }) => ({
+    const makeRelease = ({ createdAt = '2020', name }:any) => ({
         node: {
             createdAt,
             tag: {
@@ -209,7 +209,7 @@ describe('formatReleases:', () => {
     const makeReleases = repoData('releases')(makeRelease)
 
     it('Empty call to return an array', () => {
-        const result = formatReleases()
+        const result = formatReleases([])
         expect(result).toEqual([])
     })
 

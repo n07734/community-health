@@ -63,7 +63,7 @@ const hasValidUsersInfo = (usersInfo = {}) => {
 }
 
 const validDate = (date = '') =>
-    !date || /^\d{4}\/\d{2}\/\d{2}$/.test(date) && isValid(new Date(date))
+    !date || /^\d{4}[/-]\d{2}[/-]\d{2}$/.test(date) && isValid(new Date(date))
 
 const validate = ({ key, value }: { key:string, value: any }) => {
     const isValid = cond([

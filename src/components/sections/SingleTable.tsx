@@ -1,16 +1,18 @@
 import { DataGrid } from '@mui/x-data-grid'
-import { withStyles } from '@mui/styles'
+import { withStyles, CSSProperties } from '@mui/styles'
+import { Theme } from '@mui/material/styles'
 
 import { format } from 'date-fns'
 
 import { A } from '../shared/StyledTags'
+import { AnyObject } from '../../types/Components'
 
 const zeroOut = {
-    renderCell: (params) => params.value || '0',
+    renderCell: (params:{ value:string }) => params.value || '0',
     sortComparator: (v1 = 0, v2 = 0) => v1 - v2,
 }
 
-const columnMap = {
+const columnMap:AnyObject = {
     comments: {
         field: 'comments',
         headerName: 'Comments',
@@ -62,7 +64,7 @@ const columnMap = {
         field: 'mergedAt',
         headerName: 'Merged',
         flex: 1,
-        renderCell: (params) => format(new Date(params.value), 'do MMM yy'),
+        renderCell: (params:{ value:string }) => format(new Date(params.value), 'do MMM yy'),
     },
     commentSentimentScore: {
         field: 'commentSentimentScore',
@@ -92,7 +94,7 @@ const columnMap = {
         field: 'url',
         headerName: 'Link',
         flex: 1,
-        renderCell: (params) => {
+        renderCell: (params:{ value:string }) => {
             const url = params.value
             const number = url.split('/').at(-1)
             return <A href={url}>
@@ -120,13 +122,13 @@ const columnMap = {
         field: 'isBug',
         headerName: 'Bug',
         flex: 1,
-        renderCell: (params) => params.value
+        renderCell: (params:{ value:string }) => params.value
             ? 'true'
             : 'false',
     },
 }
 
-export const makeColumns = dataKeys => {
+export const makeColumns = (dataKeys: string[]) => {
     const allkeys = [
         ...dataKeys,
         ...['mergedAt', 'url'],
@@ -138,19 +140,22 @@ export const makeColumns = dataKeys => {
     return columns
 }
 
+type SingleTableProps = {
+    data: AnyObject[],
+    dataKeys: string[],
+    classes: any,
+}
 const SingleTable = ({
     data = [],
     dataKeys = [],
     classes = {},
-} = {}) => {
+}:SingleTableProps) => {
     return <div className={classes.wrapper}>
         <DataGrid
-            id={`table-single`}
             sortingOrder={['desc', 'asc']}
             rows={data}
             columns={makeColumns(dataKeys)}
-            pageSize={5}
-            rowsPerPageOptions={[5]}
+            pageSizeOptions={[5]}
             disableColumnFilter
             disableColumnMenu
             isRowSelectable={() => false}
@@ -165,7 +170,10 @@ const chunksRules = {
     borderRadius: '8px',
 }
 
-const styles = theme => ({
+type TagStyles = {
+    [key: string]: CSSProperties
+}
+const styles = (theme:Theme):TagStyles => ({
     bar: {
         width: '100%',
         height: '30px',

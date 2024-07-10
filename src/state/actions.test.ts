@@ -15,22 +15,15 @@ describe('Basic actions:', () => {
         })
     })
 
-    const fetchState = {
-        fetches: {
-            repo: 'A',
-            org: 'b',
-        },
-    }
-
     it('storeOrg returns correct type', () => {
-        expect(storeOrg('ORG')(x => x, () => fetchState)).toEqual({
+        expect(storeOrg('ORG')(x => x)).toEqual({
             type: types.STORE_ORG,
             payload: 'ORG',
         })
     })
 
     it('storeRepo returns correct type', () => {
-        expect(storeRepo('REPO')(x => x, () => fetchState)).toEqual({
+        expect(storeRepo('REPO')((x:any) => x)).toEqual({
             type: types.STORE_REPO,
             payload: 'REPO',
         })
@@ -41,7 +34,7 @@ describe('getAPIData:', () => {
     vi.resetModules()
     vi.mock('../api/api', () => {
         return {
-            default: ({ apiError }) => () => () => apiError
+            default: ({ apiError }:any) => () => () => apiError
                 ? Promise.reject('Oops')
                 : Promise.resolve(),
         }
@@ -90,7 +83,7 @@ describe('getAPIData:', () => {
 
                 let nestedAction = ''
                 typeof mocked === 'function'
-                    && mocked((x) => {
+                    && mocked((x:any) => {
                         nestedAction = x.type
                     }, getState)
 

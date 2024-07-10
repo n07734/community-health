@@ -2,7 +2,7 @@ import { formatReleaseData } from './releaseData'
 
 describe('formatReleaseData:', () => {
     it('correct versioning and date sorting', () => {
-        const data = [
+        const data:any[] = [
             { description: 'v0.0.1', date: '2020-10-30' },
             { description: 'v0.2.0', date: '2020-10-29' },
             { description: 'v0.2.1', date: '2020-10-28' },
@@ -19,7 +19,7 @@ describe('formatReleaseData:', () => {
     })
 
     it('ignore invalid tags', () => {
-        const data = [
+        const data:any[] = [
             { description: 'v0.0.1', date: '2020-10-30' },
             { description: 'v0.2.UU', date: '2020-10-29' },
             { description: 'v0.3.0', date: '2020-10-20' },

@@ -1,7 +1,7 @@
 import formatRadarData from './radarData'
 
 describe('formatRadarData:', () => {
-    const usersData = [
+    const usersData:any[] = [
         {
             age: 4,
             approvalsGiven: 2,
@@ -52,7 +52,7 @@ describe('formatRadarData:', () => {
             averagedData,
             maxValues,
             user,
-        } = formatRadarData(usersData, 'bob')
+        } = formatRadarData(usersData, 'bob') as any
 
         expect(user.user).toEqual('bob')
         expect(maxValues).toEqual(base.maxValues)

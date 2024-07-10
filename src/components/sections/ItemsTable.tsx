@@ -8,6 +8,7 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import { format } from 'date-fns'
 
 import { A } from '../shared/StyledTags'
+import { ColumnKeys } from '../../types/Graphs';
 
 type Params = { value?: string }
 const zeroOut = {
@@ -164,7 +165,7 @@ const ItemsTable = ({
     data: any[],
     dataKeys: ColumnKeys[],
     classes: any,
-    tableOpenedByDefault: boolean,
+    tableOpenedByDefault?: boolean,
 }) => {
     const [dataIndex, setIndex] = useState(data.length - 1);
     const [showTable, setShowTable] = useState(tableOpenedByDefault);

@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react'
-import { pathOr, propOr } from 'ramda'
 import { ResponsiveScatterPlot as NivoScatter } from '@nivo/scatterplot'
-import { TableTooltip } from '@nivo/tooltip'
+import { LegendProps } from '@nivo/legends'
 import { useTheme } from '@mui/styles';
+import { Theme } from '@mui/material/styles'
 
 import ChartHeading from './ChartHeading'
 import styledCharts from './styledCharts'
@@ -18,13 +18,30 @@ import {
     smoothNumber,
     getReportMonthCount,
 } from './lineHelpers'
+import { EventInfo } from '../../types/FormattedData';
+import { ColumnKeys, LineForGraph, Lines } from '../../types/Graphs';
 
-const getAllYMax = (data = []) => data
+const getAllYMax = (data:any[] = []) => data
     .filter(x => x.yMax)
     .map(x => x.yMax)
 
-const sortDesc = (a,b) => b - a
+const sortDesc = (a:number,b:number) => b - a
 
+type ScatterplotProps = {
+    title?: string
+    combineTitles?: boolean
+    blockHeading?: boolean
+    data?: Lines[]
+    markers?: EventInfo[]
+    showLegends?: boolean
+    legends?: any[]
+    classes?: any
+    tableData?: any[]
+    tableKeys?: ColumnKeys[]
+    graphInfo?: any
+    setGraph?: any
+    graphs?: any[]
+}
 const Scatterplot = styledCharts(({
     title,
     combineTitles = false,
@@ -39,11 +56,11 @@ const Scatterplot = styledCharts(({
     graphInfo = {},
     setGraph = () => {},
     graphs = [],
-} = {}) => {
-    const theme = useTheme();
+}:ScatterplotProps) => {
+    const theme:Theme = useTheme();
     // TODO: function to see time gap in data to help format date e.g. should add year
     const leftAxis = data
-        .find(({ xAxis } = {}) => xAxis === 'left') || { data: [], lines: [] }
+        .find(({ xAxis }) => xAxis === 'left') || { data: [], lines: [], xAxis: 'left'}
     const allLeftLineMaxYs = getAllYMax(leftAxis.lines)
 
     const leftLinesData = formatUnbatchedData(leftAxis)
@@ -51,7 +68,7 @@ const Scatterplot = styledCharts(({
     const minLeftValue = getMinYValue(leftLinesData)
 
     const rightAxis = data
-        .find(({ xAxis } = {}) => xAxis === 'right') || { data: [], lines: [] }
+        .find(({ xAxis }) => xAxis === 'right') || { data: [], lines: [], xAxis: 'right'}
 
     const rightLineMaxYs = getAllYMax(rightAxis.lines)
     const rightLinesData = formatUnbatchedData(rightAxis)
@@ -66,8 +83,9 @@ const Scatterplot = styledCharts(({
         : minLeftValue
 
     // As Nivo Line does not have right axis lines need to convert right line data to left line data
-    const convertedRightLines = rightLinesData
-        .map((item = {}) => {
+    const convertedRightLines:LineForGraph[] = []
+    rightLinesData
+        .forEach((item) => {
             const formattedData = item.data
                 .map((dataItem) => ({
                     y: dataItem.y < 0
@@ -77,12 +95,13 @@ const Scatterplot = styledCharts(({
                     originalY: dataItem.y,
                 }))
 
-            return formattedData.length && ({
-                ...item,
-                data: formattedData,
-            })
+            if (formattedData.length) {
+                convertedRightLines.push({
+                    ...item,
+                    data: formattedData,
+                })
+            }
         })
-        .filter(Boolean)
 
     const leftLines = leftAxis.lines
 
@@ -97,7 +116,14 @@ const Scatterplot = styledCharts(({
         ...rightAxis.lines,
     ]
 
-    const colorsInfo = allLines.map(x => ({
+    type Item = {
+        label:string
+        default:string
+        current:string
+        clicked:boolean
+        color?: string
+    }
+    const colorsInfo:Item[] = allLines.map(x => ({
         label: x.label,
         default: x.color,
         current: x.color,
@@ -112,9 +138,9 @@ const Scatterplot = styledCharts(({
 
     const fadeColor = 'rgba(120, 119, 120, 0.27)'
 
-    const enter = (data = {}) => {
+    const enter = (data:Item) => {
         const itemsIndex = colorsInfo.findIndex(x => x.label === data.label)
-        setState(hookedColors.map((info = {}, i) => ({
+        setState(hookedColors.map((info, i) => ({
             ...info,
             current: i === itemsIndex || info.clicked
                 ? info.default
@@ -124,7 +150,7 @@ const Scatterplot = styledCharts(({
 
     const exit = () => {
         const hasClicked = hookedColors.some(x => x.clicked)
-        setState(hookedColors.map((info = {}) => ({
+        setState(hookedColors.map((info) => ({
             ...info,
             current: (hasClicked && info.clicked || !hasClicked)
                 ? info.default
@@ -132,10 +158,10 @@ const Scatterplot = styledCharts(({
         })))
     }
 
-    const click = (data = {}) => {
+    const click = (data:Item) => {
         const itemsIndex = colorsInfo.findIndex(x => x.label === data.label)
         const updated = hookedColors
-            .map((info = {}, i) => {
+            .map((info, i) => {
                 const selectedClicked = i === itemsIndex && !info.clicked
 
                 return ({
@@ -169,12 +195,16 @@ const Scatterplot = styledCharts(({
     }
 
     // If single axis and total and over x lines, then split, just for left lines
-    if (legends.length < 1 && rightAxis.lines < 1 && leftLines.length > 10) {
-        const leftData = []
-        const rightData = []
+    if (legends.length < 1 && rightAxis.lines.length < 1 && leftLines.length > 10) {
+        type Info = {
+            label: string
+            color: string
+        }
+        const leftData:Info[] = []
+        const rightData:Info[] = []
         const splitIndex = Math.ceil(leftLines.length / 2)
         leftLines
-            .forEach(({ label, color } = {}, i) => {
+            .forEach(({ label, color }, i) => {
                 const { current } = hookedColors.find(x => x.label === label) || {}
                 const item = {
                     label,
@@ -222,7 +252,7 @@ const Scatterplot = styledCharts(({
 
     const formattedMarkers = formatGraphMarkers(markers, theme, lineData)
 
-    const hasData = (items) => items.some(x => propOr([], 'data', x).length)
+    const hasData = (items:LineForGraph[]) => items.some(item => (item?.data || []).length)
 
     const monthCount = getReportMonthCount(leftLinesData, rightLinesData)
 
@@ -252,10 +282,7 @@ const Scatterplot = styledCharts(({
                     margin={{ top: 14, right: 50, bottom: 50, left: 50 }}
                     data={lineData}
                     colors={hookedColors.map(x => x.current)}
-                    lineWidth={2}
-                    curve='monotoneX'
                     animate={false}
-                    toggleSerie={false}
                     xScale={{
                         type: 'time',
                         format: '%Y-%m-%d',
@@ -272,15 +299,14 @@ const Scatterplot = styledCharts(({
                         tickPadding: 10,
                         tickRotation: -45,
                     }}
-                    legends={showLegends ? legendsArray : []}
+                    legends={(showLegends ? legendsArray : [] as LegendProps[])}
                     axisLeft={{
                         tickSize: 0,
                         tickValues: 8,
                     }}
-                    pointLabelYOffset={0}
                     {...(
                         formattedMarkers.length
-                        && { markers: formattedMarkers }
+                        && { markers: formattedMarkers as any}
                     )}
                     {...(
                         convertedRightLines.length
@@ -298,8 +324,7 @@ const Scatterplot = styledCharts(({
                         }
                     )}
                     enableGridX={false}
-                    enableSlices="x"
-                    theme={theme.charts}
+                    theme={theme.charts as any}
                 />
             </div>
             {
