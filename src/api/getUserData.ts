@@ -1,5 +1,7 @@
-import { userQuery, reviewsByUserQuery } from './queries'
 import { mergeDeepRight, prop } from 'ramda'
+import { GetUsersData } from '../types/Querys'
+
+import { userQuery, reviewsByUserQuery } from './queries'
 import api from './api'
 
 const getUserData = async({ fetchInfo, untilDate, dispatch }: GetUsersData) => {

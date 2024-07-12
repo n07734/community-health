@@ -1,3 +1,5 @@
+import { ObjStrings } from "../types/Components"
+
 const types: ObjStrings = {
     SET_TEAM_NAME: 'SET_TEAM_NAME',
     CLEAR_TEAM_NAME: 'CLEAR_TEAM_NAME',

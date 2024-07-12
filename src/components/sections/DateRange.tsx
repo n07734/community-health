@@ -56,7 +56,7 @@ const DateRange = ({
         ? formatISO(sub(new Date(endDate), { days: daysDiff -  rightDays}), { representation: 'date' })
         : ''
 
-    const handleChange = (event: any, newValue: number | number[], activeThumb: number) => {
+    const handleChange = (_event: any, newValue: number | number[], _activeThumb: number) => {
         if (Array.isArray(newValue) && newValue.length === 2) {
             setValue(newValue as [number, number]);
         }

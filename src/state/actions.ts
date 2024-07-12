@@ -19,7 +19,7 @@ import { AnyAction, Dispatch } from 'redux'
 import { ReportType, State } from '../types/State'
 import { AmountOfData } from '../types/Querys'
 import { AnyObject } from '../types/Components'
-import { DateKeys } from '../types/rawData'
+import { DateKeys } from '../types/RawData'
 
 import api from '../api/api'
 import getUsersData from '../api/getUsersData'
@@ -868,7 +868,7 @@ const getPreFetched = ({
     }
 }
 
-const getDownloadProps = (dispatch: any, getState: any) => {
+const getDownloadProps = (_dispatch: any, getState: any) => {
     const state = getState()
 
     const {

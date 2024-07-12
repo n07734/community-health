@@ -12,7 +12,7 @@ import {
     F as alwaysFalse,
 } from 'ramda'
 import { compose } from 'redux'
-import { AmountOfData, ApiInfo, ApiResponse, ApiResult, ApiResults, FetchInfo } from '../types/Querys'
+import { AmountOfData, ApiInfo, ApiResponse, ApiResult, ApiResults, ApiFetchInfo } from '../types/Querys'
 import { ObjStrings } from '../types/Components'
 
 import types from '../state/types'
@@ -36,7 +36,7 @@ const parseJSON = (response: Response): Promise<ApiResponse> => new Promise((res
 const triggeredAbuseRate = ({ message = '' }) =>/(You have triggered an abuse detection mechanism|You have exceeded a secondary rate limit)/.test(message)
 const triggeredJsonError = ({ message = '' }) =>/Unexpected end of JSON input/.test(message)
 
-const apiCall = (fetchInfo: FetchInfo) => (query: string): Promise<ApiResponse> => {
+const apiCall = (fetchInfo: ApiFetchInfo) => (query: string): Promise<ApiResponse> => {
     return fetch((fetchInfo.enterpriseAPI || 'https://api.github.com/graphql'), {
         method: 'POST',
         headers: {
@@ -158,7 +158,7 @@ const api = async({ fetchInfo, queryInfo, dispatch = () => {} }:ApiInfo, results
             nextPageInfo = {},
         } = resultInfo(result)
 
-        const updatedFetchInfo: FetchInfo = mergeDeepRight(fetchInfo, nextPageInfo)
+        const updatedFetchInfo: ApiFetchInfo = mergeDeepRight(fetchInfo, nextPageInfo)
 
         return shouldGetNextPage(hasNextPage, updatedFetchInfo)
             ? api({ fetchInfo: updatedFetchInfo, queryInfo, dispatch }, updatedResults)

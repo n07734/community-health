@@ -1,4 +1,4 @@
-type RawPullRequests = {
+export type RawPullRequests = {
     data: {
         result: {
             pullRequests: {
@@ -14,10 +14,10 @@ export type Cursors = {
     hasNextPage: boolean
 }
 
-type RawPageInfo = {
+export type RawPageInfo = {
     pageInfo: Cursors
 }
-type RawPullRequest = {
+export type RawPullRequest = {
     node: {
         id: string
         reviews: {
@@ -31,14 +31,14 @@ type RawPullRequest = {
     }
 }
 
-type DateKeys = 'mergedAt' | 'createdAt' | 'date'
+export type DateKeys = 'mergedAt' | 'createdAt' | 'date'
 
 // TODO: Flesh out this type
-type RawData = {
+export type RawData = {
     [key: string]: any
 }
 
 // TODO: Flesh out this type
-type RawItem = {
+export type RawItem = {
     [key: string]: any
 }

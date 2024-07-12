@@ -9,7 +9,7 @@ import {
   cond,
 } from 'ramda'
 import filterByUntilDate from '../format/filterByUntilDate'
-import { Cursors } from '../types/rawData'
+import { Cursors } from '../types/RawData'
 
 const cursorQ = (cursor: Cursor) => cursor
   ? ` after:"${cursor}" `

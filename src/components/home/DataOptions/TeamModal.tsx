@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Box, Modal} from '@mui/material'
 import { withStyles, CSSProperties } from '@mui/styles'
 import { Theme } from '@mui/material/styles'
-import { FetchInfo } from '../../../types/Querys'
+import { ApiFetchInfo } from '../../../types/Querys'
 import { UsersInfo } from '../../../types/State'
 import { Users } from '../../../types/Components'
 
@@ -18,7 +18,7 @@ import api from '../../../api/api'
 import { teamIDsQuery } from '../../../api/queries'
 
 type GetTeamMembers = {
-    fetchInfo: FetchInfo
+    fetchInfo: ApiFetchInfo
     setGitUsers: (x: UsersInfo) => void
     setInputError: (x: ErrorInputs) => void
 }

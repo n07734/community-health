@@ -131,7 +131,7 @@ const formatChordData = ({ data, dataKey, preSorted, showNames = true }:FormatCh
     return {
         names: showNames
             ? names
-            : names.map((x, i) => {
+            : names.map((_x, i) => {
                 // whitespace needed to keep names unique
                 const append = Array(i).fill(' ').join('')
                 return `Spartacus${append}`

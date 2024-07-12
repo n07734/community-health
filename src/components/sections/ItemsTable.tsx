@@ -184,7 +184,7 @@ const ItemsTable = ({
              updatedData.length > 0 && <div className={classes.bar}>
              {
                 updatedData
-                     .map((item, i) => <div
+                     .map((_item, i) => <div
                          key={i}
                          className={selectedClassFor(i)}
                          onClick={() => {

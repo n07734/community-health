@@ -1,4 +1,7 @@
 import { mergeDeepRight } from 'ramda'
+import { ApiFetchInfo, GetUsersData } from '../types/Querys'
+import { AnyObject } from '../types/Components'
+
 import { orgQuery,  batchedQuery} from './queries'
 import api from './api'
 import batch from './batch'
@@ -41,7 +44,7 @@ const getOrgData = async({ fetchInfo, untilDate, dispatch }:GetUsersData) => {
 
         const allResults: any[] = []
         allReposData
-            .forEach(({ fetchInfo, results }:{fetchInfo: FetchInfo, results: any[] }) => {
+            .forEach(({ fetchInfo, results }:{fetchInfo: ApiFetchInfo, results: any[] }) => {
                 allResults.push(results)
 
                 const {

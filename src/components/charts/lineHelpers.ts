@@ -3,10 +3,10 @@ import differenceInDays from 'date-fns/differenceInDays'
 import differenceInMonths from 'date-fns/differenceInMonths'
 import min from 'date-fns/min'
 import max from 'date-fns/max'
-import { AllowedColors, ObjNumbers, PieData, PieInfo } from '../../types/Components'
+import { ObjNumbers, PieData, PieInfo } from '../../types/Components'
 import { EventInfo, PullRequest } from '../../types/FormattedData'
 import { UsersInfo } from '../../types/State'
-import { LineDataKey, LineForGraph, LineInfo, LinePlot } from '../../types/Graphs'
+import { LineDataKey, LineForGraph, LineInfo, LinePlot, GroupMathCalculation } from '../../types/Graphs'
 
 import { batchBy } from './batchBy'
 import { sumKeysValue, sortByKeys } from '../../utils'
@@ -187,7 +187,7 @@ const formatBatches = ({ filterForKey = false, dataKey, groupMath = 'average' }:
             const batchLength = filteredBatch.length
 
             if (!filterForKey || batchLength > 0) {
-                const valueByTypes = {
+                const valueByTypes:GroupMathCalculation = {
                     average: () => {
                         const value = batchLength > 0
                             ? Math.round(sumKeysValue(dataKey)(filteredBatch) / batchLength)

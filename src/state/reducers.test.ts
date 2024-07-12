@@ -1,7 +1,6 @@
 import { vi } from 'vitest'
 import types from './types'
 import reducers from './reducers'
-import { InferAnyAType } from 'ramda'
 
 vi.mock('redux', () => ({
     combineReducers: (x:any) => x,

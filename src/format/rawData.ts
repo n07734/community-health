@@ -15,13 +15,14 @@ import {
     isAfter,
     isBefore,
 } from 'date-fns'
-
 import Sentiment from 'sentiment'
-import { sumKeysValue } from '../utils'
 import { Issue } from '../types/FormattedData'
 import { ObjNumbers } from '../types/Components'
 import { SortDirection } from '../types/Querys'
 import { FetchInfo } from '../types/State'
+import { DateKeys, RawData, RawItem } from '../types/RawData'
+
+import { sumKeysValue } from '../utils'
 
 const formatCommentersObject = (paths: string[]) => (items: any[]) => {
     const commenters:ObjNumbers = {}
@@ -205,7 +206,6 @@ const prData = (exclude: string[] = []) => (data: RawData = {}) => {
     return prInfo
 }
 
-type DateKeys = 'mergedAt' | 'createdAt' | 'date'
 const dateSort = (dateKey: DateKeys, sortDirection: SortDirection) => (aObj: any, bObj: any) => {
     const a = aObj[dateKey]
     const b = bObj[dateKey]

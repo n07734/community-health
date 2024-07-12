@@ -1,3 +1,5 @@
+import { AnyObject } from "../types/Components"
+
 const slimValue = (value: any ) => {
     const newValue = (typeof value === 'string' && value.length && value) // picks defined string
         || (/^-?[\d.]+$/.test(`${value}`) && /^-?[^0]/.test(`${value}`) && value) // picks non 0 number

@@ -1,7 +1,11 @@
-import { userQuery } from './queries'
 import { mergeDeepRight, prop } from 'ramda'
+import { ApiFetchInfo, GetUsersData } from '../types/Querys'
+import { AnyObject } from '../types/Components'
+
+import { userQuery } from './queries'
 import api from './api'
 import batch from './batch'
+
 
 const getUsersData = async({ fetchInfo, untilDate, dispatch }: GetUsersData) => {
     try {
@@ -26,7 +30,7 @@ const getUsersData = async({ fetchInfo, untilDate, dispatch }: GetUsersData) => 
 
         const allResults: any[] = []
         allUsersData
-            .forEach(({ fetchInfo, results }: {fetchInfo: FetchInfo, results: any[] }) => {
+            .forEach(({ fetchInfo, results }: {fetchInfo: ApiFetchInfo, results: any[] }) => {
                 allResults.push(results)
 
                 const user: string = fetchInfo?.user || ''

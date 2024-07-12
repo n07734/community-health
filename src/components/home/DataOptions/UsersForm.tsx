@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { withStyles } from '@mui/styles'
 import { Delete } from '@mui/icons-material'
 import { Theme } from '@mui/material/styles'
+import { InitialUserValues, Users, UserValues } from '../../../types/Components'
 
 import { H } from '../../shared/StyledTags'
 import styles from './styles'
@@ -125,7 +126,7 @@ const UserForm = ({
         const newUsers = [...users]
 
         const currentDates = newUsers[userIndex].dates
-        const newDates = currentDates.filter((date, index) => index !== dateIndex)
+        const newDates = currentDates.filter((_date, index) => index !== dateIndex)
         newUsers[userIndex].dates = newDates
         setUsers(newUsers)
     }

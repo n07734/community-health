@@ -26,7 +26,13 @@ type RepoInfo = {
     fileName: string
 }
 
-export type UserDataNumbers = {
+export type UserData = {
+    author: string
+    user: string
+    name: string
+    approvalsByUser: ObjNumbers
+    commentsByUser: ObjNumbers
+    user: string
     approvalsGiven: number
     uniquePRsApproved: number
     commentsGiven: number
@@ -50,14 +56,15 @@ export type UserDataNumbers = {
     sentimentAverageNegativeScore: number
     sentimentTotalNegativeScore: number
 }
-export type UserData = UserDataNumbers & {
-    author: string
-    user: string
-    name: string
-    approvalsByUser: ObjNumbers
-    commentsByUser: ObjNumbers
-    user: string
-}
+
+type KeysOfValue<T, TCondition> = {
+    [K in keyof T]: T[K] extends TCondition
+      ? K
+      : never;
+  }[keyof T];
+
+type UserDataNumbersKeys = KeysOfValue<UserData, number>
+export type UserDataNumbers = Pick<UserData, UserDataNumbersKeys>
 
 export type FetchInfo = {
     usersInfo: UsersInfo

@@ -57,7 +57,6 @@ export type RawPageInfo = {
     hasPreviousPage: boolean
 }
 
-
 type Paginations = {
     usersReviewsPagination?: OldNew
     issuesPagination?: OldNew
@@ -81,13 +80,7 @@ export type BatchedQueryArgs = QueryDefault & {
     repo: string
 }
 
-type FetchInfoToDo = BatchedQueryArgs & {
-    name?: string
-    enterpriseAPI?: string
-    token: string
-}
-
-export type FetchInfo = any
+export type ApiFetchInfo = any
 
 export type UntilDate = string | undefined
 
@@ -101,7 +94,7 @@ type FilterType = '' | 'pullRequests' | 'pullRequestReviewComments' | 'batchedQu
 export type MakeQuery = (queryInfo: any) => { query: any, resultInfo: any, fillerType: FilterType }
 
 type GetUsersData = {
-    fetchInfo: FetchInfo
+    fetchInfo: ApiFetchInfo
     untilDate: UntilDate
     dispatch: any
 }

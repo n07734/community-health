@@ -2,7 +2,7 @@ import fillData from './fillers'
 
 describe('fillData:', () => {
     it('Returns data unchanged if fillType is not recognised', async () => {
-        const applyFiller = await fillData((x:any) => x)('nope')
+        const applyFiller = await fillData((x:any) => x)('')
 
         expect(applyFiller('sameOld')).toEqual('sameOld')
     })
