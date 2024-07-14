@@ -16,7 +16,7 @@ import {
 } from 'ramda'
 import { isAfter, isBefore } from 'date-fns'
 import { AnyAction, Dispatch } from 'redux'
-import { ReportType, State } from '../types/State'
+import { FetchInfo, ReportType } from '../types/State'
 import { AmountOfData } from '../types/Querys'
 import { AnyObject } from '../types/Components'
 import { DateKeys } from '../types/RawData'
@@ -224,7 +224,8 @@ const clearData = (dispatch: Dispatch<AnyAction>) => {
 
 const clearAllData = clearData
 
-const getErrorMessage = (state: State) => {
+type Fetches = { fetches: FetchInfo}
+const getErrorMessage = (state: Fetches) => {
     const {
         fetches: {
             org = '',
@@ -268,7 +269,7 @@ const getErrorMessage = (state: State) => {
     return message
 }
 
-const validateRequest = (state: State) => {
+const validateRequest = (state: Fetches) => {
     const {
         fetches: {
             org = '',

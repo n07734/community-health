@@ -43,7 +43,7 @@ type StatBarsProps = {
     setPlayer1Id?: Function
     setPlayer2Id?: Function
     players?: UserData[]
-    classes: any
+    classes: Record<string, string>
 }
 const StatBars = ({
     player1 = {},

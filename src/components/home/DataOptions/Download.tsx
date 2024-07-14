@@ -12,7 +12,7 @@ type Download = {
     fetching: boolean,
     preFetchedName?: string,
     pullRequests: any[],
-    classes: any,
+    classes: Record<string, string>,
     getDownloadInfo: () => object,
 }
 const Download = ({

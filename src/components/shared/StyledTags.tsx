@@ -8,7 +8,7 @@ type TagArgs = {
     className?: string;
     href?: string;
     children?: React.ReactNode;
-    classes: any;
+    classes: Record<string, string>;
     style?: CSSProperties;
 }
 

@@ -18,7 +18,7 @@ export type ErrorInputs = {
 
 type MessageProps = {
     error: ErrorInputs
-    classes: any
+    classes: Record<string, string>
     className?: string
 }
 const Message = ({

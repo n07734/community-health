@@ -110,7 +110,7 @@ type CustomGraphsProps = {
     prTransformer?: Function,
     issues?: Issue[],
     releases?: EventInfo[],
-    classes: any,
+    classes: Record<string, string>,
     tableOpenedByDefault: boolean,
 }
 const CustomGraphs = ({

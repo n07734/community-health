@@ -83,7 +83,7 @@ type UserTrendsProps = {
     usersData: UserData[]
     userIds: string[]
     usersInfo: UsersInfo
-    classes: any
+    classes: Record<string, string>
 }
 const UserTrends = ({
     usersData = [],

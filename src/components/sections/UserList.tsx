@@ -11,7 +11,7 @@ import { UserData } from '../../types/State'
 
 type UserListProps = {
     usersData: UserData[]
-    classes: any
+    classes: Record<string, string>
 }
 const UserList = ({
     usersData = [],

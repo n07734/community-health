@@ -143,7 +143,7 @@ export const makeColumns = (dataKeys: string[]) => {
 type SingleTableProps = {
     data: AnyObject[],
     dataKeys: string[],
-    classes: any,
+    classes: Record<string, string>,
 }
 const SingleTable = ({
     data = [],

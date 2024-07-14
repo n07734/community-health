@@ -13,7 +13,7 @@ import {
 
 type TextInputProps = {
     type: string
-    classes: any
+    classes: Record<string, string>
     className?: string
     inputError?: any
     setInputError?: (inputError: any) => void

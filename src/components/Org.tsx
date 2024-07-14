@@ -1,6 +1,6 @@
 
 import { connect } from 'react-redux'
-import { PullRequest } from '../types/FormattedData'
+import { EventInfo, PullRequest } from '../types/FormattedData'
 import { ObjNumbers } from '../types/Components'
 
 import CustomGraphs from './sections/CustomGraphs'
@@ -13,7 +13,7 @@ import { formatMarkers } from '../format/releaseData'
 
 type OrgProps = {
     pullRequests: PullRequest[]
-    events: any[]
+    events: EventInfo[]
 }
 const Org = ({
     pullRequests = [],
@@ -61,7 +61,7 @@ const Org = ({
 type State = {
     pullRequests: PullRequest[]
     fetches: {
-        events: any[]
+        events: EventInfo[]
     }
 }
 const mapStateToProps = (state:State) => ({

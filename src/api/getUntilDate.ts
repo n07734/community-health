@@ -9,29 +9,32 @@ import {
     propOr,
     is,
 } from 'ramda'
-import { AnyObject } from '../types/Components'
 import { SortDirection, UntilDate } from '../types/Querys'
 import { PullRequest } from '../types/FormattedData'
+import { RawPullRequest } from '../types/RawData'
 
-const getPrDate = (sortDirection: SortDirection, allPrs:PullRequest[] = []) => {
+type PR = RawPullRequest | PullRequest
+
+const getPrDate = (sortDirection: SortDirection, allPrs:PR[] = []) => {
     const prIndex = sortDirection === 'DESC'
         ? 0
         : -1
 
-    const pr: AnyObject = allPrs.at(prIndex) || {}
+    const pr = allPrs.at(prIndex) as PR
 
-    const currentEndDate = (pr?.node?.mergedAt || pr?.mergedAt) as string
+    const currentEndDate = ((pr as RawPullRequest)?.node?.mergedAt || (pr as PullRequest)?.mergedAt) as string
 
     return new Date(currentEndDate)
 }
 
+type Fetches = {
+    untilDate?: UntilDate,
+    amountOfData: number,
+    sortDirection: SortDirection
+}
 const getUntilDate = (
-    fetches:{
-        untilDate?: UntilDate,
-        amountOfData: number,
-        sortDirection: SortDirection
-    },
-    allPrs:PullRequest[] = []) => {
+    fetches:Fetches,
+    allPrs:RawPullRequest[] = []) => {
     const {
         untilDate = '',
         amountOfData = 0,
@@ -52,7 +55,7 @@ const getUntilDate = (
     )
 
     const subtractDate = compose(
-        x => sub(x as any, changeBy),
+        x => sub(x as number, changeBy),
         x => x ? new Date(x as string) : new Date(),
         prop('untilDate'),
     )

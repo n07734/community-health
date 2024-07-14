@@ -1,7 +1,7 @@
 import { pathOr } from 'ramda'
 import batch from './batch'
 import { FilterType, MakeQuery } from '../types/Querys'
-import { RawPullRequest, RawPullRequests } from '../types/RawData'
+import { RawPullRequest, RawDataResult } from '../types/RawData'
 
 import {
     commentsQuery,
@@ -9,7 +9,7 @@ import {
     reviewCommentsQuery,
 } from './queries'
 
-const getData = (type: string, data: any[]) => {
+const getData = (type: FilterType, data: any[]) => {
     const pathMap: { [key: string]: string[] } = {
         'org': ['data', 'organization', 'repositories', 'edges'],
         'team': ['data', 'organization', 'team', 'members', 'edges'],
@@ -115,7 +115,7 @@ const fillData = (apiCall: any) => {
         return () => updatedReviewComments
     }
 
-    const pullRequestsReviews = async(data: RawPullRequests) => {
+    const pullRequestsReviews = async(data: RawDataResult) => {
         const pullRequests = data?.data?.result?.pullRequests?.edges || []
 
         const getAllPullRequestReviews = async (pullRequest: RawPullRequest) => {
@@ -131,7 +131,7 @@ const fillData = (apiCall: any) => {
         }
         const allPullRequestsReviews = await batch(pullRequests, getAllPullRequestReviews, 5) as PrItems
 
-        return (data: RawPullRequests) => {
+        return (data: RawDataResult) => {
             const updatedPullRequestsData = updatePullRequests(data)('reviews')(allPullRequestsReviews)
             return {
                 data: Object.assign(data?.data || {},
@@ -150,12 +150,12 @@ const fillData = (apiCall: any) => {
     }
 
     type PrItems = { nodeId: string, results: [] }[]
-    const updatePullRequests = (data: RawPullRequests) =>  (key: string) => (pullRequestsItems: PrItems) => {
+    const updatePullRequests = (data: RawDataResult) =>  (key: string) => (pullRequestsItems: PrItems) => {
         const pullRequestsData = data?.data?.result?.pullRequests || {}
         const currentPullRequests = data?.data?.result?.pullRequests?.edges || []
 
         const mergedPullRequests = currentPullRequests
-            .map((currentPullRequest:RawPullRequest) => {
+            .map((currentPullRequest) => {
                 const nodeId = currentPullRequest?.node?.id || ''
                 const item = pullRequestsItems
                     .find(x => x.nodeId === nodeId)
@@ -169,7 +169,7 @@ const fillData = (apiCall: any) => {
         return Object.assign(pullRequestsData, { edges: mergedPullRequests })
     }
 
-    const pullRequestsComments = async(data: RawPullRequests) => {
+    const pullRequestsComments = async(data: RawDataResult) => {
         const pullRequests = data?.data?.result?.pullRequests?.edges || []
 
         const getAllPullRequestComments = async (pullRequest: RawPullRequest) => {
@@ -186,7 +186,7 @@ const fillData = (apiCall: any) => {
 
         const allPullRequestsComments = await batch(pullRequests, getAllPullRequestComments, 5) as PrItems
 
-        return (data:RawPullRequests) => {
+        return (data:RawDataResult) => {
             const updatedpullRequestsData = updatePullRequests(data)('comments')(allPullRequestsComments)
 
             return {

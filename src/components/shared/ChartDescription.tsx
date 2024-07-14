@@ -6,7 +6,7 @@ import { Theme } from '@mui/material/styles'
 import { H, P } from './StyledTags'
 
 type ExpandLinkProps = {
-    classes: any
+    classes: Record<string, string>
     setCount: (toggle: boolean) => void
     toggle: boolean
     expandText: string
@@ -36,7 +36,7 @@ type ChartDescriptionProps = {
     children?: React.ReactNode
     expandText?: string
     className?: string
-    classes: any
+    classes: Record<string, string>
 }
 const ChartDescription = ({
     title,

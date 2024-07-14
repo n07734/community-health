@@ -20,10 +20,10 @@ import { ObjNumbers } from '../types/Components'
 
 type IndividualProps = {
     pullRequests: PullRequest[]
-    reviewedPullRequests: any[]
+    reviewedPullRequests: PullRequest[]
     userIds: string[]
     usersInfo: UsersInfo
-    classes: any
+    classes: Record<string, string>
 }
 const Individual = ({
     pullRequests = [],
@@ -76,11 +76,11 @@ const Individual = ({
             }
         })
 
-    const updatedUsersInfo:any = {
+    const updatedUsersInfo:UsersInfo = {
         ...usersInfo,
     }
     reviewedPullRequests
-        .map((prData = {}) => {
+        .map((prData) => {
             const author = prData.author
             updatedUsersInfo[author] = { userId: author }
 
@@ -217,7 +217,7 @@ const styles = ():TagStyles => ({
 
 type State = {
     pullRequests: PullRequest[]
-    reviewedPullRequests: any[]
+    reviewedPullRequests: PullRequest[]
     fetches: FetchInfo
 }
 const mapStateToProps = (state:State) => ({

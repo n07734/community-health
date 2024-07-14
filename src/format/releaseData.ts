@@ -82,7 +82,13 @@ const formatReleaseData = (results: ReleaseResult[] = []) => {
 }
 
 
-const formatMarkers = ({ usersInfo = {}, events = [] }: { usersInfo?: UsersInfo, events: any[] }) => {
+const formatMarkers = ({
+    usersInfo = {},
+    events = []
+}: {
+    usersInfo?: UsersInfo
+    events: EventInfo[]
+}) => {
     const teamMarkers: any[] = []
     Object.values(usersInfo)
         .forEach(({

@@ -145,14 +145,14 @@ export const makeColumns = (dataKeys: ColumnKeys[]) => {
     return columns
 }
 
-const selectedClass = (classes: any, selectedIndex: number, showTable = false) => (itemsIndex: number) => showTable && itemsIndex === selectedIndex
+const selectedClass = (classes: Record<string, string>, selectedIndex: number, showTable = false) => (itemsIndex: number) => showTable && itemsIndex === selectedIndex
     ? `${classes.selected} ${showTable ? classes.hasTable : ''}`
     : classes.chunk
 
 const ChunkIcon = ({
     classes = {},
     showTable = false,
-}: { classes: any, showTable: boolean }) =>  showTable
+}: { classes: Record<string, string>, showTable: boolean }) =>  showTable
     ? <RemoveCircleIcon className={classes.arrow} />
     : <AddCircleIcon className={classes.arrow} />
 
@@ -164,7 +164,7 @@ const ItemsTable = ({
 }: {
     data: any[],
     dataKeys: ColumnKeys[],
-    classes: any,
+    classes: Record<string, string>,
     tableOpenedByDefault?: boolean,
 }) => {
     const [dataIndex, setIndex] = useState(data.length - 1);

@@ -29,7 +29,7 @@ const styles = () => ({
 })
 
 type GraphsWrapProps = {
-    classes: any
+    classes: Record<string, string>
     children: React.ReactNode
 }
 const GraphsWrap = ({ classes = {}, children }: GraphsWrapProps) => (

@@ -1,12 +1,26 @@
-export type RawPullRequests = {
+import { id } from "date-fns/locale"
+
+export type RawDate = 'createdAt' | 'closedAt' | 'date'
+export type RawDataItem ={
+    node: {
+        [key in RawDate]: string
+    } & {
+        id: string
+    }
+}
+export type RawDataType = 'pullRequests' | 'issues' | 'releases'
+
+export type RawDataResult ={
     data: {
         result: {
-            pullRequests: {
-                edges:[]
+            [key in RawDataType]: {
+                totalCount: number
+                edges:RawDataItem[]
             }
         }
     }
 }
+
 
 export type Cursors = {
     endCursor: string
@@ -20,6 +34,7 @@ export type RawPageInfo = {
 export type RawPullRequest = {
     node: {
         id: string
+        mergedAt: string
         reviews: {
             edges: []
             pageInfo: Cursors

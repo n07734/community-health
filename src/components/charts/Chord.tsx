@@ -15,7 +15,7 @@ type ChordProps = {
     data: UserData[]
     preSorted: boolean
     dataKey: keyof UserDataNumbers
-    classes: any
+    classes: Record<string, string>
 }
 const Chord = styledCharts(({
     title,

@@ -37,7 +37,7 @@ type FormSectionProps = {
     getData: () => void
     fetching: boolean
     reportType: ReportType
-    classes: any
+    classes: Record<string, string>
 }
 const FormSection = (props:FormSectionProps) => {
     const {

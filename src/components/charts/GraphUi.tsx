@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { withStyles, useTheme } from '@mui/styles'
+import { withStyles, useTheme, CSSProperties } from '@mui/styles'
 import { Theme } from '@mui/material/styles'
 import {
     Select,
@@ -405,10 +405,16 @@ const GraphUi = ({
     </div>
 }
 
-
-
-const styles = (theme: Theme) => {
-    const colorClasses: any = {}
+type TagStyles = {
+    [key: string]: CSSProperties
+}
+const styles = (theme: Theme):TagStyles => {
+    type ColorClasses = {
+        [key in AllowedColors]: {
+            [key: string]: AllowedColors
+        }
+    }
+    const colorClasses = {} as ColorClasses
     theme.palette.colorList
         .forEach((color: AllowedColors) => {
             colorClasses[color] = {color: color, borderColor: color}

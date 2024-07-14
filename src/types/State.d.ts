@@ -1,8 +1,6 @@
-import { ObjNumbers } from "./Components"
-
-type State = {
-    [key: string]: any
-}
+import { ObjNumbers } from './Components'
+import { EventInfo } from './FormattedData'
+import { SortDirection } from './Querys'
 
 export type ReportType = 'user' | 'team' | 'repo' | 'org'
 
@@ -11,10 +9,15 @@ type UserDate = {
     endDate: string
 }
 
+type UserDate = {
+    startDate?: string
+    endDate?: string
+
+}
 type UserInfo = {
     userId: string
-    name: string
-    dates?: any[]
+    name?: string
+    dates?: UserDate[]
 }
 
 export type UsersInfo = {
@@ -68,10 +71,21 @@ export type UserDataNumbers = Pick<UserData, UserDataNumbersKeys>
 
 export type FetchInfo = {
     usersInfo: UsersInfo
-    events: any[]
+    events: EventInfo[]
     repo: string
     org: string
     teamName: string
     userIds: string[]
     token: string
+    sortDirection: SortDirection
+}
+
+type FetchStatus = {
+    user?: string
+    prCount?: number
+    latestItemDate?: string
+    issueCount?: number
+    savedReportName?: string
+    reviewCount?: number
+    repoCount?: number
 }

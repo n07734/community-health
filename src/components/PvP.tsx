@@ -29,7 +29,7 @@ type PvPProps = {
     pullRequests: PullRequest[]
     releases: EventInfo[]
     usersData: UserData[]
-    classes: any
+    classes: Record<string, string>
 }
 const PvP = ({
     pullRequests = [],

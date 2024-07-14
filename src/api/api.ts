@@ -4,7 +4,6 @@ import {
     always,
     cond,
     propOr,
-    propEq,
     pathOr,
     mergeDeepRight,
     test,
@@ -19,6 +18,8 @@ import types from '../state/types'
 
 import fillData from './fillers'
 import { dateSort } from '../utils'
+import { RawDataItem, RawDataResult, RawDataType, RawDate } from '../types/RawData'
+import { FetchInfo } from '../types/State'
 
 const parseJSON = (response: Response): Promise<ApiResponse> => new Promise((resolve, reject) => {
     response.json()
@@ -77,9 +78,9 @@ const pauseThenRetry = async(apiInfo: ApiInfo, results: ApiResults): Promise<Api
         }
 }
 
-const getCurrentCount = (type: string, results: any[]):number => {
+const getCurrentCount = (type: RawDataType, results: RawDataResult[]):number => {
     const total = results
-        .reduce((acc:number, result:any) => {
+        .reduce((acc:number, result) => {
             const items = result?.data?.result?.[type]?.edges || []
             return acc + items.length
         }, 0)
@@ -87,7 +88,7 @@ const getCurrentCount = (type: string, results: any[]):number => {
     return total
 }
 
-const getLatestDate = (data:any) => (type:string, results: any[]):string => {
+const getLatestDate = (data:FetchInfo) => (type:RawDataType, results: RawDataResult[]):string => {
     const paginationKeyMap:ObjStrings = {
         pullRequests: 'prPagination',
         issues: 'issuesPagination',
@@ -95,12 +96,12 @@ const getLatestDate = (data:any) => (type:string, results: any[]):string => {
     }
     const hasNextPage = pathOr(false, [paginationKeyMap[type], 'hasNextPageForDate'], data)
 
-    const latestResult = results[results.length - 1]
-    const latestItems = latestResult?.data?.result?.[type]?.edges || []
+    const latestResult = results[results.length - 1] as RawDataResult
+    const latestItems = latestResult.data.result[type].edges || [] as RawDataItem[]
 
     const latestItem = latestItems[latestItems.length - 1]
 
-    const dataKey = type === 'pullRequests'
+    const dataKey:RawDate = type === 'pullRequests'
         ? 'createdAt'
         : 'closedAt'
 
@@ -140,6 +141,7 @@ const api = async({ fetchInfo, queryInfo, dispatch = () => {} }:ApiInfo, results
         }
     })
 
+
     const apiCallWithToken = apiCall(fetchInfo)
     try {
         const result = await apiCallWithToken(query)
@@ -167,18 +169,25 @@ const api = async({ fetchInfo, queryInfo, dispatch = () => {} }:ApiInfo, results
                 results: updatedResults,
                 reviewResults: []
             }
-    } catch (error) {
-        const hasTriggeredAbuse = cond<any[], any>([
+    } catch (err) {
+        type ApiError = {
+            status: number,
+            message: string,
+            code: string,
+        }
+        const error = err as ApiError
+
+        const hasTriggeredAbuse: (error: ApiError) => boolean = cond([
             [triggeredAbuseRate, alwaysTrue],
             [triggeredJsonError, alwaysTrue],
-            [propEq('status', 500), alwaysTrue],
-            [propEq('status', 502), alwaysTrue],
-            [propEq('message', 'Abuse rate triggered'), alwaysTrue],
+            [(error:ApiError) => error.status === 500, alwaysTrue],
+            [(error:ApiError) => error.status === 502, alwaysTrue],
+            [(error:ApiError) => error.message === 'Abuse rate triggered', alwaysTrue],
             [compose(test(/ENOTFOUND|ECONNRESET/), propOr('', 'code')), alwaysTrue],
             [compose(test(/fetch/i), propOr('', 'message')), alwaysTrue],
             [alwaysTrue, alwaysFalse],
         ])
-        const getErrorMessage = cond<any[], any>([
+        const getErrorMessage:(error: ApiError) => { level: string, message: string } = cond([
             [
                 hasTriggeredAbuse,
                 always({
@@ -194,7 +203,7 @@ const api = async({ fetchInfo, queryInfo, dispatch = () => {} }:ApiInfo, results
                 }),
             ],
             [
-                propEq('status', 401),
+                (error) => error.status === 401,
                 always({
                     level: 'error',
                     message: 'GitHub token does not have correct settings, please see README',

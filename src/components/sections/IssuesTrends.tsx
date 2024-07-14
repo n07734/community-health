@@ -25,7 +25,7 @@ const formatIssueData = (data:Issue[] = []) => data
 type IssuesTrendsProps = {
     issues: Issue[]
     releases: EventInfo[]
-    classes: any
+    classes: Record<string, string>
 }
 const IssuesTrends = ({
     issues = [],

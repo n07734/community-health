@@ -57,7 +57,88 @@ export type RawPageInfo = {
     hasPreviousPage: boolean
 }
 
-type Paginations = {
+type Comment = {
+    node: {
+        author: {
+            login: string
+            url: string
+        }
+        publishedAt: string
+        body: string
+    }
+}
+export type CommentsQueryResult = {
+    data: {
+        node: {
+            id: string
+            comments: {
+                pageInfo: RawPageInfo
+                edges: Comment[]
+            }
+        }
+    }
+}
+
+type Review = {
+    node: {
+        author: {
+            login: string
+            url: string
+        }
+        id: string
+        state: string
+        comments: {
+            pageInfo: RawPageInfo
+            edges: Comment[]
+        }
+    }
+}
+
+export type ReviewsQueryResult = {
+    data: {
+        node: {
+            id: string
+            reviews: {
+                pageInfo: RawPageInfo
+                edges: Review[]
+            }
+        }
+    }
+}
+
+export type OrgQueryResult = {
+    data: {
+        organization: {
+            repositories: {
+                pageInfo: RawPageInfo
+                edges: {
+                    node: {
+                        name: string
+                    }[]
+                }
+            }
+        }
+    }
+}
+
+export type TeamIDsQueryResult = {
+    data: {
+        organization: {
+            team: {
+                members: {
+                    pageInfo: RawPageInfo
+                    edges: {
+                        node: {
+                            login: string
+                        }[]
+                    }
+                }
+            }
+        }
+    }
+}
+
+export type Paginations = {
     usersReviewsPagination?: OldNew
     issuesPagination?: OldNew
     prPagination?: OldNew
@@ -66,18 +147,51 @@ type Paginations = {
     issueCommentsPagination?: OldNew
 }
 
-type QueryDefault = Paginations & {
+type QueryDefault = {
     amountOfData: AmountOfData
     sortDirection?: SortDirection
 }
 
 export type UserQueryArgs = QueryDefault & {
+    usersReviewsPagination?: OldNew
+    prPagination?: OldNew
+    issuesPagination?: OldNew
+    commitCommentsPagination?: OldNew
+    issueCommentsPagination?: OldNew
     user: string
 }
 
-export type BatchedQueryArgs = QueryDefault & {
+export type BatchedPaginations = {
+    issuesPagination: {
+        [key:string]: OldNew
+        hasNextPage?: boolean
+    }
+    prPagination: {
+        [key:string]: OldNew
+        hasNextPage?: boolean
+    }
+    releasesPagination: {
+        [key:string]: OldNew
+        hasNextPage?: boolean
+    }
+}
+
+export type BatchedQueryArgs = QueryDefault & BatchedPaginations & {
     org: string
     repo: string
+}
+
+export type UsersQueryArgs = QueryDefault & BatchedPaginations & {
+    user: string
+}
+
+export type UsersPaginations = {
+    issuesPagination: {
+        [key:string]: OldNew
+    }
+    prPagination: {
+        [key:string]: OldNew
+    }
 }
 
 export type ApiFetchInfo = any

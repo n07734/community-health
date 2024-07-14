@@ -56,7 +56,7 @@ type UserFormProps = {
     onSubmit: (users: Users) => void
     gitUsers: string[]
     usersInfo: Users
-    classes: any
+    classes: Record<string, string>
 }
 const UserForm = ({
     onSubmit = () => {},

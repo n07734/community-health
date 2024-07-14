@@ -17,7 +17,7 @@ type SentimentProps = {
     pullRequests: PullRequest[]
     releases: EventInfo[]
     userIds: string[]
-    classes: any
+    classes: Record<string, string>
 }
 const Sentiment = ({
     chunkyData = [],

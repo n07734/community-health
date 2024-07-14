@@ -25,7 +25,7 @@ type TeamTrendsProps = {
     allRepos?: any
     userIds?: string[]
     usersInfo?: UsersInfo
-    classes: any
+    classes: Record<string, string>
 }
 const TeamTrends = ({
     pullRequests = [],

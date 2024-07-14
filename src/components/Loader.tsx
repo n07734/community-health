@@ -11,6 +11,8 @@ import {
     equals,
     T as alwaysTrue,
 } from 'ramda'
+import { FetchInfo, FetchStatus } from '../types/State'
+import { PullRequest } from '../types/FormattedData'
 
 type TagStyles = {
     [key: string]: CSSProperties
@@ -64,15 +66,15 @@ const getDaysRemainingText = cond([
 ])
 
 type LoaderProps = {
-    fetches?: any
+    fetches: FetchInfo
     fetching?: boolean
-    fetchStatus?: any
-    pullRequests?: any[]
+    fetchStatus?: FetchStatus
+    pullRequests?: PullRequest[]
     formUntilDate?: string
-    classes?: any
+    classes?: Record<string, string>
 }
 const Loader = ({
-    fetches = {},
+    fetches,
     fetching = false,
     fetchStatus = {},
     pullRequests: pastPRs = [],
@@ -96,7 +98,7 @@ const Loader = ({
 
     const isTeamSearch = userIds.length > 1
 
-    const dayDiff = (a: any,b: any) => sortDirection === 'DESC'
+    const dayDiff = (a: Date,b: Date) => sortDirection === 'DESC'
         ? differenceInDays(a, b)
         : differenceInDays(b, a)
 
@@ -105,7 +107,7 @@ const Loader = ({
         : -1
 
     const startDate = pastPRs.length > 0
-        ? new Date(pastPRs.at(prIndex).mergedAt)
+        ? new Date((pastPRs.at(prIndex) as PullRequest).mergedAt)
         : new Date()
 
     const uptoDate = latestItemDate
@@ -194,7 +196,14 @@ const Loader = ({
     )
 }
 
-const mapStateToProps = (state: any) => ({
+type State = {
+    fetches: FetchInfo
+    fetching: boolean
+    fetchStatus: FetchStatus
+    pullRequests: PullRequest[]
+    formUntilDate: string
+}
+const mapStateToProps = (state: State) => ({
     fetches: state.fetches,
     fetching: state.fetching,
     fetchStatus: state.fetchStatus,

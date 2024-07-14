@@ -26,7 +26,7 @@ import {
 } from '../../../preFetchedInfo'
 
 type FetchFormProps = {
-    classes: any
+    classes: Record<string, string>
     clearReport: () => void
 }
 const FetchForm = ({ classes, clearReport }: FetchFormProps) => {

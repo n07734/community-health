@@ -20,7 +20,7 @@ type ButtonWithMessageProps = {
         message: string
     }
     pullRequests: any[]
-    classes: any
+    classes: Record<string, string>
 }
 const ButtonWithMessage = (props:ButtonWithMessageProps) => {
     const {

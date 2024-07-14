@@ -7,7 +7,7 @@ import { Theme } from '@mui/material/styles'
 
 type ButtonProps = {
     className?: string
-    classes: any
+    classes: Record<string, string>
     onClick?: (e: React.MouseEvent<HTMLElement>) => void
     key?: string
     value: string

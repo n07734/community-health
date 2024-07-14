@@ -96,7 +96,7 @@ const modalStyles = (theme: Theme): TagStyles => ({
 })
 
 type GitHubTeamProps = {
-    classes: any
+    classes: Record<string, string>
     setGitUsers: any
 }
 const GitHubTeam = withStyles(modalStyles)((props:GitHubTeamProps) => {
@@ -178,7 +178,7 @@ const GitHubTeam = withStyles(modalStyles)((props:GitHubTeamProps) => {
 type TeamModalProps = {
     setParentValues: (x: object) => void
     usersInfo: Users
-    classes: any
+    classes: Record<string, string>
 }
 const TeamModal =  withStyles(modalStyles)(({
     setParentValues,

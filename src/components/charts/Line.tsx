@@ -109,7 +109,7 @@ type LineProps = {
     data: Lines[]
     markers: EventInfo[]
     showLegends: boolean
-    classes: any
+    classes: Record<string, string>
     tableData: any[]
     tableKeys: ColumnKeys[]
     graphInfo: any

@@ -11,7 +11,7 @@ import styledCharts from './styledCharts'
 type PieProps = {
     title: string
     data: PieData[]
-    classes: any
+    classes: Record<string, string>
 }
 const Pie = styledCharts(({
     title = '',

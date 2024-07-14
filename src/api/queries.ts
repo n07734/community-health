@@ -1,15 +1,17 @@
 
 import { pathOr } from 'ramda'
 import { isDate } from 'date-fns'
-import { BatchedQueryArgs, Cursor, MakeQuery, NodeCursor, OldNew, RawDataCommentTypeKey, RawDataTypeKey, RawPageInfo, SortDirection, UntilDate, UserQueryArgs } from '../types/Querys'
 import {
   always,
   T as alwaysTrue,
   F as alwaysFalse,
   cond,
 } from 'ramda'
+import { BatchedQueryArgs, CommentsQueryResult, Cursor, MakeQuery, NodeCursor, OldNew, OrgQueryResult, RawDataCommentTypeKey, RawDataTypeKey, RawPageInfo, ReviewsQueryResult, SortDirection, TeamIDsQueryResult, UntilDate, UserQueryArgs } from '../types/Querys'
+import { Cursors, RawDataResult, RawDataType } from '../types/RawData'
+import { ObjStrings } from '../types/Components'
+
 import filterByUntilDate from '../format/filterByUntilDate'
-import { Cursors } from '../types/RawData'
 
 const cursorQ = (cursor: Cursor) => cursor
   ? ` after:"${cursor}" `
@@ -333,9 +335,11 @@ const getPaginationForSearch = (oldFetchInfo = {}, untilDate = '', data = {}, or
   return nextInfo
 }
 
-const getRemainingPageCount = (data: any) => {
-  const [maxItems] = ['issues', 'pullRequests', 'releases']
-    .map(type => pathOr(0, ['data', 'result', type, 'totalCount'], data) as number)
+
+const getRemainingPageCount = (data: RawDataResult) => {
+  const types:RawDataType[] = ['issues', 'pullRequests', 'releases']
+  const [maxItems] = types
+    .map((type) => data?.data?.result?.[type]?.totalCount || 0)
     .sort((a, b) => b - a)
 
   return Math.ceil(maxItems / 50) - 1
@@ -451,7 +455,7 @@ const reviewsByUserQuery = (untilDate: UntilDate) => ({
   }`,
   sortDirection,
   user,
-  resultInfo: (data: {} | undefined) => {
+  resultInfo: (data:RawDataResult) => {
     const byDirectionType = getPaginationForSearch(
       {
         usersReviewsPagination,
@@ -527,7 +531,7 @@ const userQuery = (untilDate: UntilDate) => ({
   }`,
   sortDirection,
   user,
-  resultInfo: (data: {} | undefined) => {
+  resultInfo: (data:RawDataResult) => {
     const byType = getPaginationByType(
       {
         issuesPagination,
@@ -608,13 +612,13 @@ const batchedQuery = (untilDate: UntilDate) => ({
         owner {
           org: login
         }
-        ${prPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? pullRequests(sortDirection)(prPagination) : ''}
-        ${issuesPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? issues(sortDirection)(issuesPagination) : ''}
-        ${releasesPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? releases(sortDirection)(releasesPagination) : ''}
+        ${hasNextPage(prPagination,untilDate) ? pullRequests(sortDirection)(prPagination) : ''}
+        ${hasNextPage(issuesPagination,untilDate) ? pullRequests(sortDirection)(prPagination) : ''}
+        ${hasNextPage(releasesPagination,untilDate) ? pullRequests(sortDirection)(prPagination) : ''}
       }
     }`,
   sortDirection,
-  resultInfo: (data: {} | undefined) => {
+  resultInfo: (data:RawDataResult) => {
     const byType = getPaginationByType(
       {
         issuesPagination,
@@ -666,13 +670,13 @@ const commentsQuery:MakeQuery = ({ nodeId, cursor }: NodeCursor) => ({
           }
         }
     }`,
-  resultInfo: (data: any) => ({
+  resultInfo: (data: CommentsQueryResult) => ({
     rawData: data,
-    results: pathOr([], ['data', 'node', 'comments', 'edges'], data),
-    hasNextPage: pathOr(false, ['data', 'node', 'comments', 'pageInfo', 'hasNextPage'], data),
+    results: data?.data?.node?.comments?.edges || [],
+    hasNextPage: data?.data?.node?.comments?.pageInfo?.hasNextPage || false,
     nextArgs: {
-      nodeId: pathOr('', ['data', 'node', 'id'], data),
-      cursor: pathOr('', ['data', 'node', 'comments', 'pageInfo', 'endCursor'], data),
+      nodeId: data?.data?.node?.id || '',
+      cursor: data?.data?.node?.comments?.pageInfo?.endCursor || '',
     },
   }),
   fillerType: '',
@@ -687,13 +691,13 @@ const reviewsQuery:MakeQuery = ({ nodeId, cursor }: NodeCursor) => ({
           }
         }
     }`,
-  resultInfo: (data: any) => ({
+  resultInfo: (data: ReviewsQueryResult) => ({
     rawData: data,
-    results: pathOr([], ['data', 'node', 'reviews', 'edges'], data),
-    hasNextPage: pathOr(false, ['data', 'node', 'reviews', 'pageInfo', 'hasNextPage'], data),
+    results: data?.data?.node?.reviews?.edges || [],
+    hasNextPage: data?.data?.node?.reviews?.pageInfo?.hasNextPage || false,
     nextArgs: {
-      nodeId: pathOr('', ['data', 'node', 'id'], data),
-      cursor: pathOr('', ['data', 'node', 'reviews', 'pageInfo', 'endCursor'], data),
+      nodeId: data?.data?.node?.id || '',
+      cursor: data?.data?.node?.reviews?.pageInfo?.endCursor || '',
     },
   }),
   fillerType: 'pullRequestReviewComments',
@@ -708,13 +712,13 @@ const reviewCommentsQuery:MakeQuery = ({ nodeId, cursor }: NodeCursor) => ({
           }
         }
     }`,
-  resultInfo: (data: any) => ({
+  resultInfo: (data: CommentsQueryResult) => ({
     rawData: data,
-    results: pathOr([], ['data', 'node', 'comments', 'edges'], data),
-    hasNextPage: pathOr(false, ['data', 'node', 'comments', 'pageInfo', 'hasNextPage'], data),
+    results: data?.data?.node?.comments?.edges || [],
+    hasNextPage: data?.data?.node?.comments?.pageInfo?.hasNextPage || false,
     nextArgs: {
-      nodeId: pathOr('', ['data', 'node', 'id'], data),
-      cursor: pathOr('', ['data', 'node', 'comments', 'pageInfo', 'endCursor'], data),
+      nodeId: data?.data?.node?.id || '',
+      cursor: data?.data?.node?.comments?.pageInfo?.endCursor || '',
     },
   }),
   fillerType: '',
@@ -725,7 +729,7 @@ const orgQuery = ({
   orgPagination = {}
 }: {
   org: string
-  orgPagination: any
+  orgPagination: ObjStrings
 }) => ({
   query: `{
     organization(login: "${org}") {
@@ -748,13 +752,13 @@ const orgQuery = ({
     }
   }`,
   fillerType: 'org',
-  resultInfo: (data: any) => {
-    const hasNextPage = pathOr(false, ['data', 'organization', 'repositories', 'pageInfo', 'hasNextPage'], data)
-    const cursor = pathOr('', ['data', 'organization', 'repositories', 'pageInfo', 'endCursor'], data)
+  resultInfo: (data: OrgQueryResult) => {
+    const hasNextPage = data?.data?.organization?.repositories?.pageInfo?.hasNextPage || false
+    const cursor = data?.data?.organization?.repositories?.pageInfo?.endCursor || ''
     return ({
       rawData: data,
-      results: pathOr([], ['data', 'organization', 'repositories', 'edges'], data),
-      hasNextPage: pathOr(false, ['data', 'organization', 'repositories', 'pageInfo', 'hasNextPage'], data),
+      results: data?.data?.organization?.repositories?.edges || [],
+      hasNextPage: data?.data?.organization?.repositories?.pageInfo?.hasNextPage || false,
       nextPageInfo: {
         orgPagination: {
           cursor: cursor,
@@ -791,8 +795,8 @@ const teamIDsQuery = ({ org, team }: { org: string, team: string }) => ({
     }
   }`,
   fillerType: 'team',
-  resultInfo: (data: any[]) => ({
-    results: pathOr([], ['data', 'organization', 'team', 'members', 'edges'], data[0]),
+  resultInfo: (data: TeamIDsQueryResult[]) => ({
+    results: data[0]?.data?.organization?.team?.members?.edges || [],
     hasNextPage: false,
   }),
 })

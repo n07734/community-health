@@ -151,7 +151,7 @@ type UserViewProps = {
     pullRequests: PullRequest[]
     releases: EventInfo[]
     usersData: UserData[]
-    classes: any
+    classes: Record<string, string>
 }
 const UserView = ({
     pullRequests = [],

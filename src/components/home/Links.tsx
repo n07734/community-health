@@ -8,7 +8,7 @@ import WbSunny from '@mui/icons-material/WbSunny';
 
 import { useThemeMode } from '../../state/ThemeModeProvider'
 
-const Links = ({ classes }: { classes: any}) => {
+const Links = ({ classes }: { classes: Record<string, string>}) => {
     const { themeMode, toggleThemeMode } = useThemeMode()
     return (
         <div className={classes.wrapper} >

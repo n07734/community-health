@@ -22,7 +22,7 @@ type DateRangeProps = {
     issues: Issue[]
     usersInfo: UsersInfo
     trim: (from: string, to: string) => void
-    classes: any
+    classes: Record<string, string>
 }
 const DateRange = ({
     pullRequests = [],

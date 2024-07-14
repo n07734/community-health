@@ -16,7 +16,7 @@ type BarProps = {
     sortBy: string
     indexBy: string
     max: number
-    classes: any
+    classes: Record<string, string>
     layout: "horizontal" | "vertical" | undefined
     title: string
 }

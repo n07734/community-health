@@ -53,7 +53,7 @@ type PrefetchedFormProps = {
     getData: () => void
     fetches: Fetches
     fetching: boolean
-    classes: any
+    classes: Record<string, string>
     userIds: string[]
     usersInfo: any
     events: FormEvent[]

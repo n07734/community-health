@@ -21,7 +21,7 @@ import {
 } from '../../../myReports/myReportsConfig'
 
 type PrefetchedOptionsProps = {
-    classes: any
+    classes: Record<string, string>
     error: any
     preFetchedName: string
     getPreFetchedReport: (x: any) => void
