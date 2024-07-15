@@ -7,11 +7,12 @@ import {
     getDownloadProps,
 } from '../../../state/actions'
 import { P } from '../../shared/StyledTags'
+import { PullRequest } from '../../../types/FormattedData'
 
 type Download = {
     fetching: boolean,
     preFetchedName?: string,
-    pullRequests: any[],
+    pullRequests: PullRequest[],
     classes: Record<string, string>,
     getDownloadInfo: () => object,
 }
@@ -30,7 +31,7 @@ const Download = ({
 
 type State = {
     fetching: boolean,
-    pullRequests: any[],
+    pullRequests: PullRequest[],
     preFetchedName: string,
 }
 const mapStateToProps = (state: State) => ({

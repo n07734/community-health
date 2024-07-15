@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { DataGrid } from '@mui/x-data-grid'
-import { withStyles } from '@mui/styles'
+import { withStyles, CSSProperties } from '@mui/styles'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { Theme } from '@mui/material/styles'
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
@@ -8,7 +8,7 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import { format } from 'date-fns'
 
 import { A } from '../shared/StyledTags'
-import { ColumnKeys } from '../../types/Graphs';
+import { ColumnKeys, TableData } from '../../types/Graphs';
 
 type Params = { value?: string }
 const zeroOut = {
@@ -162,7 +162,7 @@ const ItemsTable = ({
     classes = {},
     tableOpenedByDefault = false,
 }: {
-    data: any[],
+    data: readonly TableData[][],
     dataKeys: ColumnKeys[],
     classes: Record<string, string>,
     tableOpenedByDefault?: boolean,
@@ -175,9 +175,9 @@ const ItemsTable = ({
     const flatData = data.flat()
     const total = flatData.length
 
-    const updatedData = total > 30
+    const updatedData = (total > 30
         ? data
-        : [flatData]
+        : [flatData]) as readonly TableData[][]
 
     return <div className={classes.wrapper}>
         {
@@ -208,10 +208,10 @@ const ItemsTable = ({
          </div>
         }
         {
-            (updatedData[dataIndex] || []).length > 0 && showTable &&
+            updatedData[dataIndex]?.length > 0 && showTable &&
             <DataGrid
                 sortingOrder={['desc', 'asc']}
-                rows={updatedData[dataIndex]}
+                rows={(updatedData[dataIndex]) as readonly TableData[]}
                 columns={makeColumns(dataKeys)}
                 initialState={{
                     pagination: { paginationModel: { pageSize: 5 } },
@@ -233,7 +233,10 @@ const chunksRules = {
     borderRadius: '8px',
 }
 
-const styles = (theme: Theme) => ({
+type TagStyles = {
+    [key: string]: CSSProperties
+}
+const styles = (theme: Theme):TagStyles => ({
     bar: {
         width: '100%',
         height: '30px',
@@ -330,4 +333,4 @@ const styles = (theme: Theme) => ({
     },
 })
 
-export default withStyles<any, any>(styles)(ItemsTable)
+export default withStyles(styles)(ItemsTable)

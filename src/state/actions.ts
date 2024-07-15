@@ -16,10 +16,9 @@ import {
 } from 'ramda'
 import { isAfter, isBefore } from 'date-fns'
 import { AnyAction, Dispatch } from 'redux'
-import { FetchInfo, ReportType } from '../types/State'
+import { FetchInfo, ReportType, AllState } from '../types/State'
 import { AmountOfData } from '../types/Querys'
-import { AnyObject } from '../types/Components'
-import { DateKeys } from '../types/RawData'
+import { AnyObject, ObjStrings } from '../types/Components'
 
 import api from '../api/api'
 import getUsersData from '../api/getUsersData'
@@ -40,6 +39,7 @@ import { batchedQuery } from '../api/queries'
 import formatUserData from '../format/userData'
 import { formatReleaseData } from '../format/releaseData'
 import types from './types'
+import { EventInfo, Issue, PullRequest } from '../types/FormattedData'
 
 const storeToken = (token = '') => ({
     type: types.STORE_TOKEN,
@@ -116,9 +116,9 @@ const storeAmountOfData = (amountOfData:AmountOfData) => (dispatch: Dispatch<Any
     payload: amountOfData || '',
 })
 
-const storeFormUntilDate = (amountOfData:AmountOfData) => (dispatch: Dispatch<AnyAction>, getState: any) => {
+const storeFormUntilDate = (amountOfData:AmountOfData) => (dispatch: Dispatch<AnyAction>, getState: () => AllState) => {
     const {
-        fetches = {},
+        fetches,
         pullRequests = [],
     } = getState();
 
@@ -173,7 +173,7 @@ const notSameUsersInfo = (formValues:Values = {}, fetches:Values = {}) => {
 }
 
 // TODO: regression test
-const clearPastSearch = (values:any) => (dispatch: Dispatch<AnyAction>, getState: any) => {
+const clearPastSearch = (values:any) => (dispatch: Dispatch<AnyAction>, getState: () => AllState) => {
     const {
         fetches = {},
     } = getState()
@@ -311,14 +311,14 @@ type Item = {
     createdAt: string
     date: string
 }
-const trimmer = (dateFrom = '', dateTo = '') => (dateKey:DateKeys = 'mergedAt', items: any[] = []) => {
-    const newTrimmedLeft: any[] = []
-    const keptItems: any[] = []
-    const newTrimmedRight: any[] = []
+const trimmer = (dateFrom = '', dateTo = '') => <T>(dateKey:string = 'mergedAt', items: T[][] = []) => {
+    const newTrimmedLeft: T[] = []
+    const keptItems: T[] = []
+    const newTrimmedRight: T[] = []
 
-    const trimmer = (items = []) => items
-        .forEach((item:Item) => {
-            const itemsDate = new Date(item[dateKey])
+    const trimmer = (items:T[] = []) => items
+        .forEach((item) => {
+            const itemsDate = new Date(( item as ObjStrings)[dateKey])
             if (isBefore(itemsDate, new Date(dateFrom))) {
                 newTrimmedLeft.push(item)
             } else if (isAfter(itemsDate, new Date(dateTo))) {
@@ -339,7 +339,7 @@ const trimmer = (dateFrom = '', dateTo = '') => (dateKey:DateKeys = 'mergedAt', 
     ]
 }
 
-const trimItems = (dateFrom = '', dateTo = '') => async (dispatch: Dispatch<AnyAction>, getState: any) => {
+const trimItems = (dateFrom = '', dateTo = '') => async (dispatch: Dispatch<AnyAction>, getState: () => AllState) => {
     const {
         fetches: {
             usersInfo = {},
@@ -374,7 +374,7 @@ const trimItems = (dateFrom = '', dateTo = '') => async (dispatch: Dispatch<AnyA
         newTrimmedLeftPrs,
         keptPrs,
         newTrimmedRightPrs,
-    ] = itemsTrimmer('mergedAt', allPrs)
+    ] = itemsTrimmer<PullRequest>('mergedAt', allPrs)
 
     dispatch({
         type: types.ADD_PRS,
@@ -390,7 +390,7 @@ const trimItems = (dateFrom = '', dateTo = '') => async (dispatch: Dispatch<AnyA
         newTrimmedLeftReviewedPrs,
         keptReviewedPrs,
         newTrimmedRightReviewedPrs,
-    ] = itemsTrimmer('mergedAt', allReviewedPrs)
+    ] = itemsTrimmer<PullRequest>('mergedAt', allReviewedPrs)
 
     dispatch({
         type: types.ADD_REVIEWED_PRS,
@@ -411,7 +411,7 @@ const trimItems = (dateFrom = '', dateTo = '') => async (dispatch: Dispatch<AnyA
         newTrimmedLeftReleases,
         keptReleases,
         newTrimmedRightReleases,
-    ] = itemsTrimmer('date', allReleases)
+    ] = itemsTrimmer<EventInfo>('date', allReleases)
 
     dispatch({
         type: types.ADD_RELEASES,
@@ -437,7 +437,7 @@ const trimItems = (dateFrom = '', dateTo = '') => async (dispatch: Dispatch<AnyA
     })
 }
 
-const getStartEndDates = (prs: any[] = []) => {
+const getStartEndDates = (prs: PullRequest[] = []) => {
     const { mergedAt: prStartDate = '' } = prs.at(0) || { mergedAt: ''}
     const { mergedAt: prEndDate = '' } = prs.at(-1) || { mergedAt: '' }
 
@@ -447,7 +447,8 @@ const getStartEndDates = (prs: any[] = []) => {
     ]
 }
 
-const getAPIData = () => async (dispatch: Dispatch<AnyAction>, getState: any) => {
+
+const getAPIData = () => async (dispatch: Dispatch<AnyAction>, getState: () => AllState) => {
     const state = getState();
 
     const { isValid: isValidRequest } = validateRequest(state);
@@ -466,7 +467,7 @@ const getAPIData = () => async (dispatch: Dispatch<AnyAction>, getState: any) =>
         }
 
         const {
-            fetches = {},
+            fetches,
             filteredPRs = [],
             pullRequests = [],
             filteredReviewedPRs = [],
@@ -479,7 +480,7 @@ const getAPIData = () => async (dispatch: Dispatch<AnyAction>, getState: any) =>
         } = getState();
 
         const {
-            usersInfo = {},
+            usersInfo,
         } = fetches
 
         const userIds = fetches?.userIds || []
@@ -490,8 +491,8 @@ const getAPIData = () => async (dispatch: Dispatch<AnyAction>, getState: any) =>
 
         const reportType:ReportType = (userIds.length === 1 && 'user')
             || (userIds.length > 1 && 'team')
-            || (repo && org && 'repo')
-            || org && 'org'
+            || (!repo && org && 'org')
+            || 'repo'
 
         const reportTypeMap = {
             user: () => getUserData({ fetchInfo: fetches, untilDate, dispatch }),
@@ -639,7 +640,8 @@ const getAPIData = () => async (dispatch: Dispatch<AnyAction>, getState: any) =>
 
         dispatch({ type: types.FETCH_END })
 
-    } catch (error: any) {
+    } catch (err) {
+        const error = err as Error
         dispatch({
             type: types.FETCH_ERROR,
             payload: {
@@ -651,9 +653,9 @@ const getAPIData = () => async (dispatch: Dispatch<AnyAction>, getState: any) =>
     }
 }
 
-const setPreFetchedData = (repoData: any = {}, dispatch: Dispatch<AnyAction>) => {
+const setPreFetchedData = (repoData: AllState, dispatch: Dispatch<AnyAction>) => {
     const {
-        fetches = {},
+        fetches,
         preFetchedName = '',
         reportDescription = '',
         pullRequests = [],
@@ -680,7 +682,7 @@ const setPreFetchedData = (repoData: any = {}, dispatch: Dispatch<AnyAction>) =>
     clearData(dispatch)
 
     type FetchesInfo = [
-        string,
+        keyof FetchInfo,
         string,
         object | string,
     ]
@@ -695,10 +697,10 @@ const setPreFetchedData = (repoData: any = {}, dispatch: Dispatch<AnyAction>) =>
         ['issuesPagination', 'SET_ISSUES_PAGINATION', {}],
     ];
 
-    fetchesInfo.forEach(([payload = '', type = '', fallback]:FetchesInfo) => {
+    fetchesInfo.forEach(([fetchesKey, type = '', fallback]:FetchesInfo) => {
         dispatch({
             type: types[type as string],
-            payload: fetches?.[payload] || fallback,
+            payload: fetches?.[fetchesKey] || fallback,
         })
     });
 
@@ -811,13 +813,14 @@ const setPreFetchedData = (repoData: any = {}, dispatch: Dispatch<AnyAction>) =>
     })
 }
 
-const parseJSON = (response: any) => new Promise((resolve, reject) => {
+const parseJSON = (response: { status: number, json(): Promise<object> }) => new Promise((resolve, reject) => {
     response.json()
-        .then((data: any) => response.status === 200
+        .then((data: object) => response.status === 200
             ? resolve(data)
             : reject(new Error(`Error status code ${response.status}`)),
         )
-        .catch((error: any) => {
+        .catch((err) => {
+            const error:{ status: number } = err
             console.log('-=-=--parseJSON error', error)
             error.status = response.status
             reject(error)
@@ -851,7 +854,8 @@ const getPreFetched = ({
 
         setPreFetchedData(reportData, dispatch)
 
-    } catch (error: any) {
+    } catch (err) {
+        const error = err as { status: number, message: string }
         console.log('-=-=--api data error', error, error.status)
 
         const message = error.status !== 200
@@ -869,7 +873,7 @@ const getPreFetched = ({
     }
 }
 
-const getDownloadProps = (_dispatch: any, getState: any) => {
+const getDownloadProps = (_dispatch: () => void, getState: () => AllState) => {
     const state = getState()
 
     const {
@@ -911,7 +915,7 @@ const getDownloadProps = (_dispatch: any, getState: any) => {
     }
 }
 
-const checkUntilDate = (newSortDirection = '') => (dispatch: Dispatch<AnyAction>, getState: any) => {
+const checkUntilDate = (newSortDirection = '') => (dispatch: Dispatch<AnyAction>, getState: () => AllState) => {
     const {
         fetches: {
             sortDirection = '',

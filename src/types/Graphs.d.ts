@@ -128,3 +128,7 @@ export type ColumnKeys =
     | 'growth'
     | 'repo'
     | 'isBug'
+
+export type TableData = {
+    [key in ColumnKeys]: string | number | boolean
+}

@@ -6,6 +6,7 @@ export type RawDataItem ={
         [key in RawDate]: string
     } & {
         id: string
+        name: string
     }
 }
 export type RawDataType = 'pullRequests' | 'issues' | 'releases'
@@ -21,6 +22,10 @@ export type RawDataResult ={
     }
 }
 
+export type RawEventInfo = {
+    date: string
+    description: string
+}
 
 export type Cursors = {
     endCursor: string

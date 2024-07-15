@@ -29,12 +29,12 @@ const getPrDate = (sortDirection: SortDirection, allPrs:PR[] = []) => {
 
 type Fetches = {
     untilDate?: UntilDate,
-    amountOfData: number,
+    amountOfData: number | string,
     sortDirection: SortDirection
 }
 const getUntilDate = (
     fetches:Fetches,
-    allPrs:RawPullRequest[] = []) => {
+    allPrs:PullRequest[] = []) => {
     const {
         untilDate = '',
         amountOfData = 0,

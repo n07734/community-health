@@ -19,7 +19,7 @@ import {
     getReportMonthCount,
 } from './lineHelpers'
 import { EventInfo } from '../../types/FormattedData';
-import { ColumnKeys, LineForGraph, Lines } from '../../types/Graphs';
+import { ColumnKeys, LineForGraph, Lines, TableData } from '../../types/Graphs';
 
 const getAllYMax = (data:any[] = []) => data
     .filter(x => x.yMax)
@@ -36,7 +36,7 @@ type ScatterplotProps = {
     showLegends?: boolean
     legends?: any[]
     classes?: any
-    tableData?: any[]
+    tableData?: TableData[][]
     tableKeys?: ColumnKeys[]
     graphInfo?: any
     setGraph?: any

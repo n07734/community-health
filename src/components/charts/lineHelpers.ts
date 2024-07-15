@@ -4,7 +4,7 @@ import differenceInMonths from 'date-fns/differenceInMonths'
 import min from 'date-fns/min'
 import max from 'date-fns/max'
 import { ObjNumbers, PieData, PieInfo } from '../../types/Components'
-import { EventInfo, PullRequest } from '../../types/FormattedData'
+import { EventInfo, PullRequest, ReleaseType } from '../../types/FormattedData'
 import { UsersInfo } from '../../types/State'
 import { LineDataKey, LineForGraph, LineInfo, LinePlot, GroupMathCalculation } from '../../types/Graphs'
 
@@ -308,7 +308,7 @@ const formatGraphMarkers = (markers: EventInfo[], theme: Theme, lineData: LineFo
             axis: 'x',
             value: new Date(item.date).getTime(),
             legend: item.description,
-            ...(theme.charts.markers[markerTypeMap[item.releaseType] as 'primary' | 'secondary' | 'tertiary'] || {}),
+            ...(theme.charts.markers[markerTypeMap[item.releaseType as ReleaseType] as 'primary' | 'secondary' | 'tertiary'] || {}),
             legendOffsetY: offsetSteps[i % offsetSteps.length],
         }))
 
@@ -363,7 +363,7 @@ const chunkData = (data: any[] = []) => {
         ? differenceInDays(endDate, startDate)
         : 0
 
-    const chunkyData: any[][] = []
+    const chunkyData: PullRequest[][] = []
     batchedData
         .forEach((items: any[] = [], i: number) => {
             const chunkCount = chunkyData.length

@@ -105,7 +105,7 @@ const hasTrimmedMaths = (graphs:Graph[] = []) => {
 }
 
 type CustomGraphsProps = {
-    chunkyData: any[],
+    chunkyData: PullRequest[][],
     pullRequests: PullRequest[],
     prTransformer?: Function,
     issues?: Issue[],

@@ -1,6 +1,6 @@
 import { pathOr } from 'ramda'
 import batch from './batch'
-import { FilterType, MakeQuery } from '../types/Querys'
+import { FilterType, MakeQuery, OrgQueryResult, TeamIDsQueryResult } from '../types/Querys'
 import { RawPullRequest, RawDataResult } from '../types/RawData'
 
 import {
@@ -9,7 +9,8 @@ import {
     reviewCommentsQuery,
 } from './queries'
 
-const getData = (type: FilterType, data: any[]) => {
+type Data = TeamIDsQueryResult | OrgQueryResult
+const getData = (type: FilterType, data: Data[]) => {
     const pathMap: { [key: string]: string[] } = {
         'org': ['data', 'organization', 'repositories', 'edges'],
         'team': ['data', 'organization', 'team', 'members', 'edges'],

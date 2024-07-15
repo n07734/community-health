@@ -16,7 +16,7 @@ import {
     isBefore,
 } from 'date-fns'
 import Sentiment from 'sentiment'
-import { Issue } from '../types/FormattedData'
+import { Issue, PullRequest } from '../types/FormattedData'
 import { ObjNumbers } from '../types/Components'
 import { SortDirection } from '../types/Querys'
 import { FetchInfo } from '../types/State'
@@ -214,7 +214,8 @@ const dateSort = (dateKey: DateKeys, sortDirection: SortDirection) => (aObj: any
         : new Date(a).getTime() - new Date(b).getTime()
 }
 
-const formatPullRequests = ({ excludeIds }: { excludeIds: string[] } = { excludeIds: []}, results: any[] = []) => {
+const formatPullRequests = (fetchInfo:FetchInfo, results: any[] = []) => {
+    const { excludeIds = [] } = fetchInfo
     const pullRequests = compose(
         map(prData(excludeIds)),
         flatten,
@@ -222,7 +223,7 @@ const formatPullRequests = ({ excludeIds }: { excludeIds: string[] } = { exclude
             || result?.data?.result?.edges),
     )(results)
 
-    return pullRequests
+    return pullRequests as PullRequest[]
 }
 
 const usersPrWasInTeam = (prMergeDate = '') => ({
@@ -262,8 +263,8 @@ const filterByUsersInfo = (fetchInfo:FetchInfo, prs: any[] = []) => {
     return filteredItems
 }
 
-const filterSortPullRequests = ({ excludeIds = [] }: { excludeIds: string[] }, { reportStartDate = '', reportEndDate = '' }, allPullRequests = []) => {
-    const filteredPRs: any[] = []
+const filterSortPullRequests = ({ excludeIds = [] }: { excludeIds: string[] }, { reportStartDate = '', reportEndDate = '' }, allPullRequests:PullRequest[] = []) => {
+    const filteredPRs: PullRequest[] = []
     const remainingPRs = compose(
         sort(dateSort('mergedAt', 'ASC')),
         filter((item: any) => {
@@ -276,7 +277,7 @@ const filterSortPullRequests = ({ excludeIds = [] }: { excludeIds: string[] }, {
             !keepItem && filteredPRs.push(item)
             return keepItem
         }),
-    )(allPullRequests)
+    )(allPullRequests) as PullRequest[]
 
     return [remainingPRs, filteredPRs]
 }
@@ -339,17 +340,33 @@ const formatRelease = (data: RawData) => {
         description: tag,
     }
 }
-
-const formatReleases = (data: any[] = []) => {
+type RawReleases = {
+    node: {
+        createdAt: string,
+        tag: {
+            name: string,
+        }
+    }
+}
+type Data = {
+    data: {
+        result: {
+            releases: {
+                edges: RawReleases[]
+            }
+        }
+    }
+}
+const formatReleases = (data: Data[] = []) => {
     const rawResults = data
-        .map((dataItem: any) => dataItem?.data?.result?.releases?.edges || [])
+        .map((dataItem) => dataItem?.data?.result?.releases?.edges || [])
 
     const flatRaw = flatten(rawResults)
     const filteredItems = flatRaw
-        .filter((x: any) => x)
+        .filter(Boolean)
 
     const formattedItems = filteredItems
-        .map((item:any) => formatRelease(item))
+        .map((item) => formatRelease(item))
 
     return formattedItems
 }

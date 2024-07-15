@@ -1,7 +1,8 @@
 import { diff, lt } from 'semver'
 import { UserDate, UserInfo, UsersInfo } from '../types/State'
 import { ObjStrings } from '../types/Components'
-import { EventInfo } from '../types/FormattedData'
+import { EventInfo, ReleaseType } from '../types/FormattedData'
+import { RawEventInfo } from '../types/RawData'
 
 const datePropSort = (aObj: ObjStrings, bObj: ObjStrings) => {
     const a = aObj?.date || ''
@@ -27,17 +28,13 @@ const semVerSort = (a: ObjStrings, b: ObjStrings) => {
     return sortResult
 }
 
-type ReleaseResult = {
-    description: string
-    releaseType: string
-}
-const formatReleaseData = (results: ReleaseResult[] = []) => {
+const formatReleaseData = (results: RawEventInfo[] = []) => {
     const semVerSortedResults = results
         .filter(x => /^v\d+\.\d+\.\d+$/.test(getTag(x)))
         .sort(semVerSort)
 
     const formattedReleases = semVerSortedResults
-        .map((release:ReleaseResult, i) => {
+        .map((release, i) => {
             const currentTag = getTag(release)
             let releaseType = ''
 
@@ -64,19 +61,20 @@ const formatReleaseData = (results: ReleaseResult[] = []) => {
                 releaseType = 'PATCH'
             }
 
-            return {
+            const item: EventInfo = {
                 ...release,
-                releaseType: releaseType || 'MAJOR',
+                releaseType: releaseType as ReleaseType || 'MAJOR',
             }
+            return item
         })
 
     const finalFilter = formattedReleases.length > 70
-        ? (release: any = {}) => release.releaseType !== 'PATCH'
+        ? (release:EventInfo) => release.releaseType !== 'PATCH'
         : () => true
 
     const dateSortedReleases = formattedReleases
         .filter(finalFilter)
-        .sort((a:any,b:any) => datePropSort(a,b))
+        .sort((a:ObjStrings, b:ObjStrings) => datePropSort(a,b))
 
     return dateSortedReleases
 }
@@ -89,7 +87,7 @@ const formatMarkers = ({
     usersInfo?: UsersInfo
     events: EventInfo[]
 }) => {
-    const teamMarkers: any[] = []
+    const teamMarkers: EventInfo[] = []
     Object.values(usersInfo)
         .forEach(({
             name = '',

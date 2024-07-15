@@ -4,7 +4,7 @@ import { LegendProps } from '@nivo/legends'
 import { TableTooltip } from '@nivo/tooltip'
 import { useTheme } from '@mui/styles'
 import { Theme } from '@mui/material/styles'
-import { Lines, LineInfo, LineForGraph, ColumnKeys, LinePlot } from '../../types/Graphs'
+import { Lines, LineInfo, LineForGraph, ColumnKeys, LinePlot, TableData } from '../../types/Graphs'
 import { EventInfo } from '../../types/FormattedData'
 
 import { useShowNumbers } from '../../state/ShowNumbersProvider'
@@ -110,7 +110,7 @@ type LineProps = {
     markers: EventInfo[]
     showLegends: boolean
     classes: Record<string, string>
-    tableData: any[]
+    tableData: readonly TableData[][]
     tableKeys: ColumnKeys[]
     graphInfo: any
     setGraph: any

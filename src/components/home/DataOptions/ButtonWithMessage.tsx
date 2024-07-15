@@ -6,8 +6,9 @@ import Button from '../../shared/Button'
 import Message from '../Message'
 
 import styles from './styles'
+import { PullRequest } from '../../../types/FormattedData'
 
-const buttonText = (fetching: boolean, pullRequests: any[]) => [
+const buttonText = (fetching: boolean, pullRequests: PullRequest[]) => [
     fetching && 'fetching',
     pullRequests.length && 'Get more data',
     'Get data',
@@ -19,7 +20,7 @@ type ButtonWithMessageProps = {
         level: 'warn' | 'error'
         message: string
     }
-    pullRequests: any[]
+    pullRequests: PullRequest[]
     classes: Record<string, string>
 }
 const ButtonWithMessage = (props:ButtonWithMessageProps) => {
@@ -54,7 +55,7 @@ type StateProps = {
         level: 'warn' | 'error'
         message: string
     }
-    pullRequests: any[]
+    pullRequests: PullRequest[]
 }
 const mapStateToProps = (state:StateProps) => ({
     fetching: state.fetching,

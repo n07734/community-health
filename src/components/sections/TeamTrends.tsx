@@ -20,7 +20,7 @@ import { sortByKeys } from '../../utils'
 type TeamTrendsProps = {
     pullRequests: PullRequest[]
     releases?: EventInfo[]
-    chunkyData: any[]
+    chunkyData: PullRequest[][]
     usersData?: UserData[]
     allRepos?: any
     userIds?: string[]

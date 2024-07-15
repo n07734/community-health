@@ -6,11 +6,12 @@ import {
     SelectChangeEvent,
 } from '@mui/material'
 import { AmountOfData } from '../../../types/Querys'
+import { PullRequest } from '../../../types/FormattedData'
 
 type SelectAmountDataProps = {
     setValue: (key: string, value: string | object) => void
     amountOfData: AmountOfData
-    pullRequests: any[]
+    pullRequests: PullRequest[]
     preFetchedName: string
 }
 const SelectAmountData = (props: SelectAmountDataProps) => {
@@ -40,7 +41,7 @@ const SelectAmountData = (props: SelectAmountDataProps) => {
 }
 
 type DispatchProps = {
-    pullRequests: any[]
+    pullRequests: PullRequest[]
     preFetchedName: string
 }
 const mapStateToProps = (state:DispatchProps) => ({

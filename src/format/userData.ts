@@ -3,6 +3,7 @@ import {  pick } from 'ramda'
 import { sortByKeys } from '../utils'
 import { AnyObject, ObjNumbers } from '../types/Components'
 import { UserData } from '../types/State'
+import { PullRequest } from '../types/FormattedData'
 
 const baseUserData = {
     author: '',
@@ -90,7 +91,7 @@ const updateByUsersCount = (
 }
 
 // TODO: Refactor this function to be more readable
-const formatUserData = (data: any[] = [], usersInfo: AnyObject = {}, onlyUserId = '') => {
+const formatUserData = (data: PullRequest[] = [], usersInfo: AnyObject = {}, onlyUserId = '') => {
     const authors = new Set()
     const userData: AnyObject = {}
     data

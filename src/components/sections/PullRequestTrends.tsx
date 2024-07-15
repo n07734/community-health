@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { useTheme } from '@mui/styles'
 import { Theme } from '@mui/material/styles'
 import { UsersInfo } from '../../types/State'
+import { EventInfo, PullRequest } from '../../types/FormattedData'
 
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
@@ -16,9 +17,9 @@ import Line from '../charts/Line'
 import { splitByAuthor } from '../charts/lineHelpers'
 
 type PullRequestTrendsProps = {
-    chunkyData: any[]
-    pullRequests: any[]
-    releases: any[]
+    chunkyData: PullRequest[][]
+    pullRequests: PullRequest[]
+    releases: EventInfo[]
     userIds: string[]
     usersInfo: UsersInfo
 }

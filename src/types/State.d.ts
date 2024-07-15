@@ -1,5 +1,5 @@
-import { ObjNumbers } from './Components'
-import { EventInfo } from './FormattedData'
+import { ObjNumbers, ObjStrings } from './Components'
+import { EventInfo, PullRequest, Issue } from './FormattedData'
 import { SortDirection } from './Querys'
 
 export type ReportType = 'user' | 'team' | 'repo' | 'org'
@@ -76,8 +76,14 @@ export type FetchInfo = {
     org: string
     teamName: string
     userIds: string[]
+    excludeIds: string[]
     token: string
     sortDirection: SortDirection
+    enterpriseAPI?: string
+    prPagination?: ObjStrings
+    usersReviewsPagination?: ObjStrings
+    releasesPagination?: ObjStrings
+    issuesPagination?: ObjStrings
 }
 
 type FetchStatus = {
@@ -88,4 +94,35 @@ type FetchStatus = {
     savedReportName?: string
     reviewCount?: number
     repoCount?: number
+}
+
+export type AllState = {
+    fetches: FetchInfo
+    preFetchedName: string
+    reportDescription: string
+    filteredPRs: PullRequest[]
+    pullRequests: PullRequest[]
+    filteredReviewedPRs: PullRequest[]
+    reviewedPullRequests: PullRequest[]
+    trimmedItems: {
+        trimmedPRs: {
+            trimmedLeftPrs: PullRequest[]
+            trimmedRightPrs: PullRequest[]
+        }
+        trimmedReviewedPRs: {
+            trimmedLeftReviewedPrs: PullRequest[]
+            trimmedRightReviewedPrs: PullRequest[]
+        }
+        trimmedReleases: {
+            trimmedLeftReleases: EventInfo[]
+            trimmedRightReleases: EventInfo[]
+        }
+    }
+    usersData: UserData[]
+    issues: Issue[]
+    filteredIssues: Issue[]
+    formUntilDate: string
+    releases: EventInfo[]
+    filteredReleases: EventInfo[]
+    isValid: boolean
 }

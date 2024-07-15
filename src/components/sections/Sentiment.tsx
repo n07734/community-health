@@ -13,7 +13,7 @@ import { EventInfo, PullRequest } from '../../types/FormattedData'
 import { FetchInfo } from '../../types/State'
 
 type SentimentProps = {
-    chunkyData: any[]
+    chunkyData: PullRequest[][]
     pullRequests: PullRequest[]
     releases: EventInfo[]
     userIds: string[]

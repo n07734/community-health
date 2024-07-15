@@ -3,7 +3,7 @@ import { filter } from 'ramda'
 import { ResponsiveBar as NivoBar } from '@nivo/bar'
 import { useTheme } from '@mui/styles'
 import { Theme } from '@mui/material/styles'
-import { ObjNumbers } from '../../types/Components'
+import { AllowedColors, ObjNumbers } from '../../types/Components'
 
 import { useShowNumbers } from '../../state/ShowNumbersProvider'
 import ChartHeading from './ChartHeading'
@@ -11,8 +11,16 @@ import styledCharts from './styledCharts'
 import hasChartData from './hasChartData'
 
 type BarProps = {
-    data: any[]
-    bars: any[]
+    data: ({
+        author: string
+        name: string } & {
+        [key: string]: number
+    })[]
+    bars: {
+        dataKey: string
+        color: AllowedColors
+        label: string
+    }[]
     sortBy: string
     indexBy: string
     max: number
