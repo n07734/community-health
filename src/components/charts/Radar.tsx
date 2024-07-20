@@ -10,6 +10,7 @@ import styledCharts from './styledCharts'
 import hasChartData from './hasChartData'
 import { AllowedColors, RadarData, RadarDataItem } from '../../types/Components'
 
+// eslint-disable-next-line react/display-name
 const radarSliceTooltip = (fullData:RadarDataItem[]) => ({ index, data }: any) => {
     const matched = fullData.find(x => x.area === index) as any
     const rows = data.map(({ id, color }:{ id:string, color:AllowedColors}) => [
@@ -45,7 +46,7 @@ const Radar = styledCharts(({
 
     const { showNumbers } = useShowNumbers()
 
-    return hasChartData(data)(keys) && (
+    return hasChartData<RadarDataItem>(data,keys) && (
         <div>
             {
                 showTitle && <ChartHeading className={classes.centerHeading} items={[{ label: title, color: colorB }]} />

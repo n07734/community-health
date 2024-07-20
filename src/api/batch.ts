@@ -1,11 +1,10 @@
 import { splitEvery } from 'ramda'
 
-type Job = (arg: any) => Promise<any>
 // Runs each batch synchronously and the items in a batch asynchronously
-const runBatchQueue = (batches: any[], job: Job, resolved: any[] = []) => new Promise((resolve, reject) => {
+const runBatchQueue = <T>(batches: T[][], job: (arg: T) => Promise<T[]>, resolved: T[][] = []): Promise<T[][]> => new Promise((resolve, reject) => {
     const [currentBatch, ...remainingBatches] = batches
 
-    Promise.all(currentBatch.map((j: object) => job(j)))
+    Promise.all(currentBatch.map((j) => job(j)))
         .then((results) => (
             remainingBatches && remainingBatches.length
                 ? runBatchQueue(remainingBatches, job, results)
@@ -17,7 +16,7 @@ const runBatchQueue = (batches: any[], job: Job, resolved: any[] = []) => new Pr
 })
 
 // Takes an array of arguments for the job and runs them in batches
-const batch = (argsList: any[] = [], job: Job, batchSize = 2) => {
+const batch = <T>(argsList: T[] = [], job: (arg: T) => Promise<any>, batchSize = 2) => {
     const batches = splitEvery(batchSize, argsList)
 
     return argsList.length

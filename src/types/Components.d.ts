@@ -46,5 +46,5 @@ export type RadarDataItem = {
 export type RadarData = {
     title: string
     data: RadarDataItem[]
-    keys: string[]
+    keys: Array<keyof RadarDataItem>
 }

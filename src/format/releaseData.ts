@@ -57,7 +57,7 @@ const formatReleaseData = (results: RawEventInfo[] = []) => {
                 })[diffType] || 'PATCH'
 
             } catch (error) {
-                // eslint-disable-next-line no-unused-vars
+                 
                 releaseType = 'PATCH'
             }
 
@@ -82,7 +82,7 @@ const formatReleaseData = (results: RawEventInfo[] = []) => {
 
 const formatMarkers = ({
     usersInfo = {},
-    events = []
+    events = [],
 }: {
     usersInfo?: UsersInfo
     events: EventInfo[]

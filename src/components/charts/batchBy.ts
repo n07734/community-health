@@ -11,6 +11,8 @@ import  {
     const currentItemsDay = current && getDay(new Date(current)) + 1
 
     return (prevItemsDay && currentItemsDay) && prevItemsDay !== currentItemsDay
+        ? true
+        : false
 }
 
 const isNewWeek = (prev: string, current: string) => {
@@ -18,6 +20,8 @@ const isNewWeek = (prev: string, current: string) => {
     const currentItemsWeek = current && getWeek(new Date(current))
 
     return (prevItemsWeek && currentItemsWeek) && prevItemsWeek !== currentItemsWeek
+        ? true
+        : false
 }
 
 const isNewNthWeek = (mod: number) => (prev: string, current: string) => {
@@ -25,6 +29,8 @@ const isNewNthWeek = (mod: number) => (prev: string, current: string) => {
     const currentItemsWeek = current && getWeek(new Date(current))
 
     return (prevItemsWeek && currentItemsWeek) && (prevItemsWeek % mod) > 0 && (currentItemsWeek % mod) === 0
+        ? true
+        : false
 }
 
 const isNewMonth = (prev: string, current: string) => {
@@ -32,6 +38,8 @@ const isNewMonth = (prev: string, current: string) => {
     const currentItemsYear = current && getMonth(new Date(current)) + 1
 
     return (prevItemsMonth && currentItemsYear) && prevItemsMonth !== currentItemsYear
+        ? true
+        : false
 }
 
 const isNewNthMonth = (mod: number) => (prev: string, current: string) => {
@@ -39,6 +47,8 @@ const isNewNthMonth = (mod: number) => (prev: string, current: string) => {
     const currentItemsMonth = current && getMonth(new Date(current)) + 1
 
     return (prevItemsMonth && currentItemsMonth) && (prevItemsMonth % mod) > 0 && (currentItemsMonth % mod) === 0
+        ? true
+        : false
 }
 
 const isNewYear = (prev: string, current: string) => {
@@ -46,9 +56,20 @@ const isNewYear = (prev: string, current: string) => {
     const currentItemsYear = current && getYear(new Date(current))
 
     return (prevItemsYear && currentItemsYear) && prevItemsYear !== currentItemsYear
+        ? true
+        : false
 }
 
-const isNew = {
+type IsNew = {
+    '1day': (prev: string, current: string) => boolean,
+    '1week': (prev: string, current: string) => boolean,
+    '2week': (prev: string, current: string) => boolean,
+    '3week': (prev: string, current: string) => boolean,
+    '1month': (prev: string, current: string) => boolean,
+    '1quarter': (prev: string, current: string) => boolean,
+    '1year': (prev: string, current: string) => boolean,
+}
+const isNew:IsNew = {
     '1day': isNewDay,
     '1week': isNewWeek,
     '2week': isNewNthWeek(2),
@@ -58,54 +79,53 @@ const isNew = {
     '1year': isNewYear,
 }
 
-type BatchType = '1day' | '1week' | '2week' | '3week' | '1month' | '1quarter' | '1year'
-const batchByType = (key: string, batchType: BatchType) => (data: any[] = []) => {
-    const batchedData: any[] = []
+type BatchType = keyof IsNew
+const batchByType = <K extends keyof T, T>(key: K, batchType:BatchType, data: T[] = []) => {
+    const batchedData: T[][] = []
     data
         .forEach((item) => {
-            const currentWeek = batchedData.at(-1) || []
-            const prevItem = currentWeek.at(-1) || {}
+            const currentWeek = batchedData.at(-1) as T[] || []
+            const prevItem = (currentWeek.at(-1) || {}) as T
 
-            !prevItem[key] || isNew[batchType](prevItem[key], item[key])
+            !prevItem[key] || isNew[batchType](prevItem[key] as string, item[key] as string)
                 ? batchedData
                     .push([item])
-                : batchedData.at(-1)
-                    .push(item)
+                : (batchedData.at(-1) as T[][])
+                    .push(item as T[])
         })
 
     return batchedData;
 }
 
-const batchByData = (data: any[] = []) => {
-    const { mergedAt: startDate } = data.at(0)
-    const { mergedAt: endDate } = data.at(-1)
+const batchByData = <T extends { mergedAt: string }>(data: T[] = []) => {
+    const { mergedAt: startDate } = data.at(0) as T
+    const { mergedAt: endDate } = data.at(-1) as T
     const totalDays = differenceInDays(new Date(endDate), new Date(startDate))
-
 
     type BatchTypePointCount = {
         batchType: BatchType,
         maxPoints: number,
     }
-    const batchTypePointCounts:BatchTypePointCount[] = [
+    const batchTypePointCounts: BatchTypePointCount[] = [
         {
             batchType: '1year',
-            maxPoints: Math.ceil(totalDays/365),
+            maxPoints: Math.ceil(totalDays / 365),
         },
         {
             batchType: '1quarter',
-            maxPoints: Math.ceil(totalDays/89),
+            maxPoints: Math.ceil(totalDays / 89),
         },
         {
             batchType: '1month',
-            maxPoints: Math.ceil(totalDays/30),
+            maxPoints: Math.ceil(totalDays / 30),
         },
         {
             batchType: '2week',
-            maxPoints: Math.ceil(totalDays/14),
+            maxPoints: Math.ceil(totalDays / 14),
         },
         {
             batchType: '1week',
-            maxPoints: Math.ceil(totalDays/7),
+            maxPoints: Math.ceil(totalDays / 7),
         },
         {
             batchType: '1day',
@@ -115,16 +135,16 @@ const batchByData = (data: any[] = []) => {
 
     // Batch the data up by time type that will be closest to 15 items
     const { batchType } = batchTypePointCounts
-        .reduce((current:BatchTypePointCount, next:BatchTypePointCount) =>
+        .reduce((current: BatchTypePointCount, next: BatchTypePointCount) =>
             !current.maxPoints || (Math.abs(next.maxPoints - 15) < Math.abs(current.maxPoints - 15))
                 ? next
                 : current
-        ,{} as BatchTypePointCount)
+            , {} as BatchTypePointCount)
 
-    return batchByType('mergedAt', batchType)(data)
+    return batchByType('mergedAt', batchType, data)
 }
 
-const batchBy = (data: any[] = []) => data.length < 1
+const batchBy = <T extends { mergedAt: string }>(data: T[] = []) => data.length < 1
     ? []
     : batchByData(data)
 

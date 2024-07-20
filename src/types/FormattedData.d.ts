@@ -1,5 +1,3 @@
-import { is } from "ramda"
-
 export type PullRequest = {
     id: string
     number: number
@@ -47,6 +45,7 @@ export type PullRequest = {
 
 export type Issue = {
     mergedAt: string
+    createdAt: string
     age: number
     url: string
     isBug: boolean

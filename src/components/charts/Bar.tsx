@@ -4,6 +4,7 @@ import { ResponsiveBar as NivoBar } from '@nivo/bar'
 import { useTheme } from '@mui/styles'
 import { Theme } from '@mui/material/styles'
 import { AllowedColors, ObjNumbers } from '../../types/Components'
+import { BarData } from '../../types/Graphs'
 
 import { useShowNumbers } from '../../state/ShowNumbersProvider'
 import ChartHeading from './ChartHeading'
@@ -11,11 +12,7 @@ import styledCharts from './styledCharts'
 import hasChartData from './hasChartData'
 
 type BarProps = {
-    data: ({
-        author: string
-        name: string } & {
-        [key: string]: number
-    })[]
+    data: BarData[]
     bars: {
         dataKey: string
         color: AllowedColors
@@ -53,9 +50,9 @@ const Bar = styledCharts(({
         ? sortedData.slice(0, max)
         : sortedData
 
-    const keys:string[] = bars.map(x => x.dataKey)
+    const keys = bars.map(x => x.dataKey)
 
-    return hasChartData(data)(keys) && (
+    return hasChartData<BarData>(data,keys) && (
         <div className={classes.barChartComponentWrap}>
             <ChartHeading text={title} items={bars} />
             <div className={classes.chartWrap}>

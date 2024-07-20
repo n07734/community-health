@@ -57,7 +57,7 @@ export type RawPageInfo = {
     hasPreviousPage: boolean
 }
 
-type Comment = {
+export type Comment = {
     node: {
         author: {
             login: string
@@ -79,7 +79,7 @@ export type CommentsQueryResult = {
     }
 }
 
-type Review = {
+export type Review = {
     node: {
         author: {
             login: string

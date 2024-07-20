@@ -1,5 +1,3 @@
-import { parse } from "date-fns";
-
 module.exports = {
     root: true,
     env: {
@@ -21,6 +19,7 @@ module.exports = {
     settings: { react: { version: '18.2' } },
     plugins: ['react-refresh'],
     rules: {
+      '@typescript-eslint/no-explicit-any': 'warn',
       'comma-dangle': ['error', 'always-multiline'],
       'react/jsx-no-target-blank': 'off',
       'react/prop-types': 'off',

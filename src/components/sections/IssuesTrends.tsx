@@ -2,6 +2,8 @@
 import { connect } from 'react-redux'
 import { withStyles, useTheme, CSSProperties } from '@mui/styles'
 import { Theme } from '@mui/material/styles'
+import { EventInfo, Issue } from '../../types/FormattedData'
+import { GraphIssue } from '../../types/Graphs'
 
 import { P } from '../shared/StyledTags'
 import Paper from '../shared/Paper'
@@ -9,10 +11,8 @@ import ChartDescription from '../shared/ChartDescription'
 import GraphsWrap from '../shared/GraphsWrap'
 import Line from '../charts/Line'
 import { chunkData } from '../charts/lineHelpers'
-import { EventInfo, Issue } from '../../types/FormattedData'
 
-
-const formatIssueData = (data:Issue[] = []) => data
+const formatIssueData = (data:Issue[] = []):GraphIssue[] => data
     .map((item) => ({
         mergedAt: item.mergedAt,
         ...(

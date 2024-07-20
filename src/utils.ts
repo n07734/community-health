@@ -2,8 +2,8 @@ import { ObjNumbers } from './types/Components'
 import { SortDirection } from './types/Querys'
 
 
-const sumKeysValue = <T extends string>(key:T) => (items: Record<T, number>[] = []) => items
-    .reduce((acc: number, current:Record<T, number>) => (current[key] as number || 0) + acc, 0)
+const sumKeysValue = (key: string) => <I>(items: I[] = []) => items
+    .reduce((acc: number, current:I) => (current[key as keyof I] as number || 0) + acc, 0)
 
 const sumObjectKeys = (keys: string[] = []) => (obj:ObjNumbers = {}) => keys
     .reduce((acc, key) => acc + (obj[key] as number || 0), 0)

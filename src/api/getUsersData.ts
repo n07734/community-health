@@ -6,11 +6,16 @@ import { userQuery } from './queries'
 import api from './api'
 import batch from './batch'
 
+type BatchData = {
+    fetchInfo: UsersQueryArgs
+    queryInfo: string
+    dispatch: () => {}
+}
 const getUsersData = async({ fetchInfo, untilDate, dispatch }: GetUsersData) => {
     try {
         const userIds = fetchInfo.userIds
-        const data = userIds
-            .map((user: string) => ({
+        const data:BatchData[] = userIds
+            .map((user: string)  => ({
                 fetchInfo: {
                     ...fetchInfo,
                     issuesPagination: fetchInfo.issuesPagination[user] || { hasNextPage: true },
@@ -20,7 +25,7 @@ const getUsersData = async({ fetchInfo, untilDate, dispatch }: GetUsersData) => 
                 queryInfo: userQuery(untilDate),
                 dispatch,
             }))
-        const allUsersData = await batch(data, api, 1) as {
+        const allUsersData = await batch<BatchData>(data, api, 1) as {
             fetchInfo: UsersQueryArgs
             results: RawDataResult[]
         }[]

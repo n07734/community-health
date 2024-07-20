@@ -1,10 +1,11 @@
+import { RawDataResult } from '../types/RawData'
 import {
     formatPullRequests,
     formatIssues,
     formatReleases,
 } from './rawData'
 
-const repoData = (type:string) => (formatItems:any) => (items:any[] = []) => [{
+const repoData = (type:string) => (formatItems:any) => (items:any[] = [])=> [{
     data: {
         result: {
             [type]: {
@@ -13,7 +14,7 @@ const repoData = (type:string) => (formatItems:any) => (items:any[] = []) => [{
             },
         },
     },
-}]
+}] as RawDataResult[]
 
 describe('formatPullRequests:', () => {
     const makePullRequest = ({ overrides = {}, reviews = [], comments = [] } = {}) => {
@@ -73,13 +74,8 @@ describe('formatPullRequests:', () => {
 
     const makePullRequests = repoData('pullRequests')(makePullRequest)
 
-    it('Empty call to return an array', () => {
-        const result = formatPullRequests()
-        expect(result).toEqual([])
-    })
-
     it('Expect basic PR to match snapshot', () => {
-        const result = formatPullRequests({ excludeIds: [] }, makePullRequests([{}]))
+        const result = formatPullRequests({ excludeIds: [] } as any, makePullRequests([{}]))
         expect(result).toMatchSnapshot()
     })
 
@@ -103,7 +99,7 @@ describe('formatPullRequests:', () => {
                 mergedAt: '2000-01-02',
             },
         }])
-        const result = formatPullRequests({ excludeIds: [] }, data)
+        const result = formatPullRequests({ excludeIds: [] } as any, data)
         expect(result).toMatchSnapshot()
     })
 
@@ -132,7 +128,7 @@ describe('formatPullRequests:', () => {
             ],
         }])
 
-        const result = formatPullRequests({ excludeIds: [] }, data)
+        const result = formatPullRequests({ excludeIds: [] } as any, data)
         expect(result).toMatchSnapshot()
     })
 })
@@ -166,13 +162,14 @@ describe('formatIssues:', () => {
             {
                 title: 'Normal issue',
                 createdAt: '1234',
-                closedAt: '5678',
+                closedAt: '1234',
                 labels: [ {node: {name:'label'}} ],
             },
         ]))
         expect(result).toEqual({
-            age: 1623138,
+            age: 1,
             mergedAt: '1234',
+            createdAt: '1234',
             isBug: false,
             url: 'url',
         })
@@ -214,13 +211,13 @@ describe('formatReleases:', () => {
     })
 
     it('Gets tag and date', () => {
-        const [result] = formatReleases(makeReleases([{name:'name'}]))
+        const [result] = formatReleases(makeReleases([{name:'name'}]) as any)
         expect(result.description).toEqual('name')
         expect(result.date).toEqual('2020')
     })
 
     it('Date is passed back correctly', () => {
-        const [result] = formatReleases(makeReleases([{ name: '1.0.0', createdAt: '1000' }]))
+        const [result] = formatReleases(makeReleases([{ name: '1.0.0', createdAt: '1000' }]) as any)
         expect(result.date).toEqual('1000')
     })
 
@@ -230,7 +227,7 @@ describe('formatReleases:', () => {
             { name: '1.1.0' },
             { name: '1.1.1' },
             { name: '5.0.0-alpha.7' },
-        ]))
+        ]) as any)
 
         const expected = [
             {

@@ -90,8 +90,8 @@ const DateRange = ({
                         width: '30px',
                         height: '30px',
                         '&:after': {
-                            content: '">"'
-                        }
+                            content: '">"',
+                        },
                     },
                     '& .MuiSlider-thumb': {
                         width: '30px',
@@ -104,8 +104,8 @@ const DateRange = ({
                             alignItems: 'center',
                             justifyContent: 'center',
                             paddingBottom: '0.06rem',
-                        }
-                    }
+                        },
+                    },
                 }}
             />
         </>

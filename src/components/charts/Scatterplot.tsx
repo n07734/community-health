@@ -1,7 +1,6 @@
-/* eslint-disable no-unused-vars */
+
 import { useState } from 'react'
 import { ResponsiveScatterPlot as NivoScatter } from '@nivo/scatterplot'
-import { LegendProps } from '@nivo/legends'
 import { useTheme } from '@mui/styles';
 import { Theme } from '@mui/material/styles'
 
@@ -19,11 +18,11 @@ import {
     getReportMonthCount,
 } from './lineHelpers'
 import { EventInfo } from '../../types/FormattedData';
-import { ColumnKeys, LineForGraph, Lines, TableData } from '../../types/Graphs';
+import { ColumnKeys, LineForGraph, Lines, TableData, LineInfo, Graph } from '../../types/Graphs';
 
-const getAllYMax = (data:any[] = []) => data
+const getAllYMax = (data:LineInfo[] = []) => data
     .filter(x => x.yMax)
-    .map(x => x.yMax)
+    .map(x => x.yMax) as number[]
 
 const sortDesc = (a:number,b:number) => b - a
 
@@ -34,13 +33,12 @@ type ScatterplotProps = {
     data?: Lines[]
     markers?: EventInfo[]
     showLegends?: boolean
-    legends?: any[]
-    classes?: any
+    classes: Record<string, string>
     tableData?: TableData[][]
     tableKeys?: ColumnKeys[]
-    graphInfo?: any
-    setGraph?: any
-    graphs?: any[]
+    graphInfo?: Graph
+    setGraph?: (graphs: Graph[]) => void
+    graphs?: Graph[]
 }
 const Scatterplot = styledCharts(({
     title,
@@ -49,11 +47,10 @@ const Scatterplot = styledCharts(({
     data = [],
     markers = [],
     showLegends = false,
-    legends = [],
     classes,
     tableData = [],
     tableKeys = [],
-    graphInfo = {},
+    graphInfo,
     setGraph = () => {},
     graphs = [],
 }:ScatterplotProps) => {
@@ -194,8 +191,10 @@ const Scatterplot = styledCharts(({
         itemTextColor: theme.palette.text.primary,
     }
 
+    const legends = []
+
     // If single axis and total and over x lines, then split, just for left lines
-    if (legends.length < 1 && rightAxis.lines.length < 1 && leftLines.length > 10) {
+    if (rightAxis.lines.length < 1 && leftLines.length > 10) {
         type Info = {
             label: string
             color: string
@@ -233,7 +232,7 @@ const Scatterplot = styledCharts(({
         )
     }
 
-    const legendsArray = legends.length
+    const legendsArray = legends.length > 0
         ? legends
             .map((item) => ({
                 ...item,
@@ -264,7 +263,7 @@ const Scatterplot = styledCharts(({
         <div className={classes.lineChartComponentWrap}>
             {
                 graphs.length > 0 && <GraphUi
-                    graphInfo={graphInfo}
+                    graphInfo={graphInfo as Graph}
                     setGraph={setGraph}
                     graphs={graphs}
                 />
@@ -299,7 +298,7 @@ const Scatterplot = styledCharts(({
                         tickPadding: 10,
                         tickRotation: -45,
                     }}
-                    legends={(showLegends ? legendsArray : [] as LegendProps[])}
+                    legends={(showLegends ? legendsArray : []) as any[]}
                     axisLeft={{
                         tickSize: 0,
                         tickValues: 8,

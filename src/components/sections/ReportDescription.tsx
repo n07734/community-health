@@ -25,9 +25,9 @@ const Title = (props:TitleProps) => {
         usersInfo = {},
         userIds = [],
         colorA = '',
-        colorB = ''
+        colorB = '',
     } = props
-    const { userId = '' , name = '' }:{ userId:string , name:string } = usersInfo[userIds[0]] || {}
+    const { userId = '' , name = '' } = usersInfo[userIds[0]] || {}
 
     const firstString = org || teamName || name || userId
 

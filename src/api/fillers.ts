@@ -54,7 +54,7 @@ const fillData = (apiCall: any) => {
             : getData(type, data)
     }
 
-    const recursiveFiller = (makeQuery:MakeQuery) => (queryInfo: { hasNextPage: boolean }) => async (currentResults: any[] = []): Promise<any[]> => {
+    const recursiveFiller = (makeQuery:MakeQuery) => (queryInfo: { hasNextPage: boolean }) => async <T>(currentResults: T[] = []): Promise<T[]> => {
         const {
             hasNextPage: currentHasNextPage,
         } = queryInfo
@@ -171,7 +171,7 @@ const fillData = (apiCall: any) => {
     }
 
     const pullRequestsComments = async(data: RawDataResult) => {
-        const pullRequests = data?.data?.result?.pullRequests?.edges || []
+        const pullRequests = (data?.data?.result?.pullRequests?.edges || []) as RawPullRequest[]
 
         const getAllPullRequestComments = async (pullRequest: RawPullRequest) => {
             const currentComments = pullRequest?.node?.comments?.edges || []

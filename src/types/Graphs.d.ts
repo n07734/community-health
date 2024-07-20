@@ -1,6 +1,5 @@
 
-import { PullRequest } from './PullRequest'
-
+import { PullRequest } from './FormattedData'
 type LineDataKey =
     | 'commentSentimentScore'
     | 'commentAuthorSentimentScore'
@@ -13,7 +12,7 @@ type LineDataKey =
     | 'approvals'
     | 'additions'
     | 'deletions'
-    | 'author'
+    // | 'author'
     | 'cycleTime'
 
 type IssuesDataKey =
@@ -35,13 +34,17 @@ type UserDataKey =
     | 'totalPRs'
     | 'uniquePRsApproved'
 
+export type LineData = GraphIssue & PullRequest
+
+export type LineDataKeys = keyof LineData
+
 export type LineInfo = {
     label: string
     color: AllowedColors
-    data: any[]
+    data: LineData[]
     filterForKey?: boolean
     groupMath?: GroupMath
-    dataKey: LineDataKey
+    dataKey: LineDataKeys
     lineStyles?: any
     yMax?: number
 }
@@ -49,8 +52,17 @@ export type LineInfo = {
 export type Lines = {
     lines: LineInfo[]
     xAxis: 'left' | 'right'
-    data: any[]
+    data: LineData[]
 }
+
+export type GraphIssue = {
+    bug: number;
+    mergedAt: string;
+} | {
+    issue: number;
+    mergedAt: string;
+}
+
 
 export type LineForGraph = {
     id: string
@@ -67,7 +79,7 @@ type LinePlotRight = LinePlot & {
     originalY: number
 }
 
-type CalculationArgs = { filteredBatch: PullRequest[], dataKey:LineDataKey }
+type CalculationArgs = { filteredBatch: PullRequest[], dataKey:LineDataKeys }
 export type GroupMathCalculation = {
     sum: () => number
     average: () => number
@@ -131,4 +143,10 @@ export type ColumnKeys =
 
 export type TableData = {
     [key in ColumnKeys]: string | number | boolean
+}
+
+export type BarData = {
+    author: string
+    name: string } & {
+    [key: string]: number
 }

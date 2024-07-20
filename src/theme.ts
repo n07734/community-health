@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+ 
 import { createTheme } from '@mui/material/styles'
 import { PaletteMode } from '@mui/material'
 import { colors } from './components/colors'

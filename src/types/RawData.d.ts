@@ -1,4 +1,4 @@
-import { id } from "date-fns/locale"
+import {Review, Comment} from './Querys'
 
 export type RawDate = 'createdAt' | 'closedAt' | 'date'
 export type RawDataItem ={
@@ -9,15 +9,39 @@ export type RawDataItem ={
         name: string
     }
 }
-export type RawDataType = 'pullRequests' | 'issues' | 'releases'
+
+type RawResultTypes =  {
+    issues: {
+        totalCount: number
+        edges:RawDataItem[]
+    }
+    issues: {
+        totalCount: number
+        edges:RawDataItem[]
+    }
+    releases: {
+        totalCount: number
+        edges:RawDataItem[]
+    }
+    pullRequests: {
+        totalCount: number
+        edges: RawPullRequest[]
+    }
+}
+export type RawDataType = keyof RawResultTypes
+
 
 export type RawDataResult ={
     data: {
+        result: RawResultTypes
+    }
+}
+
+export type RawDataPRSearchResult ={
+    data: {
         result: {
-            [key in RawDataType]: {
-                totalCount: number
-                edges:RawDataItem[]
-            }
+            totalCount: number
+            edges: RawPullRequest[]
         }
     }
 }
@@ -39,14 +63,28 @@ export type RawPageInfo = {
 export type RawPullRequest = {
     node: {
         id: string
+        author: {
+            login: string
+            url: string
+        }
         mergedAt: string
+        createdAt: string
         reviews: {
-            edges: []
+            edges: Review[]
             pageInfo: Cursors
         }
         comments: {
-            edges: []
+            edges: Comment[]
             pageInfo: Cursors
+        }
+        commits: {
+            edges: {
+                node: {
+                    commit: {
+                        committedDate: string
+                    }
+                }
+            }[]
         }
     }
 }

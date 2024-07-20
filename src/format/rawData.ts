@@ -1,14 +1,10 @@
 // TODO: TS add formatted return types
 import {
-    compose,
-    map,
     any,
     flatten,
-    filter,
     path,
     pathOr,
     propOr,
-    sort,
 } from 'ramda'
 import {
     differenceInDays,
@@ -16,15 +12,15 @@ import {
     isBefore,
 } from 'date-fns'
 import Sentiment from 'sentiment'
-import { Issue, PullRequest } from '../types/FormattedData'
+import { EventInfo, Issue, PullRequest } from '../types/FormattedData'
 import { ObjNumbers } from '../types/Components'
-import { SortDirection } from '../types/Querys'
+import { Comment, Review, SortDirection } from '../types/Querys'
 import { FetchInfo } from '../types/State'
-import { DateKeys, RawData, RawItem } from '../types/RawData'
+import { DateKeys, RawData, RawDataPRSearchResult, RawDataResult, RawItem, RawPullRequest } from '../types/RawData'
 
 import { sumKeysValue } from '../utils'
 
-const formatCommentersObject = (paths: string[]) => (items: any[]) => {
+const formatCommentersObject = (paths: string[]) => (items: Comment[] | Review[]) => {
     const commenters:ObjNumbers = {}
     items
         .forEach((item) => {
@@ -37,7 +33,11 @@ const formatCommentersObject = (paths: string[]) => (items: any[]) => {
 
 const formatCommenters = formatCommentersObject(['node', 'author', 'login'])
 
-const formatSentimentsCommenters = (items: any[]) => {
+type SentimentItem = {
+    author: string
+    score: number
+}
+const formatSentimentsCommenters = (items: SentimentItem[]) => {
     const commenters:ObjNumbers = {}
     items
         .forEach(({author = '', score = 0}) => {
@@ -47,11 +47,11 @@ const formatSentimentsCommenters = (items: any[]) => {
     return commenters
 }
 
-const formatSentiments = (comments: any[] = []) => {
+const formatSentiments = (comments: Comment[] = []) => {
     const sentiment = new Sentiment();
 
-    const sentimental: { author: string, score: number}[] = comments
-        .map((comment:any) => {
+    const sentimental: SentimentItem[] = comments
+        .map((comment) => {
             const body = comment?.node?.body || ''
             const commentAuthor = comment?.node?.author?.login || ''
 
@@ -67,13 +67,13 @@ const formatSentiments = (comments: any[] = []) => {
     }
 }
 
-const getAllCodeComments = (data: RawData) => {
+const getAllCodeComments = (data: RawPullRequest) => {
     const allReviews = data?.node?.reviews?.edges || []
 
-    const allCodeComments: any[] = []
+    const allCodeComments: Comment[] = []
     allReviews
-        .forEach((review: any) => {
-            const comments = review?.node?.comments?.edges || []
+        .forEach((review) => {
+            const comments = (review?.node?.comments?.edges || []) as Comment[]
             allCodeComments.push(...comments)
         })
 
@@ -89,7 +89,7 @@ const filterOutUsers = (users: string[]) => (item: RawItem) => {
 }
 
 type FormatTypes = 'general' | 'code' | 'all'
-const formatComments = (type:FormatTypes, exclude: string[], data: RawData) => {
+const formatComments = (type:FormatTypes, exclude: string[], data: RawPullRequest) => {
     const author = data?.node?.author?.login
 
     const generalComments = pathOr([], ['node', 'comments', 'edges'], data)
@@ -133,7 +133,7 @@ const formatComments = (type:FormatTypes, exclude: string[], data: RawData) => {
     }
 }
 
-const formatAllComments = (exclude: string[], data: RawData) => {
+const formatAllComments = (exclude: string[], data: RawPullRequest) => {
     const generalCommentsInfo = formatComments('general',exclude, data)
     const codeCommentsInfo = formatComments('code', exclude, data)
     const collatedCommentsInfo = formatComments('all', exclude, data)
@@ -145,10 +145,10 @@ const formatAllComments = (exclude: string[], data: RawData) => {
     }
 }
 
-const formatApprovals = (data: RawData) => {
+const formatApprovals = (data: RawPullRequest) => {
     const reviews = data?.node?.reviews?.edges || []
-    const ghApprovals: any[] = reviews
-        .filter((review: any) => review?.node?.state === 'APPROVED')
+    const ghApprovals = reviews
+        .filter((review) => review?.node?.state === 'APPROVED')
 
     const ghApprovers = formatCommenters(ghApprovals)
 
@@ -158,7 +158,7 @@ const formatApprovals = (data: RawData) => {
     }
 }
 
-const prData = (exclude: string[] = []) => (data: RawData = {}) => {
+const prData = (exclude: string[] = [], data: RawPullRequest) => {
     const org = pathOr('', ['node', 'repository', 'owner', 'login'], data)
     const repo = pathOr('', ['node', 'repository', 'name'], data)
     const author = pathOr('', ['node', 'author', 'login'], data)
@@ -168,7 +168,7 @@ const prData = (exclude: string[] = []) => (data: RawData = {}) => {
     const deletions = pathOr(0, ['node', 'deletions'], data)
     const createdAt = pathOr('', ['node', 'createdAt'], data)
     const mergedAt = pathOr('', ['node', 'mergedAt'], data)
-    const committedDate = data?.node?.commits?.[0]?.edges?.[0]?.node?.committedDate || ''
+    const committedDate = data?.node?.commits?.edges?.[0]?.node?.commit?.committedDate || ''
 
     const startDate = isBefore(new Date(committedDate), new Date(createdAt))
         ? committedDate
@@ -203,27 +203,28 @@ const prData = (exclude: string[] = []) => (data: RawData = {}) => {
         ...allCommentsInfo,
     }
 
-    return prInfo
+    return prInfo as PullRequest
 }
 
-const dateSort = (dateKey: DateKeys, sortDirection: SortDirection) => (aObj: any, bObj: any) => {
-    const a = aObj[dateKey]
-    const b = bObj[dateKey]
+const dateSort = <T>(dateKey: keyof T & DateKeys, sortDirection: SortDirection) => (aObj: T, bObj: T) => {
+    const a = aObj[dateKey] as string
+    const b = bObj[dateKey] as string
     return sortDirection === 'DESC'
         ? new Date(b).getTime() - new Date(a).getTime()
         : new Date(a).getTime() - new Date(b).getTime()
 }
 
-const formatPullRequests = (fetchInfo:FetchInfo, results: any[] = []) => {
+const formatPullRequests = (fetchInfo:FetchInfo, results: RawDataResult[] | RawDataPRSearchResult[] = []) => {
     const { excludeIds = [] } = fetchInfo
-    const pullRequests = compose(
-        map(prData(excludeIds)),
-        flatten,
-        map((result: any) => result?.data?.result?.pullRequests?.edges
-            || result?.data?.result?.edges),
-    )(results)
+    const pullRequests = results
+        .map((result) => (
+            (result as RawDataResult)?.data?.result?.pullRequests?.edges
+            || (result as RawDataPRSearchResult)?.data?.result?.edges),
+        )
+        .flat()
+        .map((rawPr) => prData(excludeIds,rawPr))
 
-    return pullRequests as PullRequest[]
+    return pullRequests
 }
 
 const usersPrWasInTeam = (prMergeDate = '') => ({
@@ -244,10 +245,10 @@ const usersPrWasInTeam = (prMergeDate = '') => ({
     return isAfterStart && isBeforeEnd
 }
 
-const filterByUsersInfo = (fetchInfo:FetchInfo, prs: any[] = []) => {
+const filterByUsersInfo = (fetchInfo:FetchInfo, prs: PullRequest[] = []) => {
     const usersInfo = fetchInfo.usersInfo || {}
     const filteredItems = prs
-        .filter((pr = {}) => {
+        .filter((pr) => {
             const user = pr.author
             const {
                 dates = [],
@@ -265,9 +266,8 @@ const filterByUsersInfo = (fetchInfo:FetchInfo, prs: any[] = []) => {
 
 const filterSortPullRequests = ({ excludeIds = [] }: { excludeIds: string[] }, { reportStartDate = '', reportEndDate = '' }, allPullRequests:PullRequest[] = []) => {
     const filteredPRs: PullRequest[] = []
-    const remainingPRs = compose(
-        sort(dateSort('mergedAt', 'ASC')),
-        filter((item: any) => {
+    const remainingPRs = allPullRequests
+        .filter((item) => {
             const author = propOr('', 'author', item)
             const hasExcludedAuthor = any(y => y === author, ['GIT_APP_PR', ...excludeIds])
             const prDate = item.mergedAt
@@ -276,31 +276,31 @@ const filterSortPullRequests = ({ excludeIds = [] }: { excludeIds: string[] }, {
 
             !keepItem && filteredPRs.push(item)
             return keepItem
-        }),
-    )(allPullRequests) as PullRequest[]
+        })
+        .sort(dateSort('mergedAt', 'ASC'))
+
 
     return [remainingPRs, filteredPRs]
 }
 
-const filterSortItems = (dateKey:DateKeys) => ({ reportStartDate = '', reportEndDate = '' }, allIssues: any[] = []) => {
-    const filteredIssues: any[] = []
-    const remainingIssues = compose(
-        sort(dateSort(dateKey, 'ASC')),
-        filter((item: any) => {
-            const itemDate = item?.[dateKey]
+const filterSortItems = <T>(dateKey: keyof T & DateKeys) => ({ reportStartDate = '', reportEndDate = '' }, allIssues: T[] = []) => {
+    const filteredIssues: T[] = []
+    const remainingIssues = allIssues
+        .filter((item) => {
+            const itemDate = item?.[dateKey] as string
             const keepItem = isAfter(new Date(itemDate), new Date(reportStartDate)) && isBefore(new Date(itemDate), new Date(reportEndDate))
 
             !keepItem && filteredIssues.push(item)
             return keepItem
-        }),
-    )(allIssues)
+        })
+        .sort(dateSort(dateKey, 'ASC'))
 
     return [remainingIssues, filteredIssues]
 }
 
-const filterSortIssues = filterSortItems('mergedAt')
+const filterSortIssues = filterSortItems<Issue>('mergedAt')
 
-const filterSortReleases = filterSortItems('date')
+const filterSortReleases = filterSortItems<EventInfo>('date')
 
 const formatIssue = (data: RawData): Issue => {
     const createdAt = data?.node?.createdAt || ''
@@ -311,22 +311,23 @@ const formatIssue = (data: RawData): Issue => {
 
     return {
         mergedAt: createdAt,
+        createdAt,
         age: differenceInDays(new Date(closedAt), new Date(createdAt)) || 1,
         url,
         isBug: /bug/i.test(title) || labels.some((label: any) => /bug/i.test(label?.node?.name)),
     }
 }
 
-const formatIssues = (data: any[] = []) => {
+const formatIssues = (data: RawDataResult[] = []) => {
     const rawResults = data
-        .map((dataItem: any) => dataItem?.data?.result?.issues?.edges || [])
+        .map((dataItem) => dataItem?.data?.result?.issues?.edges || [])
 
     const flatRaw = flatten(rawResults)
     const filteredItems = flatRaw
-        .filter((x: any) => x)
+        .filter(Boolean)
 
     const formattedItems = filteredItems
-        .map((item:any) => formatIssue(item))
+        .map((item) => formatIssue(item))
 
     return formattedItems
 }

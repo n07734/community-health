@@ -17,7 +17,7 @@ const slimArray = arr => {
     const newArray = arr
         .reduce((acc, item) => [
             ...acc,
-            ...([slimValue(item)])
+            ...([slimValue(item)]),
         ], [])
 
     return newArray.length && newArray
@@ -33,7 +33,7 @@ const slimObject = obj => {
                 ...( newValue
                     ? { [key]: newValue }
                     : {}
-                )
+                ),
             }
         }, {});
 
@@ -47,7 +47,7 @@ const light = (file) => new Promise((resolve, reject) => {
 
     writeFile(`./src/prefetchedData/${file}.json`, data, (err) => err
         ? reject(err)
-        : resolve()
+        : resolve(),
     )
 })
 

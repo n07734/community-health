@@ -171,7 +171,7 @@ const getPaginationByType = (
   oldFetchInfo = {},
   untilDate = '',
   data = {},
-  order: SortDirection
+  order: SortDirection,
 ) => (type: RawDataTypeKey) => {
   const {
     hasNextPage = false,
@@ -478,8 +478,8 @@ const reviewsByUserQuery = (untilDate: UntilDate) => ({
       // desc: last should use oldest || endCursor and endCursor = oldest, startCursor = newest, also checks hasPreviousPage
       // asc: first should use newest || endCursor and endCursor = newest, startCursor = oldest, also checks hasNextPage
       usersReviewsPagination: Object.assign(
-        byDirectionType, { hasNextPage: false }
-      )
+        byDirectionType, { hasNextPage: false },
+      ),
     }
 
     const hasNextPageKey = isDate(untilDate) ? 'hasNextPageForDate' : 'hasNextPage'
@@ -506,9 +506,9 @@ const reviewsByUserQuery = (untilDate: UntilDate) => ({
     .some(x => x !== false),
 })
 
-const hasNextPage = (pagination: OldNew, untilDate: UntilDate) => {
+const hasNextPage = (pagination: OldNew) => {
   const { hasNextPageForDate } = pagination
-  return untilDate && hasNextPageForDate !== false
+  return hasNextPageForDate !== false
 }
 
 const userQuery = (untilDate: UntilDate) => ({
@@ -523,9 +523,9 @@ const userQuery = (untilDate: UntilDate) => ({
   query: `{
     result: user(login: "${user}") {
       login
-      ${hasNextPage(issueCommentsPagination,untilDate) ? issueComments(sortDirection)(issueCommentsPagination) : ''}
-      ${hasNextPage(commitCommentsPagination,untilDate) ? commitComments(sortDirection)(commitCommentsPagination) : ''}
-      ${hasNextPage(prPagination,untilDate) ? pullRequests(sortDirection)(prPagination) : ''}
+      ${hasNextPage(issueCommentsPagination) ? issueComments(sortDirection)(issueCommentsPagination) : ''}
+      ${hasNextPage(commitCommentsPagination) ? commitComments(sortDirection)(commitCommentsPagination) : ''}
+      ${hasNextPage(prPagination) ? pullRequests(sortDirection)(prPagination) : ''}
       ${issuesPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? issues(sortDirection)(issuesPagination) : ''}
     }
   }`,
@@ -612,9 +612,9 @@ const batchedQuery = (untilDate: UntilDate) => ({
         owner {
           org: login
         }
-        ${hasNextPage(prPagination,untilDate) ? pullRequests(sortDirection)(prPagination) : ''}
-        ${hasNextPage(issuesPagination,untilDate) ? pullRequests(sortDirection)(prPagination) : ''}
-        ${hasNextPage(releasesPagination,untilDate) ? pullRequests(sortDirection)(prPagination) : ''}
+        ${hasNextPage(prPagination) ? pullRequests(sortDirection)(prPagination) : ''}
+        ${hasNextPage(issuesPagination) ? issues(sortDirection)(issuesPagination) : ''}
+        ${hasNextPage(releasesPagination) ? releases(sortDirection)(releasesPagination) : ''}
       }
     }`,
   sortDirection,
@@ -638,19 +638,21 @@ const batchedQuery = (untilDate: UntilDate) => ({
     ])(data)
 
     const nextPageInfo = {
-      prPagination: Object.assign(byType('pullRequests'), { hasNextPage: false }),
-      issuesPagination: Object.assign(byType('issues'), { hasNextPage: false }),
-      releasesPagination: Object.assign(byType('releases'), { hasNextPage: false }),
+      prPagination: Object.assign({ hasNextPage: false }, byType('pullRequests')),
+      issuesPagination: Object.assign({ hasNextPage: false }, byType('issues')),
+      releasesPagination: Object.assign({ hasNextPage: false }, byType('releases')),
     }
 
     const hasNextPageKey = isDate(untilDate) ? 'hasNextPageForDate' : 'hasNextPage'
-    return {
+    const pageInfo = {
       hasNextPage: Object.values(nextPageInfo).some(x => x[hasNextPageKey] === true),
       nextPageInfo: {
         ...nextPageInfo,
         amountOfData: updatedAmountOfData,
       },
     }
+
+    return pageInfo
   },
   fillerType: 'batchedQuery',
   hasMoreResults: [
@@ -726,7 +728,7 @@ const reviewCommentsQuery:MakeQuery = ({ nodeId, cursor }: NodeCursor) => ({
 
 const orgQuery = ({
   org,
-  orgPagination = {}
+  orgPagination = {},
 }: {
   org: string
   orgPagination: ObjStrings
@@ -766,7 +768,7 @@ const orgQuery = ({
           hasNextPageForDate: hasNextPage,
         },
         amountOfData: 'all',
-      }
+      },
     })
 },
 })

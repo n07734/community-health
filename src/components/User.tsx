@@ -18,7 +18,7 @@ const userGraphs = (
     pullRequests:PullRequest[] = [],
     releases:EventInfo[] = [],
     userName:string,
-    theme:Theme
+    theme:Theme,
 ) => {
     const peerPrData:PullRequest[] = []
     const userPrData:PullRequest[] = []

@@ -15,8 +15,8 @@ import GraphUi from '../charts/GraphUi'
 
 const formatGraphData = (
     pullRequests:PullRequest[] = [],
-    prTransformer:Function = ():any[] => [],
-    issues:Issue[] = []
+    prTransformer:Function = () => [],
+    issues:Issue[] = [],
 ) => (data:Graph) => {
     const getData = (lineInfo: GraphLine) => {
         const dataKey = lineInfo.dataKey

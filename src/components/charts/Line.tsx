@@ -4,7 +4,7 @@ import { LegendProps } from '@nivo/legends'
 import { TableTooltip } from '@nivo/tooltip'
 import { useTheme } from '@mui/styles'
 import { Theme } from '@mui/material/styles'
-import { Lines, LineInfo, LineForGraph, ColumnKeys, LinePlot, TableData } from '../../types/Graphs'
+import { Lines, LineInfo, LineForGraph, ColumnKeys, LinePlot, TableData, Graph } from '../../types/Graphs'
 import { EventInfo } from '../../types/FormattedData'
 
 import { useShowNumbers } from '../../state/ShowNumbersProvider'
@@ -34,7 +34,7 @@ type Point = {
 }
 
 type ToolTipProps = { slice: { points: Point[] } }
-// eslint-disable-next-line react/display-name
+ 
 const ToolTip = (data: ToolTipProps) => {
     // NOTE: this is needed to use the original Y value for the tool tip
     const getYValue = (point: Point) => {
@@ -112,9 +112,9 @@ type LineProps = {
     classes: Record<string, string>
     tableData: readonly TableData[][]
     tableKeys: ColumnKeys[]
-    graphInfo: any
-    setGraph: any
-    graphs: any
+    graphInfo?: Graph
+    setGraph?: (graphs: Graph[]) => void
+    graphs?: Graph[]
     tableOpenedByDefault: boolean
 }
 const Line = styledCharts(({
@@ -127,7 +127,7 @@ const Line = styledCharts(({
     classes,
     tableData = [],
     tableKeys = [],
-    graphInfo = {},
+    graphInfo,
     setGraph = () => {},
     graphs = [],
     tableOpenedByDefault = false,
@@ -140,6 +140,7 @@ const Line = styledCharts(({
     const allLeftLineMaxYs = getAllYMax(leftAxis.lines)
 
     const leftLinesData = formatLinesData(leftAxis)
+
     const [maxLeftLineValue] = [...allLeftLineMaxYs, getMaxYValue(leftLinesData)].sort(sortDesc)
     const minLeftValue = getMinYValue(leftLinesData)
 
@@ -341,8 +342,8 @@ const Line = styledCharts(({
     return hasData(lineData) && (
         <div className={classes.lineChartComponentWrap}>
             {
-                graphs.length > 0 && <GraphUi
-                    graphInfo={graphInfo}
+                graphInfo && graphs.length > 0 && <GraphUi
+                    graphInfo={graphInfo as Graph}
                     setGraph={setGraph}
                     graphs={graphs}
                 />

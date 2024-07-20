@@ -1,19 +1,19 @@
-import { apply, pathOr } from 'ramda'
+import { apply } from 'ramda'
 import differenceInDays from 'date-fns/differenceInDays'
 import differenceInMonths from 'date-fns/differenceInMonths'
 import min from 'date-fns/min'
 import max from 'date-fns/max'
 import { ObjNumbers, PieData, PieInfo } from '../../types/Components'
-import { EventInfo, PullRequest, ReleaseType } from '../../types/FormattedData'
+import { EventInfo, Issue, PullRequest, ReleaseType } from '../../types/FormattedData'
 import { UsersInfo } from '../../types/State'
-import { LineDataKey, LineForGraph, LineInfo, LinePlot, GroupMathCalculation } from '../../types/Graphs'
+import { LineDataKeys, LineForGraph, LineInfo, GroupMathCalculation, Lines, LinePlot, LineData } from '../../types/Graphs'
 
 import { batchBy } from './batchBy'
 import { sumKeysValue, sortByKeys } from '../../utils'
 import { colors } from '../colors'
 import { Theme } from '@mui/material/styles'
 
-const getAllYValues = (data: any[]) => {
+const getAllYValues = (data: LineForGraph[]) => {
     const allValues: number[] = []
     data
         .forEach(({ data }) => {
@@ -26,7 +26,7 @@ const getAllYValues = (data: any[]) => {
     return allValues.sort((a, b) => a - b)
 }
 
-const getMaxYValue = (data: any[]) => {
+const getMaxYValue = (data: LineForGraph[]) => {
     const allValues = getAllYValues(data)
 
     const tp95Index = Math.round(allValues.length * 0.95)
@@ -41,7 +41,7 @@ const getMaxYValue = (data: any[]) => {
         : maxValue
 }
 
-const getMinYValue = (data: any[]) => {
+const getMinYValue = (data: LineForGraph[]) => {
     const allValues = getAllYValues(data)
 
     const minValue = allValues.length > 0
@@ -73,7 +73,7 @@ const averagePerDev = ({ filteredBatch = [] }: { filteredBatch: PullRequest[] })
     return Math.round(filteredBatch.length / Object.keys(activeTeam).length)
 }
 
-const trimmedAverage = ({ filteredBatch = [], dataKey }: { filteredBatch: PullRequest[], dataKey: LineDataKey }) => {
+const trimmedAverage = ({ filteredBatch = [], dataKey }: { filteredBatch: PullRequest[], dataKey: LineDataKeys }) => {
     const sortedBatch = filteredBatch
         .sort(sortByKeys([dataKey]))
 
@@ -90,7 +90,7 @@ const trimmedAverage = ({ filteredBatch = [], dataKey }: { filteredBatch: PullRe
     return Math.round(average)
 }
 
-const teamDistribution = ({ filteredBatch = [], dataKey }: { filteredBatch: PullRequest[], dataKey: LineDataKey }) => {
+const teamDistribution = ({ filteredBatch = [], dataKey }: { filteredBatch: PullRequest[], dataKey: LineDataKeys }) => {
     // Distribution is only of active team members within the data
     const activeTeam = new Set<string>([])
     const batchedData: ObjNumbers = {}
@@ -145,7 +145,7 @@ const teamDistribution = ({ filteredBatch = [], dataKey }: { filteredBatch: Pull
         : distributionPercent
 }
 
-const percentWith = ({ filteredBatch = [], dataKey }: { filteredBatch: PullRequest[], dataKey: LineDataKey }) => {
+const percentWith = ({ filteredBatch = [], dataKey }: { filteredBatch: PullRequest[], dataKey: LineDataKeys }) => {
     const batchLength = filteredBatch.length
     const withoutValues = filteredBatch
         .filter(x => !x[dataKey])
@@ -158,7 +158,7 @@ const percentWith = ({ filteredBatch = [], dataKey }: { filteredBatch: PullReque
     return percentageWithValues;
 }
 
-const median = ({ filteredBatch, dataKey }: { filteredBatch: PullRequest[], dataKey: LineDataKey }) => {
+const median = ({ filteredBatch, dataKey }: { filteredBatch: PullRequest[], dataKey: LineDataKeys }) => {
     const batchLength = filteredBatch.length
     const sortedBatch = filteredBatch
         .sort(sortByKeys([dataKey]))
@@ -174,14 +174,14 @@ const growth = ({ filteredBatch }: { filteredBatch: PullRequest[] }) => {
     return growth
 }
 
-const formatBatches = ({ filterForKey = false, dataKey, groupMath = 'average' }: LineInfo) => (batches: any[] = []) => {
+const formatBatches = ({ filterForKey = false, dataKey, groupMath = 'average' }: LineInfo) => (batches:LineData[][] = []) => {
     const lineData: LinePlot[] = []
     batches
         .forEach((batch) => {
-            const filteredBatch:any[] = batch
-                .filter((x: any) => dataKey && filterForKey
-                    ? /\d+/.test(x[dataKey])
-                    : true,
+            const filteredBatch = batch
+                .filter((x) => dataKey && filterForKey
+                    ? /\d+/.test(`${x[dataKey]}`)
+                    : true
                 )
 
             const batchLength = filteredBatch.length
@@ -215,21 +215,21 @@ const formatBatches = ({ filterForKey = false, dataKey, groupMath = 'average' }:
     return lineData
 }
 
-const formatUnbatchedData = ({ lines = [], data }: { lines: LineInfo[], data: PullRequest[] }) => {
+const formatUnbatchedData = ({ lines = [], data }: { lines: LineInfo[], data: LineData[] }) => {
     const formattedLines: LineForGraph[] = []
     lines
         .forEach((line) => {
             const { label, color, dataKey, data: lineData } = line
 
             const formattedData:LinePlot[] = (data || lineData)
-                .map((pr) => {
-                    const valueA = (pr[dataKey as LineDataKey] || 0) as number
+                .map((item) => {
+                    const valueA = (item[dataKey] || 0) as number
                     // const valueB = pr.comments || 0
                     return {
                         // x: valueA,
                         // y: valueB,
                         y: valueA,
-                        x: formatDate(pr.mergedAt),
+                        x: formatDate(item.mergedAt),
                     }
                 })
 
@@ -245,14 +245,14 @@ const formatUnbatchedData = ({ lines = [], data }: { lines: LineInfo[], data: Pu
     return formattedLines
 }
 
-const formatLinesData = ({ lines = [], data }: { lines: LineInfo[], data: any[] }) => {
-    const sharedAxisData = data
+const formatLinesData = ({ lines = [], data }: Lines) => {
+    const sharedAxisData = data && data.length > 0
         ? batchBy(data)
         : []
 
     const formatedLines:LineForGraph[] = []
     lines
-        .forEach((line:LineInfo) => {
+        .forEach((line) => {
             const { label, color, data: lineData } = line
             const batchedData = lineData && lineData.length > 0
                 ? batchBy(lineData)
@@ -322,7 +322,7 @@ const smoothNumber = (ruffledNumber: number) => {
     const [backwards] = stringNumber
         .split('')
         .reduceRight(([acc = [], increment = false]: [number[], boolean], item: string, index: number): [number[], boolean] => {
-            var number = parseInt(item)
+            const number = parseInt(item)
 
             const updatedItem = increment
                 ? number + 1
@@ -349,32 +349,35 @@ const smoothNumber = (ruffledNumber: number) => {
     return smooth
 }
 
-const chunkData = (data: any[] = []) => {
+const chunkData = <T extends PullRequest | Issue>(data: T[] = []) => {
     // This batches up the data the same way as the points on the line graph
     // doing this means the items in each table section matches the lines on the graph better.
     const batchedData = batchBy(data)
     const firstBatch = batchedData.at(0) || []
     const lastBatch = batchedData.at(-1) || []
 
-    const startDate = firstBatch.at(0) && new Date(firstBatch.at(0)?.mergedAt)
-    const endDate = lastBatch.at(0) && new Date(lastBatch.at(0)?.mergedAt)
+    const startDate = (firstBatch.at(0) && new Date(firstBatch.at(0)?.mergedAt || (firstBatch.at(0) as Issue)?.createdAt)) as Date
+    const endDate = (lastBatch.at(0) && new Date(lastBatch.at(0)?.mergedAt || (lastBatch.at(0) as Issue)?.createdAt)) as Date
 
     const totalDays = startDate && endDate
         ? differenceInDays(endDate, startDate)
         : 0
 
-    const chunkyData: PullRequest[][] = []
+    type WithId = T & {
+        id: string;
+    }
+    const chunkyData: WithId[][] = []
     batchedData
-        .forEach((items: any[] = [], i: number) => {
+        .forEach((items: T[] = [], i: number) => {
             const chunkCount = chunkyData.length
             // Need to add id for table component
-            const tableItems = items
-                .map((item = {}, j) => ({
-                    ...item,
+            const tableItems:WithId[] = items
+                .map((item, j) => ({
+                    ...(item || {}),
                     id: `${i}-${j}`,
                 }))
 
-            const prDate = new Date(tableItems.at(0).mergedAt)
+            const prDate = new Date((items.at(0) as T || {}).mergedAt || (items.at(0) as Issue || {}).createdAt)
 
             const daysFromStart = differenceInDays(prDate, startDate)
 
@@ -383,21 +386,19 @@ const chunkData = (data: any[] = []) => {
 
             chunkCount < 1 || (percentToEndDate >= percentChunked && chunkCount < 10)
                 ? chunkyData.push(tableItems)
-                : (chunkyData.at(-1) as any[]).push(...tableItems)
+                : (chunkyData.at(-1) as WithId[]).push(...tableItems)
         })
 
     return chunkyData
 }
 
-const getData = pathOr([{}], ['data'])
 
 const getFirstLastDates = (lines:LineForGraph[] = []) => {
     const dates: Date[] = []
     lines
-        .forEach(x => {
-            const data = getData(x) as any[]
-            dates.push(new Date(data.at(0).x))
-            dates.push(new Date(data.at(-1).x))
+        .forEach(({ data = [] }) => {
+            dates.push(new Date((data.at(0) as LinePlot).x))
+            dates.push(new Date((data.at(-1) as LinePlot).x))
         })
 
     return dates
@@ -500,7 +501,6 @@ export {
     smoothNumber,
     dateSort,
     chunkData,
-    sumKeysValue,
     getReportMonthCount,
     splitByAuthor,
     rainbowData,

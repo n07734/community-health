@@ -55,7 +55,7 @@ describe('formatChordData:', () => {
             dataKey:any
         } = {
             data,
-            dataKey:'commentsByUser'
+            dataKey:'commentsByUser',
         }
         const result = formatChordData(args)
 
@@ -116,7 +116,7 @@ describe('formatChordData:', () => {
             dataKey:any
         } = {
             data,
-            dataKey:'commentsByUser'
+            dataKey:'commentsByUser',
         }
         const { names } = formatChordData(args)
 
@@ -179,7 +179,7 @@ describe('formatChordData:', () => {
             dataKey:any
         } = {
             data,
-            dataKey:'commentsByUser'
+            dataKey:'commentsByUser',
         }
         const { names } = formatChordData(args)
 

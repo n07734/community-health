@@ -39,7 +39,7 @@ import { batchedQuery } from '../api/queries'
 import formatUserData from '../format/userData'
 import { formatReleaseData } from '../format/releaseData'
 import types from './types'
-import { EventInfo, Issue, PullRequest } from '../types/FormattedData'
+import { EventInfo, PullRequest } from '../types/FormattedData'
 
 const storeToken = (token = '') => ({
     type: types.STORE_TOKEN,
@@ -306,11 +306,6 @@ const validateRequest = (state: Fetches) => {
     }
 }
 
-type Item = {
-    mergedAt: string
-    createdAt: string
-    date: string
-}
 const trimmer = (dateFrom = '', dateTo = '') => <T>(dateKey:string = 'mergedAt', items: T[][] = []) => {
     const newTrimmedLeft: T[] = []
     const keptItems: T[] = []

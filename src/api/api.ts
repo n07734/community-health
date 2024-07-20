@@ -74,7 +74,7 @@ const pauseThenRetry = async(apiInfo: ApiInfo, results: ApiResults): Promise<Api
             },
             fetchInfo: apiInfo.fetchInfo,
             results: results,
-            reviewResults: []
+            reviewResults: [],
         }
 }
 
@@ -88,7 +88,7 @@ const getCurrentCount = (type: RawDataType, results: RawDataResult[]):number => 
     return total
 }
 
-const getLatestDate = (data:FetchInfo) => (type:RawDataType, results: RawDataResult[]):string => {
+const getLatestDate = (data:FetchInfo) => (type:RawDataType, results: RawDataResult[] = []):string => {
     const paginationKeyMap:ObjStrings = {
         pullRequests: 'prPagination',
         issues: 'issuesPagination',
@@ -96,8 +96,10 @@ const getLatestDate = (data:FetchInfo) => (type:RawDataType, results: RawDataRes
     }
     const hasNextPage = pathOr(false, [paginationKeyMap[type], 'hasNextPageForDate'], data)
 
-    const latestResult = results[results.length - 1] as RawDataResult
-    const latestItems = latestResult.data.result[type].edges || [] as RawDataItem[]
+    const latestResult = results[results.length - 1] as RawDataResult || {}
+    console.log('latestResult', latestResult)
+    console.log('type', type)
+    const latestItems = latestResult?.data?.result?.[type]?.edges || []
 
     const latestItem = latestItems[latestItems.length - 1]
 
@@ -106,7 +108,7 @@ const getLatestDate = (data:FetchInfo) => (type:RawDataType, results: RawDataRes
         : 'closedAt'
 
     return hasNextPage
-        ? latestItem?.node?.[dataKey] || ''
+        ? (latestItem as RawDataItem)?.node?.[dataKey] || '' // TODO: figure out how to conditionally chose TS type
         : ''
 }
 
@@ -137,10 +139,9 @@ const api = async({ fetchInfo, queryInfo, dispatch = () => {} }:ApiInfo, results
             issueCount: getCurrentCount('issues', results),
             releasesCount: getCurrentCount('releases', results),
             latestItemDate: furthestItemWithNextPage,
-            user
-        }
+            user,
+        },
     })
-
 
     const apiCallWithToken = apiCall(fetchInfo)
     try {
@@ -167,7 +168,7 @@ const api = async({ fetchInfo, queryInfo, dispatch = () => {} }:ApiInfo, results
             : {
                 fetchInfo: updatedFetchInfo,
                 results: updatedResults,
-                reviewResults: []
+                reviewResults: [],
             }
     } catch (err) {
         type ApiError = {
