@@ -1,11 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 type AllowedColors = '#E82573' | '#8b4ff0' | '#1F77B4' | '#4ECC7A' | '#DBD523' | '#EB9830' | '#D14B41'
 
-type InitialUserValues = {
+export type UserValues = {
+    userId: string
     name: string
     dates: UserDate[]
-}
-type UserValues = InitialUserValues &{
-    userId: string
 }
 export type Users = {
     [key: string]: UserValues

@@ -1,12 +1,26 @@
 import {Review, Comment} from './Querys'
 
 export type RawDate = 'createdAt' | 'closedAt' | 'date'
+
+
 export type RawDataItem ={
     node: {
         [key in RawDate]: string
     } & {
         id: string
         name: string
+        title: string
+        url: string
+        tag: {
+            name: string
+        }
+        labels: {
+            edges: {
+                node: {
+                    name: string
+                }
+            }[]
+        }
     }
 }
 
@@ -90,13 +104,3 @@ export type RawPullRequest = {
 }
 
 export type DateKeys = 'mergedAt' | 'createdAt' | 'date'
-
-// TODO: Flesh out this type
-export type RawData = {
-    [key: string]: any
-}
-
-// TODO: Flesh out this type
-export type RawItem = {
-    [key: string]: any
-}

@@ -182,7 +182,7 @@ const PullRequestTrends = ({
 }
 
 type State = {
-    releases: any,
+    releases: EventInfo[],
     fetches: {
         userIds: string[],
         usersInfo: UsersInfo,

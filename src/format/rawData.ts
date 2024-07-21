@@ -1,6 +1,5 @@
 // TODO: TS add formatted return types
 import {
-    any,
     flatten,
     path,
     pathOr,
@@ -16,7 +15,7 @@ import { EventInfo, Issue, PullRequest } from '../types/FormattedData'
 import { ObjNumbers } from '../types/Components'
 import { Comment, Review, SortDirection } from '../types/Querys'
 import { FetchInfo } from '../types/State'
-import { DateKeys, RawData, RawDataPRSearchResult, RawDataResult, RawItem, RawPullRequest } from '../types/RawData'
+import { DateKeys, RawDataItem, RawDataPRSearchResult, RawDataResult, RawPullRequest } from '../types/RawData'
 
 import { sumKeysValue } from '../utils'
 
@@ -80,8 +79,8 @@ const getAllCodeComments = (data: RawPullRequest) => {
     return allCodeComments
 }
 
-const filterForUsers = (users: string[]) => (item: RawItem) => users.includes(item?.node?.author?.login)
-const filterOutUsers = (users: string[]) => (item: RawItem) => {
+const filterForUsers = (users: string[]) => (item: Comment) => users.includes(item?.node?.author?.login)
+const filterOutUsers = (users: string[]) => (item: Comment) => {
     const isAllowedUser = !filterForUsers(users)(item)
     const notGitAppComment = !/\/apps\//.test(item?.node?.author?.url || '')
 
@@ -269,7 +268,7 @@ const filterSortPullRequests = ({ excludeIds = [] }: { excludeIds: string[] }, {
     const remainingPRs = allPullRequests
         .filter((item) => {
             const author = propOr('', 'author', item)
-            const hasExcludedAuthor = any(y => y === author, ['GIT_APP_PR', ...excludeIds])
+            const hasExcludedAuthor = ['GIT_APP_PR', ...excludeIds].some(y => y === author)
             const prDate = item.mergedAt
             const shouldFilterIn = isAfter(new Date(prDate), new Date(reportStartDate)) && isBefore(new Date(prDate), new Date(reportEndDate))
             const keepItem = shouldFilterIn && !hasExcludedAuthor
@@ -302,19 +301,25 @@ const filterSortIssues = filterSortItems<Issue>('mergedAt')
 
 const filterSortReleases = filterSortItems<EventInfo>('date')
 
-const formatIssue = (data: RawData): Issue => {
+const formatIssue = (data: RawDataItem): Issue => {
     const createdAt = data?.node?.createdAt || ''
     const closedAt = data?.node?.closedAt || ''
     const title = data?.node?.title || ''
     const url = data?.node?.url || ''
-    const labels = data?.node?.labels?.edges || []
+
+    type Label = {
+        node: {
+            name: string
+        }
+    }
+    const labels = (data?.node?.labels?.edges || []) as Label[]
 
     return {
         mergedAt: createdAt,
         createdAt,
         age: differenceInDays(new Date(closedAt), new Date(createdAt)) || 1,
         url,
-        isBug: /bug/i.test(title) || labels.some((label: any) => /bug/i.test(label?.node?.name)),
+        isBug: /bug/i.test(title) || labels.some((label) => /bug/i.test(label?.node?.name)),
     }
 }
 
@@ -332,7 +337,7 @@ const formatIssues = (data: RawDataResult[] = []) => {
     return formattedItems
 }
 
-const formatRelease = (data: RawData) => {
+const formatRelease = (data: RawDataItem) => {
     const createdAt = data?.node?.createdAt || ''
     const tag = data?.node?.tag?.name || ''
 
@@ -341,19 +346,12 @@ const formatRelease = (data: RawData) => {
         description: tag,
     }
 }
-type RawReleases = {
-    node: {
-        createdAt: string,
-        tag: {
-            name: string,
-        }
-    }
-}
+
 type Data = {
     data: {
         result: {
             releases: {
-                edges: RawReleases[]
+                edges: RawDataItem[]
             }
         }
     }

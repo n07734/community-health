@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { withStyles } from '@mui/styles'
 import { Delete } from '@mui/icons-material'
 import { Theme } from '@mui/material/styles'
-import { InitialUserValues, Users, UserValues } from '../../../types/Components'
+import { Users, UserValues } from '../../../types/Components' // TODO: Consolidate UserValues and UserInfo
+import { UsersInfo, UserInfo } from '../../../types/State'
 
 import { H } from '../../shared/StyledTags'
 import styles from './styles'
@@ -54,8 +55,8 @@ const mergedStyles = (theme: Theme) => ({
 
 type UserFormProps = {
     onSubmit: (users: Users) => void
-    gitUsers: string[]
-    usersInfo: Users
+    gitUsers: UserInfo[]
+    usersInfo: UsersInfo
     classes: Record<string, string>
 }
 const UserForm = ({
@@ -65,7 +66,7 @@ const UserForm = ({
     classes = {},
 }:UserFormProps) => {
 
-    const userEntries = Object.entries<InitialUserValues>(usersInfo)
+    const userEntries = Object.entries(usersInfo)
         .map(([userId, { name = '', dates = []}]) => ({ userId, name, dates }))
 
     const defaultUsersState: UserValues[] = userEntries.length > 0

@@ -19,7 +19,13 @@ export const SubPageProvider = ({ children }: { children: ReactNode }) => {
     setUser('')
   }
 
-  const values: any = { showPvP, togglePvPPage, userPage, setUserPage, clearUserPage }
+  const values: {
+    showPvP: boolean,
+    togglePvPPage: () => void,
+    userPage: string,
+    setUserPage: (user: string) => void,
+    clearUserPage: () => void
+  } = { showPvP, togglePvPPage, userPage, setUserPage, clearUserPage }
   return (
     <SubPageProviderContext.Provider value={values}>
       {children}

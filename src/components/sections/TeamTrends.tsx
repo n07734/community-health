@@ -16,13 +16,14 @@ import Line from '../charts/Line'
 import Pie from '../charts/Pie'
 import { splitByAuthor, rainbowData } from '../charts/lineHelpers'
 import { sortByKeys } from '../../utils'
+import { ObjNumbers } from '../../types/Components'
 
 type TeamTrendsProps = {
     pullRequests: PullRequest[]
     releases?: EventInfo[]
     chunkyData: PullRequest[][]
     usersData?: UserData[]
-    allRepos?: any
+    allRepos?: ObjNumbers
     userIds?: string[]
     usersInfo?: UsersInfo
     classes: Record<string, string>

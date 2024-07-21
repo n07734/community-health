@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AnyForLib } from './state'
 
 export type AmountOfData = number | 'all'

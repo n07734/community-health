@@ -13,9 +13,10 @@ import GraphsWrap from '../shared/GraphsWrap'
 import Line from '../charts/Line'
 import GraphUi from '../charts/GraphUi'
 
+type PrTransformer = (left: GraphLine[], right: GraphLine[], pullRequests: PullRequest[]) => [GraphLine[], GraphLine[], string[]]
 const formatGraphData = (
     pullRequests:PullRequest[] = [],
-    prTransformer:Function = () => [],
+    prTransformer?:PrTransformer,
     issues:Issue[] = [],
 ) => (data:Graph) => {
     const getData = (lineInfo: GraphLine) => {
@@ -31,7 +32,9 @@ const formatGraphData = (
         right = [],
     } = data
 
-    const [customLeft = [], customRight = [], legends = []] = prTransformer(left, right, pullRequests) || []
+    const [customLeft = [], customRight = [], legends = []] = prTransformer !== undefined
+        ? prTransformer(left, right, pullRequests)
+        : []
 
     const leftLines = {
         lines: customLeft.length > 0
@@ -107,7 +110,7 @@ const hasTrimmedMaths = (graphs:Graph[] = []) => {
 type CustomGraphsProps = {
     chunkyData: PullRequest[][],
     pullRequests: PullRequest[],
-    prTransformer?: Function,
+    prTransformer?: PrTransformer,
     issues?: Issue[],
     releases?: EventInfo[],
     classes: Record<string, string>,
@@ -116,7 +119,7 @@ type CustomGraphsProps = {
 const CustomGraphs = ({
     chunkyData = [],
     pullRequests = [],
-    prTransformer = () => {},
+    prTransformer,
     issues = [],
     releases = [],
     classes = {},

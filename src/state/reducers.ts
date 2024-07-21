@@ -1,19 +1,23 @@
 import { combineReducers } from 'redux'
 import types from './types'
+import { AnyForNow } from '../types/State'
 
-const setClear = <T>(startValue: T) => (storeKey: string, clearKey: string) => (current = startValue, action: any):T => {
-    const newValue = ({
-        [types[storeKey]]: () => action.payload,
-        [types[clearKey]]: () => startValue,
-    })[action.type]
+const setClear = <T>(startValue: T) =>
+    (storeKey: string, clearKey: string) =>
+        (current = startValue, action: { type: string, payload: T }):T =>
+            {
+                const newValue = ({
+                    [types[storeKey]]: () => action.payload,
+                    [types[clearKey]]: () => startValue,
+                })[action.type]
 
-    return newValue
-        ? newValue()
-        : current
-}
+                return newValue
+                    ? newValue()
+                    : current
+            }
 
 const setClearString = setClear<string>('')
-const setClearArray = setClear<any[]>([])
+const setClearArray = setClear<AnyForNow[]>([])
 const setClearObject = setClear<object>({})
 const setClearPagination = setClear({ hasNextPage: true })
 

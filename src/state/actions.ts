@@ -16,9 +16,9 @@ import {
 } from 'ramda'
 import { isAfter, isBefore } from 'date-fns'
 import { AnyAction, Dispatch } from 'redux'
-import { FetchInfo, ReportType, AllState } from '../types/State'
+import { FetchInfo, ReportType, AllState, AnyForNow } from '../types/State'
 import { AmountOfData } from '../types/Querys'
-import { AnyObject, ObjStrings } from '../types/Components'
+import { AnyObject, ObjStrings, Users } from '../types/Components'
 
 import api from '../api/api'
 import getUsersData from '../api/getUsersData'
@@ -147,7 +147,7 @@ const storeSortDirection = (sortDirection = 'DESC') => (dispatch: Dispatch<AnyAc
 })
 
 type Values = {
-    [key: string]: string | string[]
+    [key: string]: string | string[] | number | Users
 }
 const notSameStringValues = (formValues:Values = {}, fetches:Values = {}) => (key:string = '') =>
     formValues[key] && fetches[key] && formValues[key] !== fetches[key]
@@ -161,7 +161,7 @@ const notSameArrayValues = (formValues = {}, fetches:Values = {}) => (key = '') 
 
 const notSameUsersInfo = (formValues:Values = {}, fetches:Values = {}) => {
     const formUserId = formValues.userId
-    const [currentUserId] = fetches.userIds
+    const [currentUserId] = fetches.userIds as string[]
 
     const usersInfo = formValues?.usersInfo || {}
     const currentUsersInfo = fetches.usersInfo || {}
@@ -173,7 +173,7 @@ const notSameUsersInfo = (formValues:Values = {}, fetches:Values = {}) => {
 }
 
 // TODO: regression test
-const clearPastSearch = (values:any) => (dispatch: Dispatch<AnyAction>, getState: () => AllState) => {
+const clearPastSearch = (values:Values) => (dispatch: Dispatch<AnyAction>, getState: () => AllState) => {
     const {
         fetches = {},
     } = getState()
@@ -596,13 +596,13 @@ const getAPIData = () => async (dispatch: Dispatch<AnyAction>, getState: () => A
             payload: formUntilDate,
         })
 
-        const pageInfo = (info: any = {}) => {
+        const pageInfo = (info:AnyForNow = {}) => {
             const picks = pick(['newest', 'oldest'])
 
             const nextLevel:AnyObject = {}
             Object.entries(info)
                 .filter(([, value]) => is(Object, value) && values(picks(value)).length > 0)
-                .forEach(([key, value]:[string, any]) => {
+                .forEach(([key, value]:[string, AnyForNow]) => {
                     nextLevel[key] = picks(value)
                 })
 
@@ -826,7 +826,7 @@ const getPreFetched = ({
     fileName = '',
     externalURL = '',
     localData,
-}: any = {}) => async (dispatch: Dispatch<AnyAction>) => {
+}: AnyForNow = {}) => async (dispatch: Dispatch<AnyAction>) => {
     clearData(dispatch)
     dispatch({
         type: types.CLEAR_PRE_FETCH_ERROR,

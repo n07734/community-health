@@ -1,4 +1,5 @@
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { PullRequest } from './FormattedData'
 type LineDataKey =
     | 'commentSentimentScore'
@@ -12,7 +13,7 @@ type LineDataKey =
     | 'approvals'
     | 'additions'
     | 'deletions'
-    // | 'author'
+    | 'author'
     | 'cycleTime'
 
 type IssuesDataKey =

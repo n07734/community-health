@@ -97,8 +97,7 @@ const getLatestDate = (data:FetchInfo) => (type:RawDataType, results: RawDataRes
     const hasNextPage = pathOr(false, [paginationKeyMap[type], 'hasNextPageForDate'], data)
 
     const latestResult = results[results.length - 1] as RawDataResult || {}
-    console.log('latestResult', latestResult)
-    console.log('type', type)
+
     const latestItems = latestResult?.data?.result?.[type]?.edges || []
 
     const latestItem = latestItems[latestItems.length - 1]

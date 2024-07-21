@@ -6,7 +6,8 @@ import {
 } from '@mui/material'
 import { withStyles } from '@mui/styles'
 import { AmountOfData, SortDirection } from '../../../types/Querys'
-import { AnyForLib, ReportType } from '../../../types/State'
+import { AnyForLib, AnyForNow, FetchInfo, ReportType, UsersInfo } from '../../../types/State'
+import { PullRequest } from '../../../types/FormattedData'
 
 import ButtonWithMessage from './ButtonWithMessage'
 import SelectAmountData from './SelectAmountData'
@@ -36,27 +37,25 @@ import {
     storeUsersInfo,
 } from '../../../state/actions'
 
-type Fetches = {
-    repo: string
-    org: string
-    excludeIds: string[]
-    amountOfData: AmountOfData
+type SetValues = {
+    repo?: string | undefined
+    org?: string | undefined
+    excludeIds?: string | undefined
+    events?: string | undefined
     sortDirection: SortDirection
+    amountOfData: AmountOfData
     token: string
+    userId?: string | undefined
+    name?: string | undefined
+    usersInfo?: UsersInfo | undefined
 }
-type FormEvent = {
-    date: string
-    name: string
-}
+
 type PrefetchedFormProps = {
-    setValues: (values: any) => void
+    setValues: (values: SetValues) => void
     getData: () => void
-    fetches: Fetches
+    fetches: FetchInfo
     fetching: boolean
     classes: Record<string, string>
-    userIds: string[]
-    usersInfo: any
-    events: FormEvent[]
 }
 const PrefetchedForm = (props: PrefetchedFormProps) => {
     const {
@@ -65,15 +64,15 @@ const PrefetchedForm = (props: PrefetchedFormProps) => {
         fetches,
         fetching,
         classes,
-        userIds = [],
-        usersInfo = {},
-        events = [],
     } = props
 
     const {
         repo,
         org,
         excludeIds = [],
+        userIds = [],
+        usersInfo = {},
+        events = [],
     } = fetches
 
     const reportType:ReportType = userIds.length > 1 && 'team'
@@ -90,7 +89,7 @@ const PrefetchedForm = (props: PrefetchedFormProps) => {
 
     const [formInfo, setFormInfo] = useState({
         sortDirection: fetches.sortDirection,
-        amountOfData: fetches.amountOfData,
+        amountOfData: fetches.amountOfData || 'all',
         token: fetches.token,
         ...(eventsText && { events: eventsText }),
         ...(excludeIdsText && { excludeIds: excludeIdsText }),
@@ -172,8 +171,8 @@ const PrefetchedForm = (props: PrefetchedFormProps) => {
                         <div className="inputDesc">
                             {
                                 hardCodedKeys
-                                    .filter((inputKey) => formValue(fetches, inputKey))
-                                    .map((inputKey) => <P key={inputKey}>{inputLabels[inputKey]}: <b>{formValue(fetches, inputKey) as string}</b></P>)
+                                    .filter((inputKey:AnyForNow) => formValue(fetches, inputKey))
+                                    .map((inputKey:AnyForNow) => <P key={inputKey}>{inputLabels[inputKey]}: <b>{formValue(fetches, inputKey) as string}</b></P>)
                             }
                             {
                                 reportType === 'team' &&
@@ -221,18 +220,21 @@ const PrefetchedForm = (props: PrefetchedFormProps) => {
     )
 }
 
-const mapStateToProps = (state: any) => ({
+type State = {
+    fetches: FetchInfo
+    fetching: boolean
+    error: string
+    pullRequests: PullRequest[]
+}
+const mapStateToProps = (state: State) => ({
     fetches: state.fetches,
     fetching: state.fetching,
     error: state.error,
     pullRequests: state.pullRequests,
-    userIds: state.fetches.userIds,
-    usersInfo: state.fetches.usersInfo,
-    events: state.fetches.events,
 })
 
 const mapDispatchToProps = (dispatch: AnyForLib) => ({
-    setValues: (values: any) => {
+    setValues: (values: SetValues) => {
         const {
             token,
             amountOfData,
@@ -241,9 +243,10 @@ const mapDispatchToProps = (dispatch: AnyForLib) => ({
             events,
             userId,
             usersInfo = {},
+            name,
         } = values
 
-        if (userId) {
+        if (userId && name) {
             usersInfo[userId] = {
                 userId,
                 name,
@@ -265,5 +268,5 @@ const mapDispatchToProps = (dispatch: AnyForLib) => ({
 
 const StyledPrefetchedForm = withStyles(styles)(PrefetchedForm)
 
-export default connect(mapStateToProps,
-    mapDispatchToProps)(StyledPrefetchedForm)
+// eslint-disable-next-line react-refresh/only-export-components
+export default connect(mapStateToProps,mapDispatchToProps)(StyledPrefetchedForm)

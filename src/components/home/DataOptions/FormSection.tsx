@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { withStyles } from '@mui/styles'
 import { Users } from '../../../types/Components'
 import { AnyForLib, ReportType } from '../../../types/State'
-import { AmountOfData } from '../../../types/Querys'
 
 import ChartDescription from '../../shared/ChartDescription'
 import SelectAmountData from './SelectAmountData'
@@ -32,8 +31,23 @@ import {
     getAPIData,
 } from '../../../state/actions'
 
+type SetValues = {
+    org?: string | undefined
+    repo?: string
+    teamName?: string | undefined
+    usersInfo?: Users | undefined
+    userId?: string | undefined
+    name?: string | undefined
+    sortDirection: string
+    amountOfData: number
+    token: string
+    excludeIds: string
+    enterpriseAPI: string
+    events?: string | undefined
+}
+
 type FormSectionProps = {
-    setValues: (values: any) => void
+    setValues: (values: SetValues) => void
     getData: () => void
     fetching: boolean
     reportType: ReportType
@@ -77,25 +91,14 @@ const FormSection = (props:FormSectionProps) => {
     type ReportTypeInputs = {
         org: string
         repo?: string
-    } | {
         teamName: string
         usersInfo: Users
-    } | {
         userId: string
         name: string
     }
-    const reportInputs: ReportTypeInputs = reportTypeInputsHash[reportType]
+    const reportInputs: Partial<ReportTypeInputs> = reportTypeInputsHash[reportType]
 
-    type FormInfo = {
-        sortDirection: string
-        amountOfData: AmountOfData
-        token: string
-        excludeIds: string
-        enterpriseAPI: string
-        usersInfo?: Users
-    } & ReportTypeInputs
-
-    const defaultInputs: FormInfo = {
+    const defaultInputs  = {
         sortDirection: 'DESC',
         amountOfData: 1,
         token: '',
@@ -246,20 +249,6 @@ const mapStateToProps = (state: State) => ({
     error: state.error,
 })
 
-type SetValues = {
-    org: string
-    repo: string
-    token: string
-    amountOfData: AmountOfData
-    sortDirection: string
-    teamName: string
-    usersInfo: any
-    userId: string
-    name: string
-    enterpriseAPI: string
-    excludeIds: string
-    events: string
-}
 const mapDispatchToProps = (dispatch: AnyForLib) => ({
     setValues: (values: SetValues) => {
         const {
@@ -277,10 +266,11 @@ const mapDispatchToProps = (dispatch: AnyForLib) => ({
             events,
         } = values
 
-        if (userId) {
+        if (userId && name) {
             usersInfo[userId] = {
                 userId,
                 name,
+                dates: [],
             }
         }
 

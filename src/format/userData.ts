@@ -2,7 +2,7 @@
 import {  pick } from 'ramda'
 import { sortByKeys } from '../utils'
 import { AnyObject, ObjNumbers } from '../types/Components'
-import { UserData, UserDataNumbersKeys } from '../types/State'
+import { AnyForNow, UserData, UserDataNumbersKeys } from '../types/State'
 import { PullRequest } from '../types/FormattedData'
 
 const baseUserData = {
@@ -36,7 +36,7 @@ const baseUserData = {
 }
 
 const updateContributorCount = (
-    currentData: any,
+    currentData: AnyForNow,
     objKey: string,
     obj: ObjNumbers,
     addition?: number,
@@ -59,14 +59,14 @@ const updateContributorCount = (
 }
 
 const updateByUsersCount = (
-    currentData: any,
+    currentData: AnyForNow,
     objKey: string,
     obj: ObjNumbers,
     author: string,
     increment: number,
     onlyUserId: string,
 ) => {
-    const byUsersCount: any = {}
+    const byUsersCount: AnyForNow = {}
     Object.entries(obj)
         .filter(([key]) => onlyUserId && author !== onlyUserId ? key === onlyUserId : true)
         .forEach(([key, value]) => {

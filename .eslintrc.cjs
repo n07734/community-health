@@ -18,8 +18,16 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     settings: { react: { version: '18.2' } },
     plugins: ['react-refresh'],
+    overrides: [
+      {
+        files: ['*.test.ts', '*.test.tsx'],
+        rules: {
+          '@typescript-eslint/no-explicit-any': 'off',
+        },
+      },
+    ],
     rules: {
-      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-explicit-any': 'error',
       'comma-dangle': ['error', 'always-multiline'],
       'react/jsx-no-target-blank': 'off',
       'react/prop-types': 'off',

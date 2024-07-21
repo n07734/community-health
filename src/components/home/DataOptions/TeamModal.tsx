@@ -3,8 +3,7 @@ import { Box, Modal} from '@mui/material'
 import { withStyles, CSSProperties } from '@mui/styles'
 import { Theme } from '@mui/material/styles'
 import { ApiFetchInfo } from '../../../types/Querys'
-import { UsersInfo } from '../../../types/State'
-import { Users } from '../../../types/Components'
+import { UserInfo, UsersInfo } from '../../../types/State'
 
 import styles from './styles'
 import { H, P } from '../../shared/StyledTags'
@@ -19,8 +18,8 @@ import { teamIDsQuery } from '../../../api/queries'
 
 type GetTeamMembers = {
     fetchInfo: ApiFetchInfo
-    setGitUsers: (x: UsersInfo) => void
-    setInputError: (x: ErrorInputs) => void
+    setGitUsers: (arg: UserInfo[]) => void
+    setInputError: (arg: ErrorInputs) => void
 }
 const getTeamMembers = async ({fetchInfo, setGitUsers, setInputError}: GetTeamMembers) => {
     try {
@@ -38,7 +37,7 @@ const getTeamMembers = async ({fetchInfo, setGitUsers, setInputError}: GetTeamMe
             }
         }
 
-        const usersInfo:UsersInfo = {}
+        const usersInfo:UserInfo[] = []
         results
             .flat()
             .forEach(({ node }: Node) => {
@@ -52,10 +51,10 @@ const getTeamMembers = async ({fetchInfo, setGitUsers, setInputError}: GetTeamMe
                     ? name.replace(',', '')
                     : email.split('.')[0]
 
-                usersInfo[login] = {
+                usersInfo.push({
                     userId: login,
                     name: nameString,
-                }
+                })
             })
         setGitUsers(usersInfo)
     } catch (err) {
@@ -101,7 +100,7 @@ const modalStyles = (theme: Theme): TagStyles => ({
 
 type GitHubTeamProps = {
     classes: Record<string, string>
-    setGitUsers: any
+    setGitUsers: (arg: UserInfo[]) => void
 }
 const GitHubTeam = withStyles(modalStyles)((props:GitHubTeamProps) => {
     const {
@@ -181,7 +180,7 @@ const GitHubTeam = withStyles(modalStyles)((props:GitHubTeamProps) => {
 
 type TeamModalProps = {
     setParentValues: (x: object) => void
-    usersInfo: Users
+    usersInfo: UsersInfo
     classes: Record<string, string>
 }
 const TeamModal =  withStyles(modalStyles)(({
@@ -196,7 +195,7 @@ const TeamModal =  withStyles(modalStyles)(({
     }
     const handleClose = () => setOpen(false)
 
-    const [gitUsers, setGitUsers] = useState([] as string[])
+    const [gitUsers, setGitUsers] = useState([] as UserInfo[])
 
     return (<div>
         <P className={classes.copy}>

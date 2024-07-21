@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ObjNumbers, ObjStrings } from './Components'
 import { EventInfo, PullRequest, Issue } from './FormattedData'
-import { SortDirection } from './Querys'
+import { AmountOfData, SortDirection } from './Querys'
 
 export type AnyForNow = any
 export type AnyForLib = any
@@ -72,9 +73,13 @@ export type KeysOfValue<T, TCondition> = {
 export type UserDataNumbersKeys = KeysOfValue<UserData, number>
 export type UserDataByUserKeys = KeysOfValue<UserData, ObjNumbers>
 
+export type SavedEvent = {
+    name: string
+    date: string
+}
 export type FetchInfo = {
     usersInfo: UsersInfo
-    events: EventInfo[]
+    events: SavedEvent[]
     repo: string
     org: string
     teamName: string
@@ -82,6 +87,7 @@ export type FetchInfo = {
     excludeIds: string[]
     token: string
     sortDirection: SortDirection
+    amountOfData?: AmountOfData
     enterpriseAPI?: string
     prPagination?: ObjStrings
     usersReviewsPagination?: ObjStrings

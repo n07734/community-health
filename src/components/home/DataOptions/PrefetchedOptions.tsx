@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { withStyles } from '@mui/styles'
-import { AnyForLib, RepoInfo } from '../../../types/State'
+import { AnyForLib, AnyForNow, RepoInfo } from '../../../types/State'
 
 import Button from '../../shared/Button'
-import Message from '../Message'
+import Message, { ErrorInputs } from '../Message'
 import { P, A } from '../../shared/StyledTags'
 import styles from './styles'
 import { getPreFetched } from '../../../state/actions'
@@ -20,11 +20,16 @@ import {
     myPreFetchedReports,
 } from '../../../myReports/myReportsConfig'
 
+type ReportInfo = {
+    name?: string;
+    fileName: string;
+}
+
 type PrefetchedOptionsProps = {
     classes: Record<string, string>
-    error: any
+    error: ErrorInputs
     preFetchedName: string
-    getPreFetchedReport: (x: any) => void
+    getPreFetchedReport: (arg: ReportInfo) => void
 }
 const PrefetchedOptions = (props: PrefetchedOptionsProps) => {
     const {
@@ -59,10 +64,8 @@ const PrefetchedOptions = (props: PrefetchedOptionsProps) => {
         : { fileName: report }
 
     useEffect(() => {
-        getPreFetchedReport(repoInfo)
+        getPreFetchedReport(repoInfo as ReportInfo)
         if (player1 && player2) {
-            console.log('player1', player1)
-            console.log('player2', player2)
             togglePvPPage()
         } else if (user) {
             setUserPage(user)
@@ -149,13 +152,17 @@ const PrefetchedOptions = (props: PrefetchedOptionsProps) => {
     )
 }
 
-const mapStateToProps = (state: any) => ({
+type State = {
+    preFetchedName: string
+    preFetchedError: ErrorInputs
+}
+const mapStateToProps = (state: State) => ({
     preFetchedName: state.preFetchedName,
     error: state.preFetchedError,
 })
 
 const mapDispatchToProps = (dispatch: AnyForLib) => ({
-    getPreFetchedReport: (info: any) => dispatch(getPreFetched(info)),
+    getPreFetchedReport: (info: AnyForNow) => dispatch(getPreFetched(info)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(PrefetchedOptions))

@@ -3,7 +3,7 @@ import { UserData, UserDataNumbersKeys } from '../types/State'
 import { ObjNumbers } from '../types/Components'
 
 const usersAverageData = (userData:UserData[], filterAuthor:string) => {
-    const defaultValues = {
+    const defaultValues:ObjNumbers = {
         age: 0,
         approvalsGiven: 0,
         approvalsReceived: 0,
@@ -63,16 +63,22 @@ const usersAverageData = (userData:UserData[], filterAuthor:string) => {
         })
 
     const userCount = topUsers.length
-    const averagedData:any = {
+
+    const averagedData:ObjNumbers = {
         ...defaultValues,
-        user: 'Peers',
-        name: 'Peers',
         userCount,
     }
+
     Object.entries(totalled)
         .forEach(([key, value]) => {
             averagedData[key] = Math.round(value / userCount)
         })
+
+    Object.assign(averagedData, {
+        user: 'Peers',
+        name: 'Peers',
+    })
+
 
     const usersData = (userData
         .find(x => x.author === filterAuthor) || { approvalsGivenByTeam: {} }) as UserData

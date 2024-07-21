@@ -1,7 +1,6 @@
 
 import { TextField } from '@mui/material'
 import { withStyles } from '@mui/styles'
-
 import { pathOr } from 'ramda'
 
 import styles from './styles'
@@ -10,15 +9,19 @@ import {
     formValue,
     validate,
 } from './utils'
+import { AnyForNow } from '../../../types/State'
 
+type InputError = {
+    [key: string]: boolean
+}
 type TextInputProps = {
     type: string
     classes: Record<string, string>
     className?: string
-    inputError?: any
-    setInputError?: (inputError: any) => void
-    formInfo?: any
-    setValue: any
+    inputError?: InputError
+    setInputError?: (arg: InputError) => void
+    formInfo?: AnyForNow
+    setValue: AnyForNow
 }
 const TextInput = (props:TextInputProps) => {
     const {

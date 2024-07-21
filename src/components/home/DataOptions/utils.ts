@@ -4,11 +4,11 @@ import {
     equals,
     cond,
     join,
-    keys,
     sort,
     T as alwaysTrue,
 } from 'ramda'
 import { ObjStrings } from '../../../types/Components'
+import { UsersInfo, UserInfo } from '../../../types/State'
 
 const inputLabels: ObjStrings = {
     org: 'Organization',
@@ -30,7 +30,7 @@ type DateRange = {
     startDate: string
     endDate: string
 }
-const userHasCorrectDates = ({ dates = []}: { dates:DateRange[] }) => {
+const userHasCorrectDates = ({ dates = []}: UserInfo) => {
     const hasValidDates = dates
         .every(({ startDate = '', endDate = '' }:DateRange) => {
             const validStart = !startDate || isValid(new Date(startDate))
@@ -55,8 +55,8 @@ const userHasCorrectDates = ({ dates = []}: { dates:DateRange[] }) => {
 }
 
 const hasValidUsersInfo = (usersInfo = {}) => {
-    const validUsersDates = Object.values(usersInfo)
-        .every((info: any) => userHasCorrectDates(info))
+    const validUsersDates = Object.values(usersInfo as UsersInfo)
+        .every((info) => userHasCorrectDates(info))
 
     return  Object.keys(usersInfo).length > 0
         && validUsersDates
@@ -65,35 +65,35 @@ const hasValidUsersInfo = (usersInfo = {}) => {
 const validDate = (date = '') =>
     !date || /^\d{4}[/-]\d{2}[/-]\d{2}$/.test(date) && isValid(new Date(date))
 
-const validate = ({ key, value }: { key:string, value: any }) => {
+const validate = ({ key, value }: { key:string, value: string | UsersInfo }) => {
     const isValid = cond([
-        [equals('gitTeamUrl'), always(/^(https:\/\/.+\..+$)/.test(value))],
-        [equals('enterpriseAPI'), always(/^(https:\/\/.+\..+|^$)/.test(value))],
-        [equals('excludeIds'), always(/^([\w-.,\s]+|)$/.test(value))],
-        [equals('events'), always(/^([\w-.,&\s=]+|)$/.test(value))],
-        [equals('name'), always(/.?/.test(value))],
-        [equals('usersInfo'), () => hasValidUsersInfo(value)],
-        [equals('startDate'), () => validDate(value)],
-        [equals('endDate'), () => validDate(value)],
-        [alwaysTrue, always(/^[\w-_.]+$/.test(value))],
+        [equals('gitTeamUrl'), always(/^(https:\/\/.+\..+$)/.test(value as string))],
+        [equals('enterpriseAPI'), always(/^(https:\/\/.+\..+|^$)/.test(value as string))],
+        [equals('excludeIds'), always(/^([\w-.,\s]+|)$/.test(value as string))],
+        [equals('events'), always(/^([\w-.,&\s=]+|)$/.test(value as string))],
+        [equals('name'), always(/.?/.test(value as string))],
+        [equals('usersInfo'), () => hasValidUsersInfo(value as UsersInfo)],
+        [equals('startDate'), () => validDate(value as string)],
+        [equals('endDate'), () => validDate(value as string)],
+        [alwaysTrue, always(/^[\w-_.]+$/.test(value as string))],
     ])(key)
     return isValid
 }
-const errorValue = (formInfo: any) => (key: string) => {
-    const value = formInfo[key]
-    const isValid = validate({ key, value })
+const errorValue = <T>(formInfo: T) => (key: keyof T) => {
+    const value = formInfo[key] as string | UsersInfo
+    const isValid = validate({ key: key as string, value })
 
     return isValid ? false : true
 }
 
-const validateForm = (formInfo: any) => {
+const validateForm = <T extends object>(formInfo: T) => {
     const getErrorValue = errorValue(formInfo)
 
     const validationErrors: { [key: string]: boolean } = {}
-    keys(formInfo)
-        .forEach((key: any) => {
-            validationErrors[key] = getErrorValue(key)
-    })
+    Object.keys(formInfo)
+        .forEach((key) => {
+            validationErrors[key] = getErrorValue(key as keyof T)
+        })
 
     const isValid = Object.values(validationErrors)
         .every(x => !x)
@@ -104,7 +104,7 @@ const validateForm = (formInfo: any) => {
     }
 }
 
-const formValue = (data: any, key: string) => {
+const formValue = <T>(data: T, key: keyof T) => {
     const value = data[key] as string | number
     const stringVal = typeof value === 'object' ? '' : value
     return Array.isArray(value)
