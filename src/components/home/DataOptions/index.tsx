@@ -24,6 +24,7 @@ import {
     preFetchedOrgs,
     preFetchedTeams,
 } from '../../../preFetchedInfo'
+import { AnyForLib } from '../../../types/State'
 
 type FetchFormProps = {
     classes: Record<string, string>
@@ -116,7 +117,7 @@ const FetchForm = ({ classes, clearReport }: FetchFormProps) => {
     )
 }
 
-const mapDispatchToProps = (dispatch:any) => ({
+const mapDispatchToProps = (dispatch: AnyForLib) => ({
     clearReport: () => dispatch(clearAllData),
 })
 

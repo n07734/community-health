@@ -23,7 +23,7 @@ const styles = (theme: Theme): TagStyles => ({
 })
 
 type PaperWrapperProps = {
-    classes?: any
+    classes: Record<string, string>
     className?: string
     children: React.ReactNode
 

@@ -3,6 +3,10 @@ import { useState } from 'react'
 import { ResponsiveScatterPlot as NivoScatter } from '@nivo/scatterplot'
 import { useTheme } from '@mui/styles';
 import { Theme } from '@mui/material/styles'
+import { EventInfo } from '../../types/FormattedData';
+import { ColumnKeys, LineForGraph, Lines, TableData, LineInfo, Graph } from '../../types/Graphs';
+import { AnyForLib } from '../../types/State';
+
 
 import ChartHeading from './ChartHeading'
 import styledCharts from './styledCharts'
@@ -17,8 +21,6 @@ import {
     smoothNumber,
     getReportMonthCount,
 } from './lineHelpers'
-import { EventInfo } from '../../types/FormattedData';
-import { ColumnKeys, LineForGraph, Lines, TableData, LineInfo, Graph } from '../../types/Graphs';
 
 const getAllYMax = (data:LineInfo[] = []) => data
     .filter(x => x.yMax)
@@ -298,14 +300,14 @@ const Scatterplot = styledCharts(({
                         tickPadding: 10,
                         tickRotation: -45,
                     }}
-                    legends={(showLegends ? legendsArray : []) as any[]}
+                    legends={(showLegends ? legendsArray : []) as AnyForLib[]}
                     axisLeft={{
                         tickSize: 0,
                         tickValues: 8,
                     }}
                     {...(
                         formattedMarkers.length
-                        && { markers: formattedMarkers as any}
+                        && { markers: formattedMarkers as AnyForLib}
                     )}
                     {...(
                         convertedRightLines.length
@@ -323,7 +325,7 @@ const Scatterplot = styledCharts(({
                         }
                     )}
                     enableGridX={false}
-                    theme={theme.charts as any}
+                    theme={theme.charts as AnyForLib}
                 />
             </div>
             {

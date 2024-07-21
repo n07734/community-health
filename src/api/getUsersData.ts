@@ -9,7 +9,7 @@ import batch from './batch'
 type BatchData = {
     fetchInfo: UsersQueryArgs
     queryInfo: string
-    dispatch: () => {}
+    dispatch: () => void
 }
 const getUsersData = async({ fetchInfo, untilDate, dispatch }: GetUsersData) => {
     try {

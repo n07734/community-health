@@ -8,6 +8,7 @@ import {
     reviewsQuery,
     reviewCommentsQuery,
 } from './queries'
+import { AnyForNow } from '../types/State'
 
 type Data = TeamIDsQueryResult | OrgQueryResult
 const getData = (type: FilterType, data: Data[]) => {
@@ -24,10 +25,10 @@ const getData = (type: FilterType, data: Data[]) => {
 
 // TODO: make this file more understandable
 // TODO: retry errored fill
-const fillData = (apiCall: any) => {
+const fillData = (apiCall: AnyForNow) => {
     const fillByType = (type: FilterType) => {
 
-        const fillersByType: { [key: string]: ((data: any) => Promise<any>)[] } = {
+        const fillersByType: { [key: string]: ((data: AnyForNow) => Promise<AnyForNow>)[] } = {
             'pullRequests': [
                 pullRequestsComments,
                 pullRequestsReviews,
@@ -43,7 +44,7 @@ const fillData = (apiCall: any) => {
 
         const fillers = fillersByType[type] || []
 
-        return (data: any) => fillers.length
+        return (data: AnyForNow) => fillers.length
             ? Promise.all(
                 fillers
                     .map((filler) => filler(data)),
@@ -89,7 +90,7 @@ const fillData = (apiCall: any) => {
         node: object
     }
 
-    const updateRawData = (rawData: RawData) => (key: string) => (newData: any) => {
+    const updateRawData = (rawData: RawData) => (key: string) => (newData: AnyForNow) => {
         const updatedNode = Object.assign(rawData.node, { [key]: newData })
 
         return Object.assign(rawData, { node: updatedNode })

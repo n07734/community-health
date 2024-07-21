@@ -2,7 +2,7 @@
 import { ResponsiveChord as NivoChord } from '@nivo/chord'
 import { useTheme } from '@mui/styles'
 import { Theme } from '@mui/material/styles'
-import { UserData, UserDataNumbers } from '../../types/State'
+import { AnyForLib, UserData, UserDataByUserKeys } from '../../types/State'
 
 import { useShowNumbers } from '../../state/ShowNumbersProvider'
 import { useShowNames } from '../../state/ShowNamesProvider'
@@ -14,7 +14,7 @@ type ChordProps = {
     title: string
     data: UserData[]
     preSorted: boolean
-    dataKey: keyof UserDataNumbers
+    dataKey: UserDataByUserKeys
     classes: Record<string, string>
 }
 const Chord = styledCharts(({
@@ -66,7 +66,7 @@ const Chord = styledCharts(({
                     inactiveRibbonOpacity={0.25}
                     animate={false}
                     motionConfig="stiff"
-                    theme={theme.charts as any}
+                    theme={theme.charts as AnyForLib}
                 />
             </div>
         </div>

@@ -1,6 +1,6 @@
 import { path, sum } from 'ramda'
 import { ObjNumbers, ObjStrings } from '../types/Components'
-import { UserData, UserDataNumbers } from '../types/State'
+import { UserData, UserDataByUserKeys } from '../types/State'
 
 const getNameList = (data: UserData[], key: keyof UserData, preSorted = false) => {
     const scoredData:ObjNumbers = {}
@@ -51,25 +51,25 @@ const getNameList = (data: UserData[], key: keyof UserData, preSorted = false) =
     return [gitIds, gitIds.map(name => nameMap[name] || name)]
 }
 
-const otherTotal = (ignoreNames:string[] = [], data:UserDataNumbers) => {
-    const otherAuthors:[string, number][] = Object.entries(data)
+const otherTotal = (ignoreNames:string[] = [], data: ObjNumbers) => {
+    const otherAuthors = Object.entries(data)
         .filter(([name]) => !ignoreNames.some(x => x === name))
 
-    const total =  sum(otherAuthors.map((x) => x[1] as number))
+    const total =  sum(otherAuthors.map((x) => x[1]))
     return total
 }
 
 const getMatrix = (
     data: UserData[] = [],
-    key: keyof UserDataNumbers,
+    key: UserDataByUserKeys,
     showNames: string[] = [],
     otherAppended = false,
 ) => {
     const martixRow = (item:UserData):number[] => [
-        ...showNames.map((x):number => path([key, x], item) || 0),
+        ...showNames.map((name):number => path([key, name], item) || 0),
         ...(
             otherAppended
-                ? [otherTotal(showNames, item[key] as any)] // TODO: Que?? keyof not helping
+                ? [otherTotal(showNames, item[key])]
                 : []
         ),
     ]
@@ -109,7 +109,7 @@ const getMatrix = (
 
 type FormatChordDataProps = {
     data: UserData[]
-    dataKey: keyof UserDataNumbers
+    dataKey: UserDataByUserKeys
     preSorted?: boolean
     showNames?: boolean
 }

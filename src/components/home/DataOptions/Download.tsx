@@ -8,6 +8,7 @@ import {
 } from '../../../state/actions'
 import { P } from '../../shared/StyledTags'
 import { PullRequest } from '../../../types/FormattedData'
+import { AnyForLib } from '../../../types/State'
 
 type Download = {
     fetching: boolean,
@@ -40,7 +41,7 @@ const mapStateToProps = (state: State) => ({
     preFetchedName: state.preFetchedName,
 })
 
-const mapDispatchToProps = (dispatch: any) => ({
+const mapDispatchToProps = (dispatch: AnyForLib) => ({
     getDownloadInfo: () => dispatch(getDownloadProps),
 })
 

@@ -55,7 +55,7 @@ type ReportDescriptionProps = {
     issues?: Issue[]
     userIds?: string[]
     reportDescription?: string
-    classes?: any
+    classes: Record<string, string>
 }
 const ReportDescription = ({
     fetches,

@@ -6,6 +6,7 @@ import { useTheme } from '@mui/styles'
 import { Theme } from '@mui/material/styles'
 import { Lines, LineInfo, LineForGraph, ColumnKeys, LinePlot, TableData, Graph } from '../../types/Graphs'
 import { EventInfo } from '../../types/FormattedData'
+import { AnyForLib } from '../../types/State'
 
 import { useShowNumbers } from '../../state/ShowNumbersProvider'
 import ChartHeading from './ChartHeading'
@@ -34,7 +35,7 @@ type Point = {
 }
 
 type ToolTipProps = { slice: { points: Point[] } }
- 
+
 const ToolTip = (data: ToolTipProps) => {
     // NOTE: this is needed to use the original Y value for the tool tip
     const getYValue = (point: Point) => {
@@ -70,13 +71,13 @@ const ToolTip = (data: ToolTipProps) => {
 }
 
 type DashedLine = {
-    series: LineForGraph[]
+    series: AnyForLib[]
     lineGenerator: (data: { x: number, y: number }[]) => string
-    xScale: any
-    yScale: any
+    xScale: AnyForLib
+    yScale: AnyForLib
 }
-const DashedLine = (allLines:LineInfo[] = []) => ({ series, lineGenerator, xScale, yScale }:DashedLine):any => series
-    .map((item = {} as LineForGraph) => {
+const DashedLine = (allLines:LineInfo[] = []) => ({ series, lineGenerator, xScale, yScale }:DashedLine):AnyForLib => series
+    .map((item = {}) => {
         const { id, data: lineData, color } = item
         const { lineStyles = { strokeWidth: 2 } } = allLines.find(x => x.label === id) || {}
 
@@ -84,7 +85,7 @@ const DashedLine = (allLines:LineInfo[] = []) => ({ series, lineGenerator, xScal
             <path
                 key={id}
                 d={lineGenerator(
-                    lineData.map((d:any) => ({
+                    lineData.map((d:AnyForLib) => ({
                         x: xScale(d.data.x),
                         y: yScale(d.data.y),
                     })),
@@ -215,7 +216,7 @@ const Line = styledCharts(({
 
     const fadeColor = 'rgba(120, 119, 120, 0.27)'
 
-    const enter = (data:{ label?: string} = {} = {}) => {
+    const enter = (data:{ label?: string } = {}) => {
         const itemsIndex = colorsInfo.findIndex(x => x.label === data.label)
         setState(hookedColors.map((info, i: number) => ({
             ...info,
@@ -390,7 +391,7 @@ const Line = styledCharts(({
                     pointLabelYOffset={0}
                     {...(
                         formattedMarkers.length
-                        && { markers: formattedMarkers as any }
+                        && { markers: formattedMarkers as AnyForLib }
                     )}
                     {...(
                         convertedRightLines.length
@@ -410,9 +411,9 @@ const Line = styledCharts(({
                     )}
                     enableGridX={false}
                     enableSlices="x"
-                    sliceTooltip={ToolTip as any}
-                    theme={theme.charts as any}
-                    layers={['grid', 'markers', 'areas', DashedLine(allLines) as any, 'slices', 'points', 'axes', 'legends']}
+                    sliceTooltip={ToolTip as AnyForLib}
+                    theme={theme.charts as AnyForLib}
+                    layers={['grid', 'markers', 'areas', DashedLine(allLines) as AnyForLib, 'slices', 'points', 'axes', 'legends']}
                 />
             </div>
             {

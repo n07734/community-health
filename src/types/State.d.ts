@@ -2,6 +2,9 @@ import { ObjNumbers, ObjStrings } from './Components'
 import { EventInfo, PullRequest, Issue } from './FormattedData'
 import { SortDirection } from './Querys'
 
+export type AnyForNow = any
+export type AnyForLib = any
+
 export type ReportType = 'user' | 'team' | 'repo' | 'org'
 
 type UserDate = {
@@ -60,14 +63,14 @@ export type UserData = {
     sentimentTotalNegativeScore: number
 }
 
-type KeysOfValue<T, TCondition> = {
+export type KeysOfValue<T, TCondition> = {
     [K in keyof T]: T[K] extends TCondition
       ? K
       : never;
   }[keyof T];
 
-type UserDataNumbersKeys = KeysOfValue<UserData, number>
-export type UserDataNumbers = Pick<UserData, UserDataNumbersKeys>
+export type UserDataNumbersKeys = KeysOfValue<UserData, number>
+export type UserDataByUserKeys = KeysOfValue<UserData, ObjNumbers>
 
 export type FetchInfo = {
     usersInfo: UsersInfo

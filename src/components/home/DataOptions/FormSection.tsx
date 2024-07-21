@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { withStyles } from '@mui/styles'
 import { Users } from '../../../types/Components'
-import { ReportType } from '../../../types/State'
+import { AnyForLib, ReportType } from '../../../types/State'
 import { AmountOfData } from '../../../types/Querys'
 
 import ChartDescription from '../../shared/ChartDescription'
@@ -260,7 +260,7 @@ type SetValues = {
     excludeIds: string
     events: string
 }
-const mapDispatchToProps = (dispatch: any) => ({
+const mapDispatchToProps = (dispatch: AnyForLib) => ({
     setValues: (values: SetValues) => {
         const {
             org,

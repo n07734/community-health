@@ -12,7 +12,7 @@ import {
 } from 'date-fns'
 import { PullRequest, Issue } from '../../types/FormattedData'
 import { trimItems } from '../../state/actions'
-import { FetchInfo, UsersInfo } from '../../types/State'
+import { AnyForLib, FetchInfo, UsersInfo } from '../../types/State'
 
 import { P } from '../shared/StyledTags'
 
@@ -124,7 +124,7 @@ const mapStateToProps = (state:State) => ({
     usersInfo: state.fetches.usersInfo,
 })
 
-const mapDispatchToProps = (dispatch:any) => ({
+const mapDispatchToProps = (dispatch: AnyForLib) => ({
     trim: (from:string,to:string) => dispatch(trimItems(from,to)),
 })
 

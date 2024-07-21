@@ -9,10 +9,11 @@ import ChartHeading from './ChartHeading'
 import styledCharts from './styledCharts'
 import hasChartData from './hasChartData'
 import { AllowedColors, RadarData, RadarDataItem } from '../../types/Components'
+import { AnyForLib } from '../../types/State'
 
 // eslint-disable-next-line react/display-name
-const radarSliceTooltip = (fullData:RadarDataItem[]) => ({ index, data }: any) => {
-    const matched = fullData.find(x => x.area === index) as any
+const radarSliceTooltip = (fullData:RadarDataItem[]) => ({ index, data }: AnyForLib) => {
+    const matched = fullData.find(x => x.area === index) as AnyForLib
     const rows = data.map(({ id, color }:{ id:string, color:AllowedColors}) => [
         <Chip key={id} color={color} />,
         id,
@@ -27,7 +28,7 @@ type RadarProps = RadarData & {
     colors?: string[]
     width?: number
     height?: number
-    classes?: any
+    classes: Record<string, string>
 }
 const Radar = styledCharts(({
     title = '',
@@ -69,7 +70,7 @@ const Radar = styledCharts(({
                 keys={keys}
                 data={data}
                 maxValue={100}
-                theme={theme.charts as any}
+                theme={theme.charts as AnyForLib}
                 sliceTooltip={radarSliceTooltip(data)}
                 isInteractive={showNumbers}
             />

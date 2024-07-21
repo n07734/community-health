@@ -181,7 +181,7 @@ const formatBatches = ({ filterForKey = false, dataKey, groupMath = 'average' }:
             const filteredBatch = batch
                 .filter((x) => dataKey && filterForKey
                     ? /\d+/.test(`${x[dataKey]}`)
-                    : true
+                    : true,
                 )
 
             const batchLength = filteredBatch.length

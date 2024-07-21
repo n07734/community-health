@@ -6,7 +6,7 @@ import {
 } from '@mui/material'
 import { withStyles } from '@mui/styles'
 import { AmountOfData, SortDirection } from '../../../types/Querys'
-import { ReportType } from '../../../types/State'
+import { AnyForLib, ReportType } from '../../../types/State'
 
 import ButtonWithMessage from './ButtonWithMessage'
 import SelectAmountData from './SelectAmountData'
@@ -231,7 +231,7 @@ const mapStateToProps = (state: any) => ({
     events: state.fetches.events,
 })
 
-const mapDispatchToProps = (dispatch: any) => ({
+const mapDispatchToProps = (dispatch: AnyForLib) => ({
     setValues: (values: any) => {
         const {
             token,

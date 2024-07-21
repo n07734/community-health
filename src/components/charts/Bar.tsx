@@ -10,6 +10,7 @@ import { useShowNumbers } from '../../state/ShowNumbersProvider'
 import ChartHeading from './ChartHeading'
 import styledCharts from './styledCharts'
 import hasChartData from './hasChartData'
+import { AnyForLib } from '../../types/State'
 
 type BarProps = {
     data: BarData[]
@@ -79,7 +80,7 @@ const Bar = styledCharts(({
                     isInteractive={showNumbers}
                     enableLabel={false}
                     animate={false}
-                    theme={theme.charts as any}
+                    theme={theme.charts as AnyForLib}
                 />
             </div>
         </div>

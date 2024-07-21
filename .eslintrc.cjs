@@ -13,7 +13,7 @@ module.exports = {
       'plugin:vitest-globals/recommended',
       'plugin:@typescript-eslint/recommended',
     ],
-    ignorePatterns: ['dist', '.eslintrc.cjs'],
+    ignorePatterns: ['dist', '.eslintrc.cjs', 'build'],
     parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
     parser: '@typescript-eslint/parser',
     settings: { react: { version: '18.2' } },

@@ -1,5 +1,5 @@
 import { ObjPrimitive, ObjNumbers } from '../types/Components';
-import { UserData, UserDataNumbers } from '../types/State'
+import { UserData, UserDataNumbersKeys } from '../types/State'
 import { sortByKeys } from '../utils'
 
 const formatRadarData = (userData: UserData[], filterAuthor?:string) => {
@@ -20,8 +20,7 @@ const formatRadarData = (userData: UserData[], filterAuthor?:string) => {
         uniquePRsContributedTo: 0,
     }
 
-    type PartialUserDataKeys = keyof Partial<UserDataNumbers>;
-    const keys:PartialUserDataKeys[] = [
+    const keys:UserDataNumbersKeys[] = [
         'commentsGiven',
         'commentsReceived',
         'uniquePRsApproved',

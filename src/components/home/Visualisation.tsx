@@ -15,7 +15,13 @@ import Individual from '../Individual'
 import { useSubPage } from '../../state/SubPageProvider'
 import { FetchInfo } from '../../types/State'
 
-const Visualisation = (props:any) => {
+type VisualisationProps = {
+    userIds: string[]
+    teamName: string
+    repo: string
+    org: string
+}
+const Visualisation = (props:VisualisationProps) => {
     const { showPvP, userPage } = useSubPage()
     const showUserPage = userPage && userPage.length > 0 ? true : false
     return (

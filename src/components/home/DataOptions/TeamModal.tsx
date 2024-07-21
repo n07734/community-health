@@ -58,7 +58,11 @@ const getTeamMembers = async ({fetchInfo, setGitUsers, setInputError}: GetTeamMe
                 }
             })
         setGitUsers(usersInfo)
-    } catch (error:any) {
+    } catch (err) {
+        type CatchError = {
+            message?: string
+        }
+        const error = err as CatchError
         setInputError({level: 'error', message: `Api call error: ${error?.message || 'unknown'}`})
     }
 }

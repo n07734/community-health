@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { withStyles } from '@mui/styles'
-import { RepoInfo } from '../../../types/State'
+import { AnyForLib, RepoInfo } from '../../../types/State'
 
 import Button from '../../shared/Button'
 import Message from '../Message'
@@ -154,7 +154,7 @@ const mapStateToProps = (state: any) => ({
     error: state.preFetchedError,
 })
 
-const mapDispatchToProps = (dispatch: any) => ({
+const mapDispatchToProps = (dispatch: AnyForLib) => ({
     getPreFetchedReport: (info: any) => dispatch(getPreFetched(info)),
 })
 

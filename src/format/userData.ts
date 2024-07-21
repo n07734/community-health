@@ -2,7 +2,7 @@
 import {  pick } from 'ramda'
 import { sortByKeys } from '../utils'
 import { AnyObject, ObjNumbers } from '../types/Components'
-import { UserData } from '../types/State'
+import { UserData, UserDataNumbersKeys } from '../types/State'
 import { PullRequest } from '../types/FormattedData'
 
 const baseUserData = {
@@ -276,7 +276,7 @@ const formatUserData = (data: PullRequest[] = [], usersInfo: AnyObject = {}, onl
             return picked
         })
 
-    const keys = [
+    const keys:UserDataNumbersKeys[] = [
         'commentsGiven',
         'commentsReceived',
         'approvalsGiven',

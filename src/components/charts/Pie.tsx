@@ -7,6 +7,7 @@ import { Theme } from '@mui/material/styles'
 import { useShowNumbers } from '../../state/ShowNumbersProvider'
 import ChartHeading from './ChartHeading'
 import styledCharts from './styledCharts'
+import { AnyForLib } from '../../types/State';
 
 type PieProps = {
     title: string
@@ -48,7 +49,7 @@ const Pie = styledCharts(({
                     arcLinkLabelsDiagonalLength={10}
                     arcLinkLabelsStraightLength={15}
                     arcLinkLabelsTextColor={theme.palette.text.primary}
-                    theme={theme.charts as any}
+                    theme={theme.charts as AnyForLib}
                     isInteractive={showNumbers}
                 />
             </div>

@@ -2,7 +2,7 @@
 import { connect } from 'react-redux'
 import { withStyles, useTheme, CSSProperties } from '@mui/styles'
 import { EventInfo, PullRequest } from '../../types/FormattedData'
-import { UsersInfo, UserData } from '../../types/State'
+import { UsersInfo, UserData, UserDataNumbersKeys } from '../../types/State'
 import { Theme } from '@mui/material/styles'
 
 import { useShowNames } from '../../state/ShowNamesProvider'
@@ -44,8 +44,13 @@ const TeamTrends = ({
     const { showNames } = useShowNames()
 
     const maxAuthors = userIds.length || 15
+    const keys:UserDataNumbersKeys[] = [
+        'commentsGiven',
+        'approvalsGiven',
+    ]
+
     const sortedUsers = usersData
-        .sort(sortByKeys(['commentsByUser, approvalsByUser']))
+        .sort(sortByKeys(keys))
 
     const barData = sortedUsers
         .map((x,i) => ({

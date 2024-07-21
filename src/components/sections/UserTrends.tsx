@@ -11,15 +11,15 @@ import Button from '../shared/Button'
 import formatRadarData from '../../format/radarData'
 import { sortByKeys } from '../../utils'
 import { useSubPage } from '../../state/SubPageProvider'
-import { UsersInfo, UserData, UserDataNumbers, FetchInfo } from '../../types/State'
-import { RadarData } from '../../types/Components'
+import { UsersInfo, UserData, FetchInfo, UserDataNumbersKeys } from '../../types/State'
+import { ObjNumbers, RadarData } from '../../types/Components'
 
 
 const radialChartsContributions = ({
     maxValues = {},
     users = [],
-}: { maxValues: any, users:UserData[]}, isTeamPage: boolean): RadarData[] => {
-    const keys = [
+}: { maxValues: ObjNumbers, users:UserData[]}, isTeamPage: boolean): RadarData[] => {
+    const keys:UserDataNumbersKeys[] = [
         'commentsGiven',
         'commentsReceived',
         'uniquePRsApproved',
@@ -32,7 +32,7 @@ const radialChartsContributions = ({
             .sort(sortByKeys(keys))
             .slice(0, 6)
 
-    const items:{ area: string, dataKey:keyof UserDataNumbers }[] = [
+    const items:{ area: string, dataKey:UserDataNumbersKeys }[] = [
         {
             area: 'Comments received',
             dataKey: 'commentsReceived',
@@ -55,7 +55,7 @@ const radialChartsContributions = ({
         },
     ]
 
-    const radarData = topXUsers
+    const radarData:RadarData[] = topXUsers
         .map(user => {
             const data = items
                 .map(({ area, dataKey }) => {

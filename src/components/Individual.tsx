@@ -15,7 +15,7 @@ import { sortByKeys } from '../utils'
 import formatUserData from '../format/userData'
 import { useShowNames } from '../state/ShowNamesProvider'
 import { PullRequest } from '../types/FormattedData'
-import { FetchInfo, UsersInfo } from '../types/State'
+import { FetchInfo, UserDataNumbersKeys, UsersInfo } from '../types/State'
 import { ObjNumbers } from '../types/Components'
 
 type IndividualProps = {
@@ -103,8 +103,12 @@ const Individual = ({
         }))
 
     const usersData = formatUserData(pullRequests.concat(reviewedPullRequests), updatedUsersInfo, userId)
+    const keys:UserDataNumbersKeys[] = [
+        'commentsGiven',
+        'approvalsGiven',
+    ]
     const sortedUsers = usersData
-        .sort(sortByKeys(['commentsByUser, approvalsByUser']))
+        .sort(sortByKeys(keys))
 
     const chunkyData = chunkData(updatedPullRequests)
     const repoPie = rainbowData('repo', allRepos)

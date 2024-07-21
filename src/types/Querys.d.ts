@@ -1,3 +1,5 @@
+import { AnyForLib } from './state'
+
 export type AmountOfData = number | 'all'
 export type ApiResults = any[]
 
@@ -210,5 +212,5 @@ export type MakeQuery = (queryInfo: any) => { query: any, resultInfo: any, fille
 type GetUsersData = {
     fetchInfo: ApiFetchInfo
     untilDate: UntilDate
-    dispatch: any
+    dispatch: AnyForLib
 }

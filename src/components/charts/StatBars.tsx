@@ -2,17 +2,18 @@ import { withStyles, useTheme, CSSProperties } from '@mui/styles'
 import {
     Select,
     MenuItem,
+    SelectChangeEvent,
 } from '@mui/material'
 import { Theme } from '@mui/material/styles'
+import { UserData, UserDataNumbersKeys } from '../../types/State'
 
 import { P, H } from '../shared/StyledTags'
-import { UserData } from '../../types/State'
 
 type SelectUserProps = {
     player: string
     color: string
     otherPlayer: string
-    setPlayerId: Function
+    setPlayerId: (arg:string) => void
     players: UserData[]
 }
 const SelectUser = ({
@@ -27,7 +28,7 @@ const SelectUser = ({
             color,
             fontSize: '2rem',
         }}
-        onChange={(e) => setPlayerId(e.target.value)}
+        onChange={(e:SelectChangeEvent) => setPlayerId((e.target as HTMLSelectElement).value)}
         inputProps={{ 'aria-label': 'Select a user' }}
     >
     {
@@ -38,16 +39,16 @@ const SelectUser = ({
 </Select>
 
 type StatBarsProps = {
-    player1: any
-    player2: any
-    setPlayer1Id?: Function
-    setPlayer2Id?: Function
+    player1: UserData
+    player2: UserData
+    setPlayer1Id?: () => void
+    setPlayer2Id?: () => void
     players?: UserData[]
     classes: Record<string, string>
 }
 const StatBars = ({
-    player1 = {},
-    player2 = {},
+    player1,
+    player2,
     setPlayer1Id = () => {},
     setPlayer2Id = () => {},
     players = [],
@@ -57,7 +58,7 @@ const StatBars = ({
     const colorA = theme.palette.secondary.main
     const colorB = theme.palette.primary.main
 
-    const statsKeys:{ title: string, id: string }[] = [
+    const statsKeys:{ title: string, id: UserDataNumbersKeys }[] = [
         {
             title: 'Total Merged',
             id: 'totalPRs',

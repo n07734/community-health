@@ -1,4 +1,5 @@
 import { withStyles, CSSProperties } from '@mui/styles'
+import { AnyForNow } from '../../types/State'
 
 type TagStyles = {
     [key: string]: CSSProperties | { [key: string]: CSSProperties }
@@ -74,6 +75,6 @@ const styles = (): TagStyles => ({
     },
 })
 
-const styledCharts = (Chart: any) => withStyles(styles)(Chart)
+const styledCharts = (Chart: AnyForNow) => withStyles(styles)(Chart)
 
 export default styledCharts

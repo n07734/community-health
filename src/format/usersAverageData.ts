@@ -1,5 +1,5 @@
 import { sortByKeys } from '../utils'
-import { UserData, UserDataNumbers } from '../types/State'
+import { UserData, UserDataNumbersKeys } from '../types/State'
 import { ObjNumbers } from '../types/Components'
 
 const usersAverageData = (userData:UserData[], filterAuthor:string) => {
@@ -25,7 +25,7 @@ const usersAverageData = (userData:UserData[], filterAuthor:string) => {
         repoCount: 0,
     }
 
-    const keys:Partial<keyof UserDataNumbers>[] = [
+    const keys:UserDataNumbersKeys[] = [
         'commentsGiven',
         'commentsReceived',
         'approvalsGiven',
