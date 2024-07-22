@@ -9,14 +9,14 @@ import UserTrends from './sections/UserTrends'
 import ReportDescription from './sections/ReportDescription'
 import { chunkData } from './charts/lineHelpers'
 import { formatMarkers } from '../format/releaseData'
-import { EventInfo, PullRequest } from '../types/FormattedData'
-import { FetchInfo, UsersInfo } from '../types/State'
+import { PullRequest } from '../types/FormattedData'
+import { FetchInfo, SavedEvent, UsersInfo } from '../types/State'
 import { ObjNumbers } from '../types/Components'
 
 type TeamProps = {
     pullRequests: PullRequest[]
     userIds: string[]
-    events: EventInfo[]
+    events: SavedEvent[]
     usersInfo: UsersInfo
 }
 const Team = ({

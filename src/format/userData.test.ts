@@ -27,7 +27,7 @@ describe('formatUserData:', () => {
                 ...pr,
                 author: 'smith',
             },
-        ], { bob: { a:1 }, smith: { a:1 } })
+        ] as any, { bob: { a:1 }, smith: { a:1 } })
         expect(result).toMatchSnapshot()
     })
 
@@ -40,7 +40,7 @@ describe('formatUserData:', () => {
             codeComments: 3,
             generalComments: 4,
         }
-        const result = formatUserData([baicPR], { bob: { a:1 } })
+        const result = formatUserData([baicPR] as any, { bob: { a:1 } })
         expect(result).toMatchSnapshot()
     })
 
@@ -54,7 +54,7 @@ describe('formatUserData:', () => {
                 ...pr,
                 additions: 300,
             },
-        ], { bob: { a:1 }})
+        ] as any, { bob: { a:1 }})
         expect(user.prSize).toEqual(200)
         expect(user.totalPRs).toEqual(2)
     })
@@ -69,7 +69,7 @@ describe('formatUserData:', () => {
                 ...pr,
                 age: 6,
             },
-        ], { bob: { a:1 }})
+        ] as any, { bob: { a:1 }})
         expect(user.age).toEqual(5)
     })
 
@@ -120,7 +120,7 @@ describe('formatUserData:', () => {
                     bob: 2,
                 },
             },
-        ], { bob: { a:1 }, smith: { a:1 } })
+        ] as any, { bob: { a:1 }, smith: { a:1 } })
 
         const bob = results.find(x => x.author === 'bob') as UserData
         const smith = results.find(x => x.author === 'smith') as UserData

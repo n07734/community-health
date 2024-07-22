@@ -163,7 +163,7 @@ const UserView = ({
     const { userPage: user, clearUserPage } = useSubPage()
 
     const graphs = userGraphs(pullRequests, releases, user, theme)
-    const [userData, averagedData] = usersAverageData(usersData, user)
+    const [userData, averagedData, userCount] = usersAverageData(usersData, user)
 
     const usersName = userData.name || user
 
@@ -179,7 +179,7 @@ const UserView = ({
                     window && window.scrollTo(0, 0)
                 }} />
 
-            <P className={classes.copy}>A collection metrics showing {usersName}'s data and average data from the top {averagedData.userCount} peers</P>
+            <P className={classes.copy}>A collection metrics showing {usersName}'s data and average data from the top {userCount} peers</P>
             <StatBars player1={userData} player2={averagedData} />
             {
                 graphs.length

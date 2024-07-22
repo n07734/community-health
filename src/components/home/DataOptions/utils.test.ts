@@ -13,7 +13,7 @@ describe('validate: userIds key', () => {
         [ 'usersInfo', { userName: 'user' }, true],
         [ 'usersInfo', {}, false],
       ])('input %s', (key, value, expected) => {
-        const result = validate({ key, value})
+        const result = validate({ key, value} as any)
 
         expect(result).toEqual(expected)
       })

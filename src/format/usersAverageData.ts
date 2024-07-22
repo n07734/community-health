@@ -2,8 +2,8 @@ import { sortByKeys } from '../utils'
 import { UserData, UserDataNumbersKeys } from '../types/State'
 import { ObjNumbers } from '../types/Components'
 
-const usersAverageData = (userData:UserData[], filterAuthor:string) => {
-    const defaultValues:ObjNumbers = {
+const usersAverageData = (userData:UserData[], filterAuthor:string):[UserData,UserData,number] => {
+    const defaultValues = {
         age: 0,
         approvalsGiven: 0,
         approvalsReceived: 0,
@@ -66,7 +66,6 @@ const usersAverageData = (userData:UserData[], filterAuthor:string) => {
 
     const averagedData:ObjNumbers = {
         ...defaultValues,
-        userCount,
     }
 
     Object.entries(totalled)
@@ -74,11 +73,11 @@ const usersAverageData = (userData:UserData[], filterAuthor:string) => {
             averagedData[key] = Math.round(value / userCount)
         })
 
-    Object.assign(averagedData, {
+    const peerData = {
+        ...(averagedData as Partial<UserData>),
         user: 'Peers',
         name: 'Peers',
-    })
-
+    } as UserData
 
     const usersData = (userData
         .find(x => x.author === filterAuthor) || { approvalsGivenByTeam: {} }) as UserData
@@ -88,8 +87,9 @@ const usersAverageData = (userData:UserData[], filterAuthor:string) => {
             ...usersData,
             user: usersData.author,
             name: usersData.name || usersData.author,
-        },
-        averagedData,
+        } as UserData,
+        peerData,
+        userCount,
     ]
 }
 

@@ -1,5 +1,5 @@
 import { diff, lt } from 'semver'
-import { UserDate, UserInfo, UsersInfo } from '../types/State'
+import { SavedEvent, UserDate, UserInfo, UsersInfo } from '../types/State'
 import { ObjStrings } from '../types/Components'
 import { EventInfo, ReleaseType } from '../types/FormattedData'
 import { RawEventInfo } from '../types/RawData'
@@ -57,7 +57,7 @@ const formatReleaseData = (results: RawEventInfo[] = []) => {
                 })[diffType] || 'PATCH'
 
             } catch (error) {
-                 
+
                 releaseType = 'PATCH'
             }
 
@@ -85,7 +85,7 @@ const formatMarkers = ({
     events = [],
 }: {
     usersInfo?: UsersInfo
-    events: EventInfo[]
+    events: SavedEvent[]
 }) => {
     const teamMarkers: EventInfo[] = []
     Object.values(usersInfo)

@@ -1,4 +1,4 @@
-import { path, sum } from 'ramda'
+import { sum } from 'ramda'
 import { ObjNumbers, ObjStrings } from '../types/Components'
 import { UserData, UserDataByUserKeys } from '../types/State'
 
@@ -66,7 +66,7 @@ const getMatrix = (
     otherAppended = false,
 ) => {
     const martixRow = (item:UserData):number[] => [
-        ...showNames.map((name):number => path([key, name], item) || 0),
+        ...showNames.map((name):number => item?.[key]?.[name] || 0),
         ...(
             otherAppended
                 ? [otherTotal(showNames, item[key])]

@@ -41,16 +41,16 @@ const SelectUser = ({
 type StatBarsProps = {
     player1: UserData
     player2: UserData
-    setPlayer1Id?: () => void
-    setPlayer2Id?: () => void
+    setPlayer1Id?: (arg:string) => void
+    setPlayer2Id?: (arg:string) => void
     players?: UserData[]
     classes: Record<string, string>
 }
 const StatBars = ({
     player1,
     player2,
-    setPlayer1Id = () => {},
-    setPlayer2Id = () => {},
+    setPlayer1Id = () => ({}),
+    setPlayer2Id = () => ({}),
     players = [],
     classes,
 }: StatBarsProps) => {

@@ -1,7 +1,8 @@
 
 import { connect } from 'react-redux'
-import { EventInfo, PullRequest } from '../types/FormattedData'
+import { PullRequest } from '../types/FormattedData'
 import { ObjNumbers } from '../types/Components'
+import { SavedEvent } from '../types/State'
 
 import CustomGraphs from './sections/CustomGraphs'
 import TeamTrends from './sections/TeamTrends'
@@ -13,7 +14,7 @@ import { formatMarkers } from '../format/releaseData'
 
 type OrgProps = {
     pullRequests: PullRequest[]
-    events: EventInfo[]
+    events: SavedEvent[]
 }
 const Org = ({
     pullRequests = [],
@@ -61,7 +62,7 @@ const Org = ({
 type State = {
     pullRequests: PullRequest[]
     fetches: {
-        events: EventInfo[]
+        events: SavedEvent[]
     }
 }
 const mapStateToProps = (state:State) => ({

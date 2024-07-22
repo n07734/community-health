@@ -15,11 +15,12 @@ import TextInput from './TextInput'
 
 import api from '../../../api/api'
 import { teamIDsQuery } from '../../../api/queries'
+import { ObjStrings } from '../../../types/Components'
 
 type GetTeamMembers = {
     fetchInfo: ApiFetchInfo
     setGitUsers: (arg: UserInfo[]) => void
-    setInputError: (arg: ErrorInputs) => void
+    setInputError: (arg: ObjStrings) => void
 }
 const getTeamMembers = async ({fetchInfo, setGitUsers, setInputError}: GetTeamMembers) => {
     try {
@@ -108,11 +109,7 @@ const GitHubTeam = withStyles(modalStyles)((props:GitHubTeamProps) => {
         setGitUsers,
     } = props
 
-    const defaultError: ErrorInputs = {
-        message: '',
-        level: 'error',
-    }
-    const [inputError, setInputError] = useState(defaultError)
+    const [inputError, setInputError] = useState({})
 
     const defaultInputs = {
         gitTeamUrl: '',
@@ -170,9 +167,9 @@ const GitHubTeam = withStyles(modalStyles)((props:GitHubTeamProps) => {
             type="submit"
         />
         {
-            inputError?.message?.length > 0
+            (inputError as ErrorInputs)?.message?.length > 0
                 && <Message
-                    error={inputError}
+                    error={inputError as ErrorInputs}
                 />
         }
     </form>)
