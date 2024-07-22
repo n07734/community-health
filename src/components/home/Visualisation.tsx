@@ -31,9 +31,9 @@ const Visualisation = (props:VisualisationProps) => {
                     [always(showUserPage) , always(<User />)],
                     [propSatisfies(Boolean, 'teamName'), always(<Team />)],
                     [propSatisfies(x => x.length === 1, 'userIds'), always(<Individual />)],
-                    [({ repo, org }) => !repo && org, always(<Org />)],
+                    [({ repo, org }: { repo: string, org:string }) => (repo === '' && org && org.length > 0) as boolean, always(<Org />)],
                     [alwaysTrue, always(<Repo />)],
-                ])(props)
+                ])(props) as React.ReactNode
             }
         </div>
     )
