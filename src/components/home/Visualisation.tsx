@@ -13,7 +13,6 @@ import PvP from '../PvP'
 import Team from '../Team'
 import Individual from '../Individual'
 import { useSubPage } from '../../state/SubPageProvider'
-import { FetchInfo } from '../../types/State'
 
 type VisualisationProps = {
     userIds: string[]
@@ -41,7 +40,7 @@ const Visualisation = (props:VisualisationProps) => {
 }
 
 type State = {
-    fetches: FetchInfo
+    fetches: VisualisationProps
 }
 const mapStateToProps = (state: State) => ({
     userIds: state.fetches.userIds,
