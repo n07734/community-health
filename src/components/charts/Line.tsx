@@ -4,6 +4,10 @@ import { LegendProps } from '@nivo/legends'
 import { TableTooltip } from '@nivo/tooltip'
 import { useTheme } from '@mui/styles'
 import { Theme } from '@mui/material/styles'
+
+import { LineChart, Line as RLine, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, ResponsiveContainer, Label } from 'recharts';
+
+
 import { Lines, LineInfo, LineForGraph, ColumnKeys, LinePlot, TableData, Graph } from '../../types/Graphs'
 import { EventInfo } from '../../types/FormattedData'
 import { AnyForLib } from '../../types/State'
@@ -340,6 +344,7 @@ const Line = styledCharts(({
         ? '%Y'
         : '%y/%m'
 
+    console.log('lineData',lineData)
     return hasData(lineData) && (
         <div className={classes.lineChartComponentWrap}>
             {
@@ -358,6 +363,108 @@ const Line = styledCharts(({
             </div>
 
             <div className={classes.chartWrap}>
+                <ResponsiveContainer width="100%" height="100%">
+                    <LineChart
+                        width={500}
+                        height={300}
+                        margin={{
+                            top: 5,
+                            right: 30,
+                            left: 20,
+                            bottom: 5,
+                        }}
+                    >
+                    <CartesianGrid vertical={false} />
+                    <XAxis
+                        style={({
+                            fontFamily:'"Nunito", "Roboto", "Helvetica", "Arial", sans-serif',
+                            fontSize: '12px',
+                            fill: '#fff',
+                        })}
+                        tickLine={false}
+                        dataKey="x"
+                        axisLine={false}
+                        type="number"
+                        domain={['dataMin', 'dataMax']}
+                        tickCount={8}
+                        allowDuplicatedCategory={false}
+                        tickFormatter={(value) => {
+                            const date = new Date(value)
+                            return date.toLocaleDateString('en-US', {
+                            month: 'numeric',
+                            year: '2-digit',
+                            })
+                        }}
+                    />
+                    <YAxis
+                        style={({
+                            fontFamily:'"Nunito", "Roboto", "Helvetica", "Arial", sans-serif',
+                            fontSize: '12px',
+                            fill: '#fff',
+                        })}
+                        tickLine={false}
+                        axisLine={false}
+                        // tickCount={8}
+                        domain={[minValue, maxLeftValue]}
+                    />
+                    <Tooltip
+
+                        contentStyle={({
+                            fontFamily:'"Nunito", "Roboto", "Helvetica", "Arial", sans-serif',
+                            fontSize: '12px',
+                            fill: '#fff',
+                            backgroundColor: theme.palette.background.paper,
+                        })}
+                        labelFormatter={() => ''}
+
+                    />
+                    {
+                        formattedMarkers
+                            .map((m,i) => {
+                                // console.log('m',m)
+                                return (
+                                    <ReferenceLine
+                                        key={i}
+                                        x={m.value}
+                                        stroke={m.lineStyle.stroke}
+                                        label={({
+                                            value: m.legend,
+                                            position:'insideTop',
+                                            offset: m.legendOffsetY,
+                                            style: {
+                                                ...m.textStyle,
+                                            },
+                                        })}
+                                    />
+                                )
+                            })
+                    }
+                    {
+                        lineData
+                            .map((s,i) => (
+                                <RLine
+                                    type="monotone"
+                                    dataKey={`y${i}`}
+                                    data={s.data.map(x => ({
+                                        x: new Date(x.x).getTime(),
+                                        y:x.y,
+                                        [`y${i}`]: x.y,
+                                    }))}
+                                    dot={{ fill: s.color, stroke: s.color, strokeWidth: 1 }}
+                                    name={s.id}
+                                    key={s.id}
+                                    stroke={s.color}
+                                    strokeWidth={2} />
+                            ))
+                    }
+
+                    {/* <RLine type="monotone" dataKey="y" stroke="#8884d8" activeDot={{ r: 8 }} /> */}
+                    </LineChart>
+                </ResponsiveContainer>
+            </div>
+            <div className={classes.chartWrap}>
+
+
                 <NivoLine
                     margin={{ top: 14, right: 50, bottom: 50, left: 50 }}
                     data={lineData}

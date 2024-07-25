@@ -307,6 +307,7 @@ const formatGraphMarkers = (markers: EventInfo[], theme: Theme, lineData: LineFo
         .map((item: EventInfo, i: number) => ({
             axis: 'x',
             value: new Date(item.date).getTime(),
+            date: item.date.split('T')[0],
             legend: item.description,
             ...(theme.charts.markers[markerTypeMap[item.releaseType as ReleaseType] as 'primary' | 'secondary' | 'tertiary'] || {}),
             legendOffsetY: offsetSteps[i % offsetSteps.length],

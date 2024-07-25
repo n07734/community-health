@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { connect } from 'react-redux'
 
@@ -11,6 +12,7 @@ import UserList from './sections/UserList'
 import ReportDescription from './sections/ReportDescription'
 import { chunkData } from './charts/lineHelpers'
 import { EventInfo, PullRequest } from '../types/FormattedData'
+import Line2 from './charts/Line2'
 
 type RepoViewProps = {
     pullRequests: PullRequest[]
@@ -29,7 +31,8 @@ const RepoView = ({ pullRequests = [], releases = [] }:RepoViewProps) => {
     const chunkyData = chunkData(updatedPullRequests)
 
     return <>
-        <ReportDescription />
+        <Line2 />
+        {/* <ReportDescription />
         <TeamTrends
             pullRequests={updatedPullRequests}
             chunkyData={chunkyData}
@@ -43,14 +46,14 @@ const RepoView = ({ pullRequests = [], releases = [] }:RepoViewProps) => {
         <Sentiment
             pullRequests={updatedPullRequests}
             chunkyData={chunkyData}
-        />
+        /> */}
         <PullRequestTrends
             pullRequests={updatedPullRequests}
             chunkyData={chunkyData}
         />
-        <IssuesTrends />
+        {/* <IssuesTrends />
         <UserTrends />
-        <UserList />
+        <UserList /> */}
     </>
 }
 
