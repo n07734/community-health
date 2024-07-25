@@ -1,6 +1,7 @@
 
 import { filter } from 'ramda'
-import { ResponsiveBar as NivoBar } from '@nivo/bar'
+import { BarChart, Bar as BarBar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+
 import { useTheme } from '@mui/styles'
 import { Theme } from '@mui/material/styles'
 import { AllowedColors, ObjNumbers } from '../../types/Components'
@@ -10,7 +11,6 @@ import { useShowNumbers } from '../../state/ShowNumbersProvider'
 import ChartHeading from './ChartHeading'
 import styledCharts from './styledCharts'
 import hasChartData from './hasChartData'
-import { AnyForLib } from '../../types/State'
 
 type BarProps = {
     data: BarData[]
@@ -30,10 +30,8 @@ const Bar = styledCharts(({
     data = [],
     bars = [],
     sortBy = '',
-    indexBy = 'user',
     max = 20,
     classes,
-    layout = "vertical",
     title = '',
 }:BarProps) => {
     const theme:Theme = useTheme();
@@ -53,35 +51,70 @@ const Bar = styledCharts(({
 
     const keys = bars.map(x => x.dataKey)
 
+    const chartStyles = {
+        fontFamily:'"Nunito", "Roboto", "Helvetica", "Arial", sans-serif',
+        fontSize: '12px',
+        fill: theme.palette.text.primary,
+    }
+
     return hasChartData<BarData>(data,keys) && (
         <div className={classes.barChartComponentWrap}>
             <ChartHeading text={title} items={bars} />
             <div className={classes.chartWrap}>
-                <NivoBar
-                    data={finalData}
-                    keys={keys}
-                    indexBy={indexBy}
-                    margin={{ top: 5, right: 50, bottom: 60, left: 50 }}
-                    padding={0.3}
-                    groupMode="grouped"
-                    layout={layout}
-                    valueFormat={(value) => layout === 'horizontal'
-                        ? `${Math.abs(value)}`
-                        : `${value}`}
-                    colors={bars.map(x => x.color)}
-                    axisBottom={{
-                        tickSize: 0,
-                        tickRotation: -45,
-                    }}
-                    axisLeft={{
-                        ...(!showNumbers && { renderTick: undefined}),
-                        tickSize: 0,
-                    }}
-                    isInteractive={showNumbers}
-                    enableLabel={false}
-                    animate={false}
-                    theme={theme.charts as AnyForLib}
-                />
+                <ResponsiveContainer width="100%" height="100%">
+                    <BarChart
+                        width={500}
+                        height={300}
+                        data={finalData}
+                        barGap={0}
+                        barCategoryGap="15%"
+                        margin={{
+                            top: 5,
+                            right: 30,
+                            left: 20,
+                            bottom: 5,
+                        }}
+                    >
+                        <CartesianGrid vertical={false} />
+                        <XAxis
+                            dataKey="name"
+                            style={chartStyles}
+                            tickCount={finalData.length}
+                            interval={0}
+                            angle={-45}
+                            height={50}
+                            textAnchor="end"
+                            tickLine={false}
+                            axisLine={false}
+                        />
+                        <YAxis
+                            style={chartStyles}
+                            tickLine={false}
+                            axisLine={false}
+                        />
+                        {
+                            keys
+                                .map((key, i) => <BarBar
+                                    key={key}
+                                    dataKey={key}
+                                    spacing={0}
+                                    fill={bars[i].color}
+                                />)
+                        }
+                        {
+                            showNumbers && <Tooltip
+                                cursor={({ fillOpacity: 0.1 })}
+                                labelStyle={({
+                                    color: theme.palette.text.primary,
+                                })}
+                                contentStyle={({
+                                    ...chartStyles,
+                                    backgroundColor: theme.palette.background.paper,
+                                })}
+                            />
+                        }
+                    </BarChart>
+                </ResponsiveContainer>
             </div>
         </div>
     )

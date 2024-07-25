@@ -1,6 +1,5 @@
 
-import { Radar as NivoRadar } from '@nivo/radar'
-import { TableTooltip, Chip } from '@nivo/tooltip'
+import { Radar as RadarArea, RadarChart, PolarGrid, PolarAngleAxis, Tooltip } from 'recharts';
 import { useTheme } from '@mui/styles'
 import { Theme } from '@mui/material/styles'
 
@@ -8,20 +7,7 @@ import { useShowNumbers } from '../../state/ShowNumbersProvider'
 import ChartHeading from './ChartHeading'
 import styledCharts from './styledCharts'
 import hasChartData from './hasChartData'
-import { AllowedColors, RadarData, RadarDataItem } from '../../types/Components'
-import { AnyForLib } from '../../types/State'
-
-// eslint-disable-next-line react/display-name
-const radarSliceTooltip = (fullData:RadarDataItem[]) => ({ index, data }: AnyForLib) => {
-    const matched = fullData.find(x => x.area === index) as AnyForLib
-    const rows = data.map(({ id, color }:{ id:string, color:AllowedColors}) => [
-        <Chip key={id} color={color} />,
-        id,
-        matched[`${id}Original`],
-    ])
-
-    return <TableTooltip title={<strong>{index}</strong>} rows={rows} />
-}
+import { RadarData, RadarDataItem } from '../../types/Components'
 
 type RadarProps = RadarData & {
     showTitle?: boolean
@@ -47,33 +33,72 @@ const Radar = styledCharts(({
 
     const { showNumbers } = useShowNumbers()
 
+    const chartStyles = {
+        fontFamily:'"Nunito", "Roboto", "Helvetica", "Arial", sans-serif',
+        fontSize: '12px',
+        fill: theme.palette.text.primary,
+    }
+
     return hasChartData<RadarDataItem>(data,keys) && (
         <div>
             {
                 showTitle && <ChartHeading className={classes.centerHeading} items={[{ label: title, color: colorB }]} />
             }
-
-            <NivoRadar
+            <RadarChart
                 width={width}
                 height={height}
-                margin={{ top: 0, bottom: 0, right: 100, left: 100 }}
-                dotSize={8}
-                dotBorderColor={theme.charts.dotColor}
-                dotBorderWidth={2}
-                colors={radarColors}
-                gridShape="linear"
-                enableDotLabel={false}
-                gridLabelOffset={10}
-                gridLevels={3}
-                animate={false}
-                indexBy='area'
-                keys={keys}
+                cx="50%"
+                cy="50%"
+                outerRadius="90%"
                 data={data}
-                maxValue={100}
-                theme={theme.charts as AnyForLib}
-                sliceTooltip={radarSliceTooltip(data)}
-                isInteractive={showNumbers}
-            />
+            >
+                <PolarGrid />
+                <PolarAngleAxis
+                    dataKey="area"
+                    tick={({ payload, x, y, textAnchor, stroke, radius }:{ payload:{ value: string }, x:number, y:number, textAnchor:string, stroke:string, radius:number }) => (
+                        <g
+                            className="recharts-layer recharts-polar-angle-axis-tick"
+                        >
+                            <text
+                            radius={radius}
+                            stroke={stroke}
+                            fill={theme.palette.text.primary}
+                            style={chartStyles}
+                            x={x}
+                            y={y}
+                            className="recharts-text recharts-polar-angle-axis-tick-value"
+                            textAnchor={textAnchor}
+                            >
+                            <tspan x={x} dy="0em">
+                                {payload.value}
+                            </tspan>
+                            </text>
+                        </g>
+                        )}
+                />
+                <RadarArea
+                    dataKey="value"
+                    stroke={radarColors[0]}
+                    strokeWidth={2}
+                    fill={radarColors[0]}
+                    fillOpacity={0.5}
+                    dot={true}
+                />
+                {
+                    showNumbers && <Tooltip
+                        labelStyle={({
+                            color: theme.palette.text.primary,
+                        })}
+                        contentStyle={({
+                            ...chartStyles,
+                            backgroundColor: theme.palette.background.paper,
+                        })}
+                        formatter={
+                            (_value, _name, props) => [props.payload.valueOriginal]
+                        }
+                    />
+                }
+            </RadarChart>
         </div>
     )
 })

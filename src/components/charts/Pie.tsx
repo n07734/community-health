@@ -1,5 +1,6 @@
 
 import { ResponsivePie } from '@nivo/pie'
+
 import { useTheme } from '@mui/styles';
 import { PieData } from '../../types/Components';
 import { Theme } from '@mui/material/styles'
@@ -20,6 +21,7 @@ const Pie = styledCharts(({
     classes,
 }:PieProps) => {
     const theme:Theme = useTheme();
+
     const { showNumbers } = useShowNumbers()
 
     return data.length && (
@@ -27,7 +29,6 @@ const Pie = styledCharts(({
             <div className={classes.headingWrap}>
                 <ChartHeading type='line' text={title} />
             </div>
-
             <div className={classes.pieWrap}>
                 <ResponsivePie
                     data={data}

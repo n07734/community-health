@@ -1,16 +1,10 @@
 import { useState } from 'react'
-import { ResponsiveLine as NivoLine } from '@nivo/line'
-import { LegendProps } from '@nivo/legends'
-import { TableTooltip } from '@nivo/tooltip'
 import { useTheme } from '@mui/styles'
 import { Theme } from '@mui/material/styles'
+import { LineChart, Line as RLine, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, ResponsiveContainer } from 'recharts';
 
-import { LineChart, Line as RLine, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, ResponsiveContainer, Label } from 'recharts';
-
-
-import { Lines, LineInfo, LineForGraph, ColumnKeys, LinePlot, TableData, Graph } from '../../types/Graphs'
+import { Lines, LineInfo, LineForGraph, ColumnKeys, TableData, Graph} from '../../types/Graphs'
 import { EventInfo } from '../../types/FormattedData'
-import { AnyForLib } from '../../types/State'
 
 import { useShowNumbers } from '../../state/ShowNumbersProvider'
 import ChartHeading from './ChartHeading'
@@ -23,83 +17,7 @@ import {
     getMinYValue,
     formatLinesData,
     formatGraphMarkers,
-    smoothNumber,
-    getReportMonthCount,
 } from './lineHelpers'
-
-type Point = {
-    data: {
-        x: string
-        y: number
-        yFormatted: string
-        originalY: string
-    }
-    serieId: string
-    serieColor: string
-}
-
-type ToolTipProps = { slice: { points: Point[] } }
-
-const ToolTip = (data: ToolTipProps) => {
-    // NOTE: this is needed to use the original Y value for the tool tip
-    const getYValue = (point: Point) => {
-        const yCurrentValue = point.data.yFormatted
-        const originalY = point.data.originalY
-
-        return /[\d.]/.test(originalY)
-            ? originalY
-            : yCurrentValue
-    }
-
-    const points = data?.slice?.points || []
-    return (
-        <TableTooltip
-            rows={
-                points
-                    .map((point, i: number) => [
-                        <span
-                            key={i}
-                            style={{
-                                display: 'block',
-                                width: '12px',
-                                height: '12px',
-                                background: point.serieColor,
-                            }}
-                        ></span>,
-                        point.serieId,
-                        <strong key={i}>{getYValue(point)}</strong>,
-                    ])
-            }
-        />
-    )
-}
-
-type DashedLine = {
-    series: AnyForLib[]
-    lineGenerator: (data: { x: number, y: number }[]) => string
-    xScale: AnyForLib
-    yScale: AnyForLib
-}
-const DashedLine = (allLines:LineInfo[] = []) => ({ series, lineGenerator, xScale, yScale }:DashedLine):AnyForLib => series
-    .map((item = {}) => {
-        const { id, data: lineData, color } = item
-        const { lineStyles = { strokeWidth: 2 } } = allLines.find(x => x.label === id) || {}
-
-        return (
-            <path
-                key={id}
-                d={lineGenerator(
-                    lineData.map((d:AnyForLib) => ({
-                        x: xScale(d.data.x),
-                        y: yScale(d.data.y),
-                    })),
-                )}
-                fill="none"
-                stroke={color}
-                style={lineStyles}
-            />
-        )
-    })
 
 const getAllYMax = (data:LineInfo[] = []) => data
     .filter(x => x.yMax)
@@ -160,31 +78,6 @@ const Line = styledCharts(({
     // if no left try right mas as there may be a right line being used
     const maxLeftValue = maxLeftLineValue || maxRightValue
 
-    const minValue = minLeftValue > minRightValue
-        ? minRightValue
-        : minLeftValue
-
-    // As Nivo Line does not have right axis lines need to convert right line data to left line data
-    const convertedRightLines:LineForGraph[] = []
-    rightLinesData
-        .forEach((item) => {
-            const formattedData = item.data
-                .map((dataItem:LinePlot) => ({
-                    y: dataItem.y < 0
-                        ? dataItem.y
-                        : Math.round(dataItem.y * (maxLeftValue / maxRightValue)),
-                    x: dataItem.x,
-                    originalY: dataItem.y,
-                }))
-
-            if (formattedData.length) {
-                convertedRightLines.push({
-                    ...item,
-                    data: formattedData,
-                })
-            }
-        })
-
     const leftLines = leftAxis.lines
 
     const leftHeadingItems = !combineTitles && title || blockHeading
@@ -216,47 +109,6 @@ const Line = styledCharts(({
 
     if ((colorsInfo.length !== hookedColors.length) || hookedColors.length === 1 && hookedColors[0].color !== colorsInfo[0].color) {
         setState(colorsInfo)
-    }
-
-    const fadeColor = 'rgba(120, 119, 120, 0.27)'
-
-    const enter = (data:{ label?: string } = {}) => {
-        const itemsIndex = colorsInfo.findIndex(x => x.label === data.label)
-        setState(hookedColors.map((info, i: number) => ({
-            ...info,
-            current: i === itemsIndex || info.clicked
-                ? info.default
-                : fadeColor,
-        })))
-    }
-
-    const exit = () => {
-        const hasClicked = hookedColors.some(x => x.clicked)
-        setState(hookedColors.map((info) => ({
-            ...info,
-            current: (hasClicked && info.clicked || !hasClicked)
-                ? info.default
-                : fadeColor,
-        })))
-    }
-
-    const click = (data: { label?: string} = {}) => {
-        const itemsIndex = colorsInfo.findIndex(x => x.label === data.label)
-        const updated = hookedColors
-            .map((info, i:number) => {
-                const selectedClicked = i === itemsIndex && !info.clicked
-
-                return ({
-                    ...info,
-                    current: selectedClicked || (i !== itemsIndex && info.clicked)
-                        ? info.default
-                        : fadeColor,
-                    clicked: i === itemsIndex
-                        ? selectedClicked
-                        : info.clicked,
-                })
-            })
-        setState(updated)
     }
 
     const defaultLegendInfo = {
@@ -317,34 +169,25 @@ const Line = styledCharts(({
         )
     }
 
-    const legendsArray = legends.length > 0
-        ? legends
-            .map((item) => ({
-                ...item,
-                onMouseEnter: enter,
-                onMouseLeave: exit,
-                onClick: click,
-            }))
-        : [{
-            ...defaultLegendInfo,
-            onMouseEnter: enter,
-            onMouseLeave: exit,
-            onClick: click,
-        }]
-
-    const lineData = leftLinesData.concat(convertedRightLines)
+    const lineData = leftLinesData.concat(rightLinesData)
 
     const formattedMarkers = formatGraphMarkers(markers, theme, lineData)
 
+    const chartStyles = {
+        fontFamily:'"Nunito", "Roboto", "Helvetica", "Arial", sans-serif',
+        fontSize: '12px',
+        fill: theme.palette.text.primary,
+    }
+
+    const dateLabel = (value:string) => {
+        const date = new Date(value)
+        return date.toLocaleDateString('en-US', {
+            month: 'numeric',
+            year: '2-digit',
+        })
+    }
+
     const hasData = (items:LineForGraph[]) => items.some(item => (item?.data || []).length)
-
-    const monthCount = getReportMonthCount(leftLinesData, rightLinesData)
-
-    const xFormat = monthCount > 90
-        ? '%Y'
-        : '%y/%m'
-
-    console.log('lineData',lineData)
     return hasData(lineData) && (
         <div className={classes.lineChartComponentWrap}>
             {
@@ -363,165 +206,126 @@ const Line = styledCharts(({
             </div>
 
             <div className={classes.chartWrap}>
-                <ResponsiveContainer width="100%" height="100%">
+                <ResponsiveContainer width="100%">
                     <LineChart
-                        width={500}
-                        height={300}
+                        // height={500}
                         margin={{
                             top: 5,
-                            right: 30,
-                            left: 20,
-                            bottom: 5,
+                            right: rightLinesData.length > 0 ? -10 : 50,
+                            left: -10,
+                            bottom: 19,
                         }}
                     >
-                    <CartesianGrid vertical={false} />
-                    <XAxis
-                        style={({
-                            fontFamily:'"Nunito", "Roboto", "Helvetica", "Arial", sans-serif',
-                            fontSize: '12px',
-                            fill: '#fff',
-                        })}
-                        tickLine={false}
-                        dataKey="x"
-                        axisLine={false}
-                        type="number"
-                        domain={['dataMin', 'dataMax']}
-                        tickCount={8}
-                        allowDuplicatedCategory={false}
-                        tickFormatter={(value) => {
-                            const date = new Date(value)
-                            return date.toLocaleDateString('en-US', {
-                            month: 'numeric',
-                            year: '2-digit',
-                            })
-                        }}
-                    />
-                    <YAxis
-                        style={({
-                            fontFamily:'"Nunito", "Roboto", "Helvetica", "Arial", sans-serif',
-                            fontSize: '12px',
-                            fill: '#fff',
-                        })}
-                        tickLine={false}
-                        axisLine={false}
-                        // tickCount={8}
-                        domain={[minValue, maxLeftValue]}
-                    />
-                    <Tooltip
-
-                        contentStyle={({
-                            fontFamily:'"Nunito", "Roboto", "Helvetica", "Arial", sans-serif',
-                            fontSize: '12px',
-                            fill: '#fff',
-                            backgroundColor: theme.palette.background.paper,
-                        })}
-                        labelFormatter={() => ''}
-
-                    />
-                    {
-                        formattedMarkers
-                            .map((m,i) => {
-                                // console.log('m',m)
-                                return (
+                        <CartesianGrid vertical={false} />
+                        <XAxis
+                            dataKey="x"
+                            type="number"
+                            style={chartStyles}
+                            tickLine={false}
+                            axisLine={false}
+                            domain={['dataMin', 'dataMax']}
+                            tickCount={13}
+                            interval={0}
+                            allowDuplicatedCategory={false}
+                            tickFormatter={dateLabel}
+                        />
+                        <YAxis
+                            yAxisId="left"
+                            orientation="left"
+                            style={chartStyles}
+                            tickLine={false}
+                            axisLine={false}
+                            domain={[minLeftValue, maxLeftValue]}
+                        />
+                        {
+                            leftLinesData
+                                .map((line) => (
+                                    <RLine
+                                        yAxisId="left"
+                                        type="monotone"
+                                        dataKey="y"
+                                        data={line.data.map(x => ({
+                                            x: new Date(x.x).getTime(),
+                                            y:x.y,
+                                        }))}
+                                        dot={{
+                                            fill: line.color,
+                                            stroke: line.color,
+                                            strokeWidth: 1,
+                                        }}
+                                        name={line.id}
+                                        key={line.id}
+                                        stroke={line.color}
+                                        strokeWidth={2}
+                                    />
+                                ))
+                        }
+                        {
+                            rightLinesData.length > 0 && <YAxis
+                                yAxisId="right"
+                                orientation="right"
+                                style={chartStyles}
+                                tickLine={false}
+                                axisLine={false}
+                                domain={[minRightValue, maxRightValue]}
+                            />
+                        }
+                        {
+                            rightLinesData
+                                .map((line) => (
+                                    <RLine
+                                        yAxisId="right"
+                                        type="monotone"
+                                        dataKey="y"
+                                        data={line.data.map(x => ({
+                                            x: new Date(x.x).getTime(),
+                                            y:x.y,
+                                        }))}
+                                        dot={{
+                                            fill: line.color,
+                                            stroke: line.color,
+                                            strokeWidth: 1,
+                                        }}
+                                        name={line.id}
+                                        key={line.id}
+                                        stroke={line.color}
+                                        strokeWidth={2}
+                                    />
+                                ))
+                        }
+                        {
+                            showNumbers && <Tooltip
+                                labelStyle={({
+                                    color: theme.palette.text.primary,
+                                })}
+                                contentStyle={({
+                                    ...chartStyles,
+                                    backgroundColor: theme.palette.background.paper,
+                                })}
+                                labelFormatter={dateLabel}
+                            />
+                        }
+                        {
+                            showLegends && formattedMarkers
+                                .map((marker,i) =>  (
                                     <ReferenceLine
+                                        yAxisId="left"
                                         key={i}
-                                        x={m.value}
-                                        stroke={m.lineStyle.stroke}
+                                        x={marker.value}
+                                        stroke={marker.lineStyle.stroke}
                                         label={({
-                                            value: m.legend,
+                                            value: marker.legend,
                                             position:'insideTop',
-                                            offset: m.legendOffsetY,
+                                            offset: marker.legendOffsetY,
                                             style: {
-                                                ...m.textStyle,
+                                                ...marker.textStyle,
                                             },
                                         })}
                                     />
-                                )
-                            })
-                    }
-                    {
-                        lineData
-                            .map((s,i) => (
-                                <RLine
-                                    type="monotone"
-                                    dataKey={`y${i}`}
-                                    data={s.data.map(x => ({
-                                        x: new Date(x.x).getTime(),
-                                        y:x.y,
-                                        [`y${i}`]: x.y,
-                                    }))}
-                                    dot={{ fill: s.color, stroke: s.color, strokeWidth: 1 }}
-                                    name={s.id}
-                                    key={s.id}
-                                    stroke={s.color}
-                                    strokeWidth={2} />
-                            ))
-                    }
-
-                    {/* <RLine type="monotone" dataKey="y" stroke="#8884d8" activeDot={{ r: 8 }} /> */}
+                                ))
+                        }
                     </LineChart>
                 </ResponsiveContainer>
-            </div>
-            <div className={classes.chartWrap}>
-
-
-                <NivoLine
-                    margin={{ top: 14, right: 50, bottom: 50, left: 50 }}
-                    data={lineData}
-                    colors={hookedColors.map(x => x.current)}
-                    lineWidth={2}
-                    curve='monotoneX'
-                    animate={false}
-                    isInteractive={showNumbers}
-                    xScale={{
-                        type: 'time',
-                        format: '%Y-%m-%d',
-                    }}
-                    xFormat="time:%Y-%m-%d"
-                    yScale={{
-                        type: 'linear',
-                        min: minValue,
-                        max: maxLeftValue,
-                    }}
-                    axisBottom={{
-                        format: xFormat,
-                        tickSize: 0,
-                        tickPadding: 10,
-                        tickRotation: -45,
-                    }}
-                    legends={(showLegends ? legendsArray : []) as LegendProps[]}
-                    axisLeft={{
-                        ...(!showNumbers && { renderTick: undefined }),
-                        tickSize: 0,
-                        tickValues: 8,
-                    }}
-                    pointLabelYOffset={0}
-                    {...(
-                        formattedMarkers.length
-                        && { markers: formattedMarkers as AnyForLib }
-                    )}
-                    {...(
-                        convertedRightLines.length
-                        && {
-                            axisRight: {
-                                ...(!showNumbers && { renderTick: undefined }),
-                                tickSize: 0,
-                                tickValues: 8,
-                                format: (rawLeftValue) => {
-                                    const realRightValue = Math.round(rawLeftValue * (maxRightValue / maxLeftValue))
-                                    return rawLeftValue < 0 // to allow minus values, minus values are currently raw not aligned like positive numbers
-                                        ? rawLeftValue
-                                        : smoothNumber(realRightValue)
-                                },
-                            },
-                        }
-                    )}
-                    enableGridX={false}
-                    enableSlices="x"
-                    sliceTooltip={ToolTip as AnyForLib}
-                    theme={theme.charts as AnyForLib}
-                    layers={['grid', 'markers', 'areas', DashedLine(allLines) as AnyForLib, 'slices', 'points', 'axes', 'legends']}
-                />
             </div>
             {
                   tableData.length > 0 && <ItemsTable
