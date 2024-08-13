@@ -1,10 +1,9 @@
 import { sum } from 'ramda'
-import { ObjNumbers, ObjStrings } from '../types/Components'
 import { UserData, UserDataByUserKeys } from '../types/State'
 
 const getNameList = (data: UserData[], key: keyof UserData, preSorted = false) => {
-    const scoredData:ObjNumbers = {}
-    const nameMap:ObjStrings = {}
+    const scoredData:Record<string, number> = {}
+    const nameMap:Record<string, string> = {}
     data
         .forEach((userData) => {
             const author = userData.author
@@ -51,7 +50,7 @@ const getNameList = (data: UserData[], key: keyof UserData, preSorted = false) =
     return [gitIds, gitIds.map(name => nameMap[name] || name)]
 }
 
-const otherTotal = (ignoreNames:string[] = [], data: ObjNumbers) => {
+const otherTotal = (ignoreNames:string[] = [], data:Record<string, number>) => {
     const otherAuthors = Object.entries(data)
         .filter(([name]) => !ignoreNames.some(x => x === name))
 

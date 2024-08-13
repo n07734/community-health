@@ -1,4 +1,3 @@
-import { ObjPrimitive, ObjNumbers } from '../types/Components';
 import { UserData, UserDataNumbersKeys } from '../types/State'
 import { sortByKeys } from '../utils'
 
@@ -47,7 +46,7 @@ const formatRadarData = (userData: UserData[], filterAuthor?:string) => {
         ? sortedUsers.slice(0, p10)
         : sortedUsers
 
-    const totalled:ObjNumbers = {}
+    const totalled:Record<string, number> = {}
     topUsers
         .filter(x => !filterAuthor || x.author !== filterAuthor)
         .forEach((user) => {
@@ -60,7 +59,7 @@ const formatRadarData = (userData: UserData[], filterAuthor?:string) => {
         })
 
     const userCount = topUsers.length
-    const averagedData:ObjPrimitive = { ...defaultValues, user: 'Peers', userCount }
+    const averagedData:Record<string, string | number> = { ...defaultValues, user: 'Peers', userCount }
     Object.entries(totalled)
         .forEach(([key, value]) => {
             averagedData[key] = Math.round(value / userCount)
@@ -69,7 +68,7 @@ const formatRadarData = (userData: UserData[], filterAuthor?:string) => {
     const usersData = userData
         .find(x => x.author === filterAuthor) || { approvalsGivenByTeam: {} }
 
-    const maxValues:ObjNumbers = defaultValues
+    const maxValues:Record<string, number> = defaultValues
     userData
         .forEach((user) => {
             Object.entries(user)

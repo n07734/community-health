@@ -1,21 +1,20 @@
 import { diff, lt } from 'semver'
 import { SavedEvent, UserDate, UserInfo, UsersInfo } from '../types/State'
-import { ObjStrings } from '../types/Components'
 import { EventInfo, ReleaseType } from '../types/FormattedData'
 import { RawEventInfo } from '../types/RawData'
 
-const datePropSort = (aObj: ObjStrings, bObj: ObjStrings) => {
+const datePropSort = (aObj:Record<string, string>, bObj:Record<string, string>) => {
     const a = aObj?.date || ''
     const b = bObj?.date || ''
     return new Date(a).getTime() - new Date(b).getTime()
 }
 
-const getTag = (arg: ObjStrings): string => {
+const getTag = (arg:Record<string, string>): string => {
     const value = arg?.description || ''
     return value as string
 }
 
-const semVerSort = (a: ObjStrings, b: ObjStrings) => {
+const semVerSort = (a:Record<string, string>, b:Record<string, string>) => {
     let sortResult
     try {
         sortResult = lt(getTag(a), getTag(b))
@@ -74,7 +73,7 @@ const formatReleaseData = (results: RawEventInfo[] = []) => {
 
     const dateSortedReleases = formattedReleases
         .filter(finalFilter)
-        .sort((a:ObjStrings, b:ObjStrings) => datePropSort(a,b))
+        .sort((a:Record<string, string>, b:Record<string, string>) => datePropSort(a,b))
 
     return dateSortedReleases
 }
@@ -118,12 +117,12 @@ const formatMarkers = ({
         })
 
     const eventMarkers = events
-        .map(({date, name}: ObjStrings = {}):EventInfo => ({
+        .map(({date, name}:Record<string, string> = {}):EventInfo => ({
             date,
             description: name,
             releaseType: 'MAJOR',
         }))
-    const dateSort = (aObj: ObjStrings, bObj: ObjStrings) => {
+    const dateSort = (aObj:Record<string, string>, bObj:Record<string, string>) => {
         const a = aObj?.date || ''
         const b = bObj?.date || ''
         return new Date(a).getTime() - new Date(b).getTime()

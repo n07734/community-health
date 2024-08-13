@@ -12,32 +12,31 @@ export type PullRequest = {
     cycleTime: number
     age: number
     approvals: number
-    approvers: ObjNumbers
+    approvers: Record<string, number>
 
     comments: number
     commentsAuthor: number
-    commenters: ObjNumbers
+    commenters: Record<string, number>
 
     codeComments: number
     codeCommentsAuthor: number
-    codeCommenters: ObjNumbers
-    teamApprovers?: ObjNumbers
-    teamCommenters?: ObjNumbers
+    codeCommenters: Record<string, number>
+    teamApprovers?: Record<string, number>
+    teamCommenters?: Record<string, number>
 
     generalComments: number
     generalCommentsAuthor: number
-    generalCommenters: ObjNumbers
+    generalCommenters: Record<string, number>
 
     generalCommentSentimentScore: number
-    generalCommentSentiments: ObjNumbers
+    generalCommentSentiments: Record<string, number>
 
     commentSentimentScore: number
     commentSentimentTotalScore: number
-    commentSentiments: ObjNumbers
+    commentSentiments: Record<string, number>
 
     commentAuthorSentimentScore: number
 
-    commentSentimentTotalScore: number
     [key:`repo-${string}`]: number
     [key:`${string}-commentsSentimentScore`]: number
     [key:`${string}-commentAuthorSentimentScore`]: number

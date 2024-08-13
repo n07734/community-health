@@ -9,7 +9,6 @@ import {
 } from 'ramda'
 import { BatchedQueryArgs, CommentsQueryResult, Cursor, MakeQuery, NodeCursor, OldNew, OrgQueryResult, RawDataCommentTypeKey, RawDataTypeKey, RawPageInfo, ReviewsQueryResult, SortDirection, TeamIDsQueryResult, UntilDate, UserQueryArgs } from '../types/Querys'
 import { Cursors, RawDataResult, RawDataType } from '../types/RawData'
-import { ObjStrings } from '../types/Components'
 
 import filterByUntilDate from '../format/filterByUntilDate'
 
@@ -731,7 +730,7 @@ const orgQuery = ({
   orgPagination = {},
 }: {
   org: string
-  orgPagination: ObjStrings
+  orgPagination:Record<string, string>
 }) => ({
   query: `{
     organization(login: "${org}") {

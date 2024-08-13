@@ -1,6 +1,8 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { PullRequest } from './FormattedData'
+import { AllowedColors } from './Components'
+
 type LineDataKey =
     | 'commentSentimentScore'
     | 'commentAuthorSentimentScore'
@@ -23,17 +25,7 @@ type IssuesDataKey =
 type CustomDataKey =
     | 'growth'
 
-type CustomLineDataKey = LineDataKey | CustomDataKey | IssuesDataKey
-
-type UserDataKey =
-    | 'teamOnlyComments'
-    | 'teamOnlyApprovals'
-    | 'commentsGiven'
-    | 'commentsReceived'
-    | 'approvalsGiven'
-    | 'approvalsReceived'
-    | 'totalPRs'
-    | 'uniquePRsApproved'
+export type CustomLineDataKey = LineDataKey | CustomDataKey | IssuesDataKey
 
 export type LineData = GraphIssue & PullRequest
 
@@ -71,16 +63,12 @@ export type LineForGraph = {
     data: LinePlot[]
 }
 
-type LinePlot = {
+export type LinePlot = {
     x: string
     y: number
 }
 
-type LinePlotRight = LinePlot & {
-    originalY: number
-}
-
-type CalculationArgs = { filteredBatch: PullRequest[], dataKey:LineDataKeys }
+type CalculationArgs = { filteredBatch: LineData[], dataKey: LineDataKeys }
 export type GroupMathCalculation = {
     sum: () => number
     average: () => number
@@ -108,13 +96,13 @@ export type Graph = {
     right: GraphLine[],
 }
 
-type GraphOptions = {
+export type GraphOptions = {
     label: string,
     dataKey: CustomLineDataKey,
     groupMaths: GroupMath[],
 }
 
-type GraphFormInfo = {
+export type GraphFormInfo = {
     label: string,
     dataKey: CustomLineDataKey,
     color: AllowedColors,

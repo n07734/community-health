@@ -29,10 +29,6 @@ type RawResultTypes =  {
         totalCount: number
         edges:RawDataItem[]
     }
-    issues: {
-        totalCount: number
-        edges:RawDataItem[]
-    }
     releases: {
         totalCount: number
         edges:RawDataItem[]

@@ -18,7 +18,7 @@ import { isAfter, isBefore } from 'date-fns'
 import { AnyAction, Dispatch } from 'redux'
 import { FetchInfo, ReportType, AllState, AnyForNow } from '../types/State'
 import { AmountOfData } from '../types/Querys'
-import { AnyObject, ObjStrings, Users } from '../types/Components'
+import { AnyObject, Users } from '../types/Components'
 
 import api from '../api/api'
 import getUsersData from '../api/getUsersData'
@@ -313,7 +313,7 @@ const trimmer = (dateFrom = '', dateTo = '') => <T>(dateKey:string = 'mergedAt',
 
     const trimmer = (items:T[] = []) => items
         .forEach((item) => {
-            const itemsDate = new Date(( item as ObjStrings)[dateKey])
+            const itemsDate = new Date(( item as Record<string, string>)[dateKey])
             if (isBefore(itemsDate, new Date(dateFrom))) {
                 newTrimmedLeft.push(item)
             } else if (isAfter(itemsDate, new Date(dateTo))) {
@@ -620,7 +620,7 @@ const getAPIData = () => async (dispatch: Dispatch<AnyAction>, getState: () => A
 
         dispatch({
             type: types.SET_PR_REVIEWED_PAGINATION,
-            payload: pageInfo(fetchInfo.usersReviewsPagination),
+            payload: pageInfo((fetchInfo as FetchInfo).usersReviewsPagination),
         })
 
         dispatch({
@@ -630,7 +630,7 @@ const getAPIData = () => async (dispatch: Dispatch<AnyAction>, getState: () => A
 
         dispatch({
             type: types.SET_RELEASES_PAGINATION,
-            payload: pageInfo(fetchInfo.releasesPagination),
+            payload: pageInfo((fetchInfo as FetchInfo).releasesPagination),
         })
 
         dispatch({ type: types.FETCH_END })

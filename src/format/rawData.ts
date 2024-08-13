@@ -12,7 +12,6 @@ import {
 } from 'date-fns'
 import Sentiment from 'sentiment'
 import { EventInfo, Issue, PullRequest } from '../types/FormattedData'
-import { ObjNumbers } from '../types/Components'
 import { Comment, Review, SortDirection } from '../types/Querys'
 import { FetchInfo } from '../types/State'
 import { DateKeys, RawDataItem, RawDataPRSearchResult, RawDataResult, RawPullRequest } from '../types/RawData'
@@ -20,7 +19,7 @@ import { DateKeys, RawDataItem, RawDataPRSearchResult, RawDataResult, RawPullReq
 import { sumKeysValue } from '../utils'
 
 const formatCommentersObject = (paths: string[]) => (items: Comment[] | Review[]) => {
-    const commenters:ObjNumbers = {}
+    const commenters:Record<string, number> = {}
     items
         .forEach((item) => {
             const user = path(paths, item) as string
@@ -37,7 +36,7 @@ type SentimentItem = {
     score: number
 }
 const formatSentimentsCommenters = (items: SentimentItem[]) => {
-    const commenters:ObjNumbers = {}
+    const commenters:Record<string, number> = {}
     items
         .forEach(({author = '', score = 0}) => {
             commenters[author] = (commenters[author] || 0) + score

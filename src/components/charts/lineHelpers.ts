@@ -3,9 +3,9 @@ import differenceInDays from 'date-fns/differenceInDays'
 import differenceInMonths from 'date-fns/differenceInMonths'
 import min from 'date-fns/min'
 import max from 'date-fns/max'
-import { ObjNumbers, PieData, PieInfo } from '../../types/Components'
+import { PieData, PieInfo } from '../../types/Components'
 import { EventInfo, Issue, PullRequest, ReleaseType } from '../../types/FormattedData'
-import { UsersInfo } from '../../types/State'
+import { KeysOfValue, UsersInfo } from '../../types/State'
 import { LineDataKeys, LineForGraph, LineInfo, GroupMathCalculation, Lines, LinePlot, LineData } from '../../types/Graphs'
 
 import { batchBy } from './batchBy'
@@ -66,16 +66,17 @@ const formatDate = (date: string) => {
 }
 
 const averagePerDev = ({ filteredBatch = [] }: { filteredBatch: PullRequest[] }) => {
-    const activeTeam: ObjNumbers = {}
+    const activeTeam:Record<string, number> = {}
     filteredBatch
         .forEach((pr) => activeTeam[pr.author] = 1)
 
     return Math.round(filteredBatch.length / Object.keys(activeTeam).length)
 }
 
-const trimmedAverage = ({ filteredBatch = [], dataKey }: { filteredBatch: PullRequest[], dataKey: LineDataKeys }) => {
+const trimmedAverage = ({ filteredBatch = [], dataKey = 'comments' }: { filteredBatch: LineData[], dataKey: LineDataKeys }) => {
+    const key = dataKey as KeysOfValue<LineData, number>
     const sortedBatch = filteredBatch
-        .sort(sortByKeys([dataKey]))
+        .sort(sortByKeys([key]))
 
     const batchLength = sortedBatch.length
 
@@ -85,15 +86,15 @@ const trimmedAverage = ({ filteredBatch = [], dataKey }: { filteredBatch: PullRe
         : sortedBatch
 
     const average = trimmedValues
-        .reduce((acc, pr) => acc + (pr[dataKey] as number || 0), 0) / trimmedValues.length
+        .reduce((acc, pr) => acc + ((key && pr[key]) || 0), 0) / trimmedValues.length
 
     return Math.round(average)
 }
 
-const teamDistribution = ({ filteredBatch = [], dataKey }: { filteredBatch: PullRequest[], dataKey: LineDataKeys }) => {
+const teamDistribution = ({ filteredBatch = [], dataKey = 'comments' }: { filteredBatch: LineData[], dataKey: LineDataKeys }) => {
     // Distribution is only of active team members within the data
     const activeTeam = new Set<string>([])
-    const batchedData: ObjNumbers = {}
+    const batchedData:Record<string, number> = {}
 
     filteredBatch
         .forEach((pr) => {
@@ -120,7 +121,7 @@ const teamDistribution = ({ filteredBatch = [], dataKey }: { filteredBatch: Pull
                 .map(user => activeTeam.add(user))
         })
 
-    const zeroedTeam: ObjNumbers = {}
+    const zeroedTeam:Record<string, number> = {}
     activeTeam
         .forEach(x => zeroedTeam[x] = 0)
 
@@ -145,7 +146,7 @@ const teamDistribution = ({ filteredBatch = [], dataKey }: { filteredBatch: Pull
         : distributionPercent
 }
 
-const percentWith = ({ filteredBatch = [], dataKey }: { filteredBatch: PullRequest[], dataKey: LineDataKeys }) => {
+const percentWith = ({ filteredBatch = [], dataKey = 'comments' }: { filteredBatch: LineData[], dataKey: LineDataKeys }) => {
     const batchLength = filteredBatch.length
     const withoutValues = filteredBatch
         .filter(x => !x[dataKey])
@@ -158,10 +159,10 @@ const percentWith = ({ filteredBatch = [], dataKey }: { filteredBatch: PullReque
     return percentageWithValues;
 }
 
-const median = ({ filteredBatch, dataKey }: { filteredBatch: PullRequest[], dataKey: LineDataKeys }) => {
+const median = ({ filteredBatch, dataKey = 'comments' }: { filteredBatch: LineData[], dataKey: LineDataKeys }) => {
     const batchLength = filteredBatch.length
     const sortedBatch = filteredBatch
-        .sort(sortByKeys([dataKey]))
+        .sort(sortByKeys([dataKey as KeysOfValue<LineData, number>]))
     return sortedBatch[Math.floor(batchLength / 2)][dataKey] as number || 0
 }
 
@@ -457,7 +458,7 @@ const splitByAuthor = ({ pullRequests = [], showNames = true, usersInfo = {} }: 
     return [byAuthor]
 }
 type RainbowType = 'repo' | 'org'
-const rainbowData = (type:RainbowType = 'repo', data:ObjNumbers = {}) => {
+const rainbowData = (type:RainbowType = 'repo', data:Record<string, number> = {}) => {
     const sortedData = Object.entries(data)
         .sort(([, a], [, b]) => a - b)
 

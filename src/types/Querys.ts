@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { AnyForLib } from './state'
+import { AnyForLib, FetchInfo } from './State'
 
 export type AmountOfData = number | 'all'
 export type ApiResults = any[]
@@ -18,17 +18,6 @@ export type ApiResult = {
 }
 
 export type SortDirection = 'ASC' | 'DESC'
-
-type QueryInfoToDo = {
-    (fetchInfo: FetchInfo): {
-        query: string
-        resultInfo: (result: ApiResponse) => {
-            hasNextPage: boolean
-            nextPageInfo?: FetchInfo
-        }
-        fillerType: FilterType
-    };
-}
 
 type QueryInfo = any
 
@@ -166,15 +155,15 @@ export type UserQueryArgs = QueryDefault & {
 
 export type BatchedPaginations = {
     issuesPagination: {
-        [key:string]: OldNew
+        [key:string]: OldNew } & {
         hasNextPage?: boolean
     }
     prPagination: {
-        [key:string]: OldNew
+        [key:string]: OldNew } & {
         hasNextPage?: boolean
     }
     releasesPagination: {
-        [key:string]: OldNew
+        [key:string]: OldNew } & {
         hasNextPage?: boolean
     }
 }
@@ -206,11 +195,11 @@ export type NodeCursor = {
     nodeId: string
 }
 
-type FilterType = '' | 'pullRequests' | 'pullRequestReviewComments' | 'batchedQuery' | 'comments' | 'pullRequestReviewComments'
+export type FilterType = '' | 'pullRequests' | 'pullRequestReviewComments' | 'batchedQuery' | 'comments' | 'pullRequestReviewComments'
 
 export type MakeQuery = (queryInfo: any) => { query: any, resultInfo: any, fillerType: FilterType }
 
-type GetUsersData = {
+export type GetUsersData = {
     fetchInfo: ApiFetchInfo
     untilDate: UntilDate
     dispatch: AnyForLib

@@ -12,13 +12,13 @@ import formatRadarData from '../../format/radarData'
 import { sortByKeys } from '../../utils'
 import { useSubPage } from '../../state/SubPageProvider'
 import { UsersInfo, UserData, FetchInfo, UserDataNumbersKeys } from '../../types/State'
-import { ObjNumbers, RadarData } from '../../types/Components'
+import { RadarData } from '../../types/Components'
 
 
 const radialChartsContributions = ({
     maxValues = {},
     users = [],
-}: { maxValues: ObjNumbers, users:UserData[]}, isTeamPage: boolean): RadarData[] => {
+}: { maxValues:Record<string, number>, users:UserData[]}, isTeamPage: boolean): RadarData[] => {
     const keys:UserDataNumbersKeys[] = [
         'commentsGiven',
         'commentsReceived',

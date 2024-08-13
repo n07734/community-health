@@ -1,6 +1,5 @@
 import { sortByKeys } from '../utils'
 import { UserData, UserDataNumbersKeys } from '../types/State'
-import { ObjNumbers } from '../types/Components'
 
 const usersAverageData = (userData:UserData[], filterAuthor:string):[UserData,UserData,number] => {
     const defaultValues = {
@@ -50,7 +49,7 @@ const usersAverageData = (userData:UserData[], filterAuthor:string):[UserData,Us
         ? sortedUsers.slice(0, p10)
         : sortedUsers
 
-    const totalled:ObjNumbers = {}
+    const totalled:Record<string, number> = {}
     topUsers
         .filter(x => x.author !== filterAuthor)
         .forEach((user) => {
@@ -64,7 +63,7 @@ const usersAverageData = (userData:UserData[], filterAuthor:string):[UserData,Us
 
     const userCount = topUsers.length
 
-    const averagedData:ObjNumbers = {
+    const averagedData:Record<string, number> = {
         ...defaultValues,
     }
 

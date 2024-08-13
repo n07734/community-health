@@ -1,7 +1,6 @@
 
 import { connect } from 'react-redux'
 import { PullRequest } from '../types/FormattedData'
-import { ObjNumbers } from '../types/Components'
 import { SavedEvent } from '../types/State'
 
 import CustomGraphs from './sections/CustomGraphs'
@@ -21,7 +20,7 @@ const Org = ({
     events = [],
 }: OrgProps) => {
 
-    const allRepos: ObjNumbers = {}
+    const allRepos:Record<string, number> = {}
     const updatedPullRequests:PullRequest[] = pullRequests
         .map((prData:PullRequest = {} as PullRequest, i) => {
             allRepos[prData.repo] = (allRepos[prData.repo] || 0) + 1

@@ -15,12 +15,11 @@ import TextInput from './TextInput'
 
 import api from '../../../api/api'
 import { teamIDsQuery } from '../../../api/queries'
-import { ObjStrings } from '../../../types/Components'
 
 type GetTeamMembers = {
     fetchInfo: ApiFetchInfo
     setGitUsers: (arg: UserInfo[]) => void
-    setInputError: (arg: ObjStrings) => void
+    setInputError: (arg:Record<string, string>) => void
 }
 const getTeamMembers = async ({fetchInfo, setGitUsers, setInputError}: GetTeamMembers) => {
     try {

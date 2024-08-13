@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ObjNumbers, ObjStrings } from './Components'
 import { EventInfo, PullRequest, Issue } from './FormattedData'
 import { AmountOfData, SortDirection } from './Querys'
 
@@ -8,17 +7,12 @@ export type AnyForLib = any
 
 export type ReportType = 'user' | 'team' | 'repo' | 'org'
 
-type UserDate = {
-    startDate: string
-    endDate: string
-}
-
-type UserDate = {
+export type UserDate = {
     startDate?: string
     endDate?: string
 
 }
-type UserInfo = {
+export type UserInfo = {
     userId: string
     name?: string
     dates?: UserDate[]
@@ -28,17 +22,16 @@ export type UsersInfo = {
     [key: string]: UserInfo
 }
 
-type RepoInfo = {
+export type RepoInfo = {
     name?: string
     fileName: string
 }
 
 export type UserData = {
     author: string
-    user: string
     name: string
-    approvalsByUser: ObjNumbers
-    commentsByUser: ObjNumbers
+    approvalsByUser:Record<string, number>
+    commentsByUser:Record<string, number>
     user: string
     approvalsGiven: number
     uniquePRsApproved: number
@@ -71,7 +64,7 @@ export type KeysOfValue<T, TCondition> = {
   }[keyof T];
 
 export type UserDataNumbersKeys = KeysOfValue<UserData, number>
-export type UserDataByUserKeys = KeysOfValue<UserData, ObjNumbers>
+export type UserDataByUserKeys = KeysOfValue<UserData, Record<string, number>>
 
 export type SavedEvent = {
     name: string
@@ -89,13 +82,13 @@ export type FetchInfo = {
     sortDirection: SortDirection
     amountOfData?: AmountOfData
     enterpriseAPI?: string
-    prPagination?: ObjStrings
-    usersReviewsPagination?: ObjStrings
-    releasesPagination?: ObjStrings
-    issuesPagination?: ObjStrings
+    prPagination?:Record<string, string>
+    usersReviewsPagination?:Record<string, string>
+    releasesPagination?:Record<string, string>
+    issuesPagination?:Record<string, string>
 }
 
-type FetchStatus = {
+export type FetchStatus = {
     user?: string
     prCount?: number
     latestItemDate?: string

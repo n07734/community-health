@@ -1,9 +1,9 @@
-import '@mui/material'
+import { PaletteMode } from '@mui/material'
+import { AllowedColors } from './Components'
 
 type Rem = `${number}rem`
 type FontFamily = '"Nunito", "Roboto", "Helvetica", "Arial", sans-serif'
 
-type ThemeColor = '#232023' | '#eee'
 type ThemeColorToDo = string
 type DefaultCopy = { // How to use Rem here?
     color: ThemeColorToDo
@@ -187,7 +187,7 @@ declare module "@mui/material/styles" {
                         strokeDasharray: string
                     }
                     textStyle: {
-                        fontFamily: stFontFamilyring
+                        fontFamily: FontFamily
                         fontSize: MarkersFontSize
                         fill: string
                     }
@@ -320,7 +320,7 @@ declare module "@mui/material/styles" {
                         strokeDasharray: string
                     }
                     textStyle: {
-                        fontFamily: stFontFamilyring
+                        fontFamily: FontFamily
                         fontSize: MarkersFontSize
                         fill: string
                     }

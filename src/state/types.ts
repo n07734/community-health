@@ -1,6 +1,4 @@
-import { ObjStrings } from "../types/Components"
-
-const types: ObjStrings = {
+const types:Record<string, string> = {
     SET_TEAM_NAME: 'SET_TEAM_NAME',
     CLEAR_TEAM_NAME: 'CLEAR_TEAM_NAME',
     STORE_ORG: 'STORE_ORG',

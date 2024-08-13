@@ -7,10 +7,9 @@ import {
     sort,
     T as alwaysTrue,
 } from 'ramda'
-import { ObjStrings } from '../../../types/Components'
 import { UsersInfo, UserInfo } from '../../../types/State'
 
-const inputLabels: ObjStrings = {
+const inputLabels:Record<string, string> = {
     org: 'Organization',
     repo: 'Repository',
     team: 'Team name (from GitHub Org team url)',
@@ -27,12 +26,12 @@ const inputLabels: ObjStrings = {
     name: 'Name',
 }
 type DateRange = {
-    startDate: string
-    endDate: string
+    startDate?: string
+    endDate?: string
 }
 const userHasCorrectDates = ({ dates = []}: UserInfo) => {
     const hasValidDates = dates
-        .every(({ startDate = '', endDate = '' }:DateRange) => {
+        .every(({ startDate = '', endDate = '' }: DateRange) => {
             const validStart = !startDate || isValid(new Date(startDate))
             const validEnd = !endDate || isValid(new Date(endDate))
 

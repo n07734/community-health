@@ -11,7 +11,6 @@ import { chunkData } from './charts/lineHelpers'
 import { formatMarkers } from '../format/releaseData'
 import { PullRequest } from '../types/FormattedData'
 import { FetchInfo, SavedEvent, UsersInfo } from '../types/State'
-import { ObjNumbers } from '../types/Components'
 
 type TeamProps = {
     pullRequests: PullRequest[]
@@ -25,8 +24,8 @@ const Team = ({
     events = [],
     usersInfo = {},
 }:TeamProps) => {
-    const teamOnlyData = (data:ObjNumbers) => {
-        const teamData:ObjNumbers = {}
+    const teamOnlyData = (data:Record<string, number>) => {
+        const teamData:Record<string, number> = {}
         userIds
             .forEach(userId => {
                 const usersData = data?.[userId]
@@ -40,7 +39,7 @@ const Team = ({
         return teamData
     }
 
-    const allRepos:ObjNumbers = {}
+    const allRepos:Record<string, number> = {}
     const updatedPullRequests:PullRequest[] = pullRequests
         .map((prData, i) => {
             allRepos[prData.repo] = (allRepos[prData.repo] || 0) + 1

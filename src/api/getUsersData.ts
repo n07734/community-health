@@ -1,20 +1,15 @@
 import { mergeDeepRight, prop } from 'ramda'
-import { GetUsersData, UsersPaginations, UsersQueryArgs } from '../types/Querys'
+import { ApiInfo, GetUsersData, UsersPaginations, UsersQueryArgs } from '../types/Querys'
 import { RawDataResult } from '../types/RawData'
 
 import { userQuery } from './queries'
 import api from './api'
 import batch from './batch'
 
-type BatchData = {
-    fetchInfo: UsersQueryArgs
-    queryInfo: string
-    dispatch: () => void
-}
 const getUsersData = async({ fetchInfo, untilDate, dispatch }: GetUsersData) => {
     try {
         const userIds = fetchInfo.userIds
-        const data:BatchData[] = userIds
+        const data:ApiInfo[] = userIds
             .map((user: string)  => ({
                 fetchInfo: {
                     ...fetchInfo,
@@ -25,7 +20,7 @@ const getUsersData = async({ fetchInfo, untilDate, dispatch }: GetUsersData) => 
                 queryInfo: userQuery(untilDate),
                 dispatch,
             }))
-        const allUsersData = await batch<BatchData>(data, api, 1) as {
+        const allUsersData = await batch(data, api, 1) as {
             fetchInfo: UsersQueryArgs
             results: RawDataResult[]
         }[]

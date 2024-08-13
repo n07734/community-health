@@ -10,7 +10,7 @@ import {
 } from '@mui/material'
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import { CustomLineDataKey, Graph, GraphFormInfo, GraphLine, GraphOptions, GroupMath } from '../../types/Graphs';
-import { AllowedColors, ObjStrings } from '../../types/Components';
+import { AllowedColors } from '../../types/Components';
 
 import { P } from '../shared/StyledTags'
 import Button from '../shared/Button'
@@ -127,7 +127,7 @@ const mathWords = {
 }
 
 // eslint-disable-next-line react/display-name
-const addedLine = (removeLine:(a:CustomLineDataKey, b:GroupMath) => void, classes: ObjStrings) => ({
+const addedLine = (removeLine:(a:CustomLineDataKey, b:GroupMath) => void, classes:Record<string, string>) => ({
     color,
     label = '',
     dataKey,
@@ -212,7 +212,7 @@ type GraphUiProps = {
     graphInfo: Graph,
     setGraph: (graphs: Graph[]) => void,
     graphs: Graph[],
-    classes: ObjStrings,
+    classes:Record<string, string>,
 }
 const GraphUi = ({
     graphInfo,

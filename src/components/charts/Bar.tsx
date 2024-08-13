@@ -3,7 +3,7 @@ import { filter } from 'ramda'
 import { ResponsiveBar as NivoBar } from '@nivo/bar'
 import { useTheme } from '@mui/styles'
 import { Theme } from '@mui/material/styles'
-import { AllowedColors, ObjNumbers } from '../../types/Components'
+import { AllowedColors } from '../../types/Components'
 import { BarData } from '../../types/Graphs'
 
 import { useShowNumbers } from '../../state/ShowNumbersProvider'
@@ -40,7 +40,7 @@ const Bar = styledCharts(({
     const { showNumbers } = useShowNumbers()
     const trimmedData = filter(item => bars.some(x => item[x.dataKey]), data)
 
-    const byPropDesc = (prop: string) => (a:ObjNumbers, b:ObjNumbers) =>
+    const byPropDesc = (prop: string) => (a:Record<string, number>, b:Record<string, number>) =>
         +((a[prop] || 0) < (b[prop] || 0)) || +((a[prop] || 0) === (b[prop] || 0)) - 1
 
     const sortedData = sortBy

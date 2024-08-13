@@ -16,7 +16,6 @@ import formatUserData from '../format/userData'
 import { useShowNames } from '../state/ShowNamesProvider'
 import { PullRequest } from '../types/FormattedData'
 import { FetchInfo, UserDataNumbersKeys, UsersInfo } from '../types/State'
-import { ObjNumbers } from '../types/Components'
 
 type IndividualProps = {
     pullRequests: PullRequest[]
@@ -40,10 +39,10 @@ const Individual = ({
     const colorB = theme.palette.primary.main
 
     type BarData = {
-        [key: string]: ObjNumbers
+        [key: string]:Record<string, number>
     }
-    const allRepos:ObjNumbers = {}
-    const allOrgs:ObjNumbers = {}
+    const allRepos:Record<string, number> = {}
+    const allOrgs:Record<string, number> = {}
     const barMap:BarData = {}
     const updatedPullRequests:PullRequest[] = pullRequests
         .map((prData) => {

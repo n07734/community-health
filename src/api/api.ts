@@ -12,7 +12,6 @@ import {
 } from 'ramda'
 import { compose } from 'redux'
 import { AmountOfData, ApiInfo, ApiResponse, ApiResult, ApiResults, ApiFetchInfo } from '../types/Querys'
-import { ObjStrings } from '../types/Components'
 
 import types from '../state/types'
 
@@ -89,7 +88,7 @@ const getCurrentCount = (type: RawDataType, results: RawDataResult[]):number => 
 }
 
 const getLatestDate = (data:FetchInfo) => (type:RawDataType, results: RawDataResult[] = []):string => {
-    const paginationKeyMap:ObjStrings = {
+    const paginationKeyMap:Record<string, string> = {
         pullRequests: 'prPagination',
         issues: 'issuesPagination',
         releases: 'releasesPagination',
