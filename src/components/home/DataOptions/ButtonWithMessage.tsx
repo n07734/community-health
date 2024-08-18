@@ -22,6 +22,7 @@ type ButtonWithMessageProps = {
     }
     pullRequests: PullRequest[]
     classes: Record<string, string>
+    qaId?: string
 }
 const ButtonWithMessage = (props:ButtonWithMessageProps) => {
     const {
@@ -29,8 +30,8 @@ const ButtonWithMessage = (props:ButtonWithMessageProps) => {
         error,
         pullRequests = [],
         classes,
+        qaId,
     } = props
-
     return (<div className={classes.inputGrid}>
         <Button
             className={`${classes.child} ${classes.fullRow}`}
@@ -38,6 +39,7 @@ const ButtonWithMessage = (props:ButtonWithMessageProps) => {
             disabled={fetching}
             color="primary"
             value={buttonText(fetching, pullRequests)}
+            qaId={qaId}
         />
         {
             error

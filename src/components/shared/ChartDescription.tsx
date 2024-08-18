@@ -10,15 +10,18 @@ type ExpandLinkProps = {
     setCount: (toggle: boolean) => void
     toggle: boolean
     expandText: string
+    qaId?: string
 }
 const ExpandLink = ({
     classes,
     setCount,
     toggle,
     expandText,
+    qaId,
 }: ExpandLinkProps) =>  <a
     className={classes.link}
     href="#desc"
+    {...(qaId && { 'data-qa-id': qaId })}
     onClick={(e) => {
         e.preventDefault()
         setCount(!toggle)
@@ -37,6 +40,7 @@ type ChartDescriptionProps = {
     expandText?: string
     className?: string
     classes: Record<string, string>
+    expandQaId?: string
 }
 const ChartDescription = ({
     title,
@@ -45,6 +49,7 @@ const ChartDescription = ({
     expandText = 'info',
     className = '',
     classes,
+    expandQaId,
 }: ChartDescriptionProps) => {
     const [toggle, setCount] = useState(false)
 
@@ -61,6 +66,7 @@ const ChartDescription = ({
                                     toggle={toggle}
                                     setCount={setCount}
                                     expandText={expandText}
+                                    qaId={expandQaId}
                                 />
                         }
                     </H>
@@ -75,6 +81,7 @@ const ChartDescription = ({
                             toggle={toggle}
                             setCount={setCount}
                             expandText={expandText}
+                            qaId={expandQaId}
                         />
                 }
             </P>

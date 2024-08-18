@@ -15,6 +15,7 @@ type ButtonProps = {
     type?: 'button' | 'submit' | 'reset'
     color?: 'primary' | 'secondary'
     disabled?: boolean
+    qaId?: string
 }
 const Button = ({
     className,
@@ -26,6 +27,7 @@ const Button = ({
     type = 'submit',
     color = 'primary',
     disabled = false,
+    qaId = '',
 }: ButtonProps) => (
     <CoreButton
         className={[classes.root, (className || '')].join(' ')}
@@ -37,6 +39,7 @@ const Button = ({
         key={key}
         onClick={onClick}
         disabled={disabled}
+        {...(qaId && { 'data-qa-id': qaId })}
     >
         {text || value}
     </CoreButton>

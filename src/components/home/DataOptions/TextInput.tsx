@@ -41,6 +41,7 @@ const TextInput = (props:TextInputProps) => {
         value={formValue(formInfo, type)}
         variant={'outlined'}
         margin={'normal'}
+        inputProps={{ 'data-qa-id': `input-${type}` }}
         helperText={inputError[type] && 'Invalid input'}
         onBlur={(event:React.FocusEvent<HTMLInputElement>) => {
             const value = pathOr('', ['target', 'value'], event)

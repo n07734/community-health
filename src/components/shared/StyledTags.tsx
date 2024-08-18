@@ -10,6 +10,7 @@ type TagArgs = {
     children?: React.ReactNode;
     classes: Record<string, string>;
     style?: CSSProperties;
+    qaId?: string;
 }
 
 type TagStyles = {
@@ -71,6 +72,7 @@ const H = withStyles(styles)(({
     styleAs,
     className = '',
     classes = {},
+    qaId = '',
     ...props
 }: TagArgs) => {
     const hClassName = `h${styleAs || level}`
@@ -79,6 +81,7 @@ const H = withStyles(styles)(({
     return (
         <Tag
             className={`${classes[hClassName]} ${className}`}
+            {...(qaId && { 'data-qa-id': qaId })}
             {...props}
 
         />

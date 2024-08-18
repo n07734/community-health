@@ -75,6 +75,7 @@ const PrefetchedOptions = (props: PrefetchedOptionsProps) => {
     const preFetchButton = (repoInfo:RepoInfo, i: number = 1) => <Button
         value={repoInfo?.name || 'Report'}
         key={`${i}`}
+        qaId={`prefetch-${repoInfo.name}`}
         color={preFetchedName === repoInfo.fileName ? 'primary' : 'secondary'}
         onClick={(e) => {
             e.preventDefault()

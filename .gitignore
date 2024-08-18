@@ -6,3 +6,4 @@ dist
 .eslintcache
 coverage
 package-lock.json
+test-results

@@ -162,6 +162,7 @@ const PrefetchedForm = (props: PrefetchedFormProps) => {
             title=""
             expandText="here"
             intro="Top up this report's data"
+            expandQaId="expand-prefetch-form"
         >
             <div className={classes.formDescription} >
                 <form
@@ -212,7 +213,7 @@ const PrefetchedForm = (props: PrefetchedFormProps) => {
                         </Select>
                         <SelectAmountData setValue={setValue} amountOfData={formInfo.amountOfData} />
                     </div>
-                    <ButtonWithMessage />
+                    <ButtonWithMessage qaId="prefetch-top-up" />
                 </form>
                 <Download />
             </div>

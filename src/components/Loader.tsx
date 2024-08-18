@@ -136,7 +136,7 @@ const Loader = ({
     const loadedUserPercent = (usersPosition * oneUserPercent)
 
     return (
-        fetching && <div>
+        fetching && <div data-qa-id="loader">
             <div className={ classes.overlay }></div>
             <div className={ classes.modal }>
                 {

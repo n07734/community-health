@@ -75,7 +75,7 @@ const ReportDescription = ({
     const hasReportData = pullRequests.length > 0 || issues.length > 0
 
     return hasReportData && (<Paper className={classes.root}>
-            <H className={classes.heading} level={2}>
+            <H qaId="report-title" className={classes.heading} level={2}>
                 <Title {...fetches} colorA={colorA} colorB={colorB}/>
             </H>
             {
