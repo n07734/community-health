@@ -44,27 +44,35 @@ test.describe('Initial page load', () => {
 test.describe('Screenshots for each report type', () => {
     test('Org report screenshot matches baseline', async ({ page }) => {
         await page.goto('/?report=vitejs')
+        await page.waitForSelector(select.loader, { state: 'detached' })
         await page.waitForSelector(select.reportTitle)
-        const screenshot = await page.screenshot({ fullPage: true })
 
-        expect(screenshot).toMatchSnapshot('org-report-page.png')
+        await expect(page).toHaveScreenshot('org-report-page.png',{
+            fullPage: true,
+            timeout: 9000,
+        })
     })
 
     test('Repo screenshot matches baseline', async ({ page }) => {
         await page.goto('/?report=vitest-dev-vitest')
+        await page.waitForSelector(select.loader, { state: 'detached' })
         await page.waitForSelector(select.reportTitle)
-        await page.waitForSelector('svg')
-        const screenshot = await page.screenshot({ fullPage: true })
 
-        expect(screenshot).toMatchSnapshot('repo-report-page.png')
+        await expect(page).toHaveScreenshot('repo-report-page.png',{
+            fullPage: true,
+            timeout: 9000,
+        })
     })
 
     test('Team screenshot matches baseline', async ({ page }) => {
         await page.goto('/?report=ReactCore')
+        await page.waitForSelector(select.loader, { state: 'detached' })
         await page.waitForSelector(select.reportTitle)
-        const screenshot = await page.screenshot({ fullPage: true })
 
-        expect(screenshot).toMatchSnapshot('team-report-page.png')
+        await expect(page).toHaveScreenshot('team-report-page.png',{
+            fullPage: true,
+            timeout: 9000,
+        })
     })
 })
 
