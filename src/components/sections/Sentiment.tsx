@@ -52,7 +52,7 @@ const Sentiment = ({
                 },
             ])
         })
-            .flat()
+        .flat()
 
     return pullRequests.length > 0 && (<>
         <Paper>

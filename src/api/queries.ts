@@ -2,10 +2,10 @@
 import { pathOr } from 'ramda'
 import { isDate } from 'date-fns'
 import {
-  always,
-  T as alwaysTrue,
-  F as alwaysFalse,
-  cond,
+    always,
+    T as alwaysTrue,
+    F as alwaysFalse,
+    cond,
 } from 'ramda'
 import { BatchedQueryArgs, CommentsQueryResult, Cursor, MakeQuery, NodeCursor, OldNew, OrgQueryResult, RawDataCommentTypeKey, RawDataTypeKey, RawPageInfo, ReviewsQueryResult, SortDirection, TeamIDsQueryResult, UntilDate, UserQueryArgs } from '../types/Querys'
 import { Cursors, RawDataResult, RawDataType } from '../types/RawData'
@@ -13,33 +13,33 @@ import { Cursors, RawDataResult, RawDataType } from '../types/RawData'
 import filterByUntilDate from '../format/filterByUntilDate'
 
 const cursorQ = (cursor: Cursor) => cursor
-  ? ` after:"${cursor}" `
-  : ''
-
-const cursorWithDirection = (order: SortDirection, { oldest, newest }: OldNew) => {
-  const cursor = order === 'DESC' ? oldest : newest
-  const orderCursor = order === 'DESC' ? 'after' : 'before'
-  const cursorString = cursor
-    ? ` ${orderCursor}:"${cursor}" `
+    ? ` after:"${cursor}" `
     : ''
 
-  const pageCount = cursorString
-    ? 100
-    : 10
+const cursorWithDirection = (order: SortDirection, { oldest, newest }: OldNew) => {
+    const cursor = order === 'DESC' ? oldest : newest
+    const orderCursor = order === 'DESC' ? 'after' : 'before'
+    const cursorString = cursor
+        ? ` ${orderCursor}:"${cursor}" `
+        : ''
 
-  const amountString = order === 'DESC'
-    ? `last: ${pageCount}`
-    : `first: ${pageCount}`
+    const pageCount = cursorString
+        ? 100
+        : 10
 
-  return `
+    const amountString = order === 'DESC'
+        ? `last: ${pageCount}`
+        : `first: ${pageCount}`
+
+    return `
     ${amountString}
     ${cursorString}
   `
 }
 
 const getCursor = (order: SortDirection) => ({ oldest, newest }:OldNew) => {
-  const cursor = order === 'DESC' ? oldest : newest
-  return cursorQ(cursor)
+    const cursor = order === 'DESC' ? oldest : newest
+    return cursorQ(cursor)
 }
 
 const pageInfo = 'pageInfo { endCursor hasNextPage hasPreviousPage startCursor }'
@@ -167,181 +167,181 @@ const reviews = (cursor: Cursor) => `
 `
 
 const getPaginationByType = (
-  oldFetchInfo = {},
-  untilDate = '',
-  data = {},
-  order: SortDirection,
+    oldFetchInfo = {},
+    untilDate = '',
+    data = {},
+    order: SortDirection,
 ) => (type: RawDataTypeKey) => {
-  const {
-    hasNextPage = false,
-    startCursor,
-    endCursor,
-  } = pathOr({}, ['data', 'result', type, 'pageInfo'], data) as Cursors
+    const {
+        hasNextPage = false,
+        startCursor,
+        endCursor,
+    } = pathOr({}, ['data', 'result', type, 'pageInfo'], data) as Cursors
 
-  const items = pathOr([], ['data', 'result', type, 'edges'], data)
+    const items = pathOr([], ['data', 'result', type, 'edges'], data)
 
-  const dateKey = type === 'pullRequests'
-    ? 'mergedAt'
-    : 'createdAt'
+    const dateKey = type === 'pullRequests'
+        ? 'mergedAt'
+        : 'createdAt'
 
-  const filteredItems = isDate(untilDate)
-    ? items.filter(filterByUntilDate(['node', dateKey], order, untilDate))
-    : []
+    const filteredItems = isDate(untilDate)
+        ? items.filter(filterByUntilDate(['node', dateKey], order, untilDate))
+        : []
 
-  const typeStateMap = {
-    pullRequests: 'prPagination',
-    issues: 'issuesPagination',
-    releases: 'releasesPagination',
-  }
+    const typeStateMap = {
+        pullRequests: 'prPagination',
+        issues: 'issuesPagination',
+        releases: 'releasesPagination',
+    }
 
-  const oldestDefault = order === 'DESC' ? endCursor : startCursor
-  const oldestCurrent = pathOr(oldestDefault, [typeStateMap[type], 'oldest'], oldFetchInfo)
+    const oldestDefault = order === 'DESC' ? endCursor : startCursor
+    const oldestCurrent = pathOr(oldestDefault, [typeStateMap[type], 'oldest'], oldFetchInfo)
 
-  const newestDefault = order === 'ASC' ? endCursor : startCursor
-  const newestCurrent = pathOr(newestDefault, [typeStateMap[type], 'newest'], oldFetchInfo)
+    const newestDefault = order === 'ASC' ? endCursor : startCursor
+    const newestCurrent = pathOr(newestDefault, [typeStateMap[type], 'newest'], oldFetchInfo)
 
-  // TODO: Don't clear if undefined cursor
-  // TODO: add hasPrevPage
-  const dateFilteredLength = filteredItems.length
-  const tryNextPage = cond([
-    [always(hasNextPage === false), alwaysFalse],
-    [always(!isDate(untilDate)), always(hasNextPage)],
-    [always(dateFilteredLength === 0), alwaysFalse],
-    [always(dateFilteredLength > 0 && items.length > dateFilteredLength), alwaysFalse],
-    [alwaysTrue, always(hasNextPage)],
-  ])()
+    // TODO: Don't clear if undefined cursor
+    // TODO: add hasPrevPage
+    const dateFilteredLength = filteredItems.length
+    const tryNextPage = cond([
+        [always(hasNextPage === false), alwaysFalse],
+        [always(!isDate(untilDate)), always(hasNextPage)],
+        [always(dateFilteredLength === 0), alwaysFalse],
+        [always(dateFilteredLength > 0 && items.length > dateFilteredLength), alwaysFalse],
+        [alwaysTrue, always(hasNextPage)],
+    ])()
 
-  return {
-    newest: order === 'ASC' && endCursor ? endCursor : newestCurrent,
-    oldest: order === 'DESC' && endCursor ? endCursor : oldestCurrent,
-    hasNextPage,
-    hasNextPageForDate: tryNextPage,
-  }
+    return {
+        newest: order === 'ASC' && endCursor ? endCursor : newestCurrent,
+        oldest: order === 'DESC' && endCursor ? endCursor : oldestCurrent,
+        hasNextPage,
+        hasNextPageForDate: tryNextPage,
+    }
 }
 
 const getPaginationByDirectionType = (oldFetchInfo = {}, untilDate = '', data = {}, order: SortDirection) => (type: RawDataCommentTypeKey) => {
-  const resultPath = type === 'usersReviews'
-    ? ['data', 'result']
-    : ['data', 'result', type]
+    const resultPath = type === 'usersReviews'
+        ? ['data', 'result']
+        : ['data', 'result', type]
 
-  const {
-    hasNextPage = false,
-    hasPreviousPage = false,
-    startCursor,
-    endCursor,
-  } = pathOr({}, [...resultPath, 'pageInfo'], data) as RawPageInfo
-  const items = pathOr([], [...resultPath, 'edges'], data)
+    const {
+        hasNextPage = false,
+        hasPreviousPage = false,
+        startCursor,
+        endCursor,
+    } = pathOr({}, [...resultPath, 'pageInfo'], data) as RawPageInfo
+    const items = pathOr([], [...resultPath, 'edges'], data)
 
-  const dateKey = ['pullRequests', 'usersReviews'].includes(type)
-    ? 'mergedAt'
-    : 'createdAt'
+    const dateKey = ['pullRequests', 'usersReviews'].includes(type)
+        ? 'mergedAt'
+        : 'createdAt'
 
-  const filteredItems = isDate(untilDate)
-    ? items.filter(filterByUntilDate(['node', dateKey], order, untilDate))
-    : []
+    const filteredItems = isDate(untilDate)
+        ? items.filter(filterByUntilDate(['node', dateKey], order, untilDate))
+        : []
 
-  const typeStateMap = {
-    commitComments: 'commitCommentsPagination',
-    issueComments: 'issueCommentsPagination',
-    usersReviews: 'usersReviewsPagination',
-  }
+    const typeStateMap = {
+        commitComments: 'commitCommentsPagination',
+        issueComments: 'issueCommentsPagination',
+        usersReviews: 'usersReviewsPagination',
+    }
 
-  const direction = type === 'usersReviews' || order === 'ASC'
-    ? 'right'
-    : 'left'
+    const direction = type === 'usersReviews' || order === 'ASC'
+        ? 'right'
+        : 'left'
 
-  const oldestDefault = direction === 'right'
-    ? endCursor
-    : startCursor
+    const oldestDefault = direction === 'right'
+        ? endCursor
+        : startCursor
 
-  const oldestCurrent = pathOr(oldestDefault, [typeStateMap[type], 'oldest'], oldFetchInfo)
+    const oldestCurrent = pathOr(oldestDefault, [typeStateMap[type], 'oldest'], oldFetchInfo)
 
-  const newestDefault = direction === 'right'
-    ? startCursor
-    : endCursor
+    const newestDefault = direction === 'right'
+        ? startCursor
+        : endCursor
 
-  const newestCurrent = pathOr(newestDefault, [typeStateMap[type], 'newest'], oldFetchInfo)
+    const newestCurrent = pathOr(newestDefault, [typeStateMap[type], 'newest'], oldFetchInfo)
 
-  const hasFollowingPage = direction === 'right'
-    ? hasNextPage
-    : hasPreviousPage
+    const hasFollowingPage = direction === 'right'
+        ? hasNextPage
+        : hasPreviousPage
 
-  // TODO: Don't clear if undefined cursor
-  // TODO: add hasPrevPage
-  const dateFilteredLength = filteredItems.length
-  const tryNextPage = cond([
-    [always(hasFollowingPage === false), alwaysFalse],
-    [always(!isDate(untilDate)), always(hasFollowingPage)],
-    [always(dateFilteredLength === 0), alwaysFalse],
-    [always(dateFilteredLength > 0 && items.length > dateFilteredLength), alwaysFalse],
-    [alwaysTrue, always(hasFollowingPage)],
-  ])()
+    // TODO: Don't clear if undefined cursor
+    // TODO: add hasPrevPage
+    const dateFilteredLength = filteredItems.length
+    const tryNextPage = cond([
+        [always(hasFollowingPage === false), alwaysFalse],
+        [always(!isDate(untilDate)), always(hasFollowingPage)],
+        [always(dateFilteredLength === 0), alwaysFalse],
+        [always(dateFilteredLength > 0 && items.length > dateFilteredLength), alwaysFalse],
+        [alwaysTrue, always(hasFollowingPage)],
+    ])()
 
-  const nextInfo = {
-    newest: direction === 'right' && endCursor ? endCursor : newestCurrent,
-    oldest: direction === 'left' && startCursor ? startCursor : oldestCurrent,
-    hasNextPage: hasFollowingPage,
-    hasNextPageForDate: tryNextPage,
-  }
+    const nextInfo = {
+        newest: direction === 'right' && endCursor ? endCursor : newestCurrent,
+        oldest: direction === 'left' && startCursor ? startCursor : oldestCurrent,
+        hasNextPage: hasFollowingPage,
+        hasNextPageForDate: tryNextPage,
+    }
 
-  return nextInfo
+    return nextInfo
 }
 
 const getPaginationForSearch = (oldFetchInfo = {}, untilDate = '', data = {}, order: SortDirection) => {
-  const {
-    hasNextPage = false,
-    hasPreviousPage = false,
-    startCursor,
-    endCursor,
-  } = pathOr({}, ['data', 'result', 'pageInfo'], data) as RawPageInfo
-  const items = pathOr([], ['data', 'result', 'edges'], data)
+    const {
+        hasNextPage = false,
+        hasPreviousPage = false,
+        startCursor,
+        endCursor,
+    } = pathOr({}, ['data', 'result', 'pageInfo'], data) as RawPageInfo
+    const items = pathOr([], ['data', 'result', 'edges'], data)
 
-  const filteredItems = isDate(untilDate)
-    ? items.filter(filterByUntilDate(['node', 'mergedAt'], order, untilDate))
-    : []
+    const filteredItems = isDate(untilDate)
+        ? items.filter(filterByUntilDate(['node', 'mergedAt'], order, untilDate))
+        : []
 
-  const oldestDefault = order === 'DESC'
-    ? endCursor
-    : startCursor
+    const oldestDefault = order === 'DESC'
+        ? endCursor
+        : startCursor
 
-  const oldestCurrent = pathOr(oldestDefault, ['usersReviewsPagination', 'oldest'], oldFetchInfo)
+    const oldestCurrent = pathOr(oldestDefault, ['usersReviewsPagination', 'oldest'], oldFetchInfo)
 
-  const newestDefault = order === 'DESC'
-    ? startCursor
-    : endCursor
+    const newestDefault = order === 'DESC'
+        ? startCursor
+        : endCursor
 
-  const newestCurrent = pathOr(newestDefault, ['usersReviewsPagination', 'newest'], oldFetchInfo)
+    const newestCurrent = pathOr(newestDefault, ['usersReviewsPagination', 'newest'], oldFetchInfo)
 
-  const hasFollowingPage = order === 'DESC'
-    ? hasNextPage
-    : hasPreviousPage
+    const hasFollowingPage = order === 'DESC'
+        ? hasNextPage
+        : hasPreviousPage
 
-  const dateFilteredLength = filteredItems.length
-  const tryNextPage = cond([
-    [always(hasFollowingPage === false), alwaysFalse],
-    [always(!isDate(untilDate)), always(hasFollowingPage)],
-    [always(dateFilteredLength === 0), alwaysFalse],
-    [alwaysTrue, always(hasFollowingPage)],
-  ])()
+    const dateFilteredLength = filteredItems.length
+    const tryNextPage = cond([
+        [always(hasFollowingPage === false), alwaysFalse],
+        [always(!isDate(untilDate)), always(hasFollowingPage)],
+        [always(dateFilteredLength === 0), alwaysFalse],
+        [alwaysTrue, always(hasFollowingPage)],
+    ])()
 
-  const nextInfo = {
-    newest: order === 'ASC' && startCursor ? startCursor : newestCurrent,
-    oldest: order === 'DESC' && endCursor ? endCursor : oldestCurrent,
-    hasNextPage: hasFollowingPage,
-    hasNextPageForDate: tryNextPage,
-  }
+    const nextInfo = {
+        newest: order === 'ASC' && startCursor ? startCursor : newestCurrent,
+        oldest: order === 'DESC' && endCursor ? endCursor : oldestCurrent,
+        hasNextPage: hasFollowingPage,
+        hasNextPageForDate: tryNextPage,
+    }
 
-  return nextInfo
+    return nextInfo
 }
 
 
 const getRemainingPageCount = (data: RawDataResult) => {
-  const types:RawDataType[] = ['issues', 'pullRequests', 'releases']
-  const [maxItems] = types
-    .map((type) => data?.data?.result?.[type]?.totalCount || 0)
-    .sort((a, b) => b - a)
+    const types:RawDataType[] = ['issues', 'pullRequests', 'releases']
+    const [maxItems] = types
+        .map((type) => data?.data?.result?.[type]?.totalCount || 0)
+        .sort((a, b) => b - a)
 
-  return Math.ceil(maxItems / 50) - 1
+    return Math.ceil(maxItems / 50) - 1
 }
 
 const commitComments = (order: SortDirection) => (cursor: OldNew) => `
@@ -399,12 +399,12 @@ const issueComments = (order: SortDirection) => (cursor: OldNew) => `
 `
 
 const reviewsByUserQuery = (untilDate: UntilDate) => ({
-  user,
-  sortDirection = 'DESC',
-  amountOfData,
-  usersReviewsPagination = {},
+    user,
+    sortDirection = 'DESC',
+    amountOfData,
+    usersReviewsPagination = {},
 }: UserQueryArgs) => ({
-  query: `{
+    query: `{
     result: search(
       query: "type:pr state:closed reviewed-by:${user}"
       type: ISSUE
@@ -452,74 +452,74 @@ const reviewsByUserQuery = (untilDate: UntilDate) => ({
       }
     }
   }`,
-  sortDirection,
-  user,
-  resultInfo: (data:RawDataResult) => {
-    const byDirectionType = getPaginationForSearch(
-      {
-        usersReviewsPagination,
-        amountOfData,
-      },
-      untilDate,
-      data,
-      sortDirection,
-    )
+    sortDirection,
+    user,
+    resultInfo: (data:RawDataResult) => {
+        const byDirectionType = getPaginationForSearch(
+            {
+                usersReviewsPagination,
+                amountOfData,
+            },
+            untilDate,
+            data,
+            sortDirection,
+        )
 
-    const updatedAmountOfData = cond([
-      [always(amountOfData === 'all'), always(amountOfData)],
-      [always(isDate(untilDate)), always(amountOfData)],
-      [always(Number.isInteger(amountOfData)), always(amountOfData as number - 1)],
-      [alwaysTrue, getRemainingPageCount],
-    ])(data)
+        const updatedAmountOfData = cond([
+            [always(amountOfData === 'all'), always(amountOfData)],
+            [always(isDate(untilDate)), always(amountOfData)],
+            [always(Number.isInteger(amountOfData)), always(amountOfData as number - 1)],
+            [alwaysTrue, getRemainingPageCount],
+        ])(data)
 
-    const nextPageInfo = {
-      // TODO: do pagination with order and cursor and first and last, also needs to take hasPreviousPage into account
-      // desc: last should use oldest || endCursor and endCursor = oldest, startCursor = newest, also checks hasPreviousPage
-      // asc: first should use newest || endCursor and endCursor = newest, startCursor = oldest, also checks hasNextPage
-      usersReviewsPagination: Object.assign(
-        byDirectionType, { hasNextPage: false },
-      ),
-    }
+        const nextPageInfo = {
+            // TODO: do pagination with order and cursor and first and last, also needs to take hasPreviousPage into account
+            // desc: last should use oldest || endCursor and endCursor = oldest, startCursor = newest, also checks hasPreviousPage
+            // asc: first should use newest || endCursor and endCursor = newest, startCursor = oldest, also checks hasNextPage
+            usersReviewsPagination: Object.assign(
+                byDirectionType, { hasNextPage: false },
+            ),
+        }
 
-    const hasNextPageKey = isDate(untilDate) ? 'hasNextPageForDate' : 'hasNextPage'
-    const pageInfo = {
-      hasNextPage: nextPageInfo.usersReviewsPagination[hasNextPageKey] === true,
-      nextPageInfo: {
-        ...nextPageInfo,
-        amountOfData: updatedAmountOfData,
-      },
-    }
+        const hasNextPageKey = isDate(untilDate) ? 'hasNextPageForDate' : 'hasNextPage'
+        const pageInfo = {
+            hasNextPage: nextPageInfo.usersReviewsPagination[hasNextPageKey] === true,
+            nextPageInfo: {
+                ...nextPageInfo,
+                amountOfData: updatedAmountOfData,
+            },
+        }
 
-    // Pagination via last/first and after/before is confusing
-    // To go back in time from now, you need to use `last` then p2+ use `after` and the `endCursor`
-    // also with this oldest is endCursor of each page and newest is the first startCursor
+        // Pagination via last/first and after/before is confusing
+        // To go back in time from now, you need to use `last` then p2+ use `after` and the `endCursor`
+        // also with this oldest is endCursor of each page and newest is the first startCursor
 
-    // TODO: remove author prs and prs without mergedAt and prs with no user comments or approvals
+        // TODO: remove author prs and prs without mergedAt and prs with no user comments or approvals
 
-    return pageInfo
-  },
-  fillerType: 'pullRequests',
-  hasMoreResults: [
-    usersReviewsPagination.hasNextPage,
-  ]
-    .some(x => x !== false),
+        return pageInfo
+    },
+    fillerType: 'pullRequests',
+    hasMoreResults: [
+        usersReviewsPagination.hasNextPage,
+    ]
+        .some(x => x !== false),
 })
 
 const hasNextPage = (pagination: OldNew) => {
-  const { hasNextPageForDate } = pagination
-  return hasNextPageForDate !== false
+    const { hasNextPageForDate } = pagination
+    return hasNextPageForDate !== false
 }
 
 const userQuery = (untilDate: UntilDate) => ({
-  user,
-  sortDirection = 'DESC',
-  amountOfData,
-  issuesPagination = {},
-  prPagination = {},
-  commitCommentsPagination = {}, // this is not review(code) comments
-  issueCommentsPagination = {},
+    user,
+    sortDirection = 'DESC',
+    amountOfData,
+    issuesPagination = {},
+    prPagination = {},
+    commitCommentsPagination = {}, // this is not review(code) comments
+    issueCommentsPagination = {},
 }: UserQueryArgs) => ({
-  query: `{
+    query: `{
     result: user(login: "${user}") {
       login
       ${hasNextPage(issueCommentsPagination) ? issueComments(sortDirection)(issueCommentsPagination) : ''}
@@ -528,82 +528,82 @@ const userQuery = (untilDate: UntilDate) => ({
       ${issuesPagination[untilDate ? 'hasNextPageForDate' : 'hasNextPage'] !== false ? issues(sortDirection)(issuesPagination) : ''}
     }
   }`,
-  sortDirection,
-  user,
-  resultInfo: (data:RawDataResult) => {
-    const byType = getPaginationByType(
-      {
-        issuesPagination,
-        prPagination,
-        amountOfData,
-      },
-      untilDate,
-      data,
-      sortDirection,
-    )
+    sortDirection,
+    user,
+    resultInfo: (data:RawDataResult) => {
+        const byType = getPaginationByType(
+            {
+                issuesPagination,
+                prPagination,
+                amountOfData,
+            },
+            untilDate,
+            data,
+            sortDirection,
+        )
 
-    const byDirectionType = getPaginationByDirectionType(
-      {
-        commitCommentsPagination,
-        issueCommentsPagination,
-        amountOfData,
-      },
-      untilDate,
-      data,
-      sortDirection,
-    )
+        const byDirectionType = getPaginationByDirectionType(
+            {
+                commitCommentsPagination,
+                issueCommentsPagination,
+                amountOfData,
+            },
+            untilDate,
+            data,
+            sortDirection,
+        )
 
-    const updatedAmountOfData = cond([
-      [always(amountOfData === 'all'), always(amountOfData)],
-      [always(isDate(untilDate)), always(amountOfData)],
-      [always(Number.isInteger(amountOfData)), always(amountOfData as number - 1)],
-      [alwaysTrue, getRemainingPageCount],
-    ])(data)
+        const updatedAmountOfData = cond([
+            [always(amountOfData === 'all'), always(amountOfData)],
+            [always(isDate(untilDate)), always(amountOfData)],
+            [always(Number.isInteger(amountOfData)), always(amountOfData as number - 1)],
+            [alwaysTrue, getRemainingPageCount],
+        ])(data)
 
-    Object.assign(byType('pullRequests'), { hasNextPage: false })
+        Object.assign(byType('pullRequests'), { hasNextPage: false })
 
-    const nextPageInfo = {
-      prPagination: Object.assign(byType('pullRequests'), { hasNextPage: false }),
-      issuesPagination: Object.assign(byType('issues'), { hasNextPage: false }),
-      // TODO: do pagination with order and cursor and first and last, also needs to take hasPreviousPage into account
-      // desc: last should use oldest || endCursor and endCursor = oldest, startCursor = newest, also checks hasPreviousPage
-      // asc: first should use newest || endCursor and endCursor = newest, startCursor = oldest, also checks hasNextPage
-      commitCommentsPagination: Object.assign(byDirectionType('commitComments'), { hasNextPage: false }),
-      issueCommentsPagination: Object.assign(byDirectionType('issueComments'), { hasNextPage: false }),
-    }
+        const nextPageInfo = {
+            prPagination: Object.assign(byType('pullRequests'), { hasNextPage: false }),
+            issuesPagination: Object.assign(byType('issues'), { hasNextPage: false }),
+            // TODO: do pagination with order and cursor and first and last, also needs to take hasPreviousPage into account
+            // desc: last should use oldest || endCursor and endCursor = oldest, startCursor = newest, also checks hasPreviousPage
+            // asc: first should use newest || endCursor and endCursor = newest, startCursor = oldest, also checks hasNextPage
+            commitCommentsPagination: Object.assign(byDirectionType('commitComments'), { hasNextPage: false }),
+            issueCommentsPagination: Object.assign(byDirectionType('issueComments'), { hasNextPage: false }),
+        }
 
-    const hasNextPageKey = isDate(untilDate) ? 'hasNextPageForDate' : 'hasNextPage'
-    const pageInfo = {
-      hasNextPage: Object.values(nextPageInfo).some(x => x[hasNextPageKey] === true),
-      nextPageInfo: {
-        ...nextPageInfo,
-        amountOfData: updatedAmountOfData,
-      },
-    }
+        const hasNextPageKey = isDate(untilDate) ? 'hasNextPageForDate' : 'hasNextPage'
+        const pageInfo = {
+            hasNextPage: Object.values(nextPageInfo).some(x => x[hasNextPageKey] === true),
+            nextPageInfo: {
+                ...nextPageInfo,
+                amountOfData: updatedAmountOfData,
+            },
+        }
 
-    return pageInfo
-  },
-  // TODO: fillerType ?
-  hasMoreResults: [
-    prPagination.hasNextPage,
-    issuesPagination.hasNextPage,
-    commitCommentsPagination.hasNextPage,
-    issueCommentsPagination.hasNextPage,
-  ]
-    .some(x => x !== false),
+        return pageInfo
+    },
+    // TODO: fillerType ?
+    hasMoreResults: [
+        prPagination.hasNextPage,
+        issuesPagination.hasNextPage,
+        commitCommentsPagination.hasNextPage,
+        issueCommentsPagination.hasNextPage,
+    ]
+        .some(x => x !== false),
 })
 
 
 const batchedQuery = (untilDate: UntilDate) => ({
-  org,
-  repo,
-  sortDirection = 'DESC',
-  amountOfData,
-  issuesPagination = {},
-  releasesPagination = {},
-  prPagination = {},
+    org,
+    repo,
+    sortDirection = 'DESC',
+    amountOfData,
+    issuesPagination = {},
+    releasesPagination = {},
+    prPagination = {},
 }: BatchedQueryArgs) => ({
-  query: `{
+    query: `{
       result: repository(name: "${repo}" owner: "${org}") {
         id
         description
@@ -616,54 +616,54 @@ const batchedQuery = (untilDate: UntilDate) => ({
         ${hasNextPage(releasesPagination) ? releases(sortDirection)(releasesPagination) : ''}
       }
     }`,
-  sortDirection,
-  resultInfo: (data:RawDataResult) => {
-    const byType = getPaginationByType(
-      {
-        issuesPagination,
-        releasesPagination,
-        prPagination,
-      },
-      untilDate,
-      data,
-      sortDirection,
-    )
+    sortDirection,
+    resultInfo: (data:RawDataResult) => {
+        const byType = getPaginationByType(
+            {
+                issuesPagination,
+                releasesPagination,
+                prPagination,
+            },
+            untilDate,
+            data,
+            sortDirection,
+        )
 
-    const updatedAmountOfData = cond([
-      [always(amountOfData === 'all'), always(amountOfData)],
-      [always(isDate(untilDate)), always(amountOfData)],
-      [always(Number.isInteger(amountOfData)), always(amountOfData as number - 1)],
-      [alwaysTrue, getRemainingPageCount],
-    ])(data)
+        const updatedAmountOfData = cond([
+            [always(amountOfData === 'all'), always(amountOfData)],
+            [always(isDate(untilDate)), always(amountOfData)],
+            [always(Number.isInteger(amountOfData)), always(amountOfData as number - 1)],
+            [alwaysTrue, getRemainingPageCount],
+        ])(data)
 
-    const nextPageInfo = {
-      prPagination: Object.assign({ hasNextPage: false }, byType('pullRequests')),
-      issuesPagination: Object.assign({ hasNextPage: false }, byType('issues')),
-      releasesPagination: Object.assign({ hasNextPage: false }, byType('releases')),
-    }
+        const nextPageInfo = {
+            prPagination: Object.assign({ hasNextPage: false }, byType('pullRequests')),
+            issuesPagination: Object.assign({ hasNextPage: false }, byType('issues')),
+            releasesPagination: Object.assign({ hasNextPage: false }, byType('releases')),
+        }
 
-    const hasNextPageKey = isDate(untilDate) ? 'hasNextPageForDate' : 'hasNextPage'
-    const pageInfo = {
-      hasNextPage: Object.values(nextPageInfo).some(x => x[hasNextPageKey] === true),
-      nextPageInfo: {
-        ...nextPageInfo,
-        amountOfData: updatedAmountOfData,
-      },
-    }
+        const hasNextPageKey = isDate(untilDate) ? 'hasNextPageForDate' : 'hasNextPage'
+        const pageInfo = {
+            hasNextPage: Object.values(nextPageInfo).some(x => x[hasNextPageKey] === true),
+            nextPageInfo: {
+                ...nextPageInfo,
+                amountOfData: updatedAmountOfData,
+            },
+        }
 
-    return pageInfo
-  },
-  fillerType: 'batchedQuery',
-  hasMoreResults: [
-    prPagination.hasNextPage,
-    issuesPagination.hasNextPage,
-    releasesPagination.hasNextPage,
-  ]
-    .some(x => x !== false),
+        return pageInfo
+    },
+    fillerType: 'batchedQuery',
+    hasMoreResults: [
+        prPagination.hasNextPage,
+        issuesPagination.hasNextPage,
+        releasesPagination.hasNextPage,
+    ]
+        .some(x => x !== false),
 })
 
 const commentsQuery:MakeQuery = ({ nodeId, cursor }: NodeCursor) => ({
-  query: `{
+    query: `{
       node(id:"${nodeId}") {
           ... on PullRequest {
             id
@@ -671,20 +671,20 @@ const commentsQuery:MakeQuery = ({ nodeId, cursor }: NodeCursor) => ({
           }
         }
     }`,
-  resultInfo: (data: CommentsQueryResult) => ({
-    rawData: data,
-    results: data?.data?.node?.comments?.edges || [],
-    hasNextPage: data?.data?.node?.comments?.pageInfo?.hasNextPage || false,
-    nextArgs: {
-      nodeId: data?.data?.node?.id || '',
-      cursor: data?.data?.node?.comments?.pageInfo?.endCursor || '',
-    },
-  }),
-  fillerType: '',
+    resultInfo: (data: CommentsQueryResult) => ({
+        rawData: data,
+        results: data?.data?.node?.comments?.edges || [],
+        hasNextPage: data?.data?.node?.comments?.pageInfo?.hasNextPage || false,
+        nextArgs: {
+            nodeId: data?.data?.node?.id || '',
+            cursor: data?.data?.node?.comments?.pageInfo?.endCursor || '',
+        },
+    }),
+    fillerType: '',
 })
 
 const reviewsQuery:MakeQuery = ({ nodeId, cursor }: NodeCursor) => ({
-  query: `{
+    query: `{
       node(id:"${nodeId}") {
           ... on PullRequest {
             id
@@ -692,20 +692,20 @@ const reviewsQuery:MakeQuery = ({ nodeId, cursor }: NodeCursor) => ({
           }
         }
     }`,
-  resultInfo: (data: ReviewsQueryResult) => ({
-    rawData: data,
-    results: data?.data?.node?.reviews?.edges || [],
-    hasNextPage: data?.data?.node?.reviews?.pageInfo?.hasNextPage || false,
-    nextArgs: {
-      nodeId: data?.data?.node?.id || '',
-      cursor: data?.data?.node?.reviews?.pageInfo?.endCursor || '',
-    },
-  }),
-  fillerType: 'pullRequestReviewComments',
+    resultInfo: (data: ReviewsQueryResult) => ({
+        rawData: data,
+        results: data?.data?.node?.reviews?.edges || [],
+        hasNextPage: data?.data?.node?.reviews?.pageInfo?.hasNextPage || false,
+        nextArgs: {
+            nodeId: data?.data?.node?.id || '',
+            cursor: data?.data?.node?.reviews?.pageInfo?.endCursor || '',
+        },
+    }),
+    fillerType: 'pullRequestReviewComments',
 })
 
 const reviewCommentsQuery:MakeQuery = ({ nodeId, cursor }: NodeCursor) => ({
-  query: `{
+    query: `{
       node(id:"${nodeId}") {
           ... on PullRequestReview {
             id
@@ -713,26 +713,26 @@ const reviewCommentsQuery:MakeQuery = ({ nodeId, cursor }: NodeCursor) => ({
           }
         }
     }`,
-  resultInfo: (data: CommentsQueryResult) => ({
-    rawData: data,
-    results: data?.data?.node?.comments?.edges || [],
-    hasNextPage: data?.data?.node?.comments?.pageInfo?.hasNextPage || false,
-    nextArgs: {
-      nodeId: data?.data?.node?.id || '',
-      cursor: data?.data?.node?.comments?.pageInfo?.endCursor || '',
-    },
-  }),
-  fillerType: '',
+    resultInfo: (data: CommentsQueryResult) => ({
+        rawData: data,
+        results: data?.data?.node?.comments?.edges || [],
+        hasNextPage: data?.data?.node?.comments?.pageInfo?.hasNextPage || false,
+        nextArgs: {
+            nodeId: data?.data?.node?.id || '',
+            cursor: data?.data?.node?.comments?.pageInfo?.endCursor || '',
+        },
+    }),
+    fillerType: '',
 })
 
 const orgQuery = ({
-  org,
-  orgPagination = {},
+    org,
+    orgPagination = {},
 }: {
   org: string
   orgPagination:Record<string, string>
 }) => ({
-  query: `{
+    query: `{
     organization(login: "${org}") {
       repositories(
         first:100
@@ -752,28 +752,28 @@ const orgQuery = ({
       }
     }
   }`,
-  fillerType: 'org',
-  resultInfo: (data: OrgQueryResult) => {
-    const hasNextPage = data?.data?.organization?.repositories?.pageInfo?.hasNextPage || false
-    const cursor = data?.data?.organization?.repositories?.pageInfo?.endCursor || ''
-    return ({
-      rawData: data,
-      results: data?.data?.organization?.repositories?.edges || [],
-      hasNextPage: data?.data?.organization?.repositories?.pageInfo?.hasNextPage || false,
-      nextPageInfo: {
-        orgPagination: {
-          cursor: cursor,
-          hasNextPage,
-          hasNextPageForDate: hasNextPage,
-        },
-        amountOfData: 'all',
-      },
-    })
-},
+    fillerType: 'org',
+    resultInfo: (data: OrgQueryResult) => {
+        const hasNextPage = data?.data?.organization?.repositories?.pageInfo?.hasNextPage || false
+        const cursor = data?.data?.organization?.repositories?.pageInfo?.endCursor || ''
+        return ({
+            rawData: data,
+            results: data?.data?.organization?.repositories?.edges || [],
+            hasNextPage: data?.data?.organization?.repositories?.pageInfo?.hasNextPage || false,
+            nextPageInfo: {
+                orgPagination: {
+                    cursor: cursor,
+                    hasNextPage,
+                    hasNextPageForDate: hasNextPage,
+                },
+                amountOfData: 'all',
+            },
+        })
+    },
 })
 
 const teamIDsQuery = ({ org, team }: { org: string, team: string }) => ({
-  query: `{
+    query: `{
     organization(login: "${org}") {
       team(slug:"${team}") {
         members(
@@ -795,20 +795,20 @@ const teamIDsQuery = ({ org, team }: { org: string, team: string }) => ({
       }
     }
   }`,
-  fillerType: 'team',
-  resultInfo: (data: TeamIDsQueryResult[]) => ({
-    results: data[0]?.data?.organization?.team?.members?.edges || [],
-    hasNextPage: false,
-  }),
+    fillerType: 'team',
+    resultInfo: (data: TeamIDsQueryResult[]) => ({
+        results: data[0]?.data?.organization?.team?.members?.edges || [],
+        hasNextPage: false,
+    }),
 })
 
 export {
-  batchedQuery,
-  commentsQuery,
-  orgQuery,
-  userQuery,
-  reviewCommentsQuery,
-  reviewsByUserQuery,
-  reviewsQuery,
-  teamIDsQuery,
+    batchedQuery,
+    commentsQuery,
+    orgQuery,
+    userQuery,
+    reviewCommentsQuery,
+    reviewsByUserQuery,
+    reviewsQuery,
+    teamIDsQuery,
 }

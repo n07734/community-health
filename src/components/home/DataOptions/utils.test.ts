@@ -12,9 +12,9 @@ describe('validate: userIds key', () => {
         [ 'startDate', '2024-10-1', false],
         [ 'usersInfo', { userName: 'user' }, true],
         [ 'usersInfo', {}, false],
-      ])('input %s', (key, value, expected) => {
+    ])('input %s', (key, value, expected) => {
         const result = validate({ key, value} as any)
 
         expect(result).toEqual(expected)
-      })
+    })
 })

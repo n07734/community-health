@@ -4,6 +4,7 @@ import { LegendProps } from '@nivo/legends'
 import { TableTooltip } from '@nivo/tooltip'
 import { useTheme } from '@mui/styles'
 import { Theme } from '@mui/material/styles'
+
 import { Lines, LineInfo, LineForGraph, ColumnKeys, LinePlot, TableData, Graph } from '../../types/Graphs'
 import { EventInfo } from '../../types/FormattedData'
 import { AnyForLib } from '../../types/State'
@@ -11,8 +12,9 @@ import { AnyForLib } from '../../types/State'
 import { useShowNumbers } from '../../state/ShowNumbersProvider'
 import ChartHeading from './ChartHeading'
 import styledCharts from './styledCharts'
-import ItemsTable from '../sections/ItemsTable'
 import GraphUi from './GraphUi'
+
+import { DataTables } from '../ui/DataTables'
 
 import {
     getMaxYValue,
@@ -111,7 +113,7 @@ type LineProps = {
     markers: EventInfo[]
     showLegends: boolean
     classes: Record<string, string>
-    tableData: readonly TableData[][]
+    tableData: TableData[][]
     tableKeys: ColumnKeys[]
     graphInfo?: Graph
     setGraph?: (graphs: Graph[]) => void
@@ -417,7 +419,7 @@ const Line = styledCharts(({
                 />
             </div>
             {
-                  tableData.length > 0 && <ItemsTable
+                tableData.length > 0 && <DataTables
                     data={tableData}
                     dataKeys={tableKeys}
                     tableOpenedByDefault={tableOpenedByDefault}

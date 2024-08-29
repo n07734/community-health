@@ -133,15 +133,15 @@ const addedLine = (removeLine:(a:CustomLineDataKey, b:GroupMath) => void, classe
     dataKey,
     groupMath = 'average',
 }: GraphLine, i: number) => <div key={`${i}`}>
-        <P className={`${classes.savedLine} ${classes[color]}`}>{label}</P>
-        <RemoveCircleIcon
-            className={`${classes.remove} ${classes[color]}`}
-            onClick={event => {
-                event.preventDefault()
-                removeLine(dataKey, groupMath)
-            }}
-        />
-    </div>
+    <P className={`${classes.savedLine} ${classes[color]}`}>{label}</P>
+    <RemoveCircleIcon
+        className={`${classes.remove} ${classes[color]}`}
+        onClick={event => {
+            event.preventDefault()
+            removeLine(dataKey, groupMath)
+        }}
+    />
+</div>
 
 const getActiveLines = (graphInfo:Graph) => [
     ...(graphInfo.left || []),
@@ -344,11 +344,11 @@ const GraphUi = ({
                 </Select>
                 {
                     lineMaths.length > 0 && <Select
-                            onChange={(e) => setValue({ groupMath: e.target.value })}
-                            variant="filled"
-                            value={formInfo.groupMath}
-                            inputProps={{ 'aria-label': 'Choose a line calculation' }}
-                        >
+                        onChange={(e) => setValue({ groupMath: e.target.value })}
+                        variant="filled"
+                        value={formInfo.groupMath}
+                        inputProps={{ 'aria-label': 'Choose a line calculation' }}
+                    >
                         {
                             lineMaths
                                 .map((value) => <MenuItem key={`${formInfo.dataKey}${value}`} value={value} >
@@ -390,16 +390,16 @@ const GraphUi = ({
         }
         <div className={classes.customLines}>
             <div>
-            {
-                (graphInfo.left || [])
-                    .map(addedLine(removeLine('left'), classes))
-            }
+                {
+                    (graphInfo.left || [])
+                        .map(addedLine(removeLine('left'), classes))
+                }
             </div>
             <div>
-            {
-                (graphInfo.right || [])
-                    .map(addedLine(removeLine('right'), classes))
-            }
+                {
+                    (graphInfo.right || [])
+                        .map(addedLine(removeLine('right'), classes))
+                }
             </div>
         </div>
     </div>

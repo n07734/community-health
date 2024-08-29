@@ -27,10 +27,10 @@ const SelectAmountData = (props: SelectAmountDataProps) => {
     const itemText = (amount: number) => `Get ${amount} ${amount === 1 ? 'month' : 'months'} ${hasTeamData ? 'more ' : ''}data`
 
     return (<Select
-            value={`${amountOfData}`}
-            onChange={(e:SelectChangeEvent) => setValue('amountOfData', (e.target as HTMLSelectElement).value)}
-            inputProps={{ 'aria-label': 'Amount of data' }}
-        >
+        value={`${amountOfData}`}
+        onChange={(e:SelectChangeEvent) => setValue('amountOfData', (e.target as HTMLSelectElement).value)}
+        inputProps={{ 'aria-label': 'Amount of data' }}
+    >
         <MenuItem value={1} selected>{itemText(1)}</MenuItem>
         <MenuItem value={3} >{itemText(3)}</MenuItem>
         <MenuItem value={6} >{itemText(6)}</MenuItem>

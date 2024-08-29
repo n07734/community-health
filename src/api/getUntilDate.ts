@@ -1,7 +1,7 @@
 import {
     add,
     sub,
- } from 'date-fns'
+} from 'date-fns'
 
 import {
     compose,

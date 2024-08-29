@@ -76,39 +76,39 @@ const DateRange = ({
         : ''
 
     return pullRequests.length > 0 && leftDate && <>
-            <P className={classes.title}><b>Showing {pullRequests.length} PRs {userText} {issuesText}</b>. Drag the points to change the date range of the report.</P>
-            <div className={classes.dates}>
-                <P>{format(new Date(leftDate), 'do MMM yy')}</P><P>{format(new Date(rightDate), 'do MMM yy')}</P>
-            </div>
-            <Slider
-                value={[left, right]}
-                onChange={handleChange}
-                onChangeCommitted={handleDone}
-                aria-labelledby="date-slider"
-                sx={{
-                    '&.MuiSlider-root .MuiSlider-thumb:nth-child(even)': {
-                        width: '30px',
-                        height: '30px',
-                        '&:after': {
-                            content: '">"',
-                        },
+        <P className={classes.title}><b>Showing {pullRequests.length} PRs {userText} {issuesText}</b>. Drag the points to change the date range of the report.</P>
+        <div className={classes.dates}>
+            <P>{format(new Date(leftDate), 'do MMM yy')}</P><P>{format(new Date(rightDate), 'do MMM yy')}</P>
+        </div>
+        <Slider
+            value={[left, right]}
+            onChange={handleChange}
+            onChangeCommitted={handleDone}
+            aria-labelledby="date-slider"
+            sx={{
+                '&.MuiSlider-root .MuiSlider-thumb:nth-child(even)': {
+                    width: '30px',
+                    height: '30px',
+                    '&:after': {
+                        content: '">"',
                     },
-                    '& .MuiSlider-thumb': {
-                        width: '30px',
-                        height: '30px',
-                        '&:after': {
-                            content: '"<"',
-                            color: theme.palette.text.primary,
-                            fontWeight: '800',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            paddingBottom: '0.06rem',
-                        },
+                },
+                '& .MuiSlider-thumb': {
+                    width: '30px',
+                    height: '30px',
+                    '&:after': {
+                        content: '"<"',
+                        color: theme.palette.text.primary,
+                        fontWeight: '800',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        paddingBottom: '0.06rem',
                     },
-                }}
-            />
-        </>
+                },
+            }}
+        />
+    </>
 }
 
 type State = {

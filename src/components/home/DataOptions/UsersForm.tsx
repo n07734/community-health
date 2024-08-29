@@ -159,21 +159,21 @@ const UserForm = ({
                     />
                     {user.dates.map((date, dateIndex) => (
                         <div className={classes.dateRow} key={dateIndex}>
-                                <TextInput
-                                    type="startDate"
-                                    formInfo={date}
-                                    inputError={inputError}
-                                    setInputError={setInputError}
-                                    setValue={handleDateChange(userIndex, dateIndex)}
-                                />
-                                <TextInput
-                                    type="endDate"
-                                    inputError={inputError}
-                                    formInfo={date}
-                                    setInputError={setInputError}
-                                    setValue={handleDateChange(userIndex, dateIndex)}
-                                />
-                                <Delete className={classes.removeDate} onClick={() => handleRemoveDate({userIndex, dateIndex})} />
+                            <TextInput
+                                type="startDate"
+                                formInfo={date}
+                                inputError={inputError}
+                                setInputError={setInputError}
+                                setValue={handleDateChange(userIndex, dateIndex)}
+                            />
+                            <TextInput
+                                type="endDate"
+                                inputError={inputError}
+                                formInfo={date}
+                                setInputError={setInputError}
+                                setValue={handleDateChange(userIndex, dateIndex)}
+                            />
+                            <Delete className={classes.removeDate} onClick={() => handleRemoveDate({userIndex, dateIndex})} />
                         </div>
                     ))}
                     <Button value={`Add ${ user.dates.length > 0 ? 'more dates' : 'dates'}`} color="primary" onClick={(e) => handleAddDates(userIndex,e)} />

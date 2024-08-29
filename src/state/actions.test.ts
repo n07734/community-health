@@ -52,7 +52,7 @@ describe('getAPIData:', () => {
             pullRequests: [],
         })
 
-       await getAPIData()(dispatch, getState as any)
+        await getAPIData()(dispatch, getState as any)
 
         const dispatchOrder = [
             types.CLEAR_FETCH_ERROR,

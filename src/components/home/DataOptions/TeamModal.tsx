@@ -131,23 +131,23 @@ const GitHubTeam = withStyles(modalStyles)((props:GitHubTeamProps) => {
     return (<form
         className={classes.form}
         onSubmit={(event) => {
-                event.preventDefault()
-                const {
-                    gitTeamUrl = '',
-                    token = '',
-                } = formInfo
+            event.preventDefault()
+            const {
+                gitTeamUrl = '',
+                token = '',
+            } = formInfo
 
-                const urlParts = gitTeamUrl.split('/')
-                const name = urlParts.at(-2) || ''
-                const org = urlParts.at(-2) || ''
+            const urlParts = gitTeamUrl.split('/')
+            const name = urlParts.at(-2) || ''
+            const org = urlParts.at(-2) || ''
 
-                const isValid = [name,org,token].every(x => x && x.length > 0)
+            const isValid = [name,org,token].every(x => x && x.length > 0)
 
-                if (isValid) {
-                    getTeamMembers({ fetchInfo:{ name, org, token }, setGitUsers, setInputError})
-                } else {
-                    setInputError({level: 'error', message: 'Invalid inputs'})
-                }
+            if (isValid) {
+                getTeamMembers({ fetchInfo:{ name, org, token }, setGitUsers, setInputError})
+            } else {
+                setInputError({level: 'error', message: 'Invalid inputs'})
+            }
         }}
     >
         <H level={4}>Get team members from a GitHub Org team page</H>
@@ -232,6 +232,6 @@ const TeamModal =  withStyles(modalStyles)(({
             </Box>
         </Modal>
     </div>)
-  })
+})
 
-  export default TeamModal
+export default TeamModal

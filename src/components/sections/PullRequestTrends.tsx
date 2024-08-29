@@ -8,7 +8,6 @@ import { EventInfo, PullRequest } from '../../types/FormattedData'
 import Paper from '../shared/Paper'
 import ChartDescription from '../shared/ChartDescription'
 import GraphsWrap from '../shared/GraphsWrap'
-// import SingleTable from './SingleTable'
 
 import { useShowNames } from '../../state/ShowNamesProvider'
 import { P } from '../shared/StyledTags'
@@ -53,12 +52,6 @@ const PullRequestTrends = ({
                     </div>
                 }
             </ChartDescription>
-            {/* <div>
-                <SingleTable
-                    data={pullRequests}
-                    dataKeys={['mergedAt', 'comments', 'prSize', 'age', 'url']}
-                />
-            </div> */}
             <GraphsWrap>
 
                 {

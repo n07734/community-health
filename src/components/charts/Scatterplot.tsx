@@ -7,10 +7,10 @@ import { EventInfo } from '../../types/FormattedData';
 import { ColumnKeys, LineForGraph, Lines, TableData, LineInfo, Graph } from '../../types/Graphs';
 import { AnyForLib } from '../../types/State';
 
-
 import ChartHeading from './ChartHeading'
 import styledCharts from './styledCharts'
-import ItemsTable from '../sections/ItemsTable'
+import { DataTables } from '../ui/DataTables'
+
 import GraphUi from './GraphUi'
 
 import {
@@ -329,7 +329,7 @@ const Scatterplot = styledCharts(({
                 />
             </div>
             {
-                  tableData.length > 0 && <ItemsTable
+                tableData.length > 0 && <DataTables
                     data={tableData}
                     dataKeys={tableKeys}
                 />

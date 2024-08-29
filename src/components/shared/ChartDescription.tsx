@@ -56,7 +56,7 @@ const ChartDescription = ({
     return (
         <div className={`${classes.root} ${className} ${!intro ? '' : classes.rootRows}`}>
             {
-               title && typeof title === 'string'
+                title && typeof title === 'string'
                     ? <H className={classes.heading} level={2} >
                         {title}
                         {

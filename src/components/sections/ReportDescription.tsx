@@ -75,27 +75,27 @@ const ReportDescription = ({
     const hasReportData = pullRequests.length > 0 || issues.length > 0
 
     return hasReportData && (<Paper className={classes.root}>
-            <H qaId="report-title" className={classes.heading} level={2}>
-                <Title {...fetches} colorA={colorA} colorB={colorB}/>
-            </H>
-            {
-                reportDescription
+        <H qaId="report-title" className={classes.heading} level={2}>
+            <Title {...fetches} colorA={colorA} colorB={colorB}/>
+        </H>
+        {
+            reportDescription
                     && <P>{reportDescription}</P>
-            }
-            {
-                userIds.length > 1
+        }
+        {
+            userIds.length > 1
                     && <P>Team's GitHub IDs: { userIds.join(', ') }</P>
-            }
-            <P className={classes.switch}>
-                <Switch
-                    onChange={toggleShowNames}
-                    checked={!showNames}
-                    name="checkedA"
-                    inputProps={{ 'aria-label': 'secondary checkbox' }}
-                />
+        }
+        <P className={classes.switch}>
+            <Switch
+                onChange={toggleShowNames}
+                checked={!showNames}
+                name="checkedA"
+                inputProps={{ 'aria-label': 'secondary checkbox' }}
+            />
                 Hide GitHub ids/names, this can help look for trends.
-            </P>
-            {/* {
+        </P>
+        {/* {
                 // TODO: change this
                 userIds.length !== 1
                     &&  <P className={classes.switch}>
@@ -109,12 +109,12 @@ const ReportDescription = ({
                 </P>
             } */}
 
-            <DateRange />
-            {
-                preFetchedName.length > 0
+        <DateRange />
+        {
+            preFetchedName.length > 0
                     && <PrefetchedForm />
-            }
-        </Paper>)
+        }
+    </Paper>)
 }
 
 type State = {

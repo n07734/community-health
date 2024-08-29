@@ -7,9 +7,12 @@ import Brightness3 from '@mui/icons-material/Brightness3';
 import WbSunny from '@mui/icons-material/WbSunny';
 
 import { useThemeMode } from '../../state/ThemeModeProvider'
+import { useTheme } from "@/components/ThemeProvider"
 
 const Links = ({ classes }: { classes: Record<string, string>}) => {
     const { themeMode, toggleThemeMode } = useThemeMode()
+    const { toggleTheme } = useTheme()
+
     return (
         <div className={classes.wrapper} >
             <a className={classes.link} href="https://twitter.com/chris_07734">
@@ -23,6 +26,7 @@ const Links = ({ classes }: { classes: Record<string, string>}) => {
                 onClick={(e) => {
                     e.preventDefault()
                     toggleThemeMode()
+                    toggleTheme()
                 }}
                 className={themeMode}
             >

@@ -97,8 +97,8 @@ const ChartHeading = ({ className = '', items = [], text = '', type }: { classNa
     const singleMathType = (items.length > 0
         && type === 'line'
         && uniqueLinesMaths.length < 2
-            ? uniqueLinesMaths[0] || 'average'
-            : '')
+        ? uniqueLinesMaths[0] || 'average'
+        : '')
         || '' as GroupMath | ''
 
     return (
@@ -114,7 +114,7 @@ const ChartHeading = ({ className = '', items = [], text = '', type }: { classNa
                                 ? <LineItem {...item} />
                                 : <Item {...item} />
                         }
-                        </Fragment>)
+                    </Fragment>)
             }
         </H>
     )

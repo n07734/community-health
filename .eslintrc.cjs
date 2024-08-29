@@ -27,6 +27,7 @@ module.exports = {
       },
     ],
     rules: {
+      "indent": ["error", 4],
       '@typescript-eslint/no-explicit-any': 'error',
       'comma-dangle': ['error', 'always-multiline'],
       'react/jsx-no-target-blank': 'off',

@@ -16,17 +16,17 @@ const store = createStore(reducers, composeEnhancers(
     applyMiddleware(thunk),
 ))
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <ThemeModeProvider>
-        <ShowNumbersProvider>
-            <ShowNamesProvider>
-              <SubPageProvider>
-                <App />
-              </SubPageProvider>
-            </ShowNamesProvider>
-          </ShowNumbersProvider>
-        </ThemeModeProvider>
-    </Provider>
-  </React.StrictMode>,
+    <React.StrictMode>
+        <Provider store={store}>
+            <ThemeModeProvider>
+                <ShowNumbersProvider>
+                    <ShowNamesProvider>
+                        <SubPageProvider>
+                            <App />
+                        </SubPageProvider>
+                    </ShowNamesProvider>
+                </ShowNumbersProvider>
+            </ThemeModeProvider>
+        </Provider>
+    </React.StrictMode>,
 )

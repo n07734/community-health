@@ -111,26 +111,26 @@ const PrefetchedOptions = (props: PrefetchedOptionsProps) => {
                         {
                             showAllReports
                                 && <>
-                                <P>
+                                    <P>
                                     Repository reports
-                                </P>
-                                {
-                                    preFetchedRepos
-                                        .map(preFetchButton)
-                                }
-                                <P>
+                                    </P>
+                                    {
+                                        preFetchedRepos
+                                            .map(preFetchButton)
+                                    }
+                                    <P>
                                     Org reports
-                                </P>
-                                {
-                                    preFetchedOrgs
-                                        .map(preFetchButton)
-                                }
-                                <P>Team reports</P>
-                                {
-                                    preFetchedTeams
-                                        .map(preFetchButton)
-                                }
-                            </>
+                                    </P>
+                                    {
+                                        preFetchedOrgs
+                                            .map(preFetchButton)
+                                    }
+                                    <P>Team reports</P>
+                                    {
+                                        preFetchedTeams
+                                            .map(preFetchButton)
+                                    }
+                                </>
                         }
                         {
                             error
@@ -141,14 +141,14 @@ const PrefetchedOptions = (props: PrefetchedOptionsProps) => {
                         }
                     </>
                 }
-                    <Button
-                        value={showAllReports ? 'Hide other reports' : 'Show more OSS reports...'}
-                        color={showAllReports ? 'primary' : 'secondary'}
-                        onClick={(e) => {
-                            e.preventDefault()
-                            setAllReports(!showAllReports)
-                        }}
-                    />
+                <Button
+                    value={showAllReports ? 'Hide other reports' : 'Show more OSS reports...'}
+                    color={showAllReports ? 'primary' : 'secondary'}
+                    onClick={(e) => {
+                        e.preventDefault()
+                        setAllReports(!showAllReports)
+                    }}
+                />
             </div>
     )
 }

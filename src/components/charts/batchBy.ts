@@ -4,9 +4,9 @@ import  {
     getWeek,
     getDay,
     differenceInDays,
- } from 'date-fns'
+} from 'date-fns'
 
- const isNewDay = (prev: string, current: string) => {
+const isNewDay = (prev: string, current: string) => {
     const prevItemsDay = prev && getDay(new Date(prev)) + 1
     const currentItemsDay = current && getDay(new Date(current)) + 1
 
@@ -139,7 +139,7 @@ const batchByData = <T extends { mergedAt: string }>(data: T[] = []) => {
             !current.maxPoints || (Math.abs(next.maxPoints - 15) < Math.abs(current.maxPoints - 15))
                 ? next
                 : current
-            , {} as BatchTypePointCount)
+        , {} as BatchTypePointCount)
 
     return batchByType('mergedAt', batchType, data)
 }

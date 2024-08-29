@@ -23,14 +23,14 @@ const SelectUser = ({
     setPlayerId,
     players = [],
 }: SelectUserProps) => <Select
-        value={player}
-        style={{
-            color,
-            fontSize: '2rem',
-        }}
-        onChange={(e:SelectChangeEvent) => setPlayerId((e.target as HTMLSelectElement).value)}
-        inputProps={{ 'aria-label': 'Select a user' }}
-    >
+    value={player}
+    style={{
+        color,
+        fontSize: '2rem',
+    }}
+    onChange={(e:SelectChangeEvent) => setPlayerId((e.target as HTMLSelectElement).value)}
+    inputProps={{ 'aria-label': 'Select a user' }}
+>
     {
         players
             .filter(({ author }) => author !== otherPlayer)

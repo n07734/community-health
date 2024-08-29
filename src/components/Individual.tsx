@@ -116,7 +116,7 @@ const Individual = ({
         <ReportDescription />
         <Paper>
             <GraphsWrap>
-            <div className={classes.barsWrap}>
+                <div className={classes.barsWrap}>
                     <Bar
                         data={barData}
                         indexBy="name"
