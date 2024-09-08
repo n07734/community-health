@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { EventInfo, PullRequest, Issue } from './FormattedData'
-import { AmountOfData, SortDirection } from './Querys'
+import { AmountOfData, SortDirection } from './Queries'
 
 export type AnyForNow = any
 export type AnyForLib = any

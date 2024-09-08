@@ -1,4 +1,4 @@
-import {Review, Comment} from './Querys'
+import {Review, Comment} from './Queries'
 
 export type RawDate = 'createdAt' | 'closedAt' | 'date'
 

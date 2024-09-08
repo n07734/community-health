@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { PullRequest } from './FormattedData'
 import { AllowedColors } from './Components'
+import { UserData } from './State'
 
 type LineDataKey =
     | 'commentSentimentScore'
@@ -24,42 +25,52 @@ type IssuesDataKey =
 
 type CustomDataKey =
     | 'growth'
+    | 'value'
 
 export type CustomLineDataKey = LineDataKey | CustomDataKey | IssuesDataKey
 
-export type LineData = GraphIssue & PullRequest
+export type LineData = BugIssue & IssueIssue & PullRequest & AuthorItem & UserData
 
 export type LineDataKeys = keyof LineData
 
 export type LineInfo = {
     label: string
-    color: AllowedColors
-    data: LineData[]
+    color: AllowedColors | string
+    data?: LineData[]
     filterForKey?: boolean
     groupMath?: GroupMath
     dataKey: LineDataKeys
-    lineStyles?: any
+    lineStyles?: Record<string, number | string>
     yMax?: number
 }
 
 export type Lines = {
     lines: LineInfo[]
-    xAxis: 'left' | 'right'
-    data: LineData[]
+    xAxis?: 'left' | 'right'
+    data?: LineData[]
 }
 
-export type GraphIssue = {
+export type GraphIssue = BugIssue | IssueIssue
+
+export type BugIssue = {
     bug: number;
     mergedAt: string;
-} | {
+}
+
+export type IssueIssue = {
     issue: number;
+    mergedAt: string;
+}
+
+export type AuthorItem = {
+    value: number;
     mergedAt: string;
 }
 
 
 export type LineForGraph = {
     id: string
-    color: AllowedColors
+    color: AllowedColors | string
     data: LinePlot[]
 }
 
@@ -77,8 +88,8 @@ export type GroupMathCalculation = {
     teamDistribution: (arg:CalculationArgs) => number
     trimmedAverage: (arg:CalculationArgs) => number
     percentWith: (arg:CalculationArgs) => number
-    growth: (arg:{ filteredBatch: PullRequest[] }) => number
-    averagePerDev: (arg:{ filteredBatch: PullRequest[] }) => number
+    growth: (arg:{ filteredBatch: LineData[] }) => number
+    averagePerDev: (arg:{ filteredBatch: LineData[] }) => number
 }
 
 export type GroupMath = keyof GroupMathCalculation
@@ -129,13 +140,12 @@ export type ColumnKeys =
     | 'growth'
     | 'repo'
     | 'isBug'
+    | 'id'
 
 export type TableData = {
-    [key in ColumnKeys]: string | number | boolean
+    [key in ColumnKeys]?: string | number | boolean
 }
 
 export type BarData = {
-    author: string
-    name: string } & {
-    [key: string]: number
+    [key: string]: number | string
 }

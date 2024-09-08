@@ -12,7 +12,7 @@ import {
 } from 'date-fns'
 import Sentiment from 'sentiment'
 import { EventInfo, Issue, PullRequest } from '../types/FormattedData'
-import { Comment, Review, SortDirection } from '../types/Querys'
+import { Comment, Review, SortDirection } from '../types/Queries'
 import { FetchInfo } from '../types/State'
 import { DateKeys, RawDataItem, RawDataPRSearchResult, RawDataResult, RawPullRequest } from '../types/RawData'
 

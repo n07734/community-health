@@ -17,7 +17,7 @@ import {
 import { isAfter, isBefore } from 'date-fns'
 import { AnyAction, Dispatch } from 'redux'
 import { FetchInfo, ReportType, AllState, AnyForNow } from '../types/State'
-import { AmountOfData } from '../types/Querys'
+import { AmountOfData } from '../types/Queries'
 import { AnyObject, Users } from '../types/Components'
 
 import api from '../api/api'
