@@ -1,31 +1,34 @@
 
 import { connect } from 'react-redux'
-import { withStyles, useTheme, CSSProperties } from '@mui/styles'
-import { Theme } from '@mui/material/styles'
 
-import { P } from './shared/StyledTags'
+import { EventInfo, PullRequest } from '@/types/FormattedData'
+import { UserData } from '@/types/State'
+import { Lines, ColumnKeys } from '@/types/Graphs'
+import { AllowedColors } from '@/types/Components'
+
+import { useTheme } from '@/components/ThemeProvider'
+import { graphColors } from '@/components/colors'
+
 import Button from './shared/Button'
 import Paper from './shared/Paper'
 import Line from './charts/Line'
 import StatBars from './charts/StatBars'
+
 import { chunkData } from './charts/lineHelpers'
-import { useSubPage } from '../state/SubPageProvider'
-import usersAverageData from '../format/usersAverageData'
-import { EventInfo, PullRequest } from '../types/FormattedData'
-import { UserData } from '../types/State'
+import { useSubPage } from '@/state/SubPageProvider'
+import usersAverageData from '@/format/usersAverageData'
+import { colors } from '@/components/colors'
 
 const userGraphs = (
     pullRequests:PullRequest[] = [],
     releases:EventInfo[] = [],
     userName:string,
-    theme:Theme,
+    colorA: AllowedColors,
+    colorB: AllowedColors,
 ) => {
     const peerPrData:PullRequest[] = []
     const userPrData:PullRequest[] = []
     const reposSet = new Set<string>()
-    const colorA = theme.palette.secondary.main
-    const colorB = theme.palette.primary.main
-    const colorList = theme.palette.colorList
 
     pullRequests
         .forEach((item) => {
@@ -49,7 +52,7 @@ const userGraphs = (
         .forEach((repo, i) => {
             repoLines.push({
                 label: repo,
-                color: colorList[i % colorList.length],
+                color: colors[i % colors.length],
                 groupMath: 'count',
                 filterForKey: true,
                 dataKey: `repo-${repo}`,
@@ -68,32 +71,32 @@ const userGraphs = (
                 lines: [
                     {
                         label: `${userName} received`,
-                        color: colorList[2],
+                        color: colors[2],
                         dataKey: 'commentSentimentScore',
                         data: userPrData,
                     },
                     {
                         label: `${userName} given`,
-                        color: colorList[1],
+                        color: colors[1],
                         dataKey: 'commentAuthorSentimentScore',
                         data: userPrData,
                     },
                     {
                         label: 'Peer received',
-                        color: colorList[4],
+                        color: colors[4],
                         dataKey: 'commentSentimentScore',
                         data: peerPrData,
                     },
                     {
                         label: 'Peer given',
-                        color: colorList[5],
+                        color: colors[5],
                         dataKey: 'commentAuthorSentimentScore',
                         data: peerPrData,
                     },
                 ],
                 xAxis: 'left',
-            }],
-            tableKeys:['commentSentimentScore', 'commentAuthorSentimentScore'],
+            }] as Lines[],
+            tableKeys:['commentSentimentScore', 'commentAuthorSentimentScore'] as ColumnKeys[],
             tableData: chunkyData,
         },
         {
@@ -114,8 +117,8 @@ const userGraphs = (
                     },
                 ],
                 xAxis: 'left',
-            }],
-            tableKeys:['prSize'],
+            }] as Lines[],
+            tableKeys:['prSize'] as ColumnKeys[],
             tableData: chunkyData,
         },
         {
@@ -136,13 +139,9 @@ const userGraphs = (
                     },
                 ],
                 xAxis: 'left',
-            }],
-            tableKeys:['age'],
+            }] as Lines[],
+            tableKeys:['age'] as ColumnKeys[],
             tableData: chunkyData,
-        },
-        {
-            dataKeys:['repo', 'author'],
-            data: chunkyData,
         },
     ]
 }
@@ -151,18 +150,18 @@ type UserViewProps = {
     pullRequests: PullRequest[]
     releases: EventInfo[]
     usersData: UserData[]
-    classes: Record<string, string>
 }
 const UserView = ({
     pullRequests = [],
     releases = [],
     usersData = [],
-    classes,
 }:UserViewProps) => {
-    const theme:Theme = useTheme();
     const { userPage: user, clearUserPage } = useSubPage()
+    const { theme } = useTheme()
+    const colorA = graphColors[theme].secondary
+    const colorB = graphColors[theme].primary
 
-    const graphs = userGraphs(pullRequests, releases, user, theme)
+    const graphs = userGraphs(pullRequests, releases, user, colorA, colorB)
     const [userData, averagedData, userCount] = usersAverageData(usersData, user)
 
     const usersName = userData.name || user
@@ -170,7 +169,7 @@ const UserView = ({
     return (
         <Paper>
             <Button
-                className={classes.fill}
+                className="w-full"
                 value="Back to main view"
                 color="secondary"
                 onClick={(e) => {
@@ -179,7 +178,7 @@ const UserView = ({
                     window && window.scrollTo(0, 0)
                 }} />
 
-            <P className={classes.copy}>A collection metrics showing {usersName}'s data and average data from the top {userCount} peers</P>
+            <p className="w-full text-center">A collection metrics showing {usersName}'s data and average data from the top {userCount} peers</p>
             <StatBars player1={userData} player2={averagedData} />
             {
                 graphs.length
@@ -190,7 +189,7 @@ const UserView = ({
             }
 
             <Button
-                className={classes.fill}
+                className="w-full"
                 value="Back to main view"
                 color="secondary"
                 onClick={(e) => {
@@ -214,20 +213,4 @@ const mapStateToProps = (state:State) => ({
     usersData: state.usersData,
 })
 
-type TagStyles = {
-    [key: string]: CSSProperties
-}
-const styles = (theme:Theme):TagStyles => ({
-    fill: {
-        width: '100%',
-    },
-    copy: {
-        width: '100%',
-        textAlign: 'center',
-    },
-    topButton: {
-        marginLeft: theme.mySpacing.y.large,
-    },
-})
-
-export default connect(mapStateToProps)(withStyles(styles)(UserView))
+export default connect(mapStateToProps)(UserView)

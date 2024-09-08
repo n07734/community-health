@@ -1,5 +1,5 @@
 import { mergeDeepRight, prop } from 'ramda'
-import { ApiInfo, GetUsersData, UsersPaginations, UsersQueryArgs } from '../types/Querys'
+import { ApiInfo, GetUsersData, UsersPaginations, UsersQueryArgs } from '../types/Queries'
 import { RawDataResult } from '../types/RawData'
 
 import { userQuery } from './queries'

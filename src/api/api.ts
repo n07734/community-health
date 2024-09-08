@@ -11,7 +11,7 @@ import {
     F as alwaysFalse,
 } from 'ramda'
 import { compose } from 'redux'
-import { AmountOfData, ApiInfo, ApiResponse, ApiResult, ApiResults, ApiFetchInfo } from '../types/Querys'
+import { AmountOfData, ApiInfo, ApiResponse, ApiResult, ApiResults, ApiFetchInfo } from '../types/Queries'
 
 import types from '../state/types'
 

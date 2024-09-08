@@ -1,22 +1,22 @@
 
-import { TextField } from '@mui/material'
-import { withStyles } from '@mui/styles'
 import { pathOr } from 'ramda'
 
-import styles from './styles'
+import { AnyForNow } from '@/types/State'
+
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+
 import {
     inputLabels,
     formValue,
     validate,
 } from './utils'
-import { AnyForNow } from '../../../types/State'
 
 type InputError = {
     [key: string]: boolean
 }
 type TextInputProps = {
     type: string
-    classes: Record<string, string>
     className?: string
     inputError?: InputError
     setInputError?: (arg: InputError) => void
@@ -26,7 +26,6 @@ type TextInputProps = {
 const TextInput = (props:TextInputProps) => {
     const {
         type,
-        classes,
         className = '',
         inputError = {},
         setInputError = () => {},
@@ -34,41 +33,46 @@ const TextInput = (props:TextInputProps) => {
         setValue,
     } = props
 
-    return <TextField
-        label={inputLabels[type]}
-        className={`${className} ${classes.child}`}
-        error={inputError[type] || false}
-        value={formValue(formInfo, type)}
-        variant={'outlined'}
-        margin={'normal'}
-        inputProps={{ 'data-qa-id': `input-${type}` }}
-        helperText={inputError[type] && 'Invalid input'}
-        onBlur={(event:React.FocusEvent<HTMLInputElement>) => {
-            const value = pathOr('', ['target', 'value'], event)
+    const errorClass = inputError[type]
+        ? 'border-red-500'
+        : ''
+    return <Label className="mb-2">
+        <p className="mb-1 block">
+            {inputLabels[type]}
+        </p>
+        <Input
+            className={`${className} m-0 w-full ${errorClass}`}
+            value={formValue(formInfo, type)}
+            onBlur={(event:React.FocusEvent<HTMLInputElement>) => {
+                const value = pathOr('', ['target', 'value'], event)
 
-            const isValid = validate({ key: type, value })
-            setInputError({
-                ...inputError,
-                [type]: isValid ? false : true,
-            })
+                const isValid = validate({ key: type, value })
+                setInputError({
+                    ...inputError,
+                    [type]: isValid ? false : true,
+                })
 
-            isValid
+                isValid
                 && setValue(type, value)
-        }}
-        onChange={(event:React.ChangeEvent<HTMLInputElement>) => {
-            const value = pathOr('', ['target', 'value'], event)
-            setInputError({
+            }}
+            onChange={(event:React.ChangeEvent<HTMLInputElement>) => {
+                const value = pathOr('', ['target', 'value'], event)
+                setInputError({
+                    ...inputError,
+                    [type]: false,
+                })
+
+                setValue(type, value)
+            }}
+            onFocus={() => setInputError({
                 ...inputError,
                 [type]: false,
-            })
-
-            setValue(type, value)
-        }}
-        onFocus={() => setInputError({
-            ...inputError,
-            [type]: false,
-        })}
-    />
+            })}
+        />
+        <p className="text-red-500 text-xs">
+            {inputError[type] && 'Invalid input'}
+        </p>
+    </Label>
 }
 
-export default withStyles(styles)(TextInput)
+export default TextInput

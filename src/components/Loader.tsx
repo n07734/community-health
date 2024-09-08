@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { withStyles, CSSProperties } from '@mui/styles'
 import { Theme } from '@mui/material/styles'
 import LinearProgress from '@mui/material/LinearProgress'
-import { H, P } from './shared/StyledTags'
 import differenceInDays from 'date-fns/differenceInDays'
 import {
     always,
@@ -142,54 +141,54 @@ const Loader = ({
                 {
                     isTeamSearch
                         && <>
-                            <H level={2}>
+                            <h2>
                                 Loading {usersPosition + 1} of {userIds.length} {userIds.length === 1 ? 'user' : 'users'}
-                            </H>
+                            </h2>
                             <LinearProgress className={classes.dashed} variant="determinate" value={loadedUserPercent} valueBuffer={oneUserPercent + loadedUserPercent}/>
                         </>
                 }
                 {
-                    daysRemainingText && <H level={2}>
+                    daysRemainingText && <h2>
                         {daysRemainingText}
-                    </H>
+                    </h2>
                 }
                 {
                     savedReportName
-                        && <H level={2}>
+                        && <h2>
                             Fetching {savedReportName}
-                        </H>
+                        </h2>
                 }
                 <LinearProgress className={classes.dashed} variant="determinate" value={loadedPercent} valueBuffer={oneDayPercent + loadedPercent}/>
                 {
                     repoCount > 0
-                        && <H level={2}>
+                        && <h2>
                             {repoCount} Repos
-                        </H>
+                        </h2>
                 }
                 {
                     !savedReportName
                         && !isTeamSearch
                         && <>
-                            <H level={2}>
+                            <h2>
                                 {prCount} Pull Requests
-                            </H>
-                            <H level={2}>
+                            </h2>
+                            <h2>
                                 {issueCount} Issues
-                            </H>
+                            </h2>
                         </>
                 }
                 {
                     reviewCount > 0
-                        && <H level={2}>
+                        && <h2>
                             {reviewCount} Reviews
-                        </H>
+                        </h2>
                 }
                 {
                     isTeamSearch
                         && loadedUsers.length > 0
-                        && <P>
+                        && <p>
                             Loaded users: {loadedUsers.join(', ')}
-                        </P>
+                        </p>
                 }
             </div>
         </div>

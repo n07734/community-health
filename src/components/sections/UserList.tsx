@@ -1,29 +1,28 @@
 
 import { connect } from 'react-redux'
-import { withStyles, CSSProperties } from '@mui/styles'
 
-import { useShowNames } from '../../state/ShowNamesProvider'
-import Paper from '../shared/Paper'
-import Button from '../shared/Button'
-import { H } from '../shared/StyledTags'
-import { useSubPage } from '../../state/SubPageProvider'
-import { UserData } from '../../types/State'
+
+import { UserData } from '@/types/State'
+
+import { useShowNames } from '@/state/ShowNamesProvider'
+import { useSubPage } from '@/state/SubPageProvider'
+
+import Paper from '@/components/shared/Paper'
+import Button from '@/components/shared/Button'
 
 type UserListProps = {
     usersData: UserData[]
-    classes: Record<string, string>
 }
 const UserList = ({
     usersData = [],
-    classes,
-}:UserListProps) => {
+}: UserListProps) => {
     const { showNames } = useShowNames()
     const { togglePvPPage, setUserPage } = useSubPage()
 
     return usersData.length > 0 && (<>
-        <Paper className="justify">
+        <Paper className="justify-between">
             <Button
-                className={classes.fullW}
+                className="w-full"
                 value="PvP arena"
                 color="primary"
                 onClick={(e) => {
@@ -32,14 +31,15 @@ const UserList = ({
                     window && window.scrollTo(0, 0)
                 }}
             />
-            <H level={2} className={classes.fullW}>
+            <h3 className="w-full">
                 User pages
-            </H>
-            <div className={classes.allButons}>
+            </h3>
+            <div className="flex flex-wrap justify-between">
                 {
                     usersData
                         .map(({ author, user }, i) => (
                             <Button
+                                className='flex-grow'
                                 value={showNames ? author : 'Spartacus'}
                                 key={`${i}`}
                                 color="secondary"
@@ -56,23 +56,6 @@ const UserList = ({
     </>)
 }
 
-type TagStyles = {
-    [key: string]: CSSProperties
-}
-const styles = ():TagStyles => ({
-    'allButons': {
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-between',
-        '& button': {
-            flexGrow: 1,
-        },
-    },
-    'fullW': {
-        width: '100%',
-    },
-})
-
 type State = {
     usersData: UserData[]
 }
@@ -80,4 +63,4 @@ const mapStateToProps = (state:State) => ({
     usersData: state.usersData,
 })
 
-export default connect(mapStateToProps)(withStyles(styles)(UserList))
+export default connect(mapStateToProps)(UserList)

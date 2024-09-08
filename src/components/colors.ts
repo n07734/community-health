@@ -15,7 +15,33 @@ const colorsRGBValues: AllowedRGB = {
     '#D14B41': '209, 75, 65',
 }
 
+type GraphColors = {
+    dark: {
+        primary: AllowedColors
+        secondary: AllowedColors
+        tertiary: string
+    }
+    light: {
+        primary: AllowedColors
+        secondary: AllowedColors
+        tertiary: string
+    }
+}
+const graphColors:GraphColors = {
+    dark: {
+        primary: '#E82573',
+        secondary: '#1F77B4',
+        tertiary: '#E2E2E2',
+    },
+    light: {
+        primary: '#E82573',
+        secondary: '#1F77B4',
+        tertiary: '#777',
+    },
+}
+
 export {
     colors,
     colorsRGBValues,
+    graphColors,
 }

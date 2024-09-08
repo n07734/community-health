@@ -1,19 +1,21 @@
 
 import { connect } from 'react-redux'
-import { withStyles, useTheme, CSSProperties } from '@mui/styles'
-import { Theme } from '@mui/material/styles'
 
-import { useShowNames } from '../../state/ShowNamesProvider'
-import Paper from '../shared/Paper'
-import ChartDescription from '../shared/ChartDescription'
-import Radar from '../charts/Radar'
-import Button from '../shared/Button'
-import formatRadarData from '../../format/radarData'
-import { sortByKeys } from '../../utils'
-import { useSubPage } from '../../state/SubPageProvider'
-import { UsersInfo, UserData, FetchInfo, UserDataNumbersKeys } from '../../types/State'
-import { RadarData } from '../../types/Components'
+import { UsersInfo, UserData, FetchInfo, UserDataNumbersKeys } from '@/types/State'
+import { RadarData } from '@/types/Components'
 
+import { useTheme } from '@/components/ThemeProvider'
+import { useShowNames } from '@/state/ShowNamesProvider'
+import { useSubPage } from '@/state/SubPageProvider'
+
+import Paper from '@/components/shared/Paper'
+import ChartDescription from '@/components/shared/ChartDescription'
+import Radar from '@/components/charts/Radar'
+import Button from '@/components/shared/Button'
+
+import formatRadarData from '@/format/radarData'
+import { sortByKeys } from '@/utils'
+import { graphColors } from '@/components/colors'
 
 const radialChartsContributions = ({
     maxValues = {},
@@ -83,19 +85,17 @@ type UserTrendsProps = {
     usersData: UserData[]
     userIds: string[]
     usersInfo: UsersInfo
-    classes: Record<string, string>
 }
 const UserTrends = ({
     usersData = [],
     userIds = [],
     usersInfo = {},
-    classes = {},
 }:UserTrendsProps) => {
-    const theme:Theme = useTheme();
+    const { theme } = useTheme()
     const { togglePvPPage, setUserPage } = useSubPage()
 
-    const colorA = theme.palette.secondary.main
-    const colorB = theme.palette.primary.main
+    const colorA = graphColors[theme].secondary
+    const colorB = graphColors[theme].primary
 
     const { showNames } = useShowNames()
 
@@ -108,7 +108,7 @@ const UserTrends = ({
         : 'Top contributors'
 
     return contributionsRadar.length > 0 && (
-        <Paper className={classes.row}>
+        <Paper className="flex flex-wrap flex-row justify-center">
             <ChartDescription title={title} />
             {
                 contributionsRadar
@@ -144,7 +144,7 @@ const UserTrends = ({
             }
             {
                 isTeamReport && <Button
-                    className={classes.fullW}
+                    className="w-full"
                     value="PvP arena"
                     color="primary"
                     onClick={(e) => {
@@ -168,19 +168,4 @@ const mapStateToProps = (state:State) => ({
     usersInfo: state.fetches.usersInfo,
 })
 
-type TagStyles = {
-    [key: string]: CSSProperties
-}
-const styles = ():TagStyles => ({
-    'fullW': {
-        width: '100%',
-    },
-    row: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        flexDirection: 'row',
-        justifyContent: 'center',
-    },
-})
-
-export default connect(mapStateToProps)(withStyles(styles)(UserTrends))
+export default connect(mapStateToProps)(UserTrends)

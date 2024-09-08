@@ -1,19 +1,19 @@
 import { useState } from 'react'
-import { withStyles, useTheme, CSSProperties } from '@mui/styles'
-import { Theme } from '@mui/material/styles'
+
 import {
     Select,
-    MenuItem,
-    RadioGroup,
-    Radio,
-    FormLabel,
-} from '@mui/material'
-import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
-import { CustomLineDataKey, Graph, GraphFormInfo, GraphLine, GraphOptions, GroupMath } from '../../types/Graphs';
-import { AllowedColors } from '../../types/Components';
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from '@/components/ui/select'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import { Label } from '@/components/ui/label'
 
-import { P } from '../shared/StyledTags'
-import Button from '../shared/Button'
+import { CustomLineDataKey, Graph, GraphFormInfo, GraphLine, GraphOptions, GroupMath } from '@/types/Graphs';
+import { colors } from '@/components/colors'
+import Button from '@/components/shared/Button'
 
 const defaultGroupMaths:GroupMath[] = [
     'average',
@@ -127,20 +127,26 @@ const mathWords = {
 }
 
 // eslint-disable-next-line react/display-name
-const addedLine = (removeLine:(a:CustomLineDataKey, b:GroupMath) => void, classes:Record<string, string>) => ({
+const addedLine = (removeLine:(a:CustomLineDataKey, b:GroupMath) => void) => ({
     color,
     label = '',
     dataKey,
     groupMath = 'average',
-}: GraphLine, i: number) => <div key={`${i}`}>
-    <P className={`${classes.savedLine} ${classes[color]}`}>{label}</P>
-    <RemoveCircleIcon
-        className={`${classes.remove} ${classes[color]}`}
+}: GraphLine, i: number) => <div key={`${i}`} style={{ color }} >
+    <p className="saved-line text-xl">{label}</p>
+    <svg
+        className="w-[22px] h-[22px] fill-current inline-block"
+        focusable="false"
+        aria-hidden="true"
+        viewBox="0 0 32 32"
+        data-qa-id="RemoveCircleIcon"
         onClick={event => {
             event.preventDefault()
             removeLine(dataKey, groupMath)
         }}
-    />
+    >
+        <path d="M15.5 3.5c-7.18 0-13 5.82-13 13s5.82 13 13 13c7.18 0 13-5.82 13-13s-5.82-13-13-13zM22 16.875c0 0.553-0.448 1-1 1h-11c-0.553 0-1-0.447-1-1v-1c0-0.552 0.447-1 1-1h11c0.552 0 1 0.448 1 1v1z"></path>
+    </svg>
 </div>
 
 const getActiveLines = (graphInfo:Graph) => [
@@ -212,17 +218,12 @@ type GraphUiProps = {
     graphInfo: Graph,
     setGraph: (graphs: Graph[]) => void,
     graphs: Graph[],
-    classes:Record<string, string>,
 }
 const GraphUi = ({
     graphInfo,
     setGraph = () => {},
     graphs = [],
-    classes = {},
 }: GraphUiProps) =>  {
-    const theme: Theme = useTheme();
-    const colors = theme.palette.colorList
-
     const nextDataKeyLine = getNextDataKeyLine(graphInfo)
     const [formInfo, setFormInfo] = useState({
         label: nextDataKeyLine?.label || 'Comments',
@@ -317,12 +318,11 @@ const GraphUi = ({
     const selectedLine = remainingLines.find(x => x.dataKey === formInfo.dataKey)
     const lineMaths = (selectedLine?.groupMaths || [])
         .filter(x => !/growth/.test(x))
-    return <div className={classes.graphForm}>
+    return <div className="w-full max-w-mw">
         {
-            remainingLines.length > 0 && <form className={classes.graphLine} onSubmit={handleSubmit}>
+            remainingLines.length > 0 && <form className="flex flex-wrap rounded-2xl justify-center paper pt-2 gap-4" onSubmit={handleSubmit}>
                 <Select
-                    onChange={(e) => {
-                        const value = e.target.value
+                    onValueChange={(value) => {
                         const line = remainingLines.find(x => x.dataKey === value) as GraphOptions
                         setValue({
                             dataKey: value,
@@ -331,169 +331,107 @@ const GraphUi = ({
                         })
 
                     }}
-                    variant="filled"
-                    value={formInfo.dataKey}
-                    inputProps={{ 'aria-label': 'choose a line' }}
+                    value={selectedLine?.dataKey}
                 >
-                    {
-                        remainingLines
-                            .map(({label, dataKey}) => <MenuItem key={`${dataKey}${label}`} value={dataKey} >
-                                {label}
-                            </MenuItem>)
-                    }
+                    <SelectTrigger className="w-auto">
+                        <SelectValue>
+                            {selectedLine?.label}
+                        </SelectValue>
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectGroup>
+                            {
+                                remainingLines
+                                    .map(({label, dataKey}) => <SelectItem key={`${selectedLine?.dataKey}${dataKey}${label}`} value={dataKey} >
+                                        {label}
+                                    </SelectItem>)
+                            }
+                        </SelectGroup>
+                    </SelectContent>
                 </Select>
                 {
                     lineMaths.length > 0 && <Select
-                        onChange={(e) => setValue({ groupMath: e.target.value })}
-                        variant="filled"
+                        onValueChange={(groupMath) => setValue({ groupMath })}
                         value={formInfo.groupMath}
-                        inputProps={{ 'aria-label': 'Choose a line calculation' }}
                     >
-                        {
-                            lineMaths
-                                .map((value) => <MenuItem key={`${formInfo.dataKey}${value}`} value={value} >
-                                    {
-                                        menuItemTextMap[value](formInfo)
-                                    }
-                                </MenuItem>)
-                        }
+                        <SelectTrigger className="w-auto">
+                            <SelectValue>
+                                {menuItemTextMap[formInfo.groupMath](formInfo)}
+                            </SelectValue>
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectGroup>
+                                {
+                                    lineMaths
+                                        .map((value) => <SelectItem key={`${formInfo.dataKey}${value}`} value={value} >
+                                            {
+                                                menuItemTextMap[value](formInfo)
+                                            }
+                                        </SelectItem>)
+                                }
+                            </SelectGroup>
+                        </SelectContent>
                     </Select>
                 }
                 <RadioGroup
-                    value={formInfo.lineSide}
-                    onChange={(e) => setValue({ lineSide: e.target.value })}
-                    row name="side"
+                    defaultValue={formInfo.lineSide}
+                    onValueChange={(lineSide) => setValue({ lineSide })}
                 >
-                    <FormLabel>Axis: Left<Radio name="side" value="left" /></FormLabel>
-                    <FormLabel>Right<Radio name="side" value="right" /></FormLabel>
+                    <div className="flex items-center space-x-2">
+                        <div className="flex items-center space-x-2">
+                            <RadioGroupItem value="left" id="r1" />
+                            <Label htmlFor="r1">Axis: Left</Label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                            <RadioGroupItem value="right" id="r2" />
+                            <Label htmlFor="r2">Right</Label>
+                        </div>
+                    </div>
                 </RadioGroup>
                 <Select
-                    onChange={(e) => setValue({ color: e.target.value })}
-                    variant="filled"
+                    onValueChange={(color) => setValue({ color })}
                     value={formInfo.color}
-                    inputProps={{ 'aria-label': 'Choose a color' }}
                 >
-                    {
-                        colors
-                            .map((color) => <MenuItem key={color} value={color} >
-                                <div style={{
-                                    backgroundColor: color,
-                                    width: '70px',
-                                    height: '10px',
-                                    marginTop: '5px',
-                                }}></div>
-                            </MenuItem>)
-                    }
+                    <SelectTrigger className="w-auto">
+                        <SelectValue placeholder={(<div style={{
+                            backgroundColor: formInfo.color,
+                            width: '70px',
+                            height: '10px',
+                        }}></div>)} />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectGroup>
+                            {
+                                colors
+                                    .map((color) => <SelectItem key={color} value={color} >
+                                        <div style={{
+                                            backgroundColor: color,
+                                            width: '70px',
+                                            height: '10px',
+                                        }}></div>
+                                    </SelectItem>)
+                            }
+                        </SelectGroup>
+                    </SelectContent>
                 </Select>
                 <Button value={"Add to graph"} color="primary" type='submit'/>
             </form>
         }
-        <div className={classes.customLines}>
+        <div className="custom-lines">
             <div>
                 {
                     (graphInfo.left || [])
-                        .map(addedLine(removeLine('left'), classes))
+                        .map(addedLine(removeLine('left')))
                 }
             </div>
             <div>
                 {
                     (graphInfo.right || [])
-                        .map(addedLine(removeLine('right'), classes))
+                        .map(addedLine(removeLine('right')))
                 }
             </div>
         </div>
     </div>
 }
 
-type TagStyles = {
-    [key: string]: CSSProperties
-}
-const styles = (theme: Theme):TagStyles => {
-    type ColorClasses = {
-        [key in AllowedColors]: {
-            [key: string]: AllowedColors
-        }
-    }
-    const colorClasses = {} as ColorClasses
-    theme.palette.colorList
-        .forEach((color: AllowedColors) => {
-            colorClasses[color] = {color: color, borderColor: color}
-        })
-    return ({
-        graphLine: {
-            display: 'flex',
-            flexWrap: 'wrap',
-            borderRadius: '15px',
-            paddingTop:' 0.5em',
-            justifyContent: 'center',
-            backgroundImage: theme.palette.customGraphGradient,
-            '& p': {
-                margin: '0',
-            },
-            '& > *': {
-                marginRight: '20px',
-                marginBottom: '15px',
-            },
-            '& .MuiFormLabel-root': {
-                color: theme.palette.mainCopy.color,
-            },
-        },
-        graphForm: {
-            width: '100%',
-            maxWidth: '1200px',
-            '& .MuiInputBase-input': {
-                paddingTop: 0,
-                paddingLeft: 0,
-                paddingRight: 0,
-                paddingBottom: 0,
-            },
-        },
-        remove: {
-            fontSize: '22px',
-            marginLeft: '5px',
-            marginBottom: '-5px',
-        },
-        savedLine: {
-            fontSize: '1.3em',
-            borderBottom: `solid 2px`,
-            display: 'inline-block',
-            lineHeight: '2rem',
-            position: 'relative',
-            '&:before': {
-                lineHeight: '0',
-                content: '"•"',
-                position: 'absolute',
-                bottom: '-1px',
-                left: '-3px',
-            },
-            '&:after': {
-                lineHeight: '0',
-                content: '"•"',
-                position: 'absolute',
-                bottom: '-1px',
-                right: '-3px',
-            },
-        },
-        customLines: {
-            width: '100%',
-            display: 'flex',
-            flexWrap: 'nowrap',
-            justifyContent: 'space-between',
-            '& > div': {
-                columnGap: '20px',
-                display: 'flex',
-                flexWrap: 'wrap',
-                maxWidth: '50%',
-                justifyContent: 'flex-start',
-                flexDirection: 'column',
-            },
-            '& > div:nth-child(2)': {
-                justifyContent: 'flex-end',
-                textAlign: 'right',
-            },
-        },
-        ...colorClasses,
-    })
-}
-
-export default withStyles(styles)(GraphUi)
+export default GraphUi

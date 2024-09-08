@@ -1,16 +1,16 @@
 import { Fragment } from 'react'
-import { makeStyles } from '@mui/styles'
-import { GroupMath } from '../../types/Graphs'
+import { GroupMath, LineInfo } from '../../types/Graphs'
 
-import { H } from '../shared/StyledTags'
-import { AllowedColors } from '../../types/Components'
-
-type Item = {
-    label: string
-    groupMath?: string
-    color: AllowedColors
-}
-const ChartHeading = ({ className = '', items = [], text = '', type }: { className?: string, items?: Item[] , text?: string, type?: 'line' }) => {
+const ChartHeading = ({
+    className = '',
+    items = [],
+    text = '',
+    type,
+}: { className?: string,
+    items?: LineInfo[] ,
+    text?: string,
+    type?: 'line',
+}) => {
     const prepend = (i: number) => {
         const maxIndex = items.length - 1
 
@@ -32,42 +32,21 @@ const ChartHeading = ({ className = '', items = [], text = '', type }: { classNa
         return valueMap[valueKey]
     }
 
-    const useStyles = makeStyles(() => ({
-        root: (props: { color: string }) => ({
-            color: props.color,
-            borderBottom: `solid 2px ${props.color}`,
-            display: 'inline-block',
-            lineHeight: '2rem',
-            position: 'relative',
-            '&:before': {
-                lineHeight: '0',
-                content: '"•"',
-                position: 'absolute',
-                bottom: '-1px',
-                left: '-3px',
-            },
-            '&:after': {
-                lineHeight: '0',
-                content: '"•"',
-                position: 'absolute',
-                bottom: '-1px',
-                right: '-3px',
-            },
-        }),
-    }))
-
-    const LineItem = ({ color, label }: Item) => {
-        const classes = useStyles({ color });
+    const LineItem = ({ color, label }: LineInfo) => {
         return (
             <span
-                className={classes.root}
+                style={{
+                    color,
+                    borderBottomColor: color,
+                }}
+                className="saved-line"
             >
                 {label}
             </span>
         )
     }
 
-    const Item = ({ color, label }: Item) => (
+    const Item = ({ color, label }: LineInfo) => (
         <span
             style={{ color }}
         >
@@ -102,7 +81,7 @@ const ChartHeading = ({ className = '', items = [], text = '', type }: { classNa
         || '' as GroupMath | ''
 
     return (
-        <H level={3} className={className}>
+        <h4 className={className}>
             {`${text} `}
             {singleMathType && `${mathTypeMap[singleMathType]} `}
             {
@@ -116,7 +95,7 @@ const ChartHeading = ({ className = '', items = [], text = '', type }: { classNa
                         }
                     </Fragment>)
             }
-        </H>
+        </h4>
     )
 }
 

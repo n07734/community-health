@@ -5,7 +5,6 @@ import { AnyForLib, AnyForNow, RepoInfo } from '../../../types/State'
 
 import Button from '../../shared/Button'
 import Message, { ErrorInputs } from '../Message'
-import { P, A } from '../../shared/StyledTags'
 import styles from './styles'
 import { getPreFetched } from '../../../state/actions'
 import { useSubPage } from '../../../state/SubPageProvider'
@@ -94,13 +93,13 @@ const PrefetchedOptions = (props: PrefetchedOptionsProps) => {
                         .map(preFetchButton)
                 }
                 <div>
-                    <P><A href="https://2023.stateofjs.com/en-US/libraries/#tier_list">StateOfJS 23</A> S tier list</P>
+                    <p><a className="text-primary" href="https://2023.stateofjs.com/en-US/libraries/#tier_list">StateOfJS 23</a> S tier list</p>
                     {
                         preFetchedSRank23
                             .map(preFetchButton)
                     }
                 </div>
-                <P>Other reports</P>
+                <p>Other reports</p>
 
                 {
                     myPreFetchedReports.length === 0 && <>
@@ -111,21 +110,17 @@ const PrefetchedOptions = (props: PrefetchedOptionsProps) => {
                         {
                             showAllReports
                                 && <>
-                                    <P>
-                                    Repository reports
-                                    </P>
+                                    <p>Repository reports</p>
                                     {
                                         preFetchedRepos
                                             .map(preFetchButton)
                                     }
-                                    <P>
-                                    Org reports
-                                    </P>
+                                    <p>Org reports</p>
                                     {
                                         preFetchedOrgs
                                             .map(preFetchButton)
                                     }
-                                    <P>Team reports</P>
+                                    <p>Team reports</p>
                                     {
                                         preFetchedTeams
                                             .map(preFetchButton)

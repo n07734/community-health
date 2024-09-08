@@ -1,31 +1,30 @@
 
 import { ResponsiveChord as NivoChord } from '@nivo/chord'
-import { useTheme } from '@mui/styles'
-import { Theme } from '@mui/material/styles'
-import { AnyForLib, UserData, UserDataByUserKeys } from '../../types/State'
 
-import { useShowNumbers } from '../../state/ShowNumbersProvider'
-import { useShowNames } from '../../state/ShowNamesProvider'
+import { AnyForLib, UserData, UserDataByUserKeys } from '@/types/State'
+import { useTheme } from "@/components/ThemeProvider"
+import { chartStyles } from '@/components/charts/chartStyles'
+import { colors } from '@/components/colors'
+import { useShowNumbers } from '@/state/ShowNumbersProvider'
+import { useShowNames } from '@/state/ShowNamesProvider'
 import ChartHeading from './ChartHeading'
-import formatChordData from '../../format/chordData'
-import styledCharts from './styledCharts'
+import formatChordData from '@/format/chordData'
 
 type ChordProps = {
     title: string
     data: UserData[]
     preSorted: boolean
     dataKey: UserDataByUserKeys
-    classes: Record<string, string>
 }
-const Chord = styledCharts(({
+const Chord = ({
     title,
     data = [],
     preSorted = false,
     dataKey,
-    classes,
 }:ChordProps) => {
-    const theme:Theme = useTheme();
-    const colors = theme.palette.colorList
+    const { theme } = useTheme()
+    const styles = chartStyles(theme)
+
     const { showNumbers } = useShowNumbers()
     const { showNames } = useShowNames()
 
@@ -41,8 +40,8 @@ const Chord = styledCharts(({
 
     return hasMatrixData(matrix) && (
         <div>
-            <ChartHeading text={title} className={classes.centerHeading} />
-            <div className={classes.chordWrap}>
+            <ChartHeading text={title} className="text-center" />
+            <div className="chord-wrap">
                 <NivoChord
                     label="id"
                     data={matrix}
@@ -66,11 +65,11 @@ const Chord = styledCharts(({
                     inactiveRibbonOpacity={0.25}
                     animate={false}
                     motionConfig="stiff"
-                    theme={theme.charts as AnyForLib}
+                    theme={styles as AnyForLib}
                 />
             </div>
         </div>
     )
-})
+}
 
 export default Chord

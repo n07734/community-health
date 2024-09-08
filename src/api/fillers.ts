@@ -1,6 +1,6 @@
 import { pathOr } from 'ramda'
 import batch from './batch'
-import { FilterType, MakeQuery, OrgQueryResult, TeamIDsQueryResult } from '../types/Querys'
+import { FilterType, MakeQuery, OrgQueryResult, TeamIDsQueryResult } from '../types/Queries'
 import { RawPullRequest, RawDataResult } from '../types/RawData'
 
 import {

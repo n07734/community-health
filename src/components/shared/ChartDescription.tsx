@@ -1,33 +1,32 @@
 import { useState } from 'react'
-import Collapse from '@mui/material/Collapse'
-import { withStyles, CSSProperties } from '@mui/styles'
-import { Theme } from '@mui/material/styles'
-
-import { H, P } from './StyledTags'
+import {
+    Collapsible,
+    CollapsibleContent,
+} from '@/components/ui/collapsible'
 
 type ExpandLinkProps = {
-    classes: Record<string, string>
-    setCount: (toggle: boolean) => void
-    toggle: boolean
+    setIsOpen: (isOpen: boolean) => void
+    isOpen: boolean
     expandText: string
     qaId?: string
+    className?: string
 }
 const ExpandLink = ({
-    classes,
-    setCount,
-    toggle,
+    setIsOpen,
+    isOpen,
     expandText,
     qaId,
+    className,
 }: ExpandLinkProps) =>  <a
-    className={classes.link}
+    className={`text-base text-primary ${className}`}
     href="#desc"
     {...(qaId && { 'data-qa-id': qaId })}
     onClick={(e) => {
         e.preventDefault()
-        setCount(!toggle)
+        setIsOpen(!isOpen)
     }}>
     {
-        toggle
+        isOpen
             ? 'hide'
             : expandText
     }
@@ -39,7 +38,6 @@ type ChartDescriptionProps = {
     children?: React.ReactNode
     expandText?: string
     className?: string
-    classes: Record<string, string>
     expandQaId?: string
 }
 const ChartDescription = ({
@@ -48,81 +46,53 @@ const ChartDescription = ({
     children,
     expandText = 'info',
     className = '',
-    classes,
     expandQaId,
 }: ChartDescriptionProps) => {
-    const [toggle, setCount] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
 
     return (
-        <div className={`${classes.root} ${className} ${!intro ? '' : classes.rootRows}`}>
+        <div className={`w-full flex flex-grow flex-wrap ${className} ${!intro ? '' : '[&>*]:basis-full'}`}>
             {
                 title && typeof title === 'string'
-                    ? <H className={classes.heading} level={2} >
+                    ? <h3>
                         {title}
                         {
                             children
                                 && <ExpandLink
-                                    classes={classes}
-                                    toggle={toggle}
-                                    setCount={setCount}
+                                    isOpen={isOpen}
+                                    setIsOpen={setIsOpen}
                                     expandText={expandText}
                                     qaId={expandQaId}
+                                    className="ml-2"
                                 />
                         }
-                    </H>
+                    </h3>
                     : title
             }
-            <P>
+            <p>
                 {intro} {
                     intro
                         && children
                         && <ExpandLink
-                            classes={classes}
-                            toggle={toggle}
-                            setCount={setCount}
+                            isOpen={isOpen}
+                            setIsOpen={setIsOpen}
                             expandText={expandText}
                             qaId={expandQaId}
                         />
                 }
-            </P>
-            <Collapse className={`wrapper ${classes.wrapperFlex}`} in={toggle}>
-                {children}
-            </Collapse>
+            </p>
+            <Collapsible
+                open={isOpen}
+                onOpenChange={setIsOpen}
+                className="wrapper basis-full"
+            >
+                <CollapsibleContent>
+                    {children}
+                </CollapsibleContent>
+            </Collapsible>
+
         </div>
     )
 }
 
-type TagStyles = {
-    [key: string]: CSSProperties
-}
-const styles = (theme: Theme): TagStyles => ({
-    root: {
-        width: '100%',
-        flexGrow: 1,
-        display: 'flex',
-        flexWrap: 'wrap',
-    },
-    rootRows: {
-        '& > *': {
-            flexBasis: '100%',
-        },
-    },
-    link: {
-        color: theme.palette.link,
-    },
-    linkMargin: {
-        color: theme.palette.link,
-        marginLeft: '0.5rem',
-    },
-    heading: {
-        '& a': {
-            fontSize: '1rem',
-            marginLeft: '0.5rem',
-        },
-    },
-    wrapperFlex: {
-        flexBasis: '100%',
-    },
-})
-
-export default withStyles(styles)(ChartDescription)
+export default ChartDescription

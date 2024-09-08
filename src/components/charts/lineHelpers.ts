@@ -6,12 +6,11 @@ import max from 'date-fns/max'
 import { PieData, PieInfo } from '../../types/Components'
 import { EventInfo, Issue, PullRequest, ReleaseType } from '../../types/FormattedData'
 import { KeysOfValue, UsersInfo } from '../../types/State'
-import { LineDataKeys, LineForGraph, LineInfo, GroupMathCalculation, Lines, LinePlot, LineData } from '../../types/Graphs'
+import { TableData, AuthorItem, LineDataKeys, LineForGraph, LineInfo, GroupMathCalculation, Lines, LinePlot, LineData } from '../../types/Graphs'
 
 import { batchBy } from './batchBy'
 import { sumKeysValue, sortByKeys } from '../../utils'
 import { colors } from '../colors'
-import { Theme } from '@mui/material/styles'
 
 const getAllYValues = (data: LineForGraph[]) => {
     const allValues: number[] = []
@@ -65,7 +64,7 @@ const formatDate = (date: string) => {
     return `${info.getFullYear()}-${month < 10 ? `0${month}` : month}-${dayM < 10 ? `0${dayM}` : dayM}`
 }
 
-const averagePerDev = ({ filteredBatch = [] }: { filteredBatch: PullRequest[] }) => {
+const averagePerDev = ({ filteredBatch = [] }: { filteredBatch: LineData[] }) => {
     const activeTeam:Record<string, number> = {}
     filteredBatch
         .forEach((pr) => activeTeam[pr.author] = 1)
@@ -149,7 +148,7 @@ const teamDistribution = ({ filteredBatch = [], dataKey = 'comments' }: { filter
 const percentWith = ({ filteredBatch = [], dataKey = 'comments' }: { filteredBatch: LineData[], dataKey: LineDataKeys }) => {
     const batchLength = filteredBatch.length
     const withoutValues = filteredBatch
-        .filter(x => !x[dataKey])
+        .filter(x => !x[dataKey as keyof LineData])
 
     const withoutValuesLength = withoutValues.length
     const percentageWithValues = withoutValuesLength > 0
@@ -163,10 +162,10 @@ const median = ({ filteredBatch, dataKey = 'comments' }: { filteredBatch: LineDa
     const batchLength = filteredBatch.length
     const sortedBatch = filteredBatch
         .sort(sortByKeys([dataKey as KeysOfValue<LineData, number>]))
-    return sortedBatch[Math.floor(batchLength / 2)][dataKey] as number || 0
+    return sortedBatch[Math.floor(batchLength / 2)][dataKey as keyof LineData] as number || 0
 }
 
-const growth = ({ filteredBatch }: { filteredBatch: PullRequest[] }) => {
+const growth = ({ filteredBatch }: { filteredBatch: LineData[] }) => {
     const growth = filteredBatch
         .reduce((acc = 0, { additions = 0, deletions = 0 }) => (
             acc + (additions - deletions)
@@ -181,7 +180,7 @@ const formatBatches = ({ filterForKey = false, dataKey, groupMath = 'average' }:
         .forEach((batch) => {
             const filteredBatch = batch
                 .filter((x) => dataKey && filterForKey
-                    ? /\d+/.test(`${x[dataKey]}`)
+                    ? /\d+/.test(`${x[dataKey as keyof LineData]}`)
                     : true,
                 )
 
@@ -216,15 +215,15 @@ const formatBatches = ({ filterForKey = false, dataKey, groupMath = 'average' }:
     return lineData
 }
 
-const formatUnbatchedData = ({ lines = [], data }: { lines: LineInfo[], data: LineData[] }) => {
+const formatUnbatchedData = ({ lines = [], data = [] }: Lines) => {
     const formattedLines: LineForGraph[] = []
     lines
         .forEach((line) => {
-            const { label, color, dataKey, data: lineData } = line
+            const { label, color, dataKey, data: lineData = [] } = line
 
             const formattedData:LinePlot[] = (data || lineData)
                 .map((item) => {
-                    const valueA = (item[dataKey] || 0) as number
+                    const valueA = (item[dataKey as keyof LineData] || 0) as number
                     // const valueB = pr.comments || 0
                     return {
                         // x: valueA,
@@ -246,6 +245,7 @@ const formatUnbatchedData = ({ lines = [], data }: { lines: LineInfo[], data: Li
     return formattedLines
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const formatLinesData = ({ lines = [], data }: Lines) => {
     const sharedAxisData = data && data.length > 0
         ? batchBy(data)
@@ -273,7 +273,12 @@ const formatLinesData = ({ lines = [], data }: Lines) => {
     return formatedLines
 }
 
-const formatGraphMarkers = (markers: EventInfo[], theme: Theme, lineData: LineForGraph[]) => {
+type Styles = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    markers: Record<'primary' | 'secondary' | 'tertiary', any>
+}
+
+const formatGraphMarkers = (markers: EventInfo[], styles: Styles, lineData: LineForGraph[]) => {
     let dateStart: Date
     let dateEnd: Date
     lineData
@@ -309,7 +314,7 @@ const formatGraphMarkers = (markers: EventInfo[], theme: Theme, lineData: LineFo
             axis: 'x',
             value: new Date(item.date).getTime(),
             legend: item.description,
-            ...(theme.charts.markers[markerTypeMap[item.releaseType as ReleaseType] as 'primary' | 'secondary' | 'tertiary'] || {}),
+            ...(styles.markers[markerTypeMap[item.releaseType as ReleaseType] as 'primary' | 'secondary' | 'tertiary'] || {}),
             legendOffsetY: offsetSteps[i % offsetSteps.length],
         }))
 
@@ -350,7 +355,7 @@ const smoothNumber = (ruffledNumber: number) => {
     return smooth
 }
 
-const chunkData = <T extends PullRequest | Issue>(data: T[] = []) => {
+const chunkData = <T extends PullRequest | Issue>(data: T[] = []):TableData[][] => {
     // This batches up the data the same way as the points on the line graph
     // doing this means the items in each table section matches the lines on the graph better.
     const batchedData = batchBy(data)
@@ -364,19 +369,10 @@ const chunkData = <T extends PullRequest | Issue>(data: T[] = []) => {
         ? differenceInDays(endDate, startDate)
         : 0
 
-    type WithId = T & {
-        id: string;
-    }
-    const chunkyData: WithId[][] = []
+    const chunkyData: TableData[][] = []
     batchedData
-        .forEach((items: T[] = [], i: number) => {
+        .forEach((items: T[] = []) => {
             const chunkCount = chunkyData.length
-            // Need to add id for table component
-            const tableItems:WithId[] = items
-                .map((item, j) => ({
-                    ...(item || {}),
-                    id: `${i}-${j}`,
-                }))
 
             const prDate = new Date((items.at(0) as T || {}).mergedAt || (items.at(0) as Issue || {}).createdAt)
 
@@ -386,8 +382,8 @@ const chunkData = <T extends PullRequest | Issue>(data: T[] = []) => {
             const percentChunked = 10 * chunkCount
 
             chunkCount < 1 || (percentToEndDate >= percentChunked && chunkCount < 10)
-                ? chunkyData.push(tableItems)
-                : (chunkyData.at(-1) as WithId[]).push(...tableItems)
+                ? chunkyData.push(items)
+                : (chunkyData.at(-1) as TableData[]).push(...items)
         })
 
     return chunkyData
@@ -433,7 +429,7 @@ const splitByAuthor = ({ pullRequests = [], showNames = true, usersInfo = {} }: 
 
     const byAuthorLines = Object.entries(authorsPrs)
         .map(([author = '', prs = []], i) => {
-            const data = prs
+            const data:AuthorItem[] = prs
                 .map(pr => ({
                     value: 1,
                     mergedAt: pr.mergedAt,
@@ -447,10 +443,10 @@ const splitByAuthor = ({ pullRequests = [], showNames = true, usersInfo = {} }: 
                 dataKey: 'value',
                 groupMath: 'count',
                 data,
-            }
+            } as LineInfo
         })
 
-    const byAuthor = {
+    const byAuthor:Lines = {
         lines: byAuthorLines,
         xAxis: 'left',
     }

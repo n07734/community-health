@@ -1,17 +1,18 @@
 
 import { connect } from 'react-redux'
-import { withStyles, useTheme } from '@mui/styles'
-import Switch from '@mui/material/Switch'
-import { Theme } from '@mui/material/styles'
 
-import { useShowNames } from '../../state/ShowNamesProvider'
-import { H, P } from '../shared/StyledTags'
-import Paper from '../shared/Paper'
-import PrefetchedForm from '../home/DataOptions/PrefetchedForm'
+import { Issue, PullRequest } from '@/types/FormattedData'
+import { AllowedColors } from '@/types/Components'
+import { FetchInfo } from '@/types/State'
+
+import { useTheme } from "@/components/ThemeProvider"
+import { Switch } from "@/components/ui/switch"
+import { Label } from "@/components/ui/label"
+import Paper from '@/components/shared/Paper'
+import PrefetchedForm from '@/components/home/DataOptions/PrefetchedForm'
 import DateRange from './DateRange'
-import { Issue, PullRequest } from '../../types/FormattedData'
-import { AllowedColors } from '../../types/Components'
-import { FetchInfo } from '../../types/State'
+import { useShowNames } from '@/state/ShowNamesProvider'
+import { graphColors } from '@/components/colors'
 
 type TitleProps = FetchInfo & {
     colorA: AllowedColors
@@ -45,7 +46,6 @@ const Title = (props:TitleProps) => {
         }
     </>
     )
-
 }
 
 type ReportDescriptionProps = {
@@ -55,7 +55,6 @@ type ReportDescriptionProps = {
     issues?: Issue[]
     userIds?: string[]
     reportDescription?: string
-    classes: Record<string, string>
 }
 const ReportDescription = ({
     fetches,
@@ -64,50 +63,37 @@ const ReportDescription = ({
     issues = [],
     userIds = [],
     reportDescription = '',
-    classes,
 }:ReportDescriptionProps) => {
-    const theme:Theme = useTheme();
-    const colorA = theme.palette.secondary.main
-    const colorB = theme.palette.primary.main
+    const { theme } = useTheme()
+    const colorA = graphColors[theme].secondary
+    const colorB = graphColors[theme].primary
 
     const { showNames, toggleShowNames } = useShowNames()
 
     const hasReportData = pullRequests.length > 0 || issues.length > 0
 
-    return hasReportData && (<Paper className={classes.root}>
-        <H qaId="report-title" className={classes.heading} level={2}>
+    return hasReportData && (<Paper>
+        <h2 data-qa-id="report-title">
             <Title {...fetches} colorA={colorA} colorB={colorB}/>
-        </H>
+        </h2>
         {
             reportDescription
-                    && <P>{reportDescription}</P>
+                    && <p>{reportDescription}</p>
         }
         {
             userIds.length > 1
-                    && <P>Team's GitHub IDs: { userIds.join(', ') }</P>
+                    && <p>Team's GitHub IDs: { userIds.join(', ') }</p>
         }
-        <P className={classes.switch}>
+        <div className="flex items-center space-x-2 pb-08">
             <Switch
-                onChange={toggleShowNames}
+                id="spartacus-mode"
+                onCheckedChange={toggleShowNames}
                 checked={!showNames}
                 name="checkedA"
-                inputProps={{ 'aria-label': 'secondary checkbox' }}
+                className="dark:data-[state=unchecked]:bg-white"
             />
-                Hide GitHub ids/names, this can help look for trends.
-        </P>
-        {/* {
-                // TODO: change this
-                userIds.length !== 1
-                    &&  <P className={classes.switch}>
-                    <Switch
-                        onChange={toggleShowNumbers}
-                        checked={!showNumbers}
-                        name="checkedB"
-                        inputProps={{ 'aria-label': 'secondary checkbox' }}
-                    />
-                    Hide graph numbers, this can help look for trends.
-                </P>
-            } */}
+            <Label htmlFor="spartacus-mode">Hide GitHub ids/names, this can help look for trends.</Label>
+        </div>
 
         <DateRange />
         {
@@ -134,14 +120,4 @@ const mapStateToProps = (state:State) => ({
     reportDescription: state.reportDescription,
 })
 
-const styles = (theme:Theme) => ({
-    root: {
-        display: 'block',
-    },
-    heading: theme.copy.h1,
-    switch: {
-        marginBottom: '0',
-    },
-})
-
-export default connect(mapStateToProps)(withStyles(styles)(ReportDescription))
+export default connect(mapStateToProps)(ReportDescription)

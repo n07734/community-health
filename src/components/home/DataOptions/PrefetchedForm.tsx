@@ -1,23 +1,25 @@
 import { useState } from 'react'
 import { connect } from 'react-redux'
+
+import { AmountOfData, SortDirection } from '@/types/Queries'
+import { AnyForLib, AnyForNow, FetchInfo, ReportType, UsersInfo } from '@/types/State'
+import { PullRequest } from '@/types/FormattedData'
+
 import {
     Select,
-    MenuItem,
-} from '@mui/material'
-import { withStyles } from '@mui/styles'
-import { AmountOfData, SortDirection } from '../../../types/Querys'
-import { AnyForLib, AnyForNow, FetchInfo, ReportType, UsersInfo } from '../../../types/State'
-import { PullRequest } from '../../../types/FormattedData'
-
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from '@/components/ui/select'
 import ButtonWithMessage from './ButtonWithMessage'
 import SelectAmountData from './SelectAmountData'
 import TextInput from './TextInput'
 import TeamModal from './TeamModal'
 import Download from './Download'
-import ChartDescription from '../../shared/ChartDescription'
+import ChartDescription from '@/components/shared/ChartDescription'
 
-import { P } from '../../shared/StyledTags'
-import styles from './styles'
 import {
     inputLabels,
     formValue,
@@ -35,7 +37,7 @@ import {
     getDownloadProps,
     checkUntilDate,
     storeUsersInfo,
-} from '../../../state/actions'
+} from '@/state/actions'
 
 type SetValues = {
     repo?: string | undefined
@@ -55,7 +57,6 @@ type PrefetchedFormProps = {
     getData: () => void
     fetches: FetchInfo
     fetching: boolean
-    classes: Record<string, string>
 }
 const PrefetchedForm = (props: PrefetchedFormProps) => {
     const {
@@ -63,7 +64,6 @@ const PrefetchedForm = (props: PrefetchedFormProps) => {
         getData,
         fetches,
         fetching,
-        classes,
     } = props
 
     const {
@@ -158,22 +158,22 @@ const PrefetchedForm = (props: PrefetchedFormProps) => {
 
     return (
         <ChartDescription
-            className={`${classes.formDescription} ${classes.fullRow}`}
+            className="mb-0 col-span-full"
             title=""
             expandText="here"
             intro="Top up this report's data"
             expandQaId="expand-prefetch-form"
         >
-            <div className={classes.formDescription} >
+            <div className="mb-0">
                 <form
                     onSubmit={handleSubmit}
                 >
-                    <div className={classes.inputGrid}>
-                        <div className="inputDesc">
+                    <div className="grid grid-cols-1 gap-2 max-mm:grid-cols-2 mb-4">
+                        <div className="col-span-full">
                             {
                                 hardCodedKeys
                                     .filter((inputKey:AnyForNow) => formValue(fetches, inputKey))
-                                    .map((inputKey:AnyForNow) => <P key={inputKey}>{inputLabels[inputKey]}: <b>{formValue(fetches, inputKey) as string}</b></P>)
+                                    .map((inputKey:AnyForNow) => <p key={inputKey}>{inputLabels[inputKey]}: <b>{formValue(fetches, inputKey) as string}</b></p>)
                             }
                             {
                                 reportType === 'team' &&
@@ -185,12 +185,12 @@ const PrefetchedForm = (props: PrefetchedFormProps) => {
                         </div>
                         <TextInput
                             type="events"
-                            className="inputDesc"
+                            className="col-span-full"
                             {...inputStates}
                         />
-                        <P className="inputDesc">
+                        <p className="col-span-full">
                             Key events can impact the data e.g. starting or launching a new feature or major version. These events can help give more context while viewing the data. e.g. ProjectA=2013-12-01.
-                        </P>
+                        </p>
                         <TextInput
                             type='excludeIds'
                             {...inputStates}
@@ -199,17 +199,28 @@ const PrefetchedForm = (props: PrefetchedFormProps) => {
                             type="token"
                             {...inputStates}
                         />
-                        <P className="inputDesc">
-                            To create a token go to your GitHub <a className={classes.link} href="https://github.com/settings/tokens">tokens</a> page, click on 'generate new token', choose the settings 'repo' (all), 'read:org' and 'user' then click 'Generate token'.
-                        </P>
-
+                        <p className="col-span-full">
+                            To create a token go to your GitHub <a className="text-primary" href="https://github.com/settings/tokens">tokens</a> page, click on 'generate new token', choose the settings 'repo' (all), 'read:org' and 'user' then click 'Generate token'.
+                        </p>
                         <Select
+                            onValueChange={(sortDirection) => setValue('sortDirection', sortDirection)}
                             value={formInfo.sortDirection}
-                            onChange={(e) => setValue('sortDirection', e.target.value)}
-                            inputProps={{ 'aria-label': 'Starting point' }}
                         >
-                            <MenuItem value="DESC" >Prepend data</MenuItem>
-                            <MenuItem value="ASC">Append data</MenuItem>
+                            <SelectTrigger className="w-auto">
+                                <SelectValue>
+                                    {
+                                        formInfo.sortDirection === 'DESC'
+                                            ? 'Prepend data'
+                                            : 'Append data'
+                                    }
+                                </SelectValue>
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectGroup>
+                                    <SelectItem value="DESC" >Prepend data</SelectItem>
+                                    <SelectItem value="ASC">Append data</SelectItem>
+                                </SelectGroup>
+                            </SelectContent>
                         </Select>
                         <SelectAmountData setValue={setValue} amountOfData={formInfo.amountOfData} />
                     </div>
@@ -267,7 +278,5 @@ const mapDispatchToProps = (dispatch: AnyForLib) => ({
     getDownloadInfo: () => dispatch(getDownloadProps),
 })
 
-const StyledPrefetchedForm = withStyles(styles)(PrefetchedForm)
-
 // eslint-disable-next-line react-refresh/only-export-components
-export default connect(mapStateToProps,mapDispatchToProps)(StyledPrefetchedForm)
+export default connect(mapStateToProps,mapDispatchToProps)(PrefetchedForm)

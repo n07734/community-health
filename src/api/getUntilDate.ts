@@ -9,7 +9,7 @@ import {
     propOr,
     is,
 } from 'ramda'
-import { SortDirection, UntilDate } from '../types/Querys'
+import { SortDirection, UntilDate } from '../types/Queries'
 import { PullRequest } from '../types/FormattedData'
 import { RawPullRequest } from '../types/RawData'
 

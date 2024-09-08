@@ -1,5 +1,5 @@
 import { mergeDeepRight, prop } from 'ramda'
-import { GetUsersData } from '../types/Querys'
+import { GetUsersData } from '../types/Queries'
 
 import { userQuery, reviewsByUserQuery } from './queries'
 import api from './api'

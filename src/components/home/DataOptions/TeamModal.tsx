@@ -1,20 +1,20 @@
 import { useState } from 'react'
-import { Box, Modal} from '@mui/material'
-import { withStyles, CSSProperties } from '@mui/styles'
-import { Theme } from '@mui/material/styles'
-import { ApiFetchInfo } from '../../../types/Querys'
-import { UserInfo, UsersInfo } from '../../../types/State'
+import { ApiFetchInfo } from '@/types/Queries'
+import { UserInfo, UsersInfo } from '@/types/State'
 
-import styles from './styles'
-import { H, P } from '../../shared/StyledTags'
-import Button from '../../shared/Button'
-import Message, { ErrorInputs } from '../Message'
+import {
+    Dialog,
+    DialogContent,
+    DialogTrigger,
+} from '@/components/ui/dialog'
+import Button from '@/components/shared/Button'
+import Message, { ErrorInputs } from '@/components/home/Message'
 import UsersForm from './UsersForm'
 
 import TextInput from './TextInput'
 
-import api from '../../../api/api'
-import { teamIDsQuery } from '../../../api/queries'
+import api from '@/api/api'
+import { teamIDsQuery } from '@/api/queries'
 
 type GetTeamMembers = {
     fetchInfo: ApiFetchInfo
@@ -66,45 +66,11 @@ const getTeamMembers = async ({fetchInfo, setGitUsers, setInputError}: GetTeamMe
     }
 }
 
-type TagStyles = {
-    [key: string]: CSSProperties
-}
-const modalStyles = (theme: Theme): TagStyles => ({
-    ...styles(theme),
-    form: {
-        overflow: 'scroll',
-        width: '100%',
-        '& > *': {
-            marginBottom: '1rem',
-        },
-    },
-    copy: {
-        marginBottom: '0.2rem',
-    },
-    fullWidth: {
-        width: '100%',
-        margin: 0,
-    },
-    wrap: {
-        position: 'absolute',
-        maxHeight: '100%',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: '80%',
-        backgroundColor: theme.palette.background.default,
-        padding: '1.5rem 1.5rem 0 1.5rem',
-        overflow: 'scroll',
-    },
-})
-
 type GitHubTeamProps = {
-    classes: Record<string, string>
     setGitUsers: (arg: UserInfo[]) => void
 }
-const GitHubTeam = withStyles(modalStyles)((props:GitHubTeamProps) => {
+const GitHubTeam = (props:GitHubTeamProps) => {
     const {
-        classes = {},
         setGitUsers,
     } = props
 
@@ -129,7 +95,6 @@ const GitHubTeam = withStyles(modalStyles)((props:GitHubTeamProps) => {
     }
 
     return (<form
-        className={classes.form}
         onSubmit={(event) => {
             event.preventDefault()
             const {
@@ -150,7 +115,7 @@ const GitHubTeam = withStyles(modalStyles)((props:GitHubTeamProps) => {
             }
         }}
     >
-        <H level={4}>Get team members from a GitHub Org team page</H>
+        <h4>Get team members from a GitHub Org team page</h4>
         <TextInput
             key='gitTeamUrl'
             type='gitTeamUrl'
@@ -161,7 +126,7 @@ const GitHubTeam = withStyles(modalStyles)((props:GitHubTeamProps) => {
             { ...inputStates }
         />
         <Button
-            className={classes.button}
+            className="w-full mr-0 min-h-12"
             value="Get team members"
             type="submit"
         />
@@ -172,46 +137,37 @@ const GitHubTeam = withStyles(modalStyles)((props:GitHubTeamProps) => {
                 />
         }
     </form>)
-})
+}
 
 type TeamModalProps = {
     setParentValues: (x: object) => void
     usersInfo: UsersInfo
-    classes: Record<string, string>
 }
-const TeamModal =  withStyles(modalStyles)(({
+const TeamModal =  ({
     setParentValues,
     usersInfo = {},
-    classes = {},
 }: TeamModalProps) => {
-    const [open, setOpen] = useState(false)
-    const handleOpen = (event:React.MouseEvent<HTMLElement>) => {
-        event.preventDefault()
-        setOpen(true)
-    }
-    const handleClose = () => setOpen(false)
+    const [open, setOpen] = useState(false);
 
     const [gitUsers, setGitUsers] = useState([] as UserInfo[])
 
     return (<div>
-        <P className={classes.copy}>
+        <p>
             Team members: { Object.values(usersInfo).map(({ name, userId }) => name || userId).join(', ') || 'None'}
-        </P>
-        <Button
-            className={classes.fullWidth}
-            type="button"
-            value={
-                Object.keys(usersInfo).length === 0
-                    ? 'Add team members'
-                    : 'Edit team members'
-            }
-            onClick={handleOpen}
-        />
-        <Modal
-            open={open}
-            onClose={handleClose}
-        >
-            <Box className={classes.wrap}>
+        </p>
+        <Dialog open={open} onOpenChange={setOpen}>
+            <DialogTrigger asChild>
+                <Button
+                    className="w-full"
+                    type="button"
+                    value={
+                        Object.keys(usersInfo).length === 0
+                            ? 'Add team members'
+                            : 'Edit team members'
+                    }
+                />
+            </DialogTrigger>
+            <DialogContent className="overflow-scroll max-h-full w-4/5">
                 {
                     Object.keys(usersInfo).length === 0
                         && <GitHubTeam setGitUsers={setGitUsers} />
@@ -226,12 +182,12 @@ const TeamModal =  withStyles(modalStyles)(({
                         } else {
                             setParentValues({ usersInfo: {} })
                         }
-                        handleClose()
+                        setOpen(false)
                     }}
                 />
-            </Box>
-        </Modal>
+            </DialogContent>
+        </Dialog>
     </div>)
-})
+}
 
 export default TeamModal

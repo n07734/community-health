@@ -1,22 +1,23 @@
 
 import { connect } from 'react-redux'
-import { useTheme } from '@mui/styles'
-import { Theme } from '@mui/material/styles'
-import { UsersInfo } from '../../types/State'
-import { EventInfo, PullRequest } from '../../types/FormattedData'
+import { UsersInfo } from '@/types/State'
+import { EventInfo, PullRequest } from '@/types/FormattedData'
 
-import Paper from '../shared/Paper'
-import ChartDescription from '../shared/ChartDescription'
-import GraphsWrap from '../shared/GraphsWrap'
+import Paper from '@/components/shared/Paper'
+import ChartDescription from '@/components/shared/ChartDescription'
+import GraphsWrap from '@/components/shared/GraphsWrap'
 
-import { useShowNames } from '../../state/ShowNamesProvider'
-import { P } from '../shared/StyledTags'
-import Line from '../charts/Line'
-// import Scatterplot from '../charts/Scatterplot'
-import { splitByAuthor } from '../charts/lineHelpers'
+import { useShowNames } from '@/state/ShowNamesProvider'
+import Line from '@/components/charts/Line'
+// import Scatterplot from '@/components/charts/Scatterplot'
+import { splitByAuthor } from '@/components/charts/lineHelpers'
+import { useTheme } from '@/components/ThemeProvider'
+import { graphColors } from '@/components/colors'
+import { LineData, TableData } from '@/types/Graphs'
+
 
 type PullRequestTrendsProps = {
-    chunkyData: PullRequest[][]
+    chunkyData: TableData[][]
     pullRequests: PullRequest[]
     releases: EventInfo[]
     userIds: string[]
@@ -29,10 +30,10 @@ const PullRequestTrends = ({
     userIds = [],
     usersInfo = {},
 }:PullRequestTrendsProps) => {
-    const theme:Theme = useTheme();
-    const colorA = theme.palette.secondary.main
-    const colorB = theme.palette.primary.main
-    const colorC = theme.palette.secondaryLine
+    const { theme } = useTheme()
+    const colorA = graphColors[theme].secondary
+    const colorB = graphColors[theme].primary
+    const colorC = graphColors[theme].tertiary
 
     const { showNames } = useShowNames()
 
@@ -48,7 +49,7 @@ const PullRequestTrends = ({
             >
                 {
                     releases.length > 1 && <div>
-                        <P>Vertical lines are releases: Green is a Major release, solid purple is Minor and dotted purple is Patch or Alpha</P>
+                        <p>Vertical lines are releases: Green is a Major release, solid purple is Minor and dotted purple is Patch or Alpha</p>
                     </div>
                 }
             </ChartDescription>
@@ -79,7 +80,7 @@ const PullRequestTrends = ({
                                 },
                             ],
                             xAxis: 'left',
-                            data: pullRequests,
+                            data: pullRequests as LineData[],
                         },
                     ]}
                     tableData={chunkyData}
@@ -98,7 +99,7 @@ const PullRequestTrends = ({
                                 },
                             ],
                             xAxis: 'left',
-                            data: pullRequests,
+                            data: pullRequests as LineData[],
                         },
                     ]}
                     tableData={chunkyData}
@@ -122,7 +123,7 @@ const PullRequestTrends = ({
                                 },
                             ],
                             xAxis: 'left',
-                            data: pullRequests,
+                            data: pullRequests as LineData[],
                         },
                         {
                             lines: [
@@ -133,7 +134,7 @@ const PullRequestTrends = ({
                                 },
                             ],
                             xAxis: 'right',
-                            data: pullRequests,
+                            data: pullRequests as LineData[],
                         },
                     ]}
                     tableData={chunkyData}
@@ -152,7 +153,7 @@ const PullRequestTrends = ({
                                 },
                             ],
                             xAxis: 'left',
-                            data: pullRequests,
+                            data: pullRequests as LineData[],
                         },
                         {
                             lines: [
@@ -163,7 +164,7 @@ const PullRequestTrends = ({
                                 },
                             ],
                             xAxis: 'right',
-                            data: pullRequests,
+                            data: pullRequests as LineData[],
                         },
                     ]}
                     tableData={chunkyData}

@@ -1,15 +1,20 @@
 
 import { Radar as NivoRadar } from '@nivo/radar'
 import { TableTooltip, Chip } from '@nivo/tooltip'
-import { useTheme } from '@mui/styles'
-import { Theme } from '@mui/material/styles'
 
-import { useShowNumbers } from '../../state/ShowNumbersProvider'
+import { AllowedColors, RadarData, RadarDataItem } from '@/types/Components'
+import { AnyForLib } from '@/types/State'
+import { LineInfo } from '@/types/Graphs'
+
+import { useTheme } from '@/components/ThemeProvider'
+import { useShowNumbers } from '@/state/ShowNumbersProvider'
+
+import { graphColors } from '@/components/colors'
+import { chartStyles } from '@/components/charts/chartStyles'
+
 import ChartHeading from './ChartHeading'
 import styledCharts from './styledCharts'
 import hasChartData from './hasChartData'
-import { AllowedColors, RadarData, RadarDataItem } from '../../types/Components'
-import { AnyForLib } from '../../types/State'
 
 // eslint-disable-next-line react/display-name
 const radarSliceTooltip = (fullData:RadarDataItem[]) => ({ index, data }: AnyForLib) => {
@@ -28,7 +33,6 @@ type RadarProps = RadarData & {
     colors?: string[]
     width?: number
     height?: number
-    classes: Record<string, string>
 }
 const Radar = styledCharts(({
     title = '',
@@ -38,11 +42,13 @@ const Radar = styledCharts(({
     colors = [],
     width = 410,
     height = 300,
-    classes,
 }:RadarProps) => {
-    const theme:Theme = useTheme();
-    const colorA = theme.palette.secondary.main
-    const colorB = theme.palette.primary.main
+    const { theme } = useTheme()
+    const styles = chartStyles(theme)
+
+    const colorA = graphColors[theme].secondary
+    const colorB = graphColors[theme].primary
+
     const radarColors = colors.length > 0 ? colors : [colorA, colorB]
 
     const { showNumbers } = useShowNumbers()
@@ -50,7 +56,10 @@ const Radar = styledCharts(({
     return hasChartData<RadarDataItem>(data,keys) && (
         <div>
             {
-                showTitle && <ChartHeading className={classes.centerHeading} items={[{ label: title, color: colorB }]} />
+                showTitle && <ChartHeading
+                    className="text-center"
+                    items={[{ label: title, color: colorB }] as LineInfo[]}
+                />
             }
 
             <NivoRadar
@@ -58,7 +67,7 @@ const Radar = styledCharts(({
                 height={height}
                 margin={{ top: 0, bottom: 0, right: 100, left: 100 }}
                 dotSize={8}
-                dotBorderColor={theme.charts.dotColor}
+                dotBorderColor={styles.dotColor}
                 dotBorderWidth={2}
                 colors={radarColors}
                 gridShape="linear"
@@ -70,7 +79,7 @@ const Radar = styledCharts(({
                 keys={keys}
                 data={data}
                 maxValue={100}
-                theme={theme.charts as AnyForLib}
+                theme={styles as AnyForLib}
                 sliceTooltip={radarSliceTooltip(data)}
                 isInteractive={showNumbers}
             />

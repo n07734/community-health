@@ -1,18 +1,18 @@
 
 import { connect } from 'react-redux'
-import { withStyles, useTheme, CSSProperties } from '@mui/styles'
-import { Theme } from '@mui/material/styles'
-import { EventInfo, Issue } from '../../types/FormattedData'
-import { GraphIssue } from '../../types/Graphs'
 
-import { P } from '../shared/StyledTags'
-import Paper from '../shared/Paper'
-import ChartDescription from '../shared/ChartDescription'
-import GraphsWrap from '../shared/GraphsWrap'
-import Line from '../charts/Line'
-import { chunkData } from '../charts/lineHelpers'
+import { useTheme } from '@/components/ThemeProvider'
+import { graphColors } from '@/components/colors'
+import { EventInfo, Issue } from '@/types/FormattedData'
+import { LineData } from '@/types/Graphs'
 
-const formatIssueData = (data:Issue[] = []):GraphIssue[] => data
+import Paper from '@/components/shared/Paper'
+import ChartDescription from '@/components/shared/ChartDescription'
+import GraphsWrap from '@/components/shared/GraphsWrap'
+import Line from '@/components/charts/Line'
+import { chunkData } from '@/components/charts/lineHelpers'
+
+const formatIssueData = (data:Issue[] = []) => data
     .map((item) => ({
         mergedAt: item.mergedAt,
         ...(
@@ -20,21 +20,19 @@ const formatIssueData = (data:Issue[] = []):GraphIssue[] => data
                 ? { bug: 1 }
                 : { issue: 1 }
         ),
-    }))
+    })) as LineData[]
 
 type IssuesTrendsProps = {
     issues: Issue[]
     releases: EventInfo[]
-    classes: Record<string, string>
 }
 const IssuesTrends = ({
     issues = [],
     releases = [],
-    classes,
 }:IssuesTrendsProps) => {
-    const theme:Theme = useTheme();
-    const colorA = theme.palette.secondary.main
-    const colorB = theme.palette.primary.main
+    const { theme } = useTheme()
+    const colorA = graphColors[theme].secondary
+    const colorB = graphColors[theme].primary
 
     const data = formatIssueData(issues)
     const chunkyData = chunkData(issues)
@@ -73,20 +71,10 @@ const IssuesTrends = ({
                     tableData={chunkyData}
                 />
             </GraphsWrap>
-            <P className={classes.fullP}>*Bugs in this graph are issues that have a title or a label that contains the word 'bug'</P>
+            <p className="w-full text-center">*Bugs in this graph are issues that have a title or a label that contains the word 'bug'</p>
         </Paper>
     )
 }
-
-type TagStyles = {
-    [key: string]: CSSProperties
-}
-const styles = ():TagStyles => ({
-    'fullP': {
-        width: '100%',
-        textAlign: 'center',
-    },
-})
 
 type State = {
     issues: Issue[]
@@ -97,4 +85,4 @@ const mapStateToProps = (state:State) => ({
     releases: state.releases,
 })
 
-export default connect(mapStateToProps)(withStyles(styles)(IssuesTrends))
+export default connect(mapStateToProps)(IssuesTrends)

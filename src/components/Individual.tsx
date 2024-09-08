@@ -1,42 +1,41 @@
 import { connect } from 'react-redux'
-import { useTheme, withStyles, CSSProperties } from '@mui/styles'
-import { Theme } from '@mui/material/styles'
+import { PullRequest } from '@/types/FormattedData'
+import { FetchInfo, UserDataNumbersKeys, UsersInfo } from '@/types/State'
+
+import { useTheme } from '@/components/ThemeProvider'
+import { graphColors } from '@/components/colors'
 
 import Paper from './shared/Paper'
 import GraphsWrap from './shared/GraphsWrap'
 import CustomGraphs from './sections/CustomGraphs'
 import ReportDescription from './sections/ReportDescription'
-import { chunkData, rainbowData } from './charts/lineHelpers'
 import Pie from './charts/Pie'
 import Chord from './charts/Chord'
 import IssuesTrends from './sections/IssuesTrends'
 import Bar from './charts/Bar'
-import { sortByKeys } from '../utils'
-import formatUserData from '../format/userData'
-import { useShowNames } from '../state/ShowNamesProvider'
-import { PullRequest } from '../types/FormattedData'
-import { FetchInfo, UserDataNumbersKeys, UsersInfo } from '../types/State'
+
+import { sortByKeys } from '@/utils'
+import { chunkData, rainbowData } from './charts/lineHelpers'
+import formatUserData from '@/format/userData'
+import { useShowNames } from '@/state/ShowNamesProvider'
 
 type IndividualProps = {
     pullRequests: PullRequest[]
     reviewedPullRequests: PullRequest[]
     userIds: string[]
     usersInfo: UsersInfo
-    classes: Record<string, string>
 }
 const Individual = ({
     pullRequests = [],
     reviewedPullRequests = [],
     userIds = [],
     usersInfo = {},
-    classes = {},
 }:IndividualProps) => {
     const [userId] = userIds
-    const theme:Theme = useTheme();
     const { showNames } = useShowNames()
-
-    const colorA = theme.palette.secondary.main
-    const colorB = theme.palette.primary.main
+    const { theme } = useTheme()
+    const colorA = graphColors[theme].secondary
+    const colorB = graphColors[theme].primary
 
     type BarData = {
         [key: string]:Record<string, number>
@@ -116,12 +115,11 @@ const Individual = ({
         <ReportDescription />
         <Paper>
             <GraphsWrap>
-                <div className={classes.barsWrap}>
+                <div className="flex flex-wrap justify-center w-full">
                     <Bar
                         data={barData}
                         indexBy="name"
                         title="Comments"
-                        combineTitles={true}
                         sortBy="commentsGiven"
                         bars={[
                             {
@@ -140,7 +138,6 @@ const Individual = ({
                         data={barData}
                         indexBy="name"
                         title="Approvals"
-                        combineTitles={true}
                         sortBy="approvalsGiven"
                         bars={[
                             {
@@ -157,7 +154,7 @@ const Individual = ({
                     />
                 </div>
 
-                <div className={classes.groupedCharts}>
+                <div className="w-full flex flex-wrap justify-center gap-4">
                     <Chord
                         data={sortedUsers}
                         preSorted={true}
@@ -189,35 +186,6 @@ const Individual = ({
     </>
 }
 
-type TagStyles = {
-    [key: string]: CSSProperties
-}
-const styles = ():TagStyles => ({
-    groupedCharts: {
-        width: '100%',
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-        gap: '0 20px',
-        '& p': {
-            flexBasis: '100%',
-            textAlign: 'center',
-        },
-    },
-    barsWrap: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-        width: '100%',
-        '& > div': {
-            width: '50%',
-            '@media (max-width: 750px)': {
-                width: '100%',
-            },
-        },
-    },
-})
-
 type State = {
     pullRequests: PullRequest[]
     reviewedPullRequests: PullRequest[]
@@ -230,4 +198,4 @@ const mapStateToProps = (state:State) => ({
     usersInfo: state.fetches.usersInfo,
 })
 
-export default connect(mapStateToProps)(withStyles(styles)(Individual))
+export default connect(mapStateToProps)(Individual)

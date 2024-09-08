@@ -2,16 +2,16 @@ import { useState } from 'react'
 import { ResponsiveLine as NivoLine } from '@nivo/line'
 import { LegendProps } from '@nivo/legends'
 import { TableTooltip } from '@nivo/tooltip'
-import { useTheme } from '@mui/styles'
-import { Theme } from '@mui/material/styles'
+import { useTheme } from "@/components/ThemeProvider"
+import { chartStyles } from '@/components/charts/chartStyles'
 
-import { Lines, LineInfo, LineForGraph, ColumnKeys, LinePlot, TableData, Graph } from '../../types/Graphs'
-import { EventInfo } from '../../types/FormattedData'
-import { AnyForLib } from '../../types/State'
 
-import { useShowNumbers } from '../../state/ShowNumbersProvider'
+import { Lines, LineInfo, LineForGraph, ColumnKeys, LinePlot, TableData, Graph } from '@/types/Graphs'
+import { EventInfo } from '@/types/FormattedData'
+import { AnyForLib } from '@/types/State'
+
+import { useShowNumbers } from '@/state/ShowNumbersProvider'
 import ChartHeading from './ChartHeading'
-import styledCharts from './styledCharts'
 import GraphUi from './GraphUi'
 
 import { DataTables } from '../ui/DataTables'
@@ -106,28 +106,26 @@ const getAllYMax = (data:LineInfo[] = []) => data
 const sortDesc = (a:number, b:number) => b - a
 
 type LineProps = {
-    title: string
-    combineTitles: boolean
-    blockHeading: boolean
+    title?: string
+    combineTitles?: boolean
+    blockHeading?: boolean
     data: Lines[]
-    markers: EventInfo[]
-    showLegends: boolean
-    classes: Record<string, string>
-    tableData: TableData[][]
-    tableKeys: ColumnKeys[]
+    markers?: EventInfo[]
+    showLegends?: boolean
+    tableData?: TableData[][]
+    tableKeys?: ColumnKeys[]
     graphInfo?: Graph
     setGraph?: (graphs: Graph[]) => void
     graphs?: Graph[]
-    tableOpenedByDefault: boolean
+    tableOpenedByDefault?: boolean
 }
-const Line = styledCharts(({
+const Line = ({
     title,
     combineTitles = false,
     blockHeading = false,
     data = [],
     markers = [],
     showLegends = false,
-    classes,
     tableData = [],
     tableKeys = [],
     graphInfo,
@@ -135,7 +133,9 @@ const Line = styledCharts(({
     graphs = [],
     tableOpenedByDefault = false,
 }:LineProps = {} as LineProps) => {
-    const theme:Theme = useTheme();
+    const { theme } = useTheme()
+    const styles = chartStyles(theme)
+
     const { showNumbers } = useShowNumbers()
     // TODO: function to see time gap in data to help format date e.g. should add year
     const leftAxis = data
@@ -271,7 +271,7 @@ const Line = styledCharts(({
         symbolSize: 12,
         symbolShape: 'square',
         symbolBorderColor: 'rgba(0, 0, 0, .9)',
-        itemTextColor: theme.palette.text.primary,
+        itemTextColor: styles.textColor,
     }
 
     const legends = []
@@ -332,7 +332,7 @@ const Line = styledCharts(({
 
     const lineData = leftLinesData.concat(convertedRightLines)
 
-    const formattedMarkers = formatGraphMarkers(markers, theme, lineData)
+    const formattedMarkers = formatGraphMarkers(markers, styles, lineData)
 
     const hasData = (items:LineForGraph[]) => items.some(item => (item?.data || []).length)
 
@@ -343,7 +343,7 @@ const Line = styledCharts(({
         : '%y/%m'
 
     return hasData(lineData) && (
-        <div className={classes.lineChartComponentWrap}>
+        <div className="z-10 w-full max-w-mw">
             {
                 graphInfo && graphs.length > 0 && <GraphUi
                     graphInfo={graphInfo as Graph}
@@ -351,7 +351,7 @@ const Line = styledCharts(({
                     graphs={graphs}
                 />
             }
-            <div className={classes.headingWrap}>
+            <div className="flex flex-wrap justify-between">
                 <ChartHeading type='line' text={title} items={leftHeadingItems} />
                 {
                     !blockHeading && rightHeadingItems.length > 0
@@ -359,7 +359,7 @@ const Line = styledCharts(({
                 }
             </div>
 
-            <div className={classes.chartWrap}>
+            <div className="chart-wrap">
                 <NivoLine
                     margin={{ top: 14, right: 50, bottom: 50, left: 50 }}
                     data={lineData}
@@ -414,7 +414,7 @@ const Line = styledCharts(({
                     enableGridX={false}
                     enableSlices="x"
                     sliceTooltip={ToolTip as AnyForLib}
-                    theme={theme.charts as AnyForLib}
+                    theme={styles as AnyForLib}
                     layers={['grid', 'markers', 'areas', DashedLine(allLines) as AnyForLib, 'slices', 'points', 'axes', 'legends']}
                 />
             </div>
@@ -427,6 +427,6 @@ const Line = styledCharts(({
             }
         </div>
     )
-})
+}
 
 export default Line

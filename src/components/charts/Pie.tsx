@@ -1,34 +1,32 @@
 
 import { ResponsivePie } from '@nivo/pie'
-import { useTheme } from '@mui/styles';
-import { PieData } from '../../types/Components';
-import { Theme } from '@mui/material/styles'
 
-import { useShowNumbers } from '../../state/ShowNumbersProvider'
+import { useTheme } from "@/components/ThemeProvider"
+import { chartStyles } from '@/components/charts/chartStyles'
+import { PieData } from '@/types/Components';
+import { useShowNumbers } from '@/state/ShowNumbersProvider'
 import ChartHeading from './ChartHeading'
-import styledCharts from './styledCharts'
-import { AnyForLib } from '../../types/State';
+import { AnyForLib } from '@/types/State';
 
 type PieProps = {
     title: string
     data: PieData[]
-    classes: Record<string, string>
 }
-const Pie = styledCharts(({
+const Pie = ({
     title = '',
     data = [],
-    classes,
 }:PieProps) => {
-    const theme:Theme = useTheme();
+    const { theme } = useTheme()
+    const styles = chartStyles(theme)
     const { showNumbers } = useShowNumbers()
 
     return data.length && (
-        <div className={classes.lineChartComponentWrap}>
-            <div className={classes.headingWrap}>
+        <div className="z-10 w-full max-w-mw">
+            <div className="flex flex-wrap justify-between">
                 <ChartHeading type='line' text={title} />
             </div>
 
-            <div className={classes.pieWrap}>
+            <div className="pie-wrap">
                 <ResponsivePie
                     data={data}
                     colors={{ datum: 'data.color' }}
@@ -48,13 +46,13 @@ const Pie = styledCharts(({
                     arcLabelsSkipAngle={10}
                     arcLinkLabelsDiagonalLength={10}
                     arcLinkLabelsStraightLength={15}
-                    arcLinkLabelsTextColor={theme.palette.text.primary}
-                    theme={theme.charts as AnyForLib}
+                    arcLinkLabelsTextColor={styles.textColor}
+                    theme={styles as AnyForLib}
                     isInteractive={showNumbers}
                 />
             </div>
         </div>
     )
-})
+}
 
 export default Pie

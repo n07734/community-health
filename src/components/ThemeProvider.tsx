@@ -1,15 +1,15 @@
 import { createContext, useContext, useEffect, useState } from "react"
 
-type Theme = "dark" | "light"
+export type ThemeMode = "dark" | "light"
 
 type ThemeProviderProps = {
   children: React.ReactNode
-  defaultTheme?: Theme
+  defaultTheme?: ThemeMode
   storageKey?: string
 }
 
 type ThemeProviderState = {
-  theme: Theme
+  theme: ThemeMode
   toggleTheme: () => void
 }
 
@@ -26,8 +26,8 @@ export const ThemeProvider = ({
     storageKey = "vite-ui-theme",
     ...props
 }: ThemeProviderProps) => {
-    const [theme, setTheme] = useState<Theme>(
-        () => (localStorage.getItem(storageKey) as Theme) || defaultTheme,
+    const [theme, setTheme] = useState<ThemeMode>(
+        () => (localStorage.getItem(storageKey) as ThemeMode) || defaultTheme,
     )
 
     useEffect(() => {
@@ -40,7 +40,7 @@ export const ThemeProvider = ({
     const value = {
         theme,
         toggleTheme: () => {
-            const newTheme = theme === 'dark' ? 'light' : 'dark'
+            const newTheme:ThemeMode = theme === 'dark' ? 'light' : 'dark'
             localStorage.setItem(storageKey, newTheme)
             setTheme(newTheme)
         },

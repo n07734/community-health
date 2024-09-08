@@ -1,8 +1,9 @@
 
 import { useState } from 'react'
 import { ResponsiveScatterPlot as NivoScatter } from '@nivo/scatterplot'
-import { useTheme } from '@mui/styles';
-import { Theme } from '@mui/material/styles'
+import { useTheme } from "@/components/ThemeProvider"
+import { chartStyles } from '@/components/charts/chartStyles'
+
 import { EventInfo } from '../../types/FormattedData';
 import { ColumnKeys, LineForGraph, Lines, TableData, LineInfo, Graph } from '../../types/Graphs';
 import { AnyForLib } from '../../types/State';
@@ -56,7 +57,8 @@ const Scatterplot = styledCharts(({
     setGraph = () => {},
     graphs = [],
 }:ScatterplotProps) => {
-    const theme:Theme = useTheme();
+    const { theme } = useTheme()
+    const styles = chartStyles(theme)
     // TODO: function to see time gap in data to help format date e.g. should add year
     const leftAxis = data
         .find(({ xAxis }) => xAxis === 'left') || { data: [], lines: [], xAxis: 'left'}
@@ -190,7 +192,7 @@ const Scatterplot = styledCharts(({
         symbolSize: 12,
         symbolShape: 'square',
         symbolBorderColor: 'rgba(0, 0, 0, .9)',
-        itemTextColor: theme.palette.text.primary,
+        itemTextColor: styles.textColor,
     }
 
     const legends = []
@@ -251,7 +253,7 @@ const Scatterplot = styledCharts(({
 
     const lineData = leftLinesData.concat(convertedRightLines)
 
-    const formattedMarkers = formatGraphMarkers(markers, theme, lineData)
+    const formattedMarkers = formatGraphMarkers(markers, styles, lineData)
 
     const hasData = (items:LineForGraph[]) => items.some(item => (item?.data || []).length)
 
@@ -325,7 +327,7 @@ const Scatterplot = styledCharts(({
                         }
                     )}
                     enableGridX={false}
-                    theme={theme.charts as AnyForLib}
+                    theme={styles as AnyForLib}
                 />
             </div>
             {

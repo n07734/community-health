@@ -1,34 +1,29 @@
 
 import { connect } from 'react-redux'
-import { withStyles, useTheme } from '@mui/styles'
-import { Theme } from '@mui/material/styles'
+import { EventInfo, PullRequest } from '@/types/FormattedData'
+import { FetchInfo } from '@/types/State'
+import { LineData, LineInfo, TableData } from '@/types/Graphs'
 
-import { useShowNames } from '../../state/ShowNamesProvider'
-import Line from '../charts/Line'
-import Paper from '../shared/Paper'
-import ChartDescription from '../shared/ChartDescription'
-import GraphsWrap from '../shared/GraphsWrap'
-import { P } from '../shared/StyledTags'
-import { EventInfo, PullRequest } from '../../types/FormattedData'
-import { FetchInfo } from '../../types/State'
+import { useShowNames } from '@/state/ShowNamesProvider'
+import Line from '@/components/charts/Line'
+import Paper from '@/components/shared/Paper'
+import ChartDescription from '@/components/shared/ChartDescription'
+import GraphsWrap from '@/components/shared/GraphsWrap'
+import { colors } from '@/components/colors'
+
 
 type SentimentProps = {
-    chunkyData: PullRequest[][]
+    chunkyData: TableData[][]
     pullRequests: PullRequest[]
     releases: EventInfo[]
     userIds: string[]
-    classes: Record<string, string>
 }
 const Sentiment = ({
     chunkyData = [],
     pullRequests = [],
     releases = [],
     userIds = [],
-    classes = {},
 }:SentimentProps) => {
-    const theme:Theme = useTheme();
-    const colors = theme.palette.colorList
-
     const { showNames } = useShowNames()
 
     const lines = userIds
@@ -37,7 +32,7 @@ const Sentiment = ({
                 ? userId
                 : `Spartacus${Array(i).fill(' ').join('')}`
 
-            return ([
+            const lines:LineInfo[] = [
                 {
                     label: `To ${label}`,
                     color: colors[i % colors.length],
@@ -50,7 +45,8 @@ const Sentiment = ({
                     filterForKey: true,
                     dataKey: `${userId}-commentAuthorSentimentScore`,
                 },
-            ])
+            ]
+            return lines
         })
         .flat()
 
@@ -60,8 +56,8 @@ const Sentiment = ({
                 title="Sentiment analysis*"
             >
                 <div>
-                    <P>*Adding this is an experiment to see if it can provide useful insights.</P>
-                    <P>Uses npm package <a className={classes.link} href="https://github.com/thisandagain/sentiment">sentiment</a> which uses AFINN-165 word list and Emoji ranking to perform sentiment analysis.</P>
+                    <p>*Adding this is an experiment to see if it can provide useful insights.</p>
+                    <p>Uses npm package <a className="text-primary" href="https://github.com/thisandagain/sentiment">sentiment</a> which uses AFINN-165 word list and Emoji ranking to perform sentiment analysis.</p>
                 </div>
             </ChartDescription>
             <GraphsWrap>
@@ -84,7 +80,7 @@ const Sentiment = ({
                                 },
                             ],
                             xAxis: 'left',
-                            data: pullRequests,
+                            data: pullRequests as LineData[],
                         },
                     ]}
                     tableKeys={['commentSentimentScore', 'commentAuthorSentimentScore', 'author']}
@@ -99,7 +95,7 @@ const Sentiment = ({
                                 {
                                     lines,
                                     xAxis: 'left',
-                                    data: pullRequests,
+                                    data: pullRequests as LineData[],
                                 },
                             ]}
                             tableKeys={['commentSentimentScore', 'commentAuthorSentimentScore', 'author']}
@@ -121,9 +117,4 @@ const mapStateToProps = (state:State) => ({
     userIds: state.fetches.userIds,
 })
 
-const styles = (theme:Theme) => ({
-    link: {
-        color: theme.palette.link,
-    },
-})
-export default connect(mapStateToProps)(withStyles(styles)(Sentiment))
+export default connect(mapStateToProps)(Sentiment)

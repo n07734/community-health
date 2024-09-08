@@ -1,4 +1,4 @@
-import { SortDirection } from './types/Querys'
+import { SortDirection } from './types/Queries'
 import { KeysOfValue } from './types/State'
 
 

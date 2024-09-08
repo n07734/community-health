@@ -1,8 +1,5 @@
 import { useState } from 'react'
 import { connect } from 'react-redux'
-import { withStyles, useTheme } from '@mui/styles'
-import Slider from '@mui/material/Slider'
-import { Theme } from '@mui/material/styles'
 import {
     add,
     sub,
@@ -10,11 +7,12 @@ import {
     formatISO,
     differenceInDays,
 } from 'date-fns'
-import { PullRequest, Issue } from '../../types/FormattedData'
-import { trimItems } from '../../state/actions'
-import { AnyForLib, FetchInfo, UsersInfo } from '../../types/State'
 
-import { P } from '../shared/StyledTags'
+import { AnyForLib, FetchInfo, UsersInfo } from '@/types/State'
+import { PullRequest, Issue } from '@/types/FormattedData'
+
+import { Slider } from "@/components/ui/slider"
+import { trimItems } from '@/state/actions'
 
 type DateRangeProps = {
     pullRequests: PullRequest[]
@@ -22,7 +20,6 @@ type DateRangeProps = {
     issues: Issue[]
     usersInfo: UsersInfo
     trim: (from: string, to: string) => void
-    classes: Record<string, string>
 }
 const DateRange = ({
     pullRequests = [],
@@ -30,10 +27,7 @@ const DateRange = ({
     issues = [],
     usersInfo,
     trim,
-    classes,
 }:DateRangeProps) => {
-    const theme: Theme = useTheme();
-
     /// need stable start and end dates
     const [startDate, endDate] = itemsDateRange
 
@@ -56,7 +50,7 @@ const DateRange = ({
         ? formatISO(sub(new Date(endDate), { days: daysDiff -  rightDays}), { representation: 'date' })
         : ''
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const handleChange = (_event: AnyForLib, newValue: number | number[], _activeThumb: number) => {
+    const handleChange = ( newValue: number[]) => {
         if (Array.isArray(newValue) && newValue.length === 2) {
             setValue(newValue as [number, number]);
         }
@@ -76,37 +70,15 @@ const DateRange = ({
         : ''
 
     return pullRequests.length > 0 && leftDate && <>
-        <P className={classes.title}><b>Showing {pullRequests.length} PRs {userText} {issuesText}</b>. Drag the points to change the date range of the report.</P>
-        <div className={classes.dates}>
-            <P>{format(new Date(leftDate), 'do MMM yy')}</P><P>{format(new Date(rightDate), 'do MMM yy')}</P>
+        <p className="w-full"><b>Showing {pullRequests.length} PRs {userText} {issuesText}</b>. Drag the points to change the date range of the report.</p>
+        <div className="w-full flex justify-between">
+            <p className="text-2xl mb-1">{format(new Date(leftDate), 'do MMM yy')}</p><p className="text-2xl mb-1">{format(new Date(rightDate), 'do MMM yy')}</p>
         </div>
         <Slider
             value={[left, right]}
-            onChange={handleChange}
-            onChangeCommitted={handleDone}
-            aria-labelledby="date-slider"
-            sx={{
-                '&.MuiSlider-root .MuiSlider-thumb:nth-child(even)': {
-                    width: '30px',
-                    height: '30px',
-                    '&:after': {
-                        content: '">"',
-                    },
-                },
-                '& .MuiSlider-thumb': {
-                    width: '30px',
-                    height: '30px',
-                    '&:after': {
-                        content: '"<"',
-                        color: theme.palette.text.primary,
-                        fontWeight: '800',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        paddingBottom: '0.06rem',
-                    },
-                },
-            }}
+            onValueChange={handleChange}
+            onValueCommit={handleDone}
+            className="pb-08"
         />
     </>
 }
@@ -128,20 +100,4 @@ const mapDispatchToProps = (dispatch: AnyForLib) => ({
     trim: (from:string,to:string) => dispatch(trimItems(from,to)),
 })
 
-const styles = (theme:Theme) => ({
-    title: {
-        width: '100%',
-    },
-    dates: {
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'space-between',
-        '& > p': {
-            margin: 0,
-            color: theme.palette.primary.main,
-            fontSize: '1.4rem',
-        },
-    },
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(DateRange))
+export default connect(mapStateToProps, mapDispatchToProps)(DateRange)

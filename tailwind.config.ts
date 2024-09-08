@@ -21,8 +21,14 @@ const config = {
             },
         },
         extend: {
+            screens: {
+                "3xl": "2400px",
+                "mm": "750px",
+            },
             spacing: {
-                50: "50px",
+                '50': "50px",
+                '08': "0.8rem",
+                "mw": "1200px",
             },
             colors: {
                 border: "hsl(var(--border))",

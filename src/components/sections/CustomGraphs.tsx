@@ -1,52 +1,45 @@
 import { useState } from 'react'
 import { connect } from 'react-redux'
-import { withStyles, useTheme, CSSProperties } from '@mui/styles'
-import { Theme } from '@mui/material/styles'
-import { EventInfo, Issue, PullRequest } from '../../types/FormattedData'
-import { Graph, GraphLine } from '../../types/Graphs'
+import { EventInfo, Issue, PullRequest } from '@/types/FormattedData'
+import { ColumnKeys, TableData, Graph, GraphLine, LineData, Lines } from '@/types/Graphs'
 
-import Paper from '../shared/Paper'
-import ChartDescription from '../shared/ChartDescription'
-import { P, UL, LI } from '../shared/StyledTags'
-import Button from '../shared/Button'
-import GraphsWrap from '../shared/GraphsWrap'
-import Line from '../charts/Line'
-import GraphUi from '../charts/GraphUi'
+import Paper from '@/components/shared/Paper'
+import ChartDescription from '@/components/shared/ChartDescription'
+import { Button } from '@/components/ui/button'
 
-type PrTransformer = (left: GraphLine[], right: GraphLine[], pullRequests: PullRequest[]) => [GraphLine[], GraphLine[], string[]]
+import GraphsWrap from '@/components/shared/GraphsWrap'
+import Line from '@/components/charts/Line'
+import GraphUi from '@/components/charts/GraphUi'
+import { useTheme } from "@/components/ThemeProvider"
+import { graphColors } from '@/components/colors'
+
 const formatGraphData = (
     pullRequests:PullRequest[] = [],
-    prTransformer?:PrTransformer,
     issues:Issue[] = [],
 ) => (data:Graph) => {
     const getData = (lineInfo: GraphLine) => {
         const dataKey = lineInfo.dataKey
         const useIssues = ['isBug', 'isFeature'].includes(dataKey)
 
-        return useIssues
+        const items = useIssues
             ? issues.filter(({ isBug = false}) =>  (isBug && dataKey === 'isBug') || (!isBug && dataKey === 'isFeature'))
             : pullRequests
+
+        return items as LineData[]
     }
     const {
         left = [],
         right = [],
     } = data
 
-    const [customLeft = [], customRight = [], legends = []] = prTransformer !== undefined
-        ? prTransformer(left, right, pullRequests)
-        : []
 
     const leftLines = {
-        lines: customLeft.length > 0
-            ? customLeft
-            : left.map(x => ({...x, data: getData(x)})),
+        lines: left.map(x => ({...x, data: getData(x)})),
         xAxis: 'left',
     }
 
     const rightLines = {
-        lines: customRight.length > 0
-            ? customRight
-            : right.map(x => ({...x, data: getData(x)})),
+        lines: right.map(x => ({...x, data: getData(x)})),
         xAxis: 'right',
     }
 
@@ -63,10 +56,7 @@ const formatGraphData = (
         ),
     ]
 
-    return [
-        legends,
-        formData,
-    ]
+    return formData as Lines[]
 }
 
 const getTableKeys = (graphInfo:Graph) => {
@@ -80,7 +70,7 @@ const getTableKeys = (graphInfo:Graph) => {
         ? [...activeKeys, 'author']
         : ['comments', 'approvals', 'age', 'prSize', 'author']
 
-    return keys
+    return keys as ColumnKeys[]
 }
 
 let id = 1
@@ -108,26 +98,22 @@ const hasTrimmedMaths = (graphs:Graph[] = []) => {
 }
 
 type CustomGraphsProps = {
-    chunkyData: PullRequest[][],
+    chunkyData: TableData[][],
     pullRequests: PullRequest[],
-    prTransformer?: PrTransformer,
     issues?: Issue[],
     releases?: EventInfo[],
-    classes: Record<string, string>,
-    tableOpenedByDefault: boolean,
+    tableOpenedByDefault?: boolean,
 }
 const CustomGraphs = ({
     chunkyData = [],
     pullRequests = [],
-    prTransformer,
     issues = [],
     releases = [],
-    classes = {},
     tableOpenedByDefault = false,
 }: CustomGraphsProps) => {
-    const theme: Theme = useTheme()
-    const colorA = theme.palette.primary.main
-    const colorB = theme.palette.secondary.main
+    const { theme } = useTheme()
+    const colorA = graphColors[theme].secondary
+    const colorB = graphColors[theme].primary
 
     const defaultState:Graph[] = [{
         graphId: 1,
@@ -151,7 +137,7 @@ const CustomGraphs = ({
     const [graphs, setGraph] = useState(defaultState)
     const showingTrimmed = hasTrimmedMaths(graphs)
 
-    const makeGraphData = formatGraphData(pullRequests, prTransformer, issues)
+    const makeGraphData = formatGraphData(pullRequests, issues)
 
     return pullRequests.length > 0 && (
         <Paper>
@@ -159,20 +145,20 @@ const CustomGraphs = ({
                 title="Build your own graphs"
                 expandText='guidance'
             >
-                <P>You can build multiple graphs with data you want to see to help you find insights and track trends.</P>
-                <P>Questions worth asking (with team context):</P>
-                <UL>
-                    <LI>What metrics do you want to look and and compare against?</LI>
-                    <LI>Any insights or things you would like to try to impact these metrics?</LI>
-                    <LI>This graph initially had PR age and size as they are often impactful metrics, what do you think about the trends of these metrics?</LI>
-                </UL>
+                <p>You can build multiple graphs with data you want to see to help you find insights and track trends.</p>
+                <p>Questions worth asking (with team context):</p>
+                <ul>
+                    <li>What metrics do you want to look and and compare against?</li>
+                    <li>Any insights or things you would like to try to impact these metrics?</li>
+                    <li>This graph initially had PR age and size as they are often impactful metrics, what do you think about the trends of these metrics?</li>
+                </ul>
             </ChartDescription>
             <GraphsWrap>
                 {
                     graphs
                         .map((graphInfo, i) => {
                             // TODO: fix legend toggle for custom graphs
-                            const [legends =[], data = []] = makeGraphData(graphInfo)
+                            const data = makeGraphData(graphInfo)
                             return graphInfo?.left?.length < 1 && graphInfo?.right?.length < 1
                                 ? <GraphUi
                                     key={i}
@@ -187,8 +173,7 @@ const CustomGraphs = ({
                                     graphs={graphs}
                                     blockHeading={true}
                                     markers={releases}
-                                    legends={legends}
-                                    showLegends={legends.length > 0}
+                                    showLegends={false}
                                     data={data}
                                     tableKeys={getTableKeys(graphInfo)}
                                     tableData={chunkyData}
@@ -197,27 +182,26 @@ const CustomGraphs = ({
                         })
                 }
                 {
-                    showingTrimmed && <P>
+                    showingTrimmed && <p>
                         *Trimmed average is the average after the top and bottom 5% is trimmed.
-                    </P>
+                    </p>
                 }
 
             </GraphsWrap>
-            <div className={classes.buttons}>
+            <div className="flex flex-nowrap basis-full justify-center gap-x-3 mb-08">
                 {
                     graphs.length > 1
                         && <Button
-                            value="Remove above graph"
-                            color="secondary"
+                            variant="secondary"
                             onClick={(event) => {
                                 event.preventDefault()
                                 setGraph(graphs.slice(0, -1))
                             }}
-                        />
+                        >
+                        Remove above graph
+                        </Button>
                 }
                 <Button
-                    value={"Add another custom graph"}
-                    color="primary"
                     onClick={(event) => {
                         event.preventDefault()
                         setGraph([
@@ -229,7 +213,9 @@ const CustomGraphs = ({
                             },
                         ])
                     }}
-                />
+                >
+                Add another custom graph
+                </Button>
             </div>
         </Paper>
     )
@@ -242,16 +228,4 @@ const mapStateToProps = (state:State) => ({
     issues: state.issues,
 })
 
-type TagStyles = {
-    [key: string]: CSSProperties
-}
-const styles = (): TagStyles => ({
-    buttons: {
-        display: 'flex',
-        flexWrap: 'nowrap',
-        flexBasis: '100%',
-        justifyContent: 'center',
-    },
-})
-
-export default connect(mapStateToProps)(withStyles(styles)(CustomGraphs))
+export default connect(mapStateToProps)(CustomGraphs)

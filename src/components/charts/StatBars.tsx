@@ -7,8 +7,6 @@ import {
 import { Theme } from '@mui/material/styles'
 import { UserData, UserDataNumbersKeys } from '../../types/State'
 
-import { P, H } from '../shared/StyledTags'
-
 type SelectUserProps = {
     player: string
     color: string
@@ -166,27 +164,27 @@ const StatBars = ({
                         />
                     </>
                     : <>
-                        <H level={3} style={{ color:colorA, margin: 0 }}>{player1.name}</H>
-                        <H level={3} style={{ color:colorB, margin: 0 }}>{player2.name}</H>
+                        <h3 style={{ color:colorA, margin: 0 }}>{player1.name}</h3>
+                        <h3 style={{ color:colorB, margin: 0 }}>{player2.name}</h3>
                     </>
             }
         </div>
         {
             stats
                 .map((stat, i) => <div key={`${stat.id}${i}`} className={classes.pvpWrapper} style={{ width: '100%'}}>
-                    <P>{stat.title}</P>
+                    <p>{stat.title}</p>
                     <div key={stat.id} className={classes.pvpBarWrapper}>
                         <div className={classes.pvpL} style={{
                             width: `${stat.lPercent}%`,
                             backgroundColor: `${stat.lColor}`,
                         }}>
-                            <P>{stat.lValue}</P>
+                            <p>{stat.lValue}</p>
                         </div>
                         <div className={classes.pvpR} style={{
                             width: `${stat.rPercent}%`,
                             backgroundColor: `${stat.rColor}`,
                         }}>
-                            <P>{stat.rValue}</P>
+                            <p>{stat.rValue}</p>
                         </div>
                     </div>
                 </div>)

@@ -1,19 +1,23 @@
 import { useState } from 'react'
 import { connect } from 'react-redux'
-import { withStyles, useTheme, CSSProperties } from '@mui/styles'
-import { Theme } from '@mui/material/styles'
 import { pathOr } from 'ramda'
 
-import { P } from './shared/StyledTags'
+import { EventInfo, PullRequest } from '@/types/FormattedData'
+import { UserData } from '@/types/State'
+import { LineData } from '@/types/Graphs'
+
+import { useTheme } from '@/components/ThemeProvider'
+import { graphColors } from '@/components/colors'
+
 import Button from './shared/Button'
 import Paper from './shared/Paper'
 import GraphsWrap from './shared/GraphsWrap'
 import Line from './charts/Line'
 import StatBars from './charts/StatBars'
+
 import { chunkData } from './charts/lineHelpers'
-import { useSubPage } from '../state/SubPageProvider'
-import { EventInfo, PullRequest } from '../types/FormattedData'
-import { UserData } from '../types/State'
+import { useSubPage } from '@/state/SubPageProvider'
+import { colors } from '@/components/colors'
 
 const queryString = pathOr('', ['location', 'search'], window)
 const urlParams = new URLSearchParams(queryString);
@@ -29,19 +33,16 @@ type PvPProps = {
     pullRequests: PullRequest[]
     releases: EventInfo[]
     usersData: UserData[]
-    classes: Record<string, string>
 }
 const PvP = ({
     pullRequests = [],
     releases = [],
     usersData = [],
-    classes,
 }:PvPProps) => {
-    const theme:Theme = useTheme();
     const { togglePvPPage } = useSubPage()
-    const colorA = theme.palette.secondary.main
-    const colorB = theme.palette.primary.main
-    const colorList = theme.palette.colorList
+    const { theme } = useTheme()
+    const colorA = graphColors[theme].secondary
+    const colorB = graphColors[theme].primary
 
     const [player1Id, setPlayer1Id] = useState(getPlayer1Id(usersData))
     const [player2Id, setPlayer2Id] = useState(getPlayer2Id(usersData))
@@ -71,7 +72,7 @@ const PvP = ({
         <>
             <Paper>
                 <Button
-                    className={classes.fill}
+                    className="w-full mr-0"
                     value="Back to main view"
                     color="secondary"
                     onClick={(e) => {
@@ -79,7 +80,7 @@ const PvP = ({
                         togglePvPPage()
                     }} />
 
-                <P className={classes.copy}>This page is just for fun, a bigger or smaller number could be good, bad or not mean much, it depends on context.</P>
+                <p className="w-full text-center">This page is just for fun, a bigger or smaller number could be good, bad or not mean much, it depends on context.</p>
 
                 <StatBars
                     player1={player1}
@@ -89,7 +90,7 @@ const PvP = ({
                     players={usersData}
                 />
 
-                <P className={classes.copy}>And the winner is.... Both! Thanks for your great work!</P>
+                <p className="w-full text-center">And the winner is.... Both! Thanks for your great work!</p>
                 <GraphsWrap>
                     <Line
                         markers={releases}
@@ -99,27 +100,27 @@ const PvP = ({
                             lines: [
                                 {
                                     label: `${player1.name} received`,
-                                    color: colorList[0],
+                                    color: colors[0],
                                     dataKey: 'commentSentimentScore',
-                                    data: user1PrData,
+                                    data: user1PrData as LineData[],
                                 },
                                 {
                                     label: `${player1.name} given`,
-                                    color: colorList[2],
+                                    color: colors[2],
                                     dataKey: 'commentAuthorSentimentScore',
-                                    data: user1PrData,
+                                    data: user1PrData as LineData[],
                                 },
                                 {
                                     label: `${player2.name} received`,
-                                    color: colorList[0],
+                                    color: colors[0],
                                     dataKey: 'commentSentimentScore',
-                                    data: user2PrData,
+                                    data: user2PrData as LineData[],
                                 },
                                 {
                                     label: `${player2.name} given`,
-                                    color: colorList[2],
+                                    color: colors[2],
                                     dataKey: 'commentAuthorSentimentScore',
-                                    data: user2PrData,
+                                    data: user2PrData as LineData[],
                                 },
                             ],
                             xAxis: 'left',
@@ -135,13 +136,13 @@ const PvP = ({
                                     label: `${player1.name} PR size`,
                                     color: colorA,
                                     dataKey: 'prSize',
-                                    data: user1PrData,
+                                    data: user1PrData as LineData[],
                                 },
                                 {
                                     label: `${player2.name} PR size`,
                                     color: colorB,
                                     dataKey: 'prSize',
-                                    data: user2PrData,
+                                    data: user2PrData as LineData[],
                                 },
                             ],
                             xAxis: 'left',
@@ -157,13 +158,13 @@ const PvP = ({
                                     label: `${player1.name} PR age`,
                                     color: colorA,
                                     dataKey: 'age',
-                                    data: user1PrData,
+                                    data: user1PrData as LineData[],
                                 },
                                 {
                                     label: `${player2.name} PR age`,
                                     color: colorB,
                                     dataKey: 'age',
-                                    data: user2PrData,
+                                    data: user2PrData as LineData[],
                                 },
                             ],
                             xAxis: 'left',
@@ -173,7 +174,7 @@ const PvP = ({
                     />
                 </GraphsWrap>
                 <Button
-                    className={classes.fill}
+                    className="w-full mr-0"
                     value="Back to main view"
                     color="secondary"
                     onClick={(e) => {
@@ -197,21 +198,4 @@ const mapStateToProps = (state:State) => ({
     usersData: state.usersData,
 })
 
-type TagStyles = {
-    [key: string]: CSSProperties
-}
-const styles = ():TagStyles => ({
-    fill: {
-        width: '100%',
-        marginRight: 0,
-    },
-    copy: {
-        width: '100%',
-        textAlign: 'center',
-    },
-    topButton: {
-        width: '100%',
-    },
-})
-
-export default connect(mapStateToProps)(withStyles(styles)(PvP))
+export default connect(mapStateToProps)(PvP)

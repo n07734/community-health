@@ -10,7 +10,7 @@
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 336, 81%, 53%;
+    --primary: 336 81% 53%;
     --primary-foreground: 0 0% 98%;
     --secondary: 205 71% 41%;
     --secondary-foreground: 240 5.9% 10%;
@@ -24,6 +24,7 @@
     --input: 240 5.9% 90%;
     --ring: 240 10% 3.9%;
     --radius: 0.5rem;
+    --shadow: 0 0% 80%;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -32,14 +33,14 @@
   }
 
   .dark {
-    --background: 240 10% 3.9%;
+    --background: 300, 4%, 13%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 336, 81%, 53%;
-    --primary-foreground: 240 5.9% 10%;
+    --primary: 336 81% 53%;
+    --primary-foreground: 0 0% 98%;
     --secondary: 205 71% 41%;
     --secondary-foreground: 0 0% 98%;
     --muted: 240 3.7% 15.9%;
@@ -49,8 +50,9 @@
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --input: 0 0 93%;
+    --ring: 336 81% 53%;
+    --shadow: 0 0% 50%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -74,13 +76,148 @@
           background: linear-gradient(0deg, rgba(232, 37, 115, .12) 20%, rgba(232, 37, 115, .40) 16%, rgba(232, 37, 115, 0) 90%);
       }
   }
+
+  p {
+    @apply text-base font-normal mb-08;
+  }
+
+  ul {
+    @apply  mb-08;
+  }
+
+  h1 {
+    @apply text-6xl font-light mb-08;
+  }
+  h2 {
+    @apply text-6xl font-extralight mb-08;
+  }
+  h3 {
+    @apply text-5xl font-extralight mb-08;
+  }
+  h4 {
+    @apply text-3xl font-medium mb-08;
+  }
+
+  .paper {
+    @apply p-5 pb-0;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 100% 20px;
+    background-image: linear-gradient(hsl(var(--shadow)), rgba(0,0,0,0));
+  }
+
+  .chart-wrap {
+    width: 100%;
+    height: 500px;
+  }
+  .chart-wrap svg g line {
+    opacity: 0.6;
+  }
+  @media (max-width: 768px) {
+    .chart-wrap {
+      height: 350px;
+    }
+    .chart-wrap svg g line {
+      opacity: 0.2;
+    }
+    .chart-wrap svg g line:first-child {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 668px) {
+    .chart-wrap {
+      height: 300px;
+    }
+    .chart-wrap svg g circle {
+      display: none;
+    }
+    .chart-wrap svg path {
+      opacity: 1;
+    }
+    .chart-wrap svg text {
+      font-size: 10px !important;
+    }
+  }
+
+  .chord-wrap {
+    width: 450px;
+    height: 450px;
+  }
+  @media (max-width: 668px) {
+    .chord-wrap {
+        width: 370px;
+        height: 370px;
+    }
+    .chord-wrap svg text {
+        font-size: 10px !important;
+    }
+  }
+
+  .pie-wrap {
+    width: 100%;
+    height: 350px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 750px) {
+    .pie-wrap {
+      height: 300px;
+    }
+  }
+  @media (max-width: 668px) {
+    .pie-wrap {
+      height: 250px;
+    }
+  }
+
+  .saved-line {
+    border-bottom: solid 2px;
+    display: inline-block;
+    line-height: 2rem;
+    position: relative;
+  }
+  .saved-line:before {
+    line-height: 0;
+    content: "•";
+    position: absolute;
+    bottom: -1px;
+    left: -3px;
+  }
+  .saved-line:after {
+    line-height: 0;
+    content: "•";
+    position: absolute;
+    bottom: -1px;
+    right: -3px;
+  }
+
+  .custom-lines {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  .custom-lines > div {
+    column-gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 50%;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+  .custom-lines > div:nth-child(2) {
+    justify-content: flex-end;
+    text-align: right;
+  }
 }
+
 
 @layer base {
   * {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply m-0 bg-background text-foreground;
   }
 }

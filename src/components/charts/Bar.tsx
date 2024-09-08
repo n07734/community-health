@@ -1,46 +1,39 @@
 
 import { filter } from 'ramda'
 import { ResponsiveBar as NivoBar } from '@nivo/bar'
-import { useTheme } from '@mui/styles'
-import { Theme } from '@mui/material/styles'
-import { AllowedColors } from '../../types/Components'
-import { BarData } from '../../types/Graphs'
+import { useTheme } from '@/components/ThemeProvider'
+import { chartStyles } from '@/components/charts/chartStyles'
 
-import { useShowNumbers } from '../../state/ShowNumbersProvider'
+import { BarData, LineInfo } from '@/types/Graphs'
+
+import { useShowNumbers } from '@/state/ShowNumbersProvider'
 import ChartHeading from './ChartHeading'
-import styledCharts from './styledCharts'
 import hasChartData from './hasChartData'
-import { AnyForLib } from '../../types/State'
+import { AnyForLib } from '@/types/State'
 
 type BarProps = {
     data: BarData[]
-    bars: {
-        dataKey: string
-        color: AllowedColors
-        label: string
-    }[]
+    bars: LineInfo[]
     sortBy: string
     indexBy: string
-    max: number
-    classes: Record<string, string>
-    layout: "horizontal" | "vertical" | undefined
+    max?: number
     title: string
 }
-const Bar = styledCharts(({
+const Bar = ({
     data = [],
     bars = [],
     sortBy = '',
     indexBy = 'user',
     max = 20,
-    classes,
-    layout = "vertical",
     title = '',
 }:BarProps) => {
-    const theme:Theme = useTheme();
+    const { theme } = useTheme()
+    const styles = chartStyles(theme)
+
     const { showNumbers } = useShowNumbers()
     const trimmedData = filter(item => bars.some(x => item[x.dataKey]), data)
 
-    const byPropDesc = (prop: string) => (a:Record<string, number>, b:Record<string, number>) =>
+    const byPropDesc = (prop: string) => (a:Record<string, number | string>, b:Record<string, number | string>) =>
         +((a[prop] || 0) < (b[prop] || 0)) || +((a[prop] || 0) === (b[prop] || 0)) - 1
 
     const sortedData = sortBy
@@ -54,9 +47,9 @@ const Bar = styledCharts(({
     const keys = bars.map(x => x.dataKey)
 
     return hasChartData<BarData>(data,keys) && (
-        <div className={classes.barChartComponentWrap}>
+        <div className="w-full max-w-mw mb-4">
             <ChartHeading text={title} items={bars} />
-            <div className={classes.chartWrap}>
+            <div className="chart-wrap">
                 <NivoBar
                     data={finalData}
                     keys={keys}
@@ -64,10 +57,8 @@ const Bar = styledCharts(({
                     margin={{ top: 5, right: 50, bottom: 60, left: 50 }}
                     padding={0.3}
                     groupMode="grouped"
-                    layout={layout}
-                    valueFormat={(value) => layout === 'horizontal'
-                        ? `${Math.abs(value)}`
-                        : `${value}`}
+                    layout="vertical"
+                    valueFormat={(value) => `${value}`}
                     colors={bars.map(x => x.color)}
                     axisBottom={{
                         tickSize: 0,
@@ -80,11 +71,11 @@ const Bar = styledCharts(({
                     isInteractive={showNumbers}
                     enableLabel={false}
                     animate={false}
-                    theme={theme.charts as AnyForLib}
+                    theme={styles as AnyForLib}
                 />
             </div>
         </div>
     )
-})
+}
 
 export default Bar
