@@ -1,11 +1,10 @@
 
 
-import { useTheme } from '@mui/styles';
-import { Theme } from '@mui/material/styles'
-
 import { EventInfo, PullRequest } from '@/types/FormattedData'
 import { LineData } from '@/types/Graphs'
 
+import { useTheme } from "@/components/ThemeProvider"
+import { graphColors } from '@/components/colors'
 import Paper from '@/components/shared/Paper'
 import ChartDescription from '@/components/shared/ChartDescription'
 import GraphsWrap from '@/components/shared/GraphsWrap'
@@ -20,9 +19,10 @@ const PullRequestTrendsTeam = ({
     pullRequests = [],
     releases = [],
 }:PullRequestTrendsProps) => {
-    const theme:Theme = useTheme();
-    const colorA = theme.palette.secondary.main
-    const colorB = theme.palette.primary.main
+    const { theme } = useTheme()
+    const colorA = graphColors[theme].secondary
+    const colorB = graphColors[theme].primary
+
     return pullRequests.length > 0 && (
         <Paper>
             <ChartDescription

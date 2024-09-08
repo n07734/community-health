@@ -5,32 +5,28 @@ import {
     always,
     equals,
 } from 'ramda'
-import { withStyles } from '@mui/styles'
 
-import { clearAllData } from '../../../state/actions'
+import { AnyForLib } from '@/types/State'
 
-import Paper from '../../shared/Paper'
-import Button from '../../shared/Button'
-
+import { clearAllData } from '@/state/actions'
+import Paper from '@/components/shared/Paper'
+import { Button } from '@/components/ui/button'
 import PrefetchedOptions from './PrefetchedOptions'
 import FormSection from './FormSection'
-import styles from './styles'
 import {
     myPreFetchedReports,
-} from '../../../myReports/myReportsConfig'
+} from '@/myReports/myReportsConfig'
 import {
     preFetchedSRank23,
     preFetchedRepos,
     preFetchedOrgs,
     preFetchedTeams,
-} from '../../../preFetchedInfo'
-import { AnyForLib } from '../../../types/State'
+} from '@/preFetchedInfo'
 
 type FetchFormProps = {
-    classes: Record<string, string>
     clearReport: () => void
 }
-const FetchForm = ({ classes, clearReport }: FetchFormProps) => {
+const FetchForm = ({ clearReport }: FetchFormProps) => {
     const queryString = window?.location?.search
     const urlParams = new URLSearchParams(queryString);
     const chosenReport =  urlParams.get('report') || myPreFetchedReports[0]?.fileName || 'facebook-react'
@@ -79,11 +75,12 @@ const FetchForm = ({ classes, clearReport }: FetchFormProps) => {
         : 'Show all'
 
     return (
-        <Paper className={classes.dataPaper} >
-            <div className={classes.typeOptions}>
+        <Paper className="block">
+            <div>
                 {
                     showTypes
                         .map(([text, type], i: number) => <Button
+                            className="text-xl"
                             value={text}
                             key={`${i}`}
                             color={selectedOption === type ? 'primary' : 'secondary'}
@@ -95,6 +92,7 @@ const FetchForm = ({ classes, clearReport }: FetchFormProps) => {
                 }
                 {
                     <Button
+                        className="text-xl"
                         value={showAllTypes ? 'Hide unselected' : showText}
                         color={showAllTypes ? 'primary' : 'secondary'}
                         onClick={(e: React.MouseEvent<HTMLElement>) => {
@@ -121,4 +119,4 @@ const mapDispatchToProps = (dispatch: AnyForLib) => ({
     clearReport: () => dispatch(clearAllData),
 })
 
-export default connect(() => ({}), mapDispatchToProps)(withStyles(styles)(FetchForm))
+export default connect(() => ({}), mapDispatchToProps)(FetchForm)

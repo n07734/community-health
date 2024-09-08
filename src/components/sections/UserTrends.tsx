@@ -11,7 +11,7 @@ import { useSubPage } from '@/state/SubPageProvider'
 import Paper from '@/components/shared/Paper'
 import ChartDescription from '@/components/shared/ChartDescription'
 import Radar from '@/components/charts/Radar'
-import Button from '@/components/shared/Button'
+import { Button } from '@/components/ui/button'
 
 import formatRadarData from '@/format/radarData'
 import { sortByKeys } from '@/utils'
@@ -133,7 +133,7 @@ const UserTrends = ({
                                         ? 'secondary'
                                         : 'primary'
                                 }
-                                onClick={(e) => {
+                                onClick={(e: React.MouseEvent<HTMLElement>) => {
                                     e.preventDefault()
                                     setUserPage(gitName)
                                     window && window.scrollTo(0, 0)

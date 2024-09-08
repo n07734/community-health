@@ -8,7 +8,7 @@ import { useShowNames } from '@/state/ShowNamesProvider'
 import { useSubPage } from '@/state/SubPageProvider'
 
 import Paper from '@/components/shared/Paper'
-import Button from '@/components/shared/Button'
+import { Button } from '@/components/ui/button'
 
 type UserListProps = {
     usersData: UserData[]

@@ -1,18 +1,16 @@
 import { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import { withStyles } from '@mui/styles'
-import { Users } from '../../../types/Components'
-import { AnyForLib, ReportType } from '../../../types/State'
 
-import ChartDescription from '../../shared/ChartDescription'
+import { Users } from '@/types/Components'
+import { AnyForLib, ReportType } from '@/types/State'
+
+import ChartDescription from '@/components/shared/ChartDescription'
 import SelectAmountData from './SelectAmountData'
 import ButtonWithMessage from './ButtonWithMessage'
 import TeamModal from './TeamModal'
 import TextInput from './TextInput'
 
 import Download from './Download'
-import { P, H } from '../../shared/StyledTags'
-import styles from './styles'
 import { validateForm } from './utils'
 
 import {
@@ -29,7 +27,7 @@ import {
     storeFormUntilDate,
     storeSortDirection,
     getAPIData,
-} from '../../../state/actions'
+} from '@/state/actions'
 
 type SetValues = {
     org?: string | undefined
@@ -51,7 +49,6 @@ type FormSectionProps = {
     getData: () => void
     fetching: boolean
     reportType: ReportType
-    classes: Record<string, string>
 }
 const FormSection = (props:FormSectionProps) => {
     const {
@@ -59,7 +56,6 @@ const FormSection = (props:FormSectionProps) => {
         getData,
         fetching,
         reportType = 'repo',
-        classes,
     } = props
 
     const titles = {
@@ -159,10 +155,10 @@ const FormSection = (props:FormSectionProps) => {
             {type:'repo'},
         ],
         org: [
-            {type:'org', className: 'inputDesc'},
+            {type:'org', className: 'col-span-full'},
         ],
         team: [
-            {type:'teamName', className: 'inputDesc'},
+            {type:'teamName', className: 'col-span-full'},
         ],
         user: [
             {type:'userId'},
@@ -176,12 +172,12 @@ const FormSection = (props:FormSectionProps) => {
         className?: string
     }
     return (
-        <div className={classes.formDescription} >
-            <H level={3}>{formTitle}</H>
+        <div className="mb-0" >
+            <h3>{formTitle}</h3>
             <form
                 onSubmit={handleSubmit}
             >
-                <div className={classes.inputGrid}>
+                <div className="grid grid-cols-1 gap-2 max-mm:grid-cols-2">
                     {
                         inputs
                             .map((input: Input) => <TextInput
@@ -199,29 +195,29 @@ const FormSection = (props:FormSectionProps) => {
                             />
                     }
                     <TextInput
-                        className="inputDesc"
+                        className="col-span-full"
                         type='events'
                         { ...inputStates }
                     />
-                    <P className="inputDesc">
+                    <p className="col-span-full">
                         Key events can give context when viewing the data e.g. started using copilot, launched a feature. These events can help give more context while viewing the data. e.g.  Copilot adopted=2024-02-01,Feature A=2024-04-10.
-                    </P>
+                    </p>
                     <TextInput
                         type="token"
                         { ...inputStates }
                     />
                     <SelectAmountData setValue={setValue} amountOfData={formInfo.amountOfData} />
-                    <P className="inputDesc">
-                        To create a token go to your GitHub <a className={classes.link} href="https://github.com/settings/tokens">tokens</a> page, click on &#39;generate new token&#39;, choose the settings &#39;repo&#39; (all), &#39;read:org&#39; and &#39;user&#39; then click &#39;Generate token&#39;.
-                    </P>
+                    <p className="col-span-full">
+                        To create a token go to your GitHub <a className="text-primary" href="https://github.com/settings/tokens">tokens</a> page, click on &#39;generate new token&#39;, choose the settings &#39;repo&#39; (all), &#39;read:org&#39; and &#39;user&#39; then click &#39;Generate token&#39;.
+                    </p>
                 </div>
 
                 <ChartDescription
-                    className={`${classes.formDescription} ${classes.fullRow}`}
+                    className="mb-0 col-span-full"
                     expandText="show"
                     intro="Advanced options"
                 >
-                    <div className={classes.inputGrid}>
+                    <div className="grid grid-cols-1 gap-2 max-mm:grid-cols-2">
                         <TextInput
                             type="excludeIds"
                             { ...inputStates }
@@ -296,4 +292,4 @@ const mapDispatchToProps = (dispatch: AnyForLib) => ({
     getData: () => dispatch(getAPIData()),
 })
 
-export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(FormSection))
+export default connect(mapStateToProps, mapDispatchToProps)(FormSection)

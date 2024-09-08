@@ -13,7 +13,7 @@ import { Label } from '@/components/ui/label'
 
 import { CustomLineDataKey, Graph, GraphFormInfo, GraphLine, GraphOptions, GroupMath } from '@/types/Graphs';
 import { colors } from '@/components/colors'
-import Button from '@/components/shared/Button'
+import { Button } from '@/components/ui/button'
 
 const defaultGroupMaths:GroupMath[] = [
     'average',

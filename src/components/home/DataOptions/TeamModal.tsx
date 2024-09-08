@@ -7,7 +7,7 @@ import {
     DialogContent,
     DialogTrigger,
 } from '@/components/ui/dialog'
-import Button from '@/components/shared/Button'
+import { Button } from '@/components/ui/button'
 import Message, { ErrorInputs } from '@/components/home/Message'
 import UsersForm from './UsersForm'
 

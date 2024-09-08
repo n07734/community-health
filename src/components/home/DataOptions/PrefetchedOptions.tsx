@@ -1,23 +1,23 @@
 import { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import { withStyles } from '@mui/styles'
-import { AnyForLib, AnyForNow, RepoInfo } from '../../../types/State'
 
-import Button from '../../shared/Button'
-import Message, { ErrorInputs } from '../Message'
-import styles from './styles'
-import { getPreFetched } from '../../../state/actions'
-import { useSubPage } from '../../../state/SubPageProvider'
+import { AnyForLib, AnyForNow, RepoInfo } from '@/types/State'
+
+import { Button } from '@/components/ui/button'
+import Message, { ErrorInputs } from '@/components/home/Message'
+import { getPreFetched } from '@/state/actions'
+import { useSubPage } from '@/state/SubPageProvider'
+
 import {
     preFetchedSRank23,
     preFetchedRepos,
     preFetchedTeams,
     preFetchedOrgs,
-} from '../../../preFetchedInfo'
+} from '@/preFetchedInfo'
 
 import {
     myPreFetchedReports,
-} from '../../../myReports/myReportsConfig'
+} from '@/myReports/myReportsConfig'
 
 type ReportInfo = {
     name?: string;
@@ -25,14 +25,12 @@ type ReportInfo = {
 }
 
 type PrefetchedOptionsProps = {
-    classes: Record<string, string>
     error: ErrorInputs
     preFetchedName: string
     getPreFetchedReport: (arg: ReportInfo) => void
 }
 const PrefetchedOptions = (props: PrefetchedOptionsProps) => {
     const {
-        classes,
         error,
         preFetchedName = '',
         getPreFetchedReport,
@@ -74,9 +72,9 @@ const PrefetchedOptions = (props: PrefetchedOptionsProps) => {
     const preFetchButton = (repoInfo:RepoInfo, i: number = 1) => <Button
         value={repoInfo?.name || 'Report'}
         key={`${i}`}
-        qaId={`prefetch-${repoInfo.name}`}
+        data-qa-id={`prefetch-${repoInfo.name}`}
         color={preFetchedName === repoInfo.fileName ? 'primary' : 'secondary'}
-        onClick={(e) => {
+        onClick={(e: React.MouseEvent<HTMLElement>) => {
             e.preventDefault()
             getPreFetchedReport(repoInfo)
         }}
@@ -87,7 +85,7 @@ const PrefetchedOptions = (props: PrefetchedOptionsProps) => {
     return (
         !isAPreFetchedReport && urlReport
             ? <div></div>
-            : <div className={classes.preFetched}>
+            : <div className="mb-4">
                 {
                     myPreFetchedReports
                         .map(preFetchButton)
@@ -131,7 +129,7 @@ const PrefetchedOptions = (props: PrefetchedOptionsProps) => {
                             error
                                 && <Message
                                     error={error}
-                                    className={classes.fullRow}
+                                    className="col-span-full"
                                 />
                         }
                     </>
@@ -139,7 +137,7 @@ const PrefetchedOptions = (props: PrefetchedOptionsProps) => {
                 <Button
                     value={showAllReports ? 'Hide other reports' : 'Show more OSS reports...'}
                     color={showAllReports ? 'primary' : 'secondary'}
-                    onClick={(e) => {
+                    onClick={(e: React.MouseEvent<HTMLElement>) => {
                         e.preventDefault()
                         setAllReports(!showAllReports)
                     }}
@@ -161,4 +159,4 @@ const mapDispatchToProps = (dispatch: AnyForLib) => ({
     getPreFetchedReport: (info: AnyForNow) => dispatch(getPreFetched(info)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(PrefetchedOptions))
+export default connect(mapStateToProps, mapDispatchToProps)(PrefetchedOptions)

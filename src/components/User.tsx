@@ -9,7 +9,7 @@ import { AllowedColors } from '@/types/Components'
 import { useTheme } from '@/components/ThemeProvider'
 import { graphColors } from '@/components/colors'
 
-import Button from './shared/Button'
+import { Button } from '@/components/ui/button'
 import Paper from './shared/Paper'
 import Line from './charts/Line'
 import StatBars from './charts/StatBars'
@@ -172,7 +172,7 @@ const UserView = ({
                 className="w-full"
                 value="Back to main view"
                 color="secondary"
-                onClick={(e) => {
+                onClick={(e: React.MouseEvent<HTMLElement>) => {
                     e.preventDefault()
                     clearUserPage()
                     window && window.scrollTo(0, 0)
@@ -192,7 +192,7 @@ const UserView = ({
                 className="w-full"
                 value="Back to main view"
                 color="secondary"
-                onClick={(e) => {
+                onClick={(e: React.MouseEvent<HTMLElement>) => {
                     e.preventDefault()
                     clearUserPage()
                     window && window.scrollTo(0, 0)

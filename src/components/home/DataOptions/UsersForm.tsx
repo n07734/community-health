@@ -5,10 +5,9 @@ import { Theme } from '@mui/material/styles'
 import { Users, UserValues } from '../../../types/Components' // TODO: Consolidate UserValues and UserInfo
 import { UsersInfo, UserInfo } from '../../../types/State'
 
-import { H } from '../../shared/StyledTags'
 import styles from './styles'
 import TextInput from './TextInput'
-import Button from '../../shared/Button'
+import { Button } from '@/components/ui/button'
 
 const mergedStyles = (theme: Theme) => ({
     ...styles(theme),
@@ -53,18 +52,18 @@ const mergedStyles = (theme: Theme) => ({
     },
 })
 
-type UserFormProps = {
+type UsersFormProps = {
     onSubmit: (users: Users) => void
     gitUsers: UserInfo[]
     usersInfo: UsersInfo
     classes: Record<string, string>
 }
-const UserForm = ({
+const UsersForm = ({
     onSubmit = () => {},
     gitUsers = [],
     usersInfo = {},
     classes = {},
-}:UserFormProps) => {
+}:UsersFormProps) => {
 
     const userEntries = Object.entries(usersInfo)
         .map(([userId, { name = '', dates = []}]) => ({ userId, name, dates }))
@@ -140,7 +139,7 @@ const UserForm = ({
 
     return (
         <form>
-            <H level={4}>{ membersTitle }</H>
+            <h4>{ membersTitle }</h4>
             {users.map((user, userIndex: number) => (
                 <div key={userIndex} className={classes.modalGrid}>
                     <TextInput
@@ -176,14 +175,22 @@ const UserForm = ({
                             <Delete className={classes.removeDate} onClick={() => handleRemoveDate({userIndex, dateIndex})} />
                         </div>
                     ))}
-                    <Button value={`Add ${ user.dates.length > 0 ? 'more dates' : 'dates'}`} color="primary" onClick={(e) => handleAddDates(userIndex,e)} />
-                    <Button className={classes.remove} value="Remove User" onClick={(e) => handleRemoveUser(userIndex,e)} />
+                    <Button
+                        value={`Add ${ user.dates.length > 0 ? 'more dates' : 'dates'}`}
+                        color="primary"
+                        onClick={(e: React.MouseEvent<HTMLElement>) => handleAddDates(userIndex,e)}
+                    />
+                    <Button
+                        className={classes.remove}
+                        value="Remove User"
+                        onClick={(e: React.MouseEvent<HTMLElement>) => handleRemoveUser(userIndex,e)}
+                    />
                 </div>
             ))}
-            <Button  className={classes.button} value="Create new user" color="primary" onClick={(e) => handleCreateUser(e)} />
+            <Button className={classes.button} value="Create new user" color="primary" onClick={(e) => handleCreateUser(e)} />
             <Button className={classes.button} value="Save and close" color="primary" onClick={(e) => handleSubmit(e)} />
         </form>
     )
 }
 
-export default withStyles(mergedStyles)(UserForm)
+export default withStyles(mergedStyles)(UsersForm)

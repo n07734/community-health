@@ -9,7 +9,7 @@ import { LineData } from '@/types/Graphs'
 import { useTheme } from '@/components/ThemeProvider'
 import { graphColors } from '@/components/colors'
 
-import Button from './shared/Button'
+import { Button } from '@/components/ui/button'
 import Paper from './shared/Paper'
 import GraphsWrap from './shared/GraphsWrap'
 import Line from './charts/Line'
@@ -75,7 +75,7 @@ const PvP = ({
                     className="w-full mr-0"
                     value="Back to main view"
                     color="secondary"
-                    onClick={(e) => {
+                    onClick={(e: React.MouseEvent<HTMLElement>) => {
                         e.preventDefault()
                         togglePvPPage()
                     }} />
@@ -177,7 +177,7 @@ const PvP = ({
                     className="w-full mr-0"
                     value="Back to main view"
                     color="secondary"
-                    onClick={(e) => {
+                    onClick={(e: React.MouseEvent<HTMLElement>) => {
                         e.preventDefault()
                         togglePvPPage()
                         window && window.scrollTo(0, 0)
