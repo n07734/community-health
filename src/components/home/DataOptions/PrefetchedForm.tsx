@@ -99,7 +99,7 @@ const PrefetchedForm = (props: PrefetchedFormProps) => {
 
     const [inputError, setInputError] = useState({})
 
-    const setValue = (key: string, value: string | object) => setFormInfo({
+    const setValue = (key: string, value: string | number | object) => setFormInfo({
         ...formInfo,
         [key]: value,
     })
@@ -164,11 +164,11 @@ const PrefetchedForm = (props: PrefetchedFormProps) => {
             intro="Top up this report's data"
             expandQaId="expand-prefetch-form"
         >
-            <div className="mb-0">
+            <div className="mb-3">
                 <form
                     onSubmit={handleSubmit}
                 >
-                    <div className="grid grid-cols-1 gap-2 max-mm:grid-cols-2 mb-4">
+                    <div className="grid grid-cols-2 gap-2 max-mm:grid-cols-1 items-end mb-4">
                         <div className="col-span-full">
                             {
                                 hardCodedKeys

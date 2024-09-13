@@ -1,12 +1,11 @@
 
-import { pathOr } from 'ramda'
-import { isDate } from 'date-fns'
-import {
-    always,
-    T as alwaysTrue,
-    F as alwaysFalse,
-    cond,
-} from 'ramda'
+import pathOr from 'ramda/es/pathOr'
+import isDate from 'date-fns/isDate'
+import always from 'ramda/es/always'
+import cond from 'ramda/es/cond'
+import alwaysTrue from 'ramda/es/T'
+import alwaysFalse from 'ramda/es/F'
+
 import { BatchedQueryArgs, CommentsQueryResult, Cursor, MakeQuery, NodeCursor, OldNew, OrgQueryResult, RawDataCommentTypeKey, RawDataTypeKey, RawPageInfo, ReviewsQueryResult, SortDirection, TeamIDsQueryResult, UntilDate, UserQueryArgs } from '../types/Queries'
 import { Cursors, RawDataResult, RawDataType } from '../types/RawData'
 

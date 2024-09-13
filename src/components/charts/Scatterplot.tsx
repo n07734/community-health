@@ -9,7 +9,6 @@ import { ColumnKeys, LineForGraph, Lines, TableData, LineInfo, Graph } from '../
 import { AnyForLib } from '../../types/State';
 
 import ChartHeading from './ChartHeading'
-import styledCharts from './styledCharts'
 import { DataTables } from '../ui/DataTables'
 
 import GraphUi from './GraphUi'
@@ -43,14 +42,13 @@ type ScatterplotProps = {
     setGraph?: (graphs: Graph[]) => void
     graphs?: Graph[]
 }
-const Scatterplot = styledCharts(({
+const Scatterplot = ({
     title,
     combineTitles = false,
     blockHeading = false,
     data = [],
     markers = [],
     showLegends = false,
-    classes,
     tableData = [],
     tableKeys = [],
     graphInfo,
@@ -264,7 +262,7 @@ const Scatterplot = styledCharts(({
         : '%y/%m'
 
     return hasData(lineData) && (
-        <div className={classes.lineChartComponentWrap}>
+        <div className="z-10 w-full max-w-mw">
             {
                 graphs.length > 0 && <GraphUi
                     graphInfo={graphInfo as Graph}
@@ -272,7 +270,7 @@ const Scatterplot = styledCharts(({
                     graphs={graphs}
                 />
             }
-            <div className={classes.headingWrap}>
+            <div className="flex flex-wrap justify-between">
                 <ChartHeading text={title} items={leftHeadingItems} />
                 {
                     !blockHeading && rightHeadingItems.length > 0
@@ -280,7 +278,7 @@ const Scatterplot = styledCharts(({
                 }
             </div>
 
-            <div className={classes.chartWrap}>
+            <div className="chart-wrap">
                 <NivoScatter
                     margin={{ top: 14, right: 50, bottom: 50, left: 50 }}
                     data={lineData}
@@ -338,6 +336,6 @@ const Scatterplot = styledCharts(({
             }
         </div>
     )
-})
+}
 
 export default Scatterplot

@@ -4,6 +4,7 @@ import { UserInfo, UsersInfo } from '@/types/State'
 
 import {
     Dialog,
+    DialogTitle,
     DialogContent,
     DialogTrigger,
 } from '@/components/ui/dialog'
@@ -115,7 +116,7 @@ const GitHubTeam = (props:GitHubTeamProps) => {
             }
         }}
     >
-        <h4>Get team members from a GitHub Org team page</h4>
+        <h4>Getting team members from a GitHub Org team page</h4>
         <TextInput
             key='gitTeamUrl'
             type='gitTeamUrl'
@@ -127,9 +128,10 @@ const GitHubTeam = (props:GitHubTeamProps) => {
         />
         <Button
             className="w-full mr-0 min-h-12"
-            value="Get team members"
             type="submit"
-        />
+        >
+            Get team members
+        </Button>
         {
             (inputError as ErrorInputs)?.message?.length > 0
                 && <Message
@@ -151,8 +153,12 @@ const TeamModal =  ({
 
     const [gitUsers, setGitUsers] = useState([] as UserInfo[])
 
+    const membersTitle = gitUsers.length > 0 && 'Edit Github Team members'
+        || Object.keys(usersInfo).length > 0 && 'Edit team members'
+        || 'Fill in team by:'
+
     return (<div>
-        <p>
+        <p className="mb-1">
             Team members: { Object.values(usersInfo).map(({ name, userId }) => name || userId).join(', ') || 'None'}
         </p>
         <Dialog open={open} onOpenChange={setOpen}>
@@ -160,14 +166,19 @@ const TeamModal =  ({
                 <Button
                     className="w-full"
                     type="button"
-                    value={
+                >
+                    {
                         Object.keys(usersInfo).length === 0
                             ? 'Add team members'
                             : 'Edit team members'
                     }
-                />
+                </Button>
             </DialogTrigger>
+
             <DialogContent className="overflow-scroll max-h-full w-4/5">
+                <DialogTitle>
+                    {membersTitle}
+                </DialogTitle>
                 {
                     Object.keys(usersInfo).length === 0
                         && <GitHubTeam setGitUsers={setGitUsers} />

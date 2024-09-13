@@ -127,32 +127,34 @@ const UserTrends = ({
                                 {...info}
                             />
                             <Button
-                                value={showNames ? name : 'Spartacus'}
-                                color={
+                                variant={
                                     (i + 1) % 2 === 0
                                         ? 'secondary'
-                                        : 'primary'
+                                        : undefined
                                 }
                                 onClick={(e: React.MouseEvent<HTMLElement>) => {
                                     e.preventDefault()
                                     setUserPage(gitName)
                                     window && window.scrollTo(0, 0)
                                 }}
-                            />
+                            >
+                                {showNames ? name : 'Spartacus'}
+                            </Button>
                         </div>
                     })
             }
             {
                 isTeamReport && <Button
-                    className="w-full"
-                    value="PvP arena"
+                    className="w-full mb-4"
                     color="primary"
                     onClick={(e) => {
                         e.preventDefault()
                         togglePvPPage()
                         window && window.scrollTo(0, 0)
                     }}
-                />
+                >
+                    PvP arena
+                </Button>
             }
         </Paper>
     )

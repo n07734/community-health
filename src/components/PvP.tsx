@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { connect } from 'react-redux'
-import { pathOr } from 'ramda'
+import pathOr from 'ramda/es/pathOr'
 
 import { EventInfo, PullRequest } from '@/types/FormattedData'
 import { UserData } from '@/types/State'
@@ -72,13 +72,14 @@ const PvP = ({
         <>
             <Paper>
                 <Button
-                    className="w-full mr-0"
-                    value="Back to main view"
+                    className="w-full mr-0 mb-4"
                     color="secondary"
                     onClick={(e: React.MouseEvent<HTMLElement>) => {
                         e.preventDefault()
                         togglePvPPage()
-                    }} />
+                    }} >
+                        Back to main view
+                </Button>
 
                 <p className="w-full text-center">This page is just for fun, a bigger or smaller number could be good, bad or not mean much, it depends on context.</p>
 
@@ -174,14 +175,15 @@ const PvP = ({
                     />
                 </GraphsWrap>
                 <Button
-                    className="w-full mr-0"
-                    value="Back to main view"
+                    className="w-full mr-0 mb-4"
                     color="secondary"
                     onClick={(e: React.MouseEvent<HTMLElement>) => {
                         e.preventDefault()
                         togglePvPPage()
                         window && window.scrollTo(0, 0)
-                    }} />
+                    }} >
+                    Back to main view
+                </Button>
             </Paper>
         </>
     )

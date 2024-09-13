@@ -1,5 +1,6 @@
-import { pathOr } from 'ramda'
-import { isAfter, isBefore } from 'date-fns'
+import pathOr from 'ramda/es/pathOr'
+import isAfter from 'date-fns/isAfter'
+import isBefore from 'date-fns/isBefore'
 
 type Item = {
     node: {

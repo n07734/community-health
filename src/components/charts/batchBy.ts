@@ -1,10 +1,8 @@
-import  {
-    getYear,
-    getMonth,
-    getWeek,
-    getDay,
-    differenceInDays,
-} from 'date-fns'
+import getYear from 'date-fns/getYear'
+import getMonth from 'date-fns/getMonth'
+import getWeek from 'date-fns/getWeek'
+import getDay from 'date-fns/getDay'
+import differenceInDays from 'date-fns/differenceInDays'
 
 const isNewDay = (prev: string, current: string) => {
     const prevItemsDay = prev && getDay(new Date(prev)) + 1

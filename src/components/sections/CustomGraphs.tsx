@@ -198,7 +198,7 @@ const CustomGraphs = ({
                                 setGraph(graphs.slice(0, -1))
                             }}
                         >
-                        Remove above graph
+                            Remove above graph
                         </Button>
                 }
                 <Button
@@ -214,7 +214,7 @@ const CustomGraphs = ({
                         ])
                     }}
                 >
-                Add another custom graph
+                    Add another custom graph
                 </Button>
             </div>
         </Paper>

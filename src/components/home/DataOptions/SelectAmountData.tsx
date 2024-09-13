@@ -14,10 +14,11 @@ import {
 } from '@/components/ui/select'
 
 type SelectAmountDataProps = {
-    setValue: (key: string, value: string | object) => void
+    setValue: (key: string, value: string | object | number) => void
     amountOfData: AmountOfData
     pullRequests: PullRequest[]
     preFetchedName: string
+    className?: string
 }
 const SelectAmountData = (props: SelectAmountDataProps) => {
     const {
@@ -25,6 +26,7 @@ const SelectAmountData = (props: SelectAmountDataProps) => {
         amountOfData,
         pullRequests = [],
         preFetchedName = '',
+        className = '',
     } = props
 
     const hasTeamData = !preFetchedName && pullRequests.length > 0
@@ -32,10 +34,10 @@ const SelectAmountData = (props: SelectAmountDataProps) => {
     const itemText = (amount: number) => `Get ${amount} ${amount === 1 ? 'month' : 'months'} ${hasTeamData ? 'more ' : ''}data`
 
     return (<Select
-        onValueChange={(amountOfData:string) => setValue('amountOfData', amountOfData)}
+        onValueChange={(amountOfData:string ) => setValue('amountOfData', amountOfData === 'all' ? amountOfData : Number(amountOfData))}
         value={`${amountOfData}`}
     >
-        <SelectTrigger className="w-auto">
+        <SelectTrigger className={`w-auto ${className}`}>
             <SelectValue>
                 {
                     amountOfData === 'all'

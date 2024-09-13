@@ -1,15 +1,14 @@
 // TODO: Think more about if this should maintain github api data structures
 // TODO: add tests
-import {
-    always,
-    cond,
-    propOr,
-    pathOr,
-    mergeDeepRight,
-    test,
-    T as alwaysTrue,
-    F as alwaysFalse,
-} from 'ramda'
+import always from 'ramda/es/always'
+import cond from 'ramda/es/cond'
+import propOr from 'ramda/es/propOr'
+import pathOr from 'ramda/es/pathOr'
+import mergeDeepRight from 'ramda/es/mergeDeepRight'
+import test from 'ramda/es/test'
+import alwaysTrue from 'ramda/es/T'
+import alwaysFalse from 'ramda/es/F'
+
 import { compose } from 'redux'
 import { AmountOfData, ApiInfo, ApiResponse, ApiResult, ApiResults, ApiFetchInfo } from '../types/Queries'
 

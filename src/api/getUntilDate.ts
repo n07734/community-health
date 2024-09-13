@@ -1,14 +1,10 @@
-import {
-    add,
-    sub,
-} from 'date-fns'
+import sub from 'date-fns/sub'
+import add from 'date-fns/add'
+import compose from 'ramda/es/compose'
+import prop from 'ramda/es/prop'
+import propOr from 'ramda/es/propOr'
+import is from 'ramda/es/is'
 
-import {
-    compose,
-    prop,
-    propOr,
-    is,
-} from 'ramda'
 import { SortDirection, UntilDate } from '../types/Queries'
 import { PullRequest } from '../types/FormattedData'
 import { RawPullRequest } from '../types/RawData'

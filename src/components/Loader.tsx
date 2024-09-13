@@ -1,61 +1,20 @@
 
 import { connect } from 'react-redux'
-import { withStyles, CSSProperties } from '@mui/styles'
-import { Theme } from '@mui/material/styles'
-import LinearProgress from '@mui/material/LinearProgress'
 import differenceInDays from 'date-fns/differenceInDays'
-import {
-    always,
-    cond,
-    equals,
-    T as alwaysTrue,
-} from 'ramda'
+import always from 'ramda/es/always'
+import cond from 'ramda/es/cond'
+import alwaysTrue from 'ramda/es/T'
+import equals from 'ramda/es/equals'
+
 import { FetchInfo, FetchStatus } from '../types/State'
 import { PullRequest } from '../types/FormattedData'
 
-type TagStyles = {
-    [key: string]: CSSProperties
-}
-const styles = (theme: Theme): TagStyles => ({
-    'root': {
-        position: 'relative',
-    },
-    'modal': {
-        position: 'fixed',
-        width: '80%',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        zIndex: 1000,
-        backgroundColor: theme.palette.background.paper,
-        padding: `${theme.mySpacing.x.large} ${theme.mySpacing.y.large}`,
-        '& .MuiLinearProgress-dashed': {
-            background: 'none',
-            backgroundColor: theme.palette.primary.dark,
-            animation: 'none',
-        },
-        '& .MuiLinearProgress-root': {
-            height: '14px',
-            marginBottom: theme.mySpacing.y.large,
-        },
-    },
-    'overlay': {
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        zIndex: 999,
-        backgroundColor: theme.palette.primary.dark,
-        animation: 'pulse 1s infinite alternate',
-        opacity: 0.6,
-    },
-    '@keyframes pulse': {
-        '100%': {
-            opacity: 0.9,
-        },
-    },
-})
+import {
+    Dialog,
+    DialogTitle,
+    DialogContentNoClose,
+} from '@/components/ui/dialog'
+import { Progress } from './ui/progress'
 
 const getDaysRemainingText = cond([
     [equals(1), x => `${x} day remaining`],
@@ -70,7 +29,6 @@ type LoaderProps = {
     fetchStatus?: FetchStatus
     pullRequests?: PullRequest[]
     formUntilDate?: string
-    classes?: Record<string, string>
 }
 const Loader = ({
     fetches,
@@ -78,7 +36,6 @@ const Loader = ({
     fetchStatus = {},
     pullRequests: pastPRs = [],
     formUntilDate = '',
-    classes = {},
 }: LoaderProps) => {
     const {
         userIds = [],
@@ -135,16 +92,18 @@ const Loader = ({
     const loadedUserPercent = (usersPosition * oneUserPercent)
 
     return (
-        fetching && <div data-qa-id="loader">
-            <div className={ classes.overlay }></div>
-            <div className={ classes.modal }>
+        fetching && <Dialog open={true}>
+            <DialogTitle>
+                Loading...
+            </DialogTitle>
+            <DialogContentNoClose data-qa-id="loader" className="overflow-scroll max-h-full w-4/5">
                 {
                     isTeamSearch
                         && <>
                             <h2>
                                 Loading {usersPosition + 1} of {userIds.length} {userIds.length === 1 ? 'user' : 'users'}
                             </h2>
-                            <LinearProgress className={classes.dashed} variant="determinate" value={loadedUserPercent} valueBuffer={oneUserPercent + loadedUserPercent}/>
+                            <Progress value={loadedUserPercent} />
                         </>
                 }
                 {
@@ -158,7 +117,7 @@ const Loader = ({
                             Fetching {savedReportName}
                         </h2>
                 }
-                <LinearProgress className={classes.dashed} variant="determinate" value={loadedPercent} valueBuffer={oneDayPercent + loadedPercent}/>
+                <Progress value={loadedPercent} />
                 {
                     repoCount > 0
                         && <h2>
@@ -190,8 +149,8 @@ const Loader = ({
                             Loaded users: {loadedUsers.join(', ')}
                         </p>
                 }
-            </div>
-        </div>
+            </DialogContentNoClose>
+        </Dialog>
     )
 }
 
@@ -210,6 +169,4 @@ const mapStateToProps = (state: State) => ({
     formUntilDate: state.formUntilDate,
 })
 
-const StyledLoader = withStyles(styles)(Loader)
-
-export default connect(mapStateToProps)(StyledLoader)
+export default connect(mapStateToProps)(Loader)

@@ -169,14 +169,15 @@ const UserView = ({
     return (
         <Paper>
             <Button
-                className="w-full"
-                value="Back to main view"
+                className="w-full mb-4"
                 color="secondary"
                 onClick={(e: React.MouseEvent<HTMLElement>) => {
                     e.preventDefault()
                     clearUserPage()
                     window && window.scrollTo(0, 0)
-                }} />
+                }} >
+                Back to main view
+            </Button>
 
             <p className="w-full text-center">A collection metrics showing {usersName}'s data and average data from the top {userCount} peers</p>
             <StatBars player1={userData} player2={averagedData} />
@@ -189,14 +190,15 @@ const UserView = ({
             }
 
             <Button
-                className="w-full"
-                value="Back to main view"
+                className="w-full mb-4"
                 color="secondary"
                 onClick={(e: React.MouseEvent<HTMLElement>) => {
                     e.preventDefault()
                     clearUserPage()
                     window && window.scrollTo(0, 0)
-                }} />
+                }} >
+                Back to main view
+            </Button>
         </Paper>
     )
 }

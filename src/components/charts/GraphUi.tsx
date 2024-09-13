@@ -320,7 +320,7 @@ const GraphUi = ({
         .filter(x => !/growth/.test(x))
     return <div className="w-full max-w-mw">
         {
-            remainingLines.length > 0 && <form className="flex flex-wrap rounded-2xl justify-center paper pt-2 gap-4" onSubmit={handleSubmit}>
+            remainingLines.length > 0 && <form className="flex flex-wrap rounded-2xl justify-center paper pt-2 gap-4 mb-3" onSubmit={handleSubmit}>
                 <Select
                     onValueChange={(value) => {
                         const line = remainingLines.find(x => x.dataKey === value) as GraphOptions
@@ -414,7 +414,7 @@ const GraphUi = ({
                         </SelectGroup>
                     </SelectContent>
                 </Select>
-                <Button value={"Add to graph"} color="primary" type='submit'/>
+                <Button color="primary" type='submit'>Add to graph</Button>
             </form>
         }
         <div className="custom-lines">

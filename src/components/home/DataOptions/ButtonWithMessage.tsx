@@ -34,9 +34,10 @@ const ButtonWithMessage = (props:ButtonWithMessageProps) => {
             type="submit"
             disabled={fetching}
             color="primary"
-            value={buttonText(fetching, pullRequests)}
             data-qa-id={qaId}
-        />
+        >
+            {buttonText(fetching, pullRequests)}
+        </Button>
         {
             error
                 && <Message

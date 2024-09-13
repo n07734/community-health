@@ -70,15 +70,17 @@ const PrefetchedOptions = (props: PrefetchedOptionsProps) => {
     }, [getPreFetchedReport, player1, player2, user])
 
     const preFetchButton = (repoInfo:RepoInfo, i: number = 1) => <Button
-        value={repoInfo?.name || 'Report'}
         key={`${i}`}
+        className="mr-2 mb-3"
         data-qa-id={`prefetch-${repoInfo.name}`}
-        color={preFetchedName === repoInfo.fileName ? 'primary' : 'secondary'}
+        variant={preFetchedName === repoInfo.fileName ? undefined : 'secondary'}
         onClick={(e: React.MouseEvent<HTMLElement>) => {
             e.preventDefault()
             getPreFetchedReport(repoInfo)
         }}
-    />
+    >
+        {repoInfo?.name || 'Report'}
+    </Button>
 
     const [showAllReports, setAllReports] = useState(false)
 
@@ -135,13 +137,15 @@ const PrefetchedOptions = (props: PrefetchedOptionsProps) => {
                     </>
                 }
                 <Button
-                    value={showAllReports ? 'Hide other reports' : 'Show more OSS reports...'}
-                    color={showAllReports ? 'primary' : 'secondary'}
+                    className="mr-2 mb-3"
+                    variant={showAllReports ? undefined : 'secondary'}
                     onClick={(e: React.MouseEvent<HTMLElement>) => {
                         e.preventDefault()
                         setAllReports(!showAllReports)
                     }}
-                />
+                >
+                    {showAllReports ? 'Hide other reports' : 'Show more OSS reports...'}
+                </Button>
             </div>
     )
 }

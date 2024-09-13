@@ -1,5 +1,5 @@
 
-import { filter } from 'ramda'
+import filter from 'ramda/es/filter'
 import { ResponsiveBar as NivoBar } from '@nivo/bar'
 import { useTheme } from '@/components/ThemeProvider'
 import { chartStyles } from '@/components/charts/chartStyles'

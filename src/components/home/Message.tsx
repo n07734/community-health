@@ -1,14 +1,11 @@
 
-import ErrorIcon from '@mui/icons-material/Error'
-import WarningIcon from '@mui/icons-material/Warning'
-import { withStyles } from '@mui/styles'
-import { Theme } from '@mui/material/styles'
-
-import { P } from '../shared/StyledTags'
-
 const variant = {
-    'warn': <WarningIcon />,
-    'error': <ErrorIcon />,
+    'warn': <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 fill-current" viewBox="0 0 24 24">
+        <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+    </svg>,
+    'error': <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 fill-current" viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+    </svg>,
 }
 
 export type ErrorInputs = {
@@ -18,44 +15,24 @@ export type ErrorInputs = {
 
 type MessageProps = {
     error: ErrorInputs
-    classes: Record<string, string>
     className?: string
 }
+
 const Message = ({
     error: {
         level = 'error',
         message,
     },
-    classes,
     className,
-}: MessageProps) => (
-    <div className={`${classes[level]} ${classes.root} ${className}`} >
-        {variant[level]}
-        <P className={classes.copy}>{message}</P>
-    </div>
-)
+}: MessageProps) => {
+    const bgClass = level === 'error'
+        ? 'bg-error'
+        : 'bg-warn'
+    return (
+        <div className={`${bgClass} p-3 flex items-center rounded-sm ${className}`} >
+            {variant[level]}
+            <p className="m-0 ml-2 p-0">{message}</p>
+        </div>
+    )}
 
-const styles = (theme: Theme) => ({
-    root: {
-        padding: '0.8rem',
-        display: 'flex',
-        alignItems: 'center',
-        borderRadius: '4px',
-        '& .MuiSvgIcon-root': {
-            color: theme.palette.text.primary,
-        },
-    },
-    copy: {
-        margin: 0,
-        marginLeft: theme.mySpacing.y.medium,
-        padding: 0,
-        color: theme.palette.text.primary,
-    },
-    error: {
-        backgroundColor: theme.palette.error.main,
-    },
-    warn: {
-        backgroundColor: theme.palette.warn.main,
-    },
-})
-export default withStyles(styles)(Message)
+export default Message

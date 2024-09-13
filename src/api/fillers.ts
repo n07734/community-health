@@ -1,4 +1,4 @@
-import { pathOr } from 'ramda'
+import pathOr from 'ramda/es/pathOr'
 import batch from './batch'
 import { FilterType, MakeQuery, OrgQueryResult, TeamIDsQueryResult } from '../types/Queries'
 import { RawPullRequest, RawDataResult } from '../types/RawData'

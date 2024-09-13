@@ -1,4 +1,4 @@
-import { mergeDeepRight } from 'ramda'
+import mergeDeepRight from 'ramda/es/mergeDeepRight'
 import { BatchedPaginations, BatchedQueryArgs, GetUsersData } from '../types/Queries'
 
 import { orgQuery,  batchedQuery} from './queries'

@@ -1,5 +1,5 @@
 
-import {  pick } from 'ramda'
+import pick from 'ramda/es/pick'
 import { sortByKeys } from '../utils'
 import { AnyObject } from '../types/Components'
 import { AnyForNow, UserData, UserDataNumbersKeys } from '../types/State'

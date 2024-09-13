@@ -1,16 +1,13 @@
 // TODO: TS add formatted return types
-import {
-    flatten,
-    path,
-    pathOr,
-    propOr,
-} from 'ramda'
-import {
-    differenceInDays,
-    isAfter,
-    isBefore,
-} from 'date-fns'
+import flatten from 'ramda/es/flatten'
+import path from 'ramda/es/path'
+import pathOr from 'ramda/es/pathOr'
+import propOr from 'ramda/es/propOr'
+import differenceInDays from 'date-fns/differenceInDays'
+import isAfter from 'date-fns/isAfter'
+import isBefore from 'date-fns/isBefore'
 import Sentiment from 'sentiment'
+
 import { EventInfo, Issue, PullRequest } from '../types/FormattedData'
 import { Comment, Review, SortDirection } from '../types/Queries'
 import { FetchInfo } from '../types/State'

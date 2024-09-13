@@ -1,39 +1,48 @@
-import { withStyles, useTheme, CSSProperties } from '@mui/styles'
+import { UserData, UserDataNumbersKeys } from '@/types/State'
+
 import {
     Select,
-    MenuItem,
-    SelectChangeEvent,
-} from '@mui/material'
-import { Theme } from '@mui/material/styles'
-import { UserData, UserDataNumbersKeys } from '../../types/State'
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from '@/components/ui/select'
+import { useTheme } from '@/components/ThemeProvider'
+import { graphColors } from '@/components/colors'
+
 
 type SelectUserProps = {
     player: string
-    color: string
+    className: string
     otherPlayer: string
     setPlayerId: (arg:string) => void
     players: UserData[]
 }
 const SelectUser = ({
     player = '',
-    color,
+    className = '',
     otherPlayer,
     setPlayerId,
     players = [],
 }: SelectUserProps) => <Select
     value={player}
-    style={{
-        color,
-        fontSize: '2rem',
-    }}
-    onChange={(e:SelectChangeEvent) => setPlayerId((e.target as HTMLSelectElement).value)}
-    inputProps={{ 'aria-label': 'Select a user' }}
+    onValueChange={(value) => setPlayerId(value)}
 >
-    {
-        players
-            .filter(({ author }) => author !== otherPlayer)
-            .map(({ author, name }) => <MenuItem  key={author} value={author} >{name}</MenuItem>)
-    }
+    <SelectTrigger className={`text-3xl w-auto ${className}`}>
+        <SelectValue>
+            {player}
+        </SelectValue>
+    </SelectTrigger>
+    <SelectContent>
+        <SelectGroup>
+            {
+                players
+                    .filter(({ author }) => author !== otherPlayer)
+                    .map(({ author, name }) => <SelectItem  key={author} value={author} >{name}</SelectItem>)
+            }
+        </SelectGroup>
+    </SelectContent>
 </Select>
 
 type StatBarsProps = {
@@ -42,7 +51,6 @@ type StatBarsProps = {
     setPlayer1Id?: (arg:string) => void
     setPlayer2Id?: (arg:string) => void
     players?: UserData[]
-    classes: Record<string, string>
 }
 const StatBars = ({
     player1,
@@ -50,11 +58,10 @@ const StatBars = ({
     setPlayer1Id = () => ({}),
     setPlayer2Id = () => ({}),
     players = [],
-    classes,
 }: StatBarsProps) => {
-    const theme:Theme = useTheme();
-    const colorA = theme.palette.secondary.main
-    const colorB = theme.palette.primary.main
+    const { theme } = useTheme()
+    const colorA = graphColors[theme].secondary
+    const colorB = graphColors[theme].primary
 
     const statsKeys:{ title: string, id: UserDataNumbersKeys }[] = [
         {
@@ -143,21 +150,21 @@ const StatBars = ({
             }
         })
 
-    return <div className={classes.root}>
-        <div className={classes.title}>
+    return <div className="w-full flex flex-col items-center basis-full">
+        <div className="w-full flex flex-nowrap justify-between mb-4 max-w-mw">
             {
                 players.length > 0
                     ? <>
                         <SelectUser
                             player={player1.author}
-                            color={colorA}
+                            className="text-secondary"
                             otherPlayer={player2.author}
                             setPlayerId={setPlayer1Id}
                             players={players}
                         />
                         <SelectUser
                             player={player2.author}
-                            color={colorB}
+                            className="text-primary"
                             otherPlayer={player1.author}
                             setPlayerId={setPlayer2Id}
                             players={players}
@@ -171,20 +178,20 @@ const StatBars = ({
         </div>
         {
             stats
-                .map((stat, i) => <div key={`${stat.id}${i}`} className={classes.pvpWrapper} style={{ width: '100%'}}>
-                    <p>{stat.title}</p>
-                    <div key={stat.id} className={classes.pvpBarWrapper}>
-                        <div className={classes.pvpL} style={{
+                .map((stat, i) => <div key={`${stat.id}${i}`} className="w-full relative max-w-mw mb-2" >
+                    <p className="z-[1] absolute w-full top-2 text-center m-0">{stat.title}</p>
+                    <div key={stat.id} className="w-full flex flex-nowrap content-stretch justify-between">
+                        <div className="relative h-9" style={{
                             width: `${stat.lPercent}%`,
                             backgroundColor: `${stat.lColor}`,
                         }}>
-                            <p>{stat.lValue}</p>
+                            <p className="z-[1] min-w-3 w-full absolute top-2 left-2 text-left m-0">{stat.lValue}</p>
                         </div>
-                        <div className={classes.pvpR} style={{
+                        <div className="relative h-9" style={{
                             width: `${stat.rPercent}%`,
                             backgroundColor: `${stat.rColor}`,
                         }}>
-                            <p>{stat.rValue}</p>
+                            <p className="z-[1] min-w-3 w-full absolute top-2 right-2 text-right m-0">{stat.rValue}</p>
                         </div>
                     </div>
                 </div>)
@@ -192,70 +199,4 @@ const StatBars = ({
     </div>
 }
 
-type TagStyles = {
-    [key: string]: CSSProperties
-}
-const styles = ():TagStyles => ({
-    root: {
-        width: '100%',
-        flexBasis: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-    },
-    title: {
-        width: '100%',
-        maxWidth: '1200px',
-        flexWrap: 'nowrap',
-        display: 'flex',
-        justifyContent: 'space-between',
-        marginBottom: '1em',
-    },
-    pvpWrapper: {
-        position: 'relative',
-        width: '100%',
-        maxWidth: '1200px',
-        marginBottom: '1em',
-        '& > p': {
-            zIndex: 1,
-            position: 'absolute',
-            width: '100%',
-            top: '8px',
-            textAlign: 'center',
-            margin: '0',
-        },
-    },
-    pvpBarWrapper: {
-        width: '100%',
-        display: 'flex',
-        flexWrap: 'nowrap',
-        alignContent: 'stretch',
-        justifyContent: 'space-between',
-    },
-    pvpL: {
-        position: 'relative',
-        textAlign: 'left',
-        height: '2.2rem',
-        '& p': {
-            zIndex: 1,
-            margin: 0,
-            position: 'absolute',
-            top: '8px',
-            left: '8px',
-        },
-    },
-    pvpR: {
-        position: 'relative',
-        textAlign: 'right',
-        height: '2.2rem',
-        '& p': {
-            zIndex: 1,
-            margin: 0,
-            position: 'absolute',
-            top: '8px',
-            right: '8px',
-        },
-    },
-})
-
-export default withStyles(styles)(StatBars)
+export default StatBars

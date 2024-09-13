@@ -4,7 +4,6 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import { createStore, applyMiddleware, compose } from 'redux'
 
-import { ThemeModeProvider } from './state/ThemeModeProvider'
 import { ShowNumbersProvider } from './state/ShowNumbersProvider'
 import { ShowNamesProvider } from './state/ShowNamesProvider'
 import { SubPageProvider } from './state/SubPageProvider'
@@ -18,15 +17,13 @@ const store = createStore(reducers, composeEnhancers(
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <Provider store={store}>
-            <ThemeModeProvider>
-                <ShowNumbersProvider>
-                    <ShowNamesProvider>
-                        <SubPageProvider>
-                            <App />
-                        </SubPageProvider>
-                    </ShowNamesProvider>
-                </ShowNumbersProvider>
-            </ThemeModeProvider>
+            <ShowNumbersProvider>
+                <ShowNamesProvider>
+                    <SubPageProvider>
+                        <App />
+                    </SubPageProvider>
+                </ShowNamesProvider>
+            </ShowNumbersProvider>
         </Provider>
     </React.StrictMode>,
 )

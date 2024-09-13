@@ -1,12 +1,10 @@
 import { useState } from 'react'
 import { connect } from 'react-redux'
-import {
-    add,
-    sub,
-    format,
-    formatISO,
-    differenceInDays,
-} from 'date-fns'
+import add from 'date-fns/add'
+import sub from 'date-fns/sub'
+import format from 'date-fns/format'
+import formatISO from 'date-fns/formatISO'
+import differenceInDays from 'date-fns/differenceInDays'
 
 import { AnyForLib, FetchInfo, UsersInfo } from '@/types/State'
 import { PullRequest, Issue } from '@/types/FormattedData'

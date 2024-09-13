@@ -1,10 +1,8 @@
 import { useState } from 'react'
 import { connect } from 'react-redux'
-import {
-    cond,
-    always,
-    equals,
-} from 'ramda'
+import cond from 'ramda/es/cond'
+import always from 'ramda/es/always'
+import equals from 'ramda/es/equals'
 
 import { AnyForLib } from '@/types/State'
 
@@ -80,26 +78,28 @@ const FetchForm = ({ clearReport }: FetchFormProps) => {
                 {
                     showTypes
                         .map(([text, type], i: number) => <Button
-                            className="text-xl"
-                            value={text}
+                            className="text-xl normal-case mr-2 mb-3"
                             key={`${i}`}
-                            color={selectedOption === type ? 'primary' : 'secondary'}
+                            variant={selectedOption === type ? undefined : 'secondary'}
                             onClick={(e: React.MouseEvent<HTMLElement>) => {
                                 e.preventDefault()
                                 setOption(type)
                             }}
-                        />)
+                        >
+                            {text}
+                        </Button>)
                 }
                 {
                     <Button
-                        className="text-xl"
-                        value={showAllTypes ? 'Hide unselected' : showText}
-                        color={showAllTypes ? 'primary' : 'secondary'}
+                        className="text-xl normal-case mr-2 mb-3"
+                        variant={showAllTypes ? undefined : 'secondary'}
                         onClick={(e: React.MouseEvent<HTMLElement>) => {
                             e.preventDefault()
                             setAllTypes(!showAllTypes)
                         }}
-                    />
+                    >
+                        {showAllTypes ? 'Hide unselected' : showText}
+                    </Button>
                 }
             </div>
             {

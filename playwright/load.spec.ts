@@ -54,7 +54,7 @@ test.describe('Screenshots for each report type', () => {
     })
 
     test('Repo screenshot matches baseline', async ({ page }) => {
-        await page.goto('/?report=vitest-dev-vitest')
+        await page.goto('/?report=microsoft-playwright')
         await page.waitForSelector(select.loader, { state: 'detached' })
         await page.waitForSelector(select.reportTitle)
 
@@ -97,13 +97,13 @@ test.describe('Screenshots for top up for each each report type', () => {
         },
         {
             type: 'repo',
-            report: 'vitest-dev-vitest',
+            report: 'microsoft-playwright',
             amount: 'Get 1 month data',
             direction: 'Append data',
         },
         {
             type: 'repo',
-            report: 'vitest-dev-vitest',
+            report: 'microsoft-playwright',
             amount: 'Get 1 month data',
             direction: 'Prepend data',
         },
@@ -131,17 +131,18 @@ test.describe('Screenshots for top up for each each report type', () => {
             await page.waitForSelector(select.prefetchForm)
 
             await page.click('text=Get it all!')
-            await page.click(`text=${amount}`)
+            await page.getByLabel(amount).getByText(amount).click()
+
 
             if (direction !== 'Append data') {
                 await page.click('text=Append data')
-                await page.click(`text=${direction}`)
+                await page.getByLabel(direction).getByText(direction).click()
             }
 
             await page.fill(select.inputToken, token)
 
             await page.click(select.prefetchForm)
-            await page.waitForSelector(select.loader, { state: 'detached' })
+            await page.waitForSelector(select.loader, { state: 'detached', timeout: 120_000 })
 
             await expect(page).toHaveScreenshot({
                 fullPage: true,

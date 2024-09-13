@@ -1,11 +1,10 @@
 
 import { connect } from 'react-redux'
-import {
-    cond,
-    always,
-    propSatisfies,
-    T as alwaysTrue,
-} from 'ramda'
+import cond from 'ramda/es/cond'
+import always from 'ramda/es/always'
+import propSatisfies from 'ramda/es/propSatisfies'
+import alwaysTrue from 'ramda/es/T'
+
 import Org from '../Org'
 import Repo from '../Repo'
 import User from '../User'

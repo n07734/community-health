@@ -1,5 +1,5 @@
 
-import { pathOr } from 'ramda'
+import pathOr from 'ramda/es/pathOr'
 
 import { AnyForNow } from '@/types/State'
 
@@ -36,13 +36,14 @@ const TextInput = (props:TextInputProps) => {
     const errorClass = inputError[type]
         ? 'border-red-500'
         : ''
-    return <Label className="mb-2">
+    return <Label>
         <p className="mb-1 block">
             {inputLabels[type]}
         </p>
         <Input
             className={`${className} m-0 w-full ${errorClass}`}
             value={formValue(formInfo, type)}
+            type={type}
             onBlur={(event:React.FocusEvent<HTMLInputElement>) => {
                 const value = pathOr('', ['target', 'value'], event)
 

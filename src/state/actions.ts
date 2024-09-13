@@ -1,20 +1,19 @@
-import {
-    assoc,
-    dissocPath,
-    equals,
-    filter,
-    is,
-    not,
-    map,
-    pickAll,
-    pipe,
-    split,
-    trim,
-    propOr,
-    pick,
-    values,
-} from 'ramda'
-import { isAfter, isBefore } from 'date-fns'
+import assoc from 'ramda/es/assoc'
+import dissocPath from 'ramda/es/dissocPath'
+import equals from 'ramda/es/equals'
+import filter from 'ramda/es/filter'
+import is from 'ramda/es/is'
+import not from 'ramda/es/not'
+import map from 'ramda/es/map'
+import pickAll from 'ramda/es/pickAll'
+import pipe from 'ramda/es/pipe'
+import split from 'ramda/es/split'
+import trim from 'ramda/es/trim'
+import propOr from 'ramda/es/propOr'
+import pick from 'ramda/es/pick'
+import values from 'ramda/es/values'
+import isAfter from 'date-fns/isAfter'
+import isBefore from 'date-fns/isBefore'
 import { AnyAction, Dispatch } from 'redux'
 import { FetchInfo, ReportType, AllState, AnyForNow } from '../types/State'
 import { AmountOfData } from '../types/Queries'

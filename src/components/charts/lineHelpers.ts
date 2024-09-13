@@ -1,4 +1,4 @@
-import { apply } from 'ramda'
+import apply from 'ramda/es/apply'
 import differenceInDays from 'date-fns/differenceInDays'
 import differenceInMonths from 'date-fns/differenceInMonths'
 import min from 'date-fns/min'

@@ -14,9 +14,6 @@
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
-    "@mui/icons-material": "^5.15.20",
-    "@mui/material": "^5.15.20",
-    "@mui/styles": "^5.15.20",
     "@nivo/bar": "^0.87.0",
     "@nivo/chord": "^0.87.0",
     "@nivo/core": "^0.87.0",
@@ -27,6 +24,7 @@
     "@radix-ui/react-collapsible": "^1.1.0",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-progress": "^1.1.0",
     "@radix-ui/react-radio-group": "^1.2.0",
     "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-slider": "^1.2.0",

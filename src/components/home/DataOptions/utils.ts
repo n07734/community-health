@@ -1,12 +1,10 @@
-import { isValid } from 'date-fns'
-import {
-    always,
-    equals,
-    cond,
-    join,
-    sort,
-    T as alwaysTrue,
-} from 'ramda'
+import isValid from 'date-fns/isValid'
+import always from 'ramda/es/always'
+import equals from 'ramda/es/equals'
+import cond from 'ramda/es/cond'
+import join from 'ramda/es/join'
+import sort from 'ramda/es/sort'
+import alwaysTrue from 'ramda/es/T'
 import { UsersInfo, UserInfo } from '../../../types/State'
 
 const inputLabels:Record<string, string> = {

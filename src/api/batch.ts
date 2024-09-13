@@ -1,4 +1,4 @@
-import { splitEvery } from 'ramda'
+import splitEvery from 'ramda/es/splitEvery'
 import { AnyForNow } from '../types/State'
 
 // Runs each batch synchronously and the items in a batch asynchronously

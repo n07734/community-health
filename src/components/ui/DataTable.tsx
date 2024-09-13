@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { format } from 'date-fns'
+import format from 'date-fns/format'
 import {
     ColumnDef,
     SortingColumn,
@@ -12,14 +12,6 @@ import {
     PaginationState,
     HeaderGroup,
 } from '@tanstack/react-table'
-
-import {
-    ArrowUpDown,
-    ArrowUp,
-    ArrowDown,
-    ChevronRight,
-    ChevronLeft,
-} from 'lucide-react'
 
 import { TableData } from '@/types/Graphs'
 
@@ -37,12 +29,56 @@ import { Button } from '@/components/ui/button'
 type Sort = 'asc' | 'desc' | 'none'
 const Arrow = ({ sort }: { sort: Sort}) => {
     const ArrowComponent = {
-        'asc': ArrowUp,
-        'desc': ArrowDown,
-        'none': ArrowUpDown,
+        'asc': <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="ml-2 h-4 w-4"
+        >
+            <path d="m5 12 7-7 7 7"></path>
+            <path d="M12 19V5"></path>
+        </svg>,
+        'desc': <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="ml-2 h-4 w-4"
+        >
+            <path d="M12 5v14"></path>
+            <path d="m19 12-7 7-7-7"></path>
+        </svg>,
+        'none': <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="ml-2 h-4 w-4"
+        >
+            <path d="m21 16-4 4-4-4"></path>
+            <path d="M17 20V4"></path>
+            <path d="m3 8 4-4 4 4"></path>
+            <path d="M7 4v16"></path>
+        </svg>,
     }[sort]
 
-    return <ArrowComponent className="ml-2 h-4 w-4" />
+    return ArrowComponent
 }
 
 // eslint-disable-next-line react/display-name
@@ -191,7 +227,20 @@ export const DataTable = ({
                     onClick={() => table.previousPage()}
                     disabled={!table.getCanPreviousPage()}
                 >
-                    <ChevronLeft className="h-4 w-4" />
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="h-4 w-4"
+                    >
+                        <path d="m15 18-6-6 6-6"></path>
+                    </svg>
                 </Button>
                 <Button
                     variant="ghost"
@@ -199,7 +248,20 @@ export const DataTable = ({
                     onClick={() => table.nextPage()}
                     disabled={!table.getCanNextPage()}
                 >
-                    <ChevronRight className="h-4 w-4" />
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="h-4 w-4"
+                    >
+                        <path d="m9 18 6-6-6-6"></path>
+                    </svg>
                 </Button>
             </div>
         </div>

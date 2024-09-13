@@ -1,4 +1,4 @@
-import { sum } from 'ramda'
+import sum from 'ramda/es/sum'
 import { UserData, UserDataByUserKeys } from '../types/State'
 
 const getNameList = (data: UserData[], key: keyof UserData, preSorted = false) => {

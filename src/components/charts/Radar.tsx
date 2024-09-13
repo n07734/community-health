@@ -13,7 +13,6 @@ import { graphColors } from '@/components/colors'
 import { chartStyles } from '@/components/charts/chartStyles'
 
 import ChartHeading from './ChartHeading'
-import styledCharts from './styledCharts'
 import hasChartData from './hasChartData'
 
 // eslint-disable-next-line react/display-name
@@ -34,7 +33,7 @@ type RadarProps = RadarData & {
     width?: number
     height?: number
 }
-const Radar = styledCharts(({
+const Radar = ({
     title = '',
     showTitle = true,
     data = [],
@@ -85,6 +84,6 @@ const Radar = styledCharts(({
             />
         </div>
     )
-})
+}
 
 export default Radar
