@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import { GroupMath, LineInfo } from '../../types/Graphs'
+import { BarInfo, GroupMath, LineInfo } from '../../types/Graphs'
 
 const ChartHeading = ({
     className = '',
@@ -7,7 +7,7 @@ const ChartHeading = ({
     text = '',
     type,
 }: { className?: string,
-    items?: LineInfo[] ,
+    items?: LineInfo[] | BarInfo[],
     text?: string,
     type?: 'line',
 }) => {
@@ -32,7 +32,7 @@ const ChartHeading = ({
         return valueMap[valueKey]
     }
 
-    const LineItem = ({ color, label }: LineInfo) => {
+    const LineItem = ({ color, label }: LineInfo | BarInfo) => {
         return (
             <span
                 style={{
@@ -46,7 +46,7 @@ const ChartHeading = ({
         )
     }
 
-    const Item = ({ color, label }: LineInfo) => (
+    const Item = ({ color, label }: LineInfo | BarInfo) => (
         <span
             style={{ color }}
         >
@@ -70,7 +70,11 @@ const ChartHeading = ({
     }
 
     const uniqueLinesMaths = [
-        ...new Set(items.map(x => x.groupMath)),
+        ...new Set(
+            items
+                .filter(x => 'groupMath' in x)
+                .map(x => 'groupMath' in x && x.groupMath),
+        ),
     ] as GroupMath[]
 
     const singleMathType = (items.length > 0

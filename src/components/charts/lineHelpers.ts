@@ -6,7 +6,7 @@ import max from 'date-fns/max'
 import { PieData, PieInfo } from '../../types/Components'
 import { EventInfo, Issue, PullRequest, ReleaseType } from '../../types/FormattedData'
 import { KeysOfValue, UsersInfo } from '../../types/State'
-import { TableData, AuthorItem, LineDataKeys, LineForGraph, LineInfo, GroupMathCalculation, Lines, LinePlot, LineData } from '../../types/Graphs'
+import { TableData, AuthorItem, LineDataKeys, LineForGraph, LineInfo, Lines, LinePlot, LineData, IssueIssue, LineInfoAuthor } from '../../types/Graphs'
 
 import { batchBy } from './batchBy'
 import { sumKeysValue, sortByKeys } from '../../utils'
@@ -67,12 +67,12 @@ const formatDate = (date: string) => {
 const averagePerDev = ({ filteredBatch = [] }: { filteredBatch: LineData[] }) => {
     const activeTeam:Record<string, number> = {}
     filteredBatch
-        .forEach((pr) => activeTeam[pr.author] = 1)
+        .forEach((pr) => 'prSize' in pr && (activeTeam[pr.author] = 1))
 
     return Math.round(filteredBatch.length / Object.keys(activeTeam).length)
 }
 
-const trimmedAverage = ({ filteredBatch = [], dataKey = 'comments' }: { filteredBatch: LineData[], dataKey: LineDataKeys }) => {
+const trimmedAverage = ({ filteredBatch = [], dataKey }: { filteredBatch: LineData[], dataKey: LineDataKeys }) => {
     const key = dataKey as KeysOfValue<LineData, number>
     const sortedBatch = filteredBatch
         .sort(sortByKeys([key]))
@@ -97,6 +97,10 @@ const teamDistribution = ({ filteredBatch = [], dataKey = 'comments' }: { filter
 
     filteredBatch
         .forEach((pr) => {
+            if (!('prSize' in pr)) {
+                return
+            }
+
             const {
                 teamApprovers = {},
                 teamCommenters = {},
@@ -158,23 +162,36 @@ const percentWith = ({ filteredBatch = [], dataKey = 'comments' }: { filteredBat
     return percentageWithValues;
 }
 
-const median = ({ filteredBatch, dataKey = 'comments' }: { filteredBatch: LineData[], dataKey: LineDataKeys }) => {
+const median = ({ filteredBatch, dataKey }: { filteredBatch: LineData[], dataKey: LineDataKeys }) => {
     const batchLength = filteredBatch.length
     const sortedBatch = filteredBatch
         .sort(sortByKeys([dataKey as KeysOfValue<LineData, number>]))
-    return sortedBatch[Math.floor(batchLength / 2)][dataKey as keyof LineData] as number || 0
+
+    const position = Math.floor(batchLength / 2)
+    const item = sortedBatch[position]
+    return item[dataKey as KeysOfValue<LineData, number>] || 0
 }
 
 const growth = ({ filteredBatch }: { filteredBatch: LineData[] }) => {
     const growth = filteredBatch
-        .reduce((acc = 0, { additions = 0, deletions = 0 }) => (
-            acc + (additions - deletions)
-        ), 0)
+        .reduce((acc = 0, item) => {
+            if (!('prSize' in item)) {
+                return acc
+            }
+            const { additions = 0, deletions = 0 } = item
+            return acc + (additions - deletions)
+        }, 0)
 
     return growth
 }
 
-const formatBatches = ({ filterForKey = false, dataKey, groupMath = 'average' }: LineInfo) => (batches:LineData[][] = []) => {
+const formatBatches = ({
+    filterForKey = false,
+    dataKey,
+    groupMath = 'average',
+}: LineInfo,
+batches:LineData[][] = [],
+) => {
     const lineData: LinePlot[] = []
     batches
         .forEach((batch) => {
@@ -187,7 +204,7 @@ const formatBatches = ({ filterForKey = false, dataKey, groupMath = 'average' }:
             const batchLength = filteredBatch.length
 
             if (!filterForKey || batchLength > 0) {
-                const valueByTypes:GroupMathCalculation = {
+                const valueByTypes = {
                     average: () => {
                         const value = batchLength > 0
                             ? Math.round(sumKeysValue(dataKey)(filteredBatch) / batchLength)
@@ -215,13 +232,13 @@ const formatBatches = ({ filterForKey = false, dataKey, groupMath = 'average' }:
     return lineData
 }
 
-const formatUnbatchedData = ({ lines = [], data = [] }: Lines) => {
+const formatUnbatchedData = ({ lines = [] }: Lines) => {
     const formattedLines: LineForGraph[] = []
     lines
         .forEach((line) => {
             const { label, color, dataKey, data: lineData = [] } = line
 
-            const formattedData:LinePlot[] = (data || lineData)
+            const formattedData:LinePlot[] = lineData
                 .map((item) => {
                     const valueA = (item[dataKey as keyof LineData] || 0) as number
                     // const valueB = pr.comments || 0
@@ -245,21 +262,15 @@ const formatUnbatchedData = ({ lines = [], data = [] }: Lines) => {
     return formattedLines
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const formatLinesData = ({ lines = [], data }: Lines) => {
-    const sharedAxisData = data && data.length > 0
-        ? batchBy(data)
-        : []
 
+const formatLinesData = ({ lines = [] }: Lines) => {
     const formatedLines:LineForGraph[] = []
     lines
         .forEach((line) => {
             const { label, color, data: lineData } = line
-            const batchedData = lineData && lineData.length > 0
-                ? batchBy(lineData)
-                : sharedAxisData
+            const batchedData = batchBy<PullRequest | IssueIssue>(lineData)
 
-            const formattedData = formatBatches(line)(batchedData)
+            const formattedData = formatBatches(line,batchedData)
 
             if (formattedData.length) {
                 formatedLines.push({
@@ -427,7 +438,7 @@ const splitByAuthor = ({ pullRequests = [], showNames = true, usersInfo = {} }: 
             authorsPrs[author] = theirPrs
         })
 
-    const byAuthorLines = Object.entries(authorsPrs)
+    const byAuthorLines: LineInfoAuthor[] = Object.entries(authorsPrs)
         .map(([author = '', prs = []], i) => {
             const data:AuthorItem[] = prs
                 .map(pr => ({
@@ -443,7 +454,7 @@ const splitByAuthor = ({ pullRequests = [], showNames = true, usersInfo = {} }: 
                 dataKey: 'value',
                 groupMath: 'count',
                 data,
-            } as LineInfo
+            }
         })
 
     const byAuthor:Lines = {

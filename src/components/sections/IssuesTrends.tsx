@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { useTheme } from '@/components/ThemeProvider'
 import { graphColors } from '@/components/colors'
 import { EventInfo, Issue } from '@/types/FormattedData'
-import { LineData } from '@/types/Graphs'
 
 import Paper from '@/components/shared/Paper'
 import ChartDescription from '@/components/shared/ChartDescription'
@@ -20,7 +19,7 @@ const formatIssueData = (data:Issue[] = []) => data
                 ? { bug: 1 }
                 : { issue: 1 }
         ),
-    })) as LineData[]
+    }))
 
 type IssuesTrendsProps = {
     issues: Issue[]
@@ -54,6 +53,7 @@ const IssuesTrends = ({
                                     filterForKey: true,
                                     dataKey: 'issue',
                                     groupMath: 'count',
+                                    data,
                                 },
                                 {
                                     label: 'Bugs*',
@@ -61,10 +61,10 @@ const IssuesTrends = ({
                                     filterForKey: true,
                                     dataKey: 'bug',
                                     groupMath: 'count',
+                                    data,
                                 },
                             ],
                             xAxis: 'left',
-                            data,
                         },
                     ]}
                     tableKeys={['isBug']}

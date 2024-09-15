@@ -47,7 +47,7 @@ const DateRange = ({
     const rightDate = endDate
         ? formatISO(sub(new Date(endDate), { days: daysDiff -  rightDays}), { representation: 'date' })
         : ''
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+     
     const handleChange = ( newValue: number[]) => {
         if (Array.isArray(newValue) && newValue.length === 2) {
             setValue(newValue as [number, number]);

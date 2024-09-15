@@ -2,7 +2,7 @@
 import { connect } from 'react-redux'
 import { EventInfo, PullRequest } from '@/types/FormattedData'
 import { FetchInfo } from '@/types/State'
-import { LineData, LineInfo, TableData } from '@/types/Graphs'
+import { LineInfo, TableData } from '@/types/Graphs'
 
 import { useShowNames } from '@/state/ShowNamesProvider'
 import Line from '@/components/charts/Line'
@@ -38,12 +38,14 @@ const Sentiment = ({
                     color: colors[i % colors.length],
                     filterForKey: true,
                     dataKey: `${userId}-commentsSentimentScore`,
+                    data: pullRequests,
                 },
                 {
                     label: `From ${label}`,
                     color: colors[i % colors.length],
                     filterForKey: true,
                     dataKey: `${userId}-commentAuthorSentimentScore`,
+                    data: pullRequests,
                 },
             ]
             return lines
@@ -72,15 +74,16 @@ const Sentiment = ({
                                     label: 'To team',
                                     color: colors[0],
                                     dataKey: 'commentSentimentScore',
+                                    data: pullRequests,
                                 },
                                 {
                                     label: 'From team',
                                     color: colors[2],
                                     dataKey: 'commentAuthorSentimentScore',
+                                    data: pullRequests,
                                 },
                             ],
                             xAxis: 'left',
-                            data: pullRequests as LineData[],
                         },
                     ]}
                     tableKeys={['commentSentimentScore', 'commentAuthorSentimentScore', 'author']}
@@ -95,7 +98,6 @@ const Sentiment = ({
                                 {
                                     lines,
                                     xAxis: 'left',
-                                    data: pullRequests as LineData[],
                                 },
                             ]}
                             tableKeys={['commentSentimentScore', 'commentAuthorSentimentScore', 'author']}

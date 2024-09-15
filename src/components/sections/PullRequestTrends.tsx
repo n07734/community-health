@@ -13,7 +13,7 @@ import Line from '@/components/charts/Line'
 import { splitByAuthor } from '@/components/charts/lineHelpers'
 import { useTheme } from '@/components/ThemeProvider'
 import { graphColors } from '@/components/colors'
-import { LineData, TableData } from '@/types/Graphs'
+import { TableData } from '@/types/Graphs'
 
 
 type PullRequestTrendsProps = {
@@ -77,10 +77,10 @@ const PullRequestTrends = ({
                                     label: 'PR size',
                                     color: colorA,
                                     dataKey: 'prSize',
+                                    data: pullRequests,
                                 },
                             ],
                             xAxis: 'left',
-                            data: pullRequests as LineData[],
                         },
                     ]}
                     tableData={chunkyData}
@@ -96,10 +96,10 @@ const PullRequestTrends = ({
                                     color: colorA,
                                     dataKey: 'url',
                                     groupMath: 'count',
+                                    data: pullRequests,
                                 },
                             ],
                             xAxis: 'left',
-                            data: pullRequests as LineData[],
                         },
                     ]}
                     tableData={chunkyData}
@@ -115,15 +115,16 @@ const PullRequestTrends = ({
                                     label: 'Comments',
                                     color: colorA,
                                     dataKey: 'comments',
+                                    data: pullRequests,
                                 },
                                 {
                                     label: 'Approvals',
                                     color: colorB,
                                     dataKey: 'approvals',
+                                    data: pullRequests,
                                 },
                             ],
                             xAxis: 'left',
-                            data: pullRequests as LineData[],
                         },
                         {
                             lines: [
@@ -131,10 +132,10 @@ const PullRequestTrends = ({
                                     label: 'PR Size',
                                     color: colorC,
                                     dataKey: 'prSize',
+                                    data: pullRequests,
                                 },
                             ],
                             xAxis: 'right',
-                            data: pullRequests as LineData[],
                         },
                     ]}
                     tableData={chunkyData}
@@ -150,10 +151,10 @@ const PullRequestTrends = ({
                                     label: 'Age (days)',
                                     color: colorB,
                                     dataKey: 'age',
+                                    data: pullRequests,
                                 },
                             ],
                             xAxis: 'left',
-                            data: pullRequests as LineData[],
                         },
                         {
                             lines: [
@@ -161,10 +162,10 @@ const PullRequestTrends = ({
                                     label: 'PR Size',
                                     color: colorC,
                                     dataKey: 'prSize',
+                                    data: pullRequests,
                                 },
                             ],
                             xAxis: 'right',
-                            data: pullRequests as LineData[],
                         },
                     ]}
                     tableData={chunkyData}

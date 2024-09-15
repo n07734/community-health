@@ -4,7 +4,6 @@ import pathOr from 'ramda/es/pathOr'
 
 import { EventInfo, PullRequest } from '@/types/FormattedData'
 import { UserData } from '@/types/State'
-import { LineData } from '@/types/Graphs'
 
 import { useTheme } from '@/components/ThemeProvider'
 import { graphColors } from '@/components/colors'
@@ -103,25 +102,25 @@ const PvP = ({
                                     label: `${player1.name} received`,
                                     color: colors[0],
                                     dataKey: 'commentSentimentScore',
-                                    data: user1PrData as LineData[],
+                                    data: user1PrData,
                                 },
                                 {
                                     label: `${player1.name} given`,
                                     color: colors[2],
                                     dataKey: 'commentAuthorSentimentScore',
-                                    data: user1PrData as LineData[],
+                                    data: user1PrData,
                                 },
                                 {
                                     label: `${player2.name} received`,
                                     color: colors[0],
                                     dataKey: 'commentSentimentScore',
-                                    data: user2PrData as LineData[],
+                                    data: user2PrData,
                                 },
                                 {
                                     label: `${player2.name} given`,
                                     color: colors[2],
                                     dataKey: 'commentAuthorSentimentScore',
-                                    data: user2PrData as LineData[],
+                                    data: user2PrData,
                                 },
                             ],
                             xAxis: 'left',
@@ -137,13 +136,13 @@ const PvP = ({
                                     label: `${player1.name} PR size`,
                                     color: colorA,
                                     dataKey: 'prSize',
-                                    data: user1PrData as LineData[],
+                                    data: user1PrData,
                                 },
                                 {
                                     label: `${player2.name} PR size`,
                                     color: colorB,
                                     dataKey: 'prSize',
-                                    data: user2PrData as LineData[],
+                                    data: user2PrData,
                                 },
                             ],
                             xAxis: 'left',
@@ -159,13 +158,13 @@ const PvP = ({
                                     label: `${player1.name} PR age`,
                                     color: colorA,
                                     dataKey: 'age',
-                                    data: user1PrData as LineData[],
+                                    data: user1PrData,
                                 },
                                 {
                                     label: `${player2.name} PR age`,
                                     color: colorB,
                                     dataKey: 'age',
-                                    data: user2PrData as LineData[],
+                                    data: user2PrData,
                                 },
                             ],
                             xAxis: 'left',

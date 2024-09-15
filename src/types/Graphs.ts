@@ -1,8 +1,8 @@
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { PullRequest } from './FormattedData'
 import { AllowedColors } from './Components'
-import { UserData } from './State'
+import { KeysOfValue, UserData } from './State'
 
 type LineDataKey =
     | 'commentSentimentScore'
@@ -29,25 +29,41 @@ type CustomDataKey =
 
 export type CustomLineDataKey = LineDataKey | CustomDataKey | IssuesDataKey
 
-export type LineData = BugIssue & IssueIssue & PullRequest & AuthorItem & UserData
+export type LineData = IssueIssue | PullRequest
 
-export type LineDataKeys = keyof LineData
+export type LineDataKeys = keyof BugIssue | keyof IssueIssue | keyof PullRequest | keyof AuthorItem | keyof UserData
 
-export type LineInfo = {
+type LineInfoBase = {
     label: string
     color: AllowedColors | string
-    data?: LineData[]
     filterForKey?: boolean
-    groupMath?: GroupMath
-    dataKey: LineDataKeys
     lineStyles?: Record<string, number | string>
     yMax?: number
 }
 
+export type LineInfoPR = LineInfoBase & {
+    data: PullRequest[]
+    dataKey: keyof PullRequest
+    groupMath?: GroupMathForPRs
+}
+
+export type LineInfoIssue = LineInfoBase & {
+    data: IssueIssue[]
+    dataKey: keyof IssueIssue
+    groupMath?: GroupMathForIssues
+}
+
+export type LineInfoAuthor = LineInfoBase & {
+    data: AuthorItem[]
+    dataKey: 'value'
+    groupMath: 'count'
+}
+
+export type LineInfo = LineInfoPR | LineInfoIssue | LineInfoAuthor
+
 export type Lines = {
     lines: LineInfo[]
     xAxis?: 'left' | 'right'
-    data?: LineData[]
 }
 
 export type GraphIssue = BugIssue | IssueIssue
@@ -58,7 +74,8 @@ export type BugIssue = {
 }
 
 export type IssueIssue = {
-    issue: number;
+    issue?: number;
+    bug?: number;
     mergedAt: string;
 }
 
@@ -79,20 +96,25 @@ export type LinePlot = {
     y: number
 }
 
-type CalculationArgs = { filteredBatch: LineData[], dataKey: LineDataKeys }
-export type GroupMathCalculation = {
-    sum: () => number
-    average: () => number
-    count: () => number
-    median: (arg:CalculationArgs) => number
-    teamDistribution: (arg:CalculationArgs) => number
-    trimmedAverage: (arg:CalculationArgs) => number
-    percentWith: (arg:CalculationArgs) => number
-    growth: (arg:{ filteredBatch: LineData[] }) => number
-    averagePerDev: (arg:{ filteredBatch: LineData[] }) => number
-}
+export type GroupMathForPRs =
+    | 'sum'
+    | 'average'
+    | 'count'
+    | 'median'
+    | 'teamDistribution'
+    | 'trimmedAverage'
+    | 'percentWith'
+    | 'growth'
+    | 'averagePerDev'
 
-export type GroupMath = keyof GroupMathCalculation
+export type GroupMathForIssues =
+    | 'sum'
+    | 'average'
+    | 'count'
+    | 'median'
+    | 'percentWith'
+
+export type GroupMath = GroupMathForPRs | GroupMathForIssues
 
 export type GraphLine = {
     label: string,
@@ -148,4 +170,10 @@ export type TableData = {
 
 export type BarData = {
     [key: string]: number | string
+}
+
+export type BarInfo = {
+    dataKey: KeysOfValue<UserData, number>
+    color: AllowedColors
+    label: string
 }

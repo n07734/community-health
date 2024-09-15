@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { connect } from 'react-redux'
 import { EventInfo, Issue, PullRequest } from '@/types/FormattedData'
-import { ColumnKeys, TableData, Graph, GraphLine, LineData, Lines } from '@/types/Graphs'
+import { ColumnKeys, TableData, Graph, GraphLine, Lines } from '@/types/Graphs'
 
 import Paper from '@/components/shared/Paper'
 import ChartDescription from '@/components/shared/ChartDescription'
@@ -25,7 +25,7 @@ const formatGraphData = (
             ? issues.filter(({ isBug = false}) =>  (isBug && dataKey === 'isBug') || (!isBug && dataKey === 'isFeature'))
             : pullRequests
 
-        return items as LineData[]
+        return items
     }
     const {
         left = [],

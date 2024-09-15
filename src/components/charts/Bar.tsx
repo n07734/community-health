@@ -4,16 +4,16 @@ import { ResponsiveBar as NivoBar } from '@nivo/bar'
 import { useTheme } from '@/components/ThemeProvider'
 import { chartStyles } from '@/components/charts/chartStyles'
 
-import { BarData, LineInfo } from '@/types/Graphs'
+import { BarData, BarInfo } from '@/types/Graphs'
+import { AnyForLib } from '@/types/State'
 
 import { useShowNumbers } from '@/state/ShowNumbersProvider'
 import ChartHeading from './ChartHeading'
 import hasChartData from './hasChartData'
-import { AnyForLib } from '@/types/State'
 
 type BarProps = {
     data: BarData[]
-    bars: LineInfo[]
+    bars: BarInfo[]
     sortBy: string
     indexBy: string
     max?: number

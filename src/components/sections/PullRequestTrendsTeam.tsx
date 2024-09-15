@@ -1,7 +1,6 @@
 
 
 import { EventInfo, PullRequest } from '@/types/FormattedData'
-import { LineData } from '@/types/Graphs'
 
 import { useTheme } from "@/components/ThemeProvider"
 import { graphColors } from '@/components/colors'
@@ -50,6 +49,7 @@ const PullRequestTrendsTeam = ({
                                     dataKey: 'comments',
                                     groupMath: 'teamDistribution',
                                     yMax: 100,
+                                    data: pullRequests,
                                 },
                                 {
                                     label: 'Approvals given',
@@ -57,10 +57,10 @@ const PullRequestTrendsTeam = ({
                                     dataKey: 'approvals',
                                     groupMath: 'teamDistribution',
                                     yMax: 100,
+                                    data: pullRequests,
                                 },
                             ],
                             xAxis: 'left',
-                            data: pullRequests as LineData[],
                         },
                     ]}
                 />
