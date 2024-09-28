@@ -50,7 +50,7 @@ const apiCall = (fetchInfo: ApiFetchInfo) => (query: string): Promise<ApiRespons
 
 const shouldGetNextPage = (hasNextPage: boolean, { amountOfData }: { amountOfData: AmountOfData }): boolean => cond([
     [always(hasNextPage === false), alwaysFalse],
-    [always(hasNextPage && Number.isInteger(amountOfData) && amountOfData as number >= 1), alwaysTrue],
+    [always(hasNextPage && typeof amountOfData === 'number' && amountOfData >= 1), alwaysTrue],
     [always(hasNextPage && amountOfData === 'all'), alwaysTrue],
     [alwaysTrue, alwaysFalse],
 ])();
@@ -94,7 +94,7 @@ const getLatestDate = (data:FetchInfo) => (type:RawDataType, results: RawDataRes
     }
     const hasNextPage = pathOr(false, [paginationKeyMap[type], 'hasNextPageForDate'], data)
 
-    const latestResult = results[results.length - 1] as RawDataResult || {}
+    const latestResult = results[results.length - 1] || {}
 
     const latestItems = latestResult?.data?.result?.[type]?.edges || []
 
@@ -127,7 +127,7 @@ const api = async({ fetchInfo, queryInfo, dispatch = () => {} }:ApiInfo, results
         getLatestDateFor('releases', results),
     ]
         .filter(Boolean)
-        .sort((a,b) => dateSort(sortDirection)(a as string,b as string))
+        .sort(dateSort(sortDirection))
 
     dispatch({
         type: types.FETCH_STATUS,

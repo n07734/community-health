@@ -83,7 +83,7 @@ const fillData = (apiCall: AnyForNow) => {
 
         return newHasNextPage && fillerType
             ? recursiveFiller(makeQuery)(nextArgs)(updatedData)
-            : await fillByType(fillerType as FilterType)(updatedData)
+            : await fillByType(fillerType)(updatedData)
     }
 
     type RawData = {
@@ -172,7 +172,7 @@ const fillData = (apiCall: AnyForNow) => {
     }
 
     const pullRequestsComments = async(data: RawDataResult) => {
-        const pullRequests = (data?.data?.result?.pullRequests?.edges || []) as RawPullRequest[]
+        const pullRequests = (data?.data?.result?.pullRequests?.edges || [])
 
         const getAllPullRequestComments = async (pullRequest: RawPullRequest) => {
             const currentComments = pullRequest?.node?.comments?.edges || []

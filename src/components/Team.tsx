@@ -34,8 +34,6 @@ const Team = ({
                 }
             })
 
-        // console.log('teamData', teamData)
-
         return teamData
     }
 

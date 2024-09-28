@@ -84,7 +84,6 @@ export type AuthorItem = {
     mergedAt: string;
 }
 
-
 export type LineForGraph = {
     id: string
     color: AllowedColors | string

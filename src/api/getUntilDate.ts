@@ -16,9 +16,9 @@ const getPrDate = (sortDirection: SortDirection, allPrs:PR[] = []) => {
         ? 0
         : -1
 
-    const pr = allPrs.at(prIndex) as PR
+    const pr = allPrs.at(prIndex)
 
-    const currentEndDate = ((pr as RawPullRequest)?.node?.mergedAt || (pr as PullRequest)?.mergedAt) as string
+    const currentEndDate: string = ((pr as RawPullRequest)?.node?.mergedAt || (pr as PullRequest)?.mergedAt)
 
     return new Date(currentEndDate)
 }

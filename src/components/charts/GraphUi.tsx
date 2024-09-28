@@ -351,7 +351,7 @@ const GraphUi = ({
                 </Select>
                 {
                     lineMaths.length > 0 && <Select
-                        onValueChange={(groupMath) => setValue({ groupMath })}
+                        onValueChange={(groupMath) => groupMath && setValue({ groupMath })}
                         value={formInfo.groupMath}
                     >
                         <SelectTrigger className="w-auto">
@@ -375,7 +375,7 @@ const GraphUi = ({
                 }
                 <RadioGroup
                     defaultValue={formInfo.lineSide}
-                    onValueChange={(lineSide) => setValue({ lineSide })}
+                    onValueChange={(lineSide) => lineSide && setValue({ lineSide })}
                 >
                     <div className="flex items-center space-x-2">
                         <div className="flex items-center space-x-2">
@@ -389,7 +389,7 @@ const GraphUi = ({
                     </div>
                 </RadioGroup>
                 <Select
-                    onValueChange={(color) => setValue({ color })}
+                    onValueChange={(color) => color && setValue({ color })}
                     value={formInfo.color}
                 >
                     <SelectTrigger className="w-auto">

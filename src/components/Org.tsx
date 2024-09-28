@@ -22,7 +22,7 @@ const Org = ({
 
     const allRepos:Record<string, number> = {}
     const updatedPullRequests:PullRequest[] = pullRequests
-        .map((prData:PullRequest = {} as PullRequest, i) => {
+        .map((prData:PullRequest, i) => {
             allRepos[prData.repo] = (allRepos[prData.repo] || 0) + 1
 
             return {

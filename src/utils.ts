@@ -2,7 +2,7 @@ import { SortDirection } from './types/Queries'
 import { KeysOfValue } from './types/State'
 
 
-const sumKeysValue = (key: string) => <I>(items: I[] = []) => items
+const sumKeysValue = <I>(key: string) => (items: I[] = []) => items
     .reduce((acc: number, current:I) => (current[key as keyof I] as number || 0) + acc, 0)
 
 const sumObjectKeys = <T>(keys: KeysOfValue<T, number>[]) => (obj:T) => keys

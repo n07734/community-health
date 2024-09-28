@@ -46,7 +46,7 @@ const PvP = ({
     const [player1Id, setPlayer1Id] = useState(getPlayer1Id(usersData))
     const [player2Id, setPlayer2Id] = useState(getPlayer2Id(usersData))
 
-    const player1 = usersData
+    const player1:UserData = usersData
         .find(x => x.author === player1Id) as UserData
     const player2 = usersData
         .find(x => x.author === player2Id) as UserData
