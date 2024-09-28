@@ -64,10 +64,6 @@ const FetchForm = ({ clearReport }: FetchFormProps) => {
     ]
     const [showAllTypes, setAllTypes] = useState(false)
 
-    const showTypes = (showAllTypes || (!isAnOSSReport && selectedOption === 'oss'))
-        ? allTypes
-        : [allTypes.find(([, type]) => type === selectedOption) || []]
-
     const showText = selectedOption === 'oss'
         ? 'Make a report...'
         : 'Show all'
@@ -76,7 +72,7 @@ const FetchForm = ({ clearReport }: FetchFormProps) => {
         <Paper className="block">
             <div>
                 {
-                    showTypes
+                    showAllTypes && allTypes
                         .map(([text, type], i: number) => <Button
                             className="text-xl normal-case mr-2 mb-3"
                             key={`${i}`}

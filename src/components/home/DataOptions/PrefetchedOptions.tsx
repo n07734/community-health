@@ -57,7 +57,7 @@ const PrefetchedOptions = (props: PrefetchedOptionsProps) => {
         .some(x => x.fileName === report)
     const repoInfo = isAPreFetchedReport
         ? allItems
-            .find(x => x.fileName === (preFetchedName || report))
+            .find(x => x.fileName === (preFetchedName || report)) as ReportInfo
         : { fileName: report }
 
     useEffect(() => {
@@ -85,30 +85,28 @@ const PrefetchedOptions = (props: PrefetchedOptionsProps) => {
     const [showAllReports, setAllReports] = useState(false)
 
     return (
-        !isAPreFetchedReport && urlReport
-            ? <div></div>
-            : <div className="mb-4">
+        <div className="mb-4">
+            {
+                myPreFetchedReports
+                    .map(preFetchButton)
+            }
+            <div>
+                <p><a className="text-primary" href="https://2023.stateofjs.com/en-US/libraries/#tier_list">StateOfJS 23</a> S tier list</p>
                 {
-                    myPreFetchedReports
+                    preFetchedSRank23
                         .map(preFetchButton)
                 }
-                <div>
-                    <p><a className="text-primary" href="https://2023.stateofjs.com/en-US/libraries/#tier_list">StateOfJS 23</a> S tier list</p>
-                    {
-                        preFetchedSRank23
-                            .map(preFetchButton)
-                    }
-                </div>
-                <p>Other reports</p>
+            </div>
+            <p>Other reports</p>
 
-                {
-                    myPreFetchedReports.length === 0 && <>
-                        {
-                            !showAllReports && repoInfo && Object.keys(repoInfo).length > 0
+            {
+                myPreFetchedReports.length === 0 && <>
+                    {
+                        !showAllReports && repoInfo?.name && Object.keys(repoInfo).length > 0
                                 && preFetchButton(repoInfo)
-                        }
-                        {
-                            showAllReports
+                    }
+                    {
+                        showAllReports
                                 && <>
                                     <p>Repository reports</p>
                                     {
@@ -126,27 +124,27 @@ const PrefetchedOptions = (props: PrefetchedOptionsProps) => {
                                             .map(preFetchButton)
                                     }
                                 </>
-                        }
-                        {
-                            error
+                    }
+                    {
+                        error
                                 && <Message
                                     error={error}
                                     className="col-span-full"
                                 />
-                        }
-                    </>
-                }
-                <Button
-                    className="mr-2 mb-3"
-                    variant={showAllReports ? undefined : 'secondary'}
-                    onClick={(e: React.MouseEvent<HTMLElement>) => {
-                        e.preventDefault()
-                        setAllReports(!showAllReports)
-                    }}
-                >
-                    {showAllReports ? 'Hide other reports' : 'Show more OSS reports...'}
-                </Button>
-            </div>
+                    }
+                </>
+            }
+            <Button
+                className="mr-2 mb-3"
+                variant={showAllReports ? undefined : 'secondary'}
+                onClick={(e: React.MouseEvent<HTMLElement>) => {
+                    e.preventDefault()
+                    setAllReports(!showAllReports)
+                }}
+            >
+                {showAllReports ? 'Hide other reports' : 'Show more OSS reports...'}
+            </Button>
+        </div>
     )
 }
 
