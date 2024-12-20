@@ -23,7 +23,7 @@ const cursorWithDirection = (order: SortDirection, { oldest, newest }: OldNew) =
         : ''
 
     const pageCount = cursorString
-        ? 100
+        ? 50
         : 10
 
     const amountString = order === 'DESC'

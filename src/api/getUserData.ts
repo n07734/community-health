@@ -35,9 +35,15 @@ const getUserData = async({ fetchInfo, untilDate, dispatch }: GetUsersData) => {
         const allReviewResults = allUserReviewData.results
 
         const paginationInfo = {
-            issuesPagination: prop('issuesPagination', allUserData.fetchInfo),
-            prPagination: prop('prPagination', allUserData.fetchInfo),
-            usersReviewsPagination: prop('usersReviewsPagination', allUserReviewData.fetchInfo),
+            issuesPagination: {
+                [user]: prop('issuesPagination', allUserData.fetchInfo),
+            },
+            prPagination: {
+                [user]: prop('prPagination', allUserData.fetchInfo),
+            },
+            usersReviewsPagination: {
+                [user]: prop('usersReviewsPagination', allUserReviewData.fetchInfo),
+            },
         }
 
         const finalFetchInfo = mergeDeepRight(fetchInfo, paginationInfo)
