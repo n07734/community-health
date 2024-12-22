@@ -98,6 +98,7 @@ const PrefetchedForm = (props: PrefetchedFormProps) => {
     })
 
     const [inputError, setInputError] = useState({})
+    const [showDowload, setShowDownload] = useState(false)
 
     const setValue = (key: string, value: string | number | object) => setFormInfo({
         ...formInfo,
@@ -135,6 +136,8 @@ const PrefetchedForm = (props: PrefetchedFormProps) => {
 
         isValid && !fetching
             && getData()
+
+        isValid && setShowDownload(true)
     }
 
     const reportInputsHash = {
@@ -226,7 +229,7 @@ const PrefetchedForm = (props: PrefetchedFormProps) => {
                     </div>
                     <ButtonWithMessage qaId="prefetch-top-up" />
                 </form>
-                <Download />
+                { showDowload && <Download />}
             </div>
         </ChartDescription>
     )

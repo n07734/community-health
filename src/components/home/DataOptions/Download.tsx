@@ -8,18 +8,16 @@ import { AnyForLib } from '../../../types/State'
 
 type Download = {
     fetching: boolean,
-    preFetchedName?: string,
     pullRequests: PullRequest[],
     getDownloadInfo: () => object,
 }
 const Download = ({
     fetching,
-    preFetchedName,
     pullRequests,
     getDownloadInfo,
 }: Download) => {
     const info = getDownloadInfo()
-    return !fetching && !preFetchedName && pullRequests.length > 0
+    return !fetching && pullRequests.length > 0
         ? <p><a className="text-primary" {...info}>Download report data</a></p>
         : null
 }
@@ -27,12 +25,10 @@ const Download = ({
 type State = {
     fetching: boolean,
     pullRequests: PullRequest[],
-    preFetchedName: string,
 }
 const mapStateToProps = (state: State) => ({
     fetching: state.fetching,
     pullRequests: state.pullRequests,
-    preFetchedName: state.preFetchedName,
 })
 
 const mapDispatchToProps = (dispatch: AnyForLib) => ({
