@@ -1,0 +1,3020 @@
+{
+  "fetches": {
+    "sortDirection": "DESC",
+    "userIds": [
+      "coolsoftwaretyler"
+    ],
+    "usersInfo": {
+      "coolsoftwaretyler": {
+        "userId": "coolsoftwaretyler",
+        "name": "Tyler"
+      }
+    },
+    "prPagination": {
+      "coolsoftwaretyler": {
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0xOVQxNzowMDoyOSswMDowMM6F0U7J",
+        "oldest": "Y3Vyc29yOnYyOpK5MjAyMy0wOS0wOFQwMjo0NToyOCswMTowMM5Z1NIq"
+      }
+    },
+    "usersReviewsPagination": {
+      "tkdodo": {
+        "newest": "Y3Vyc29yOjE=",
+        "oldest": "Y3Vyc29yOjMxMA=="
+      },
+      "coolsoftwaretyler": {
+        "newest": "Y3Vyc29yOjE=",
+        "oldest": "Y3Vyc29yOjQz"
+      }
+    },
+    "issuesPagination": {
+      "coolsoftwaretyler": {
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0xN1QxOTowNzo1MiswMDowMM6jqaMM",
+        "oldest": "Y3Vyc29yOnYyOpK5MjAyMy0wNi0yNVQwNToxMjowMiswMTowMM5proq5"
+      }
+    }
+  },
+  "pullRequests": [
+    {
+      "repo": "ignite",
+      "org": "infinitered",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/infinitered/ignite/pull/2593",
+      "additions": 127,
+      "deletions": 3,
+      "prSize": 130,
+      "mergedAt": "2024-01-04T18:03:48Z",
+      "cycleTime": 8,
+      "age": 8,
+      "approvals": 2,
+      "approvers": {
+        "yulolimum": 1,
+        "frankcalise": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "abtonc": 2,
+        "frankcalise": 1,
+        "yulolimum": 1
+      },
+      "generalCommentSentimentScore": 15,
+      "generalCommentSentiments": {
+        "abtonc": 6,
+        "yulolimum": 9
+      },
+      "generalCommentsAuthor": 6,
+      "generalCommentAuthorSentimentScore": 28,
+      "generalCommentSentimentTotalScore": 43,
+      "codeComments": 4,
+      "codeCommenters": {
+        "yulolimum": 3,
+        "frankcalise": 1
+      },
+      "codeCommentsAuthor": 5,
+      "codeCommentAuthorSentimentScore": 17,
+      "codeCommentSentimentTotalScore": 17,
+      "comments": 8,
+      "commenters": {
+        "yulolimum": 4,
+        "frankcalise": 2,
+        "abtonc": 2
+      },
+      "commentSentimentScore": 15,
+      "commentSentiments": {
+        "yulolimum": 9,
+        "abtonc": 6
+      },
+      "commentsAuthor": 11,
+      "commentAuthorSentimentScore": 45,
+      "commentSentimentTotalScore": 60
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2139",
+      "additions": 380,
+      "deletions": 380,
+      "prSize": 760,
+      "mergedAt": "2024-02-06T01:44:18Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "parabola-center-website",
+      "org": "Parabola-Center",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/Parabola-Center/parabola-center-website/pull/31",
+      "additions": 31,
+      "deletions": 26,
+      "prSize": 57,
+      "mergedAt": "2024-02-06T21:42:43Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2141",
+      "additions": 380,
+      "deletions": 374,
+      "prSize": 754,
+      "mergedAt": "2024-02-14T20:22:41Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2142",
+      "additions": 372,
+      "deletions": 372,
+      "prSize": 744,
+      "mergedAt": "2024-02-14T21:04:32Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2148",
+      "additions": 410,
+      "deletions": 14743,
+      "prSize": 15153,
+      "mergedAt": "2024-02-21T16:24:16Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2159",
+      "additions": 363,
+      "deletions": 2259,
+      "prSize": 2622,
+      "mergedAt": "2024-03-01T15:16:45Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2158",
+      "additions": 786,
+      "deletions": 24,
+      "prSize": 810,
+      "mergedAt": "2024-03-09T19:03:36Z",
+      "cycleTime": 9,
+      "age": 9,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 2,
+      "generalCommentSentimentTotalScore": 2,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 2,
+      "commentSentimentTotalScore": 2
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2163",
+      "additions": 388,
+      "deletions": 327,
+      "prSize": 715,
+      "mergedAt": "2024-03-10T19:46:42Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2166",
+      "additions": 60,
+      "deletions": 55,
+      "prSize": 115,
+      "mergedAt": "2024-03-14T14:46:03Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2167",
+      "deletions": 2,
+      "prSize": 2,
+      "mergedAt": "2024-03-14T15:47:10Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2169",
+      "additions": 146,
+      "deletions": 12,
+      "prSize": 158,
+      "mergedAt": "2024-03-22T20:00:38Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2149",
+      "additions": 1175,
+      "deletions": 1127,
+      "prSize": 2302,
+      "mergedAt": "2024-04-04T16:49:46Z",
+      "cycleTime": 41,
+      "age": 41,
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": -6,
+      "generalCommentSentimentTotalScore": -6,
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": -6,
+      "commentSentimentTotalScore": -6
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2179",
+      "additions": 372,
+      "deletions": 353,
+      "prSize": 725,
+      "mergedAt": "2024-05-06T19:08:47Z",
+      "cycleTime": 4,
+      "age": 4
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2191",
+      "additions": 398,
+      "deletions": 439,
+      "prSize": 837,
+      "mergedAt": "2024-07-07T19:16:34Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mst-middlewares",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/mst-middlewares/pull/21",
+      "additions": 3,
+      "deletions": 3,
+      "prSize": 6,
+      "mergedAt": "2024-07-21T20:27:13Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2201",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2024-08-01T17:51:32Z",
+      "cycleTime": 3,
+      "age": 3
+    },
+    {
+      "repo": "babel-plugin-mobx-observer-on-every-react-component",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/babel-plugin-mobx-observer-on-every-react-component/pull/1",
+      "additions": 1469,
+      "deletions": 4,
+      "prSize": 1473,
+      "mergedAt": "2024-09-02T17:54:52Z",
+      "cycleTime": 7,
+      "age": 7
+    },
+    {
+      "repo": "babel-plugin-mobx-observer-on-every-react-component",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/babel-plugin-mobx-observer-on-every-react-component/pull/2",
+      "additions": 7,
+      "prSize": 7,
+      "mergedAt": "2024-09-02T17:59:53Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "babel-plugin-mobx-observer-on-every-react-component",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/babel-plugin-mobx-observer-on-every-react-component/pull/3",
+      "additions": 5,
+      "deletions": 3,
+      "prSize": 8,
+      "mergedAt": "2024-09-02T18:03:37Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "babel-plugin-mobx-observer-on-every-react-component",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/babel-plugin-mobx-observer-on-every-react-component/pull/4",
+      "additions": 64,
+      "prSize": 64,
+      "mergedAt": "2024-09-02T18:10:00Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "babel-plugin-mobx-observer-on-every-react-component",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/babel-plugin-mobx-observer-on-every-react-component/pull/5",
+      "additions": 73,
+      "deletions": 4,
+      "prSize": 77,
+      "mergedAt": "2024-09-02T19:12:12Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "babel-plugin-mobx-observer-on-every-react-component",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/babel-plugin-mobx-observer-on-every-react-component/pull/6",
+      "additions": 28,
+      "deletions": 2,
+      "prSize": 30,
+      "mergedAt": "2024-09-02T19:19:02Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "babel-plugin-mobx-observer-on-every-react-component",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/babel-plugin-mobx-observer-on-every-react-component/pull/7",
+      "additions": 152,
+      "deletions": 9,
+      "prSize": 161,
+      "mergedAt": "2024-09-02T23:46:44Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "babel-plugin-mobx-observer-on-every-react-component",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/babel-plugin-mobx-observer-on-every-react-component/pull/8",
+      "additions": 47,
+      "deletions": 46,
+      "prSize": 93,
+      "mergedAt": "2024-09-05T21:07:27Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "babel-plugin-mobx-observer-on-every-react-component",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/babel-plugin-mobx-observer-on-every-react-component/pull/9",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2024-09-05T21:09:03Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "babel-plugin-mobx-observer-on-every-react-component",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/babel-plugin-mobx-observer-on-every-react-component/pull/10",
+      "additions": 36,
+      "deletions": 3,
+      "prSize": 39,
+      "mergedAt": "2024-09-05T22:53:11Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-devtools",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-devtools/pull/115",
+      "additions": 10290,
+      "deletions": 6711,
+      "prSize": 17001,
+      "mergedAt": "2024-09-18T14:26:29Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "andykog": 1
+      }
+    },
+    {
+      "repo": "mobx-devtools",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-devtools/pull/116",
+      "additions": 19304,
+      "deletions": 25379,
+      "prSize": 44683,
+      "mergedAt": "2024-09-19T16:24:25Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "andykog": 1
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 6,
+      "generalCommentSentimentTotalScore": 6,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 6,
+      "commentSentimentTotalScore": 6
+    },
+    {
+      "repo": "mobx-devtools",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-devtools/pull/117",
+      "deletions": 275,
+      "prSize": 275,
+      "mergedAt": "2024-09-21T01:14:15Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "andykog": 1
+      }
+    },
+    {
+      "repo": "expo",
+      "org": "expo",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/expo/expo/pull/32181",
+      "additions": 7,
+      "deletions": 5,
+      "prSize": 12,
+      "mergedAt": "2024-10-25T09:00:41Z",
+      "cycleTime": 5,
+      "age": 5,
+      "approvals": 1,
+      "approvers": {
+        "Kudo": 1
+      },
+      "generalCommentsAuthor": 5,
+      "generalCommentAuthorSentimentScore": 20,
+      "generalCommentSentimentTotalScore": 20,
+      "codeComments": 7,
+      "codeCommenters": {
+        "tsapeta": 2,
+        "Kudo": 5
+      },
+      "codeCommentSentimentScore": 9,
+      "codeCommentSentiments": {
+        "tsapeta": 2,
+        "Kudo": 7
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 2,
+      "codeCommentSentimentTotalScore": 11,
+      "comments": 7,
+      "commenters": {
+        "tsapeta": 2,
+        "Kudo": 5
+      },
+      "commentSentimentScore": 9,
+      "commentSentiments": {
+        "tsapeta": 2,
+        "Kudo": 7
+      },
+      "commentsAuthor": 6,
+      "commentAuthorSentimentScore": 22,
+      "commentSentimentTotalScore": 31
+    },
+    {
+      "repo": "mobx-devtools",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-devtools/pull/128",
+      "additions": 13,
+      "deletions": 13,
+      "prSize": 26,
+      "mergedAt": "2024-10-27T20:14:28Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "react-native-website",
+      "org": "facebook",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/facebook/react-native-website/pull/4315",
+      "additions": 20,
+      "deletions": 19,
+      "prSize": 39,
+      "mergedAt": "2024-10-30T10:47:07Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "cortinico": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "facebook-github-bot": 2,
+        "cortinico": 1
+      },
+      "generalCommentSentimentScore": 16,
+      "generalCommentSentiments": {
+        "facebook-github-bot": 14,
+        "cortinico": 2
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 6,
+      "generalCommentSentimentTotalScore": 22,
+      "codeComments": 3,
+      "codeCommenters": {
+        "cortinico": 3
+      },
+      "codeCommentSentimentScore": 1,
+      "codeCommentSentiments": {
+        "cortinico": 1
+      },
+      "codeCommentsAuthor": 4,
+      "codeCommentAuthorSentimentScore": 6,
+      "codeCommentSentimentTotalScore": 7,
+      "comments": 6,
+      "commenters": {
+        "cortinico": 4,
+        "facebook-github-bot": 2
+      },
+      "commentSentimentScore": 17,
+      "commentSentiments": {
+        "cortinico": 3,
+        "facebook-github-bot": 14
+      },
+      "commentsAuthor": 6,
+      "commentAuthorSentimentScore": 12,
+      "commentSentimentTotalScore": 29
+    },
+    {
+      "repo": "react-native-website",
+      "org": "facebook",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/facebook/react-native-website/pull/4330",
+      "additions": 12,
+      "deletions": 10,
+      "prSize": 22,
+      "mergedAt": "2024-11-02T11:57:57Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "cortinico": 1
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": -1,
+      "codeCommentSentimentTotalScore": -1,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": -1,
+      "commentSentimentTotalScore": -1
+    },
+    {
+      "repo": "mobx-devtools",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-devtools/pull/129",
+      "additions": 302,
+      "deletions": 186,
+      "prSize": 488,
+      "mergedAt": "2024-11-02T21:06:55Z",
+      "cycleTime": 5,
+      "age": 5,
+      "approvals": 1,
+      "approvers": {
+        "andykog": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "andykog": 3,
+        "grvdisco": 1
+      },
+      "generalCommentSentimentScore": 7,
+      "generalCommentSentiments": {
+        "andykog": 5,
+        "grvdisco": 2
+      },
+      "generalCommentsAuthor": 6,
+      "generalCommentAuthorSentimentScore": 22,
+      "generalCommentSentimentTotalScore": 29,
+      "codeComments": 5,
+      "codeCommenters": {
+        "andykog": 3,
+        "aul-igt": 2
+      },
+      "codeCommentSentimentScore": 2,
+      "codeCommentSentiments": {
+        "aul-igt": 2
+      },
+      "codeCommentsAuthor": 5,
+      "codeCommentAuthorSentimentScore": -3,
+      "codeCommentSentimentTotalScore": -1,
+      "comments": 9,
+      "commenters": {
+        "andykog": 6,
+        "aul-igt": 2,
+        "grvdisco": 1
+      },
+      "commentSentimentScore": 9,
+      "commentSentiments": {
+        "andykog": 5,
+        "aul-igt": 2,
+        "grvdisco": 2
+      },
+      "commentsAuthor": 11,
+      "commentAuthorSentimentScore": 19,
+      "commentSentimentTotalScore": 28
+    },
+    {
+      "repo": "react-native-builder-bob",
+      "org": "callstack",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/callstack/react-native-builder-bob/pull/677",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2024-11-08T17:24:49Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "atlj": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "atlj": 2
+      },
+      "generalCommentSentimentTotalScore": 2,
+      "comments": 1,
+      "commenters": {
+        "atlj": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "atlj": 2
+      },
+      "commentSentimentTotalScore": 2
+    },
+    {
+      "repo": "ignite",
+      "org": "infinitered",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/infinitered/ignite/pull/2842",
+      "additions": 5,
+      "prSize": 5,
+      "mergedAt": "2024-11-13T15:43:45Z",
+      "cycleTime": 3,
+      "age": 3,
+      "approvals": 1,
+      "approvers": {
+        "frankcalise": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "frankcalise": 1,
+        "infinitered-circleci": 1
+      },
+      "generalCommentSentimentScore": -2,
+      "generalCommentSentiments": {
+        "frankcalise": -2
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": 5,
+      "generalCommentSentimentTotalScore": 3,
+      "comments": 2,
+      "commenters": {
+        "frankcalise": 1,
+        "infinitered-circleci": 1
+      },
+      "commentSentimentScore": -2,
+      "commentSentiments": {
+        "frankcalise": -2
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 5,
+      "commentSentimentTotalScore": 3
+    },
+    {
+      "repo": "react-compiler-demo-with-mobx-state-tree",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/react-compiler-demo-with-mobx-state-tree/pull/1",
+      "additions": 41,
+      "deletions": 11,
+      "prSize": 52,
+      "mergedAt": "2024-11-17T02:52:36Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2223",
+      "additions": 428,
+      "deletions": 417,
+      "prSize": 845,
+      "mergedAt": "2024-11-19T02:03:07Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "expo",
+      "org": "expo",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/expo/expo/pull/33097",
+      "additions": 12,
+      "prSize": 12,
+      "mergedAt": "2024-11-22T13:12:24Z",
+      "cycleTime": 2,
+      "age": 2,
+      "approvals": 2,
+      "approvers": {
+        "tsapeta": 1,
+        "Kudo": 1
+      },
+      "codeComments": 3,
+      "codeCommenters": {
+        "tsapeta": 3
+      },
+      "codeCommentSentimentScore": 5,
+      "codeCommentSentiments": {
+        "tsapeta": 5
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 1,
+      "codeCommentSentimentTotalScore": 6,
+      "comments": 3,
+      "commenters": {
+        "tsapeta": 3
+      },
+      "commentSentimentScore": 5,
+      "commentSentiments": {
+        "tsapeta": 5
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 1,
+      "commentSentimentTotalScore": 6
+    },
+    {
+      "repo": "react-compiler-demo-with-mobx-state-tree",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/react-compiler-demo-with-mobx-state-tree/pull/3",
+      "additions": 321,
+      "deletions": 69,
+      "prSize": 390,
+      "mergedAt": "2024-11-24T18:24:23Z",
+      "cycleTime": 2,
+      "age": 2,
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 6,
+      "generalCommentSentimentTotalScore": 6,
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": -2,
+      "codeCommentSentimentTotalScore": -2,
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 4,
+      "commentSentimentTotalScore": 4
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2226",
+      "additions": 21329,
+      "deletions": 20940,
+      "prSize": 42269,
+      "mergedAt": "2024-12-02T01:10:08Z",
+      "cycleTime": 5,
+      "age": 4,
+      "generalComments": 2,
+      "generalCommenters": {
+        "thegedge": 2
+      },
+      "generalCommentSentimentScore": 19,
+      "generalCommentSentiments": {
+        "thegedge": 19
+      },
+      "generalCommentsAuthor": 4,
+      "generalCommentAuthorSentimentScore": 18,
+      "generalCommentSentimentTotalScore": 37,
+      "comments": 2,
+      "commenters": {
+        "thegedge": 2
+      },
+      "commentSentimentScore": 19,
+      "commentSentiments": {
+        "thegedge": 19
+      },
+      "commentsAuthor": 4,
+      "commentAuthorSentimentScore": 18,
+      "commentSentimentTotalScore": 37
+    },
+    {
+      "repo": "mobx-devtools",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-devtools/pull/133",
+      "additions": 32,
+      "deletions": 48,
+      "prSize": 80,
+      "mergedAt": "2024-12-04T14:07:21Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "andykog": 1
+      }
+    },
+    {
+      "repo": "react-native-ios-utilities",
+      "org": "dominicstop",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/dominicstop/react-native-ios-utilities/pull/11",
+      "additions": 385,
+      "deletions": 146,
+      "prSize": 531,
+      "mergedAt": "2024-12-04T23:20:19Z",
+      "cycleTime": 4,
+      "age": 4,
+      "generalComments": 2,
+      "generalCommenters": {
+        "dominicstop": 2
+      },
+      "generalCommentSentimentScore": 5,
+      "generalCommentSentiments": {
+        "dominicstop": 5
+      },
+      "generalCommentsAuthor": 7,
+      "generalCommentAuthorSentimentScore": 12,
+      "generalCommentSentimentTotalScore": 17,
+      "codeCommentsAuthor": 1,
+      "comments": 2,
+      "commenters": {
+        "dominicstop": 2
+      },
+      "commentSentimentScore": 5,
+      "commentSentiments": {
+        "dominicstop": 5
+      },
+      "commentsAuthor": 8,
+      "commentAuthorSentimentScore": 12,
+      "commentSentimentTotalScore": 17
+    },
+    {
+      "repo": "react-native-ios-context-menu",
+      "org": "dominicstop",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/dominicstop/react-native-ios-context-menu/pull/119",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2024-12-07T00:00:40Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "dominicstop": 1
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "dominicstop": 3
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentSentimentTotalScore": 3,
+      "comments": 1,
+      "commenters": {
+        "dominicstop": 1
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "dominicstop": 3
+      },
+      "commentsAuthor": 1,
+      "commentSentimentTotalScore": 3
+    },
+    {
+      "repo": "react-native-ios-context-menu",
+      "org": "dominicstop",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/dominicstop/react-native-ios-context-menu/pull/118",
+      "additions": 75,
+      "deletions": 6,
+      "prSize": 81,
+      "mergedAt": "2024-12-07T00:23:50Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "dominicstop": 2
+      },
+      "generalCommentSentimentScore": 7,
+      "generalCommentSentiments": {
+        "dominicstop": 7
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": -3,
+      "generalCommentSentimentTotalScore": 4,
+      "comments": 2,
+      "commenters": {
+        "dominicstop": 2
+      },
+      "commentSentimentScore": 7,
+      "commentSentiments": {
+        "dominicstop": 7
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": -3,
+      "commentSentimentTotalScore": 4
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2231",
+      "additions": 158,
+      "deletions": 1,
+      "prSize": 159,
+      "mergedAt": "2024-12-13T19:22:01Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "thegedge": 1
+      }
+    },
+    {
+      "repo": "react-native-ios-context-menu",
+      "org": "dominicstop",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/dominicstop/react-native-ios-context-menu/pull/121",
+      "additions": 61,
+      "deletions": 69,
+      "prSize": 130,
+      "mergedAt": "2024-12-15T23:48:14Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "dominicstop": 1
+      },
+      "generalCommentSentimentScore": 10,
+      "generalCommentSentiments": {
+        "dominicstop": 10
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 11,
+      "generalCommentSentimentTotalScore": 21,
+      "comments": 1,
+      "commenters": {
+        "dominicstop": 1
+      },
+      "commentSentimentScore": 10,
+      "commentSentiments": {
+        "dominicstop": 10
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 11,
+      "commentSentimentTotalScore": 21
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2234",
+      "additions": 38,
+      "deletions": 105,
+      "prSize": 143,
+      "mergedAt": "2024-12-18T15:24:36Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "thegedge": 1
+      }
+    },
+    {
+      "repo": "react-native-ios-context-menu",
+      "org": "dominicstop",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/dominicstop/react-native-ios-context-menu/pull/122",
+      "additions": 3380,
+      "deletions": 3599,
+      "prSize": 6979,
+      "mergedAt": "2024-12-19T04:49:18Z",
+      "cycleTime": 2,
+      "age": 2,
+      "generalComments": 1,
+      "generalCommenters": {
+        "dominicstop": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "dominicstop": 2
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 2,
+      "generalCommentSentimentTotalScore": 4,
+      "comments": 1,
+      "commenters": {
+        "dominicstop": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "dominicstop": 2
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 2,
+      "commentSentimentTotalScore": 4
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2235",
+      "additions": 405,
+      "deletions": 405,
+      "prSize": 810,
+      "mergedAt": "2024-12-19T17:01:03Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "ignite",
+      "org": "infinitered",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/infinitered/ignite/pull/2871",
+      "additions": 7,
+      "deletions": 4,
+      "prSize": 11,
+      "mergedAt": "2024-12-20T13:23:06Z",
+      "cycleTime": 2,
+      "age": 2,
+      "approvals": 1,
+      "approvers": {
+        "frankcalise": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "infinitered-circleci": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "infinitered-circleci": 1
+      }
+    }
+  ],
+  "filteredPRs": [
+    {
+      "repo": "parabola-center-website",
+      "org": "Parabola-Center",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/Parabola-Center/parabola-center-website/pull/30",
+      "additions": 448,
+      "deletions": 68,
+      "prSize": 516,
+      "mergedAt": "2023-12-12T01:51:13Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "parabola-center-website",
+      "org": "Parabola-Center",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/Parabola-Center/parabola-center-website/pull/29",
+      "additions": 432,
+      "deletions": 120,
+      "prSize": 552,
+      "mergedAt": "2023-12-11T22:10:34Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "parabola-center-website",
+      "org": "Parabola-Center",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/Parabola-Center/parabola-center-website/pull/28",
+      "additions": 12,
+      "prSize": 12,
+      "mergedAt": "2023-12-07T21:52:24Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2127",
+      "additions": 1419,
+      "deletions": 1,
+      "prSize": 1420,
+      "mergedAt": "2023-12-05T03:01:34Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-forge",
+      "org": "infinitered",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/infinitered/mobx-forge/pull/8",
+      "additions": 317,
+      "deletions": 552,
+      "prSize": 869,
+      "mergedAt": "2023-12-01T00:02:29Z",
+      "cycleTime": 1,
+      "age": 1,
+      "codeCommentsAuthor": 1,
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "mobx-forge",
+      "org": "infinitered",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/infinitered/mobx-forge/pull/7",
+      "additions": 455,
+      "deletions": 1,
+      "prSize": 456,
+      "mergedAt": "2023-11-30T20:05:42Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2125",
+      "additions": 353,
+      "deletions": 2,
+      "prSize": 355,
+      "mergedAt": "2023-11-30T19:50:17Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-forge",
+      "org": "infinitered",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/infinitered/mobx-forge/pull/6",
+      "additions": 415,
+      "deletions": 3,
+      "prSize": 418,
+      "mergedAt": "2023-11-30T01:18:55Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2124",
+      "additions": 322,
+      "deletions": 3,
+      "prSize": 325,
+      "mergedAt": "2023-11-29T22:33:58Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-forge",
+      "org": "infinitered",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/infinitered/mobx-forge/pull/5",
+      "additions": 414,
+      "deletions": 2,
+      "prSize": 416,
+      "mergedAt": "2023-11-29T21:28:37Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2123",
+      "additions": 316,
+      "prSize": 316,
+      "mergedAt": "2023-11-29T21:17:48Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-forge",
+      "org": "infinitered",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/infinitered/mobx-forge/pull/4",
+      "additions": 1031,
+      "deletions": 2,
+      "prSize": 1033,
+      "mergedAt": "2023-11-29T20:41:19Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-forge",
+      "org": "infinitered",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/infinitered/mobx-forge/pull/3",
+      "additions": 464,
+      "deletions": 156,
+      "prSize": 620,
+      "mergedAt": "2023-11-29T20:35:27Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2122",
+      "additions": 392,
+      "deletions": 391,
+      "prSize": 783,
+      "mergedAt": "2023-11-27T21:56:48Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2121",
+      "additions": 319,
+      "deletions": 1,
+      "prSize": 320,
+      "mergedAt": "2023-11-27T02:58:02Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "mobx-forge",
+      "org": "infinitered",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/infinitered/mobx-forge/pull/2",
+      "additions": 187,
+      "deletions": 4,
+      "prSize": 191,
+      "mergedAt": "2023-11-29T19:47:33Z",
+      "cycleTime": 3,
+      "age": 3,
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 3,
+      "generalCommentSentimentTotalScore": 3,
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 3,
+      "commentSentimentTotalScore": 3
+    },
+    {
+      "repo": "mobx-forge",
+      "org": "infinitered",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/infinitered/mobx-forge/pull/1",
+      "additions": 31,
+      "deletions": 8,
+      "prSize": 39,
+      "mergedAt": "2023-11-29T19:45:26Z",
+      "cycleTime": 3,
+      "age": 3,
+      "generalCommentsAuthor": 1,
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2118",
+      "additions": 379,
+      "deletions": 379,
+      "prSize": 758,
+      "mergedAt": "2023-11-17T01:54:57Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mst-middlewares",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/mst-middlewares/pull/17",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2023-11-15T18:32:03Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mst-performance-testing",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/pull/28",
+      "additions": 512,
+      "deletions": 3,
+      "prSize": 515,
+      "mergedAt": "2023-11-12T01:04:17Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mst-performance-testing",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/pull/27",
+      "additions": 73,
+      "prSize": 73,
+      "mergedAt": "2023-11-09T23:08:09Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2117",
+      "additions": 717,
+      "deletions": 710,
+      "prSize": 1427,
+      "mergedAt": "2023-11-09T21:39:13Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "jamonholmgren": 1
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 3,
+      "generalCommentSentimentTotalScore": 3,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 3,
+      "commentSentimentTotalScore": 3
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2113",
+      "additions": 57,
+      "deletions": 40,
+      "prSize": 97,
+      "mergedAt": "2023-11-07T01:28:48Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "chakravarthi-bb": 1
+      },
+      "generalCommentsAuthor": 5,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 9,
+      "codeComments": 1,
+      "codeCommenters": {
+        "jamonholmgren": 1
+      },
+      "codeCommentSentimentScore": -7,
+      "codeCommentSentiments": {
+        "jamonholmgren": -7
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 2,
+      "codeCommentSentimentTotalScore": -5,
+      "comments": 2,
+      "commenters": {
+        "jamonholmgren": 1,
+        "chakravarthi-bb": 1
+      },
+      "commentSentimentScore": -7,
+      "commentSentiments": {
+        "jamonholmgren": -7
+      },
+      "commentsAuthor": 6,
+      "commentAuthorSentimentScore": 11,
+      "commentSentimentTotalScore": 4
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2108",
+      "additions": 349,
+      "deletions": 349,
+      "prSize": 698,
+      "mergedAt": "2023-10-24T18:03:01Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2107",
+      "additions": 379,
+      "deletions": 379,
+      "prSize": 758,
+      "mergedAt": "2023-10-24T00:58:07Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mst-performance-testing",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/pull/24",
+      "additions": 518,
+      "deletions": 287,
+      "prSize": 805,
+      "mergedAt": "2023-10-16T02:50:13Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "mst-performance-testing",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/pull/21",
+      "additions": 55,
+      "prSize": 55,
+      "mergedAt": "2023-10-09T00:43:04Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mst-performance-testing",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/pull/20",
+      "additions": 41,
+      "deletions": 4,
+      "prSize": 45,
+      "mergedAt": "2023-10-09T00:35:44Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mst-performance-testing",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/pull/19",
+      "additions": 59,
+      "deletions": 3,
+      "prSize": 62,
+      "mergedAt": "2023-10-08T21:11:12Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mst-performance-testing",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/pull/18",
+      "additions": 39,
+      "deletions": 210,
+      "prSize": 249,
+      "mergedAt": "2023-10-08T16:03:35Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mst-performance-testing",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/pull/17",
+      "additions": 7,
+      "deletions": 7,
+      "prSize": 14,
+      "mergedAt": "2023-10-08T15:33:51Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mst-performance-testing",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/pull/16",
+      "additions": 23,
+      "deletions": 12,
+      "prSize": 35,
+      "mergedAt": "2023-10-08T15:28:22Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mst-performance-testing",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/pull/9",
+      "additions": 21700,
+      "deletions": 998,
+      "prSize": 22698,
+      "mergedAt": "2023-10-08T04:14:28Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2099",
+      "additions": 24040,
+      "deletions": 28395,
+      "prSize": 52435,
+      "mergedAt": "2023-10-10T03:35:36Z",
+      "cycleTime": 2,
+      "age": 2,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 7,
+      "generalCommentSentimentTotalScore": 7,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 7,
+      "commentSentimentTotalScore": 7
+    },
+    {
+      "repo": "mst-performance-testing",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/pull/8",
+      "additions": 225,
+      "deletions": 4,
+      "prSize": 229,
+      "mergedAt": "2023-10-06T14:51:42Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mst-performance-testing",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/pull/7",
+      "additions": 22,
+      "deletions": 2,
+      "prSize": 24,
+      "mergedAt": "2023-10-06T01:44:23Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mst-performance-testing",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/pull/6",
+      "additions": 61,
+      "deletions": 6,
+      "prSize": 67,
+      "mergedAt": "2023-10-06T01:34:48Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mst-performance-testing",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/pull/5",
+      "additions": 48,
+      "deletions": 20,
+      "prSize": 68,
+      "mergedAt": "2023-10-05T23:58:10Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mst-performance-testing",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/pull/4",
+      "additions": 1950,
+      "deletions": 32,
+      "prSize": 1982,
+      "mergedAt": "2023-10-05T23:01:11Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mst-performance-testing",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/pull/3",
+      "additions": 50,
+      "deletions": 79,
+      "prSize": 129,
+      "mergedAt": "2023-10-05T21:21:01Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mst-performance-testing",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/pull/2",
+      "additions": 2363,
+      "deletions": 81,
+      "prSize": 2444,
+      "mergedAt": "2023-10-05T17:24:02Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mst-performance-testing",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/pull/1",
+      "additions": 238,
+      "deletions": 12,
+      "prSize": 250,
+      "mergedAt": "2023-10-05T15:09:34Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2091",
+      "additions": 386,
+      "deletions": 5287,
+      "prSize": 5673,
+      "mergedAt": "2023-09-21T21:40:06Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2090",
+      "additions": 197,
+      "deletions": 36,
+      "prSize": 233,
+      "mergedAt": "2023-09-21T21:12:38Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2086",
+      "deletions": 4,
+      "prSize": 4,
+      "mergedAt": "2023-09-19T16:27:14Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2085",
+      "additions": 378,
+      "deletions": 378,
+      "prSize": 756,
+      "mergedAt": "2023-09-19T16:02:02Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 5,
+      "generalCommentSentimentTotalScore": 5,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 5,
+      "commentSentimentTotalScore": 5
+    },
+    {
+      "repo": "mst-middlewares",
+      "org": "coolsoftwaretyler",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/coolsoftwaretyler/mst-middlewares/pull/1",
+      "additions": 5244,
+      "deletions": 394,
+      "prSize": 5638,
+      "mergedAt": "2023-09-18T02:17:40Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "parabola-center-website",
+      "org": "Parabola-Center",
+      "author": "coolsoftwaretyler",
+      "url": "https://github.com/Parabola-Center/parabola-center-website/pull/27",
+      "additions": 4,
+      "deletions": 4,
+      "prSize": 8,
+      "mergedAt": "2023-09-08T01:46:50Z",
+      "cycleTime": 1,
+      "age": 1
+    }
+  ],
+  "reviewedPullRequests": [
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "thegedge",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2146",
+      "additions": 53,
+      "deletions": 29,
+      "prSize": 82,
+      "mergedAt": "2024-02-21T15:38:00Z",
+      "cycleTime": 3,
+      "age": 3,
+      "generalComments": 1,
+      "generalCommenters": {
+        "coolsoftwaretyler": 1
+      },
+      "generalCommentSentimentScore": 11,
+      "generalCommentSentiments": {
+        "coolsoftwaretyler": 11
+      },
+      "generalCommentSentimentTotalScore": 11,
+      "codeComments": 3,
+      "codeCommenters": {
+        "coolsoftwaretyler": 3
+      },
+      "codeCommentSentimentScore": 4,
+      "codeCommentSentiments": {
+        "coolsoftwaretyler": 4
+      },
+      "codeCommentSentimentTotalScore": 4,
+      "comments": 4,
+      "commenters": {
+        "coolsoftwaretyler": 4
+      },
+      "commentSentimentScore": 15,
+      "commentSentiments": {
+        "coolsoftwaretyler": 15
+      },
+      "commentSentimentTotalScore": 15
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "thegedge",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2152",
+      "additions": 78,
+      "deletions": 22,
+      "prSize": 100,
+      "mergedAt": "2024-02-26T04:35:55Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "coolsoftwaretyler": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "coolsoftwaretyler": 1
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": 8,
+      "generalCommentSentimentTotalScore": 9,
+      "codeComments": 4,
+      "codeCommenters": {
+        "coolsoftwaretyler": 4
+      },
+      "codeCommentSentimentScore": 21,
+      "codeCommentSentiments": {
+        "coolsoftwaretyler": 21
+      },
+      "codeCommentSentimentTotalScore": 21,
+      "comments": 5,
+      "commenters": {
+        "coolsoftwaretyler": 5
+      },
+      "commentSentimentScore": 22,
+      "commentSentiments": {
+        "coolsoftwaretyler": 22
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 8,
+      "commentSentimentTotalScore": 30
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "thegedge",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2151",
+      "additions": 141,
+      "deletions": 181,
+      "prSize": 322,
+      "mergedAt": "2024-03-01T15:07:53Z",
+      "cycleTime": 5,
+      "age": 5,
+      "generalComments": 7,
+      "generalCommenters": {
+        "coolsoftwaretyler": 7
+      },
+      "generalCommentSentimentScore": 11,
+      "generalCommentSentiments": {
+        "coolsoftwaretyler": 11
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": 13,
+      "generalCommentSentimentTotalScore": 24,
+      "codeComments": 9,
+      "codeCommenters": {
+        "coolsoftwaretyler": 9
+      },
+      "codeCommentSentimentScore": 45,
+      "codeCommentSentiments": {
+        "coolsoftwaretyler": 45
+      },
+      "codeCommentSentimentTotalScore": 45,
+      "comments": 16,
+      "commenters": {
+        "coolsoftwaretyler": 16
+      },
+      "commentSentimentScore": 56,
+      "commentSentiments": {
+        "coolsoftwaretyler": 56
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 13,
+      "commentSentimentTotalScore": 69
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "JuanJo4",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2171",
+      "additions": 155,
+      "deletions": 121,
+      "prSize": 276,
+      "mergedAt": "2024-04-01T04:18:10Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "coolsoftwaretyler": 2
+      },
+      "generalCommentSentimentScore": 12,
+      "generalCommentSentiments": {
+        "coolsoftwaretyler": 12
+      },
+      "generalCommentSentimentTotalScore": 12,
+      "codeComments": 2,
+      "codeCommenters": {
+        "coolsoftwaretyler": 2
+      },
+      "codeCommentSentimentScore": 5,
+      "codeCommentSentiments": {
+        "coolsoftwaretyler": 5
+      },
+      "codeCommentSentimentTotalScore": 5,
+      "comments": 4,
+      "commenters": {
+        "coolsoftwaretyler": 4
+      },
+      "commentSentimentScore": 17,
+      "commentSentiments": {
+        "coolsoftwaretyler": 17
+      },
+      "commentSentimentTotalScore": 17
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "sherlockwang",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2168",
+      "additions": 632,
+      "deletions": 1,
+      "prSize": 633,
+      "mergedAt": "2024-04-04T14:26:25Z",
+      "cycleTime": 20,
+      "age": 20,
+      "generalComments": 4,
+      "generalCommenters": {
+        "coolsoftwaretyler": 4
+      },
+      "generalCommentSentimentScore": 30,
+      "generalCommentSentiments": {
+        "coolsoftwaretyler": 30
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": 81,
+      "generalCommentSentimentTotalScore": 111,
+      "codeComments": 9,
+      "codeCommenters": {
+        "coolsoftwaretyler": 9
+      },
+      "codeCommentSentimentScore": 15,
+      "codeCommentSentiments": {
+        "coolsoftwaretyler": 15
+      },
+      "codeCommentSentimentTotalScore": 15,
+      "comments": 13,
+      "commenters": {
+        "coolsoftwaretyler": 13
+      },
+      "commentSentimentScore": 45,
+      "commentSentiments": {
+        "coolsoftwaretyler": 45
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 81,
+      "commentSentimentTotalScore": 126
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "dangreen",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2176",
+      "additions": 63,
+      "deletions": 52,
+      "prSize": 115,
+      "mergedAt": "2024-04-16T15:05:29Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "coolsoftwaretyler": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "coolsoftwaretyler": 1
+      },
+      "codeCommentSentimentScore": 8,
+      "codeCommentSentiments": {
+        "coolsoftwaretyler": 8
+      },
+      "codeCommentSentimentTotalScore": 8,
+      "comments": 1,
+      "commenters": {
+        "coolsoftwaretyler": 1
+      },
+      "commentSentimentScore": 8,
+      "commentSentiments": {
+        "coolsoftwaretyler": 8
+      },
+      "commentSentimentTotalScore": 8
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "evinosheaforward",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2174",
+      "additions": 34,
+      "deletions": 4,
+      "prSize": 38,
+      "mergedAt": "2024-04-16T22:00:40Z",
+      "cycleTime": 2,
+      "age": 2,
+      "generalComments": 1,
+      "generalCommenters": {
+        "coolsoftwaretyler": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "coolsoftwaretyler": 2
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 11,
+      "codeComments": 4,
+      "codeCommenters": {
+        "coolsoftwaretyler": 4
+      },
+      "codeCommentSentimentScore": 22,
+      "codeCommentSentiments": {
+        "coolsoftwaretyler": 22
+      },
+      "codeCommentSentimentTotalScore": 22,
+      "comments": 5,
+      "commenters": {
+        "coolsoftwaretyler": 5
+      },
+      "commentSentimentScore": 24,
+      "commentSentiments": {
+        "coolsoftwaretyler": 24
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 33
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "k-ode",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2170",
+      "additions": 298,
+      "deletions": 1,
+      "prSize": 299,
+      "mergedAt": "2024-07-04T16:22:17Z",
+      "cycleTime": 99,
+      "age": 99,
+      "generalComments": 3,
+      "generalCommenters": {
+        "coolsoftwaretyler": 3
+      },
+      "generalCommentSentimentScore": 16,
+      "generalCommentSentiments": {
+        "coolsoftwaretyler": 16
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentSentimentTotalScore": 16,
+      "comments": 3,
+      "commenters": {
+        "coolsoftwaretyler": 3
+      },
+      "commentSentimentScore": 16,
+      "commentSentiments": {
+        "coolsoftwaretyler": 16
+      },
+      "commentsAuthor": 2,
+      "commentSentimentTotalScore": 16
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "thegedge",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2200",
+      "additions": 12,
+      "deletions": 7,
+      "prSize": 19,
+      "mergedAt": "2024-07-21T20:57:41Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "coolsoftwaretyler": 1
+      },
+      "codeComments": 3,
+      "codeCommenters": {
+        "coolsoftwaretyler": 3
+      },
+      "codeCommentSentimentScore": 3,
+      "codeCommentSentiments": {
+        "coolsoftwaretyler": 3
+      },
+      "codeCommentSentimentTotalScore": 3,
+      "comments": 4,
+      "commenters": {
+        "coolsoftwaretyler": 4
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "coolsoftwaretyler": 3
+      },
+      "commentSentimentTotalScore": 3
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "thegedge",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2198",
+      "additions": 64,
+      "deletions": 18,
+      "prSize": 82,
+      "mergedAt": "2024-07-29T15:54:52Z",
+      "cycleTime": 14,
+      "age": 14,
+      "generalComments": 3,
+      "generalCommenters": {
+        "coolsoftwaretyler": 3
+      },
+      "generalCommentSentimentScore": -2,
+      "generalCommentSentiments": {
+        "coolsoftwaretyler": -2
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": 7,
+      "generalCommentSentimentTotalScore": 5,
+      "comments": 3,
+      "commenters": {
+        "coolsoftwaretyler": 3
+      },
+      "commentSentimentScore": -2,
+      "commentSentiments": {
+        "coolsoftwaretyler": -2
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 7,
+      "commentSentimentTotalScore": 5
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "thegedge",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2204",
+      "additions": 453,
+      "deletions": 487,
+      "prSize": 940,
+      "mergedAt": "2024-08-15T16:22:30Z",
+      "cycleTime": 10,
+      "age": 10,
+      "generalComments": 1,
+      "generalCommenters": {
+        "coolsoftwaretyler": 1
+      },
+      "generalCommentSentimentScore": 5,
+      "generalCommentSentiments": {
+        "coolsoftwaretyler": 5
+      },
+      "generalCommentSentimentTotalScore": 5,
+      "codeComments": 3,
+      "codeCommenters": {
+        "coolsoftwaretyler": 3
+      },
+      "codeCommentSentimentScore": 7,
+      "codeCommentSentiments": {
+        "coolsoftwaretyler": 7
+      },
+      "codeCommentSentimentTotalScore": 7,
+      "comments": 4,
+      "commenters": {
+        "coolsoftwaretyler": 4
+      },
+      "commentSentimentScore": 12,
+      "commentSentiments": {
+        "coolsoftwaretyler": 12
+      },
+      "commentSentimentTotalScore": 12
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "thegedge",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2203",
+      "additions": 49,
+      "deletions": 11,
+      "prSize": 60,
+      "mergedAt": "2024-08-15T16:37:57Z",
+      "cycleTime": 11,
+      "age": 11,
+      "approvals": 1,
+      "approvers": {
+        "coolsoftwaretyler": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "coolsoftwaretyler": 2
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "coolsoftwaretyler": 3
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": -2,
+      "generalCommentSentimentTotalScore": 1,
+      "codeComments": 1,
+      "codeCommenters": {
+        "coolsoftwaretyler": 1
+      },
+      "codeCommentSentimentScore": 7,
+      "codeCommentSentiments": {
+        "coolsoftwaretyler": 7
+      },
+      "codeCommentSentimentTotalScore": 7,
+      "comments": 3,
+      "commenters": {
+        "coolsoftwaretyler": 3
+      },
+      "commentSentimentScore": 10,
+      "commentSentiments": {
+        "coolsoftwaretyler": 10
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": -2,
+      "commentSentimentTotalScore": 8
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "thegedge",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2207",
+      "additions": 70,
+      "deletions": 15,
+      "prSize": 85,
+      "mergedAt": "2024-08-16T22:08:08Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "coolsoftwaretyler": 2
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "coolsoftwaretyler": 3
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 12,
+      "codeComments": 1,
+      "codeCommenters": {
+        "coolsoftwaretyler": 1
+      },
+      "codeCommentSentimentScore": 7,
+      "codeCommentSentiments": {
+        "coolsoftwaretyler": 7
+      },
+      "codeCommentSentimentTotalScore": 7,
+      "comments": 3,
+      "commenters": {
+        "coolsoftwaretyler": 3
+      },
+      "commentSentimentScore": 10,
+      "commentSentiments": {
+        "coolsoftwaretyler": 10
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 19
+    },
+    {
+      "repo": "mobx-devtools",
+      "org": "mobxjs",
+      "author": "andykog",
+      "url": "https://github.com/mobxjs/mobx-devtools/pull/123",
+      "additions": 79,
+      "deletions": 1,
+      "prSize": 80,
+      "mergedAt": "2024-10-18T15:54:57Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "coolsoftwaretyler": 1
+      },
+      "generalCommentSentimentScore": 8,
+      "generalCommentSentiments": {
+        "coolsoftwaretyler": 8
+      },
+      "generalCommentSentimentTotalScore": 8,
+      "codeComments": 1,
+      "codeCommenters": {
+        "coolsoftwaretyler": 1
+      },
+      "codeCommentSentimentScore": -1,
+      "codeCommentSentiments": {
+        "coolsoftwaretyler": -1
+      },
+      "codeCommentSentimentTotalScore": -1,
+      "comments": 2,
+      "commenters": {
+        "coolsoftwaretyler": 2
+      },
+      "commentSentimentScore": 7,
+      "commentSentiments": {
+        "coolsoftwaretyler": 7
+      },
+      "commentSentimentTotalScore": 7
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "thegedge",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2218",
+      "additions": 157,
+      "deletions": 67,
+      "prSize": 224,
+      "mergedAt": "2024-11-10T02:24:37Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "coolsoftwaretyler": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "coolsoftwaretyler": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "coolsoftwaretyler": 2
+      },
+      "generalCommentSentimentTotalScore": 2,
+      "codeComments": 4,
+      "codeCommenters": {
+        "coolsoftwaretyler": 4
+      },
+      "codeCommentSentimentScore": 29,
+      "codeCommentSentiments": {
+        "coolsoftwaretyler": 29
+      },
+      "codeCommentSentimentTotalScore": 29,
+      "comments": 5,
+      "commenters": {
+        "coolsoftwaretyler": 5
+      },
+      "commentSentimentScore": 31,
+      "commentSentiments": {
+        "coolsoftwaretyler": 31
+      },
+      "commentSentimentTotalScore": 31
+    },
+    {
+      "repo": "ignite",
+      "org": "infinitered",
+      "author": "frankcalise",
+      "url": "https://github.com/infinitered/ignite/pull/2852",
+      "additions": 8,
+      "deletions": 3,
+      "prSize": 11,
+      "mergedAt": "2024-11-24T21:56:16Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "coolsoftwaretyler": 1
+      }
+    },
+    {
+      "repo": "react-native-website",
+      "org": "facebook",
+      "author": "cipolleschi",
+      "url": "https://github.com/facebook/react-native-website/pull/4388",
+      "additions": 52,
+      "deletions": 2,
+      "prSize": 54,
+      "mergedAt": "2024-12-17T13:35:51Z",
+      "cycleTime": 11,
+      "age": 11,
+      "codeComments": 9,
+      "codeCommenters": {
+        "coolsoftwaretyler": 9
+      },
+      "codeCommentSentimentScore": 6,
+      "codeCommentSentiments": {
+        "coolsoftwaretyler": 6
+      },
+      "codeCommentSentimentTotalScore": 6,
+      "comments": 9,
+      "commenters": {
+        "coolsoftwaretyler": 9
+      },
+      "commentSentimentScore": 6,
+      "commentSentiments": {
+        "coolsoftwaretyler": 6
+      },
+      "commentSentimentTotalScore": 6
+    }
+  ],
+  "filteredReviewedPRs": [
+    {
+      "repo": "mst-middlewares",
+      "org": "coolsoftwaretyler",
+      "author": "songzhenqi",
+      "url": "https://github.com/coolsoftwaretyler/mst-middlewares/pull/16",
+      "additions": 33,
+      "deletions": 3,
+      "prSize": 36,
+      "mergedAt": "2023-11-15T18:01:32Z",
+      "cycleTime": 2,
+      "age": 2,
+      "generalComments": 2,
+      "generalCommenters": {
+        "coolsoftwaretyler": 2
+      },
+      "generalCommentSentimentScore": 6,
+      "generalCommentSentiments": {
+        "coolsoftwaretyler": 6
+      },
+      "generalCommentSentimentTotalScore": 6,
+      "codeComments": 4,
+      "codeCommenters": {
+        "coolsoftwaretyler": 4
+      },
+      "codeCommentSentimentScore": 55,
+      "codeCommentSentiments": {
+        "coolsoftwaretyler": 55
+      },
+      "codeCommentSentimentTotalScore": 55,
+      "comments": 6,
+      "commenters": {
+        "coolsoftwaretyler": 6
+      },
+      "commentSentimentScore": 61,
+      "commentSentiments": {
+        "coolsoftwaretyler": 61
+      },
+      "commentSentimentTotalScore": 61
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "airhorns",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2116",
+      "additions": 179,
+      "deletions": 63,
+      "prSize": 242,
+      "mergedAt": "2023-11-17T01:46:53Z",
+      "cycleTime": 7,
+      "age": 7,
+      "approvals": 1,
+      "approvers": {
+        "coolsoftwaretyler": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "coolsoftwaretyler": 4,
+        "chakravarthi-bb": 1
+      },
+      "generalCommentSentimentScore": 30,
+      "generalCommentSentiments": {
+        "coolsoftwaretyler": 26,
+        "chakravarthi-bb": 4
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 1,
+      "generalCommentSentimentTotalScore": 31,
+      "codeComments": 7,
+      "codeCommenters": {
+        "coolsoftwaretyler": 7
+      },
+      "codeCommentSentimentScore": 37,
+      "codeCommentSentiments": {
+        "coolsoftwaretyler": 37
+      },
+      "codeCommentSentimentTotalScore": 37,
+      "comments": 12,
+      "commenters": {
+        "coolsoftwaretyler": 11,
+        "chakravarthi-bb": 1
+      },
+      "commentSentimentScore": 67,
+      "commentSentiments": {
+        "coolsoftwaretyler": 63,
+        "chakravarthi-bb": 4
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 1,
+      "commentSentimentTotalScore": 68
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "StefanWallin",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2094",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2023-09-28T02:13:29Z",
+      "cycleTime": 5,
+      "age": 5,
+      "codeComments": 3,
+      "codeCommenters": {
+        "coolsoftwaretyler": 3
+      },
+      "codeCommentSentimentScore": 20,
+      "codeCommentSentiments": {
+        "coolsoftwaretyler": 20
+      },
+      "codeCommentSentimentTotalScore": 20,
+      "comments": 3,
+      "commenters": {
+        "coolsoftwaretyler": 3
+      },
+      "commentSentimentScore": 20,
+      "commentSentiments": {
+        "coolsoftwaretyler": 20
+      },
+      "commentSentimentTotalScore": 20
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "BrianHung",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2082",
+      "additions": 359,
+      "deletions": 6,
+      "prSize": 365,
+      "mergedAt": "2023-09-23T03:12:26Z",
+      "cycleTime": 9,
+      "age": 9,
+      "approvals": 1,
+      "approvers": {
+        "coolsoftwaretyler": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "coolsoftwaretyler": 4,
+        "jamonholmgren": 1
+      },
+      "generalCommentSentimentScore": 56,
+      "generalCommentSentiments": {
+        "coolsoftwaretyler": 56
+      },
+      "generalCommentsAuthor": 4,
+      "generalCommentAuthorSentimentScore": 15,
+      "generalCommentSentimentTotalScore": 71,
+      "comments": 5,
+      "commenters": {
+        "coolsoftwaretyler": 4,
+        "jamonholmgren": 1
+      },
+      "commentSentimentScore": 56,
+      "commentSentiments": {
+        "coolsoftwaretyler": 56
+      },
+      "commentsAuthor": 4,
+      "commentAuthorSentimentScore": 15,
+      "commentSentimentTotalScore": 71
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "BrianHung",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2072",
+      "additions": 47,
+      "deletions": 19,
+      "prSize": 66,
+      "mergedAt": "2023-10-04T19:27:54Z",
+      "cycleTime": 38,
+      "age": 38,
+      "generalComments": 2,
+      "generalCommenters": {
+        "coolsoftwaretyler": 2
+      },
+      "generalCommentSentimentScore": 12,
+      "generalCommentSentiments": {
+        "coolsoftwaretyler": 12
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 1,
+      "generalCommentSentimentTotalScore": 13,
+      "codeComments": 2,
+      "codeCommenters": {
+        "coolsoftwaretyler": 2
+      },
+      "codeCommentSentimentScore": 5,
+      "codeCommentSentiments": {
+        "coolsoftwaretyler": 5
+      },
+      "codeCommentSentimentTotalScore": 5,
+      "comments": 4,
+      "commenters": {
+        "coolsoftwaretyler": 4
+      },
+      "commentSentimentScore": 17,
+      "commentSentiments": {
+        "coolsoftwaretyler": 17
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 1,
+      "commentSentimentTotalScore": 18
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "scytacki",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2054",
+      "additions": 59,
+      "deletions": 10,
+      "prSize": 69,
+      "mergedAt": "2023-08-01T04:29:17Z",
+      "cycleTime": 5,
+      "age": 5,
+      "approvals": 1,
+      "approvers": {
+        "coolsoftwaretyler": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "coolsoftwaretyler": 1
+      },
+      "generalCommentSentimentScore": 10,
+      "generalCommentSentiments": {
+        "coolsoftwaretyler": 10
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 3,
+      "generalCommentSentimentTotalScore": 13,
+      "codeComments": 3,
+      "codeCommenters": {
+        "coolsoftwaretyler": 3
+      },
+      "codeCommentSentimentScore": 27,
+      "codeCommentSentiments": {
+        "coolsoftwaretyler": 27
+      },
+      "codeCommentSentimentTotalScore": 27,
+      "comments": 4,
+      "commenters": {
+        "coolsoftwaretyler": 4
+      },
+      "commentSentimentScore": 37,
+      "commentSentiments": {
+        "coolsoftwaretyler": 37
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 3,
+      "commentSentimentTotalScore": 40
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "chakrihacker",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2052",
+      "additions": 209,
+      "deletions": 72,
+      "prSize": 281,
+      "mergedAt": "2023-08-10T03:49:50Z",
+      "cycleTime": 14,
+      "age": 14,
+      "approvals": 1,
+      "approvers": {
+        "coolsoftwaretyler": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "coolsoftwaretyler": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "coolsoftwaretyler": 1
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 1,
+      "generalCommentSentimentTotalScore": 2,
+      "codeComments": 2,
+      "codeCommenters": {
+        "coolsoftwaretyler": 2
+      },
+      "codeCommentSentimentScore": 8,
+      "codeCommentSentiments": {
+        "coolsoftwaretyler": 8
+      },
+      "codeCommentSentimentTotalScore": 8,
+      "comments": 3,
+      "commenters": {
+        "coolsoftwaretyler": 3
+      },
+      "commentSentimentScore": 9,
+      "commentSentiments": {
+        "coolsoftwaretyler": 9
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 1,
+      "commentSentimentTotalScore": 10
+    },
+    {
+      "repo": "mobx-state-tree",
+      "org": "mobxjs",
+      "author": "nithinssabu",
+      "url": "https://github.com/mobxjs/mobx-state-tree/pull/2048",
+      "additions": 38,
+      "deletions": 14,
+      "prSize": 52,
+      "mergedAt": "2023-07-23T22:24:05Z",
+      "cycleTime": 2,
+      "age": 2,
+      "approvals": 1,
+      "approvers": {
+        "coolsoftwaretyler": 1
+      },
+      "codeComments": 6,
+      "codeCommenters": {
+        "coolsoftwaretyler": 6
+      },
+      "codeCommentSentimentScore": -10,
+      "codeCommentSentiments": {
+        "coolsoftwaretyler": -10
+      },
+      "codeCommentSentimentTotalScore": -10,
+      "comments": 6,
+      "commenters": {
+        "coolsoftwaretyler": 6
+      },
+      "commentSentimentScore": -10,
+      "commentSentiments": {
+        "coolsoftwaretyler": -10
+      },
+      "commentSentimentTotalScore": -10
+    }
+  ],
+  "issues": [
+    {
+      "mergedAt": "2024-01-01T19:11:07Z",
+      "createdAt": "2024-01-01T19:11:07Z",
+      "age": 1,
+      "url": "https://github.com/infinitered/ignite-cookbook/issues/115"
+    },
+    {
+      "mergedAt": "2024-02-06T01:28:52Z",
+      "createdAt": "2024-02-06T01:28:52Z",
+      "age": 55,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2138"
+    },
+    {
+      "mergedAt": "2024-02-26T20:04:28Z",
+      "createdAt": "2024-02-26T20:04:28Z",
+      "age": 1,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2156"
+    },
+    {
+      "mergedAt": "2024-05-17T01:17:19Z",
+      "createdAt": "2024-05-17T01:17:19Z",
+      "age": 41,
+      "url": "https://github.com/RevenueCat/purchases-js/issues/115",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-06-07T14:11:42Z",
+      "createdAt": "2024-06-07T14:11:42Z",
+      "age": 30,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2184",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-08-16T22:12:35Z",
+      "createdAt": "2024-08-16T22:12:35Z",
+      "age": 1,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2208"
+    },
+    {
+      "mergedAt": "2024-08-26T21:00:21Z",
+      "createdAt": "2024-08-26T21:00:21Z",
+      "age": 1,
+      "url": "https://github.com/RobPruzan/react-scratch/issues/1"
+    },
+    {
+      "mergedAt": "2024-09-19T22:51:51Z",
+      "createdAt": "2024-09-19T22:51:51Z",
+      "age": 25,
+      "url": "https://github.com/mobxjs/mobx-devtools/issues/118"
+    },
+    {
+      "mergedAt": "2024-09-19T22:54:23Z",
+      "createdAt": "2024-09-19T22:54:23Z",
+      "age": 37,
+      "url": "https://github.com/mobxjs/mobx-devtools/issues/119"
+    },
+    {
+      "mergedAt": "2024-09-19T22:56:11Z",
+      "createdAt": "2024-09-19T22:56:11Z",
+      "age": 43,
+      "url": "https://github.com/mobxjs/mobx-devtools/issues/120"
+    },
+    {
+      "mergedAt": "2024-09-28T23:45:38Z",
+      "createdAt": "2024-09-28T23:45:38Z",
+      "age": 1,
+      "url": "https://github.com/microsoft/react-native-windows-samples/issues/978",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-09-30T02:18:48Z",
+      "createdAt": "2024-09-30T02:18:48Z",
+      "age": 1,
+      "url": "https://github.com/microsoft/react-native-macos/issues/2208",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-10-14T14:10:11Z",
+      "createdAt": "2024-10-14T14:10:11Z",
+      "age": 1,
+      "url": "https://github.com/react-native-community/cli/issues/2530",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-10-27T19:14:40Z",
+      "createdAt": "2024-10-27T19:14:40Z",
+      "age": 1,
+      "url": "https://github.com/facebook/react-native/issues/47228"
+    },
+    {
+      "mergedAt": "2024-11-01T19:12:59Z",
+      "createdAt": "2024-11-01T19:12:59Z",
+      "age": 1,
+      "url": "https://github.com/facebook/react-native-website/issues/4331"
+    },
+    {
+      "mergedAt": "2024-11-02T21:08:22Z",
+      "createdAt": "2024-11-02T21:08:22Z",
+      "age": 1,
+      "url": "https://github.com/mobxjs/mobx-devtools/issues/131"
+    },
+    {
+      "mergedAt": "2024-11-03T03:52:07Z",
+      "createdAt": "2024-11-03T03:52:07Z",
+      "age": 20,
+      "url": "https://github.com/facebook/react-native-website/issues/4337"
+    },
+    {
+      "mergedAt": "2024-11-10T02:17:16Z",
+      "createdAt": "2024-11-10T02:17:16Z",
+      "age": 21,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2219"
+    },
+    {
+      "mergedAt": "2024-11-26T01:19:24Z",
+      "createdAt": "2024-11-26T01:19:24Z",
+      "age": 8,
+      "url": "https://github.com/dominicstop/react-native-ios-utilities/issues/10"
+    },
+    {
+      "mergedAt": "2024-11-27T01:34:50Z",
+      "createdAt": "2024-11-27T01:34:50Z",
+      "age": 1,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2227"
+    },
+    {
+      "mergedAt": "2024-12-10T15:59:24Z",
+      "createdAt": "2024-12-10T15:59:24Z",
+      "age": 1,
+      "url": "https://github.com/expo/expo/issues/33581"
+    },
+    {
+      "mergedAt": "2024-12-13T19:23:48Z",
+      "createdAt": "2024-12-13T19:23:48Z",
+      "age": 1,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2232"
+    },
+    {
+      "mergedAt": "2024-12-13T19:32:53Z",
+      "createdAt": "2024-12-13T19:32:53Z",
+      "age": 1,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2233",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-12-15T18:13:55Z",
+      "createdAt": "2024-12-15T18:13:55Z",
+      "age": 1,
+      "url": "https://github.com/dominicstop/react-native-ios-context-menu/issues/120"
+    },
+    {
+      "mergedAt": "2024-12-17T19:07:52Z",
+      "createdAt": "2024-12-17T19:07:52Z",
+      "age": 1,
+      "url": "https://github.com/software-mansion/react-native-reanimated/issues/6828"
+    }
+  ],
+  "filteredIssues": [
+    {
+      "mergedAt": "2023-12-09T02:45:54Z",
+      "createdAt": "2023-12-09T02:45:54Z",
+      "age": 1,
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/issues/30"
+    },
+    {
+      "mergedAt": "2023-10-24T19:28:39Z",
+      "createdAt": "2023-10-24T19:28:39Z",
+      "age": 1,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2109"
+    },
+    {
+      "mergedAt": "2023-10-16T13:23:07Z",
+      "createdAt": "2023-10-16T13:23:07Z",
+      "age": 1,
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/issues/25"
+    },
+    {
+      "mergedAt": "2023-10-11T01:45:01Z",
+      "createdAt": "2023-10-11T01:45:01Z",
+      "age": 51,
+      "url": "https://github.com/infinitered/ignite/issues/2520",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-10-08T04:45:54Z",
+      "createdAt": "2023-10-08T04:45:54Z",
+      "age": 1,
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/issues/15"
+    },
+    {
+      "mergedAt": "2023-10-08T04:45:06Z",
+      "createdAt": "2023-10-08T04:45:06Z",
+      "age": 1,
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/issues/14"
+    },
+    {
+      "mergedAt": "2023-10-08T04:44:11Z",
+      "createdAt": "2023-10-08T04:44:11Z",
+      "age": 1,
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/issues/13"
+    },
+    {
+      "mergedAt": "2023-10-08T04:42:07Z",
+      "createdAt": "2023-10-08T04:42:07Z",
+      "age": 1,
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/issues/12"
+    },
+    {
+      "mergedAt": "2023-10-08T04:41:34Z",
+      "createdAt": "2023-10-08T04:41:34Z",
+      "age": 1,
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/issues/11"
+    },
+    {
+      "mergedAt": "2023-10-08T04:26:00Z",
+      "createdAt": "2023-10-08T04:26:00Z",
+      "age": 1,
+      "url": "https://github.com/coolsoftwaretyler/mst-performance-testing/issues/10"
+    },
+    {
+      "mergedAt": "2023-09-21T21:39:47Z",
+      "createdAt": "2023-09-21T21:39:47Z",
+      "age": 18,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2092"
+    },
+    {
+      "mergedAt": "2023-08-01T17:45:03Z",
+      "createdAt": "2023-08-01T17:45:03Z",
+      "age": 22,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2056"
+    },
+    {
+      "mergedAt": "2023-08-01T04:15:01Z",
+      "createdAt": "2023-08-01T04:15:01Z",
+      "age": 26,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2055",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-07-17T21:17:31Z",
+      "createdAt": "2023-07-17T21:17:31Z",
+      "age": 6,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2045",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2023-06-25T20:08:27Z",
+      "createdAt": "2023-06-25T20:08:27Z",
+      "age": 88,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2027"
+    },
+    {
+      "mergedAt": "2023-06-25T20:04:24Z",
+      "createdAt": "2023-06-25T20:04:24Z",
+      "age": 22,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2026"
+    },
+    {
+      "mergedAt": "2023-06-25T20:03:16Z",
+      "createdAt": "2023-06-25T20:03:16Z",
+      "age": 18,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2025"
+    },
+    {
+      "mergedAt": "2023-06-25T20:02:19Z",
+      "createdAt": "2023-06-25T20:02:19Z",
+      "age": 18,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2024"
+    },
+    {
+      "mergedAt": "2023-06-25T19:57:57Z",
+      "createdAt": "2023-06-25T19:57:57Z",
+      "age": 22,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2023"
+    },
+    {
+      "mergedAt": "2023-06-25T19:56:50Z",
+      "createdAt": "2023-06-25T19:56:50Z",
+      "age": 18,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2022"
+    },
+    {
+      "mergedAt": "2023-06-25T19:55:50Z",
+      "createdAt": "2023-06-25T19:55:50Z",
+      "age": 18,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2021"
+    },
+    {
+      "mergedAt": "2023-06-25T19:50:44Z",
+      "createdAt": "2023-06-25T19:50:44Z",
+      "age": 22,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2020"
+    },
+    {
+      "mergedAt": "2023-06-25T19:49:06Z",
+      "createdAt": "2023-06-25T19:49:06Z",
+      "age": 18,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2019"
+    },
+    {
+      "mergedAt": "2023-06-25T19:47:40Z",
+      "createdAt": "2023-06-25T19:47:40Z",
+      "age": 18,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2018"
+    },
+    {
+      "mergedAt": "2023-06-25T04:12:02Z",
+      "createdAt": "2023-06-25T04:12:02Z",
+      "age": 22,
+      "url": "https://github.com/mobxjs/mobx-state-tree/issues/2016"
+    }
+  ],
+  "preFetchedName": "coolsoftwaretyler"
+}
