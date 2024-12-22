@@ -282,7 +282,7 @@ const GraphUi = ({
             label: nextLine.label,
             dataKey: nextLine.dataKey,
             color: colors[(chosenColorIndex + 1) % colors.length],
-            lineSide: 'left',
+            lineSide,
             groupMath: nextLine?.groupMaths[0],
         })
     }

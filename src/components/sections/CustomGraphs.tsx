@@ -142,7 +142,7 @@ const CustomGraphs = ({
     return pullRequests.length > 0 && (
         <Paper>
             <ChartDescription
-                title="Build your own graphs"
+                title="Your graphs"
                 expandText='guidance'
             >
                 <p>You can build multiple graphs with data you want to see to help you find insights and track trends.</p>
