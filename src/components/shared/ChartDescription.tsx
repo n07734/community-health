@@ -35,15 +35,22 @@ const ExpandLink = ({
 type ChartDescriptionProps = {
     title?: string | React.ReactNode
     intro?: string
+    hLevel?: number
     children?: React.ReactNode
     expandText?: string
     className?: string
     expandQaId?: string
 }
+
+const Heading = ({ hLevel, children }: { hLevel: number, children: React.ReactNode }) => {
+    const H = `h${hLevel}` as keyof JSX.IntrinsicElements
+    return <H>{children}</H>
+}
 const ChartDescription = ({
     title,
     intro,
     children,
+    hLevel = 3,
     expandText = 'info',
     className = '',
     expandQaId,
@@ -54,7 +61,7 @@ const ChartDescription = ({
         <div className={`w-full flex flex-grow flex-wrap ${className} ${!intro ? '' : '[&>*]:basis-full'}`}>
             {
                 title && typeof title === 'string'
-                    ? <h3>
+                    ? <Heading hLevel={hLevel}>
                         {title}
                         {
                             children
@@ -66,7 +73,7 @@ const ChartDescription = ({
                                     className="ml-2"
                                 />
                         }
-                    </h3>
+                    </Heading>
                     : title
             }
             <p>

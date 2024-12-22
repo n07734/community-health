@@ -5,7 +5,7 @@ const Links = () => {
     const { toggleTheme } = useTheme()
 
     return (
-        <div className="absolute z-[1] top-2 right-2 flex flex-nowrap gap-x-2">
+        <div className="grow self-center flex flex-nowrap justify-end gap-x-2 mr-2">
             <a className="hover:text-primary" href="https://twitter.com/chris_07734">
                 <svg
                     className="h-6 w-6 fill-current"
