@@ -96,6 +96,14 @@ const preFetchedUsers = [
         name: 'shadcn',
         fileName: 'shadcn',
     },
+    {
+        name: 'Dominik',
+        fileName: 'tkdodo',
+    },
+    {
+        name: 'Tyler',
+        fileName: 'coolsoftwaretyler',
+    },
 ]
 
 const preFetchedSRank24 = [

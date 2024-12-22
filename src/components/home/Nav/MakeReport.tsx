@@ -45,6 +45,9 @@ const MakeReport = ({ setNewReportType, clearReport }: MakeReportProps) => (
                                 className="text-xl normal-case mr-2 mb-3 w-full"
                                 variant="secondary"
                                 onClick={() => {
+                                    const url = new URL(window.location.href);
+                                    url.searchParams.delete('report');
+                                    history.pushState(null, '', url);
                                     clearReport()
                                     setNewReportType(type)
                                 }}

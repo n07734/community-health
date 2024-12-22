@@ -38,6 +38,9 @@ const ChooseReport = ({ setNewReportType, getPreFetchedReport, preFetchedName }:
             data-qa-id={`prefetch-${repoInfo.name}`}
             variant={preFetchedName === repoInfo.fileName ? undefined : 'secondary'}
             onClick={() => {
+                const url = new URL(window.location.href);
+                url.searchParams.set('report', repoInfo.fileName);
+                history.pushState(null, '', url);
                 setNewReportType('' as ReportType)
                 getPreFetchedReport(repoInfo)
             }}
