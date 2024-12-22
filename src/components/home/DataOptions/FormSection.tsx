@@ -256,13 +256,13 @@ const mapDispatchToProps = (dispatch: AnyForLib) => ({
             teamName,
             usersInfo = {},
             userId,
-            name,
+            name = '',
             enterpriseAPI,
             excludeIds,
             events,
         } = values
 
-        if (userId && name) {
+        if (userId) {
             usersInfo[userId] = {
                 userId,
                 name,

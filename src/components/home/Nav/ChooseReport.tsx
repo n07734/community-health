@@ -28,7 +28,6 @@ type ChooseReportProps = {
     getPreFetchedReport: (arg: RepoInfo) => void
 }
 const ChooseReport = ({ setNewReportType, getPreFetchedReport, preFetchedName }: ChooseReportProps) => {
-    console.log('ChooseReport',preFetchedName)
     const preFetchButton = (repoInfo:RepoInfo, i: number = 1) => <SheetClose
         key={`${i}`}
         asChild

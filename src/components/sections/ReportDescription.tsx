@@ -92,7 +92,7 @@ const ReportDescription = ({
                 name="checkedA"
                 className="dark:data-[state=unchecked]:bg-white"
             />
-            <Label htmlFor="spartacus-mode">Hide GitHub ids/names, this can help look for trends.</Label>
+            <Label htmlFor="spartacus-mode">Spartacus mode, this can help look for trends.</Label>
         </div>
 
         <DateRange />

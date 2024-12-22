@@ -8,7 +8,7 @@ import Links from './Links'
 import MakeReport from './Nav/MakeReport'
 import ChooseReport from './Nav/ChooseReport'
 import PrefetchedReport from './DataOptions/PrefetchedReport'
-import NewReport from './NewReport'
+import FormSection from './DataOptions/FormSection'
 import { ReportType } from '@/types/State'
 
 const Page = () => {
@@ -35,7 +35,9 @@ const Page = () => {
             </header>
             <PrefetchedReport />
             {
-                newReportType !== '' && <NewReport newReportType={newReportType} />
+                newReportType !== '' && <Paper className="block">
+                    <FormSection reportType={newReportType} />
+                </Paper>
             }
             <Visualisation />
         </div>

@@ -11,7 +11,6 @@ import { PullRequest } from '../types/FormattedData'
 
 import {
     Dialog,
-    DialogTitle,
     DialogContentNoClose,
 } from '@/components/ui/dialog'
 import { Progress } from './ui/progress'
@@ -93,9 +92,6 @@ const Loader = ({
 
     return (
         fetching && <Dialog open={true}>
-            <DialogTitle>
-                Loading...
-            </DialogTitle>
             <DialogContentNoClose data-qa-id="loader" className="overflow-scroll max-h-full w-4/5">
                 {
                     isTeamSearch
