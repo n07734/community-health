@@ -28,6 +28,14 @@ const preFetchedRepos = [
         fileName: 'microsoft-typescript-10',
     },
     {
+        name: 'MSW',
+        fileName: 'mswjs-msw',
+    },
+    {
+        name: 'SWC',
+        fileName: 'swc-project-swc',
+    },
+    {
         name: 'vscode',
         fileName: 'microsoft-vscode',
     },
@@ -67,7 +75,30 @@ const preFetchedTeams = [
     },
 ]
 
-const preFetchedSRank23 = [
+const preFetchedUsers = [
+    {
+        name: 'Theo',
+        fileName: 't3dotgg',
+    },
+    {
+        name: 'Daniel Roe',
+        fileName: 'danielroe',
+    },
+    {
+        name: 'Kent',
+        fileName: 'kentcdodds',
+    },
+    {
+        name: 'Hailey',
+        fileName: 'haileyok',
+    },
+    {
+        name: 'shadcn',
+        fileName: 'shadcn',
+    },
+]
+
+const preFetchedSRank24 = [
     {
         name: 'Vite',
         fileName: 'vitejs',
@@ -81,34 +112,31 @@ const preFetchedSRank23 = [
         fileName: 'microsoft-playwright',
     },
     {
-        name: 'PNPM',
-        fileName: 'pnpm-pnpm',
+        name: 'Astro',
+        fileName: 'withastro-astro',
     },
     {
-        name: 'MSW',
-        fileName: 'mswjs-msw',
+        name: 'PNPM',
+        fileName: 'pnpm-pnpm',
     },
     {
         name: 'esbuild',
         fileName: 'evanw-esbuild',
     },
     {
-        name: 'SWC',
-        fileName: 'swc-project-swc',
-    },
-    {
         name: 'Testing Library',
         fileName: 'testing-library',
     },
     {
-        name: 'Astro',
-        fileName: 'withastro-astro',
+        name: 'SvelteKit',
+        fileName: 'sveltejs-kit',
     },
 ]
 
 export {
-    preFetchedSRank23,
+    preFetchedSRank24,
     preFetchedRepos,
     preFetchedOrgs,
     preFetchedTeams,
+    preFetchedUsers,
 }

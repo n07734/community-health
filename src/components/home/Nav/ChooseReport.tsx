@@ -14,10 +14,11 @@ import {
     myPreFetchedReports,
 } from '@/myReports/myReportsConfig'
 import {
-    preFetchedSRank23,
+    preFetchedSRank24,
     preFetchedRepos,
     preFetchedTeams,
     preFetchedOrgs,
+    preFetchedUsers,
 } from '@/preFetchedInfo'
 import { AnyForLib, AnyForNow, RepoInfo, ReportType } from '@/types/State'
 import { getPreFetched } from '@/state/actions'
@@ -49,7 +50,7 @@ const ChooseReport = ({ setNewReportType, getPreFetchedReport, preFetchedName }:
             <SheetTrigger asChild>
                 <Button variant="link" className="normal-case">Other reports</Button>
             </SheetTrigger>
-            <SheetContent className="bg-background">
+            <SheetContent className="bg-background overflow-scroll">
                 <SheetHeader>
                     <SheetTitle>See a different report</SheetTitle>
                 </SheetHeader>
@@ -59,9 +60,9 @@ const ChooseReport = ({ setNewReportType, getPreFetchedReport, preFetchedName }:
                             .map(preFetchButton)
                     }
                     <div>
-                        <p><a className="text-primary" href="https://2023.stateofjs.com/en-US/libraries/#tier_list">StateOfJS 23</a> S tier list</p>
+                        <p><a className="text-primary" href="https://2024.stateofjs.com/en-US/libraries/#tier_list">StateOfJS 24</a> S tier list</p>
                         {
-                            preFetchedSRank23
+                            preFetchedSRank24
                                 .map(preFetchButton)
                         }
                     </div>
@@ -80,6 +81,11 @@ const ChooseReport = ({ setNewReportType, getPreFetchedReport, preFetchedName }:
                         <p>Team reports</p>
                         {
                             preFetchedTeams
+                                .map(preFetchButton)
+                        }
+                        <p>Individual reports</p>
+                        {
+                            preFetchedUsers
                                 .map(preFetchButton)
                         }
                     </>

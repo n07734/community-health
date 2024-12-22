@@ -1,14 +1,14 @@
 {
   "fetches": {
     "org": "testing-library",
-    "sortDirection": "DESC",
+    "sortDirection": "ASC",
     "prPagination": {
       ".github": {
         "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wOC0yNlQyMDozNDozMiswMTowMM4940lY",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMi0wOC0yNlQyMDozNDozMiswMTowMM4940lY"
       },
       "angular-testing-library": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0wMVQxNzowMjowMSswMTowMM5xMyIc",
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0yMVQxNToxODo1MyswMDowMM6F_RTu",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMy0wMS0xMlQxNToxMDo1NCswMDowMM5HQVEB"
       },
       "cypress-testing-library": {
@@ -16,7 +16,7 @@
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMC0wNy0xMFQxNjo0OToyNCswMTowMM4arIaK"
       },
       "dom-testing-library": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNC0yN1QyMzoyOTozNyswMTowMM5t6vb2",
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNy0xNVQxNToxNDozNSswMTowMM51ZK5M",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMi0wOC0wOVQxNDo1NjoyNiswMTowMM4847jS"
       },
       "dom-testing-library-template": {
@@ -24,19 +24,19 @@
         "oldest": "Y3Vyc29yOnYyOpK5MjAxOS0wNy0xMlQyMTozMTowNiswMTowMM4Rtx_K"
       },
       "eslint-plugin-jest-dom": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNC0xOVQyMjoyMjoxMiswMTowMM5tOlF7",
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMS0xN1QyMDowMjozMCswMDowMM6CK0Lo",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMi0wMi0yNFQxODowNjoyMiswMDowMM4za8XS"
       },
       "eslint-plugin-testing-library": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNC0xNlQxMDo1MjowMCswMTowMM5sx-NW",
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0xNlQwNzo1NToxOCswMDowMM6FUJ55",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMi0xMC0xMlQwNTo0MDoxNiswMTowMM5AnjYE"
       },
       "jasmine-dom": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyMy0wMS0yMFQxNToxNTo1MiswMDowMM5IOO97",
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0wMlQxNDoyNjoyOSswMDowMM6DwXte",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMC0wOS0yNFQwNzoyMToxMiswMTowMM4dVpWq"
       },
       "jest-dom": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0wNVQwODo0ODo0MSswMTowMM5xg7jG",
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMC0zMVQxNTozMjoyNSswMDowMM6AieE5",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMS0wNi0xNFQxNjo1ODoyMiswMTowMM4n6p5z"
       },
       "jest-native": {
@@ -76,11 +76,11 @@
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMS0wOS0xN1QwMzowNTowOCswMTowMM4r3lBs"
       },
       "react-testing-library": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNS0wN1QxMTo1OTozMSswMTowMM5uv0QA",
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0wNVQxOTo0ODo1OCswMDowMM6EOrTd",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMi0wNC0xNVQyMjo1OTowNSswMTowMM42Tq1_"
       },
       "svelte-testing-library": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0wOVQwNDoxODo0NiswMTowMM5x4L_i",
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0wOFQxODowOTo0MSswMDowMM6Ec4OG",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMC0wMy0yM1QxMDozOToxOCswMDowMM4XYgr-"
       },
       "testcafe-testing-library": {
@@ -88,7 +88,7 @@
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMC0wNy0xNFQxMToyMzo1MSswMTowMM4awAHW"
       },
       "testing-library-docs": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0wMVQxNjo1NjozMSswMTowMM5xMxqS",
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0yMVQxNzo1ODo0NCswMDowMM6F_0QR",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMy0wMS0xMFQxNToxNzo1NSswMDowMM5HFKqy"
       },
       "testing-library-recorder-extension": {
@@ -118,36 +118,40 @@
       "which-query": {
         "newest": "Y3Vyc29yOnYyOpK5MjAyMS0wMi0xMVQwNzoxNTozOSswMDowMM4iEjf7",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMC0wNS0yNFQxODowODo0MSswMTowMM4ZLfL9"
+      },
+      "react-render-stream-testing-library": {
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0wNlQwOTo0NTo0MSswMDowMM6ETLyw",
+        "oldest": "Y3Vyc29yOnYyOpK5MjAyNC0xMC0wOFQxNToyMDozOSswMTowMM599XgS"
       }
     },
     "releasesPagination": {
       "angular-testing-library": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNC0xOFQxMTozNzoxOCswMTowMM4JCv3w",
-        "oldest": "Y3Vyc29yOnYyOpK5MjAyMS0xMS0xN1QxMzoxODoyNiswMDowMM4DMSlp"
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0xNFQxNjozNTo1NiswMDowMM4LXwhg",
+        "oldest": "Y3Vyc29yOnYyOpK5MjAxOC0wNy0yOFQxNDozMzoxNiswMTowMM4AuV62"
       },
       "cypress-testing-library": {
         "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNS0zMVQxMzo1MToyMiswMTowMM4JcBZL",
-        "oldest": "Y3Vyc29yOnYyOpK5MjAxOS0wMi0xMlQyMjo0MTozOSswMDowMM4A7Na8"
+        "oldest": "Y3Vyc29yOnYyOpK5MjAxOC0wNC0xMFQxNDoyODozMyswMTowMM4An9mq"
       },
       "dom-testing-library": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNC0yOVQwODo0NDo1NyswMTowMM4JIZ6J",
-        "oldest": "Y3Vyc29yOnYyOpK5MjAyMS0wNy0wMVQxNDo1OToxOSswMTowMM4Ctz6v"
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNy0yMlQxMzoxNTozNCswMTowMM4J7KD0",
+        "oldest": "Y3Vyc29yOnYyOpK5MjAxOC0wNC0wN1QxNDo0Mjo1OCswMTowMM4An0ug"
       },
       "eslint-plugin-jest-dom": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNC0yMFQwMDo1MTo1NSswMTowMM4JD6ph",
-        "oldest": "Y3Vyc29yOnYyOpK5MjAxOS0xMi0xNlQyMTo0ODoxMCswMDowMM4BU9Hy"
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMS0xN1QyMDo0Njo1MSswMDowMM4LE6ja",
+        "oldest": "Y3Vyc29yOnYyOpK5MjAxOS0xMC0yOFQwMDoyODozNyswMDowMM4BQJgI"
       },
       "eslint-plugin-testing-library": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNC0xN1QxMzoxMDoxNSswMTowMM4JCGQL",
-        "oldest": "Y3Vyc29yOnYyOpK5MjAyMi0wMy0zMVQxMToxNjozMiswMTowMM4DxREl"
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0wNlQxMDowOTowNSswMDowMM4LSZ0M",
+        "oldest": "Y3Vyc29yOnYyOpK5MjAxOS0xMC0wMlQwODowOTo0MCswMTowMM4BN14Q"
       },
       "jasmine-dom": {
         "newest": "Y3Vyc29yOnYyOpK5MjAyMy0wMS0yM1QxNTozMjo0MiswMDowMM4FXDBR",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMC0wOC0yM1QwNzo0ODo0NyswMTowMM4ByhlY"
       },
       "jest-dom": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0xMVQwMDoyNDoxMSswMTowMM4JhcS_",
-        "oldest": "Y3Vyc29yOnYyOpK5MjAyMC0wNS0wN1QxOTozMzowMyswMTowMM4BkRQb"
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMC0zMVQxNTowODo1MiswMDowMM4K54qk",
+        "oldest": "Y3Vyc29yOnYyOpK5MjAxOC0wNC0xMFQxOTo0NzowOSswMTowMM4An_Ie"
       },
       "jest-native": {
         "newest": "Y3Vyc29yOnYyOpK5MjAyMy0wOC0yMlQxNTo0MToyMyswMTowMM4HC-tm",
@@ -175,15 +179,15 @@
       },
       "react-hooks-testing-library": {
         "newest": "Y3Vyc29yOnYyOpK5MjAyMi0wNi0xOFQxNDoxNDowOSswMTowMM4EKJPs",
-        "oldest": "Y3Vyc29yOnYyOpK5MjAxOS0wNi0yMVQxMjoxMzozMSswMTowMM4BFNBU"
+        "oldest": "Y3Vyc29yOnYyOpK5MjAxOS0wMi0yMVQxMTo0MjoyNyswMDowMM4A8C1m"
       },
       "react-testing-library": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0wM1QxNDo1MjoxOCswMTowMM4JdFmj",
-        "oldest": "Y3Vyc29yOnYyOpK5MjAyMS0wMS0wN1QxODowMDo0NiswMDowMM4CJvTn"
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0wNVQxOTo1OTo0NSswMDowMM4LR_lW",
+        "oldest": "Y3Vyc29yOnYyOpK5MjAxOC0wMy0xOVQxMzo1NTo0MiswMDowMM4Amuhy"
       },
       "svelte-testing-library": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNC0yNFQxNDo0Mjo1NSswMTowMM4JGK7Z",
-        "oldest": "Y3Vyc29yOnYyOpK5MjAxOS0wNS0wM1QyMTo0MDo0MSswMTowMM4BBZoN"
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMS0xOVQxNzoyMDozNiswMDowMM4LGel9",
+        "oldest": "Y3Vyc29yOnYyOpK5MjAxOS0wNS0wM1QwMjo1NToyOCswMTowMM4BBU1y"
       },
       "testcafe-testing-library": {
         "newest": "Y3Vyc29yOnYyOpK5MjAyMy0xMS0xNFQyMTo1OTo1MSswMDowMM4Ht15r",
@@ -199,11 +203,11 @@
       },
       "user-event": {
         "newest": "Y3Vyc29yOnYyOpK5MjAyMy0xMi0yOVQxNTowNToxNyswMDowMM4IEZT9",
-        "oldest": "Y3Vyc29yOnYyOpK5MjAyMS0xMC0zMFQyMToxOToxMyswMTowMM4DHztL"
+        "oldest": "Y3Vyc29yOnYyOpK5MjAxOC0wOS0yMFQyMjo1MDoxMSswMTowMM4AxpF1"
       },
       "vue-testing-library": {
         "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNS0xOFQwOToxNDowMyswMTowMM4JUeTs",
-        "oldest": "Y3Vyc29yOnYyOpK5MjAxOS0wOC0xM1QxMDoxMTo0MSswMTowMM4BJbub"
+        "oldest": "Y3Vyc29yOnYyOpK5MjAxOC0xMi0wN1QxMjoyNjowNiswMDowMM4A29Z0"
       },
       "webdriverio-testing-library": {
         "newest": "Y3Vyc29yOnYyOpK5MjAyMy0wMS0xN1QxMjo1MjowMyswMDowMM4FUZ-U",
@@ -212,19 +216,23 @@
       "which-query": {
         "newest": "Y3Vyc29yOnYyOpK5MjAyMC0wNi0xMVQxOTo0MTo0MCswMTowMM4BpdKH",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMC0wNi0xMFQxNToxMDozMyswMTowMM4Bok1D"
+      },
+      "react-render-stream-testing-library": {
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0wNlQwOTo0OTowNiswMDowMM4LSY3R",
+        "oldest": "Y3Vyc29yOnYyOpK5MjAyNC0xMC0xMVQxODoxNTozNCswMTowMM4KtCIC"
       }
     },
     "issuesPagination": {
       "angular-testing-library": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0wMVQyMTowNToxMSswMTowMM6K1o7e",
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0xNVQwNDo1NTozNSswMDowMM6jVVpz",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMi0xMi0xNlQxMjo1ODo1MyswMDowMM5Zaru0"
       },
       "cypress-testing-library": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0xMVQwODo0MDo1NSswMTowMM6Lz6-a",
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0yNVQwMjoyNDoyOCswMTowMM6NWOax",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMS0wNS0xNlQxNDoyMDo1MyswMTowMM41NRGD"
       },
       "dom-testing-library": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0wNVQyMjoxMjo0NCswMTowMM6LSWpD",
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0xNlQxNToyMTozMCswMDowMM6jefhV",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMy0wMi0yMVQxMTowMDowMyswMDowMM5e91if"
       },
       "dom-testing-library-template": {
@@ -232,11 +240,11 @@
         "oldest": "Y3Vyc29yOnYyOpK5MjAxOS0wNy0xMlQxOTo0NjoxNSswMTowMM4b3kWa"
       },
       "eslint-plugin-jest-dom": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNS0yMFQwMTowMjo0MCswMTowMM6JYRf9",
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0wOVQxMzowNjozNCswMDowMM6iisaj",
         "oldest": "Y3Vyc29yOnYyOpK5MjAxOS0xMi0xN1QwMzoyMjo1OCswMDowMM4gHZM1"
       },
       "eslint-plugin-testing-library": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0wN1QwOTo1MDowMiswMTowMM6LeIet",
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMS0xOVQxMTozOTo1MCswMDowMM6fQew1",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMi0wOS0xMlQxNToyMDozNCswMTowMM5RqG-6"
       },
       "jasmine-dom": {
@@ -244,7 +252,7 @@
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMC0wOS0yMVQxNToxNDoyNCswMTowMM4qDy23"
       },
       "jest-dom": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0xMVQyMzoxMDo1NiswMTowMM6L6l4W",
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0xMlQwMTo0Mzo1MCswMDowMM6i_K59",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMS0wOS0yM1QwOToxOTowMiswMTowMM476UO2"
       },
       "jest-native": {
@@ -280,23 +288,23 @@
         "oldest": "Y3Vyc29yOnYyOpK5MjAxOC0wNC0wNlQxOTo1NDoyMiswMTowMM4Smfo3"
       },
       "react-hooks-testing-library": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNC0xNVQwNjo0NDo1OCswMTowMM6FrcUy",
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMC0xOFQyMToxNToyNyswMTowMM6a3yUP",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMi0wMi0wMVQwMDozNjo1NSswMDowMM5CwzM8"
       },
       "react-testing-library": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0wN1QwMzozMToxMSswMTowMM6LcV0X",
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0wOVQxMjo0Nzo1OSswMDowMM6iig39",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMy0wMi0yM1QxNDo0MzoyMSswMDowMM5fMCt2"
       },
       "svelte-testing-library": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0xMVQxNDoyMTozNyswMTowMM6L253Z",
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0xMlQyMDo0NzoyOSswMDowMM6jIQtb",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMi0wNi0wMVQyMjowOTo0MCswMTowMM5K7Qg2"
       },
       "testcafe-testing-library": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyMy0wOC0wNVQwMjowMToxMSswMTowMM5thd-E",
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNy0yNFQwNToxNjozOSswMTowMM6QolZz",
         "oldest": "Y3Vyc29yOnYyOpK5MjAxOS0wNC0yNlQwMjo1MzoxNSswMTowMM4aEzCQ"
       },
       "testing-library-docs": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNC0yOVQwMTozOTozNyswMTowMM6HLZe0",
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0xMFQwODoxNTo1NCswMDowMM6irqkU",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMS0xMS0xOFQwMzo0NTo0MiswMDowMM4-_wwz"
       },
       "testing-library-recorder-extension": {
@@ -304,15 +312,15 @@
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMi0wOC0xOVQxMDowMTo1NyswMTowMM5QHj_y"
       },
       "testing-playground": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyMi0xMC0yOFQxNjo1NTowNCswMTowMM5VFU2s",
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wOS0yNFQyMDoyNDo0MiswMTowMM6Xw-rX",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMC0wNi0yNFQxNjowOToyMiswMTowMM4mbUDm"
       },
       "user-event": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNi0wM1QxNjowMDoyMSswMTowMM6K9ily",
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0xM1QyMjo1Njo1OSswMDowMM6jRwD2",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMy0wNS0xN1QxNjozODoxMyswMTowMM5mLFmz"
       },
       "vue-testing-library": {
-        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wNS0yMFQxNDoyOTo0MSswMTowMM6JcuUE",
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0xMVQxNDo0MzozOSswMDowMM6i6O2M",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMS0wNS0yMVQxMTo0Nzo1MSswMTowMM41hUUj"
       },
       "web-testing-library": {
@@ -326,6 +334,10 @@
       "which-query": {
         "newest": "Y3Vyc29yOnYyOpK5MjAyMC0xMi0yOVQwNzozNjowNyswMDowMM4uPQQv",
         "oldest": "Y3Vyc29yOnYyOpK5MjAyMC0wNS0yNFQxODowNzoxMSswMTowMM4lMAcP"
+      },
+      "react-render-stream-testing-library": {
+        "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMS0wNFQyMjoyMToxOSswMDowMM6c_z1X",
+        "oldest": "Y3Vyc29yOnYyOpK5MjAyNC0xMS0wNFQyMjoyMToxOSswMDowMM6c_z1X"
       }
     }
   },
@@ -7445,6 +7457,2973 @@
         "gnapse": 1
       },
       "commentSentimentTotalScore": 1
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "ggualiato",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1399",
+      "additions": 8,
+      "deletions": 8,
+      "prSize": 16,
+      "mergedAt": "2024-06-13T06:20:11Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "MatanBobi": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "MatanBobi": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "MatanBobi": 1
+      },
+      "generalCommentSentimentTotalScore": 1,
+      "comments": 1,
+      "commenters": {
+        "MatanBobi": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "MatanBobi": 1
+      },
+      "commentSentimentTotalScore": 1
+    },
+    {
+      "repo": "dom-testing-library",
+      "org": "testing-library",
+      "author": "gregberge",
+      "url": "https://github.com/testing-library/dom-testing-library/pull/1318",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2024-06-17T14:42:34Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      }
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "timdeschryver",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/456",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2024-06-21T16:51:25Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "timdeschryver",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/457",
+      "additions": 18,
+      "deletions": 2,
+      "prSize": 20,
+      "mergedAt": "2024-06-21T17:59:35Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "timdeschryver",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/458",
+      "additions": 82,
+      "deletions": 6,
+      "prSize": 88,
+      "mergedAt": "2024-06-21T18:11:36Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "timdeschryver",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/455",
+      "additions": 45,
+      "deletions": 12,
+      "prSize": 57,
+      "mergedAt": "2024-06-21T18:27:32Z",
+      "cycleTime": 7,
+      "age": 7
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "timdeschryver",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/459",
+      "additions": 18,
+      "deletions": 10,
+      "prSize": 28,
+      "mergedAt": "2024-06-22T12:22:43Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "timdeschryver",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/461",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2024-06-22T13:20:45Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "dom-testing-library",
+      "org": "testing-library",
+      "author": "KonnorRogers",
+      "url": "https://github.com/testing-library/dom-testing-library/pull/1319",
+      "additions": 45,
+      "deletions": 7,
+      "prSize": 52,
+      "mergedAt": "2024-06-24T11:43:21Z",
+      "cycleTime": 4,
+      "age": 4,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 3,
+      "generalCommentSentimentTotalScore": 3,
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 3,
+      "commentSentimentTotalScore": 3
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "timdeschryver",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/463",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2024-06-24T13:40:37Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "svelte-testing-library",
+      "org": "testing-library",
+      "author": "mcous",
+      "url": "https://github.com/testing-library/svelte-testing-library/pull/383",
+      "additions": 63,
+      "deletions": 56,
+      "prSize": 119,
+      "mergedAt": "2024-06-24T19:09:25Z",
+      "cycleTime": 3,
+      "age": 3,
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": -2,
+      "codeCommentSentimentTotalScore": -2,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": -2,
+      "commentSentimentTotalScore": -2
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "mcous",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1401",
+      "additions": 28,
+      "deletions": 1,
+      "prSize": 29,
+      "mergedAt": "2024-06-25T15:07:56Z",
+      "cycleTime": 8,
+      "age": 8,
+      "approvals": 1,
+      "approvers": {
+        "MatanBobi": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "MatanBobi": 1
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 6,
+      "generalCommentSentimentTotalScore": 6,
+      "comments": 1,
+      "commenters": {
+        "MatanBobi": 1
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 6,
+      "commentSentimentTotalScore": 6
+    },
+    {
+      "repo": "svelte-testing-library",
+      "org": "testing-library",
+      "author": "mcous",
+      "url": "https://github.com/testing-library/svelte-testing-library/pull/384",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2024-06-26T15:23:04Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "svelte-testing-library",
+      "org": "testing-library",
+      "author": "mcous",
+      "url": "https://github.com/testing-library/svelte-testing-library/pull/386",
+      "additions": 580,
+      "deletions": 427,
+      "prSize": 1007,
+      "mergedAt": "2024-06-28T22:49:49Z",
+      "cycleTime": 19,
+      "age": 1
+    },
+    {
+      "repo": "svelte-testing-library",
+      "org": "testing-library",
+      "author": "mcous",
+      "url": "https://github.com/testing-library/svelte-testing-library/pull/389",
+      "additions": 8,
+      "deletions": 1,
+      "prSize": 9,
+      "mergedAt": "2024-06-29T00:57:01Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "dom-testing-library",
+      "org": "testing-library",
+      "author": "DavidRieman",
+      "url": "https://github.com/testing-library/dom-testing-library/pull/1321",
+      "additions": 53,
+      "deletions": 17,
+      "prSize": 70,
+      "mergedAt": "2024-07-02T12:11:48Z",
+      "cycleTime": 7,
+      "age": 7,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "eps1lon": 2
+      },
+      "generalCommentsAuthor": 1,
+      "codeComments": 1,
+      "codeCommenters": {
+        "eps1lon": 1
+      },
+      "comments": 3,
+      "commenters": {
+        "eps1lon": 3
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "timdeschryver",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/460",
+      "additions": 121,
+      "deletions": 21,
+      "prSize": 142,
+      "mergedAt": "2024-07-02T17:19:48Z",
+      "cycleTime": 11,
+      "age": 10
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "timdeschryver",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1402",
+      "additions": 17,
+      "deletions": 8,
+      "prSize": 25,
+      "mergedAt": "2024-07-02T18:03:10Z",
+      "cycleTime": 8,
+      "age": 8,
+      "approvals": 1,
+      "approvers": {
+        "MatanBobi": 1
+      }
+    },
+    {
+      "repo": "dom-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/dom-testing-library/pull/1325",
+      "additions": 17,
+      "deletions": 53,
+      "prSize": 70,
+      "mergedAt": "2024-07-05T10:55:54Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "neriyarden",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/911",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2024-07-08T09:55:44Z",
+      "cycleTime": 9,
+      "age": 8,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      }
+    },
+    {
+      "repo": "dom-testing-library",
+      "org": "testing-library",
+      "author": "sieem",
+      "url": "https://github.com/testing-library/dom-testing-library/pull/1329",
+      "additions": 4,
+      "deletions": 1,
+      "prSize": 5,
+      "mergedAt": "2024-07-15T14:13:56Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "MatanBobi": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "MatanBobi": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "MatanBobi": 1
+      },
+      "generalCommentSentimentTotalScore": 1,
+      "comments": 1,
+      "commenters": {
+        "MatanBobi": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "MatanBobi": 1
+      },
+      "commentSentimentTotalScore": 1
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "mumenthalers",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/465",
+      "additions": 261,
+      "deletions": 55,
+      "prSize": 316,
+      "mergedAt": "2024-07-20T16:40:29Z",
+      "cycleTime": 11,
+      "age": 8,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "timdeschryver": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "timdeschryver": 1
+      },
+      "generalCommentSentimentTotalScore": 1,
+      "codeComments": 6,
+      "codeCommenters": {
+        "timdeschryver": 6
+      },
+      "codeCommentSentimentScore": 35,
+      "codeCommentSentiments": {
+        "timdeschryver": 35
+      },
+      "codeCommentsAuthor": 2,
+      "codeCommentAuthorSentimentScore": 11,
+      "codeCommentSentimentTotalScore": 46,
+      "comments": 7,
+      "commenters": {
+        "timdeschryver": 7
+      },
+      "commentSentimentScore": 36,
+      "commentSentiments": {
+        "timdeschryver": 36
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 11,
+      "commentSentimentTotalScore": 47
+    },
+    {
+      "repo": "dom-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/dom-testing-library/pull/1324",
+      "additions": 201,
+      "deletions": 70,
+      "prSize": 271,
+      "mergedAt": "2024-07-22T10:03:29Z",
+      "cycleTime": 17,
+      "age": 17,
+      "codeCommentsAuthor": 2,
+      "codeCommentAuthorSentimentScore": -1,
+      "codeCommentSentimentTotalScore": -1,
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": -1,
+      "commentSentimentTotalScore": -1
+    },
+    {
+      "repo": "dom-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/dom-testing-library/pull/1323",
+      "additions": 12,
+      "deletions": 8,
+      "prSize": 20,
+      "mergedAt": "2024-07-22T12:15:34Z",
+      "cycleTime": 17,
+      "age": 17,
+      "approvals": 1,
+      "approvers": {
+        "DavidRieman": 1
+      },
+      "codeCommentsAuthor": 1,
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "jest-dom",
+      "org": "testing-library",
+      "author": "tonyhallett",
+      "url": "https://github.com/testing-library/jest-dom/pull/611",
+      "additions": 3,
+      "deletions": 3,
+      "prSize": 6,
+      "mergedAt": "2024-07-22T19:31:51Z",
+      "cycleTime": 7,
+      "age": 7,
+      "approvals": 1,
+      "approvers": {
+        "gnapse": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "gnapse": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "gnapse": 1
+      },
+      "generalCommentSentimentTotalScore": 1,
+      "comments": 1,
+      "commenters": {
+        "gnapse": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "gnapse": 1
+      },
+      "commentSentimentTotalScore": 1
+    },
+    {
+      "repo": "jest-dom",
+      "org": "testing-library",
+      "author": "ddolcimascolo",
+      "url": "https://github.com/testing-library/jest-dom/pull/610",
+      "deletions": 24,
+      "prSize": 24,
+      "mergedAt": "2024-07-23T12:18:35Z",
+      "cycleTime": 13,
+      "age": 13,
+      "approvals": 2,
+      "approvers": {
+        "kentcdodds": 1,
+        "gnapse": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "gnapse": 2
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "gnapse": 3
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 4,
+      "generalCommentSentimentTotalScore": 7,
+      "comments": 2,
+      "commenters": {
+        "gnapse": 2
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "gnapse": 3
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 4,
+      "commentSentimentTotalScore": 7
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "timdeschryver",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/469",
+      "additions": 59,
+      "deletions": 3,
+      "prSize": 62,
+      "mergedAt": "2024-07-23T18:43:23Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "jest-dom",
+      "org": "testing-library",
+      "author": "aleks-elkin",
+      "url": "https://github.com/testing-library/jest-dom/pull/617",
+      "deletions": 1,
+      "prSize": 1,
+      "mergedAt": "2024-07-24T17:29:18Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "gnapse": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "gnapse": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "gnapse": 1
+      },
+      "generalCommentSentimentTotalScore": 1,
+      "comments": 1,
+      "commenters": {
+        "gnapse": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "gnapse": 1
+      },
+      "commentSentimentTotalScore": 1
+    },
+    {
+      "repo": "jest-dom",
+      "org": "testing-library",
+      "author": "vorant94",
+      "url": "https://github.com/testing-library/jest-dom/pull/612",
+      "additions": 7,
+      "deletions": 3,
+      "prSize": 10,
+      "mergedAt": "2024-07-24T18:03:37Z",
+      "cycleTime": 9,
+      "age": 9,
+      "approvals": 1,
+      "approvers": {
+        "gnapse": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "gnapse": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "gnapse": 1
+      },
+      "generalCommentSentimentTotalScore": 1,
+      "comments": 1,
+      "commenters": {
+        "gnapse": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "gnapse": 1
+      },
+      "commentSentimentTotalScore": 1
+    },
+    {
+      "repo": "svelte-testing-library",
+      "org": "testing-library",
+      "author": "mcous",
+      "url": "https://github.com/testing-library/svelte-testing-library/pull/396",
+      "additions": 3,
+      "deletions": 5,
+      "prSize": 8,
+      "mergedAt": "2024-07-25T23:05:04Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "svelte-testing-library",
+      "org": "testing-library",
+      "author": "mcous",
+      "url": "https://github.com/testing-library/svelte-testing-library/pull/393",
+      "additions": 36,
+      "deletions": 51,
+      "prSize": 87,
+      "mergedAt": "2024-07-27T15:56:57Z",
+      "cycleTime": 12,
+      "age": 12
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "andreialecu",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/473",
+      "additions": 212,
+      "deletions": 44,
+      "prSize": 256,
+      "mergedAt": "2024-08-03T17:19:25Z",
+      "cycleTime": 5,
+      "age": 5,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "timdeschryver": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "timdeschryver": 1
+      },
+      "generalCommentSentimentTotalScore": 1,
+      "codeComments": 14,
+      "codeCommenters": {
+        "timdeschryver": 14
+      },
+      "codeCommentSentimentScore": 46,
+      "codeCommentSentiments": {
+        "timdeschryver": 46
+      },
+      "codeCommentsAuthor": 13,
+      "codeCommentAuthorSentimentScore": 4,
+      "codeCommentSentimentTotalScore": 50,
+      "comments": 15,
+      "commenters": {
+        "timdeschryver": 15
+      },
+      "commentSentimentScore": 47,
+      "commentSentiments": {
+        "timdeschryver": 47
+      },
+      "commentsAuthor": 13,
+      "commentAuthorSentimentScore": 4,
+      "commentSentimentTotalScore": 51
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "Hyperxq",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/478",
+      "additions": 53,
+      "deletions": 11,
+      "prSize": 64,
+      "mergedAt": "2024-08-06T16:58:47Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "timdeschryver": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "timdeschryver": 1
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentSentimentTotalScore": 1,
+      "codeComments": 2,
+      "codeCommenters": {
+        "timdeschryver": 2
+      },
+      "codeCommentSentimentScore": 3,
+      "codeCommentSentiments": {
+        "timdeschryver": 3
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentSentimentTotalScore": 3,
+      "comments": 3,
+      "commenters": {
+        "timdeschryver": 3
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "timdeschryver": 4
+      },
+      "commentsAuthor": 2,
+      "commentSentimentTotalScore": 4
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "timdeschryver",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/481",
+      "additions": 9,
+      "deletions": 1,
+      "prSize": 10,
+      "mergedAt": "2024-08-07T17:06:48Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "G-Rath",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/923",
+      "additions": 145,
+      "deletions": 5,
+      "prSize": 150,
+      "mergedAt": "2024-08-11T16:16:57Z",
+      "cycleTime": 7,
+      "age": 7,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      }
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "mlz11",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/484",
+      "additions": 26,
+      "deletions": 14,
+      "prSize": 40,
+      "mergedAt": "2024-08-13T17:48:53Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "timdeschryver": 2,
+        "zargham-leanix": 2
+      },
+      "generalCommentSentimentScore": 6,
+      "generalCommentSentiments": {
+        "timdeschryver": 6
+      },
+      "generalCommentSentimentTotalScore": 6,
+      "codeComments": 3,
+      "codeCommenters": {
+        "timdeschryver": 3
+      },
+      "codeCommentSentimentScore": 7,
+      "codeCommentSentiments": {
+        "timdeschryver": 7
+      },
+      "codeCommentsAuthor": 2,
+      "codeCommentAuthorSentimentScore": 9,
+      "codeCommentSentimentTotalScore": 16,
+      "comments": 7,
+      "commenters": {
+        "timdeschryver": 5,
+        "zargham-leanix": 2
+      },
+      "commentSentimentScore": 13,
+      "commentSentiments": {
+        "timdeschryver": 13
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 22
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "mlz11",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/486",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2024-08-14T06:52:03Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      }
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "StephNathai",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1406",
+      "additions": 14,
+      "deletions": 2,
+      "prSize": 16,
+      "mergedAt": "2024-08-14T07:32:10Z",
+      "cycleTime": 4,
+      "age": 4,
+      "approvals": 2,
+      "approvers": {
+        "timdeschryver": 1,
+        "MatanBobi": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "timdeschryver": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "timdeschryver": 1
+      },
+      "generalCommentSentimentTotalScore": 1,
+      "codeComments": 4,
+      "codeCommenters": {
+        "timdeschryver": 4
+      },
+      "codeCommentSentimentScore": 5,
+      "codeCommentSentiments": {
+        "timdeschryver": 5
+      },
+      "codeCommentsAuthor": 3,
+      "codeCommentAuthorSentimentScore": 6,
+      "codeCommentSentimentTotalScore": 11,
+      "comments": 5,
+      "commenters": {
+        "timdeschryver": 5
+      },
+      "commentSentimentScore": 6,
+      "commentSentiments": {
+        "timdeschryver": 6
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 6,
+      "commentSentimentTotalScore": 12
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "saubaig456",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1404",
+      "additions": 1,
+      "deletions": 2,
+      "prSize": 3,
+      "mergedAt": "2024-08-14T13:21:19Z",
+      "cycleTime": 12,
+      "age": 12,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "timdeschryver": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "timdeschryver": 1
+      },
+      "generalCommentSentimentTotalScore": 1,
+      "comments": 1,
+      "commenters": {
+        "timdeschryver": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "timdeschryver": 1
+      },
+      "commentSentimentTotalScore": 1
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "mlz11",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/488",
+      "additions": 6,
+      "deletions": 6,
+      "prSize": 12,
+      "mergedAt": "2024-08-17T08:51:10Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "timdeschryver": 1
+      },
+      "codeCommentSentimentScore": 1,
+      "codeCommentSentiments": {
+        "timdeschryver": 1
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 2,
+      "codeCommentSentimentTotalScore": 3,
+      "comments": 1,
+      "commenters": {
+        "timdeschryver": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "timdeschryver": 1
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 2,
+      "commentSentimentTotalScore": 3
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "moeyashi",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1410",
+      "additions": 6,
+      "prSize": 6,
+      "mergedAt": "2024-08-19T09:51:59Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "MatanBobi": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "MatanBobi": 1
+      },
+      "generalCommentSentimentTotalScore": 1,
+      "codeComments": 3,
+      "codeCommenters": {
+        "MatanBobi": 3
+      },
+      "codeCommentSentimentScore": 15,
+      "codeCommentSentiments": {
+        "MatanBobi": 15
+      },
+      "codeCommentsAuthor": 2,
+      "codeCommentAuthorSentimentScore": 15,
+      "codeCommentSentimentTotalScore": 30,
+      "comments": 4,
+      "commenters": {
+        "MatanBobi": 4
+      },
+      "commentSentimentScore": 16,
+      "commentSentiments": {
+        "MatanBobi": 16
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 15,
+      "commentSentimentTotalScore": 31
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "moeyashi",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1412",
+      "additions": 3,
+      "deletions": 1,
+      "prSize": 4,
+      "mergedAt": "2024-08-20T05:11:26Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      }
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "timdeschryver",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/489",
+      "additions": 6,
+      "deletions": 5,
+      "prSize": 11,
+      "mergedAt": "2024-08-23T16:47:53Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "jest-dom",
+      "org": "testing-library",
+      "author": "mibcadet",
+      "url": "https://github.com/testing-library/jest-dom/pull/624",
+      "additions": 14,
+      "prSize": 14,
+      "mergedAt": "2024-08-23T19:57:54Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "gnapse": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "lortimer": 1,
+        "gnapse": 1
+      },
+      "generalCommentSentimentScore": 6,
+      "generalCommentSentiments": {
+        "lortimer": 5,
+        "gnapse": 1
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": -1,
+      "generalCommentSentimentTotalScore": 5,
+      "comments": 2,
+      "commenters": {
+        "lortimer": 1,
+        "gnapse": 1
+      },
+      "commentSentimentScore": 6,
+      "commentSentiments": {
+        "lortimer": 5,
+        "gnapse": 1
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": -1,
+      "commentSentimentTotalScore": 5
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "timdeschryver",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1413",
+      "additions": 83,
+      "deletions": 40,
+      "prSize": 123,
+      "mergedAt": "2024-08-24T19:16:26Z",
+      "cycleTime": 2,
+      "age": 2,
+      "approvals": 1,
+      "approvers": {
+        "MatanBobi": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "MatanBobi": 1
+      },
+      "generalCommentSentimentScore": -3,
+      "generalCommentSentiments": {
+        "MatanBobi": -3
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 4,
+      "generalCommentSentimentTotalScore": 1,
+      "comments": 1,
+      "commenters": {
+        "MatanBobi": 1
+      },
+      "commentSentimentScore": -3,
+      "commentSentiments": {
+        "MatanBobi": -3
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 4,
+      "commentSentimentTotalScore": 1
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/1353",
+      "additions": 4,
+      "prSize": 4,
+      "mergedAt": "2024-08-28T15:43:24Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "MatanBobi": 1
+      }
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "timdeschryver",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1414",
+      "additions": 36,
+      "deletions": 90,
+      "prSize": 126,
+      "mergedAt": "2024-08-29T09:07:28Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "MatanBobi": 1
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/1351",
+      "additions": 20,
+      "deletions": 13,
+      "prSize": 33,
+      "mergedAt": "2024-08-29T09:28:03Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "MatanBobi": 1
+      }
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1416",
+      "additions": 41,
+      "prSize": 41,
+      "mergedAt": "2024-08-30T17:31:23Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      }
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1417",
+      "additions": 74,
+      "prSize": 74,
+      "mergedAt": "2024-09-04T15:40:15Z",
+      "cycleTime": 6,
+      "age": 6,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 1,
+      "generalCommentSentimentTotalScore": 1,
+      "codeComments": 3,
+      "codeCommenters": {
+        "timdeschryver": 3
+      },
+      "codeCommentSentimentScore": -5,
+      "codeCommentSentiments": {
+        "timdeschryver": -5
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 2,
+      "codeCommentSentimentTotalScore": -3,
+      "comments": 3,
+      "commenters": {
+        "timdeschryver": 3
+      },
+      "commentSentimentScore": -5,
+      "commentSentiments": {
+        "timdeschryver": -5
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 3,
+      "commentSentimentTotalScore": -2
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "TyMick",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1420",
+      "additions": 1,
+      "prSize": 1,
+      "mergedAt": "2024-09-10T17:50:14Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "MatanBobi": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "MatanBobi": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "MatanBobi": 1
+      },
+      "generalCommentSentimentTotalScore": 1,
+      "comments": 1,
+      "commenters": {
+        "MatanBobi": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "MatanBobi": 1
+      },
+      "commentSentimentTotalScore": 1
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "timdeschryver",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1423",
+      "deletions": 75,
+      "prSize": 75,
+      "mergedAt": "2024-09-13T18:42:13Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "eps1lon": 1
+      }
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "enmanuelduran",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1425",
+      "additions": 28,
+      "prSize": 28,
+      "mergedAt": "2024-09-28T14:35:43Z",
+      "cycleTime": 13,
+      "age": 13,
+      "approvals": 3,
+      "approvers": {
+        "timdeschryver": 2,
+        "MatanBobi": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "MatanBobi": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "MatanBobi": 1
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": 17,
+      "generalCommentSentimentTotalScore": 18,
+      "codeComments": 4,
+      "codeCommenters": {
+        "timdeschryver": 4
+      },
+      "codeCommentSentimentScore": -2,
+      "codeCommentSentiments": {
+        "timdeschryver": -2
+      },
+      "codeCommentSentimentTotalScore": -2,
+      "comments": 5,
+      "commenters": {
+        "timdeschryver": 4,
+        "MatanBobi": 1
+      },
+      "commentSentimentScore": -1,
+      "commentSentiments": {
+        "timdeschryver": -2,
+        "MatanBobi": 1
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 17,
+      "commentSentimentTotalScore": 16
+    },
+    {
+      "repo": "svelte-testing-library",
+      "org": "testing-library",
+      "author": "mcous",
+      "url": "https://github.com/testing-library/svelte-testing-library/pull/400",
+      "additions": 154,
+      "deletions": 47,
+      "prSize": 201,
+      "mergedAt": "2024-10-01T18:46:50Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "svelte-testing-library",
+      "org": "testing-library",
+      "author": "mcous",
+      "url": "https://github.com/testing-library/svelte-testing-library/pull/402",
+      "additions": 13,
+      "deletions": 9,
+      "prSize": 22,
+      "mergedAt": "2024-10-02T02:43:41Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "react-render-stream-testing-library",
+      "org": "testing-library",
+      "author": "phryneas",
+      "url": "https://github.com/testing-library/react-render-stream-testing-library/pull/1",
+      "additions": 298,
+      "deletions": 190,
+      "prSize": 488,
+      "mergedAt": "2024-10-09T15:56:00Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "gbhasha",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1433",
+      "additions": 8,
+      "prSize": 8,
+      "mergedAt": "2024-10-10T08:13:55Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "MatanBobi": 1
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "MatanBobi": 3
+      },
+      "generalCommentSentimentTotalScore": 3,
+      "comments": 1,
+      "commenters": {
+        "MatanBobi": 1
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "MatanBobi": 3
+      },
+      "commentSentimentTotalScore": 3
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "MatanBobi",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1435",
+      "additions": 14,
+      "deletions": 8,
+      "prSize": 22,
+      "mergedAt": "2024-10-10T08:22:32Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "react-render-stream-testing-library",
+      "org": "testing-library",
+      "author": "phryneas",
+      "url": "https://github.com/testing-library/react-render-stream-testing-library/pull/2",
+      "additions": 8741,
+      "deletions": 1933,
+      "prSize": 10674,
+      "mergedAt": "2024-10-10T12:32:08Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "react-render-stream-testing-library",
+      "org": "testing-library",
+      "author": "phryneas",
+      "url": "https://github.com/testing-library/react-render-stream-testing-library/pull/3",
+      "additions": 291,
+      "deletions": 68,
+      "prSize": 359,
+      "mergedAt": "2024-10-11T16:11:33Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "react-render-stream-testing-library",
+      "org": "testing-library",
+      "author": "aryaemami59",
+      "url": "https://github.com/testing-library/react-render-stream-testing-library/pull/4",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2024-10-11T19:12:48Z",
+      "cycleTime": 1,
+      "age": 1,
+      "codeComments": 2,
+      "codeCommenters": {
+        "phryneas": 2
+      },
+      "codeCommentSentimentScore": 6,
+      "codeCommentSentiments": {
+        "phryneas": 6
+      },
+      "codeCommentsAuthor": 2,
+      "codeCommentSentimentTotalScore": 6,
+      "comments": 2,
+      "commenters": {
+        "phryneas": 2
+      },
+      "commentSentimentScore": 6,
+      "commentSentiments": {
+        "phryneas": 6
+      },
+      "commentsAuthor": 2,
+      "commentSentimentTotalScore": 6
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "timdeschryver",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/495",
+      "additions": 48,
+      "prSize": 48,
+      "mergedAt": "2024-10-14T07:26:57Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "timdeschryver",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/494",
+      "additions": 57,
+      "prSize": 57,
+      "mergedAt": "2024-10-14T07:35:35Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "react-render-stream-testing-library",
+      "org": "testing-library",
+      "author": "phryneas",
+      "url": "https://github.com/testing-library/react-render-stream-testing-library/pull/5",
+      "additions": 44,
+      "deletions": 49,
+      "prSize": 93,
+      "mergedAt": "2024-10-14T08:18:23Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "timdeschryver",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/496",
+      "additions": 27,
+      "prSize": 27,
+      "mergedAt": "2024-10-14T17:06:59Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "jest-dom",
+      "org": "testing-library",
+      "author": "silviuaavram",
+      "url": "https://github.com/testing-library/jest-dom/pull/637",
+      "additions": 430,
+      "deletions": 1,
+      "prSize": 431,
+      "mergedAt": "2024-10-16T16:25:23Z",
+      "cycleTime": 8,
+      "age": 8,
+      "approvals": 1,
+      "approvers": {
+        "gnapse": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "gnapse": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "gnapse": 1
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 5,
+      "generalCommentSentimentTotalScore": 6,
+      "codeComments": 1,
+      "codeCommenters": {
+        "gnapse": 1
+      },
+      "codeCommentSentimentScore": 3,
+      "codeCommentSentiments": {
+        "gnapse": 3
+      },
+      "codeCommentSentimentTotalScore": 3,
+      "comments": 2,
+      "commenters": {
+        "gnapse": 2
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "gnapse": 4
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 5,
+      "commentSentimentTotalScore": 9
+    },
+    {
+      "repo": "jest-dom",
+      "org": "testing-library",
+      "author": "gnapse",
+      "url": "https://github.com/testing-library/jest-dom/pull/642",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2024-10-16T18:44:55Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "sounmind": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "sounmind": 4
+      },
+      "generalCommentSentimentTotalScore": 4,
+      "comments": 1,
+      "commenters": {
+        "sounmind": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "sounmind": 4
+      },
+      "commentSentimentTotalScore": 4
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "G-Rath",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/935",
+      "additions": 12,
+      "prSize": 12,
+      "mergedAt": "2024-10-17T08:20:47Z",
+      "cycleTime": 8,
+      "age": 8,
+      "approvals": 2,
+      "approvers": {
+        "MichaelDeBoey": 1,
+        "Belco90": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "Belco90": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "Belco90": 1
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": -2,
+      "generalCommentSentimentTotalScore": -1,
+      "comments": 1,
+      "commenters": {
+        "Belco90": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "Belco90": 1
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": -2,
+      "commentSentimentTotalScore": -1
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "G-Rath",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/927",
+      "deletions": 145,
+      "prSize": 145,
+      "mergedAt": "2024-10-17T08:44:02Z",
+      "cycleTime": 63,
+      "age": 63,
+      "approvals": 2,
+      "approvers": {
+        "MichaelDeBoey": 1,
+        "Belco90": 1
+      }
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "MichaelDeBoey",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/938",
+      "additions": 6,
+      "deletions": 3,
+      "prSize": 9,
+      "mergedAt": "2024-10-17T08:45:34Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      }
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "MichaelDeBoey",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/942",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2024-10-17T08:45:34Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      }
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "G-Rath",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/934",
+      "additions": 62,
+      "deletions": 7,
+      "prSize": 69,
+      "mergedAt": "2024-10-17T09:51:12Z",
+      "cycleTime": 9,
+      "age": 9,
+      "approvals": 2,
+      "approvers": {
+        "MichaelDeBoey": 1,
+        "Belco90": 1
+      }
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "MichaelDeBoey",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/939",
+      "additions": 8,
+      "deletions": 1,
+      "prSize": 9,
+      "mergedAt": "2024-10-17T09:55:46Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "Belco90": 2
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "Belco90": 2
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": -2,
+      "comments": 2,
+      "commenters": {
+        "Belco90": 2
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "Belco90": 2
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": -2
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "MichaelDeBoey",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/941",
+      "additions": 1,
+      "deletions": 2,
+      "prSize": 3,
+      "mergedAt": "2024-10-17T11:42:22Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "Belco90": 1
+      },
+      "codeCommentsAuthor": 1,
+      "comments": 1,
+      "commenters": {
+        "Belco90": 1
+      },
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "jest-dom",
+      "org": "testing-library",
+      "author": "G-Rath",
+      "url": "https://github.com/testing-library/jest-dom/pull/636",
+      "additions": 3,
+      "deletions": 3,
+      "prSize": 6,
+      "mergedAt": "2024-10-17T16:04:26Z",
+      "cycleTime": 9,
+      "age": 9,
+      "approvals": 1,
+      "approvers": {
+        "gnapse": 1
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "gnapse": 2,
+        "BR0kEN-": 2,
+        "greysteil": 1
+      },
+      "generalCommentSentimentScore": -59,
+      "generalCommentSentiments": {
+        "BR0kEN-": -57,
+        "greysteil": -2
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": -1,
+      "generalCommentSentimentTotalScore": -60,
+      "comments": 5,
+      "commenters": {
+        "gnapse": 2,
+        "BR0kEN-": 2,
+        "greysteil": 1
+      },
+      "commentSentimentScore": -59,
+      "commentSentiments": {
+        "BR0kEN-": -57,
+        "greysteil": -2
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": -1,
+      "commentSentimentTotalScore": -60
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "G-Rath",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/932",
+      "additions": 220,
+      "deletions": 260,
+      "prSize": 480,
+      "mergedAt": "2024-10-17T22:19:15Z",
+      "cycleTime": 20,
+      "age": 20,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "Belco90": 1
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 3,
+      "codeCommentSentimentTotalScore": 3,
+      "comments": 1,
+      "commenters": {
+        "Belco90": 1
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 3,
+      "commentSentimentTotalScore": 3
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "G-Rath",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/925",
+      "additions": 110,
+      "deletions": 20,
+      "prSize": 130,
+      "mergedAt": "2024-10-17T22:34:36Z",
+      "cycleTime": 64,
+      "age": 64,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "Belco90": 3
+      },
+      "generalCommentSentimentScore": 8,
+      "generalCommentSentiments": {
+        "Belco90": 8
+      },
+      "generalCommentsAuthor": 5,
+      "generalCommentAuthorSentimentScore": 6,
+      "generalCommentSentimentTotalScore": 14,
+      "codeComments": 1,
+      "codeCommenters": {
+        "Belco90": 1
+      },
+      "codeCommentSentimentScore": 3,
+      "codeCommentSentiments": {
+        "Belco90": 3
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 2,
+      "codeCommentSentimentTotalScore": 5,
+      "comments": 4,
+      "commenters": {
+        "Belco90": 4
+      },
+      "commentSentimentScore": 11,
+      "commentSentiments": {
+        "Belco90": 11
+      },
+      "commentsAuthor": 6,
+      "commentAuthorSentimentScore": 8,
+      "commentSentimentTotalScore": 19
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "MichaelDeBoey",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/940",
+      "additions": 9477,
+      "deletions": 4511,
+      "prSize": 13988,
+      "mergedAt": "2024-10-17T22:35:17Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "Belco90": 1
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "Belco90": 3
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentSentimentTotalScore": 3,
+      "codeComments": 3,
+      "codeCommenters": {
+        "Belco90": 3
+      },
+      "codeCommentSentimentScore": 4,
+      "codeCommentSentiments": {
+        "Belco90": 4
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentSentimentTotalScore": 4,
+      "comments": 4,
+      "commenters": {
+        "Belco90": 4
+      },
+      "commentSentimentScore": 7,
+      "commentSentiments": {
+        "Belco90": 7
+      },
+      "commentsAuthor": 2,
+      "commentSentimentTotalScore": 7
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "G-Rath",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/926",
+      "additions": 488,
+      "deletions": 303,
+      "prSize": 791,
+      "mergedAt": "2024-10-18T01:13:53Z",
+      "cycleTime": 64,
+      "age": 64,
+      "approvals": 2,
+      "approvers": {
+        "MichaelDeBoey": 1,
+        "Belco90": 1
+      },
+      "codeComments": 10,
+      "codeCommenters": {
+        "Belco90": 2,
+        "MichaelDeBoey": 8
+      },
+      "codeCommentSentimentScore": 5,
+      "codeCommentSentiments": {
+        "Belco90": 5
+      },
+      "codeCommentSentimentTotalScore": 5,
+      "comments": 10,
+      "commenters": {
+        "Belco90": 2,
+        "MichaelDeBoey": 8
+      },
+      "commentSentimentScore": 5,
+      "commentSentiments": {
+        "Belco90": 5
+      },
+      "commentSentimentTotalScore": 5
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "G-Rath",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/928",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2024-10-18T07:03:35Z",
+      "cycleTime": 63,
+      "age": 63,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "niklaas": 2
+      },
+      "generalCommentSentimentScore": 6,
+      "generalCommentSentiments": {
+        "niklaas": 6
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 17,
+      "generalCommentSentimentTotalScore": 23,
+      "comments": 2,
+      "commenters": {
+        "niklaas": 2
+      },
+      "commentSentimentScore": 6,
+      "commentSentiments": {
+        "niklaas": 6
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 17,
+      "commentSentimentTotalScore": 23
+    },
+    {
+      "repo": "svelte-testing-library",
+      "org": "testing-library",
+      "author": "mcous",
+      "url": "https://github.com/testing-library/svelte-testing-library/pull/404",
+      "additions": 277,
+      "deletions": 1,
+      "prSize": 278,
+      "mergedAt": "2024-10-18T16:12:44Z",
+      "cycleTime": 6,
+      "age": 6,
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": -2,
+      "generalCommentSentimentTotalScore": -2,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": -2,
+      "commentSentimentTotalScore": -2
+    },
+    {
+      "repo": "svelte-testing-library",
+      "org": "testing-library",
+      "author": "mcous",
+      "url": "https://github.com/testing-library/svelte-testing-library/pull/405",
+      "additions": 27,
+      "deletions": 10,
+      "prSize": 37,
+      "mergedAt": "2024-10-22T00:06:10Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "react-render-stream-testing-library",
+      "org": "testing-library",
+      "author": "johnnyreilly",
+      "url": "https://github.com/testing-library/react-render-stream-testing-library/pull/6",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2024-10-22T19:49:26Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "phryneas": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "phryneas": 1
+      },
+      "generalCommentSentimentTotalScore": 1,
+      "comments": 1,
+      "commenters": {
+        "phryneas": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "phryneas": 1
+      },
+      "commentSentimentTotalScore": 1
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "MichaelDeBoey",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/944",
+      "additions": 4,
+      "deletions": 3,
+      "prSize": 7,
+      "mergedAt": "2024-10-30T13:54:37Z",
+      "cycleTime": 11,
+      "age": 11,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      }
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "MichaelDeBoey",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/945",
+      "additions": 613,
+      "deletions": 340,
+      "prSize": 953,
+      "mergedAt": "2024-10-30T15:05:12Z",
+      "cycleTime": 11,
+      "age": 11,
+      "approvals": 3,
+      "approvers": {
+        "G-Rath": 1,
+        "Belco90": 2
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "Belco90": 1
+      },
+      "generalCommentSentimentScore": -2,
+      "generalCommentSentiments": {
+        "Belco90": -2
+      },
+      "generalCommentSentimentTotalScore": -2,
+      "codeComments": 5,
+      "codeCommenters": {
+        "G-Rath": 3,
+        "jcoyne": 2
+      },
+      "codeCommentSentimentScore": -2,
+      "codeCommentSentiments": {
+        "G-Rath": -2
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentSentimentTotalScore": -2,
+      "comments": 6,
+      "commenters": {
+        "G-Rath": 3,
+        "jcoyne": 2,
+        "Belco90": 1
+      },
+      "commentSentimentScore": -4,
+      "commentSentiments": {
+        "G-Rath": -2,
+        "Belco90": -2
+      },
+      "commentsAuthor": 1,
+      "commentSentimentTotalScore": -4
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "ianlet",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1432",
+      "additions": 555,
+      "prSize": 555,
+      "mergedAt": "2024-10-30T17:28:38Z",
+      "cycleTime": 24,
+      "age": 24,
+      "approvals": 2,
+      "approvers": {
+        "MatanBobi": 1,
+        "timdeschryver": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "timdeschryver": 3,
+        "MatanBobi": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "timdeschryver": 2
+      },
+      "generalCommentsAuthor": 4,
+      "generalCommentAuthorSentimentScore": 9,
+      "generalCommentSentimentTotalScore": 11,
+      "codeComments": 12,
+      "codeCommenters": {
+        "MatanBobi": 9,
+        "timdeschryver": 3
+      },
+      "codeCommentSentimentScore": 5,
+      "codeCommentSentiments": {
+        "MatanBobi": 1,
+        "timdeschryver": 4
+      },
+      "codeCommentsAuthor": 5,
+      "codeCommentAuthorSentimentScore": 14,
+      "codeCommentSentimentTotalScore": 19,
+      "comments": 16,
+      "commenters": {
+        "MatanBobi": 10,
+        "timdeschryver": 6
+      },
+      "commentSentimentScore": 7,
+      "commentSentiments": {
+        "MatanBobi": 1,
+        "timdeschryver": 6
+      },
+      "commentsAuthor": 9,
+      "commentAuthorSentimentScore": 23,
+      "commentSentimentTotalScore": 30
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "MichaelDeBoey",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/947",
+      "additions": 146,
+      "deletions": 154,
+      "prSize": 300,
+      "mergedAt": "2024-10-31T07:03:12Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 2,
+      "approvers": {
+        "G-Rath": 1,
+        "Belco90": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "burtek": 1,
+        "G-Rath": 1
+      },
+      "comments": 2,
+      "commenters": {
+        "burtek": 1,
+        "G-Rath": 1
+      }
+    },
+    {
+      "repo": "jest-dom",
+      "org": "testing-library",
+      "author": "InfiniteXyy",
+      "url": "https://github.com/testing-library/jest-dom/pull/646",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2024-10-31T15:08:52Z",
+      "cycleTime": 13,
+      "age": 13,
+      "approvals": 2,
+      "approvers": {
+        "G-Rath": 1,
+        "gnapse": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "gnapse": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "gnapse": 1
+      },
+      "generalCommentSentimentTotalScore": 1,
+      "comments": 1,
+      "commenters": {
+        "gnapse": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "gnapse": 1
+      },
+      "commentSentimentTotalScore": 1
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "MichaelDeBoey",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/954",
+      "additions": 14,
+      "deletions": 196,
+      "prSize": 210,
+      "mergedAt": "2024-11-01T18:36:29Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      }
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "ianlet",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1445",
+      "deletions": 12,
+      "prSize": 12,
+      "mergedAt": "2024-11-01T21:29:39Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "MatanBobi": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "MatanBobi": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "MatanBobi": 2
+      },
+      "generalCommentSentimentTotalScore": 2,
+      "comments": 1,
+      "commenters": {
+        "MatanBobi": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "MatanBobi": 2
+      },
+      "commentSentimentTotalScore": 2
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "ianlet",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1448",
+      "deletions": 9,
+      "prSize": 9,
+      "mergedAt": "2024-11-08T17:26:04Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      }
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "lacolaco",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/498",
+      "additions": 2,
+      "deletions": 1,
+      "prSize": 3,
+      "mergedAt": "2024-11-09T16:58:38Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      }
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "dwjohnston",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1418",
+      "additions": 6,
+      "prSize": 6,
+      "mergedAt": "2024-11-10T11:38:48Z",
+      "cycleTime": 72,
+      "age": 72,
+      "generalComments": 1,
+      "generalCommenters": {
+        "MatanBobi": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "MatanBobi": 2
+      },
+      "generalCommentSentimentTotalScore": 2,
+      "codeComments": 1,
+      "codeCommenters": {
+        "MatanBobi": 1
+      },
+      "codeCommentSentimentScore": 5,
+      "codeCommentSentiments": {
+        "MatanBobi": 5
+      },
+      "codeCommentSentimentTotalScore": 5,
+      "comments": 2,
+      "commenters": {
+        "MatanBobi": 2
+      },
+      "commentSentimentScore": 7,
+      "commentSentiments": {
+        "MatanBobi": 7
+      },
+      "commentSentimentTotalScore": 7
+    },
+    {
+      "repo": "eslint-plugin-jest-dom",
+      "org": "testing-library",
+      "author": "G-Rath",
+      "url": "https://github.com/testing-library/eslint-plugin-jest-dom/pull/381",
+      "additions": 21,
+      "deletions": 21,
+      "prSize": 42,
+      "mergedAt": "2024-11-17T20:00:22Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "eslint-plugin-jest-dom",
+      "org": "testing-library",
+      "author": "G-Rath",
+      "url": "https://github.com/testing-library/eslint-plugin-jest-dom/pull/382",
+      "additions": 56,
+      "deletions": 2,
+      "prSize": 58,
+      "mergedAt": "2024-11-17T20:46:52Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "svelte-testing-library",
+      "org": "testing-library",
+      "author": "mcous",
+      "url": "https://github.com/testing-library/svelte-testing-library/pull/409",
+      "additions": 25,
+      "deletions": 9,
+      "prSize": 34,
+      "mergedAt": "2024-11-18T21:55:03Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "MichaelDeBoey",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/955",
+      "additions": 296,
+      "deletions": 302,
+      "prSize": 598,
+      "mergedAt": "2024-11-19T11:37:36Z",
+      "cycleTime": 17,
+      "age": 17,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "Belco90": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "Belco90": 2
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 4,
+      "generalCommentSentimentTotalScore": 6,
+      "codeCommentsAuthor": 1,
+      "comments": 1,
+      "commenters": {
+        "Belco90": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "Belco90": 2
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 4,
+      "commentSentimentTotalScore": 6
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "MichaelDeBoey",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/960",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2024-11-19T12:04:52Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      }
+    },
+    {
+      "repo": "svelte-testing-library",
+      "org": "testing-library",
+      "author": "mcous",
+      "url": "https://github.com/testing-library/svelte-testing-library/pull/410",
+      "additions": 59,
+      "deletions": 18,
+      "prSize": 77,
+      "mergedAt": "2024-11-19T17:20:36Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "G-Rath",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/963",
+      "additions": 28,
+      "deletions": 1,
+      "prSize": 29,
+      "mergedAt": "2024-11-20T15:06:54Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "Belco90": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "Belco90": 2
+      },
+      "generalCommentSentimentTotalScore": 2,
+      "comments": 1,
+      "commenters": {
+        "Belco90": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "Belco90": 2
+      },
+      "commentSentimentTotalScore": 2
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "Belco90",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/901",
+      "additions": 665,
+      "deletions": 587,
+      "prSize": 1252,
+      "mergedAt": "2024-11-23T12:53:23Z",
+      "cycleTime": 219,
+      "age": 219,
+      "generalCommentsAuthor": 4,
+      "generalCommentAuthorSentimentScore": 5,
+      "generalCommentSentimentTotalScore": 5,
+      "commentsAuthor": 4,
+      "commentAuthorSentimentScore": 5,
+      "commentSentimentTotalScore": 5
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "brianlu2610",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1449",
+      "additions": 13,
+      "deletions": 7,
+      "prSize": 20,
+      "mergedAt": "2024-11-23T16:00:25Z",
+      "cycleTime": 11,
+      "age": 11,
+      "generalComments": 3,
+      "generalCommenters": {
+        "MatanBobi": 3
+      },
+      "generalCommentSentimentScore": 7,
+      "generalCommentSentiments": {
+        "MatanBobi": 7
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": -2,
+      "generalCommentSentimentTotalScore": 5,
+      "comments": 3,
+      "commenters": {
+        "MatanBobi": 3
+      },
+      "commentSentimentScore": 7,
+      "commentSentiments": {
+        "MatanBobi": 7
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": -2,
+      "commentSentimentTotalScore": 5
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "Belco90",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/966",
+      "additions": 7771,
+      "deletions": 30450,
+      "prSize": 38221,
+      "mergedAt": "2024-11-24T07:30:53Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "MichaelDeBoey": 1
+      }
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "MichaelDeBoey",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/967",
+      "additions": 1986,
+      "deletions": 2120,
+      "prSize": 4106,
+      "mergedAt": "2024-11-24T21:48:36Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      }
+    },
+    {
+      "repo": "svelte-testing-library",
+      "org": "testing-library",
+      "author": "mcous",
+      "url": "https://github.com/testing-library/svelte-testing-library/pull/413",
+      "additions": 13,
+      "deletions": 5,
+      "prSize": 18,
+      "mergedAt": "2024-11-26T22:50:14Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "timdeschryver",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/502",
+      "additions": 44,
+      "deletions": 41,
+      "prSize": 85,
+      "mergedAt": "2024-11-29T18:52:25Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "Arthie",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/501",
+      "additions": 40,
+      "deletions": 33,
+      "prSize": 73,
+      "mergedAt": "2024-11-30T12:30:06Z",
+      "cycleTime": 3,
+      "age": 3,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "timdeschryver": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "timdeschryver": 1
+      },
+      "generalCommentSentimentTotalScore": 1,
+      "comments": 1,
+      "commenters": {
+        "timdeschryver": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "timdeschryver": 1
+      },
+      "commentSentimentTotalScore": 1
+    },
+    {
+      "repo": "jasmine-dom",
+      "org": "testing-library",
+      "author": "sebastian-altamirano",
+      "url": "https://github.com/testing-library/jasmine-dom/pull/85",
+      "additions": 53,
+      "deletions": 10,
+      "prSize": 63,
+      "mergedAt": "2024-12-02T14:26:55Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "brrianalexis": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "brrianalexis": 1
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "brrianalexis": 3
+      },
+      "generalCommentSentimentTotalScore": 3,
+      "comments": 1,
+      "commenters": {
+        "brrianalexis": 1
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "brrianalexis": 3
+      },
+      "commentSentimentTotalScore": 3
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "timdeschryver",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/503",
+      "additions": 111,
+      "deletions": 87,
+      "prSize": 198,
+      "mergedAt": "2024-12-03T09:12:09Z",
+      "cycleTime": 2,
+      "age": 2,
+      "codeCommentsAuthor": 1,
+      "commentsAuthor": 1
+    },
+    {
+      "repo": "react-render-stream-testing-library",
+      "org": "testing-library",
+      "author": "phryneas",
+      "url": "https://github.com/testing-library/react-render-stream-testing-library/pull/10",
+      "additions": 628,
+      "deletions": 318,
+      "prSize": 946,
+      "mergedAt": "2024-12-04T09:13:02Z",
+      "cycleTime": 7,
+      "age": 7,
+      "approvals": 1,
+      "approvers": {
+        "jerelmiller": 1
+      },
+      "codeComments": 10,
+      "codeCommenters": {
+        "jerelmiller": 10
+      },
+      "codeCommentSentimentScore": 7,
+      "codeCommentSentiments": {
+        "jerelmiller": 7
+      },
+      "codeCommentsAuthor": 6,
+      "codeCommentAuthorSentimentScore": 4,
+      "codeCommentSentimentTotalScore": 11,
+      "comments": 10,
+      "commenters": {
+        "jerelmiller": 10
+      },
+      "commentSentimentScore": 7,
+      "commentSentiments": {
+        "jerelmiller": 7
+      },
+      "commentsAuthor": 6,
+      "commentAuthorSentimentScore": 4,
+      "commentSentimentTotalScore": 11
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "nostrorom",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/973",
+      "additions": 149,
+      "deletions": 54,
+      "prSize": 203,
+      "mergedAt": "2024-12-04T15:23:32Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "Belco90": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "Belco90": 1
+      },
+      "generalCommentSentimentTotalScore": 1,
+      "codeComments": 1,
+      "codeCommenters": {
+        "G-Rath": 1
+      },
+      "codeCommentSentimentScore": 7,
+      "codeCommentSentiments": {
+        "G-Rath": 7
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 2,
+      "codeCommentSentimentTotalScore": 9,
+      "comments": 2,
+      "commenters": {
+        "G-Rath": 1,
+        "Belco90": 1
+      },
+      "commentSentimentScore": 8,
+      "commentSentiments": {
+        "G-Rath": 7,
+        "Belco90": 1
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 2,
+      "commentSentimentTotalScore": 10
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "MichaelDeBoey",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/975",
+      "additions": 1,
+      "prSize": 1,
+      "mergedAt": "2024-12-04T22:36:39Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      }
+    },
+    {
+      "repo": "react-testing-library",
+      "org": "testing-library",
+      "author": "eps1lon",
+      "url": "https://github.com/testing-library/react-testing-library/pull/1367",
+      "additions": 11,
+      "deletions": 7,
+      "prSize": 18,
+      "mergedAt": "2024-12-05T19:59:45Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "react-render-stream-testing-library",
+      "org": "testing-library",
+      "author": "phryneas",
+      "url": "https://github.com/testing-library/react-render-stream-testing-library/pull/12",
+      "additions": 22,
+      "deletions": 22,
+      "prSize": 44,
+      "mergedAt": "2024-12-06T09:47:10Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "react-render-stream-testing-library",
+      "org": "testing-library",
+      "author": "phryneas",
+      "url": "https://github.com/testing-library/react-render-stream-testing-library/pull/11",
+      "additions": 632,
+      "deletions": 322,
+      "prSize": 954,
+      "mergedAt": "2024-12-06T09:49:06Z",
+      "cycleTime": 2,
+      "age": 1
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "G-Rath",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/976",
+      "additions": 6,
+      "deletions": 6,
+      "prSize": 12,
+      "mergedAt": "2024-12-06T10:11:45Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 2,
+      "approvers": {
+        "MichaelDeBoey": 1,
+        "Belco90": 1
+      }
+    },
+    {
+      "repo": "svelte-testing-library",
+      "org": "testing-library",
+      "author": "mcous",
+      "url": "https://github.com/testing-library/svelte-testing-library/pull/417",
+      "additions": 7,
+      "deletions": 2,
+      "prSize": 9,
+      "mergedAt": "2024-12-08T18:12:14Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "MatanBobi",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1454",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2024-12-10T12:29:36Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "ezzatron",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1422",
+      "additions": 38,
+      "prSize": 38,
+      "mergedAt": "2024-12-11T07:27:00Z",
+      "cycleTime": 89,
+      "age": 89,
+      "approvals": 1,
+      "approvers": {
+        "MatanBobi": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "MatanBobi": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "MatanBobi": 1
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 2,
+      "generalCommentSentimentTotalScore": 3,
+      "comments": 1,
+      "commenters": {
+        "MatanBobi": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "MatanBobi": 1
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 2,
+      "commentSentimentTotalScore": 3
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "nchen000",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1457",
+      "deletions": 5,
+      "prSize": 5,
+      "mergedAt": "2024-12-14T12:12:23Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "MatanBobi": 1
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "MatanBobi": 3
+      },
+      "generalCommentSentimentTotalScore": 3,
+      "comments": 1,
+      "commenters": {
+        "MatanBobi": 1
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "MatanBobi": 3
+      },
+      "commentSentimentTotalScore": 3
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "lacolaco",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/507",
+      "additions": 21,
+      "deletions": 2,
+      "prSize": 23,
+      "mergedAt": "2024-12-14T16:35:56Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      }
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "Belco90",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/977",
+      "additions": 2,
+      "prSize": 2,
+      "mergedAt": "2024-12-18T14:31:50Z",
+      "cycleTime": 2,
+      "age": 2
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "aburdiss",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1459",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2024-12-20T18:33:26Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "timdeschryver": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "timdeschryver": 1
+      },
+      "generalCommentSentimentTotalScore": 1,
+      "comments": 1,
+      "commenters": {
+        "timdeschryver": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "timdeschryver": 1
+      },
+      "commentSentimentTotalScore": 1
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "timdeschryver",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1461",
+      "additions": 5,
+      "deletions": 5,
+      "prSize": 10,
+      "mergedAt": "2024-12-21T13:43:23Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "MatanBobi": 1
+      }
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "timdeschryver",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/509",
+      "additions": 1,
+      "prSize": 1,
+      "mergedAt": "2024-12-21T17:58:26Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "timdeschryver",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1462",
+      "additions": 1,
+      "prSize": 1,
+      "mergedAt": "2024-12-21T20:24:42Z",
+      "cycleTime": 1,
+      "age": 1
     }
   ],
   "filteredPRs": [
@@ -27679,6 +30658,888 @@
       "mergedAt": "2020-05-24T17:09:10Z",
       "cycleTime": 1,
       "age": 1
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/466",
+      "additions": 11,
+      "prSize": 11,
+      "mergedAt": "2024-07-20T16:41:57Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      }
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/475",
+      "additions": 12,
+      "prSize": 12,
+      "mergedAt": "2024-08-03T17:20:46Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/479",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2024-08-07T10:18:34Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      }
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/485",
+      "additions": 11,
+      "prSize": 11,
+      "mergedAt": "2024-08-13T17:50:36Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      }
+    },
+    {
+      "repo": "angular-testing-library",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/angular-testing-library/pull/504",
+      "additions": 12,
+      "prSize": 12,
+      "mergedAt": "2024-11-30T12:45:33Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      }
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "dom-testing-library",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/dom-testing-library/pull/1330",
+      "additions": 12,
+      "prSize": 12,
+      "mergedAt": "2024-07-15T15:19:25Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/929",
+      "additions": 37,
+      "deletions": 19,
+      "prSize": 56,
+      "mergedAt": "2024-10-17T10:45:13Z",
+      "cycleTime": 46,
+      "age": 46,
+      "approvals": 1,
+      "approvers": {
+        "MichaelDeBoey": 1
+      }
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/943",
+      "additions": 3,
+      "deletions": 2,
+      "prSize": 5,
+      "mergedAt": "2024-10-17T08:36:16Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      }
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/950",
+      "additions": 10,
+      "deletions": 10,
+      "prSize": 20,
+      "mergedAt": "2024-11-21T15:29:43Z",
+      "cycleTime": 20,
+      "age": 20,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      }
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/952",
+      "additions": 113,
+      "deletions": 431,
+      "prSize": 544,
+      "mergedAt": "2024-11-23T21:08:47Z",
+      "cycleTime": 22,
+      "age": 22,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      }
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/959",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2024-11-19T12:04:52Z",
+      "cycleTime": 4,
+      "age": 4,
+      "approvals": 2,
+      "approvers": {
+        "MichaelDeBoey": 1,
+        "Belco90": 1
+      }
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/962",
+      "additions": 6,
+      "deletions": 6,
+      "prSize": 12,
+      "mergedAt": "2024-11-19T15:19:17Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "MichaelDeBoey": 1
+      }
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/965",
+      "additions": 96,
+      "deletions": 96,
+      "prSize": 192,
+      "mergedAt": "2024-11-21T16:07:55Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      }
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/969",
+      "additions": 56,
+      "deletions": 56,
+      "prSize": 112,
+      "mergedAt": "2024-12-01T11:37:49Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "MichaelDeBoey": 1
+      }
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/972",
+      "additions": 5,
+      "deletions": 4,
+      "prSize": 9,
+      "mergedAt": "2024-12-01T10:41:13Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      }
+    },
+    {
+      "repo": "eslint-plugin-testing-library",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/pull/974",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2024-12-04T21:56:51Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "Belco90": 1
+      }
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "jasmine-dom",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/jasmine-dom/pull/86",
+      "additions": 19,
+      "deletions": 8,
+      "prSize": 27,
+      "mergedAt": "2024-12-02T14:28:32Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "brrianalexis": 1
+      }
+    },
+    {
+      "repo": "jest-dom",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/jest-dom/pull/615",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2024-07-22T20:54:36Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "gnapse": 1
+      }
+    },
+    {
+      "repo": "jest-dom",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/jest-dom/pull/616",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2024-07-23T12:20:40Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "gnapse": 1
+      }
+    },
+    {
+      "repo": "jest-dom",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/jest-dom/pull/618",
+      "additions": 12,
+      "prSize": 12,
+      "mergedAt": "2024-07-24T17:30:07Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "gnapse": 1
+      }
+    },
+    {
+      "repo": "jest-dom",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/jest-dom/pull/619",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2024-07-24T18:04:06Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "gnapse": 1
+      }
+    },
+    {
+      "repo": "jest-dom",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/jest-dom/pull/626",
+      "additions": 11,
+      "prSize": 11,
+      "mergedAt": "2024-08-23T19:45:14Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "gnapse": 1
+      }
+    },
+    {
+      "repo": "jest-dom",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/jest-dom/pull/627",
+      "additions": 11,
+      "prSize": 11,
+      "mergedAt": "2024-08-23T19:49:32Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "jest-dom",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/jest-dom/pull/628",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2024-08-23T19:59:02Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "jest-dom",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/jest-dom/pull/638",
+      "additions": 11,
+      "prSize": 11,
+      "mergedAt": "2024-10-16T16:17:05Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "gnapse": 1
+      }
+    },
+    {
+      "repo": "jest-dom",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/jest-dom/pull/639",
+      "additions": 3,
+      "deletions": 2,
+      "prSize": 5,
+      "mergedAt": "2024-10-16T16:18:10Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "gnapse": 1
+      }
+    },
+    {
+      "repo": "jest-dom",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/jest-dom/pull/640",
+      "additions": 3,
+      "deletions": 2,
+      "prSize": 5,
+      "mergedAt": "2024-10-16T16:18:51Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "gnapse": 1
+      }
+    },
+    {
+      "repo": "jest-dom",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/jest-dom/pull/643",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2024-10-17T16:02:32Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "gnapse": 1
+      }
+    },
+    {
+      "repo": "jest-dom",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/jest-dom/pull/644",
+      "additions": 12,
+      "prSize": 12,
+      "mergedAt": "2024-10-17T16:03:40Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "gnapse": 1
+      }
+    },
+    {
+      "repo": "jest-dom",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/jest-dom/pull/650",
+      "additions": 11,
+      "prSize": 11,
+      "mergedAt": "2024-10-31T15:32:55Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "gnapse": 1
+      }
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "svelte-testing-library",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/svelte-testing-library/pull/387",
+      "additions": 6,
+      "deletions": 6,
+      "prSize": 12,
+      "mergedAt": "2024-06-29T00:36:49Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "svelte-testing-library",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/svelte-testing-library/pull/388",
+      "additions": 9,
+      "deletions": 1,
+      "prSize": 10,
+      "mergedAt": "2024-06-29T00:14:02Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "svelte-testing-library",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/svelte-testing-library/pull/392",
+      "additions": 3,
+      "deletions": 3,
+      "prSize": 6,
+      "mergedAt": "2024-07-04T02:02:42Z",
+      "cycleTime": 2,
+      "age": 2
+    },
+    {
+      "repo": "svelte-testing-library",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/svelte-testing-library/pull/397",
+      "additions": 6,
+      "deletions": 12,
+      "prSize": 18,
+      "mergedAt": "2024-08-03T11:48:47Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "svelte-testing-library",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/svelte-testing-library/pull/399",
+      "additions": 3,
+      "deletions": 3,
+      "prSize": 6,
+      "mergedAt": "2024-09-02T02:40:26Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "svelte-testing-library",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/svelte-testing-library/pull/401",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2024-10-01T21:04:51Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "svelte-testing-library",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/svelte-testing-library/pull/414",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2024-12-09T20:14:38Z",
+      "cycleTime": 8,
+      "age": 8,
+      "generalComments": 1,
+      "generalCommenters": {
+        "mcous": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "mcous": 1
+      }
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1400",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2024-06-13T06:22:23Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1408",
+      "additions": 3,
+      "deletions": 2,
+      "prSize": 5,
+      "mergedAt": "2024-08-14T13:19:44Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      }
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1409",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2024-08-14T13:32:55Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      }
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1411",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2024-08-19T09:53:49Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1421",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2024-09-10T17:51:13Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "TyMick": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "TyMick": 2
+      },
+      "generalCommentSentimentTotalScore": 2,
+      "comments": 1,
+      "commenters": {
+        "TyMick": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "TyMick": 2
+      },
+      "commentSentimentTotalScore": 2
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1431",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2024-09-28T14:37:34Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1434",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2024-10-10T08:21:33Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1436",
+      "additions": 6,
+      "deletions": 6,
+      "prSize": 12,
+      "mergedAt": "2024-10-13T08:06:29Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1437",
+      "additions": 343,
+      "deletions": 245,
+      "prSize": 588,
+      "mergedAt": "2024-10-13T08:06:18Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1438",
+      "additions": 6,
+      "deletions": 6,
+      "prSize": 12,
+      "mergedAt": "2024-10-13T08:06:02Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1439",
+      "additions": 343,
+      "deletions": 245,
+      "prSize": 588,
+      "mergedAt": "2024-10-13T08:05:44Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1441",
+      "additions": 6,
+      "deletions": 6,
+      "prSize": 12,
+      "mergedAt": "2024-10-26T07:08:19Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1443",
+      "additions": 12,
+      "prSize": 12,
+      "mergedAt": "2024-10-30T18:15:09Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      }
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1450",
+      "additions": 18,
+      "deletions": 18,
+      "prSize": 36,
+      "mergedAt": "2024-11-19T12:54:41Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1451",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2024-11-23T16:01:20Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1456",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2024-12-11T07:28:43Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1458",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2024-12-14T12:15:12Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "testing-library-docs",
+      "org": "testing-library",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/testing-library/testing-library-docs/pull/1460",
+      "additions": 10,
+      "prSize": 10,
+      "mergedAt": "2024-12-20T18:43:45Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "timdeschryver": 1
+      }
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "cycleTime": 1,
+      "age": 1
     }
   ],
   "issues": [
@@ -29523,6 +33384,823 @@
       "mergedAt": "2024-06-11T22:10:56Z",
       "age": 1,
       "url": "https://github.com/testing-library/jest-dom/issues/605"
+    },
+    {
+      "mergedAt": "2024-06-13T16:30:05Z",
+      "createdAt": "2024-06-13T16:30:05Z",
+      "age": 8,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/454"
+    },
+    {
+      "mergedAt": "2024-06-18T17:26:46Z",
+      "createdAt": "2024-06-18T17:26:46Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1336"
+    },
+    {
+      "mergedAt": "2024-06-18T19:28:51Z",
+      "createdAt": "2024-06-18T19:28:51Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/user-event/issues/1225"
+    },
+    {
+      "mergedAt": "2024-06-19T02:39:02Z",
+      "createdAt": "2024-06-19T02:39:02Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/jest-dom/issues/606"
+    },
+    {
+      "mergedAt": "2024-06-24T06:46:14Z",
+      "createdAt": "2024-06-24T06:46:14Z",
+      "age": 26,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/462"
+    },
+    {
+      "mergedAt": "2024-06-25T01:24:28Z",
+      "createdAt": "2024-06-25T01:24:28Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/cypress-testing-library/issues/278"
+    },
+    {
+      "mergedAt": "2024-06-25T08:00:41Z",
+      "createdAt": "2024-06-25T08:00:41Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/testing-playground/issues/367",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-06-25T08:57:56Z",
+      "createdAt": "2024-06-25T08:57:56Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/vue-testing-library/issues/317",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-06-26T15:15:50Z",
+      "createdAt": "2024-06-26T15:15:50Z",
+      "age": 38,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/464"
+    },
+    {
+      "mergedAt": "2024-06-26T20:25:46Z",
+      "createdAt": "2024-06-26T20:25:46Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1338"
+    },
+    {
+      "mergedAt": "2024-06-27T09:45:54Z",
+      "createdAt": "2024-06-27T09:45:54Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/issues/910"
+    },
+    {
+      "mergedAt": "2024-06-28T07:11:59Z",
+      "createdAt": "2024-06-28T07:11:59Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/react-hooks-testing-library/issues/973"
+    },
+    {
+      "mergedAt": "2024-06-28T22:06:34Z",
+      "createdAt": "2024-06-28T22:06:34Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/svelte-testing-library/issues/385"
+    },
+    {
+      "mergedAt": "2024-07-01T16:48:20Z",
+      "createdAt": "2024-07-01T16:48:20Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1339"
+    },
+    {
+      "mergedAt": "2024-07-05T08:01:12Z",
+      "createdAt": "2024-07-05T08:01:12Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/dom-testing-library/issues/1322"
+    },
+    {
+      "mergedAt": "2024-07-05T13:23:21Z",
+      "createdAt": "2024-07-05T13:23:21Z",
+      "age": 17,
+      "url": "https://github.com/testing-library/jest-dom/issues/608"
+    },
+    {
+      "mergedAt": "2024-07-08T16:21:53Z",
+      "createdAt": "2024-07-08T16:21:53Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/dom-testing-library/issues/1326"
+    },
+    {
+      "mergedAt": "2024-07-08T18:30:38Z",
+      "createdAt": "2024-07-08T18:30:38Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1340"
+    },
+    {
+      "mergedAt": "2024-07-09T01:38:06Z",
+      "createdAt": "2024-07-09T01:38:06Z",
+      "age": 2,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1341"
+    },
+    {
+      "mergedAt": "2024-07-11T10:52:51Z",
+      "createdAt": "2024-07-11T10:52:51Z",
+      "age": 6,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1342"
+    },
+    {
+      "mergedAt": "2024-07-13T15:33:50Z",
+      "createdAt": "2024-07-13T15:33:50Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/issues/914"
+    },
+    {
+      "mergedAt": "2024-07-14T06:52:28Z",
+      "createdAt": "2024-07-14T06:52:28Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/dom-testing-library/issues/1327"
+    },
+    {
+      "mergedAt": "2024-07-16T08:11:10Z",
+      "createdAt": "2024-07-16T08:11:10Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/svelte-testing-library/issues/394"
+    },
+    {
+      "mergedAt": "2024-07-17T09:04:45Z",
+      "createdAt": "2024-07-17T09:04:45Z",
+      "age": 7,
+      "url": "https://github.com/testing-library/jest-dom/issues/614"
+    },
+    {
+      "mergedAt": "2024-07-17T18:21:23Z",
+      "createdAt": "2024-07-17T18:21:23Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1344"
+    },
+    {
+      "mergedAt": "2024-07-18T08:42:43Z",
+      "createdAt": "2024-07-18T08:42:43Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/issues/915"
+    },
+    {
+      "mergedAt": "2024-07-20T16:59:41Z",
+      "createdAt": "2024-07-20T16:59:41Z",
+      "age": 35,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/467"
+    },
+    {
+      "mergedAt": "2024-07-22T16:42:40Z",
+      "createdAt": "2024-07-22T16:42:40Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/vue-testing-library/issues/318",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-07-23T11:43:49Z",
+      "createdAt": "2024-07-23T11:43:49Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/468"
+    },
+    {
+      "mergedAt": "2024-07-23T16:00:52Z",
+      "createdAt": "2024-07-23T16:00:52Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/470"
+    },
+    {
+      "mergedAt": "2024-07-23T20:30:46Z",
+      "createdAt": "2024-07-23T20:30:46Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/issues/916"
+    },
+    {
+      "mergedAt": "2024-07-24T04:16:39Z",
+      "createdAt": "2024-07-24T04:16:39Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/testcafe-testing-library/issues/416"
+    },
+    {
+      "mergedAt": "2024-07-24T16:20:30Z",
+      "createdAt": "2024-07-24T16:20:30Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/svelte-testing-library/issues/395"
+    },
+    {
+      "mergedAt": "2024-07-24T18:16:42Z",
+      "createdAt": "2024-07-24T18:16:42Z",
+      "age": 20,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/471"
+    },
+    {
+      "mergedAt": "2024-07-25T09:28:11Z",
+      "createdAt": "2024-07-25T09:28:11Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1345"
+    },
+    {
+      "mergedAt": "2024-07-26T02:04:19Z",
+      "createdAt": "2024-07-26T02:04:19Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/user-event/issues/1230",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-07-27T12:29:16Z",
+      "createdAt": "2024-07-27T12:29:16Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1346"
+    },
+    {
+      "mergedAt": "2024-07-27T17:10:06Z",
+      "createdAt": "2024-07-27T17:10:06Z",
+      "age": 9,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/472"
+    },
+    {
+      "mergedAt": "2024-07-30T09:47:12Z",
+      "createdAt": "2024-07-30T09:47:12Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1348"
+    },
+    {
+      "mergedAt": "2024-08-01T17:32:06Z",
+      "createdAt": "2024-08-01T17:32:06Z",
+      "age": 12,
+      "url": "https://github.com/testing-library/testing-library-docs/issues/1403"
+    },
+    {
+      "mergedAt": "2024-08-02T03:58:55Z",
+      "createdAt": "2024-08-02T03:58:55Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/jest-dom/issues/620"
+    },
+    {
+      "mergedAt": "2024-08-03T17:10:31Z",
+      "createdAt": "2024-08-03T17:10:31Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/474"
+    },
+    {
+      "mergedAt": "2024-08-03T17:21:40Z",
+      "createdAt": "2024-08-03T17:21:40Z",
+      "age": 21,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/476"
+    },
+    {
+      "mergedAt": "2024-08-03T17:24:04Z",
+      "createdAt": "2024-08-03T17:24:04Z",
+      "age": 2,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/477"
+    },
+    {
+      "mergedAt": "2024-08-07T11:11:39Z",
+      "createdAt": "2024-08-07T11:11:39Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/480"
+    },
+    {
+      "mergedAt": "2024-08-08T07:12:14Z",
+      "createdAt": "2024-08-08T07:12:14Z",
+      "age": 9,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/482"
+    },
+    {
+      "mergedAt": "2024-08-09T18:07:25Z",
+      "createdAt": "2024-08-09T18:07:25Z",
+      "age": 4,
+      "url": "https://github.com/testing-library/testing-library-docs/issues/1405"
+    },
+    {
+      "mergedAt": "2024-08-11T22:57:54Z",
+      "createdAt": "2024-08-11T22:57:54Z",
+      "age": 66,
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/issues/924"
+    },
+    {
+      "mergedAt": "2024-08-12T16:08:30Z",
+      "createdAt": "2024-08-12T16:08:30Z",
+      "age": 2,
+      "url": "https://github.com/testing-library/vue-testing-library/issues/319",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-08-13T08:45:28Z",
+      "createdAt": "2024-08-13T08:45:28Z",
+      "age": 123,
+      "url": "https://github.com/testing-library/testing-library-docs/issues/1407"
+    },
+    {
+      "mergedAt": "2024-08-13T12:21:48Z",
+      "createdAt": "2024-08-13T12:21:48Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/dom-testing-library/issues/1332"
+    },
+    {
+      "mergedAt": "2024-08-13T15:04:09Z",
+      "createdAt": "2024-08-13T15:04:09Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/483"
+    },
+    {
+      "mergedAt": "2024-08-13T19:44:09Z",
+      "createdAt": "2024-08-13T19:44:09Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/dom-testing-library/issues/1333"
+    },
+    {
+      "mergedAt": "2024-08-13T22:13:01Z",
+      "createdAt": "2024-08-13T22:13:01Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1349"
+    },
+    {
+      "mergedAt": "2024-08-14T07:57:01Z",
+      "createdAt": "2024-08-14T07:57:01Z",
+      "age": 3,
+      "url": "https://github.com/testing-library/svelte-testing-library/issues/398"
+    },
+    {
+      "mergedAt": "2024-08-14T11:35:48Z",
+      "createdAt": "2024-08-14T11:35:48Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/eslint-plugin-jest-dom/issues/379"
+    },
+    {
+      "mergedAt": "2024-08-14T16:18:36Z",
+      "createdAt": "2024-08-14T16:18:36Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/487"
+    },
+    {
+      "mergedAt": "2024-08-15T13:41:59Z",
+      "createdAt": "2024-08-15T13:41:59Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/eslint-plugin-jest-dom/issues/380"
+    },
+    {
+      "mergedAt": "2024-08-16T14:48:03Z",
+      "createdAt": "2024-08-16T14:48:03Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/jest-dom/issues/623"
+    },
+    {
+      "mergedAt": "2024-08-21T19:45:22Z",
+      "createdAt": "2024-08-21T19:45:22Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/user-event/issues/1232",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-08-21T21:13:40Z",
+      "createdAt": "2024-08-21T21:13:40Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/dom-testing-library/issues/1334"
+    },
+    {
+      "mergedAt": "2024-08-22T12:32:47Z",
+      "createdAt": "2024-08-22T12:32:47Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1350"
+    },
+    {
+      "mergedAt": "2024-08-24T19:32:59Z",
+      "createdAt": "2024-08-24T19:32:59Z",
+      "age": 4,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/490"
+    },
+    {
+      "mergedAt": "2024-08-27T18:25:19Z",
+      "createdAt": "2024-08-27T18:25:19Z",
+      "age": 50,
+      "url": "https://github.com/testing-library/jest-dom/issues/629"
+    },
+    {
+      "mergedAt": "2024-08-29T04:39:59Z",
+      "createdAt": "2024-08-29T04:39:59Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/dom-testing-library/issues/1335"
+    },
+    {
+      "mergedAt": "2024-08-29T05:39:56Z",
+      "createdAt": "2024-08-29T05:39:56Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/testing-library-docs/issues/1415"
+    },
+    {
+      "mergedAt": "2024-08-30T07:53:53Z",
+      "createdAt": "2024-08-30T07:53:53Z",
+      "age": 31,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1355"
+    },
+    {
+      "mergedAt": "2024-08-30T17:28:33Z",
+      "createdAt": "2024-08-30T17:28:33Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/react-hooks-testing-library/issues/974"
+    },
+    {
+      "mergedAt": "2024-09-03T22:01:52Z",
+      "createdAt": "2024-09-03T22:01:52Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/jest-dom/issues/630"
+    },
+    {
+      "mergedAt": "2024-09-11T11:25:12Z",
+      "createdAt": "2024-09-11T11:25:12Z",
+      "age": 18,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1356"
+    },
+    {
+      "mergedAt": "2024-09-11T11:35:15Z",
+      "createdAt": "2024-09-11T11:35:15Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/vue-testing-library/issues/321",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-09-13T15:07:52Z",
+      "createdAt": "2024-09-13T15:07:52Z",
+      "age": 16,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1357"
+    },
+    {
+      "mergedAt": "2024-09-17T12:37:07Z",
+      "createdAt": "2024-09-17T12:37:07Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1358"
+    },
+    {
+      "mergedAt": "2024-09-23T12:19:55Z",
+      "createdAt": "2024-09-23T12:19:55Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/user-event/issues/1234",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-09-24T09:45:05Z",
+      "createdAt": "2024-09-24T09:45:05Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1359"
+    },
+    {
+      "mergedAt": "2024-09-24T19:24:42Z",
+      "createdAt": "2024-09-24T19:24:42Z",
+      "age": 19,
+      "url": "https://github.com/testing-library/testing-playground/issues/368",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-09-30T15:38:24Z",
+      "createdAt": "2024-09-30T15:38:24Z",
+      "age": 7,
+      "url": "https://github.com/testing-library/jest-dom/issues/635"
+    },
+    {
+      "mergedAt": "2024-10-03T01:11:53Z",
+      "createdAt": "2024-10-03T01:11:53Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/dom-testing-library/issues/1336",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-10-03T10:56:23Z",
+      "createdAt": "2024-10-03T10:56:23Z",
+      "age": 10,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/491"
+    },
+    {
+      "mergedAt": "2024-10-07T17:22:47Z",
+      "createdAt": "2024-10-07T17:22:47Z",
+      "age": 6,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/492"
+    },
+    {
+      "mergedAt": "2024-10-08T07:31:52Z",
+      "createdAt": "2024-10-08T07:31:52Z",
+      "age": 6,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/493"
+    },
+    {
+      "mergedAt": "2024-10-09T14:29:27Z",
+      "createdAt": "2024-10-09T14:29:27Z",
+      "age": 9,
+      "url": "https://github.com/testing-library/svelte-testing-library/issues/403"
+    },
+    {
+      "mergedAt": "2024-10-10T15:05:58Z",
+      "createdAt": "2024-10-10T15:05:58Z",
+      "age": 11,
+      "url": "https://github.com/testing-library/dom-testing-library/issues/1337"
+    },
+    {
+      "mergedAt": "2024-10-10T20:08:39Z",
+      "createdAt": "2024-10-10T20:08:39Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/react-hooks-testing-library/issues/975",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-10-14T08:19:50Z",
+      "createdAt": "2024-10-14T08:19:50Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/issues/936",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-10-16T04:13:00Z",
+      "createdAt": "2024-10-16T04:13:00Z",
+      "age": 2,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1362"
+    },
+    {
+      "mergedAt": "2024-10-16T15:24:46Z",
+      "createdAt": "2024-10-16T15:24:46Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/497"
+    },
+    {
+      "mergedAt": "2024-10-16T17:19:05Z",
+      "createdAt": "2024-10-16T17:19:05Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/jest-dom/issues/641"
+    },
+    {
+      "mergedAt": "2024-10-16T18:04:16Z",
+      "createdAt": "2024-10-16T18:04:16Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/jest-dom/issues/647"
+    },
+    {
+      "mergedAt": "2024-10-18T03:55:22Z",
+      "createdAt": "2024-10-18T03:55:22Z",
+      "age": 13,
+      "url": "https://github.com/testing-library/jest-dom/issues/645"
+    },
+    {
+      "mergedAt": "2024-10-18T20:15:27Z",
+      "createdAt": "2024-10-18T20:15:27Z",
+      "age": 16,
+      "url": "https://github.com/testing-library/react-hooks-testing-library/issues/976"
+    },
+    {
+      "mergedAt": "2024-10-19T22:52:11Z",
+      "createdAt": "2024-10-19T22:52:11Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/user-event/issues/1236",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-10-23T10:18:11Z",
+      "createdAt": "2024-10-23T10:18:11Z",
+      "age": 31,
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/issues/946"
+    },
+    {
+      "mergedAt": "2024-10-25T07:24:21Z",
+      "createdAt": "2024-10-25T07:24:21Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/svelte-testing-library/issues/406"
+    },
+    {
+      "mergedAt": "2024-10-25T16:40:26Z",
+      "createdAt": "2024-10-25T16:40:26Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/jest-dom/issues/649"
+    },
+    {
+      "mergedAt": "2024-10-29T23:02:42Z",
+      "createdAt": "2024-10-29T23:02:42Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/dom-testing-library/issues/1338"
+    },
+    {
+      "mergedAt": "2024-10-31T07:15:13Z",
+      "createdAt": "2024-10-31T07:15:13Z",
+      "age": 19,
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/issues/948"
+    },
+    {
+      "mergedAt": "2024-11-04T14:19:50Z",
+      "createdAt": "2024-11-04T14:19:50Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/svelte-testing-library/issues/407"
+    },
+    {
+      "mergedAt": "2024-11-04T22:21:19Z",
+      "createdAt": "2024-11-04T22:21:19Z",
+      "age": 2,
+      "url": "https://github.com/testing-library/react-render-stream-testing-library/issues/7"
+    },
+    {
+      "mergedAt": "2024-11-05T13:47:51Z",
+      "createdAt": "2024-11-05T13:47:51Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/testing-library-docs/issues/1447"
+    },
+    {
+      "mergedAt": "2024-11-05T22:26:53Z",
+      "createdAt": "2024-11-05T22:26:53Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/user-event/issues/1237",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-11-05T23:41:38Z",
+      "createdAt": "2024-11-05T23:41:38Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/jest-dom/issues/652"
+    },
+    {
+      "mergedAt": "2024-11-07T11:54:39Z",
+      "createdAt": "2024-11-07T11:54:39Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/issues/957"
+    },
+    {
+      "mergedAt": "2024-11-08T03:53:22Z",
+      "createdAt": "2024-11-08T03:53:22Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/jest-dom/issues/653",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-11-14T18:44:09Z",
+      "createdAt": "2024-11-14T18:44:09Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/svelte-testing-library/issues/408"
+    },
+    {
+      "mergedAt": "2024-11-15T11:48:35Z",
+      "createdAt": "2024-11-15T11:48:35Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/user-event/issues/1239",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-11-15T15:32:49Z",
+      "createdAt": "2024-11-15T15:32:49Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/dom-testing-library/issues/1339"
+    },
+    {
+      "mergedAt": "2024-11-15T19:49:06Z",
+      "createdAt": "2024-11-15T19:49:06Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/user-event/issues/1240",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-11-16T11:40:46Z",
+      "createdAt": "2024-11-16T11:40:46Z",
+      "age": 19,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1364"
+    },
+    {
+      "mergedAt": "2024-11-19T11:39:50Z",
+      "createdAt": "2024-11-19T11:39:50Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/eslint-plugin-testing-library/issues/961"
+    },
+    {
+      "mergedAt": "2024-11-19T17:49:30Z",
+      "createdAt": "2024-11-19T17:49:30Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/user-event/issues/1242"
+    },
+    {
+      "mergedAt": "2024-11-19T19:02:43Z",
+      "createdAt": "2024-11-19T19:02:43Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/dom-testing-library/issues/1340"
+    },
+    {
+      "mergedAt": "2024-11-21T19:18:42Z",
+      "createdAt": "2024-11-21T19:18:42Z",
+      "age": 11,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/500"
+    },
+    {
+      "mergedAt": "2024-11-29T13:11:37Z",
+      "createdAt": "2024-11-29T13:11:37Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1366"
+    },
+    {
+      "mergedAt": "2024-12-01T23:19:59Z",
+      "createdAt": "2024-12-01T23:19:59Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/jest-dom/issues/654"
+    },
+    {
+      "mergedAt": "2024-12-02T08:37:00Z",
+      "createdAt": "2024-12-02T08:37:00Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/svelte-testing-library/issues/415"
+    },
+    {
+      "mergedAt": "2024-12-04T07:09:54Z",
+      "createdAt": "2024-12-04T07:09:54Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/505"
+    },
+    {
+      "mergedAt": "2024-12-04T13:26:04Z",
+      "createdAt": "2024-12-04T13:26:04Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/svelte-testing-library/issues/416"
+    },
+    {
+      "mergedAt": "2024-12-05T20:57:24Z",
+      "createdAt": "2024-12-05T20:57:24Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1368"
+    },
+    {
+      "mergedAt": "2024-12-06T07:48:30Z",
+      "createdAt": "2024-12-06T07:48:30Z",
+      "age": 3,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1369"
+    },
+    {
+      "mergedAt": "2024-12-07T03:04:17Z",
+      "createdAt": "2024-12-07T03:04:17Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1370"
+    },
+    {
+      "mergedAt": "2024-12-09T12:47:59Z",
+      "createdAt": "2024-12-09T12:47:59Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/react-testing-library/issues/1371"
+    },
+    {
+      "mergedAt": "2024-12-09T13:06:34Z",
+      "createdAt": "2024-12-09T13:06:34Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/eslint-plugin-jest-dom/issues/384"
+    },
+    {
+      "mergedAt": "2024-12-09T19:50:08Z",
+      "createdAt": "2024-12-09T19:50:08Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/testing-library-docs/issues/1452"
+    },
+    {
+      "mergedAt": "2024-12-10T08:15:54Z",
+      "createdAt": "2024-12-10T08:15:54Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/testing-library-docs/issues/1453"
+    },
+    {
+      "mergedAt": "2024-12-11T14:43:39Z",
+      "createdAt": "2024-12-11T14:43:39Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/vue-testing-library/issues/322",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-12-12T01:43:50Z",
+      "createdAt": "2024-12-12T01:43:50Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/jest-dom/issues/657"
+    },
+    {
+      "mergedAt": "2024-12-12T09:21:37Z",
+      "createdAt": "2024-12-12T09:21:37Z",
+      "age": 2,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/506",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-12-12T12:24:41Z",
+      "createdAt": "2024-12-12T12:24:41Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/dom-testing-library/issues/1343"
+    },
+    {
+      "mergedAt": "2024-12-12T20:47:29Z",
+      "createdAt": "2024-12-12T20:47:29Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/svelte-testing-library/issues/418"
+    },
+    {
+      "mergedAt": "2024-12-13T22:56:59Z",
+      "createdAt": "2024-12-13T22:56:59Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/user-event/issues/1245"
+    },
+    {
+      "mergedAt": "2024-12-15T04:55:35Z",
+      "createdAt": "2024-12-15T04:55:35Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/angular-testing-library/issues/508"
+    },
+    {
+      "mergedAt": "2024-12-16T15:21:30Z",
+      "createdAt": "2024-12-16T15:21:30Z",
+      "age": 1,
+      "url": "https://github.com/testing-library/dom-testing-library/issues/1344"
     }
   ],
   "filteredIssues": [

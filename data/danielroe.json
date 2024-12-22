@@ -1,6 +1,6 @@
 {
   "fetches": {
-    "sortDirection": "DESC",
+    "sortDirection": "ASC",
     "userIds": [
       "danielroe"
     ],
@@ -12,15 +12,27 @@
     },
     "prPagination": {
       "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wOS0yNlQxNDowNjozNyswMTowMM58y0ae",
-      "oldest": "Y3Vyc29yOnYyOpK5MjAyMy0wOS0yMlQxMDo0MzozMiswMTowMM5a-TSa"
+      "oldest": "Y3Vyc29yOnYyOpK5MjAyMy0wOS0yMlQxMDo0MzozMiswMTowMM5a-TSa",
+      "danielroe": {
+        "newest": "Y3Vyc29yOnYyOpK5MjAxOS0xMi0wM1QxNTozNjoyMCswMDowMM4UxCNp",
+        "oldest": "Y3Vyc29yOnYyOpK5MjAxOC0wMy0zMVQyMjoxODozNyswMTowMM4KpsJm"
+      }
     },
     "usersReviewsPagination": {
       "newest": "Y3Vyc29yOjE=",
-      "oldest": "Y3Vyc29yOjkxMA=="
+      "oldest": "Y3Vyc29yOjkxMA==",
+      "danielroe": {
+        "newest": "Y3Vyc29yOjE=",
+        "oldest": "Y3Vyc29yOjE="
+      }
     },
     "issuesPagination": {
       "newest": "Y3Vyc29yOnYyOpK5MjAyNC0wOS0yMlQyMjoyMTo1NiswMTowMM6XeJh7",
-      "oldest": "Y3Vyc29yOnYyOpK5MjAyMy0wNy0wNlQxMDo1MDozMyswMTowMM5qw6d_"
+      "oldest": "Y3Vyc29yOnYyOpK5MjAyMy0wNy0wNlQxMDo1MDozMyswMTowMM5qw6d_",
+      "danielroe": {
+        "newest": "Y3Vyc29yOnYyOpK5MjAyMC0wOC0wOFQwODo0NDowMSswMTowMM54gZMv",
+        "oldest": "Y3Vyc29yOnYyOpK5MjAxOS0wNC0xOFQyMTowNTozMSswMTowMM4Z7KCe"
+      }
     }
   },
   "pullRequests": [
@@ -24731,6 +24743,1428 @@
         "polarathene": 1
       },
       "commentSentimentTotalScore": 1
+    },
+    {
+      "repo": "recipes",
+      "org": "deployphp",
+      "author": "danielroe",
+      "url": "https://github.com/deployphp/recipes/pull/176",
+      "additions": 207,
+      "prSize": 207,
+      "mergedAt": "2018-04-01T06:11:53Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "automated-tasks",
+      "org": "RiFi2k",
+      "author": "danielroe",
+      "url": "https://github.com/RiFi2k/automated-tasks/pull/1",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2018-12-30T11:45:18Z",
+      "cycleTime": 192,
+      "age": 192,
+      "approvals": 1,
+      "approvers": {
+        "RiFi2k": 1
+      }
+    },
+    {
+      "repo": "sage",
+      "org": "roots",
+      "author": "danielroe",
+      "url": "https://github.com/roots/sage/pull/2085",
+      "additions": 4,
+      "prSize": 4,
+      "mergedAt": "2018-07-18T22:37:52Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "knowler": 1
+      },
+      "generalCommentSentimentScore": 8,
+      "generalCommentSentiments": {
+        "knowler": 8
+      },
+      "generalCommentSentimentTotalScore": 8,
+      "comments": 1,
+      "commenters": {
+        "knowler": 1
+      },
+      "commentSentimentScore": 8,
+      "commentSentiments": {
+        "knowler": 8
+      },
+      "commentSentimentTotalScore": 8
+    },
+    {
+      "repo": "satispress-for-dummies",
+      "org": "neilgilmour",
+      "author": "danielroe",
+      "url": "https://github.com/neilgilmour/satispress-for-dummies/pull/1",
+      "additions": 62,
+      "deletions": 7,
+      "prSize": 69,
+      "mergedAt": "2018-07-31T15:34:01Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "neilgilmour": 1
+      },
+      "generalCommentSentimentScore": 6,
+      "generalCommentSentiments": {
+        "neilgilmour": 6
+      },
+      "generalCommentSentimentTotalScore": 6,
+      "comments": 1,
+      "commenters": {
+        "neilgilmour": 1
+      },
+      "commentSentimentScore": 6,
+      "commentSentiments": {
+        "neilgilmour": 6
+      },
+      "commentSentimentTotalScore": 6
+    },
+    {
+      "repo": "frontmatter-markdown-loader",
+      "org": "hmsk",
+      "author": "danielroe",
+      "url": "https://github.com/hmsk/frontmatter-markdown-loader/pull/3",
+      "additions": 3,
+      "deletions": 3,
+      "prSize": 6,
+      "mergedAt": "2018-10-14T05:59:17Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "hmsk": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "hmsk": 2
+      },
+      "generalCommentSentimentScore": 7,
+      "generalCommentSentiments": {
+        "hmsk": 7
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 4,
+      "generalCommentSentimentTotalScore": 11,
+      "comments": 2,
+      "commenters": {
+        "hmsk": 2
+      },
+      "commentSentimentScore": 7,
+      "commentSentiments": {
+        "hmsk": 7
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 4,
+      "commentSentimentTotalScore": 11
+    },
+    {
+      "repo": "toggl",
+      "org": "ixudra",
+      "author": "danielroe",
+      "url": "https://github.com/ixudra/toggl/pull/3",
+      "additions": 69,
+      "deletions": 1,
+      "prSize": 70,
+      "mergedAt": "2018-12-16T11:49:26Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "elimentz": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "elimentz": 2
+      },
+      "generalCommentSentimentTotalScore": 2,
+      "comments": 1,
+      "commenters": {
+        "elimentz": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "elimentz": 2
+      },
+      "commentSentimentTotalScore": 2
+    },
+    {
+      "repo": "docs",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/docs/pull/1263",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2019-03-22T12:21:47Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kevinmarrec": 1
+      }
+    },
+    {
+      "repo": "nuxt",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/nuxt/pull/5326",
+      "additions": 3,
+      "deletions": 1,
+      "prSize": 4,
+      "mergedAt": "2019-03-24T11:02:58Z",
+      "cycleTime": 2,
+      "age": 2,
+      "approvals": 1,
+      "approvers": {
+        "kevinmarrec": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "codecov-io": 1,
+        "kevinmarrec": 1,
+        "pi0": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "kevinmarrec": 2,
+        "pi0": 2
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 2,
+      "generalCommentSentimentTotalScore": 6,
+      "codeComments": 4,
+      "codeCommenters": {
+        "kevinmarrec": 4
+      },
+      "codeCommentSentimentScore": 1,
+      "codeCommentSentiments": {
+        "kevinmarrec": 1
+      },
+      "codeCommentSentimentTotalScore": 1,
+      "comments": 7,
+      "commenters": {
+        "kevinmarrec": 5,
+        "codecov-io": 1,
+        "pi0": 1
+      },
+      "commentSentimentScore": 5,
+      "commentSentiments": {
+        "kevinmarrec": 3,
+        "pi0": 2
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 2,
+      "commentSentimentTotalScore": 7
+    },
+    {
+      "repo": "vuex-module-decorators",
+      "org": "championswimmer",
+      "author": "danielroe",
+      "url": "https://github.com/championswimmer/vuex-module-decorators/pull/124",
+      "additions": 41,
+      "prSize": 41,
+      "mergedAt": "2019-06-13T03:33:33Z",
+      "cycleTime": 24,
+      "age": 24,
+      "generalComments": 5,
+      "generalCommenters": {
+        "hareku": 1,
+        "kevcodez": 2,
+        "cocodrino": 2
+      },
+      "generalCommentSentimentScore": 15,
+      "generalCommentSentiments": {
+        "hareku": 3,
+        "kevcodez": 4,
+        "cocodrino": 8
+      },
+      "generalCommentsAuthor": 4,
+      "generalCommentAuthorSentimentScore": 8,
+      "generalCommentSentimentTotalScore": 23,
+      "comments": 5,
+      "commenters": {
+        "hareku": 1,
+        "kevcodez": 2,
+        "cocodrino": 2
+      },
+      "commentSentimentScore": 15,
+      "commentSentiments": {
+        "hareku": 3,
+        "kevcodez": 4,
+        "cocodrino": 8
+      },
+      "commentsAuthor": 4,
+      "commentAuthorSentimentScore": 8,
+      "commentSentimentTotalScore": 23
+    },
+    {
+      "repo": "typescript",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/typescript/pull/77",
+      "additions": 15,
+      "deletions": 23,
+      "prSize": 38,
+      "mergedAt": "2019-08-22T13:32:29Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kevinmarrec": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kevinmarrec": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "kevinmarrec": 1
+      },
+      "generalCommentSentimentTotalScore": 1,
+      "comments": 1,
+      "commenters": {
+        "kevinmarrec": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "kevinmarrec": 1
+      },
+      "commentSentimentTotalScore": 1
+    },
+    {
+      "repo": "vercel-builder",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/vercel-builder/pull/103",
+      "additions": 2,
+      "prSize": 2,
+      "mergedAt": "2019-08-22T11:20:40Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "pi0": 1
+      }
+    },
+    {
+      "repo": "vercel-builder",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/vercel-builder/pull/106",
+      "additions": 1,
+      "deletions": 2,
+      "prSize": 3,
+      "mergedAt": "2019-08-30T19:33:42Z",
+      "cycleTime": 5,
+      "age": 5,
+      "generalComments": 6,
+      "generalCommenters": {
+        "tarunmangukiya": 2,
+        "thebfftim": 3,
+        "pi0": 1
+      },
+      "generalCommentSentimentScore": 12,
+      "generalCommentSentiments": {
+        "tarunmangukiya": 9,
+        "thebfftim": 2,
+        "pi0": 1
+      },
+      "generalCommentsAuthor": 4,
+      "generalCommentAuthorSentimentScore": 4,
+      "generalCommentSentimentTotalScore": 16,
+      "codeComments": 2,
+      "codeCommenters": {
+        "pi0": 2
+      },
+      "codeCommentSentimentScore": 4,
+      "codeCommentSentiments": {
+        "pi0": 4
+      },
+      "codeCommentsAuthor": 2,
+      "codeCommentSentimentTotalScore": 4,
+      "comments": 8,
+      "commenters": {
+        "pi0": 3,
+        "tarunmangukiya": 2,
+        "thebfftim": 3
+      },
+      "commentSentimentScore": 16,
+      "commentSentiments": {
+        "pi0": 5,
+        "tarunmangukiya": 9,
+        "thebfftim": 2
+      },
+      "commentsAuthor": 6,
+      "commentAuthorSentimentScore": 4,
+      "commentSentimentTotalScore": 20
+    },
+    {
+      "repo": "vercel-builder",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/vercel-builder/pull/109",
+      "additions": 3,
+      "deletions": 3,
+      "prSize": 6,
+      "mergedAt": "2019-08-30T15:58:52Z",
+      "cycleTime": 4,
+      "age": 4,
+      "approvals": 1,
+      "approvers": {
+        "pi0": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "danicuki": 1,
+        "paulgv": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "danicuki": 2,
+        "paulgv": 2
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 3,
+      "generalCommentSentimentTotalScore": 7,
+      "codeComments": 3,
+      "codeCommenters": {
+        "pi0": 3
+      },
+      "codeCommentSentimentScore": 5,
+      "codeCommentSentiments": {
+        "pi0": 5
+      },
+      "codeCommentsAuthor": 4,
+      "codeCommentAuthorSentimentScore": 7,
+      "codeCommentSentimentTotalScore": 12,
+      "comments": 5,
+      "commenters": {
+        "pi0": 3,
+        "danicuki": 1,
+        "paulgv": 1
+      },
+      "commentSentimentScore": 9,
+      "commentSentiments": {
+        "pi0": 5,
+        "danicuki": 2,
+        "paulgv": 2
+      },
+      "commentsAuthor": 5,
+      "commentAuthorSentimentScore": 10,
+      "commentSentimentTotalScore": 19
+    },
+    {
+      "repo": "vercel-builder",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/vercel-builder/pull/110",
+      "additions": 16,
+      "prSize": 16,
+      "mergedAt": "2019-08-30T16:02:02Z",
+      "cycleTime": 4,
+      "age": 4,
+      "approvals": 1,
+      "approvers": {
+        "pi0": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "pi0": 1
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "pi0": 3
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 8,
+      "generalCommentSentimentTotalScore": 11,
+      "codeComments": 1,
+      "codeCommenters": {
+        "pi0": 1
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 1,
+      "codeCommentSentimentTotalScore": 1,
+      "comments": 2,
+      "commenters": {
+        "pi0": 2
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "pi0": 3
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 9,
+      "commentSentimentTotalScore": 12
+    },
+    {
+      "repo": "vercel-builder",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/vercel-builder/pull/116",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2019-08-30T16:28:06Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "pi0": 1
+      }
+    },
+    {
+      "repo": "vercel-builder",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/vercel-builder/pull/118",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2019-08-30T20:15:46Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "vercel-builder",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/vercel-builder/pull/122",
+      "additions": 3,
+      "deletions": 3,
+      "prSize": 6,
+      "mergedAt": "2019-09-10T07:53:48Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "pi0": 1
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "pi0": 2
+      },
+      "generalCommentSentimentTotalScore": 2,
+      "comments": 1,
+      "commenters": {
+        "pi0": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "pi0": 2
+      },
+      "commentSentimentTotalScore": 2
+    },
+    {
+      "repo": "vercel-builder",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/vercel-builder/pull/124",
+      "additions": 2,
+      "deletions": 1,
+      "prSize": 3,
+      "mergedAt": "2019-09-10T13:32:04Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "pi0": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "codecov-io": 1,
+        "MarvinMiles": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "codecov-io": 1,
+        "MarvinMiles": 3
+      },
+      "generalCommentSentimentTotalScore": 4,
+      "codeComments": 1,
+      "codeCommenters": {
+        "pi0": 1
+      },
+      "comments": 3,
+      "commenters": {
+        "pi0": 1,
+        "codecov-io": 1,
+        "MarvinMiles": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "codecov-io": 1,
+        "MarvinMiles": 3
+      },
+      "commentSentimentTotalScore": 4
+    },
+    {
+      "repo": "vercel-builder",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/vercel-builder/pull/125",
+      "additions": 274,
+      "deletions": 105,
+      "prSize": 379,
+      "mergedAt": "2019-09-11T10:19:21Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "pi0": 1
+      },
+      "codeComments": 6,
+      "codeCommenters": {
+        "pi0": 6
+      },
+      "codeCommentSentimentScore": 1,
+      "codeCommentSentiments": {
+        "pi0": 1
+      },
+      "codeCommentsAuthor": 4,
+      "codeCommentAuthorSentimentScore": 4,
+      "codeCommentSentimentTotalScore": 5,
+      "comments": 6,
+      "commenters": {
+        "pi0": 6
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "pi0": 1
+      },
+      "commentsAuthor": 4,
+      "commentAuthorSentimentScore": 4,
+      "commentSentimentTotalScore": 5
+    },
+    {
+      "repo": "vercel-builder",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/vercel-builder/pull/127",
+      "additions": 2,
+      "prSize": 2,
+      "mergedAt": "2019-09-11T07:46:57Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "codecov-io": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "codecov-io": 1
+      },
+      "generalCommentSentimentTotalScore": 1,
+      "comments": 1,
+      "commenters": {
+        "codecov-io": 1
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "codecov-io": 1
+      },
+      "commentSentimentTotalScore": 1
+    },
+    {
+      "repo": "nuxt",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/nuxt/pull/6399",
+      "additions": 15,
+      "deletions": 5,
+      "prSize": 20,
+      "mergedAt": "2019-09-30T08:46:59Z",
+      "cycleTime": 18,
+      "age": 18,
+      "approvals": 1,
+      "approvers": {
+        "pi0": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "codecov-io": 1,
+        "kevinmarrec": 2,
+        "Exeteres": 1
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "codecov-io": 1
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": 2,
+      "generalCommentSentimentTotalScore": 3,
+      "codeComments": 2,
+      "codeCommenters": {
+        "pi0": 2
+      },
+      "codeCommentSentimentScore": 1,
+      "codeCommentSentiments": {
+        "pi0": 1
+      },
+      "codeCommentSentimentTotalScore": 1,
+      "comments": 6,
+      "commenters": {
+        "pi0": 2,
+        "codecov-io": 1,
+        "kevinmarrec": 2,
+        "Exeteres": 1
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "pi0": 1,
+        "codecov-io": 1
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 2,
+      "commentSentimentTotalScore": 4
+    },
+    {
+      "repo": "vercel-builder",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/vercel-builder/pull/129",
+      "additions": 16452,
+      "deletions": 3230,
+      "prSize": 19682,
+      "mergedAt": "2019-09-26T08:53:48Z",
+      "cycleTime": 14,
+      "age": 14,
+      "approvals": 2,
+      "approvers": {
+        "pi0": 1,
+        "kevinmarrec": 1
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 2,
+      "generalCommentSentimentTotalScore": 2,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 2,
+      "commentSentimentTotalScore": 2
+    },
+    {
+      "repo": "vercel-builder",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/vercel-builder/pull/132",
+      "additions": 34,
+      "deletions": 19,
+      "prSize": 53,
+      "mergedAt": "2019-09-20T09:28:00Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "pi0": 1
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "pi0": 1
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 2,
+      "codeCommentSentimentTotalScore": 2,
+      "comments": 1,
+      "commenters": {
+        "pi0": 1
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 2,
+      "commentSentimentTotalScore": 2
+    },
+    {
+      "repo": "vercel-builder",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/vercel-builder/pull/135",
+      "additions": 3,
+      "deletions": 3,
+      "prSize": 6,
+      "mergedAt": "2019-09-26T09:42:09Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "vercel-builder",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/vercel-builder/pull/136",
+      "additions": 5,
+      "deletions": 16,
+      "prSize": 21,
+      "mergedAt": "2019-09-30T14:40:08Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 2,
+      "generalCommenters": {
+        "pi0": 2
+      },
+      "generalCommentSentimentScore": 3,
+      "generalCommentSentiments": {
+        "pi0": 3
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": -3,
+      "comments": 2,
+      "commenters": {
+        "pi0": 2
+      },
+      "commentSentimentScore": 3,
+      "commentSentiments": {
+        "pi0": 3
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": -3
+    },
+    {
+      "repo": "typescript",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/typescript/pull/133",
+      "additions": 19,
+      "prSize": 19,
+      "mergedAt": "2019-09-30T18:58:06Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kevinmarrec": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kevinmarrec": 1
+      },
+      "generalCommentSentimentScore": 13,
+      "generalCommentSentiments": {
+        "kevinmarrec": 13
+      },
+      "generalCommentSentimentTotalScore": 13,
+      "comments": 1,
+      "commenters": {
+        "kevinmarrec": 1
+      },
+      "commentSentimentScore": 13,
+      "commentSentiments": {
+        "kevinmarrec": 13
+      },
+      "commentSentimentTotalScore": 13
+    },
+    {
+      "repo": "typescript",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/typescript/pull/137",
+      "additions": 1,
+      "deletions": 1,
+      "prSize": 2,
+      "mergedAt": "2019-09-30T21:28:41Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kevinmarrec": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "kevinmarrec": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "kevinmarrec": 4
+      },
+      "generalCommentSentimentTotalScore": 4,
+      "comments": 1,
+      "commenters": {
+        "kevinmarrec": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "kevinmarrec": 4
+      },
+      "commentSentimentTotalScore": 4
+    },
+    {
+      "repo": "typescript",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/typescript/pull/155",
+      "additions": 183,
+      "prSize": 183,
+      "mergedAt": "2019-10-20T17:15:42Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kevinmarrec": 1
+      }
+    },
+    {
+      "repo": "auth-module",
+      "org": "nuxt-community",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt-community/auth-module/pull/472",
+      "additions": 8,
+      "prSize": 8,
+      "mergedAt": "2019-12-26T20:26:13Z",
+      "cycleTime": 63,
+      "age": 63,
+      "approvals": 1,
+      "approvers": {
+        "pi0": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "pi0": 1
+      },
+      "comments": 1,
+      "commenters": {
+        "pi0": 1
+      }
+    },
+    {
+      "repo": "docs",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/docs/pull/1710",
+      "additions": 101,
+      "deletions": 87,
+      "prSize": 188,
+      "mergedAt": "2020-01-06T16:11:32Z",
+      "cycleTime": 68,
+      "age": 68,
+      "generalComments": 1,
+      "generalCommenters": {
+        "clarkdo": 1
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentAuthorSentimentScore": 3,
+      "generalCommentSentimentTotalScore": 3,
+      "comments": 1,
+      "commenters": {
+        "clarkdo": 1
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 3,
+      "commentSentimentTotalScore": 3
+    },
+    {
+      "repo": "nuxt",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/nuxt/pull/6632",
+      "additions": 13,
+      "deletions": 13,
+      "prSize": 26,
+      "mergedAt": "2019-10-29T18:06:15Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "pi0": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "clarkdo": 1,
+        "pi0": 1
+      },
+      "generalCommentSentiments": {
+        "clarkdo": 2,
+        "pi0": -2
+      },
+      "comments": 2,
+      "commenters": {
+        "clarkdo": 1,
+        "pi0": 1
+      },
+      "commentSentiments": {
+        "clarkdo": 2,
+        "pi0": -2
+      }
+    },
+    {
+      "repo": "typed-vuex",
+      "org": "danielroe",
+      "author": "danielroe",
+      "url": "https://github.com/danielroe/typed-vuex/pull/17",
+      "additions": 84,
+      "deletions": 30,
+      "prSize": 114,
+      "mergedAt": "2019-11-03T16:26:30Z",
+      "cycleTime": 1,
+      "age": 1,
+      "generalComments": 1,
+      "generalCommenters": {
+        "andrewvasilchuk": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "andrewvasilchuk": 4
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 2,
+      "generalCommentSentimentTotalScore": 6,
+      "comments": 1,
+      "commenters": {
+        "andrewvasilchuk": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "andrewvasilchuk": 4
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 2,
+      "commentSentimentTotalScore": 6
+    },
+    {
+      "repo": "typed-vuex",
+      "org": "danielroe",
+      "author": "danielroe",
+      "url": "https://github.com/danielroe/typed-vuex/pull/22",
+      "additions": 94,
+      "deletions": 32,
+      "prSize": 126,
+      "mergedAt": "2019-11-04T20:48:49Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "typescript",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/typescript/pull/192",
+      "additions": 5,
+      "prSize": 5,
+      "mergedAt": "2019-11-26T09:09:48Z",
+      "cycleTime": 13,
+      "age": 13,
+      "approvals": 1,
+      "approvers": {
+        "kevinmarrec": 1
+      },
+      "generalComments": 4,
+      "generalCommenters": {
+        "kevinmarrec": 4
+      },
+      "generalCommentSentimentScore": 9,
+      "generalCommentSentiments": {
+        "kevinmarrec": 9
+      },
+      "generalCommentsAuthor": 4,
+      "generalCommentAuthorSentimentScore": 4,
+      "generalCommentSentimentTotalScore": 13,
+      "comments": 4,
+      "commenters": {
+        "kevinmarrec": 4
+      },
+      "commentSentimentScore": 9,
+      "commentSentiments": {
+        "kevinmarrec": 9
+      },
+      "commentsAuthor": 4,
+      "commentAuthorSentimentScore": 4,
+      "commentSentimentTotalScore": 13
+    },
+    {
+      "repo": "vercel-builder",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/vercel-builder/pull/157",
+      "additions": 312,
+      "deletions": 289,
+      "prSize": 601,
+      "mergedAt": "2019-11-13T18:27:45Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "vercel-builder",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/vercel-builder/pull/158",
+      "additions": 90,
+      "deletions": 34,
+      "prSize": 124,
+      "mergedAt": "2020-01-23T12:19:22Z",
+      "cycleTime": 70,
+      "age": 70,
+      "codeComments": 1,
+      "codeCommenters": {
+        "styfle": 1
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": 2,
+      "codeCommentSentimentTotalScore": 2,
+      "comments": 1,
+      "commenters": {
+        "styfle": 1
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 2,
+      "commentSentimentTotalScore": 2
+    },
+    {
+      "repo": "vercel-builder",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/vercel-builder/pull/159",
+      "additions": 48,
+      "deletions": 38,
+      "prSize": 86,
+      "mergedAt": "2019-12-03T21:38:12Z",
+      "cycleTime": 19,
+      "age": 19
+    },
+    {
+      "repo": "typescript",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/typescript/pull/202",
+      "additions": 79,
+      "deletions": 1,
+      "prSize": 80,
+      "mergedAt": "2019-11-30T00:11:07Z",
+      "cycleTime": 7,
+      "age": 7,
+      "approvals": 1,
+      "approvers": {
+        "kevinmarrec": 1
+      },
+      "generalComments": 2,
+      "generalCommenters": {
+        "kevinmarrec": 2
+      },
+      "codeComments": 1,
+      "codeCommenters": {
+        "kevinmarrec": 1
+      },
+      "comments": 3,
+      "commenters": {
+        "kevinmarrec": 3
+      }
+    },
+    {
+      "repo": "typescript",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/typescript/pull/203",
+      "additions": 49,
+      "deletions": 4,
+      "prSize": 53,
+      "mergedAt": "2019-11-29T13:05:04Z",
+      "cycleTime": 6,
+      "age": 6,
+      "approvals": 1,
+      "approvers": {
+        "kevinmarrec": 1
+      },
+      "codeComments": 7,
+      "codeCommenters": {
+        "kevinmarrec": 7
+      },
+      "codeCommentSentimentScore": -2,
+      "codeCommentSentiments": {
+        "kevinmarrec": -2
+      },
+      "codeCommentsAuthor": 3,
+      "codeCommentAuthorSentimentScore": -8,
+      "codeCommentSentimentTotalScore": -10,
+      "comments": 7,
+      "commenters": {
+        "kevinmarrec": 7
+      },
+      "commentSentimentScore": -2,
+      "commentSentiments": {
+        "kevinmarrec": -2
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": -8,
+      "commentSentimentTotalScore": -10
+    },
+    {
+      "repo": "typescript",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/typescript/pull/212",
+      "additions": 30,
+      "deletions": 1,
+      "prSize": 31,
+      "mergedAt": "2019-11-29T10:59:54Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kevinmarrec": 1
+      }
+    },
+    {
+      "repo": "nuxt",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/nuxt/pull/6752",
+      "additions": 4,
+      "deletions": 4,
+      "prSize": 8,
+      "mergedAt": "2019-12-08T02:16:25Z",
+      "cycleTime": 7,
+      "age": 7,
+      "approvals": 1,
+      "approvers": {
+        "clarkdo": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "codecov-io": 1,
+        "clarkdo": 2
+      },
+      "generalCommentSentimentScore": 2,
+      "generalCommentSentiments": {
+        "clarkdo": 2
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": -1,
+      "generalCommentSentimentTotalScore": 1,
+      "comments": 3,
+      "commenters": {
+        "codecov-io": 1,
+        "clarkdo": 2
+      },
+      "commentSentimentScore": 2,
+      "commentSentiments": {
+        "clarkdo": 2
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": -1,
+      "commentSentimentTotalScore": 1
+    },
+    {
+      "repo": "typescript",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/typescript/pull/220",
+      "additions": 10,
+      "deletions": 8,
+      "prSize": 18,
+      "mergedAt": "2019-12-01T11:49:35Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kevinmarrec": 1
+      },
+      "generalCommentsAuthor": 1,
+      "generalCommentAuthorSentimentScore": 2,
+      "generalCommentSentimentTotalScore": 2,
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": 2,
+      "commentSentimentTotalScore": 2
+    },
+    {
+      "repo": "typescript",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/typescript/pull/222",
+      "additions": 9,
+      "deletions": 9,
+      "prSize": 18,
+      "mergedAt": "2019-12-01T19:01:36Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kevinmarrec": 1
+      }
+    },
+    {
+      "repo": "typescript",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/typescript/pull/223",
+      "additions": 60,
+      "deletions": 11,
+      "prSize": 71,
+      "mergedAt": "2019-12-01T21:56:32Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kevinmarrec": 1
+      },
+      "codeComments": 3,
+      "codeCommenters": {
+        "kevinmarrec": 3
+      },
+      "codeCommentSentimentScore": 4,
+      "codeCommentSentiments": {
+        "kevinmarrec": 4
+      },
+      "codeCommentsAuthor": 1,
+      "codeCommentAuthorSentimentScore": -1,
+      "codeCommentSentimentTotalScore": 3,
+      "comments": 3,
+      "commenters": {
+        "kevinmarrec": 3
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "kevinmarrec": 4
+      },
+      "commentsAuthor": 1,
+      "commentAuthorSentimentScore": -1,
+      "commentSentimentTotalScore": 3
+    },
+    {
+      "repo": "typescript",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/typescript/pull/225",
+      "additions": 2,
+      "deletions": 1,
+      "prSize": 3,
+      "mergedAt": "2019-12-02T13:22:24Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "kevinmarrec": 1
+      },
+      "generalComments": 3,
+      "generalCommenters": {
+        "kevinmarrec": 3
+      },
+      "generalCommentSentimentScore": -4,
+      "generalCommentSentiments": {
+        "kevinmarrec": -4
+      },
+      "generalCommentsAuthor": 2,
+      "generalCommentSentimentTotalScore": -4,
+      "comments": 3,
+      "commenters": {
+        "kevinmarrec": 3
+      },
+      "commentSentimentScore": -4,
+      "commentSentiments": {
+        "kevinmarrec": -4
+      },
+      "commentsAuthor": 2,
+      "commentSentimentTotalScore": -4
+    },
+    {
+      "repo": "typescript",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/typescript/pull/226",
+      "additions": 28,
+      "deletions": 38,
+      "prSize": 66,
+      "mergedAt": "2019-12-04T18:49:26Z",
+      "cycleTime": 2,
+      "age": 2,
+      "generalComments": 2,
+      "generalCommenters": {
+        "kevinmarrec": 2
+      },
+      "generalCommentSentimentScore": 1,
+      "generalCommentSentiments": {
+        "kevinmarrec": 1
+      },
+      "generalCommentsAuthor": 3,
+      "generalCommentAuthorSentimentScore": 2,
+      "generalCommentSentimentTotalScore": 3,
+      "comments": 2,
+      "commenters": {
+        "kevinmarrec": 2
+      },
+      "commentSentimentScore": 1,
+      "commentSentiments": {
+        "kevinmarrec": 1
+      },
+      "commentsAuthor": 3,
+      "commentAuthorSentimentScore": 2,
+      "commentSentimentTotalScore": 3
+    },
+    {
+      "repo": "typescript",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/typescript/pull/227",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2019-12-02T15:12:22Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 2,
+      "approvers": {
+        "kevinmarrec": 2
+      },
+      "generalComments": 5,
+      "generalCommenters": {
+        "trygveaa": 2,
+        "kevinmarrec": 3
+      },
+      "generalCommentSentimentScore": 6,
+      "generalCommentSentiments": {
+        "trygveaa": 1,
+        "kevinmarrec": 5
+      },
+      "generalCommentSentimentTotalScore": 6,
+      "comments": 5,
+      "commenters": {
+        "trygveaa": 2,
+        "kevinmarrec": 3
+      },
+      "commentSentimentScore": 6,
+      "commentSentiments": {
+        "trygveaa": 1,
+        "kevinmarrec": 5
+      },
+      "commentSentimentTotalScore": 6
+    },
+    {
+      "repo": "typed-vuex",
+      "org": "danielroe",
+      "author": "danielroe",
+      "url": "https://github.com/danielroe/typed-vuex/pull/55",
+      "additions": 10656,
+      "deletions": 15,
+      "prSize": 10671,
+      "mergedAt": "2019-12-02T20:56:44Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "typed-vuex",
+      "org": "danielroe",
+      "author": "danielroe",
+      "url": "https://github.com/danielroe/typed-vuex/pull/56",
+      "additions": 7,
+      "deletions": 1,
+      "prSize": 8,
+      "mergedAt": "2019-12-03T08:32:42Z",
+      "cycleTime": 1,
+      "age": 1
+    },
+    {
+      "repo": "vercel-builder",
+      "org": "nuxt",
+      "author": "danielroe",
+      "url": "https://github.com/nuxt/vercel-builder/pull/164",
+      "additions": 7097,
+      "deletions": 5617,
+      "prSize": 12714,
+      "mergedAt": "2019-12-03T16:11:28Z",
+      "cycleTime": 1,
+      "age": 1
     }
   ],
   "reviewedPullRequests": [
@@ -44608,6 +46042,183 @@
       "approvers": {
         "danielroe": 1
       }
+    },
+    {
+      "repo": "nuxt",
+      "org": "nuxt",
+      "author": "cybercoder-naj",
+      "url": "https://github.com/nuxt/nuxt/pull/30333",
+      "additions": 2,
+      "deletions": 2,
+      "prSize": 4,
+      "mergedAt": "2024-12-22T16:54:59Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "danielroe": 1
+      },
+      "generalComments": 1,
+      "generalCommenters": {
+        "danielroe": 1
+      },
+      "generalCommentSentimentScore": 4,
+      "generalCommentSentiments": {
+        "danielroe": 4
+      },
+      "generalCommentSentimentTotalScore": 4,
+      "comments": 1,
+      "commenters": {
+        "danielroe": 1
+      },
+      "commentSentimentScore": 4,
+      "commentSentiments": {
+        "danielroe": 4
+      },
+      "commentSentimentTotalScore": 4
+    },
+    {
+      "repo": "nuxt",
+      "org": "nuxt",
+      "author": "huang-julien",
+      "url": "https://github.com/nuxt/nuxt/pull/30328",
+      "deletions": 6,
+      "prSize": 6,
+      "mergedAt": "2024-12-22T13:03:59Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "danielroe": 1
+      }
+    },
+    {
+      "repo": "unsight.dev",
+      "org": "danielroe",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/danielroe/unsight.dev/pull/41",
+      "additions": 15,
+      "deletions": 934,
+      "prSize": 949,
+      "mergedAt": "2024-12-21T23:21:23Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "danielroe": 1
+      }
+    },
+    {
+      "repo": "nuxt-vscode-template",
+      "org": "danielroe",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/danielroe/nuxt-vscode-template/pull/57",
+      "additions": 6,
+      "deletions": 6,
+      "prSize": 12,
+      "mergedAt": "2024-12-21T23:21:23Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "danielroe": 1
+      }
+    },
+    {
+      "repo": "sanity",
+      "org": "nuxt-modules",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/nuxt-modules/sanity/pull/1118",
+      "additions": 21,
+      "deletions": 11,
+      "prSize": 32,
+      "mergedAt": "2024-12-21T20:28:11Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "danielroe": 1
+      }
+    },
+    {
+      "repo": "oxc-walker",
+      "org": "danielroe",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/danielroe/oxc-walker/pull/29",
+      "additions": 43,
+      "deletions": 43,
+      "prSize": 86,
+      "mergedAt": "2024-12-21T16:33:43Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "danielroe": 1
+      }
+    },
+    {
+      "repo": "test-utils",
+      "org": "nuxt",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/nuxt/test-utils/pull/1046",
+      "additions": 264,
+      "deletions": 264,
+      "prSize": 528,
+      "mergedAt": "2024-12-21T16:33:21Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "danielroe": 1
+      }
+    },
+    {
+      "repo": "impound",
+      "org": "unjs",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/unjs/impound/pull/54",
+      "additions": 112,
+      "deletions": 112,
+      "prSize": 224,
+      "mergedAt": "2024-12-21T16:33:21Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "danielroe": 1
+      }
+    },
+    {
+      "repo": "rollup-plugin-pure",
+      "org": "danielroe",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/danielroe/rollup-plugin-pure/pull/291",
+      "additions": 213,
+      "deletions": 31,
+      "prSize": 244,
+      "mergedAt": "2024-12-21T16:33:20Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "danielroe": 1
+      }
+    },
+    {
+      "repo": "fontaine",
+      "org": "nuxt-modules",
+      "author": "GIT_APP_PR",
+      "url": "https://github.com/nuxt-modules/fontaine/pull/483",
+      "additions": 184,
+      "deletions": 184,
+      "prSize": 368,
+      "mergedAt": "2024-12-21T16:33:21Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "danielroe": 1
+      }
     }
   ],
   "issues": [
@@ -45546,6 +47157,313 @@
       "age": 1,
       "url": "https://github.com/nuxt-themes/docus/issues/937",
       "isBug": true
+    },
+    {
+      "mergedAt": "2019-04-18T20:05:31Z",
+      "createdAt": "2019-04-18T20:05:31Z",
+      "age": 1,
+      "url": "https://github.com/WP-API/node-wpapi/issues/426"
+    },
+    {
+      "mergedAt": "2019-08-20T20:53:13Z",
+      "createdAt": "2019-08-20T20:53:13Z",
+      "age": 9,
+      "url": "https://github.com/nuxt/vercel-builder/issues/101"
+    },
+    {
+      "mergedAt": "2019-08-22T10:00:04Z",
+      "createdAt": "2019-08-22T10:00:04Z",
+      "age": 1,
+      "url": "https://github.com/nuxt/vercel-builder/issues/102"
+    },
+    {
+      "mergedAt": "2019-08-23T14:50:05Z",
+      "createdAt": "2019-08-23T14:50:05Z",
+      "age": 80,
+      "url": "https://github.com/damianstasik/vue-svg-loader/issues/94"
+    },
+    {
+      "mergedAt": "2019-08-27T16:09:47Z",
+      "createdAt": "2019-08-27T16:09:47Z",
+      "age": 13,
+      "url": "https://github.com/nuxt/vercel-builder/issues/111"
+    },
+    {
+      "mergedAt": "2019-09-06T19:30:22Z",
+      "createdAt": "2019-09-06T19:30:22Z",
+      "age": 1,
+      "url": "https://github.com/michaelolof/vuex-class-component/issues/41"
+    },
+    {
+      "mergedAt": "2019-09-10T18:00:59Z",
+      "createdAt": "2019-09-10T18:00:59Z",
+      "age": 1,
+      "url": "https://github.com/vercel/vercel/issues/2992",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2019-09-11T20:17:11Z",
+      "createdAt": "2019-09-11T20:17:11Z",
+      "age": 23,
+      "url": "https://github.com/michaelolof/vuex-class-component/issues/42"
+    },
+    {
+      "mergedAt": "2019-10-02T15:43:05Z",
+      "createdAt": "2019-10-02T15:43:05Z",
+      "age": 1,
+      "url": "https://github.com/vercel/vercel/issues/3114"
+    },
+    {
+      "mergedAt": "2019-10-08T16:34:54Z",
+      "createdAt": "2019-10-08T16:34:54Z",
+      "age": 838,
+      "url": "https://github.com/nuxt-community/auth-module/issues/464"
+    },
+    {
+      "mergedAt": "2019-10-25T15:06:36Z",
+      "createdAt": "2019-10-25T15:06:36Z",
+      "age": 1,
+      "url": "https://github.com/nuxt/typescript/issues/169"
+    },
+    {
+      "mergedAt": "2019-11-03T12:17:34Z",
+      "createdAt": "2019-11-03T12:17:34Z",
+      "age": 1,
+      "url": "https://github.com/danielroe/typed-vuex/issues/16"
+    },
+    {
+      "mergedAt": "2019-11-09T07:18:29Z",
+      "createdAt": "2019-11-09T07:18:29Z",
+      "age": 35,
+      "url": "https://github.com/danielroe/typed-vuex/issues/33"
+    },
+    {
+      "mergedAt": "2019-11-12T17:13:46Z",
+      "createdAt": "2019-11-12T17:13:46Z",
+      "age": 71,
+      "url": "https://github.com/nuxt/vercel-builder/issues/156"
+    },
+    {
+      "mergedAt": "2019-11-13T07:49:52Z",
+      "createdAt": "2019-11-13T07:49:52Z",
+      "age": 13,
+      "url": "https://github.com/nuxt/nuxt/issues/6691"
+    },
+    {
+      "mergedAt": "2019-11-20T11:17:08Z",
+      "createdAt": "2019-11-20T11:17:08Z",
+      "age": 2,
+      "url": "https://github.com/nuxt/typescript/issues/199"
+    },
+    {
+      "mergedAt": "2019-11-22T18:23:17Z",
+      "createdAt": "2019-11-22T18:23:17Z",
+      "age": 1,
+      "url": "https://github.com/nuxt/vercel-builder/issues/161"
+    },
+    {
+      "mergedAt": "2020-01-11T10:15:57Z",
+      "createdAt": "2020-01-11T10:15:57Z",
+      "age": 1,
+      "url": "https://github.com/vueuse/vueuse/issues/31"
+    },
+    {
+      "mergedAt": "2020-01-15T07:40:43Z",
+      "createdAt": "2020-01-15T07:40:43Z",
+      "age": 95,
+      "url": "https://github.com/unjs/defu/issues/12"
+    },
+    {
+      "mergedAt": "2020-02-21T16:24:20Z",
+      "createdAt": "2020-02-21T16:24:20Z",
+      "age": 5,
+      "url": "https://github.com/sanity-io/sanity/issues/1750"
+    },
+    {
+      "mergedAt": "2020-02-27T15:00:02Z",
+      "createdAt": "2020-02-27T15:00:02Z",
+      "age": 1,
+      "url": "https://github.com/sanity-io/sanity/issues/1758"
+    },
+    {
+      "mergedAt": "2020-03-01T18:28:42Z",
+      "createdAt": "2020-03-01T18:28:42Z",
+      "age": 1,
+      "url": "https://github.com/lusaxweb/vuesax-next/issues/8"
+    },
+    {
+      "mergedAt": "2020-03-07T16:19:08Z",
+      "createdAt": "2020-03-07T16:19:08Z",
+      "age": 1,
+      "url": "https://github.com/logaretm/villus/issues/19"
+    },
+    {
+      "mergedAt": "2020-04-10T14:19:59Z",
+      "createdAt": "2020-04-10T14:19:59Z",
+      "age": 88,
+      "url": "https://github.com/fredjens/sanity-datatable/issues/6"
+    },
+    {
+      "mergedAt": "2020-04-20T17:40:16Z",
+      "createdAt": "2020-04-20T17:40:16Z",
+      "age": 1,
+      "url": "https://github.com/rdunk/sanity-blocks-vue-component/issues/10"
+    },
+    {
+      "mergedAt": "2020-05-01T21:10:57Z",
+      "createdAt": "2020-05-01T21:10:57Z",
+      "age": 22,
+      "url": "https://github.com/vueuse/vueuse/issues/77"
+    },
+    {
+      "mergedAt": "2020-05-03T11:16:04Z",
+      "createdAt": "2020-05-03T11:16:04Z",
+      "age": 795,
+      "url": "https://github.com/nuxt-community/composition-api/issues/19"
+    },
+    {
+      "mergedAt": "2020-05-03T11:39:45Z",
+      "createdAt": "2020-05-03T11:39:45Z",
+      "age": 1,
+      "url": "https://github.com/nuxt-community/composition-api/issues/20"
+    },
+    {
+      "mergedAt": "2020-05-07T14:29:09Z",
+      "createdAt": "2020-05-07T14:29:09Z",
+      "age": 20,
+      "url": "https://github.com/nuxt-community/composition-api/issues/37",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2020-05-08T20:25:10Z",
+      "createdAt": "2020-05-08T20:25:10Z",
+      "age": 1,
+      "url": "https://github.com/nuxt-community/composition-api/issues/44"
+    },
+    {
+      "mergedAt": "2020-05-19T21:20:43Z",
+      "createdAt": "2020-05-19T21:20:43Z",
+      "age": 1,
+      "url": "https://github.com/nuxt-community/composition-api/issues/71"
+    },
+    {
+      "mergedAt": "2020-05-30T07:46:48Z",
+      "createdAt": "2020-05-30T07:46:48Z",
+      "age": 1,
+      "url": "https://github.com/nuxt-community/composition-api/issues/84",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2020-06-02T15:02:51Z",
+      "createdAt": "2020-06-02T15:02:51Z",
+      "age": 1,
+      "url": "https://github.com/nuxt-community/composition-api/issues/88",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2020-06-10T12:37:14Z",
+      "createdAt": "2020-06-10T12:37:14Z",
+      "age": 84,
+      "url": "https://github.com/vue-a11y/vue-axe/issues/28"
+    },
+    {
+      "mergedAt": "2020-06-24T12:18:52Z",
+      "createdAt": "2020-06-24T12:18:52Z",
+      "age": 35,
+      "url": "https://github.com/nuxt/components/issues/60",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2020-07-25T08:15:36Z",
+      "createdAt": "2020-07-25T08:15:36Z",
+      "age": 219,
+      "url": "https://github.com/nuxt/content/issues/292",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2020-07-25T17:37:33Z",
+      "createdAt": "2020-07-25T17:37:33Z",
+      "age": 1,
+      "url": "https://github.com/nuxt/nuxt/issues/7774"
+    },
+    {
+      "mergedAt": "2020-07-26T12:06:39Z",
+      "createdAt": "2020-07-26T12:06:39Z",
+      "age": 2,
+      "url": "https://github.com/nuxt-modules/storybook/issues/17"
+    },
+    {
+      "mergedAt": "2020-07-26T12:25:48Z",
+      "createdAt": "2020-07-26T12:25:48Z",
+      "age": 2,
+      "url": "https://github.com/nuxt-modules/storybook/issues/19"
+    },
+    {
+      "mergedAt": "2020-07-28T10:32:05Z",
+      "createdAt": "2020-07-28T10:32:05Z",
+      "age": 2,
+      "url": "https://github.com/nuxt/nuxt/issues/7795"
+    },
+    {
+      "mergedAt": "2020-07-29T07:12:43Z",
+      "createdAt": "2020-07-29T07:12:43Z",
+      "age": 74,
+      "url": "https://github.com/danielroe/siroc/issues/71"
+    },
+    {
+      "mergedAt": "2020-07-29T07:15:53Z",
+      "createdAt": "2020-07-29T07:15:53Z",
+      "age": 123,
+      "url": "https://github.com/danielroe/siroc/issues/72"
+    },
+    {
+      "mergedAt": "2020-07-29T11:49:51Z",
+      "createdAt": "2020-07-29T11:49:51Z",
+      "age": 362,
+      "url": "https://github.com/nuxt/nuxt/issues/11656"
+    },
+    {
+      "mergedAt": "2020-07-29T11:49:51Z",
+      "createdAt": "2020-07-29T11:49:51Z",
+      "age": 362,
+      "url": "https://github.com/nuxt/nuxt/issues/11701"
+    },
+    {
+      "mergedAt": "2020-08-05T11:34:43Z",
+      "createdAt": "2020-08-05T11:34:43Z",
+      "age": 36,
+      "url": "https://github.com/LouisMazel/maz-ui/issues/89",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2020-08-07T15:28:25Z",
+      "createdAt": "2020-08-07T15:28:25Z",
+      "age": 1,
+      "url": "https://github.com/danielroe/sanity-module/issues/1"
+    },
+    {
+      "mergedAt": "2020-08-07T15:33:41Z",
+      "createdAt": "2020-08-07T15:33:41Z",
+      "age": 2,
+      "url": "https://github.com/nuxt-community/composition-api/issues/191"
+    },
+    {
+      "mergedAt": "2020-08-07T22:03:28Z",
+      "createdAt": "2020-08-07T22:03:28Z",
+      "age": 1,
+      "url": "https://github.com/nuxt-modules/sanity/issues/1"
+    },
+    {
+      "mergedAt": "2020-08-08T07:44:01Z",
+      "createdAt": "2020-08-08T07:44:01Z",
+      "age": 4,
+      "url": "https://github.com/nuxt/test-utils/issues/334"
+    },
+    {
+      "mergedAt": "2020-08-08T07:44:01Z",
+      "createdAt": "2020-08-08T07:44:01Z",
+      "age": 4,
+      "url": "https://github.com/nuxt/test-utils/issues/408"
     }
   ],
   "preFetchedName": "danielroe"
