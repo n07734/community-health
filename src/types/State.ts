@@ -74,6 +74,7 @@ export type FetchInfo = {
     usersInfo: UsersInfo
     events: SavedEvent[]
     repo: string
+    repos?: string[]
     org: string
     teamName: string
     userIds: string[]
@@ -90,12 +91,15 @@ export type FetchInfo = {
 
 export type FetchStatus = {
     user?: string
+    repo?: string
+    repos?: string[]
     prCount?: number
     latestItemDate?: string
     issueCount?: number
     savedReportName?: string
     reviewCount?: number
     repoCount?: number
+    paused?: boolean
 }
 
 export type AllState = {

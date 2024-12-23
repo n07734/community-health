@@ -29,6 +29,7 @@ const getOrgData = async({ fetchInfo, untilDate, dispatch }:GetUsersData) => {
                     prPagination: fetchInfo?.prPagination[repo] || { hasNextPage: true },
                     org,
                     repo,
+                    repos,
                 },
                 queryInfo: batchedQuery(untilDate),
                 dispatch,

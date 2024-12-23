@@ -129,15 +129,20 @@ const api = async({ fetchInfo, queryInfo, dispatch = () => {} }:ApiInfo, results
         .filter(Boolean)
         .sort(dateSort(sortDirection))
 
+    const statusPayload = {
+        prCount: getCurrentCount('pullRequests', results),
+        issueCount: getCurrentCount('issues', results),
+        releasesCount: getCurrentCount('releases', results),
+        latestItemDate: furthestItemWithNextPage,
+        user,
+        repo: fetchInfo.repo,
+        repos: fetchInfo.repos || [],
+        paused: false,
+    }
+
     dispatch({
         type: types.FETCH_STATUS,
-        payload: {
-            prCount: getCurrentCount('pullRequests', results),
-            issueCount: getCurrentCount('issues', results),
-            releasesCount: getCurrentCount('releases', results),
-            latestItemDate: furthestItemWithNextPage,
-            user,
-        },
+        payload: statusPayload,
     })
 
     const apiCallWithToken = apiCall(fetchInfo)
@@ -233,6 +238,13 @@ const api = async({ fetchInfo, queryInfo, dispatch = () => {} }:ApiInfo, results
         const errorMessage = getErrorMessage(error)
 
         if (hasTriggeredAbuse(error)) {
+            dispatch({
+                type: types.FETCH_STATUS,
+                payload: {
+                    ...statusPayload,
+                    paused: true,
+                },
+            })
             return pauseThenRetry({ fetchInfo, queryInfo, dispatch }, results)
         } else {
             throw new Error(errorMessage.message)

@@ -58,6 +58,10 @@ const preFetchedOrgs = [
         name: 'testing-library',
         fileName: 'testing-library',
     },
+    {
+        name: 'TanStack',
+        fileName: 'TanStack',
+    },
 ]
 
 const preFetchedTeams = [
