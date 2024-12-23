@@ -51,7 +51,7 @@ const ChooseReport = ({ setNewReportType, getPreFetchedReport, preFetchedName }:
     return (
         <Sheet>
             <SheetTrigger asChild>
-                <Button variant="link" className="normal-case">Other reports</Button>
+                <Button variant="link" className="normal-case text-foreground hover:text-primary text-base">Other reports</Button>
             </SheetTrigger>
             <SheetContent className="bg-background overflow-scroll">
                 <SheetHeader>

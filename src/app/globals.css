@@ -242,5 +242,6 @@
   }
   body {
     @apply m-0 bg-background text-foreground;
+    min-width: 350px;
   }
 }

@@ -73,7 +73,7 @@ const ReportDescription = ({
     const hasReportData = pullRequests.length > 0 || issues.length > 0
 
     return hasReportData && (<Paper>
-        <h2 data-qa-id="report-title">
+        <h2 data-qa-id="report-title" className="truncate">
             <Title {...fetches} colorA={colorA} colorB={colorB}/>
         </h2>
         {

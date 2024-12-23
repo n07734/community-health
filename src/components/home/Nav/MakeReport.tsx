@@ -26,7 +26,7 @@ type MakeReportProps = {
 const MakeReport = ({ setNewReportType, clearReport }: MakeReportProps) => (
     <Sheet>
         <SheetTrigger asChild>
-            <Button variant="link" className='normal-case'>Make a report</Button>
+            <Button variant="link" className='normal-case text-report-title hover:text-primary text-base'>Make a report</Button>
         </SheetTrigger>
         <SheetContent className="bg-background">
             <SheetHeader>
