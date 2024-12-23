@@ -92,7 +92,13 @@ const ReportDescription = ({
                 name="checkedA"
                 className="dark:data-[state=unchecked]:bg-white"
             />
-            <Label htmlFor="spartacus-mode">Spartacus mode, this can help look for trends.</Label>
+            <Label htmlFor="spartacus-mode">
+                {
+                    showNames
+                        ? 'Who is Spartacus?'
+                        : 'Spartacus mode can help look for trends.'
+                }
+            </Label>
         </div>
 
         <DateRange />
