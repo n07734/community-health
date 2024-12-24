@@ -30,7 +30,7 @@ test.describe('Initial page load', () => {
     test('loads Playwright report via button click', async ({ page }) => {
         await page.waitForSelector(select.reportTitle)
 
-        await page.waitForSelector(select.reportButton)
+        await page.locator('button:text("Other reports")').click();
 
         await page.click(select.reportButton)
 
