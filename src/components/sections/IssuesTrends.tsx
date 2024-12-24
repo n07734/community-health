@@ -10,6 +10,8 @@ import ChartDescription from '@/components/shared/ChartDescription'
 import GraphsWrap from '@/components/shared/GraphsWrap'
 import Line from '@/components/charts/Line'
 import { chunkData } from '@/components/charts/lineHelpers'
+import { FetchInfo, SavedEvent, UsersInfo } from '@/types/State'
+import { formatMarkers } from '@/format/releaseData'
 
 const formatIssueData = (data:Issue[] = []) => data
     .map((item) => ({
@@ -24,10 +26,14 @@ const formatIssueData = (data:Issue[] = []) => data
 type IssuesTrendsProps = {
     issues: Issue[]
     releases: EventInfo[]
+    events: SavedEvent[]
+    usersInfo: UsersInfo
 }
 const IssuesTrends = ({
     issues = [],
     releases = [],
+    events = [],
+    usersInfo = {},
 }:IssuesTrendsProps) => {
     const { theme } = useTheme()
     const colorA = graphColors[theme].secondary
@@ -36,6 +42,8 @@ const IssuesTrends = ({
     const data = formatIssueData(issues)
     const chunkyData = chunkData(issues)
 
+    const markers = formatMarkers({ events, releases, usersInfo })
+
     return data && data.length > 0 && (
         <Paper>
             <ChartDescription
@@ -43,7 +51,7 @@ const IssuesTrends = ({
             />
             <GraphsWrap>
                 <Line
-                    markers={releases}
+                    markers={markers}
                     data={[
                         {
                             lines: [
@@ -79,10 +87,13 @@ const IssuesTrends = ({
 type State = {
     issues: Issue[]
     releases: EventInfo[]
+    fetches: FetchInfo
 }
 const mapStateToProps = (state:State) => ({
     issues: state.issues,
     releases: state.releases,
+    events: state.fetches.events,
+    usersInfo: state.fetches.usersInfo,
 })
 
 export default connect(mapStateToProps)(IssuesTrends)

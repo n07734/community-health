@@ -50,7 +50,7 @@ export type Issue = {
     isBug: boolean
 }
 
-export type ReleaseType = 'MAJOR' | 'MINOR' | 'PATCH'
+export type ReleaseType = 'MAJOR' | 'MINOR' | 'PATCH' | "EVENT"
 
 export type EventInfo = {
     date: string

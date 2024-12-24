@@ -10,13 +10,14 @@ import UserTrends from './sections/UserTrends'
 import UserList from './sections/UserList'
 import ReportDescription from './sections/ReportDescription'
 import { chunkData } from './charts/lineHelpers'
-import { EventInfo, PullRequest } from '../types/FormattedData'
+import { PullRequest } from '../types/FormattedData'
 
 type RepoViewProps = {
     pullRequests: PullRequest[]
-    releases: EventInfo[]
 }
-const RepoView = ({ pullRequests = [], releases = [] }:RepoViewProps) => {
+const RepoView = ({
+    pullRequests = [],
+}: RepoViewProps) => {
     const updatedPullRequests:PullRequest[] = pullRequests
         .map((prData, i) => ({
             ...prData,
@@ -37,7 +38,6 @@ const RepoView = ({ pullRequests = [], releases = [] }:RepoViewProps) => {
         <CustomGraphs
             pullRequests={updatedPullRequests}
             chunkyData={chunkyData}
-            releases={releases}
             tableOpenedByDefault={true}
         />
         <Sentiment
@@ -56,11 +56,9 @@ const RepoView = ({ pullRequests = [], releases = [] }:RepoViewProps) => {
 
 type State = {
     pullRequests: PullRequest[]
-    releases: EventInfo[]
 }
 const mapStateToProps = (state:State) => ({
     pullRequests: state.pullRequests,
-    releases: state.releases,
 })
 
 export default connect(mapStateToProps)(RepoView)

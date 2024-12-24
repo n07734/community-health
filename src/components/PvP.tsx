@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import pathOr from 'ramda/es/pathOr'
 
 import { EventInfo, PullRequest } from '@/types/FormattedData'
-import { UserData } from '@/types/State'
+import { FetchInfo, SavedEvent, UserData, UsersInfo } from '@/types/State'
 
 import { useTheme } from '@/components/ThemeProvider'
 import { graphColors } from '@/components/colors'
@@ -17,6 +17,7 @@ import StatBars from './charts/StatBars'
 import { chunkData } from './charts/lineHelpers'
 import { useSubPage } from '@/state/SubPageProvider'
 import { colors } from '@/components/colors'
+import { formatMarkers } from '@/format/releaseData'
 
 const queryString = pathOr('', ['location', 'search'], window)
 const urlParams = new URLSearchParams(queryString);
@@ -32,11 +33,15 @@ type PvPProps = {
     pullRequests: PullRequest[]
     releases: EventInfo[]
     usersData: UserData[]
+    events: SavedEvent[]
+    usersInfo: UsersInfo
 }
 const PvP = ({
     pullRequests = [],
     releases = [],
     usersData = [],
+    events = [],
+    usersInfo = {},
 }:PvPProps) => {
     const { togglePvPPage } = useSubPage()
     const { theme } = useTheme()
@@ -67,6 +72,9 @@ const PvP = ({
         })
 
     const chunkyData = chunkData(bothUsers)
+
+    const markers = formatMarkers({ events, releases, usersInfo })
+
     return usersData.length > 0 && (
         <>
             <Paper>
@@ -93,7 +101,7 @@ const PvP = ({
                 <p className="w-full text-center">And the winner is.... Both! Thanks for your great work!</p>
                 <GraphsWrap>
                     <Line
-                        markers={releases}
+                        markers={markers}
                         showLegends={true}
                         title="Sentiments in PR"
                         data={[{
@@ -129,7 +137,7 @@ const PvP = ({
                         tableKeys={['author', 'commentSentimentScore', 'commentAuthorSentimentScore']}
                     />
                     <Line
-                        markers={releases}
+                        markers={markers}
                         data={[{
                             lines: [
                                 {
@@ -151,7 +159,7 @@ const PvP = ({
                         tableData={chunkyData}
                     />
                     <Line
-                        markers={releases}
+                        markers={markers}
                         data={[{
                             lines: [
                                 {
@@ -192,11 +200,14 @@ type State = {
     pullRequests: PullRequest[]
     releases: EventInfo[]
     usersData: UserData[]
+    fetches: FetchInfo
 }
 const mapStateToProps = (state:State) => ({
     pullRequests: state.pullRequests,
     releases: state.releases,
     usersData: state.usersData,
+    events: state.fetches.events,
+    usersInfo: state.fetches.usersInfo,
 })
 
 export default connect(mapStateToProps)(PvP)

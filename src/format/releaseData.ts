@@ -29,7 +29,7 @@ const semVerSort = (a:Record<string, string>, b:Record<string, string>) => {
 
 const formatReleaseData = (results: RawEventInfo[] = []) => {
     const semVerSortedResults = results
-        .filter(x => /^v\d+\.\d+\.\d+$/.test(getTag(x)))
+        .filter(x => /^v?\d+\.\d+\.\d+$/.test(getTag(x)))
         .sort(semVerSort)
 
     const formattedReleases = semVerSortedResults
@@ -60,8 +60,13 @@ const formatReleaseData = (results: RawEventInfo[] = []) => {
                 releaseType = 'PATCH'
             }
 
+            const date = /T/.test(release.date)
+                ? release.date.split('T')[0]
+                : release.date
+
             const item: EventInfo = {
                 ...release,
+                date,
                 releaseType: releaseType as ReleaseType || 'MAJOR',
             }
             return item
@@ -81,9 +86,11 @@ const formatReleaseData = (results: RawEventInfo[] = []) => {
 
 const formatMarkers = ({
     usersInfo = {},
+    releases = [],
     events = [],
 }: {
     usersInfo?: UsersInfo
+    releases?: EventInfo[]
     events: SavedEvent[]
 }) => {
     const teamMarkers: EventInfo[] = []
@@ -120,14 +127,14 @@ const formatMarkers = ({
         .map(({date, name}:Record<string, string> = {}):EventInfo => ({
             date,
             description: name,
-            releaseType: 'MAJOR',
+            releaseType: 'EVENT',
         }))
     const dateSort = (aObj:Record<string, string>, bObj:Record<string, string>) => {
         const a = aObj?.date || ''
         const b = bObj?.date || ''
         return new Date(a).getTime() - new Date(b).getTime()
     }
-    const sortedMarkers = [...teamMarkers, ...eventMarkers].sort(dateSort)
+    const sortedMarkers = [...teamMarkers, ...eventMarkers, ...releases].sort(dateSort)
 
     return sortedMarkers
 }

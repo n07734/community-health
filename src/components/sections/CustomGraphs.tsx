@@ -12,6 +12,8 @@ import Line from '@/components/charts/Line'
 import GraphUi from '@/components/charts/GraphUi'
 import { useTheme } from "@/components/ThemeProvider"
 import { graphColors } from '@/components/colors'
+import { FetchInfo, SavedEvent, UsersInfo } from '@/types/State'
+import { formatMarkers } from '@/format/releaseData'
 
 const formatGraphData = (
     pullRequests:PullRequest[] = [],
@@ -98,22 +100,28 @@ const hasTrimmedMaths = (graphs:Graph[] = []) => {
 }
 
 type CustomGraphsProps = {
-    chunkyData: TableData[][],
-    pullRequests: PullRequest[],
-    issues?: Issue[],
-    releases?: EventInfo[],
-    tableOpenedByDefault?: boolean,
+    chunkyData: TableData[][]
+    pullRequests: PullRequest[]
+    issues?: Issue[]
+    releases?: EventInfo[]
+    events: SavedEvent[]
+    usersInfo: UsersInfo
+    tableOpenedByDefault?: boolean
 }
 const CustomGraphs = ({
     chunkyData = [],
     pullRequests = [],
     issues = [],
     releases = [],
+    events = [],
+    usersInfo = {},
     tableOpenedByDefault = false,
 }: CustomGraphsProps) => {
     const { theme } = useTheme()
     const colorA = graphColors[theme].secondary
     const colorB = graphColors[theme].primary
+
+    const markers = formatMarkers({ events, releases, usersInfo })
 
     const defaultState:Graph[] = [{
         graphId: 1,
@@ -172,7 +180,7 @@ const CustomGraphs = ({
                                     setGraph={setGraph}
                                     graphs={graphs}
                                     blockHeading={true}
-                                    markers={releases}
+                                    markers={markers}
                                     showLegends={false}
                                     data={data}
                                     tableKeys={getTableKeys(graphInfo)}
@@ -223,9 +231,14 @@ const CustomGraphs = ({
 
 type State = {
     issues: Issue[]
+    releases: EventInfo[]
+    fetches: FetchInfo
 }
 const mapStateToProps = (state:State) => ({
     issues: state.issues,
+    releases: state.releases,
+    events: state.fetches.events,
+    usersInfo: state.fetches.usersInfo,
 })
 
 export default connect(mapStateToProps)(CustomGraphs)

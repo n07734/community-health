@@ -1,7 +1,7 @@
 
 import { connect } from 'react-redux'
 import { EventInfo, PullRequest } from '@/types/FormattedData'
-import { FetchInfo } from '@/types/State'
+import { FetchInfo, SavedEvent, UsersInfo } from '@/types/State'
 import { LineInfo, TableData } from '@/types/Graphs'
 
 import { useShowNames } from '@/state/ShowNamesProvider'
@@ -10,21 +10,28 @@ import Paper from '@/components/shared/Paper'
 import ChartDescription from '@/components/shared/ChartDescription'
 import GraphsWrap from '@/components/shared/GraphsWrap'
 import { colors } from '@/components/colors'
+import { formatMarkers } from '@/format/releaseData'
 
 
 type SentimentProps = {
     chunkyData: TableData[][]
     pullRequests: PullRequest[]
     releases: EventInfo[]
+    events: SavedEvent[]
     userIds: string[]
+    usersInfo: UsersInfo
 }
 const Sentiment = ({
     chunkyData = [],
     pullRequests = [],
     releases = [],
+    events = [],
     userIds = [],
+    usersInfo = {},
 }:SentimentProps) => {
     const { showNames } = useShowNames()
+
+    const markers = formatMarkers({ events, releases, usersInfo })
 
     const lines = userIds
         .map((userId, i) => {
@@ -64,7 +71,7 @@ const Sentiment = ({
             </ChartDescription>
             <GraphsWrap>
                 <Line
-                    markers={releases}
+                    markers={markers}
                     showLegends={true}
                     title="Sentiment in PRs between team and reviewers"
                     data={[
@@ -117,6 +124,8 @@ type State = {
 const mapStateToProps = (state:State) => ({
     releases: state.releases,
     userIds: state.fetches.userIds,
+    events: state.fetches.events,
+    usersInfo: state.fetches.usersInfo,
 })
 
 export default connect(mapStateToProps)(Sentiment)

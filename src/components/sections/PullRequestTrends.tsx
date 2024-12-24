@@ -1,6 +1,6 @@
 
 import { connect } from 'react-redux'
-import { UsersInfo } from '@/types/State'
+import { FetchInfo, SavedEvent, UsersInfo } from '@/types/State'
 import { EventInfo, PullRequest } from '@/types/FormattedData'
 
 import Paper from '@/components/shared/Paper'
@@ -14,19 +14,21 @@ import { splitByAuthor } from '@/components/charts/lineHelpers'
 import { useTheme } from '@/components/ThemeProvider'
 import { graphColors } from '@/components/colors'
 import { TableData } from '@/types/Graphs'
-
+import { formatMarkers } from '@/format/releaseData'
 
 type PullRequestTrendsProps = {
     chunkyData: TableData[][]
     pullRequests: PullRequest[]
     releases: EventInfo[]
     userIds: string[]
+    events: SavedEvent[]
     usersInfo: UsersInfo
 }
 const PullRequestTrends = ({
     chunkyData = [],
     pullRequests = [],
     releases = [],
+    events = [],
     userIds = [],
     usersInfo = {},
 }:PullRequestTrendsProps) => {
@@ -41,6 +43,8 @@ const PullRequestTrends = ({
     const byAuthorData = isTeamPage
         ? splitByAuthor({pullRequests, showNames, usersInfo})
         : []
+
+    const markers = formatMarkers({ events, releases, usersInfo })
 
     return pullRequests.length > 0 && (
         <Paper>
@@ -59,7 +63,7 @@ const PullRequestTrends = ({
                     isTeamPage && <>
                         <Line
                             title="PRs by author"
-                            markers={releases}
+                            markers={markers}
                             showLegends={true}
                             data={byAuthorData}
                             tableData={chunkyData}
@@ -69,7 +73,7 @@ const PullRequestTrends = ({
                 }
                 { /* TODO:Scatterplot is slow, maybe trim data */}
                 {/* <Scatterplot
-                    markers={releases}
+                    markers={markers}
                     data={[
                         {
                             lines: [
@@ -87,7 +91,7 @@ const PullRequestTrends = ({
                     tableKeys={['author', 'prSize']}
                 /> */}
                 <Line
-                    markers={releases}
+                    markers={markers}
                     data={[
                         {
                             lines: [
@@ -107,7 +111,7 @@ const PullRequestTrends = ({
                 />
 
                 <Line
-                    markers={releases}
+                    markers={markers}
                     data={[
                         {
                             lines: [
@@ -143,7 +147,7 @@ const PullRequestTrends = ({
                 />
 
                 <Line
-                    markers={releases}
+                    markers={markers}
                     data={[
                         {
                             lines: [
@@ -177,15 +181,12 @@ const PullRequestTrends = ({
 }
 
 type State = {
-    releases: EventInfo[],
-    fetches: {
-        userIds: string[],
-        usersInfo: UsersInfo,
-    },
-
+    releases: EventInfo[]
+    fetches: FetchInfo,
 }
 const mapStateToProps = (state: State) => ({
     releases: state.releases,
+    events: state.fetches.events,
     userIds: state.fetches.userIds,
     usersInfo: state.fetches.usersInfo,
 })

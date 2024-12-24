@@ -1,7 +1,7 @@
 
 import { connect } from 'react-redux'
 import { EventInfo, PullRequest } from '@/types/FormattedData'
-import { UsersInfo, UserData, UserDataNumbersKeys } from '@/types/State'
+import { UsersInfo, UserData, UserDataNumbersKeys, FetchInfo, SavedEvent } from '@/types/State'
 import { BarData, TableData } from '@/types/Graphs'
 
 import { useShowNames } from '@/state/ShowNamesProvider'
@@ -16,23 +16,26 @@ import { splitByAuthor, rainbowData } from '@/components/charts/lineHelpers'
 import { sortByKeys } from '@/utils'
 import { useTheme } from "@/components/ThemeProvider"
 import { graphColors } from '@/components/colors'
+import { formatMarkers } from '@/format/releaseData'
 
 type TeamTrendsProps = {
     pullRequests: PullRequest[]
-    releases?: EventInfo[]
     chunkyData: TableData[][]
     usersData?: UserData[]
     allRepos?:Record<string, number>
     userIds?: string[]
-    usersInfo?: UsersInfo
+    releases: EventInfo[]
+    events: SavedEvent[]
+    usersInfo: UsersInfo
 }
 const TeamTrends = ({
     pullRequests = [],
-    releases = [],
     chunkyData = [],
     usersData = [],
     allRepos = {},
     userIds = [],
+    releases = [],
+    events = [],
     usersInfo = {},
 }: TeamTrendsProps) => {
     const { theme } = useTheme()
@@ -40,6 +43,8 @@ const TeamTrends = ({
     const colorB = graphColors[theme].primary
 
     const { showNames } = useShowNames()
+
+    const markers = formatMarkers({ events, releases, usersInfo })
 
     const maxAuthors = userIds.length || 15
     const keys:UserDataNumbersKeys[] = [
@@ -162,7 +167,7 @@ const TeamTrends = ({
                     byAuthorData.length > 0 && byAuthorData?.[0]?.lines?.length < 21 &&
                         <Line
                             title="PRs by author"
-                            markers={releases}
+                            markers={markers}
                             showLegends={true}
                             data={byAuthorData}
                             tableData={chunkyData}
@@ -183,14 +188,14 @@ const TeamTrends = ({
 
 type State = {
     usersData: UserData[]
-    fetches: {
-        userIds: string[]
-        usersInfo: UsersInfo
-    }
+    releases: EventInfo[]
+    fetches: FetchInfo
 }
 const mapStateToProps = (state:State) => ({
+    releases: state.releases,
     usersData: state.usersData,
     userIds: state.fetches.userIds,
+    events: state.fetches.events,
     usersInfo: state.fetches.usersInfo,
 })
 

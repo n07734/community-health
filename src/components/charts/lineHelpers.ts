@@ -310,16 +310,17 @@ const formatGraphMarkers = (markers: EventInfo[], styles: Styles, lineData: Line
         MAJOR: 'primary',
         MINOR: 'secondary',
         PATCH: 'tertiary',
+        EVENT: 'primary',
     }
 
     // colorList[i % colorList.length]
     const offsetSteps = [0, 18, 36, 54, 72, 90]
 
     const formattedMarkers = markers
-        .filter(({ date }) => {
+        .filter(({ date, releaseType }) => {
             const currentDate = new Date(date)
 
-            return currentDate > dateStart && currentDate < dateEnd
+            return releaseType !== 'PATCH' && currentDate > dateStart && currentDate < dateEnd
         })
         .map((item: EventInfo, i: number) => ({
             axis: 'x',
