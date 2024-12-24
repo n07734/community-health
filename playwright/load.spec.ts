@@ -43,7 +43,7 @@ test.describe('Initial page load', () => {
 
 test.describe('Screenshots for each report type', () => {
     test('Org report screenshot matches baseline', async ({ page }) => {
-        await page.goto('/?report=vitejs')
+        await page.goto('/?report=vitejs-test')
         await page.waitForSelector(select.loader, { state: 'detached' })
         await page.waitForSelector(select.reportTitle)
 
@@ -54,7 +54,7 @@ test.describe('Screenshots for each report type', () => {
     })
 
     test('Repo screenshot matches baseline', async ({ page }) => {
-        await page.goto('/?report=microsoft-playwright')
+        await page.goto('/?report=microsoft-playwright-test')
         await page.waitForSelector(select.loader, { state: 'detached' })
         await page.waitForSelector(select.reportTitle)
 
@@ -65,7 +65,7 @@ test.describe('Screenshots for each report type', () => {
     })
 
     test('Team screenshot matches baseline', async ({ page }) => {
-        await page.goto('/?report=ReactCore')
+        await page.goto('/?report=ViteCore-test')
         await page.waitForSelector(select.loader, { state: 'detached' })
         await page.waitForSelector(select.reportTitle)
 
@@ -76,7 +76,7 @@ test.describe('Screenshots for each report type', () => {
     })
 })
 
-test.describe('Screenshots for top up for each each report type', () => {
+test.describe('Top up', () => {
     test.beforeEach(async () => {
         // Increase timeout for these tests as they use a github token a lot which can be slow and throttled
         test.setTimeout(130_000)
@@ -85,44 +85,44 @@ test.describe('Screenshots for top up for each each report type', () => {
     const topUpReports = [
         {
             type: 'org',
-            report: 'vitejs',
+            report: 'vitejs-test',
             amount: 'Get 1 month data',
             direction: 'Append data',
         },
         {
             type: 'org',
-            report: 'vitejs',
+            report: 'vitejs-test',
             amount: 'Get 1 month data',
             direction: 'Prepend data',
         },
         {
             type: 'repo',
-            report: 'microsoft-playwright',
+            report: 'microsoft-playwright-test',
             amount: 'Get 1 month data',
             direction: 'Append data',
         },
         {
             type: 'repo',
-            report: 'microsoft-playwright',
+            report: 'microsoft-playwright-test',
             amount: 'Get 1 month data',
             direction: 'Prepend data',
         },
         {
             type: 'team',
-            report: 'ViteCore',
-            amount: 'Get 1 month data',
+            report: 'ViteCore-test',
+            amount: 'Get 3 months data',
             direction: 'Append data',
         },
         {
             type: 'team',
-            report: 'ViteCore',
-            amount: 'Get 1 month data',
+            report: 'ViteCore-test',
+            amount: 'Get 3 months data',
             direction: 'Prepend data',
         },
     ]
 
     topUpReports.forEach(({ type, report, amount, direction }) => {
-        test(`${type} ${report} ${amount} ${direction} screenshot`, async ({ page }) => {
+        test(`${type} ${direction}`, async ({ page }) => {
             await page.goto(`/?report=${report}`)
 
             await page.waitForSelector(select.expandForm)
