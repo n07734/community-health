@@ -122,6 +122,10 @@ export type AllState = {
         trimmedReleases: {
             trimmedLeftReleases: EventInfo[]
             trimmedRightReleases: EventInfo[]
+        },
+        trimmedIssues: {
+            trimmedLeftIssues: Issue[]
+            trimmedRightIssues: Issue[]
         }
     }
     usersData: UserData[]

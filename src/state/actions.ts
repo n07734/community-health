@@ -351,10 +351,15 @@ const trimItems = (dateFrom = '', dateTo = '') => async (dispatch: Dispatch<AnyA
                 trimmedLeftReleases = [],
                 trimmedRightReleases = [],
             } = {},
+            trimmedIssues: {
+                trimmedLeftIssues = [],
+                trimmedRightIssues = [],
+            } = {},
         } = {},
         pullRequests = [],
         reviewedPullRequests = [],
         releases = [],
+        issues = [],
     } = getState();
 
     const itemsTrimmer = trimmer(dateFrom, dateTo)
@@ -412,6 +417,23 @@ const trimItems = (dateFrom = '', dateTo = '') => async (dispatch: Dispatch<AnyA
         payload: keptReleases,
     })
 
+    const allIssues = [
+        trimmedLeftIssues,
+        issues,
+        trimmedRightIssues,
+    ]
+
+    const [
+        newTrimmedLeftIssues,
+        keptIssues,
+        newTrimmedRightIssues,
+    ] = itemsTrimmer('mergedAt', allIssues)
+
+    dispatch({
+        type: types.ADD_ISSUES,
+        payload: keptIssues,
+    })
+
     dispatch({
         type: types.ADD_TRIMMED_ITEMS,
         payload: {
@@ -426,6 +448,10 @@ const trimItems = (dateFrom = '', dateTo = '') => async (dispatch: Dispatch<AnyA
             trimmedReleases: {
                 trimmedLeftReleases: newTrimmedLeftReleases,
                 trimmedRightReleases: newTrimmedRightReleases,
+            },
+            trimmedIssues: {
+                trimmedLeftIssues: newTrimmedLeftIssues,
+                trimmedRightIssues: newTrimmedRightIssues,
             },
         },
     })
