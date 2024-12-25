@@ -49,7 +49,7 @@ const PrefetchedReport = (props: PrefetchedReportProps) => {
     ]
 
     const urlReport = urlParams.get('report')
-    const report = urlReport || myPreFetchedReports[0]?.fileName || 'vitejs'
+    const report = urlReport || myPreFetchedReports[0]?.fileName || 'bluesky-social-social-app'
 
     const isAPreFetchedReport = allItems
         .some(x => x.fileName === report)
