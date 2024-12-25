@@ -33,12 +33,9 @@
       "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0yNFQwNDozNzowOCswMDowMM6GIxic",
       "oldest": "Y3Vyc29yOnYyOpK5MjAyMi0wOC0zMVQyMDozNjozOCswMTowMM4-J4Xx"
     },
-    "releasesPagination": {
-      "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0yMlQxNzo0NTowOCswMDowMM4LciuY",
-      "oldest": "Y3Vyc29yOnYyOpK5MjAyNC0wMy0xMVQyMToyNjoxOCswMDowMM4Isvyx"
-    },
+    "releasesPagination": {},
     "issuesPagination": {
-      "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0yNFQxNzozODozNyswMDowMM6kZi4O",
+      "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0yNVQwNzoyNTowNSswMDowMM6kbI6_",
       "oldest": "Y3Vyc29yOnYyOpK5MjAyMi0xMS0yMlQxNTo1MDoyNSswMDowMM5XB8Ac"
     }
   },
@@ -86314,9 +86311,7 @@
       "approvers": {
         "gaearon": 1
       }
-    }
-  ],
-  "filteredPRs": [
+    },
     {
       "repo": "social-app",
       "org": "bluesky-social",
@@ -86465,7 +86460,9 @@
       "commentsAuthor": 1,
       "commentAuthorSentimentScore": 7,
       "commentSentimentTotalScore": 17
-    },
+    }
+  ],
+  "filteredPRs": [
     {
       "repo": "social-app",
       "org": "bluesky-social",
@@ -104025,9 +104022,7 @@
       "age": 1,
       "url": "https://github.com/bluesky-social/social-app/issues/7246",
       "isBug": true
-    }
-  ],
-  "filteredIssues": [
+    },
     {
       "mergedAt": "2024-12-23T05:45:24Z",
       "createdAt": "2024-12-23T05:45:24Z",
@@ -104082,24 +104077,11 @@
       "url": "https://github.com/bluesky-social/social-app/issues/7261"
     },
     {
-      "mergedAt": "2024-12-24T17:38:37Z",
-      "createdAt": "2024-12-24T17:38:37Z",
+      "mergedAt": "2024-12-24T02:03:11Z",
+      "createdAt": "2024-12-24T02:03:11Z",
       "age": 1,
-      "url": "https://github.com/bluesky-social/social-app/issues/7268",
+      "url": "https://github.com/bluesky-social/social-app/issues/7263",
       "isBug": true
-    },
-    {
-      "mergedAt": "2024-12-24T13:52:35Z",
-      "createdAt": "2024-12-24T13:52:35Z",
-      "age": 1,
-      "url": "https://github.com/bluesky-social/social-app/issues/7267",
-      "isBug": true
-    },
-    {
-      "mergedAt": "2024-12-24T10:38:37Z",
-      "createdAt": "2024-12-24T10:38:37Z",
-      "age": 1,
-      "url": "https://github.com/bluesky-social/social-app/issues/7266"
     },
     {
       "mergedAt": "2024-12-24T02:20:02Z",
@@ -104109,12 +104091,40 @@
       "isBug": true
     },
     {
-      "mergedAt": "2024-12-24T02:03:11Z",
-      "createdAt": "2024-12-24T02:03:11Z",
+      "mergedAt": "2024-12-24T10:38:37Z",
+      "createdAt": "2024-12-24T10:38:37Z",
       "age": 1,
-      "url": "https://github.com/bluesky-social/social-app/issues/7263",
+      "url": "https://github.com/bluesky-social/social-app/issues/7266"
+    },
+    {
+      "mergedAt": "2024-12-24T13:52:35Z",
+      "createdAt": "2024-12-24T13:52:35Z",
+      "age": 1,
+      "url": "https://github.com/bluesky-social/social-app/issues/7267",
       "isBug": true
     },
+    {
+      "mergedAt": "2024-12-24T17:38:37Z",
+      "createdAt": "2024-12-24T17:38:37Z",
+      "age": 1,
+      "url": "https://github.com/bluesky-social/social-app/issues/7268",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-12-24T20:43:17Z",
+      "createdAt": "2024-12-24T20:43:17Z",
+      "age": 1,
+      "url": "https://github.com/bluesky-social/social-app/issues/7269",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-12-24T21:29:34Z",
+      "createdAt": "2024-12-24T21:29:34Z",
+      "age": 1,
+      "url": "https://github.com/bluesky-social/social-app/issues/7270"
+    }
+  ],
+  "filteredIssues": [
     {
       "mergedAt": "2022-11-28T18:29:27Z",
       "createdAt": "2022-11-28T18:29:27Z",
@@ -104260,124 +104270,40 @@
       "createdAt": "2022-11-22T15:50:25Z",
       "age": 1,
       "url": "https://github.com/bluesky-social/social-app/issues/3"
+    },
+    {
+      "mergedAt": "2024-12-25T00:03:47Z",
+      "createdAt": "2024-12-25T00:03:47Z",
+      "age": 1,
+      "url": "https://github.com/bluesky-social/social-app/issues/7271",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-12-25T01:29:23Z",
+      "createdAt": "2024-12-25T01:29:23Z",
+      "age": 1,
+      "url": "https://github.com/bluesky-social/social-app/issues/7272"
+    },
+    {
+      "mergedAt": "2024-12-25T02:57:55Z",
+      "createdAt": "2024-12-25T02:57:55Z",
+      "age": 1,
+      "url": "https://github.com/bluesky-social/social-app/issues/7273"
+    },
+    {
+      "mergedAt": "2024-12-25T04:30:53Z",
+      "createdAt": "2024-12-25T04:30:53Z",
+      "age": 1,
+      "url": "https://github.com/bluesky-social/social-app/issues/7274"
+    },
+    {
+      "mergedAt": "2024-12-25T07:25:05Z",
+      "createdAt": "2024-12-25T07:25:05Z",
+      "age": 1,
+      "url": "https://github.com/bluesky-social/social-app/issues/7275",
+      "isBug": true
     }
   ],
-  "releases": [
-    {
-      "date": "2024-03-11",
-      "description": "1.72.0",
-      "releaseType": "MAJOR"
-    },
-    {
-      "date": "2024-04-14",
-      "description": "1.77.0",
-      "releaseType": "MINOR"
-    },
-    {
-      "date": "2024-05-07",
-      "description": "1.81.0",
-      "releaseType": "MINOR"
-    },
-    {
-      "date": "2024-05-14",
-      "description": "1.82.0",
-      "releaseType": "MINOR"
-    },
-    {
-      "date": "2024-05-21",
-      "description": "1.83.0",
-      "releaseType": "MINOR"
-    },
-    {
-      "date": "2024-05-24",
-      "description": "1.84.0",
-      "releaseType": "MINOR"
-    },
-    {
-      "date": "2024-06-05",
-      "description": "1.85.0",
-      "releaseType": "MINOR"
-    },
-    {
-      "date": "2024-06-06",
-      "description": "1.85.1",
-      "releaseType": "PATCH"
-    },
-    {
-      "date": "2024-06-11",
-      "description": "1.86.0",
-      "releaseType": "MINOR"
-    },
-    {
-      "date": "2024-06-26",
-      "description": "1.87.0",
-      "releaseType": "MINOR"
-    },
-    {
-      "date": "2024-07-05",
-      "description": "1.88.0",
-      "releaseType": "MINOR"
-    },
-    {
-      "date": "2024-07-24",
-      "description": "1.89.0",
-      "releaseType": "MINOR"
-    },
-    {
-      "date": "2024-08-28",
-      "description": "1.90.1",
-      "releaseType": "MINOR"
-    },
-    {
-      "date": "2024-09-07",
-      "description": "1.91.0",
-      "releaseType": "MINOR"
-    },
-    {
-      "date": "2024-09-14",
-      "description": "1.91.1",
-      "releaseType": "PATCH"
-    },
-    {
-      "date": "2024-09-17",
-      "description": "1.91.2",
-      "releaseType": "PATCH"
-    },
-    {
-      "date": "2024-10-09",
-      "description": "1.92.0",
-      "releaseType": "MINOR"
-    },
-    {
-      "date": "2024-10-12",
-      "description": "1.92.1",
-      "releaseType": "PATCH"
-    },
-    {
-      "date": "2024-11-04",
-      "description": "1.93.0",
-      "releaseType": "MINOR"
-    },
-    {
-      "date": "2024-11-16",
-      "description": "1.94.0",
-      "releaseType": "MINOR"
-    },
-    {
-      "date": "2024-11-27",
-      "description": "1.95.0",
-      "releaseType": "MINOR"
-    },
-    {
-      "date": "2024-12-18",
-      "description": "1.96.0",
-      "releaseType": "MINOR"
-    },
-    {
-      "date": "2024-12-22",
-      "description": "1.96.2",
-      "releaseType": "PATCH"
-    }
-  ],
+  "releases": [],
   "preFetchedName": "bluesky-social-social-app"
 }
