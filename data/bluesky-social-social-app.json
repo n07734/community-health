@@ -36,7 +36,7 @@
     "releasesPagination": {},
     "issuesPagination": {
       "newest": "Y3Vyc29yOnYyOpK5MjAyNC0xMi0yNVQwNzoyNTowNSswMDowMM6kbI6_",
-      "oldest": "Y3Vyc29yOnYyOpK5MjAyMi0xMS0yMlQxNTo1MDoyNSswMDowMM5XB8Ac"
+      "oldest": "Y3Vyc29yOnYyOpK5MjAyMi0xMS0yOFQxNDowODoyMCswMDowMM5XaPEq"
     }
   },
   "pullRequests": [
@@ -86460,6 +86460,49 @@
       "commentsAuthor": 1,
       "commentAuthorSentimentScore": 7,
       "commentSentimentTotalScore": 17
+    },
+    {
+      "repo": "social-app",
+      "org": "bluesky-social",
+      "author": "mozzius",
+      "url": "https://github.com/bluesky-social/social-app/pull/7257",
+      "additions": 51,
+      "deletions": 6,
+      "prSize": 57,
+      "mergedAt": "2024-12-24T20:05:54Z",
+      "cycleTime": 1,
+      "age": 1,
+      "approvals": 1,
+      "approvers": {
+        "gaearon": 1
+      },
+      "generalComments": 6,
+      "generalCommenters": {
+        "gaearon": 4,
+        "Skaldebane": 2
+      },
+      "generalCommentSentimentScore": 6,
+      "generalCommentSentiments": {
+        "gaearon": 7,
+        "Skaldebane": -1
+      },
+      "generalCommentSentimentTotalScore": 6,
+      "codeCommentsAuthor": 2,
+      "codeCommentAuthorSentimentScore": 2,
+      "codeCommentSentimentTotalScore": 2,
+      "comments": 6,
+      "commenters": {
+        "gaearon": 4,
+        "Skaldebane": 2
+      },
+      "commentSentimentScore": 6,
+      "commentSentiments": {
+        "gaearon": 7,
+        "Skaldebane": -1
+      },
+      "commentsAuthor": 2,
+      "commentAuthorSentimentScore": 2,
+      "commentSentimentTotalScore": 8
     }
   ],
   "filteredPRs": [
@@ -88370,7 +88413,7 @@
     {
       "mergedAt": "2023-05-15T21:12:14Z",
       "createdAt": "2023-05-15T21:12:14Z",
-      "age": 1,
+      "age": 588,
       "url": "https://github.com/bluesky-social/social-app/issues/624"
     },
     {
@@ -104126,6 +104169,38 @@
   ],
   "filteredIssues": [
     {
+      "mergedAt": "2024-12-25T07:25:05Z",
+      "createdAt": "2024-12-25T07:25:05Z",
+      "age": 1,
+      "url": "https://github.com/bluesky-social/social-app/issues/7275",
+      "isBug": true
+    },
+    {
+      "mergedAt": "2024-12-25T04:30:53Z",
+      "createdAt": "2024-12-25T04:30:53Z",
+      "age": 1,
+      "url": "https://github.com/bluesky-social/social-app/issues/7274"
+    },
+    {
+      "mergedAt": "2024-12-25T02:57:55Z",
+      "createdAt": "2024-12-25T02:57:55Z",
+      "age": 1,
+      "url": "https://github.com/bluesky-social/social-app/issues/7273"
+    },
+    {
+      "mergedAt": "2024-12-25T01:29:23Z",
+      "createdAt": "2024-12-25T01:29:23Z",
+      "age": 1,
+      "url": "https://github.com/bluesky-social/social-app/issues/7272"
+    },
+    {
+      "mergedAt": "2024-12-25T00:03:47Z",
+      "createdAt": "2024-12-25T00:03:47Z",
+      "age": 1,
+      "url": "https://github.com/bluesky-social/social-app/issues/7271",
+      "isBug": true
+    },
+    {
       "mergedAt": "2022-11-28T18:29:27Z",
       "createdAt": "2022-11-28T18:29:27Z",
       "age": 167,
@@ -104227,81 +104302,6 @@
       "createdAt": "2022-11-28T14:08:20Z",
       "age": 72,
       "url": "https://github.com/bluesky-social/social-app/issues/10"
-    },
-    {
-      "mergedAt": "2022-11-28T14:06:33Z",
-      "createdAt": "2022-11-28T14:06:33Z",
-      "age": 1,
-      "url": "https://github.com/bluesky-social/social-app/issues/9"
-    },
-    {
-      "mergedAt": "2022-11-28T14:02:24Z",
-      "createdAt": "2022-11-28T14:02:24Z",
-      "age": 72,
-      "url": "https://github.com/bluesky-social/social-app/issues/8"
-    },
-    {
-      "mergedAt": "2022-11-28T13:58:21Z",
-      "createdAt": "2022-11-28T13:58:21Z",
-      "age": 72,
-      "url": "https://github.com/bluesky-social/social-app/issues/7",
-      "isBug": true
-    },
-    {
-      "mergedAt": "2022-11-22T17:22:35Z",
-      "createdAt": "2022-11-22T17:22:35Z",
-      "age": 13,
-      "url": "https://github.com/bluesky-social/social-app/issues/6"
-    },
-    {
-      "mergedAt": "2022-11-22T17:21:19Z",
-      "createdAt": "2022-11-22T17:21:19Z",
-      "age": 9,
-      "url": "https://github.com/bluesky-social/social-app/issues/5"
-    },
-    {
-      "mergedAt": "2022-11-22T15:52:24Z",
-      "createdAt": "2022-11-22T15:52:24Z",
-      "age": 57,
-      "url": "https://github.com/bluesky-social/social-app/issues/4"
-    },
-    {
-      "mergedAt": "2022-11-22T15:50:25Z",
-      "createdAt": "2022-11-22T15:50:25Z",
-      "age": 1,
-      "url": "https://github.com/bluesky-social/social-app/issues/3"
-    },
-    {
-      "mergedAt": "2024-12-25T00:03:47Z",
-      "createdAt": "2024-12-25T00:03:47Z",
-      "age": 1,
-      "url": "https://github.com/bluesky-social/social-app/issues/7271",
-      "isBug": true
-    },
-    {
-      "mergedAt": "2024-12-25T01:29:23Z",
-      "createdAt": "2024-12-25T01:29:23Z",
-      "age": 1,
-      "url": "https://github.com/bluesky-social/social-app/issues/7272"
-    },
-    {
-      "mergedAt": "2024-12-25T02:57:55Z",
-      "createdAt": "2024-12-25T02:57:55Z",
-      "age": 1,
-      "url": "https://github.com/bluesky-social/social-app/issues/7273"
-    },
-    {
-      "mergedAt": "2024-12-25T04:30:53Z",
-      "createdAt": "2024-12-25T04:30:53Z",
-      "age": 1,
-      "url": "https://github.com/bluesky-social/social-app/issues/7274"
-    },
-    {
-      "mergedAt": "2024-12-25T07:25:05Z",
-      "createdAt": "2024-12-25T07:25:05Z",
-      "age": 1,
-      "url": "https://github.com/bluesky-social/social-app/issues/7275",
-      "isBug": true
     }
   ],
   "releases": [],
