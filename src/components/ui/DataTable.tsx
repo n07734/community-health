@@ -103,6 +103,51 @@ const allColumns: ColumnDef<TableData>[] = [
         header: header('PR Age (days)'),
     },
     {
+        accessorKey: 'comments',
+        header: header('Comments'),
+        cell: ({ row }) => {
+            const value:number = row.getValue('comments')
+
+            return value || 0;
+        },
+    },
+    {
+        accessorKey: 'approvals',
+        header: header('Approvals'),
+        cell: ({ row }) => {
+            const value:number = row.getValue('approvals')
+
+            return value || 0;
+        },
+    },
+    {
+        accessorKey: 'commentSentimentScore',
+        header: header('Sentiment received'),
+        cell: ({ row }) => {
+            const value:number = row.getValue('commentSentimentScore')
+
+            return value || 0;
+        },
+    },
+    {
+        accessorKey: 'commentAuthorSentimentScore',
+        header: header('Sentiment given'),
+        cell: ({ row }) => {
+            const value:number = row.getValue('commentAuthorSentimentScore')
+
+            return value || 0;
+        },
+    },
+    {
+        accessorKey: 'commentSentimentTotalScore',
+        header: header('Sentiment'),
+        cell: ({ row }) => {
+            const value:number = row.getValue('commentSentimentTotalScore')
+
+            return value || 0;
+        },
+    },
+    {
         accessorKey: 'prSize',
         header: header('PR Size'),
     },
