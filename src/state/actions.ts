@@ -39,6 +39,7 @@ import formatUserData from '../format/userData'
 import { formatReleaseData } from '../format/releaseData'
 import types from './types'
 import { EventInfo, PullRequest } from '../types/FormattedData'
+import { Graph } from '@/types/Graphs'
 
 const storeToken = (token = '') => ({
     type: types.STORE_TOKEN,
@@ -847,6 +848,11 @@ const parseJSON = (response: { status: number, json(): Promise<object> }) => new
         })
 })
 
+const storeCartConfig = (chartConfig:Graph[] = []) => (dispatch: Dispatch<AnyAction>) => dispatch({
+    type: types.STORE_CART_CONFIG,
+    payload: chartConfig,
+})
+
 const getPreFetched = ({
     fileName = '',
     externalURL = '',
@@ -912,7 +918,7 @@ const getDownloadProps = (_dispatch: () => void, getState: () => AllState) => {
 
     const getReportData = pipe(
         assoc('HOW_TO', '1: Add this file to ./src/myReports 2: Run the app. If you want multiple reports you will need to edit ./src/myReports/myReportsConfig.js.'),
-        pickAll(['fetches', 'pullRequests', 'filteredPRs', 'reviewedPullRequests', 'filteredReviewedPRs', 'userData', 'issues', 'filteredIssues', 'releases', 'teamName']),
+        pickAll(['fetches', 'pullRequests', 'filteredPRs', 'reviewedPullRequests', 'filteredReviewedPRs', 'userData', 'issues', 'filteredIssues', 'releases', 'teamName', 'chartConfig']),
         dissocPath(['fetches', 'token']),
         dissocPath(['sortDirection']),
         dissocPath(['fetches', 'amountOfData']),
@@ -962,6 +968,7 @@ export {
     storeFormUntilDate,
     storeUntilDate,
     storeSortDirection,
+    storeCartConfig,
     getAPIData,
     getPreFetched,
     getDownloadProps,

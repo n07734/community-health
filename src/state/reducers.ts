@@ -1,6 +1,9 @@
 import { combineReducers } from 'redux'
+
 import types from './types'
-import { AnyForNow } from '../types/State'
+import { AnyForNow } from '@/types/State'
+import { Graph } from '@/types/Graphs'
+import { colors } from '@/components/colors'
 
 const setClear = <T>(startValue: T) =>
     (storeKey: string, clearKey: string) =>
@@ -20,6 +23,26 @@ const setClearString = setClear<string>('')
 const setClearArray = setClear<AnyForNow[]>([])
 const setClearObject = setClear<object>({})
 const setClearPagination = setClear({ hasNextPage: true })
+
+const chartConfigDefault: Graph[] = [{
+    graphId: 1,
+    left: [
+        {
+            label: '*Trimmed Average PR Age (days)',
+            color: colors[2],
+            dataKey: 'age',
+            groupMath: 'trimmedAverage',
+        },
+    ],
+    right: [
+        {
+            label: '*Trimmed Average PR Size',
+            color: colors[0],
+            dataKey: 'prSize',
+            groupMath: 'trimmedAverage',
+        },
+    ],
+}]
 
 const reducers = combineReducers({
     fetches: combineReducers({
@@ -70,6 +93,12 @@ const reducers = combineReducers({
     error: setClearString('FETCH_ERROR', 'CLEAR_FETCH_ERROR'),
     preFetchedError: setClearString('PRE_FETCH_ERROR', 'CLEAR_PRE_FETCH_ERROR'),
     preFetchedName: setClearString('PREFETCHED_NAME', 'CLEAR_PREFETCHED_NAME'),
+    chartConfig: (charts = chartConfigDefault, action) => [
+        action.type === types.STORE_CART_CONFIG
+            && action.payload,
+        action.type === types.CLEAR_CART_CONFIG && [],
+        charts,
+    ].find(Boolean),
     pullRequests: (prs = [], action) => [
         action.type === types.ADD_PRS
             && action.payload,

@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { connect } from 'react-redux'
 import { EventInfo, Issue, PullRequest } from '@/types/FormattedData'
 import { ColumnKeys, TableData, Graph, GraphLine, Lines } from '@/types/Graphs'
@@ -10,10 +9,9 @@ import { Button } from '@/components/ui/button'
 import GraphsWrap from '@/components/shared/GraphsWrap'
 import Line from '@/components/charts/Line'
 import GraphUi from '@/components/charts/GraphUi'
-import { useTheme } from "@/components/ThemeProvider"
-import { graphColors } from '@/components/colors'
-import { FetchInfo, SavedEvent, UsersInfo } from '@/types/State'
+import { AnyForLib, FetchInfo, SavedEvent, UsersInfo } from '@/types/State'
 import { formatMarkers } from '@/format/releaseData'
+import { storeCartConfig } from '@/state/actions'
 
 const formatGraphData = (
     pullRequests:PullRequest[] = [],
@@ -107,6 +105,8 @@ type CustomGraphsProps = {
     events: SavedEvent[]
     usersInfo: UsersInfo
     tableOpenedByDefault?: boolean
+    graphs: Graph[]
+    setGraph: (arg0: Graph[]) => void
 }
 const CustomGraphs = ({
     chunkyData = [],
@@ -116,33 +116,11 @@ const CustomGraphs = ({
     events = [],
     usersInfo = {},
     tableOpenedByDefault = false,
+    graphs = [],
+    setGraph,
 }: CustomGraphsProps) => {
-    const { theme } = useTheme()
-    const colorA = graphColors[theme].secondary
-    const colorB = graphColors[theme].primary
-
     const markers = formatMarkers({ events, releases, usersInfo })
 
-    const defaultState:Graph[] = [{
-        graphId: 1,
-        left: [
-            {
-                label: '*Trimmed Average PR Age (days)',
-                color: colorA,
-                dataKey: 'age',
-                groupMath: 'trimmedAverage',
-            },
-        ],
-        right: [
-            {
-                label: '*Trimmed Average PR Size',
-                color: colorB,
-                dataKey: 'prSize',
-                groupMath: 'trimmedAverage',
-            },
-        ],
-    }]
-    const [graphs, setGraph] = useState(defaultState)
     const showingTrimmed = hasTrimmedMaths(graphs)
 
     const makeGraphData = formatGraphData(pullRequests, issues)
@@ -233,12 +211,18 @@ type State = {
     issues: Issue[]
     releases: EventInfo[]
     fetches: FetchInfo
+    chartConfig: Graph[]
 }
 const mapStateToProps = (state:State) => ({
     issues: state.issues,
     releases: state.releases,
+    graphs: state.chartConfig,
     events: state.fetches.events,
     usersInfo: state.fetches.usersInfo,
 })
 
-export default connect(mapStateToProps)(CustomGraphs)
+const mapDispatchToProps = (dispatch: AnyForLib) => ({
+    setGraph: (chartConfig: Graph[]) => dispatch(storeCartConfig(chartConfig)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(CustomGraphs)
