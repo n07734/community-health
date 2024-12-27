@@ -185,7 +185,11 @@ const Loader = ({
 
     return (
         fetching && <Dialog open={true}>
-            <DialogContentNoClose data-qa-id="loader" className="overflow-scroll max-h-full w-4/5">
+            <DialogContentNoClose
+                aria-describedby={undefined}
+                data-qa-id="loader"
+                className="overflow-scroll max-h-full w-4/5"
+            >
                 {
                     paused
                         && <p> Fetching paused briefly due to Github api throttling.</p>
