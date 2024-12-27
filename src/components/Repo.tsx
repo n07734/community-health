@@ -18,34 +18,25 @@ type RepoViewProps = {
 const RepoView = ({
     pullRequests = [],
 }: RepoViewProps) => {
-    const updatedPullRequests:PullRequest[] = pullRequests
-        .map((prData, i) => ({
-            ...prData,
-            id: `${i}-${prData.repo}-${prData.number}`,
-            commentSentimentTotalScore: (prData.commentSentimentScore || 0) + (prData.commentAuthorSentimentScore || 0),
-            [`${prData.author}-commentsSentimentScore`]: prData.commentSentimentScore,
-            [`${prData.author}-commentAuthorSentimentScore`]: prData.commentAuthorSentimentScore,
-        }))
-
-    const chunkyData = chunkData(updatedPullRequests)
+    const chunkyData = chunkData(pullRequests)
 
     return <>
         <ReportDescription />
         <TeamTrends
-            pullRequests={updatedPullRequests}
+            pullRequests={pullRequests}
             chunkyData={chunkyData}
         />
         <CustomGraphs
-            pullRequests={updatedPullRequests}
+            pullRequests={pullRequests}
             chunkyData={chunkyData}
             tableOpenedByDefault={true}
         />
         <Sentiment
-            pullRequests={updatedPullRequests}
+            pullRequests={pullRequests}
             chunkyData={chunkyData}
         />
         <PullRequestTrends
-            pullRequests={updatedPullRequests}
+            pullRequests={pullRequests}
             chunkyData={chunkyData}
         />
         <IssuesTrends />

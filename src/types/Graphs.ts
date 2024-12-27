@@ -36,7 +36,6 @@ export type LineDataKeys = keyof BugIssue | keyof IssueIssue | keyof PullRequest
 type LineInfoBase = {
     label: string
     color: AllowedColors | string
-    filterForKey?: boolean
     lineStyles?: Record<string, number | string>
     yMax?: number
 }

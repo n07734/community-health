@@ -1,5 +1,4 @@
 export type PullRequest = {
-    id: string
     number: number
     repo: string
     org: string
@@ -36,10 +35,6 @@ export type PullRequest = {
     commentSentiments: Record<string, number>
 
     commentAuthorSentimentScore: number
-
-    [key:`repo-${string}`]: number
-    [key:`${string}-commentsSentimentScore`]: number
-    [key:`${string}-commentAuthorSentimentScore`]: number
 }
 
 export type Issue = {

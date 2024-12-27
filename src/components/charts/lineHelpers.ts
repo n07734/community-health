@@ -64,17 +64,17 @@ const formatDate = (date: string) => {
     return `${info.getFullYear()}-${month < 10 ? `0${month}` : month}-${dayM < 10 ? `0${dayM}` : dayM}`
 }
 
-const averagePerDev = ({ filteredBatch = [] }: { filteredBatch: LineData[] }) => {
+const averagePerDev = ({ batch = [] }: { batch: LineData[] }) => {
     const activeTeam:Record<string, number> = {}
-    filteredBatch
+    batch
         .forEach((pr) => 'prSize' in pr && (activeTeam[pr.author] = 1))
 
-    return Math.round(filteredBatch.length / Object.keys(activeTeam).length)
+    return Math.round(batch.length / Object.keys(activeTeam).length)
 }
 
-const trimmedAverage = ({ filteredBatch = [], dataKey }: { filteredBatch: LineData[], dataKey: LineDataKeys }) => {
+const trimmedAverage = ({ batch = [], dataKey }: { batch: LineData[], dataKey: LineDataKeys }) => {
     const key = dataKey as KeysOfValue<LineData, number>
-    const sortedBatch = filteredBatch
+    const sortedBatch = batch
         .sort(sortByKeys([key]))
 
     const batchLength = sortedBatch.length
@@ -90,12 +90,12 @@ const trimmedAverage = ({ filteredBatch = [], dataKey }: { filteredBatch: LineDa
     return Math.round(average)
 }
 
-const teamDistribution = ({ filteredBatch = [], dataKey = 'comments' }: { filteredBatch: LineData[], dataKey: LineDataKeys }) => {
+const teamDistribution = ({ batch = [], dataKey = 'comments' }: { batch: LineData[], dataKey: LineDataKeys }) => {
     // Distribution is only of active team members within the data
     const activeTeam = new Set<string>([])
     const batchedData:Record<string, number> = {}
 
-    filteredBatch
+    batch
         .forEach((pr) => {
             if (!('prSize' in pr)) {
                 return
@@ -149,9 +149,9 @@ const teamDistribution = ({ filteredBatch = [], dataKey = 'comments' }: { filter
         : distributionPercent
 }
 
-const percentWith = ({ filteredBatch = [], dataKey = 'comments' }: { filteredBatch: LineData[], dataKey: LineDataKeys }) => {
-    const batchLength = filteredBatch.length
-    const withoutValues = filteredBatch
+const percentWith = ({ batch = [], dataKey = 'comments' }: { batch: LineData[], dataKey: LineDataKeys }) => {
+    const batchLength = batch.length
+    const withoutValues = batch
         .filter(x => !x[dataKey as keyof LineData])
 
     const withoutValuesLength = withoutValues.length
@@ -162,9 +162,9 @@ const percentWith = ({ filteredBatch = [], dataKey = 'comments' }: { filteredBat
     return percentageWithValues;
 }
 
-const median = ({ filteredBatch, dataKey }: { filteredBatch: LineData[], dataKey: LineDataKeys }) => {
-    const batchLength = filteredBatch.length
-    const sortedBatch = filteredBatch
+const median = ({ batch, dataKey }: { batch: LineData[], dataKey: LineDataKeys }) => {
+    const batchLength = batch.length
+    const sortedBatch = batch
         .sort(sortByKeys([dataKey as KeysOfValue<LineData, number>]))
 
     const position = Math.floor(batchLength / 2)
@@ -172,8 +172,8 @@ const median = ({ filteredBatch, dataKey }: { filteredBatch: LineData[], dataKey
     return item[dataKey as KeysOfValue<LineData, number>] || 0
 }
 
-const growth = ({ filteredBatch }: { filteredBatch: LineData[] }) => {
-    const growth = filteredBatch
+const growth = ({ batch }: { batch: LineData[] }) => {
+    const growth = batch
         .reduce((acc = 0, item) => {
             if (!('prSize' in item)) {
                 return acc
@@ -186,7 +186,6 @@ const growth = ({ filteredBatch }: { filteredBatch: LineData[] }) => {
 }
 
 const formatBatches = ({
-    filterForKey = false,
     dataKey,
     groupMath = 'average',
 }: LineInfo,
@@ -195,25 +194,19 @@ batches:LineData[][] = [],
     const lineData: LinePlot[] = []
     batches
         .forEach((batch) => {
-            const filteredBatch = batch
-                .filter((x) => dataKey && filterForKey
-                    ? /\d+/.test(`${x[dataKey as keyof LineData]}`)
-                    : true,
-                )
+            const batchLength = batch.length
 
-            const batchLength = filteredBatch.length
-
-            if (!filterForKey || batchLength > 0) {
+            if (batchLength > 0) {
                 const valueByTypes = {
                     average: () => {
                         const value = batchLength > 0
-                            ? Math.round(sumKeysValue(dataKey)(filteredBatch) / batchLength)
+                            ? Math.round(sumKeysValue(dataKey)(batch) / batchLength)
                             : 0
 
                         return value
                     },
                     trimmedAverage,
-                    sum: () => sumKeysValue(dataKey)(filteredBatch),
+                    sum: () => sumKeysValue(dataKey)(batch),
                     count: () => batchLength,
                     averagePerDev,
                     median,
@@ -223,7 +216,7 @@ batches:LineData[][] = [],
                 }
 
                 lineData.push({
-                    y: valueByTypes[groupMath]({ filteredBatch, dataKey }),
+                    y: valueByTypes[groupMath]({ batch, dataKey }),
                     x: formatDate(batch[0].mergedAt),
                 })
             }

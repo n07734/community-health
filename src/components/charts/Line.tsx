@@ -137,7 +137,6 @@ const Line = ({
     const styles = chartStyles(theme)
 
     const { showNumbers } = useShowNumbers()
-    // TODO: function to see time gap in data to help format date e.g. should add year
     const leftAxis = data
         .find(({ xAxis }) => xAxis === 'left') || { data: [], lines: [], xAxis: 'left' }
     const allLeftLineMaxYs = getAllYMax(leftAxis.lines)

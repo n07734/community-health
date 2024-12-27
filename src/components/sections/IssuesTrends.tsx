@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { useTheme } from '@/components/ThemeProvider'
 import { graphColors } from '@/components/colors'
 import { EventInfo, Issue } from '@/types/FormattedData'
+import { IssueIssue } from '@/types/Graphs'
 
 import Paper from '@/components/shared/Paper'
 import ChartDescription from '@/components/shared/ChartDescription'
@@ -13,7 +14,7 @@ import { chunkData } from '@/components/charts/lineHelpers'
 import { FetchInfo, SavedEvent, UsersInfo } from '@/types/State'
 import { formatMarkers } from '@/format/releaseData'
 
-const formatIssueData = (data:Issue[] = []) => data
+const formatIssueData = (data:Issue[] = []): IssueIssue[] => data
     .map((item) => ({
         mergedAt: item.mergedAt,
         ...(
@@ -44,6 +45,17 @@ const IssuesTrends = ({
 
     const markers = formatMarkers({ events, releases, usersInfo })
 
+    const issuesData:IssueIssue[] = []
+    const bugsData: IssueIssue[] = []
+    data.forEach((item) => {
+        if (item.issue) {
+            issuesData.push(item)
+        }
+        if (item.bug) {
+            bugsData.push(item)
+        }
+    })
+
     return data && data.length > 0 && (
         <Paper>
             <ChartDescription
@@ -58,18 +70,16 @@ const IssuesTrends = ({
                                 {
                                     label: 'Issues',
                                     color: colorA,
-                                    filterForKey: true,
                                     dataKey: 'issue',
                                     groupMath: 'count',
-                                    data,
+                                    data: issuesData,
                                 },
                                 {
                                     label: 'Bugs*',
                                     color: colorB,
-                                    filterForKey: true,
                                     dataKey: 'bug',
                                     groupMath: 'count',
-                                    data,
+                                    data: bugsData,
                                 },
                             ],
                             xAxis: 'left',

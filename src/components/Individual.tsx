@@ -43,8 +43,8 @@ const Individual = ({
     const allRepos:Record<string, number> = {}
     const allOrgs:Record<string, number> = {}
     const barMap:BarData = {}
-    const updatedPullRequests:PullRequest[] = pullRequests
-        .map((prData) => {
+    pullRequests
+        .forEach((prData) => {
             const commenters = prData.commenters || {}
             Object.keys(commenters).forEach((author) => {
                 const value = commenters[author] || 0
@@ -65,13 +65,6 @@ const Individual = ({
 
             allRepos[prData.repo] = (allRepos[prData.repo] || 0) + 1
             allOrgs[prData.org] = (allOrgs[prData.org] || 0) + 1
-            return {
-                ...prData,
-                [`repo-${prData.repo}`]: 1,
-                commentSentimentTotalScore: (prData.commentSentimentScore || 0) + (prData.commentAuthorSentimentScore || 0),
-                [`${prData.author}-commentsSentimentScore`]: prData.commentSentimentScore,
-                [`${prData.author}-commentAuthorSentimentScore`]: prData.commentAuthorSentimentScore,
-            }
         })
 
     const updatedUsersInfo:UsersInfo = {
@@ -108,7 +101,7 @@ const Individual = ({
     const sortedUsers = usersData
         .sort(sortByKeys(keys))
 
-    const chunkyData = chunkData(updatedPullRequests)
+    const chunkyData = chunkData(pullRequests)
     const repoPie = rainbowData('repo', allRepos)
 
     return <>
@@ -178,7 +171,7 @@ const Individual = ({
             </GraphsWrap>
         </Paper>
         <CustomGraphs
-            pullRequests={updatedPullRequests}
+            pullRequests={pullRequests}
             chunkyData={chunkyData}
             tableOpenedByDefault={true}
         />

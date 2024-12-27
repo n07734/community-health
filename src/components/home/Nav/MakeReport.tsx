@@ -32,7 +32,7 @@ const MakeReport = ({ setNewReportType, clearReport }: MakeReportProps) => (
             <SheetHeader>
                 <SheetTitle>Make a report</SheetTitle>
                 <SheetDescription>
-                    <p>Choose the type of report you want to make</p>
+                    Choose the type of report you want to make
                 </SheetDescription>
             </SheetHeader>
             <div>

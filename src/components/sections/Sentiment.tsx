@@ -33,6 +33,16 @@ const Sentiment = ({
 
     const markers = formatMarkers({ events, releases, usersInfo })
 
+    const prsByAuthor: Record<string, PullRequest[]> = {}
+    pullRequests
+        .forEach((pr) => {
+            const author = pr.author
+            if (!prsByAuthor[author]) {
+                prsByAuthor[author] = []
+            }
+            prsByAuthor[author].push(pr)
+        })
+
     const lines = userIds
         .map((userId, i) => {
             const label = showNames
@@ -43,16 +53,14 @@ const Sentiment = ({
                 {
                     label: `To ${label}`,
                     color: colors[i % colors.length],
-                    filterForKey: true,
-                    dataKey: `${userId}-commentsSentimentScore`,
-                    data: pullRequests,
+                    dataKey: 'commentSentimentScore',
+                    data: prsByAuthor[userId],
                 },
                 {
                     label: `From ${label}`,
                     color: colors[i % colors.length],
-                    filterForKey: true,
-                    dataKey: `${userId}-commentAuthorSentimentScore`,
-                    data: pullRequests,
+                    dataKey: 'commentAuthorSentimentScore',
+                    data: prsByAuthor[userId],
                 },
             ]
             return lines

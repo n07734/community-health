@@ -34,18 +34,14 @@ const Team = ({
 
     const allRepos:Record<string, number> = {}
     const updatedPullRequests:PullRequest[] = pullRequests
-        .map((prData, i) => {
+        .map((prData) => {
             allRepos[prData.repo] = (allRepos[prData.repo] || 0) + 1
-            return {
-                ...prData,
-                id: `${i}-${prData.repo}-${prData.number}`,
-                teamApprovers: teamOnlyData(prData.approvers),
-                teamCommenters: teamOnlyData(prData.commenters),
-                [`repo-${prData.repo}`]: 1,
-                commentSentimentTotalScore: (prData.commentSentimentScore || 0) + (prData.commentAuthorSentimentScore || 0),
-                [`${prData.author}-commentsSentimentScore`]: prData.commentSentimentScore,
-                [`${prData.author}-commentAuthorSentimentScore`]: prData.commentAuthorSentimentScore,
-            }
+            return Object.assign(
+                prData,
+                {
+                    teamApprovers: teamOnlyData(prData.approvers),
+                    teamCommenters: teamOnlyData(prData.commenters),
+                })
         })
 
     const chunkyData = chunkData(updatedPullRequests)

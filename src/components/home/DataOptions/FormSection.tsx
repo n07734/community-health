@@ -177,7 +177,7 @@ const FormSection = (props:FormSectionProps) => {
             <form
                 onSubmit={handleSubmit}
             >
-                <div className="grid grid-cols-2 gap-2 max-mm:grid-cols-1 items-end">
+                <div className="grid grid-cols-2 gap-2 max-mm:grid-cols-1 items-start">
                     {
                         inputs
                             .map((input: Input) => <TextInput
@@ -206,7 +206,7 @@ const FormSection = (props:FormSectionProps) => {
                         type="token"
                         { ...inputStates }
                     />
-                    <SelectAmountData className="mb-3 max-mm:mb-0" setValue={setValue} amountOfData={formInfo.amountOfData} />
+                    <SelectAmountData className="mb-3 max-mm:mb-0 self-end" setValue={setValue} amountOfData={formInfo.amountOfData} />
                     <p className="col-span-full">
                         To create a token go to your GitHub <a className="text-primary" href="https://github.com/settings/tokens">tokens</a> page, click on &#39;generate new token&#39;, choose the settings &#39;repo&#39; (all), &#39;read:org&#39; and &#39;user&#39; then click &#39;Generate token&#39;.
                     </p>

@@ -17,34 +17,27 @@ const Org = ({
 }: OrgProps) => {
 
     const allRepos:Record<string, number> = {}
-    const updatedPullRequests:PullRequest[] = pullRequests
-        .map((prData:PullRequest, i) => {
+    pullRequests
+        .forEach((prData:PullRequest) => {
             allRepos[prData.repo] = (allRepos[prData.repo] || 0) + 1
-
-            return {
-                ...prData,
-                id: `${i}-${prData.repo}-${prData.number}`,
-                [`repo-${prData.repo}`]: 1,
-                commentSentimentTotalScore: (prData.commentSentimentScore || 0) + (prData.commentAuthorSentimentScore || 0),
-            }
         })
 
-    const chunkyData = chunkData(updatedPullRequests)
+    const chunkyData = chunkData(pullRequests)
 
     return <>
         <ReportDescription />
         <TeamTrends
-            pullRequests={updatedPullRequests}
+            pullRequests={pullRequests}
             chunkyData={chunkyData}
             allRepos={allRepos}
         />
         <CustomGraphs
-            pullRequests={updatedPullRequests}
+            pullRequests={pullRequests}
             chunkyData={chunkyData}
             tableOpenedByDefault={true}
         />
         <PullRequestTrends
-            pullRequests={updatedPullRequests}
+            pullRequests={pullRequests}
             chunkyData={chunkyData}
         />
 

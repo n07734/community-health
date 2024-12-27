@@ -28,36 +28,18 @@ const userGraphs = (
 ) => {
     const peerPrData:PullRequest[] = []
     const userPrData:PullRequest[] = []
-    const reposSet = new Set<string>()
 
     pullRequests
         .forEach((item) => {
             const {
                 author,
-                repo,
             } = item
-            reposSet.add(repo)
-            item[`repo-${repo}`] = 1
 
             if (author === userName) {
                 userPrData.push(item)
             } else {
                 peerPrData.push(item)
             }
-        })
-
-    const repoLines = []
-    const repos = Array.from(reposSet)
-    repos
-        .forEach((repo, i) => {
-            repoLines.push({
-                label: repo,
-                color: colors[i % colors.length],
-                groupMath: 'count',
-                filterForKey: true,
-                dataKey: `repo-${repo}`,
-                data: userPrData,
-            })
         })
 
     const chunkyData = chunkData(userPrData)
