@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { ApiFetchInfo } from '@/types/Queries'
-import { UserInfo, UsersInfo } from '@/types/State'
+import { ErrorUI, UserInfo, UsersInfo } from '@/types/State'
 
 import {
     Dialog,
@@ -9,7 +9,7 @@ import {
     DialogTrigger,
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
-import Message, { ErrorInputs } from '@/components/home/Message'
+import Message from '@/components/home/Message'
 import UsersForm from './UsersForm'
 
 import TextInput from './TextInput'
@@ -27,7 +27,6 @@ const getTeamMembers = async ({fetchInfo, setGitUsers, setInputError}: GetTeamMe
         const { results = [] } = await api({
             fetchInfo,
             queryInfo: teamIDsQuery,
-            dispatch: () => {},
         })
 
         type Node = {
@@ -133,9 +132,9 @@ const GitHubTeam = (props:GitHubTeamProps) => {
             Get team members
         </Button>
         {
-            (inputError as ErrorInputs)?.message?.length > 0
+            (inputError as ErrorUI)?.message?.length > 0
                 && <Message
-                    error={inputError as ErrorInputs}
+                    error={inputError as ErrorUI}
                 />
         }
     </form>)

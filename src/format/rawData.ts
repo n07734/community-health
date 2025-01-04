@@ -6,6 +6,7 @@ import propOr from 'ramda/es/propOr'
 import differenceInDays from 'date-fns/differenceInDays'
 import isAfter from 'date-fns/isAfter'
 import isBefore from 'date-fns/isBefore'
+import isSameDay from 'date-fns/isSameDay'
 import Sentiment from 'sentiment'
 
 import { EventInfo, Issue, PullRequest } from '../types/FormattedData'
@@ -231,11 +232,11 @@ const usersPrWasInTeam = (prMergeDate = '') => ({
 
     const isAfterStart = !startDate
         ? true
-        : isAfter(prDate, new Date(startDate))
+        : isAfter(prDate, new Date(startDate)) || isSameDay(prDate, new Date(startDate))
 
     const isBeforeEnd = !endDate
         ? true
-        : isBefore(prDate, new Date(endDate))
+        : isBefore(prDate, new Date(endDate)) || isSameDay(prDate, new Date(endDate))
 
     return isAfterStart && isBeforeEnd
 }
@@ -266,8 +267,10 @@ const filterSortPullRequests = ({ excludeIds = [] }: { excludeIds: string[] }, {
             const author = propOr('', 'author', item)
             const hasExcludedAuthor = ['GIT_APP_PR', ...excludeIds].some(y => y === author)
             const prDate = item.mergedAt
-            const shouldFilterIn = isAfter(new Date(prDate), new Date(reportStartDate)) && isBefore(new Date(prDate), new Date(reportEndDate))
-            const keepItem = shouldFilterIn && !hasExcludedAuthor
+            const hasSameDay = isSameDay(new Date(prDate), new Date(reportStartDate))
+                || isSameDay(new Date(prDate), new Date(reportEndDate))
+            const isInRange = isAfter(new Date(prDate), new Date(reportStartDate)) && isBefore(new Date(prDate), new Date(reportEndDate))
+            const keepItem = (hasSameDay || isInRange) && !hasExcludedAuthor
 
             !keepItem && filteredPRs.push(item)
             return keepItem
@@ -283,7 +286,11 @@ const filterSortItems = <T>(dateKey: keyof T & DateKeys) => ({ reportStartDate =
     const remainingIssues = allIssues
         .filter((item) => {
             const itemDate = item?.[dateKey] as string
-            const keepItem = isAfter(new Date(itemDate), new Date(reportStartDate)) && isBefore(new Date(itemDate), new Date(reportEndDate))
+            const hasSameDay = isSameDay(new Date(itemDate), new Date(reportStartDate))
+                || isSameDay(new Date(itemDate), new Date(reportEndDate))
+            const isInRange = isAfter(new Date(itemDate), new Date(reportStartDate)) && isBefore(new Date(itemDate), new Date(reportEndDate))
+
+            const keepItem = hasSameDay || isInRange
 
             !keepItem && filteredIssues.push(item)
             return keepItem

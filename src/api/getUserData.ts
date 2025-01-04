@@ -1,22 +1,22 @@
-import mergeDeepRight from 'ramda/es/mergeDeepRight'
-import prop from 'ramda/es/prop'
-import { GetUsersData } from '../types/Queries'
+import { GetUserData, ApiArgs, ApiResult } from '../types/Queries'
+import { FetchInfoForUser } from '@/types/State'
 
 import { userQuery, reviewsByUserQuery } from './queries'
 import api from './api'
 
-const getUserData = async({ fetchInfo, untilDate, dispatch }: GetUsersData) => {
+const getUserData = async({ fetchInfo, untilDate }:GetUserData):Promise<ApiResult> => {
     try {
-        const [user] = fetchInfo.userIds
-        const userData = {
-            fetchInfo: {
-                ...fetchInfo,
-                issuesPagination: fetchInfo.issuesPagination[user] || { hasNextPage: true },
-                prPagination: fetchInfo.prPagination[user] || { hasNextPage: true },
-                user,
-            },
+        const [user] = fetchInfo.userIds || []
+
+        const updatedFetchInfo: FetchInfoForUser = {
+            ...fetchInfo,
+            issuesPagination: fetchInfo?.issuesPagination[user] || { hasNextPage: true },
+            prPagination: fetchInfo?.prPagination[user] || { hasNextPage: true },
+            user,
+        }
+        const userData: ApiArgs = {
+            fetchInfo: updatedFetchInfo,
             queryInfo: userQuery(untilDate),
-            dispatch,
         }
 
         const allUserData = await api(userData)
@@ -29,26 +29,28 @@ const getUserData = async({ fetchInfo, untilDate, dispatch }: GetUsersData) => {
                 user,
             },
             queryInfo: reviewsByUserQuery(untilDate),
-            dispatch,
         }
         const allUserReviewData = await api(userReviewData)
         const allReviewResults = allUserReviewData.results
 
         const paginationInfo = {
             issuesPagination: {
-                [user]: prop('issuesPagination', allUserData.fetchInfo),
+                [user]: allUserData.fetchInfo?.issuesPagination,
             },
             prPagination: {
-                [user]: prop('prPagination', allUserData.fetchInfo),
+                [user]: allUserData.fetchInfo?.prPagination,
             },
             usersReviewsPagination: {
-                [user]: prop('usersReviewsPagination', allUserReviewData.fetchInfo),
+                [user]: allUserReviewData.fetchInfo?.usersReviewsPagination || { hasNextPage: true },
             },
         }
 
-        const finalFetchInfo = mergeDeepRight(fetchInfo, paginationInfo)
+        const finalFetchInfo = {
+            ...fetchInfo,
+            ...paginationInfo,
+        }
 
-        const usersData = {
+        const usersData: ApiResult = {
             fetchInfo: finalFetchInfo,
             results: allResults.flat(),
             reviewResults: allReviewResults.flat(),

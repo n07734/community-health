@@ -1,18 +1,15 @@
-import mergeDeepRight from 'ramda/es/mergeDeepRight'
-import { BatchedPaginations, BatchedQueryArgs, GetUsersData } from '../types/Queries'
+import { ApiArgs, ApiResult, BatchedQueryArgs, GetOrgData } from '../types/Queries'
 
 import { orgQuery,  batchedQuery} from './queries'
 import api from './api'
 import batch from './batch'
 import { RawDataResult } from '../types/RawData'
 
-const getOrgData = async({ fetchInfo, untilDate, dispatch }:GetUsersData) => {
+const getOrgData = async({ fetchInfo, untilDate }:GetOrgData):Promise<ApiResult> => {
     try {
-
         const orgData = await api({
             fetchInfo,
             queryInfo: orgQuery,
-            dispatch,
         })
 
         const orgsRepos = orgData?.results.flat() || []
@@ -22,7 +19,7 @@ const getOrgData = async({ fetchInfo, untilDate, dispatch }:GetUsersData) => {
 
         const org = fetchInfo.org
         const allRepoQueries = repos
-            .map((repo) => ({
+            .map((repo): ApiArgs => ({
                 fetchInfo: {
                     ...fetchInfo,
                     issuesPagination: fetchInfo?.issuesPagination[repo] || { hasNextPage: true },
@@ -32,19 +29,12 @@ const getOrgData = async({ fetchInfo, untilDate, dispatch }:GetUsersData) => {
                     repos,
                 },
                 queryInfo: batchedQuery(untilDate),
-                dispatch,
             }))
 
         const allReposData = await batch(allRepoQueries, api, 1) as {
             fetchInfo: BatchedQueryArgs
             results: RawDataResult[]
         }[]
-
-        const paginationInfo:BatchedPaginations = {
-            issuesPagination: {},
-            releasesPagination: {},
-            prPagination: {},
-        }
 
         const allResults: RawDataResult[][] = []
         allReposData
@@ -58,15 +48,13 @@ const getOrgData = async({ fetchInfo, untilDate, dispatch }:GetUsersData) => {
                     prPagination,
                 } = fetchInfo
 
-                paginationInfo.issuesPagination[repo] = issuesPagination
-                paginationInfo.releasesPagination[repo] = releasesPagination
-                paginationInfo.prPagination[repo] = prPagination
+                fetchInfo.issuesPagination[repo] = issuesPagination
+                fetchInfo.releasesPagination[repo] = releasesPagination
+                fetchInfo.prPagination[repo] = prPagination
             })
 
-        const finalFetchInfo = mergeDeepRight(fetchInfo, paginationInfo)
-
-        const orgReposData = {
-            fetchInfo: finalFetchInfo,
+        const orgReposData: ApiResult = {
+            fetchInfo,
             results: allResults.flat(),
             reviewResults: [],
         }

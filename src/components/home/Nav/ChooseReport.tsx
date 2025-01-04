@@ -1,6 +1,5 @@
-import { connect } from 'react-redux'
-
-import { Button } from "@/components/ui/button"
+import { useShallow } from 'zustand/react/shallow'
+import { Button } from '@/components/ui/button'
 import {
     Sheet,
     SheetContent,
@@ -8,7 +7,7 @@ import {
     SheetTitle,
     SheetTrigger,
     SheetClose,
-} from "@/components/ui/sheet"
+} from '@/components/ui/sheet'
 
 import {
     myPreFetchedReports,
@@ -20,15 +19,16 @@ import {
     preFetchedOrgs,
     preFetchedUsers,
 } from '@/preFetchedInfo'
-import { AnyForLib, AnyForNow, RepoInfo, ReportType } from '@/types/State'
+import { RepoInfo, ReportType } from '@/types/State'
 import { getPreFetched } from '@/state/actions'
+import { useDataStore } from '@/state/fetch'
 
 type ChooseReportProps = {
     setNewReportType: (type: ReportType) => void,
-    preFetchedName?: string,
-    getPreFetchedReport: (arg: RepoInfo) => void
 }
-const ChooseReport = ({ setNewReportType, getPreFetchedReport, preFetchedName }: ChooseReportProps) => {
+const ChooseReport = ({ setNewReportType }: ChooseReportProps) => {
+    const preFetchedName = useDataStore(useShallow(state => state.preFetchedName))
+
     const preFetchButton = (repoInfo:RepoInfo, i: number = 1) => <SheetClose
         key={`${i}`}
         asChild
@@ -42,7 +42,7 @@ const ChooseReport = ({ setNewReportType, getPreFetchedReport, preFetchedName }:
                 url.searchParams.set('report', repoInfo.fileName);
                 history.pushState(null, '', url);
                 setNewReportType('' as ReportType)
-                getPreFetchedReport(repoInfo)
+                getPreFetched(repoInfo)
             }}
         >
             {repoInfo?.name || 'Report'}
@@ -98,15 +98,4 @@ const ChooseReport = ({ setNewReportType, getPreFetchedReport, preFetchedName }:
     )
 }
 
-type State = {
-    preFetchedName: string
-}
-const mapStateToProps = (state: State) => ({
-    preFetchedName: state.preFetchedName,
-})
-
-const mapDispatchToProps = (dispatch: AnyForLib) => ({
-    getPreFetchedReport: (info: AnyForNow) => dispatch(getPreFetched(info)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(ChooseReport)
+export default ChooseReport

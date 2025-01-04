@@ -1,6 +1,3 @@
-
-import { connect } from 'react-redux'
-
 import PullRequestTrends from './sections/PullRequestTrends'
 import CustomGraphs from './sections/CustomGraphs'
 import IssuesTrends from './sections/IssuesTrends'
@@ -10,14 +7,10 @@ import UserTrends from './sections/UserTrends'
 import UserList from './sections/UserList'
 import ReportDescription from './sections/ReportDescription'
 import { chunkData } from './charts/lineHelpers'
-import { PullRequest } from '../types/FormattedData'
+import { useDataStore } from '@/state/fetch'
 
-type RepoViewProps = {
-    pullRequests: PullRequest[]
-}
-const RepoView = ({
-    pullRequests = [],
-}: RepoViewProps) => {
+const RepoView = () => {
+    const pullRequests = useDataStore(state => state.pullRequests)
     const chunkyData = chunkData(pullRequests)
 
     return <>
@@ -45,11 +38,4 @@ const RepoView = ({
     </>
 }
 
-type State = {
-    pullRequests: PullRequest[]
-}
-const mapStateToProps = (state:State) => ({
-    pullRequests: state.pullRequests,
-})
-
-export default connect(mapStateToProps)(RepoView)
+export default RepoView

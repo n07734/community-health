@@ -1,6 +1,4 @@
-import { connect } from 'react-redux'
-import { PullRequest } from '@/types/FormattedData'
-import { FetchInfo, UserDataNumbersKeys, UsersInfo } from '@/types/State'
+import { UserDataNumbersKeys, UsersInfo } from '@/types/State'
 
 import { useTheme } from '@/components/ThemeProvider'
 import { graphColors } from '@/components/colors'
@@ -18,19 +16,16 @@ import { sortByKeys } from '@/utils'
 import { chunkData, rainbowData } from './charts/lineHelpers'
 import formatUserData from '@/format/userData'
 import { useShowNames } from '@/state/ShowNamesProvider'
+import { useDataStore, useFetchStore } from '@/state/fetch'
 
-type IndividualProps = {
-    pullRequests: PullRequest[]
-    reviewedPullRequests: PullRequest[]
-    userIds: string[]
-    usersInfo: UsersInfo
-}
-const Individual = ({
-    pullRequests = [],
-    reviewedPullRequests = [],
-    userIds = [],
-    usersInfo = {},
-}:IndividualProps) => {
+const Individual = () => {
+    const {
+        usersInfo = {},
+        userIds = [],
+    } = useFetchStore((state) => state)
+    const pullRequests = useDataStore(state => state.pullRequests)
+    const reviewedPullRequests = useDataStore(state => state.reviewedPullRequests)
+
     const [userId] = userIds
     const { showNames } = useShowNames()
     const { theme } = useTheme()
@@ -179,16 +174,4 @@ const Individual = ({
     </>
 }
 
-type State = {
-    pullRequests: PullRequest[]
-    reviewedPullRequests: PullRequest[]
-    fetches: FetchInfo
-}
-const mapStateToProps = (state:State) => ({
-    pullRequests: state.pullRequests,
-    reviewedPullRequests: state.reviewedPullRequests,
-    userIds: state.fetches.userIds,
-    usersInfo: state.fetches.usersInfo,
-})
-
-export default connect(mapStateToProps)(Individual)
+export default Individual

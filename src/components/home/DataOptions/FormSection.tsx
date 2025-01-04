@@ -1,8 +1,5 @@
 import { useState, useEffect } from 'react'
-import { connect } from 'react-redux'
-
-import { Users } from '@/types/Components'
-import { AnyForLib, ReportType } from '@/types/State'
+import { ReportType, FormSubmitData, FormSubmitDataValuesByReportType } from '@/types/State'
 
 import ChartDescription from '@/components/shared/ChartDescription'
 import SelectAmountData from './SelectAmountData'
@@ -12,51 +9,18 @@ import TextInput from './TextInput'
 
 import Download from './Download'
 import { validateForm } from './utils'
-
-import {
-    clearPastSearch,
-    storeOrg,
-    storeRepo,
-    storeToken,
-    storeUsersInfo,
-    storeTeamName,
-    storeEnterpriseAPI,
-    storeExcludeIds,
-    storeEvents,
-    storeAmountOfData,
-    storeFormUntilDate,
-    storeSortDirection,
-    getAPIData,
-} from '@/state/actions'
-
-type SetValues = {
-    org?: string | undefined
-    repo?: string
-    teamName?: string | undefined
-    usersInfo?: Users | undefined
-    userId?: string | undefined
-    name?: string | undefined
-    sortDirection: string
-    amountOfData: number
-    token: string
-    excludeIds: string
-    enterpriseAPI: string
-    events?: string | undefined
-}
+import { fetchInfoFromFormData, useFetchStore } from '@/state/fetch'
+import { fetchGitHubData } from '@/state/actions'
 
 type FormSectionProps = {
-    setValues: (values: SetValues) => void
-    getData: () => void
-    fetching: boolean
     reportType: ReportType
 }
-const FormSection = (props:FormSectionProps) => {
+const FormSection = ({ reportType = 'repo' }:FormSectionProps) => {
+    const fetches = useFetchStore((state) => state)
+
     const {
-        setValues,
-        getData,
-        fetching,
-        reportType = 'repo',
-    } = props
+        fetching = false,
+    } = fetches
 
     const titles = {
         repo: 'Get community data for any repo',
@@ -66,40 +30,37 @@ const FormSection = (props:FormSectionProps) => {
     }
     const formTitle = titles[reportType]
 
-    const reportTypeInputsHash = {
+    const reportTypeInputsHash: Record<ReportType, FormSubmitDataValuesByReportType> = {
         repo: {
+            reportType: 'repo',
             org: '',
             repo: '',
         },
         org: {
+            reportType: 'org',
             org: '',
         },
         team: {
+            reportType: 'team',
             usersInfo: {},
             teamName: '',
         },
         user: {
+            reportType: 'user',
             userId: '',
             name: '',
         },
     }
 
-    type ReportTypeInputs = {
-        org: string
-        repo?: string
-        teamName: string
-        usersInfo: Users
-        userId: string
-        name: string
-    }
-    const reportInputs: Partial<ReportTypeInputs> = reportTypeInputsHash[reportType]
+    const reportInputs: FormSubmitDataValuesByReportType = reportTypeInputsHash[reportType]
 
-    const defaultInputs  = {
+    const defaultInputs: FormSubmitData  = {
         sortDirection: 'DESC',
         amountOfData: 1,
         token: '',
         excludeIds: '',
         enterpriseAPI: '',
+        events: '',
         ...reportInputs,
     }
 
@@ -142,11 +103,13 @@ const FormSection = (props:FormSectionProps) => {
 
         setInputError(validationErrors)
 
-        isValid && !fetching
-            && setValues(formInfo)
-
-        isValid && !fetching
-            && getData()
+        if (!fetching && isValid) {
+            const fetchInfo = fetchInfoFromFormData(formInfo)
+            fetchGitHubData({
+                ...fetches,
+                ...fetchInfo,
+            })
+        }
     }
 
     const inputsHash = {
@@ -188,9 +151,9 @@ const FormSection = (props:FormSectionProps) => {
                             />)
                     }
                     {
-                        reportType === 'team' &&
+                        formInfo.reportType === 'team' &&
                             <TeamModal
-                                usersInfo={formInfo.usersInfo as Users}
+                                usersInfo={formInfo.usersInfo}
                                 setParentValues={setFormValues}
                             />
                     }
@@ -236,60 +199,4 @@ const FormSection = (props:FormSectionProps) => {
     )
 }
 
-type State = {
-    fetching: boolean
-    error: string
-}
-const mapStateToProps = (state: State) => ({
-    fetching: state.fetching,
-    error: state.error,
-})
-
-const mapDispatchToProps = (dispatch: AnyForLib) => ({
-    setValues: (values: SetValues) => {
-        const {
-            org,
-            repo,
-            token,
-            amountOfData,
-            sortDirection,
-            teamName,
-            usersInfo = {},
-            userId,
-            name = '',
-            enterpriseAPI,
-            excludeIds,
-            events,
-        } = values
-
-        if (userId) {
-            usersInfo[userId] = {
-                userId,
-                name,
-                dates: [],
-            }
-        }
-
-        dispatch(clearPastSearch({
-            ...values,
-            usersInfo,
-        }))
-
-        dispatch(storeToken(token))
-        dispatch(storeAmountOfData(amountOfData))
-        dispatch(storeSortDirection(sortDirection))
-        dispatch(storeFormUntilDate(amountOfData))
-
-        org && dispatch(storeOrg(org))
-        repo && dispatch(storeRepo(repo))
-        Object.keys(usersInfo).length > 0 && dispatch(storeUsersInfo(usersInfo))
-        teamName && dispatch(storeTeamName(teamName))
-
-        dispatch(storeEnterpriseAPI(enterpriseAPI))
-        dispatch(storeExcludeIds(excludeIds))
-        events && dispatch(storeEvents(events))
-    },
-    getData: () => dispatch(getAPIData()),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(FormSection)
+export default FormSection

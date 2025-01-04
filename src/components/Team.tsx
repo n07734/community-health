@@ -1,6 +1,4 @@
 
-import { connect } from 'react-redux'
-
 import PullRequestTrendsTeam from './sections/PullRequestTrendsTeam'
 import CustomGraphs from './sections/CustomGraphs'
 import IssuesTrends from './sections/IssuesTrends'
@@ -8,17 +6,13 @@ import TeamTrends from './sections/TeamTrends'
 import UserTrends from './sections/UserTrends'
 import ReportDescription from './sections/ReportDescription'
 import { chunkData } from './charts/lineHelpers'
-import { PullRequest } from '../types/FormattedData'
-import { FetchInfo } from '../types/State'
+import { PullRequest } from '@/types/FormattedData'
+import { useDataStore, useFetchStore } from '@/state/fetch'
 
-type TeamProps = {
-    pullRequests: PullRequest[]
-    userIds: string[]
-}
-const Team = ({
-    pullRequests = [],
-    userIds = [],
-}:TeamProps) => {
+const Team = () => {
+    const pullRequests = useDataStore(state => state.pullRequests)
+    const userIds = useFetchStore(state => state.userIds)
+
     const teamOnlyData = (data:Record<string, number>) => {
         const teamData:Record<string, number> = {}
         userIds
@@ -66,13 +60,4 @@ const Team = ({
     </>
 }
 
-type State = {
-    pullRequests: PullRequest[]
-    fetches: FetchInfo
-}
-const mapStateToProps = (state:State) => ({
-    pullRequests: state.pullRequests,
-    userIds: state.fetches.userIds,
-})
-
-export default connect(mapStateToProps)(Team)
+export default Team

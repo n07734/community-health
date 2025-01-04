@@ -1,5 +1,4 @@
 // TODO: Think more about if this should maintain github api data structures
-// TODO: add tests
 import always from 'ramda/es/always'
 import cond from 'ramda/es/cond'
 import propOr from 'ramda/es/propOr'
@@ -8,16 +7,28 @@ import mergeDeepRight from 'ramda/es/mergeDeepRight'
 import test from 'ramda/es/test'
 import alwaysTrue from 'ramda/es/T'
 import alwaysFalse from 'ramda/es/F'
+import compose from 'ramda/es/compose'
 
-import { compose } from 'redux'
-import { AmountOfData, ApiInfo, ApiResponse, ApiResult, ApiResults, ApiFetchInfo } from '../types/Queries'
-
-import types from '../state/types'
+import {
+    AmountOfData,
+    ApiResponse,
+    ApiResult,
+    ApiResults,
+    ApiFetchInfo,
+    ApiArgs,
+} from '@/types/Queries'
+import {
+    RawDataItem,
+    RawDataResult,
+    RawDataType,
+    RawDate,
+} from '@/types/RawData'
 
 import fillData from './fillers'
-import { dateSort } from '../utils'
-import { RawDataItem, RawDataResult, RawDataType, RawDate } from '../types/RawData'
-import { FetchInfo } from '../types/State'
+import { dateSort } from '@/utils'
+
+import { FetchInfo } from '@/types/State'
+import { useFetchStore } from '@/state/fetch'
 
 const parseJSON = (response: Response): Promise<ApiResponse> => new Promise((resolve, reject) => {
     response.json()
@@ -58,7 +69,7 @@ const shouldGetNextPage = (hasNextPage: boolean, { amountOfData }: { amountOfDat
 const pause = (ms = 30000) => new Promise<void>(resolve => setTimeout(() => resolve(), ms))
 let numRateTriggers = 0
 
-const pauseThenRetry = async(apiInfo: ApiInfo, results: ApiResults): Promise<ApiResult> => {
+const pauseThenRetry = async(apiInfo: ApiArgs, results: ApiResults): Promise<ApiResult> => {
     console.log('-=-=--paused', Date.now());
     await pause();
     console.log('-=-=--resume', Date.now());
@@ -110,7 +121,7 @@ const getLatestDate = (data:FetchInfo) => (type:RawDataType, results: RawDataRes
 }
 
 
-const api = async({ fetchInfo, queryInfo, dispatch = () => {} }:ApiInfo, results: ApiResults = []): Promise<ApiResult>  => {
+const api = async({ fetchInfo, queryInfo }:ApiArgs, results: ApiResults = []): Promise<ApiResult>  => {
     const {
         query,
         resultInfo,
@@ -140,9 +151,9 @@ const api = async({ fetchInfo, queryInfo, dispatch = () => {} }:ApiInfo, results
         paused: false,
     }
 
-    dispatch({
-        type: types.FETCH_STATUS,
-        payload: statusPayload,
+    console.log('-=-=--statusPayload', statusPayload);
+    useFetchStore.setState({
+        fetchStatus: statusPayload,
     })
 
     const apiCallWithToken = apiCall(fetchInfo)
@@ -166,7 +177,7 @@ const api = async({ fetchInfo, queryInfo, dispatch = () => {} }:ApiInfo, results
         const updatedFetchInfo: ApiFetchInfo = mergeDeepRight(fetchInfo, nextPageInfo)
 
         return shouldGetNextPage(hasNextPage, updatedFetchInfo)
-            ? api({ fetchInfo: updatedFetchInfo, queryInfo, dispatch }, updatedResults)
+            ? api({ fetchInfo: updatedFetchInfo, queryInfo }, updatedResults)
             : {
                 fetchInfo: updatedFetchInfo,
                 results: updatedResults,
@@ -238,14 +249,13 @@ const api = async({ fetchInfo, queryInfo, dispatch = () => {} }:ApiInfo, results
         const errorMessage = getErrorMessage(error)
 
         if (hasTriggeredAbuse(error)) {
-            dispatch({
-                type: types.FETCH_STATUS,
-                payload: {
+            useFetchStore.setState({
+                fetchStatus: {
                     ...statusPayload,
                     paused: true,
                 },
             })
-            return pauseThenRetry({ fetchInfo, queryInfo, dispatch }, results)
+            return pauseThenRetry({ fetchInfo, queryInfo }, results)
         } else {
             throw new Error(errorMessage.message)
         }

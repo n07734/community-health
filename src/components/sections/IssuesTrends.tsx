@@ -1,9 +1,7 @@
-
-import { connect } from 'react-redux'
-
+import { useShallow } from 'zustand/react/shallow'
 import { useTheme } from '@/components/ThemeProvider'
 import { graphColors } from '@/components/colors'
-import { EventInfo, Issue } from '@/types/FormattedData'
+import { Issue } from '@/types/FormattedData'
 import { IssueIssue } from '@/types/Graphs'
 
 import Paper from '@/components/shared/Paper'
@@ -11,8 +9,8 @@ import ChartDescription from '@/components/shared/ChartDescription'
 import GraphsWrap from '@/components/shared/GraphsWrap'
 import Line from '@/components/charts/Line'
 import { chunkData } from '@/components/charts/lineHelpers'
-import { FetchInfo, SavedEvent, UsersInfo } from '@/types/State'
 import { formatMarkers } from '@/format/releaseData'
+import { useDataStore, useFetchStore } from '@/state/fetch'
 
 const formatIssueData = (data:Issue[] = []): IssueIssue[] => data
     .map((item) => ({
@@ -24,18 +22,14 @@ const formatIssueData = (data:Issue[] = []): IssueIssue[] => data
         ),
     }))
 
-type IssuesTrendsProps = {
-    issues: Issue[]
-    releases: EventInfo[]
-    events: SavedEvent[]
-    usersInfo: UsersInfo
-}
-const IssuesTrends = ({
-    issues = [],
-    releases = [],
-    events = [],
-    usersInfo = {},
-}:IssuesTrendsProps) => {
+const IssuesTrends = () => {
+    const releases = useDataStore(useShallow(state => state.releases))
+    const issues = useDataStore(state => state.issues)
+
+    const usersInfo = useFetchStore(state => state.usersInfo)
+    const events = useFetchStore(state => state.events)
+
+
     const { theme } = useTheme()
     const colorA = graphColors[theme].secondary
     const colorB = graphColors[theme].primary
@@ -94,16 +88,4 @@ const IssuesTrends = ({
     )
 }
 
-type State = {
-    issues: Issue[]
-    releases: EventInfo[]
-    fetches: FetchInfo
-}
-const mapStateToProps = (state:State) => ({
-    issues: state.issues,
-    releases: state.releases,
-    events: state.fetches.events,
-    usersInfo: state.fetches.usersInfo,
-})
-
-export default connect(mapStateToProps)(IssuesTrends)
+export default IssuesTrends

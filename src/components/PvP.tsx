@@ -1,9 +1,8 @@
 import { useState } from 'react'
-import { connect } from 'react-redux'
 import pathOr from 'ramda/es/pathOr'
 
-import { EventInfo, PullRequest } from '@/types/FormattedData'
-import { FetchInfo, SavedEvent, UserData, UsersInfo } from '@/types/State'
+import { PullRequest } from '@/types/FormattedData'
+import { UserData } from '@/types/State'
 
 import { useTheme } from '@/components/ThemeProvider'
 import { graphColors } from '@/components/colors'
@@ -18,6 +17,7 @@ import { chunkData } from './charts/lineHelpers'
 import { useSubPage } from '@/state/SubPageProvider'
 import { colors } from '@/components/colors'
 import { formatMarkers } from '@/format/releaseData'
+import { useDataStore, useFetchStore } from '@/state/fetch'
 
 const queryString = pathOr('', ['location', 'search'], window)
 const urlParams = new URLSearchParams(queryString);
@@ -29,20 +29,15 @@ const getPlayer2Id = (usersData:UserData[] = []) => {
     return urlParams.get('player2') || usersData[1]?.author
 }
 
-type PvPProps = {
-    pullRequests: PullRequest[]
-    releases: EventInfo[]
-    usersData: UserData[]
-    events: SavedEvent[]
-    usersInfo: UsersInfo
-}
-const PvP = ({
-    pullRequests = [],
-    releases = [],
-    usersData = [],
-    events = [],
-    usersInfo = {},
-}:PvPProps) => {
+const PvP = () => {
+    const pullRequests = useDataStore(state => state.pullRequests)
+    const releases = useDataStore(state => state.releases)
+    const usersData = useDataStore(state => state.usersData)
+    const {
+        events = [],
+        usersInfo = {},
+    } = useFetchStore((state) => state)
+
     const { togglePvPPage } = useSubPage()
     const { theme } = useTheme()
     const colorA = graphColors[theme].secondary
@@ -196,18 +191,4 @@ const PvP = ({
     )
 }
 
-type State = {
-    pullRequests: PullRequest[]
-    releases: EventInfo[]
-    usersData: UserData[]
-    fetches: FetchInfo
-}
-const mapStateToProps = (state:State) => ({
-    pullRequests: state.pullRequests,
-    releases: state.releases,
-    usersData: state.usersData,
-    events: state.fetches.events,
-    usersInfo: state.fetches.usersInfo,
-})
-
-export default connect(mapStateToProps)(PvP)
+export default PvP

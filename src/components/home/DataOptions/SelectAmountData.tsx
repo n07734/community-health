@@ -1,9 +1,4 @@
-
-import { connect } from 'react-redux'
-
 import { AmountOfData } from '@/types/Queries'
-import { PullRequest } from '@/types/FormattedData'
-
 import {
     Select,
     SelectContent,
@@ -12,22 +7,22 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select'
+import { useDataStore } from '@/state/fetch'
 
 type SelectAmountDataProps = {
     setValue: (key: string, value: string | object | number) => void
     amountOfData: AmountOfData
-    pullRequests: PullRequest[]
-    preFetchedName: string
     className?: string
 }
 const SelectAmountData = (props: SelectAmountDataProps) => {
     const {
         setValue,
         amountOfData,
-        pullRequests = [],
-        preFetchedName = '',
         className = '',
     } = props
+
+    const preFetchedName = useDataStore(state => state.preFetchedName)
+    const pullRequests = useDataStore(state => state.pullRequests)
 
     const hasTeamData = !preFetchedName && pullRequests.length > 0
 
@@ -60,13 +55,4 @@ const SelectAmountData = (props: SelectAmountDataProps) => {
     )
 }
 
-type DispatchProps = {
-    pullRequests: PullRequest[]
-    preFetchedName: string
-}
-const mapStateToProps = (state:DispatchProps) => ({
-    pullRequests: state.pullRequests,
-    preFetchedName: state.preFetchedName,
-})
-
-export default connect(mapStateToProps)(SelectAmountData)
+export default SelectAmountData

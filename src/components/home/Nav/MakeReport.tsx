@@ -1,4 +1,3 @@
-import { connect } from 'react-redux'
 import { Button } from "@/components/ui/button"
 import {
     Sheet,
@@ -9,8 +8,8 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet"
-import { ReportType, AnyForLib } from "@/types/State"
-import { clearAllData } from '@/state/actions'
+import { ReportType } from "@/types/State"
+import { resetStateToInitialState } from "@/state/fetch"
 
 const allTypes: [string, ReportType][] = [
     ['Individual report', 'user'],
@@ -21,9 +20,8 @@ const allTypes: [string, ReportType][] = [
 
 type MakeReportProps = {
     setNewReportType: (type: ReportType) => void,
-    clearReport: () => void,
 }
-const MakeReport = ({ setNewReportType, clearReport }: MakeReportProps) => (
+const MakeReport = ({ setNewReportType }: MakeReportProps) => (
     <Sheet>
         <SheetTrigger asChild>
             <Button variant="link" className='normal-case text-report-title hover:text-primary text-base'>Make a report</Button>
@@ -48,7 +46,7 @@ const MakeReport = ({ setNewReportType, clearReport }: MakeReportProps) => (
                                     const url = new URL(window.location.href);
                                     url.searchParams.delete('report');
                                     history.pushState(null, '', url);
-                                    clearReport()
+                                    resetStateToInitialState()
                                     setNewReportType(type)
                                 }}
                             >
@@ -61,9 +59,4 @@ const MakeReport = ({ setNewReportType, clearReport }: MakeReportProps) => (
     </Sheet>
 )
 
-const mapDispatchToProps = (dispatch: AnyForLib) => ({
-    clearReport: () => dispatch(clearAllData),
-})
-
-export default connect(() => ({}), mapDispatchToProps)(MakeReport)
-
+export default MakeReport

@@ -30,7 +30,7 @@ type Fetches = {
 }
 const getUntilDate = (
     fetches:Fetches,
-    allPrs:PullRequest[] = []) => {
+    allPrs:PullRequest[] = []): string => {
     const {
         untilDate = '',
         amountOfData = 0,
@@ -67,15 +67,16 @@ const getUntilDate = (
         propOr('', 'sortDirection'),
     )
 
+    // TODO: fix this type
     const [,newUntilDate] = [
         [amountOfDataIsString(fetches),''],
         [noDateUntil(fetches) && allPrs.length > 0, dateFromPRs(fetches)],
         [sortDirection === 'DESC', subtractDate(fetches)],
         [sortDirection === 'ASC', add(new Date(untilDate), changeBy)],
         [true, ''],
-    ].find(([condition]) => condition) || []
+    ].find(([condition]) => condition) || ['','']
 
-    return newUntilDate
+    return newUntilDate as string
 }
 
 export default getUntilDate

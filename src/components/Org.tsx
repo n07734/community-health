@@ -1,5 +1,4 @@
 
-import { connect } from 'react-redux'
 import { PullRequest } from '../types/FormattedData'
 
 import CustomGraphs from './sections/CustomGraphs'
@@ -8,13 +7,10 @@ import ReportDescription from './sections/ReportDescription'
 import PullRequestTrends from './sections/PullRequestTrends'
 
 import { chunkData } from './charts/lineHelpers'
+import { useDataStore } from '@/state/fetch'
 
-type OrgProps = {
-    pullRequests: PullRequest[]
-}
-const Org = ({
-    pullRequests = [],
-}: OrgProps) => {
+const Org = () => {
+    const pullRequests = useDataStore(state => state.pullRequests)
 
     const allRepos:Record<string, number> = {}
     pullRequests
@@ -44,11 +40,4 @@ const Org = ({
     </>
 }
 
-type State = {
-    pullRequests: PullRequest[]
-}
-const mapStateToProps = (state:State) => ({
-    pullRequests: state.pullRequests,
-})
-
-export default connect(mapStateToProps)(Org)
+export default Org

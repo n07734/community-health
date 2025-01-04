@@ -1,31 +1,19 @@
 import { useState } from 'react'
-import { connect } from 'react-redux'
 import add from 'date-fns/add'
 import sub from 'date-fns/sub'
 import format from 'date-fns/format'
 import formatISO from 'date-fns/formatISO'
 import differenceInDays from 'date-fns/differenceInDays'
 
-import { AnyForLib, FetchInfo, UsersInfo } from '@/types/State'
-import { PullRequest, Issue } from '@/types/FormattedData'
-
 import { Slider } from "@/components/ui/slider"
-import { trimItems } from '@/state/actions'
+import { trimItems, useFetchStore, useDataStore } from '@/state/fetch'
 
-type DateRangeProps = {
-    pullRequests: PullRequest[]
-    itemsDateRange: string[]
-    issues: Issue[]
-    usersInfo: UsersInfo
-    trim: (from: string, to: string) => void
-}
-const DateRange = ({
-    pullRequests = [],
-    itemsDateRange = ['', ''],
-    issues = [],
-    usersInfo,
-    trim,
-}:DateRangeProps) => {
+const DateRange = () => {
+    const pullRequests = useDataStore(state => state.pullRequests)
+    const issues = useDataStore(state => state.issues)
+    const itemsDateRange = useDataStore(state => state.itemsDateRange)
+    const usersInfo = useFetchStore(state => state.usersInfo)
+
     /// need stable start and end dates
     const [startDate, endDate] = itemsDateRange
 
@@ -47,7 +35,7 @@ const DateRange = ({
     const rightDate = endDate
         ? formatISO(sub(new Date(endDate), { days: daysDiff -  rightDays}), { representation: 'date' })
         : ''
-     
+
     const handleChange = ( newValue: number[]) => {
         if (Array.isArray(newValue) && newValue.length === 2) {
             setValue(newValue as [number, number]);
@@ -55,7 +43,7 @@ const DateRange = ({
     }
 
     const handleDone = () => {
-        trim(leftDate, rightDate)
+        trimItems(leftDate, rightDate)
     }
 
     const userCount = Object.keys(usersInfo).length
@@ -81,21 +69,4 @@ const DateRange = ({
     </>
 }
 
-type State = {
-    pullRequests: PullRequest[]
-    issues: Issue[]
-    fetches: FetchInfo
-    itemsDateRange: string[]
-}
-const mapStateToProps = (state:State) => ({
-    pullRequests: state.pullRequests,
-    issues: state.issues,
-    itemsDateRange: state.itemsDateRange,
-    usersInfo: state.fetches.usersInfo,
-})
-
-const mapDispatchToProps = (dispatch: AnyForLib) => ({
-    trim: (from:string,to:string) => dispatch(trimItems(from,to)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(DateRange)
+export default DateRange

@@ -1,7 +1,6 @@
 
-import { connect } from 'react-redux'
-import { EventInfo, PullRequest } from '@/types/FormattedData'
-import { FetchInfo, SavedEvent, UsersInfo } from '@/types/State'
+import { useShallow } from 'zustand/react/shallow'
+import { PullRequest } from '@/types/FormattedData'
 import { LineInfo, TableData } from '@/types/Graphs'
 
 import { useShowNames } from '@/state/ShowNamesProvider'
@@ -11,24 +10,23 @@ import ChartDescription from '@/components/shared/ChartDescription'
 import GraphsWrap from '@/components/shared/GraphsWrap'
 import { colors } from '@/components/colors'
 import { formatMarkers } from '@/format/releaseData'
-
+import { useDataStore, useFetchStore } from '@/state/fetch'
 
 type SentimentProps = {
     chunkyData: TableData[][]
     pullRequests: PullRequest[]
-    releases: EventInfo[]
-    events: SavedEvent[]
-    userIds: string[]
-    usersInfo: UsersInfo
 }
 const Sentiment = ({
     chunkyData = [],
     pullRequests = [],
-    releases = [],
-    events = [],
-    userIds = [],
-    usersInfo = {},
 }:SentimentProps) => {
+    const releases = useDataStore(useShallow(useShallow(state => state.releases)))
+    const {
+        userIds = [],
+        usersInfo = {},
+        events = [],
+    } = useFetchStore(useShallow((state) => state))
+
     const { showNames } = useShowNames()
 
     const markers = formatMarkers({ events, releases, usersInfo })
@@ -125,15 +123,4 @@ const Sentiment = ({
     </>)
 }
 
-type State = {
-    releases: EventInfo[]
-    fetches: FetchInfo
-}
-const mapStateToProps = (state:State) => ({
-    releases: state.releases,
-    userIds: state.fetches.userIds,
-    events: state.fetches.events,
-    usersInfo: state.fetches.usersInfo,
-})
-
-export default connect(mapStateToProps)(Sentiment)
+export default Sentiment

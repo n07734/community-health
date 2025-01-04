@@ -1,7 +1,6 @@
 
-import { connect } from 'react-redux'
-import { FetchInfo, SavedEvent, UsersInfo } from '@/types/State'
-import { EventInfo, PullRequest } from '@/types/FormattedData'
+import { useShallow } from 'zustand/react/shallow'
+import { PullRequest } from '@/types/FormattedData'
 
 import Paper from '@/components/shared/Paper'
 import ChartDescription from '@/components/shared/ChartDescription'
@@ -15,23 +14,22 @@ import { useTheme } from '@/components/ThemeProvider'
 import { graphColors } from '@/components/colors'
 import { TableData } from '@/types/Graphs'
 import { formatMarkers } from '@/format/releaseData'
+import { useDataStore, useFetchStore } from '@/state/fetch'
 
 type PullRequestTrendsProps = {
     chunkyData: TableData[][]
     pullRequests: PullRequest[]
-    releases: EventInfo[]
-    userIds: string[]
-    events: SavedEvent[]
-    usersInfo: UsersInfo
 }
 const PullRequestTrends = ({
     chunkyData = [],
     pullRequests = [],
-    releases = [],
-    events = [],
-    userIds = [],
-    usersInfo = {},
 }:PullRequestTrendsProps) => {
+    const releases = useDataStore(useShallow(state => state.releases))
+
+    const userIds = useFetchStore(state => state.userIds)
+    const usersInfo = useFetchStore(state => state.usersInfo)
+    const events = useFetchStore(state => state.events)
+
     const { theme } = useTheme()
     const colorA = graphColors[theme].secondary
     const colorB = graphColors[theme].primary
@@ -180,15 +178,4 @@ const PullRequestTrends = ({
     )
 }
 
-type State = {
-    releases: EventInfo[]
-    fetches: FetchInfo,
-}
-const mapStateToProps = (state: State) => ({
-    releases: state.releases,
-    events: state.fetches.events,
-    userIds: state.fetches.userIds,
-    usersInfo: state.fetches.usersInfo,
-})
-
-export default connect(mapStateToProps)(PullRequestTrends)
+export default PullRequestTrends

@@ -1,5 +1,5 @@
-import { connect } from 'react-redux'
-import { EventInfo, Issue, PullRequest } from '@/types/FormattedData'
+import { useShallow } from 'zustand/react/shallow'
+import { Issue, PullRequest } from '@/types/FormattedData'
 import { ColumnKeys, TableData, Graph, GraphLine, Lines } from '@/types/Graphs'
 
 import Paper from '@/components/shared/Paper'
@@ -9,9 +9,8 @@ import { Button } from '@/components/ui/button'
 import GraphsWrap from '@/components/shared/GraphsWrap'
 import Line from '@/components/charts/Line'
 import GraphUi from '@/components/charts/GraphUi'
-import { AnyForLib, FetchInfo, SavedEvent, UsersInfo } from '@/types/State'
 import { formatMarkers } from '@/format/releaseData'
-import { storeCartConfig } from '@/state/actions'
+import { setChartConfig, useDataStore, useFetchStore } from '@/state/fetch'
 
 const formatGraphData = (
     pullRequests:PullRequest[] = [],
@@ -100,25 +99,19 @@ const hasTrimmedMaths = (graphs:Graph[] = []) => {
 type CustomGraphsProps = {
     chunkyData: TableData[][]
     pullRequests: PullRequest[]
-    issues?: Issue[]
-    releases?: EventInfo[]
-    events: SavedEvent[]
-    usersInfo: UsersInfo
     tableOpenedByDefault?: boolean
-    graphs: Graph[]
-    setGraph: (arg0: Graph[]) => void
 }
 const CustomGraphs = ({
     chunkyData = [],
     pullRequests = [],
-    issues = [],
-    releases = [],
-    events = [],
-    usersInfo = {},
     tableOpenedByDefault = false,
-    graphs = [],
-    setGraph,
 }: CustomGraphsProps) => {
+    const issues = useDataStore(state => state.issues)
+    const releases = useDataStore(useShallow(state => state.releases))
+    const graphs = useDataStore(state => state.chartConfig)
+    const usersInfo = useFetchStore(state => state.usersInfo)
+    const events = useFetchStore(state => state.events)
+
     const markers = formatMarkers({ events, releases, usersInfo })
 
     const showingTrimmed = hasTrimmedMaths(graphs)
@@ -149,13 +142,13 @@ const CustomGraphs = ({
                                 ? <GraphUi
                                     key={i}
                                     graphInfo={graphInfo}
-                                    setGraph={setGraph}
+                                    setGraph={setChartConfig}
                                     graphs={graphs}
                                 />
                                 : <Line
                                     key={i}
                                     graphInfo={graphInfo}
-                                    setGraph={setGraph}
+                                    setGraph={setChartConfig}
                                     graphs={graphs}
                                     blockHeading={true}
                                     markers={markers}
@@ -181,7 +174,7 @@ const CustomGraphs = ({
                             variant="secondary"
                             onClick={(event) => {
                                 event.preventDefault()
-                                setGraph(graphs.slice(0, -1))
+                                setChartConfig(graphs.slice(0, -1))
                             }}
                         >
                             Remove above graph
@@ -190,7 +183,7 @@ const CustomGraphs = ({
                 <Button
                     onClick={(event) => {
                         event.preventDefault()
-                        setGraph([
+                        setChartConfig([
                             ...graphs,
                             {
                                 graphId: getGraphId(),
@@ -207,22 +200,4 @@ const CustomGraphs = ({
     )
 }
 
-type State = {
-    issues: Issue[]
-    releases: EventInfo[]
-    fetches: FetchInfo
-    chartConfig: Graph[]
-}
-const mapStateToProps = (state:State) => ({
-    issues: state.issues,
-    releases: state.releases,
-    graphs: state.chartConfig,
-    events: state.fetches.events,
-    usersInfo: state.fetches.usersInfo,
-})
-
-const mapDispatchToProps = (dispatch: AnyForLib) => ({
-    setGraph: (chartConfig: Graph[]) => dispatch(storeCartConfig(chartConfig)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(CustomGraphs)
+export default CustomGraphs

@@ -1,9 +1,11 @@
 import { useState } from 'react'
-import { connect } from 'react-redux'
 
-import { AmountOfData, SortDirection } from '@/types/Queries'
-import { AnyForLib, AnyForNow, FetchInfo, ReportType, UsersInfo } from '@/types/State'
-import { PullRequest } from '@/types/FormattedData'
+import {
+    AnyForNow,
+    FormSubmitData,
+    FormSubmitDataValuesByReportType,
+    ReportType,
+} from '@/types/State'
 
 import {
     Select,
@@ -26,59 +28,25 @@ import {
     validateForm,
 } from './utils'
 
-import {
-    storeToken,
-    storeAmountOfData,
-    storeEvents,
-    storeFormUntilDate,
-    storeSortDirection,
-    storeExcludeIds,
-    getAPIData,
-    getDownloadProps,
-    checkUntilDate,
-    storeUsersInfo,
-} from '@/state/actions'
+import { fetchGitHubData } from '@/state/actions'
+import { fetchInfoFromFormData, useFetchStore, useReportType } from '@/state/fetch'
 
-type SetValues = {
-    repo?: string | undefined
-    org?: string | undefined
-    excludeIds?: string | undefined
-    events?: string | undefined
-    sortDirection: SortDirection
-    amountOfData: AmountOfData
-    token: string
-    userId?: string | undefined
-    name?: string | undefined
-    usersInfo?: UsersInfo | undefined
-}
-
-type PrefetchedFormProps = {
-    setValues: (values: SetValues) => void
-    getData: () => void
-    fetches: FetchInfo
-    fetching: boolean
-}
-const PrefetchedForm = (props: PrefetchedFormProps) => {
+const PrefetchedForm = () => {
+    const reportType = useReportType()
+    const fetches = useFetchStore((state) => state)
     const {
-        setValues,
-        getData,
-        fetches,
-        fetching,
-    } = props
-
-    const {
-        repo,
-        org,
+        repo = '',
+        org = '',
+        fetching = false,
         excludeIds = [],
-        userIds = [],
-        usersInfo = {},
         events = [],
+        usersInfo = {},
+        token = '',
+        amountOfData = 'all',
+        enterpriseAPI = '',
     } = fetches
 
-    const reportType:ReportType = userIds.length > 1 && 'team'
-        || userIds.length === 1 && 'user'
-        || !repo && org && 'org'
-        || 'repo'
+    const sortDirection = 'ASC'
 
     const eventsText = events
         .map(({ name, date }) => `${name}=${date}`)
@@ -87,14 +55,36 @@ const PrefetchedForm = (props: PrefetchedFormProps) => {
     const excludeIdsText = excludeIds
         .join(', ')
 
-    const [formInfo, setFormInfo] = useState({
-        sortDirection: fetches.sortDirection,
-        amountOfData: fetches.amountOfData || 'all',
-        token: fetches.token,
-        ...(eventsText && { events: eventsText }),
-        ...(excludeIdsText && { excludeIds: excludeIdsText }),
-        ...(fetches.org && { org: fetches.org }),
-        ...(fetches.repo && { repo: fetches.repo }),
+    const reportTypeFormValuesMap: Record<ReportType, FormSubmitDataValuesByReportType> = {
+        'repo': {
+            reportType: 'repo',
+            org,
+            repo,
+        },
+        'org': {
+            reportType: 'org',
+            org,
+        },
+        'team': {
+            reportType: 'team',
+            usersInfo,
+            teamName: '',
+        },
+        'user': {
+            reportType: 'user',
+            userId: org,
+            name: '',
+        },
+    }
+
+    const [formInfo, setFormInfo] = useState<FormSubmitData>({
+        sortDirection,
+        amountOfData,
+        token,
+        excludeIds: excludeIdsText,
+        enterpriseAPI,
+        events: eventsText,
+        ...reportTypeFormValuesMap[reportType],
     })
 
     const [inputError, setInputError] = useState({})
@@ -131,13 +121,14 @@ const PrefetchedForm = (props: PrefetchedFormProps) => {
 
         setInputError(validationErrors)
 
-        isValid && !fetching
-            && setValues(formInfo)
-
-        isValid && !fetching
-            && getData()
-
-        isValid && setShowDownload(true)
+        if (isValid && !fetching) {
+            const fetchInfo = fetchInfoFromFormData(formInfo)
+            fetchGitHubData({
+                ...fetches,
+                ...fetchInfo,
+            })
+            setShowDownload(true)
+        }
     }
 
     const reportInputsHash = {
@@ -235,51 +226,4 @@ const PrefetchedForm = (props: PrefetchedFormProps) => {
     )
 }
 
-type State = {
-    fetches: FetchInfo
-    fetching: boolean
-    error: string
-    pullRequests: PullRequest[]
-}
-const mapStateToProps = (state: State) => ({
-    fetches: state.fetches,
-    fetching: state.fetching,
-    error: state.error,
-    pullRequests: state.pullRequests,
-})
-
-const mapDispatchToProps = (dispatch: AnyForLib) => ({
-    setValues: (values: SetValues) => {
-        const {
-            token,
-            amountOfData,
-            sortDirection,
-            excludeIds,
-            events,
-            userId,
-            usersInfo = {},
-            name,
-        } = values
-
-        if (userId && name) {
-            usersInfo[userId] = {
-                userId,
-                name,
-            }
-        }
-
-        dispatch(checkUntilDate(sortDirection))
-        dispatch(storeToken(token))
-        dispatch(storeExcludeIds(excludeIds))
-        dispatch(storeAmountOfData(amountOfData))
-        dispatch(storeSortDirection(sortDirection))
-        dispatch(storeFormUntilDate(amountOfData))
-        dispatch(storeEvents(events))
-        Object.keys(usersInfo).length > 0 && dispatch(storeUsersInfo(usersInfo))
-    },
-    getData: () => dispatch(getAPIData()),
-    getDownloadInfo: () => dispatch(getDownloadProps),
-})
-
-// eslint-disable-next-line react-refresh/only-export-components
-export default connect(mapStateToProps,mapDispatchToProps)(PrefetchedForm)
+export default PrefetchedForm

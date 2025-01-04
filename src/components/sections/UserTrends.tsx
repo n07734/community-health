@@ -1,7 +1,7 @@
 
-import { connect } from 'react-redux'
 
-import { UsersInfo, UserData, FetchInfo, UserDataNumbersKeys } from '@/types/State'
+import { useShallow } from 'zustand/react/shallow'
+import { UserData, UserDataNumbersKeys } from '@/types/State'
 import { RadarData } from '@/types/Components'
 
 import { useTheme } from '@/components/ThemeProvider'
@@ -16,6 +16,7 @@ import { Button } from '@/components/ui/button'
 import formatRadarData from '@/format/radarData'
 import { sortByKeys } from '@/utils'
 import { graphColors } from '@/components/colors'
+import { useDataStore, useFetchStore } from '@/state/fetch'
 
 const radialChartsContributions = ({
     maxValues = {},
@@ -81,16 +82,13 @@ const radialChartsContributions = ({
     return radarData
 }
 
-type UserTrendsProps = {
-    usersData: UserData[]
-    userIds: string[]
-    usersInfo: UsersInfo
-}
-const UserTrends = ({
-    usersData = [],
-    userIds = [],
-    usersInfo = {},
-}:UserTrendsProps) => {
+const UserTrends = () => {
+    const usersData = useDataStore(state => state.usersData)
+    const {
+        userIds = [],
+        usersInfo = {},
+    } = useFetchStore(useShallow((state) => state))
+
     const { theme } = useTheme()
     const { togglePvPPage, setUserPage } = useSubPage()
 
@@ -160,14 +158,4 @@ const UserTrends = ({
     )
 }
 
-type State = {
-    usersData: UserData[]
-    fetches: FetchInfo
-}
-const mapStateToProps = (state:State) => ({
-    usersData: state.usersData,
-    userIds: state.fetches.userIds,
-    usersInfo: state.fetches.usersInfo,
-})
-
-export default connect(mapStateToProps)(UserTrends)
+export default UserTrends

@@ -1,8 +1,6 @@
 
-import { connect } from 'react-redux'
 import differenceInDays from 'date-fns/differenceInDays'
 
-import { FetchInfo, FetchStatus } from '../types/State'
 import { PullRequest } from '../types/FormattedData'
 
 import {
@@ -11,6 +9,7 @@ import {
     DialogContentNoClose,
 } from '@/components/ui/dialog'
 import { Progress } from './ui/progress'
+import { useDataStore, useFetchStore } from '@/state/fetch'
 
 type TeamLoaderProps = {
     userIds: string[]
@@ -120,24 +119,16 @@ const loaderMap = {
     saved: SavedLoader,
 }
 
-type LoaderProps = {
-    fetches: FetchInfo
-    fetching?: boolean
-    fetchStatus?: FetchStatus
-    pullRequests?: PullRequest[]
-    formUntilDate?: string
-}
-const Loader = ({
-    fetches,
-    fetching = false,
-    fetchStatus = {},
-    pullRequests: pastPRs = [],
-    formUntilDate = '',
-}: LoaderProps) => {
+const Loader = () => {
     const {
+        fetching = false,
+        fetchStatus = {},
         userIds = [],
         sortDirection = '',
-    } = fetches
+        formUntilDate = '',
+    } = useFetchStore((state) => state)
+
+    const pastPRs = useDataStore(state => state.pullRequests)
 
     const {
         user = '',
@@ -209,19 +200,4 @@ const Loader = ({
     )
 }
 
-type State = {
-    fetches: FetchInfo
-    fetching: boolean
-    fetchStatus: FetchStatus
-    pullRequests: PullRequest[]
-    formUntilDate: string
-}
-const mapStateToProps = (state: State) => ({
-    fetches: state.fetches,
-    fetching: state.fetching,
-    fetchStatus: state.fetchStatus,
-    pullRequests: state.pullRequests,
-    formUntilDate: state.formUntilDate,
-})
-
-export default connect(mapStateToProps)(Loader)
+export default Loader

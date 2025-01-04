@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { Users } from './Components'
 import { EventInfo, PullRequest, Issue } from './FormattedData'
-import { AmountOfData, SortDirection } from './Queries'
+import { Graph } from './Graphs'
+import { AmountOfData, OldNew, SortDirection } from './Queries'
 
 export type AnyForNow = any
 export type AnyForLib = any
@@ -70,24 +72,118 @@ export type SavedEvent = {
     name: string
     date: string
 }
-export type FetchInfo = {
+
+export type FetchFormInfo = {
     usersInfo: UsersInfo
     events: SavedEvent[]
     repo: string
-    repos?: string[]
     org: string
     teamName: string
-    userIds: string[]
     excludeIds: string[]
     token: string
     sortDirection: SortDirection
     amountOfData?: AmountOfData
     enterpriseAPI?: string
-    prPagination?:Record<string, string>
-    usersReviewsPagination?:Record<string, string>
-    releasesPagination?:Record<string, string>
-    issuesPagination?:Record<string, string>
 }
+
+export type FetchApiInfo = {
+    repos?: string[]
+    userIds?: string[]
+    prPagination: OldNew
+    usersReviewsPagination?: OldNew
+    releasesPagination?: OldNew
+    issuesPagination: OldNew
+}
+
+export type FetchInfoShared = {
+    sortDirection: SortDirection
+    amountOfData: AmountOfData
+    token: string
+    excludeIds: string[]
+    enterpriseAPI: string
+    events: SavedEvent[]
+}
+
+export type FetchInfoRepo = {
+    reportType: 'repo'
+    org: string
+    repo: string
+    prPagination: OldNew
+    releasesPagination: OldNew
+    issuesPagination: OldNew
+}
+
+export type FetchInfoOrg = {
+    reportType: 'org'
+    org: string
+    prPagination: OldNew
+    issuesPagination: OldNew
+}
+
+export type FetchInfoUserOrUser = {
+    reportType: 'user'
+    usersInfo: UsersInfo
+    prPagination: Record<string, OldNew>
+    usersReviewsPagination: Record<string, OldNew>
+    issuesPagination: Record<string, OldNew>
+}
+
+export type FetchInfoUserOrTeam = {
+    reportType: 'team'
+    usersInfo: UsersInfo
+    prPagination: Record<string, OldNew>
+    issuesPagination: Record<string, OldNew>
+}
+
+export type FetchInfoFromForm = {
+    sortDirection: SortDirection
+    amountOfData: AmountOfData
+    token: string
+    excludeIds: string[]
+    enterpriseAPI: string
+    events: SavedEvent[]
+    reportType: ReportType
+    org?: string
+    repo?: string
+    usersInfo?: UsersInfo
+    userIds?: string[]
+    teamName?: string
+}
+
+export type FetchInfo = FetchInfoFromForm & {
+    // For API calls
+    fetchStatus: FetchStatus
+    repos?: string[]
+    user?: string
+    prPagination: OldNew
+    usersReviewsPagination?: OldNew
+    releasesPagination?: OldNew
+    issuesPagination: OldNew
+}
+
+type RequireKeys<T extends object, rType extends ReportType, K extends keyof T> =
+  Required<Pick<T, K>> & Omit<T, K> & { reportType: rType } ;
+
+
+export type FetchInfoForRepo = RequireKeys<FetchInfo, 'repo', 'repo' | 'org'>
+type NestedPagination = {
+    prPagination: Record<string, OldNew>
+    usersReviewsPagination: Record<string, OldNew>
+    issuesPagination: Record<string, OldNew>
+}
+export type FetchInfoForOrg = RequireKeys<FetchInfo, 'org', 'org'> & NestedPagination
+export type FetchInfoForUser = RequireKeys<FetchInfo, 'user', 'usersInfo' | 'userIds'> & NestedPagination
+export type FetchInfoForTeam = RequireKeys<FetchInfo, 'team', 'teamName' | 'usersInfo' | 'userIds'> & NestedPagination
+
+export type FetchInfoRequired = FetchInfoForOrg | FetchInfoForRepo | FetchInfoForUser | FetchInfoForTeam
+
+export type FetchInfozz = FetchInfoShared & (
+    FetchInfoRepo
+    | FetchInfoOrg
+    | FetchInfoUserOrUser
+    | FetchInfoUserOrTeam
+)
+
 
 export type FetchStatus = {
     user?: string
@@ -100,16 +196,83 @@ export type FetchStatus = {
     reviewCount?: number
     repoCount?: number
     paused?: boolean
+    fetching?: boolean
+}
+
+export type FormSubmitDataShared = {
+    reportType: ReportType
+    sortDirection: SortDirection
+    amountOfData: AmountOfData
+    token: string
+    excludeIds: string
+    enterpriseAPI: string
+    events: string
+}
+
+export type FormSubmitDataRepo = {
+    reportType: 'repo'
+    org: string
+    repo: string
+}
+
+export type FormSubmitDataOrg = {
+    reportType: 'org'
+    org: string
+}
+
+export type FormSubmitDataUser = {
+    reportType: 'user'
+    userId: string
+    name: string
+}
+
+export type FormSubmitDataTeam = {
+    reportType: 'team'
+    teamName: string
+    usersInfo: Users
+}
+
+export type FormSubmitDataValuesByReportType =
+    FormSubmitDataRepo
+    | FormSubmitDataOrg
+    | FormSubmitDataUser
+    | FormSubmitDataTeam
+
+export type FormSubmitData =
+    FormSubmitDataShared
+    & (FormSubmitDataValuesByReportType)
+
+export type ErrorUI = {
+    level: 'warn' | 'error' | ''
+    message: string
 }
 
 export type AllState = {
+    fetching: boolean
+    fetchStatus: FetchStatus
+    error: ErrorUI
+    preFetchedError: ErrorUI
     fetches: FetchInfo
-    preFetchedName: string
+    formUntilDate: string
     reportDescription: string
-    filteredPRs: PullRequest[]
     pullRequests: PullRequest[]
-    filteredReviewedPRs: PullRequest[]
     reviewedPullRequests: PullRequest[]
+    issues: Issue[]
+    releases: EventInfo[]
+    usersData: UserData[]
+    filteredPRs: PullRequest[]
+    filteredReviewedPRs: PullRequest[]
+    filteredReleases: EventInfo[]
+    filteredIssues: Issue[]
+    // TODO: Flatten trimmedItems
+    // trimmedLeftPrs: PullRequest[]
+    // trimmedRightPrs: PullRequest[]
+    // trimmedLeftReviewedPrs: PullRequest[]
+    // trimmedRightReviewedPrs: PullRequest[]
+    // trimmedLeftIssues: Issue[]
+    // trimmedRightIssues: Issue[]
+    // trimmedLeftReleases: EventInfo[]
+    // trimmedRightReleases: EventInfo[]
     trimmedItems: {
         trimmedPRs: {
             trimmedLeftPrs: PullRequest[]
@@ -128,11 +291,7 @@ export type AllState = {
             trimmedRightIssues: Issue[]
         }
     }
-    usersData: UserData[]
-    issues: Issue[]
-    filteredIssues: Issue[]
-    formUntilDate: string
-    releases: EventInfo[]
-    filteredReleases: EventInfo[]
-    isValid: boolean
+    preFetchedName: string
+    chartConfig: Graph[]
+    itemsDateRange: string[]
 }

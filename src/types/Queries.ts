@@ -1,5 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { AnyForLib, FetchInfo } from './State'
+import {
+    FetchInfo,
+    FetchInfoForOrg,
+    FetchInfoForTeam,
+    FetchInfoForUser,
+} from './State'
 
 export type AmountOfData = number | 'all'
 export type ApiResults = any[]
@@ -14,18 +19,16 @@ export type ApiResult = {
     errorMessage?: ApiError
     fetchInfo: FetchInfo
     results: ApiResults
-    reviewResults: any[]
+    reviewResults?: ApiResults
 }
 
 export type SortDirection = 'ASC' | 'DESC'
 
-type QueryInfo = any
+export type QueryInfo = any
 
-type Dispatch = (action: { type: string, payload: any }) => void
+export type ApiArgs = { fetchInfo: FetchInfo, queryInfo: QueryInfo }
 
-export type ApiInfo = { fetchInfo: FetchInfo, queryInfo: QueryInfo, dispatch: Dispatch }
-
-type ApiError = {
+export type ApiError = {
     level: string
     message: string
 }
@@ -153,7 +156,7 @@ export type UserQueryArgs = QueryDefault & {
     user: string
 }
 
-export type BatchedPaginations = {
+type BatchedPaginations = {
     issuesPagination: {
         [key:string]: OldNew } & {
         hasNextPage?: boolean
@@ -199,8 +202,17 @@ export type FilterType = '' | 'pullRequests' | 'pullRequestReviewComments' | 'ba
 
 export type MakeQuery = (queryInfo: any) => { query: any, resultInfo: any, fillerType: FilterType }
 
-export type GetUsersData = {
-    fetchInfo: ApiFetchInfo
+export type GetUserData = {
+    fetchInfo: FetchInfoForUser
     untilDate: UntilDate
-    dispatch: AnyForLib
+}
+
+export type GetTeamData = {
+    fetchInfo: FetchInfoForTeam
+    untilDate: UntilDate
+}
+
+export type GetOrgData = {
+    fetchInfo: FetchInfoForOrg
+    untilDate: UntilDate
 }

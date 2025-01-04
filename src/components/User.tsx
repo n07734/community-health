@@ -1,8 +1,5 @@
 
-import { connect } from 'react-redux'
-
 import { EventInfo, PullRequest } from '@/types/FormattedData'
-import { UserData } from '@/types/State'
 import { Lines, ColumnKeys } from '@/types/Graphs'
 import { AllowedColors } from '@/types/Components'
 
@@ -18,6 +15,7 @@ import { chunkData } from './charts/lineHelpers'
 import { useSubPage } from '@/state/SubPageProvider'
 import usersAverageData from '@/format/usersAverageData'
 import { colors } from '@/components/colors'
+import { useDataStore } from '@/state/fetch'
 
 const userGraphs = (
     pullRequests:PullRequest[] = [],
@@ -128,16 +126,11 @@ const userGraphs = (
     ]
 }
 
-type UserViewProps = {
-    pullRequests: PullRequest[]
-    releases: EventInfo[]
-    usersData: UserData[]
-}
-const UserView = ({
-    pullRequests = [],
-    releases = [],
-    usersData = [],
-}:UserViewProps) => {
+const UserView = () => {
+    const pullRequests = useDataStore(state => state.pullRequests)
+    const releases = useDataStore(state => state.releases)
+    const usersData = useDataStore(state => state.usersData)
+
     const { userPage: user, clearUserPage } = useSubPage()
     const { theme } = useTheme()
     const colorA = graphColors[theme].secondary
@@ -185,16 +178,4 @@ const UserView = ({
     )
 }
 
-type State = {
-    pullRequests: PullRequest[]
-    releases: EventInfo[]
-    usersData: UserData[]
-
-}
-const mapStateToProps = (state:State) => ({
-    pullRequests: state.pullRequests,
-    releases: state.releases,
-    usersData: state.usersData,
-})
-
-export default connect(mapStateToProps)(UserView)
+export default UserView

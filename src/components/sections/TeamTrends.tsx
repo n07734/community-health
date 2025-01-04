@@ -1,7 +1,7 @@
 
-import { connect } from 'react-redux'
-import { EventInfo, PullRequest } from '@/types/FormattedData'
-import { UsersInfo, UserData, UserDataNumbersKeys, FetchInfo, SavedEvent } from '@/types/State'
+import { useShallow } from 'zustand/react/shallow'
+import { PullRequest } from '@/types/FormattedData'
+import { UserData, UserDataNumbersKeys } from '@/types/State'
 import { BarData, TableData } from '@/types/Graphs'
 
 import { useShowNames } from '@/state/ShowNamesProvider'
@@ -17,27 +17,27 @@ import { sortByKeys } from '@/utils'
 import { useTheme } from "@/components/ThemeProvider"
 import { graphColors } from '@/components/colors'
 import { formatMarkers } from '@/format/releaseData'
+import { useDataStore, useFetchStore } from '@/state/fetch'
 
 type TeamTrendsProps = {
     pullRequests: PullRequest[]
     chunkyData: TableData[][]
-    usersData?: UserData[]
     allRepos?:Record<string, number>
-    userIds?: string[]
-    releases: EventInfo[]
-    events: SavedEvent[]
-    usersInfo: UsersInfo
 }
 const TeamTrends = ({
     pullRequests = [],
     chunkyData = [],
-    usersData = [],
     allRepos = {},
-    userIds = [],
-    releases = [],
-    events = [],
-    usersInfo = {},
 }: TeamTrendsProps) => {
+    const usersData = useDataStore(state => state.usersData)
+    const releases = useDataStore(useShallow(state => state.releases))
+
+    const {
+        userIds = [],
+        usersInfo = {},
+        events = [],
+    } = useFetchStore(useShallow((state) => state))
+
     const { theme } = useTheme()
     const colorA = graphColors[theme].secondary
     const colorB = graphColors[theme].primary
@@ -186,17 +186,4 @@ const TeamTrends = ({
     )
 }
 
-type State = {
-    usersData: UserData[]
-    releases: EventInfo[]
-    fetches: FetchInfo
-}
-const mapStateToProps = (state:State) => ({
-    releases: state.releases,
-    usersData: state.usersData,
-    userIds: state.fetches.userIds,
-    events: state.fetches.events,
-    usersInfo: state.fetches.usersInfo,
-})
-
-export default connect(mapStateToProps)(TeamTrends)
+export default TeamTrends

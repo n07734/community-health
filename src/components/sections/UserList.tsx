@@ -1,21 +1,13 @@
-
-import { connect } from 'react-redux'
-
-
-import { UserData } from '@/types/State'
-
 import { useShowNames } from '@/state/ShowNamesProvider'
 import { useSubPage } from '@/state/SubPageProvider'
 
 import Paper from '@/components/shared/Paper'
 import { Button } from '@/components/ui/button'
+import { useDataStore } from '@/state/fetch'
 
-type UserListProps = {
-    usersData: UserData[]
-}
-const UserList = ({
-    usersData = [],
-}: UserListProps) => {
+const UserList = () => {
+    const usersData = useDataStore((store) => store.usersData)
+
     const { showNames } = useShowNames()
     const { togglePvPPage, setUserPage } = useSubPage()
 
@@ -58,11 +50,4 @@ const UserList = ({
     </>)
 }
 
-type State = {
-    usersData: UserData[]
-}
-const mapStateToProps = (state:State) => ({
-    usersData: state.usersData,
-})
-
-export default connect(mapStateToProps)(UserList)
+export default UserList

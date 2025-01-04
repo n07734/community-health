@@ -1,9 +1,6 @@
-
-import { connect } from 'react-redux'
-
-import { Issue, PullRequest } from '@/types/FormattedData'
+import { useShallow } from 'zustand/react/shallow'
 import { AllowedColors } from '@/types/Components'
-import { FetchInfo } from '@/types/State'
+import { UsersInfo } from '@/types/State'
 
 import { useTheme } from "@/components/ThemeProvider"
 import { Switch } from "@/components/ui/switch"
@@ -13,8 +10,14 @@ import PrefetchedForm from '@/components/home/DataOptions/PrefetchedForm'
 import DateRange from './DateRange'
 import { useShowNames } from '@/state/ShowNamesProvider'
 import { graphColors } from '@/components/colors'
+import { useDataStore, useFetchStore } from '@/state/fetch'
 
-type TitleProps = FetchInfo & {
+type TitleProps = {
+    repo: string
+    org: string
+    teamName: string
+    usersInfo: UsersInfo
+    userIds: string[]
     colorA: AllowedColors
     colorB: AllowedColors
 }
@@ -48,22 +51,20 @@ const Title = (props:TitleProps) => {
     )
 }
 
-type ReportDescriptionProps = {
-    fetches: FetchInfo
-    preFetchedName?: string
-    pullRequests?: PullRequest[]
-    issues?: Issue[]
-    userIds?: string[]
-    reportDescription?: string
-}
-const ReportDescription = ({
-    fetches,
-    preFetchedName = '',
-    pullRequests = [],
-    issues = [],
-    userIds = [],
-    reportDescription = '',
-}:ReportDescriptionProps) => {
+const ReportDescription = () => {
+    const preFetchedName = useDataStore(useShallow(state => state.preFetchedName))
+    const reportDescription = useDataStore(useShallow(state => state.reportDescription))
+    const pullRequests = useDataStore(state => state.pullRequests)
+    const issues = useDataStore(state => state.issues)
+
+    const {
+        repo,
+        org,
+        teamName,
+        usersInfo,
+        userIds = [],
+    } = useFetchStore(useShallow((state) => state))
+
     const { theme } = useTheme()
     const colorA = graphColors[theme].secondary
     const colorB = graphColors[theme].primary
@@ -74,14 +75,22 @@ const ReportDescription = ({
 
     return hasReportData && (<Paper>
         <h2 data-qa-id="report-title" className="truncate">
-            <Title {...fetches} colorA={colorA} colorB={colorB}/>
+            <Title
+                repo={repo}
+                org={org}
+                teamName={teamName}
+                usersInfo={usersInfo}
+                userIds={userIds}
+                colorA={colorA}
+                colorB={colorB}
+            />
         </h2>
         {
             reportDescription
                     && <p>{reportDescription}</p>
         }
         {
-            userIds.length > 1
+            userIds && userIds.length > 1
                     && <p>Team's GitHub IDs: { userIds.join(', ') }</p>
         }
         <div className="flex items-center space-x-2 pb-08">
@@ -109,21 +118,4 @@ const ReportDescription = ({
     </Paper>)
 }
 
-type State = {
-    fetches: FetchInfo
-    preFetchedName: string
-    pullRequests: PullRequest[]
-    issues: Issue[]
-    userIds: string[]
-    reportDescription: string
-}
-const mapStateToProps = (state:State) => ({
-    fetches: state.fetches,
-    preFetchedName: state.preFetchedName,
-    pullRequests: state.pullRequests,
-    issues: state.issues,
-    userIds: state.fetches.userIds,
-    reportDescription: state.reportDescription,
-})
-
-export default connect(mapStateToProps)(ReportDescription)
+export default ReportDescription

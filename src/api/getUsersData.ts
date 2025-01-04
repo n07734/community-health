@@ -1,17 +1,20 @@
-import mergeDeepRight from 'ramda/es/mergeDeepRight'
-import prop from 'ramda/es/prop'
-import { ApiInfo, GetUsersData, UsersPaginations, UsersQueryArgs } from '../types/Queries'
-import { RawDataResult } from '../types/RawData'
+import {
+    ApiArgs,
+    ApiResult,
+    GetTeamData,
+    UsersQueryArgs,
+} from '@/types/Queries'
+import { RawDataResult } from '@/types/RawData'
 
 import { userQuery } from './queries'
 import api from './api'
 import batch from './batch'
 
-const getUsersData = async({ fetchInfo, untilDate, dispatch }: GetUsersData) => {
+const getUsersData = async ({ fetchInfo, untilDate }: GetTeamData): Promise<ApiResult> => {
     try {
         const userIds = fetchInfo.userIds
-        const data:ApiInfo[] = userIds
-            .map((user: string)  => ({
+        const data = userIds
+            .map((user: string): ApiArgs => ({
                 fetchInfo: {
                     ...fetchInfo,
                     issuesPagination: fetchInfo.issuesPagination[user] || { hasNextPage: true },
@@ -19,17 +22,11 @@ const getUsersData = async({ fetchInfo, untilDate, dispatch }: GetUsersData) => 
                     user,
                 },
                 queryInfo: userQuery(untilDate),
-                dispatch,
             }))
         const allUsersData = await batch(data, api, 1) as {
             fetchInfo: UsersQueryArgs
             results: RawDataResult[]
         }[]
-
-        const paginationInfo:UsersPaginations = {
-            issuesPagination: {},
-            prPagination: {},
-        }
 
         const allResults: RawDataResult[][] = []
         allUsersData
@@ -38,16 +35,13 @@ const getUsersData = async({ fetchInfo, untilDate, dispatch }: GetUsersData) => 
 
                 const user: string = fetchInfo?.user || ''
 
-                paginationInfo.issuesPagination[user] = prop('issuesPagination', fetchInfo)
-                paginationInfo.prPagination[user] = prop('prPagination', fetchInfo)
+                fetchInfo.issuesPagination[user] = fetchInfo?.issuesPagination
+                fetchInfo.prPagination[user] = fetchInfo?.prPagination
             })
 
-        const finalFetchInfo = mergeDeepRight(fetchInfo, paginationInfo)
-
-        const usersData = {
-            fetchInfo: finalFetchInfo,
+        const usersData: ApiResult = {
+            fetchInfo,
             results: allResults.flat(),
-            reviewResults: [],
         }
 
         return usersData

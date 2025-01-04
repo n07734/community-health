@@ -1,9 +1,7 @@
 import { useEffect } from 'react'
-import { connect } from 'react-redux'
 
-import { AnyForLib, AnyForNow } from '@/types/State'
-
-import Message, { ErrorInputs } from '@/components/home/Message'
+import { useShallow } from 'zustand/react/shallow'
+import Message from '@/components/home/Message'
 import { getPreFetched } from '@/state/actions'
 import { useSubPage } from '@/state/SubPageProvider'
 
@@ -16,23 +14,16 @@ import {
 import {
     myPreFetchedReports,
 } from '@/myReports/myReportsConfig'
+import { useDataStore, useFetchStore } from '@/state/fetch'
 
 type ReportInfo = {
     name?: string;
     fileName: string;
 }
 
-type PrefetchedReportProps = {
-    error: ErrorInputs
-    preFetchedName: string
-    getPreFetchedReport: (arg: ReportInfo) => void
-}
-const PrefetchedReport = (props: PrefetchedReportProps) => {
-    const {
-        error,
-        preFetchedName = '',
-        getPreFetchedReport,
-    } = props
+const PrefetchedReport = () => {
+    const preFetchedName = useDataStore(useShallow(state => state.preFetchedName))
+    const error = useFetchStore(state => state.error)
     const { togglePvPPage, setUserPage } = useSubPage()
     const queryString = window?.location?.search
     const urlParams = new URLSearchParams(queryString)
@@ -59,18 +50,18 @@ const PrefetchedReport = (props: PrefetchedReportProps) => {
         : { fileName: report }
 
     useEffect(() => {
-        getPreFetchedReport(repoInfo as ReportInfo)
+        getPreFetched(repoInfo as ReportInfo)
         if (player1 && player2) {
             togglePvPPage()
         } else if (user) {
             setUserPage(user)
         }
-    }, [getPreFetchedReport, player1, player2, user])
+    }, [getPreFetched, player1, player2, user])
 
     return (
         <>
             {
-                error
+                error && error.message
                     && <Message
                         error={error}
                         className="col-span-full mb-4"
@@ -80,17 +71,4 @@ const PrefetchedReport = (props: PrefetchedReportProps) => {
     )
 }
 
-type State = {
-    preFetchedName: string
-    preFetchedError: ErrorInputs
-}
-const mapStateToProps = (state: State) => ({
-    preFetchedName: state.preFetchedName,
-    error: state.preFetchedError,
-})
-
-const mapDispatchToProps = (dispatch: AnyForLib) => ({
-    getPreFetchedReport: (info: AnyForNow) => dispatch(getPreFetched(info)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(PrefetchedReport)
+export default PrefetchedReport

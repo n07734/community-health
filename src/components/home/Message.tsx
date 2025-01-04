@@ -1,3 +1,4 @@
+import { ErrorUI } from "@/types/State"
 
 const variant = {
     'warn': <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 fill-current" viewBox="0 0 24 24">
@@ -8,13 +9,8 @@ const variant = {
     </svg>,
 }
 
-export type ErrorInputs = {
-    level?: 'warn' | 'error'
-    message: string
-}
-
 type MessageProps = {
-    error: ErrorInputs
+    error: ErrorUI
     className?: string
 }
 
@@ -30,7 +26,7 @@ const Message = ({
         : 'bg-warn'
     return (
         <div className={`${bgClass} p-3 flex items-center rounded-sm ${className}`} >
-            {variant[level]}
+            {level && variant[level]}
             <p className="m-0 ml-2 p-0">{message}</p>
         </div>
     )}
