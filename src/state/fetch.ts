@@ -12,7 +12,7 @@ import {
     FetchInfo,
 } from '@/types/State'
 import { create } from 'zustand'
-import { devtools } from 'zustand/middleware'
+// import { devtools } from 'zustand/middleware'
 
 import { getStartEndDates, trimmer, userIdsFromString } from './actions'
 import formatUserData from '@/format/userData'
@@ -197,7 +197,8 @@ const initialDataState:InitialDataState = {
     itemsDateRange: ['', ''],
 }
 
-export const useDataStore = create(devtools<InitialDataState>(() => initialDataState))
+// export const useDataStore = create(devtools<InitialDataState>(() => initialDataState))
+export const useDataStore = create(() => initialDataState)
 export const useFetchStore = create(() => initialFetchState)
 
 export const addItemsToState = (items: Partial<AllState>) => useDataStore.setState(items)
