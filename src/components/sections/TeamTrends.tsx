@@ -95,45 +95,45 @@ const TeamTrends = ({
             </ChartDescription>
             <GraphsWrap>
                 <div className="grid grid-cols-2 w-full max-mm:grid-cols-1">
-                        <Bar
-                            data={barData}
-                            indexBy="name"
-                            title="Comments"
-                            sortBy="commentsGiven"
-                            max={maxAuthors}
-                            bars={[
-                                {
-                                    dataKey: 'commentsGiven',
-                                    color: colorA,
-                                    label: 'given',
-                                },
-                                {
-                                    dataKey: 'commentsReceived',
-                                    color: colorB,
-                                    label: '*received',
-                                },
-                            ]}
-                        />
-                        <Bar
-                            data={barData}
-                            indexBy="name"
-                            title="PRs"
-                            sortBy="uniquePRsApproved"
-                            max={maxAuthors}
-                            bars={[
-                                {
-                                    dataKey: 'uniquePRsApproved',
-                                    color: colorA,
-                                    label: 'approved',
-                                },
-                                {
-                                    dataKey: 'totalPRs',
-                                    color: colorB,
-                                    label: 'opened',
-                                },
-                            ]}
-                        />
-                    </div>
+                    <Bar
+                        data={barData}
+                        indexBy="name"
+                        title="Comments"
+                        sortBy="commentsGiven"
+                        max={maxAuthors}
+                        bars={[
+                            {
+                                dataKey: 'commentsGiven',
+                                color: colorA,
+                                label: 'given',
+                            },
+                            {
+                                dataKey: 'commentsReceived',
+                                color: colorB,
+                                label: '*received',
+                            },
+                        ]}
+                    />
+                    <Bar
+                        data={barData}
+                        indexBy="name"
+                        title="PRs"
+                        sortBy="uniquePRsApproved"
+                        max={maxAuthors}
+                        bars={[
+                            {
+                                dataKey: 'uniquePRsApproved',
+                                color: colorA,
+                                label: 'approved',
+                            },
+                            {
+                                dataKey: 'totalPRs',
+                                color: colorB,
+                                label: 'opened',
+                            },
+                        ]}
+                    />
+                </div>
 
                 {
                     (withCommentsByUserLength > 0 || withApprovalsByUserLength > 0) &&

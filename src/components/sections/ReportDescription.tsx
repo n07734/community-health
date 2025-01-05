@@ -7,7 +7,8 @@ import { Switch } from "@/components/ui/switch"
 import { Label } from "@/components/ui/label"
 import Paper from '@/components/shared/Paper'
 import PrefetchedForm from '@/components/home/DataOptions/PrefetchedForm'
-import DateRange from './DateRange'
+import DateRangeInfo from './DateRangeInfo'
+import DateSlider from './DateSlider'
 import { useShowNames } from '@/state/ShowNamesProvider'
 import { graphColors } from '@/components/colors'
 import { useDataStore, useFetchStore } from '@/state/fetch'
@@ -109,8 +110,8 @@ const ReportDescription = () => {
                 }
             </Label>
         </div>
-
-        <DateRange />
+        <DateRangeInfo />
+        <DateSlider />
         {
             preFetchedName.length > 0
                     && <PrefetchedForm />
