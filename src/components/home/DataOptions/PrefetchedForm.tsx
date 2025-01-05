@@ -29,10 +29,9 @@ import {
 } from './utils'
 
 import { fetchGitHubData } from '@/state/actions'
-import { fetchInfoFromFormData, useFetchStore, useReportType } from '@/state/fetch'
+import { fetchInfoFromFormData, useFetchStore } from '@/state/fetch'
 
 const PrefetchedForm = () => {
-    const reportType = useReportType()
     const fetches = useFetchStore((state) => state)
     const {
         repo = '',
@@ -44,6 +43,7 @@ const PrefetchedForm = () => {
         token = '',
         amountOfData = 'all',
         enterpriseAPI = '',
+        reportType,
     } = fetches
 
     const sortDirection = 'ASC'

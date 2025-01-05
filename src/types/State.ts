@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Users } from './Components'
 import { EventInfo, PullRequest, Issue } from './FormattedData'
 import { Graph } from './Graphs'
 import { AmountOfData, OldNew, SortDirection } from './Queries'
@@ -184,7 +183,6 @@ export type FetchInfozz = FetchInfoShared & (
     | FetchInfoUserOrTeam
 )
 
-
 export type FetchStatus = {
     user?: string
     repo?: string
@@ -229,7 +227,7 @@ export type FormSubmitDataUser = {
 export type FormSubmitDataTeam = {
     reportType: 'team'
     teamName: string
-    usersInfo: Users
+    usersInfo: UsersInfo
 }
 
 export type FormSubmitDataValuesByReportType =

@@ -8,13 +8,14 @@ import {
     FetchInfoFromForm,
     AnyForNow,
     ErrorUI,
+    UsersInfo,
+    FetchInfo,
 } from '@/types/State'
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 
 import { getStartEndDates, trimmer, userIdsFromString } from './actions'
 import formatUserData from '@/format/userData'
-import { Users } from '@/types/Components'
 import { Graph } from '@/types/Graphs'
 import { colors } from '@/components/colors'
 import { EventInfo, Issue, PullRequest } from '@/types/FormattedData'
@@ -47,7 +48,7 @@ type InitialFetchState = {
     preFetchedError: ErrorUI
 
     // From form
-    usersInfo: Users
+    usersInfo: UsersInfo
     events: SavedEvent[]
     repo: string
     org: string
@@ -304,27 +305,6 @@ export const trimItems = (dateFrom = '', dateTo = '') => {
     })
 }
 
-export const useReportType = () => useFetchStore((state):ReportType => {
-    const reportType = state.reportType
-    if (reportType) {
-        return reportType
-    }
-
-    const {
-        teamName = '',
-        userIds = [],
-        repo = '',
-        org = '',
-    } = state
-
-    const derivedReportType:ReportType = (teamName && 'team')
-        || (userIds.length === 1 && 'user')
-        || (!repo && org && 'org')
-        || 'repo'
-
-    return derivedReportType
-})
-
 export const resetStateToInitialState = () => {
     useDataStore.setState(initialDataState)
     useFetchStore.setState(initialFetchState)
@@ -413,15 +393,20 @@ export const fetchInfoFromFormData = (values: FormSubmitData): FetchInfoFromForm
     return fetchInfo
 }
 
-export const setStateFromGitHubFetch = (data:Partial<AllState> = {}) => {
-    useDataStore.setState((state) => ({
-        ...state,
-        ...data,
-    }))
-    useFetchStore.setState((state):AnyForNow => ({
-        ...state,
-        ...data.fetches,
-    }))
+const getReportType = (values: FetchInfo):ReportType => {
+    const {
+        teamName = '',
+        userIds = [],
+        repo = '',
+        org = '',
+    } = values
+
+    const derivedReportType:ReportType = (teamName && 'team')
+        || (userIds.length === 1 && 'user')
+        || (!repo && org && 'org')
+        || 'repo'
+
+    return derivedReportType
 }
 
 export const setSateFromPreFetchedData = (data: AnyForNow) => {
@@ -451,9 +436,12 @@ export const setSateFromPreFetchedData = (data: AnyForNow) => {
         ...reportSate,
     }))
 
+    const reportType = getReportType(data.fetches)
+
     useFetchStore.setState(() => ({
         ...initialFetchState,
         ...data.fetches,
+        reportType,
     }))
 }
 

@@ -245,6 +245,8 @@ const fetchGitHubData = async (fetches: FetchInfo) => {
 
         useFetchStore.setState((state) => ({
             ...state,
+            ...fetchInfo,
+            reportType: reportType,
             fetching: false,
             fetchStatus: {},
             prPagination: pageInfo(fetchInfo.prPagination),

@@ -47,7 +47,7 @@ const Bar = ({
     const keys = bars.map(x => x.dataKey)
 
     return hasChartData<BarData>(data,keys) && (
-        <div className="w-full max-w-mw mb-4">
+        <div className="flex flex-col justify-between w-full max-w-mw mb-4">
             <ChartHeading text={title} items={bars} />
             <div className="chart-wrap">
                 <NivoBar

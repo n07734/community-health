@@ -24,7 +24,7 @@ test.describe('Initial page load', () => {
 
         const titleElement = page.locator(select.reportTitle)
         const titleText = await titleElement.textContent()
-        expect(titleText).toBe('vitejs')
+        expect(titleText).toBe('bluesky-social/social-app')
     })
 
     test('loads Playwright report via button click', async ({ page }) => {
@@ -41,8 +41,8 @@ test.describe('Initial page load', () => {
     })
 })
 
-test.describe('Screenshots for each report type', () => {
-    test('Org report screenshot matches baseline', async ({ page }) => {
+test.describe('Report types', () => {
+    test('Org', async ({ page }) => {
         await page.goto('/?report=vitejs-test')
         await page.waitForSelector(select.loader, { state: 'detached' })
         await page.waitForSelector(select.reportTitle)
@@ -53,7 +53,7 @@ test.describe('Screenshots for each report type', () => {
         })
     })
 
-    test('Repo screenshot matches baseline', async ({ page }) => {
+    test('Repo', async ({ page }) => {
         await page.goto('/?report=microsoft-playwright-test')
         await page.waitForSelector(select.loader, { state: 'detached' })
         await page.waitForSelector(select.reportTitle)
@@ -64,7 +64,7 @@ test.describe('Screenshots for each report type', () => {
         })
     })
 
-    test('Team screenshot matches baseline', async ({ page }) => {
+    test('Team', async ({ page }) => {
         await page.goto('/?report=ViteCore-test')
         await page.waitForSelector(select.loader, { state: 'detached' })
         await page.waitForSelector(select.reportTitle)

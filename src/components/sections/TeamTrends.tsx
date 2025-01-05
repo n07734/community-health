@@ -30,7 +30,7 @@ const TeamTrends = ({
     allRepos = {},
 }: TeamTrendsProps) => {
     const usersData = useDataStore(state => state.usersData)
-    const releases = useDataStore(useShallow(state => state.releases))
+    const releases = useDataStore(state => state.releases)
 
     const {
         userIds = [],
@@ -81,8 +81,9 @@ const TeamTrends = ({
         <Paper>
             <ChartDescription
                 title="Contributions"
-                expandText='guidance'
+                expandText='guidance*'
             >
+                <p>*Received comments can also come from out of team so can be higher.</p>
                 <p>Questions worth asking (with team context):</p>
                 <ul>
                     <li>Is there a bus factor risk?</li>
@@ -93,8 +94,7 @@ const TeamTrends = ({
                 </ul>
             </ChartDescription>
             <GraphsWrap>
-                <div className="flex flex-wrap justify-center w-full">
-                    <div className="w-1/2 max-mm:w-full">
+                <div className="grid grid-cols-2 w-full max-mm:grid-cols-1">
                         <Bar
                             data={barData}
                             indexBy="name"
@@ -114,9 +114,6 @@ const TeamTrends = ({
                                 },
                             ]}
                         />
-                        <p>*Received comments can also come from out of team so can be higher.</p>
-                    </div>
-                    <div className="w-1/2 max-mm:w-full">
                         <Bar
                             data={barData}
                             indexBy="name"
@@ -137,7 +134,6 @@ const TeamTrends = ({
                             ]}
                         />
                     </div>
-                </div>
 
                 {
                     (withCommentsByUserLength > 0 || withApprovalsByUserLength > 0) &&
