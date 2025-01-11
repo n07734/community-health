@@ -26,7 +26,7 @@ try {
     //     localData: await import('./bluesky-social-social-app.json'),
     // }
     // myPreFetchedReports.push(myReport)
-} catch (error) {
+} catch (_error) {
     // Expected as they may not have added a myReport1.json file
 }
 

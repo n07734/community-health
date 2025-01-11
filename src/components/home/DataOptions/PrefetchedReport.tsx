@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 
 import { useShallow } from 'zustand/react/shallow'
 import Message from '@/components/home/Message'
@@ -21,6 +21,13 @@ type ReportInfo = {
     fileName: string;
 }
 
+const allItems = [
+    ...myPreFetchedReports,
+    ...preFetchedRepos,
+    ...preFetchedTeams,
+    ...preFetchedOrgs,
+]
+
 const PrefetchedReport = () => {
     const preFetchedName = useDataStore(useShallow(state => state.preFetchedName))
     const error = useFetchStore(state => state.error)
@@ -32,22 +39,17 @@ const PrefetchedReport = () => {
     const player2 = urlParams.get('player2') || ''
     const user = urlParams.get('user') || ''
 
-    const allItems = [
-        ...myPreFetchedReports,
-        ...preFetchedRepos,
-        ...preFetchedTeams,
-        ...preFetchedOrgs,
-    ]
-
     const urlReport = urlParams.get('report')
     const report = urlReport || myPreFetchedReports[0]?.fileName || 'bluesky-social-social-app'
 
     const isAPreFetchedReport = allItems
         .some(x => x.fileName === report)
-    const repoInfo = isAPreFetchedReport
+
+    const repoInfo = useMemo(() => isAPreFetchedReport
         ? allItems
             .find(x => x.fileName === (preFetchedName || report)) as ReportInfo
         : { fileName: report }
+    , [isAPreFetchedReport, preFetchedName, report])
 
     useEffect(() => {
         getPreFetched(repoInfo as ReportInfo)
@@ -56,7 +58,7 @@ const PrefetchedReport = () => {
         } else if (user) {
             setUserPage(user)
         }
-    }, [getPreFetched, player1, player2, user])
+    }, [togglePvPPage, setUserPage, player1, player2, user, repoInfo])
 
     return (
         <>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { ReportType, FormSubmitData, FormSubmitDataValuesByReportType } from '@/types/State'
 
 import ChartDescription from '@/components/shared/ChartDescription'
@@ -54,7 +54,7 @@ const FormSection = ({ reportType = 'repo' }:FormSectionProps) => {
 
     const reportInputs: FormSubmitDataValuesByReportType = reportTypeInputsHash[reportType]
 
-    const defaultInputs: FormSubmitData  = {
+    const defaultInputs: FormSubmitData = useMemo(() => ({
         sortDirection: 'DESC',
         amountOfData: 1,
         token: '',
@@ -62,7 +62,7 @@ const FormSection = ({ reportType = 'repo' }:FormSectionProps) => {
         enterpriseAPI: '',
         events: '',
         ...reportInputs,
-    }
+    }), [reportInputs])
 
     const [inputError, setInputError] = useState({})
     const [formInfo, setFormInfo] = useState(defaultInputs)
@@ -78,8 +78,7 @@ const FormSection = ({ reportType = 'repo' }:FormSectionProps) => {
 
     useEffect(() => {
         setFormInfo(defaultInputs)
-    }, [reportType, setFormInfo])
-
+    }, [defaultInputs, setFormInfo])
 
     const setValue = (key: string, value: string | object | number) => setFormInfo({
         ...formInfo,

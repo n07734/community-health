@@ -20,7 +20,7 @@ const semVerSort = (a:Record<string, string>, b:Record<string, string>) => {
         sortResult = lt(getTag(a), getTag(b))
             ? -1
             : 1
-    } catch (error) {
+    } catch (_error) {
         sortResult = 0
     }
 
@@ -55,8 +55,7 @@ const formatReleaseData = (results: RawEventInfo[] = []) => {
                     'EMPTY': 'PATCH',
                 })[diffType] || 'PATCH'
 
-            } catch (error) {
-
+            } catch (_error) {
                 releaseType = 'PATCH'
             }
 

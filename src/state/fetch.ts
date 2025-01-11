@@ -204,7 +204,6 @@ export const useFetchStore = create(() => initialFetchState)
 export const addItemsToState = (items: Partial<AllState>) => useDataStore.setState(items)
 
 export const trimItems = (dateFrom = '', dateTo = '') => {
-    console.log('trimItems', dateFrom, dateTo)
     const {
         trimmedItems: {
             trimmedPRs: {
