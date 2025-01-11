@@ -53,12 +53,15 @@ const PrefetchedReport = () => {
 
     useEffect(() => {
         getPreFetched(repoInfo as ReportInfo)
+    }, [repoInfo])
+
+    useEffect(() => {
         if (player1 && player2) {
             togglePvPPage()
         } else if (user) {
             setUserPage(user)
         }
-    }, [togglePvPPage, setUserPage, player1, player2, user, repoInfo])
+    }, [togglePvPPage, setUserPage, player1, player2, user])
 
     return (
         <>
