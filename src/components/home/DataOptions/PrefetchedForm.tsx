@@ -28,7 +28,7 @@ import {
     validateForm,
 } from './utils'
 
-import { fetchGitHubData } from '@/state/actions'
+import { fetchGitHubDataUI } from '@/state/actions'
 import { fetchInfoFromFormData, useFetchStore } from '@/state/fetch'
 
 const PrefetchedForm = () => {
@@ -44,6 +44,7 @@ const PrefetchedForm = () => {
         amountOfData = 'all',
         enterpriseAPI = '',
         reportType,
+        teamName = '',
     } = fetches
 
     const sortDirection = 'ASC'
@@ -68,12 +69,12 @@ const PrefetchedForm = () => {
         'team': {
             reportType: 'team',
             usersInfo,
-            teamName: '',
+            teamName,
         },
         'user': {
             reportType: 'user',
-            userId: org,
-            name: '',
+            userId: Object.keys(usersInfo)[0],
+            name: Object.values(usersInfo)[0]?.name || '',
         },
     }
 
@@ -123,7 +124,7 @@ const PrefetchedForm = () => {
 
         if (isValid && !fetching) {
             const fetchInfo = fetchInfoFromFormData(formInfo)
-            fetchGitHubData({
+            fetchGitHubDataUI({
                 ...fetches,
                 ...fetchInfo,
             })

@@ -3,7 +3,7 @@ import {
     FormSubmitData,
     SavedEvent,
     ReportType,
-    UserData,
+    InitialDataState,
     FetchStatus,
     FetchInfoFromForm,
     AnyForNow,
@@ -18,10 +18,10 @@ import { getStartEndDates, trimmer, userIdsFromString } from './actions'
 import formatUserData from '@/format/userData'
 import { Graph } from '@/types/Graphs'
 import { colors } from '@/components/colors'
-import { EventInfo, Issue, PullRequest } from '@/types/FormattedData'
+import { EventInfo, PullRequest } from '@/types/FormattedData'
 import { AmountOfData, OldNew, SortDirection } from '@/types/Queries'
 
-const chartConfigDefault: Graph[] = [{
+export const chartConfigDefault: Graph[] = [{
     graphId: 1,
     left: [
         {
@@ -109,46 +109,6 @@ const initialFetchState:InitialFetchState = {
     issuesPagination: {},
 }
 
-type InitialDataState = {
-    reportDescription: string
-    pullRequests: PullRequest[]
-    reviewedPullRequests: PullRequest[]
-    issues: Issue[]
-    releases: EventInfo[]
-    usersData: UserData[]
-
-    // Formatted data hidden
-    filteredPRs: PullRequest[]
-    filteredReviewedPRs: PullRequest[]
-    filteredReleases: EventInfo[]
-    filteredIssues: Issue[]
-
-    trimmedItems: {
-        trimmedPRs: {
-            trimmedLeftPrs: PullRequest[]
-            trimmedRightPrs: PullRequest[]
-        }
-        trimmedReviewedPRs: {
-            trimmedLeftReviewedPrs: PullRequest[]
-            trimmedRightReviewedPrs: PullRequest[]
-        }
-        trimmedReleases: {
-            trimmedLeftReleases: EventInfo[]
-            trimmedRightReleases: EventInfo[]
-        }
-        trimmedIssues: {
-            trimmedLeftIssues: Issue[]
-            trimmedRightIssues: Issue[]
-        }
-    }
-
-    // Prefetched data
-    preFetchedName: string
-
-    // Display config
-    chartConfig: Graph[]
-    itemsDateRange: string[]
-}
 const initialDataState:InitialDataState = {
     reportDescription: '',
     pullRequests: [],
@@ -393,7 +353,7 @@ export const fetchInfoFromFormData = (values: FormSubmitData): FetchInfoFromForm
     return fetchInfo
 }
 
-const getReportType = (values: FetchInfo):ReportType => {
+export const getReportType = (values: FetchInfo):ReportType => {
     const {
         teamName = '',
         userIds = [],

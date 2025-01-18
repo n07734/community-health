@@ -293,3 +293,44 @@ export type AllState = {
     chartConfig: Graph[]
     itemsDateRange: string[]
 }
+
+export type InitialDataState = {
+    reportDescription: string
+    pullRequests: PullRequest[]
+    reviewedPullRequests: PullRequest[]
+    issues: Issue[]
+    releases: EventInfo[]
+    usersData: UserData[]
+
+    // Formatted data hidden
+    filteredPRs: PullRequest[]
+    filteredReviewedPRs: PullRequest[]
+    filteredReleases: EventInfo[]
+    filteredIssues: Issue[]
+
+    trimmedItems: {
+        trimmedPRs: {
+            trimmedLeftPrs: PullRequest[]
+            trimmedRightPrs: PullRequest[]
+        }
+        trimmedReviewedPRs: {
+            trimmedLeftReviewedPrs: PullRequest[]
+            trimmedRightReviewedPrs: PullRequest[]
+        }
+        trimmedReleases: {
+            trimmedLeftReleases: EventInfo[]
+            trimmedRightReleases: EventInfo[]
+        }
+        trimmedIssues: {
+            trimmedLeftIssues: Issue[]
+            trimmedRightIssues: Issue[]
+        }
+    }
+
+    // Prefetched data
+    preFetchedName: string
+
+    // Display config
+    chartConfig: Graph[]
+    itemsDateRange: string[]
+}

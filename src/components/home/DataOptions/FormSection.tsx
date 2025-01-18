@@ -10,7 +10,7 @@ import TextInput from './TextInput'
 import Download from './Download'
 import { validateForm } from './utils'
 import { fetchInfoFromFormData, useFetchStore } from '@/state/fetch'
-import { fetchGitHubData } from '@/state/actions'
+import { fetchGitHubDataUI } from '@/state/actions'
 
 type FormSectionProps = {
     reportType: ReportType
@@ -104,7 +104,7 @@ const FormSection = ({ reportType = 'repo' }:FormSectionProps) => {
 
         if (!fetching && isValid) {
             const fetchInfo = fetchInfoFromFormData(formInfo)
-            fetchGitHubData({
+            fetchGitHubDataUI({
                 ...fetches,
                 ...fetchInfo,
             })

@@ -21,6 +21,7 @@ import {
     FetchInfoForRepo,
     FetchInfoForOrg,
     ErrorUI,
+    InitialDataState,
 } from '../types/State'
 import { ApiResult } from '../types/Queries'
 import { AnyObject } from '../types/Components'
@@ -127,132 +128,156 @@ export const getStartEndDates = (prs: PullRequest[] = []) => {
     ]
 }
 
-const fetchGitHubData = async (fetches: FetchInfo) => {
+const fetchGitHubData = async (fetches: FetchInfo, reportData: InitialDataState) => {
+    throwIfNotValidArgs(fetches);
+    const {
+        filteredPRs = [],
+        pullRequests = [],
+        filteredReviewedPRs = [],
+        reviewedPullRequests = [],
+        issues = [],
+        filteredIssues = [],
+        releases = [],
+        filteredReleases = [],
+    } = reportData;
+
+    const formUntilDate = getUntilDate(
+        fetches,
+        pullRequests,
+    )
+
+    const untilDate = formUntilDate
+
+    const {
+        usersInfo,
+        reportType,
+        sortDirection = 'DESC',
+        userIds = [],
+    } = fetches
+
+    const reportTypeMap: Record<ReportType, () => Promise<ApiResult>> = {
+        user: async () => getUserData({ fetchInfo: fetches as FetchInfoForUser, untilDate }),
+        team: async () => getUsersData({ fetchInfo: fetches as FetchInfoForTeam, untilDate }),
+        repo: async () => api({ fetchInfo: fetches as FetchInfoForRepo, queryInfo: batchedQuery(untilDate) }),
+        org: async () => getOrgData({ fetchInfo: fetches as FetchInfoForOrg, untilDate }),
+    }
+
+    const {
+        fetchInfo,
+        results = [],
+        reviewResults = [],
+    } = await reportTypeMap[reportType]()
+
+    const newPullRequests = formatPullRequests(fetches, results)
+    const filteredNewPullRequests = filterByUsersInfo(fetches, newPullRequests)
+    const allPullRequests = pullRequests.concat(filteredPRs).concat(filteredNewPullRequests)
+
+    const newestOldPR = pullRequests.at(-1)?.mergedAt?.slice(0, 10)
+    const oldestOldPR = pullRequests.at(0)?.mergedAt?.slice(0, 10)
+
+    const lastPRDate = newPullRequests.at(-1)?.mergedAt?.slice(0, 10)
+    const nowDate = new Date().toISOString().slice(0, 10)
+
+    const reportDates = sortDirection === 'DESC'
+        ? {
+            reportStartDate: untilDate || lastPRDate,
+            reportEndDate: newestOldPR || nowDate,
+        } : {
+            reportStartDate: oldestOldPR,
+            reportEndDate: untilDate || nowDate,
+        }
+
+    // Get all prs together so then can be cleanly filtered and sorted
+    const [includedPRs, newFilteredPRs] = filterSortPullRequests(fetches, reportDates, allPullRequests)
+
+    const newReviewedPullRequests = formatPullRequests(fetches, reviewResults)
+    const filteredNewReviewedPRs = newReviewedPullRequests
+        .filter(({ author = '', mergedAt = '' }) => mergedAt && author !== userIds[0])
+    const allReviewedPullRequests = reviewedPullRequests.concat(filteredReviewedPRs).concat(filteredNewReviewedPRs)
+    const [includedReviewedPRs = [], newFilteredReviewedPRs = []] = filterSortPullRequests(fetches, reportDates, allReviewedPullRequests)
+
+    const dates = getStartEndDates(includedPRs)
+
+    const newReleases = formatReleases(results)
+    const allReleases = formatReleaseData([
+        ...filteredReleases,
+        ...releases,
+        ...newReleases,
+    ])
+    const [includesReleases, newFilteredReleases] = filterSortReleases(reportDates, allReleases)
+
+    const newIssues = formatIssues(results)
+    const allIssues = issues.concat(filteredIssues).concat(newIssues)
+    const [includedIssues, newFilteredIssues] = filterSortIssues(reportDates, allIssues)
+
+    const pageInfo = (info:AnyForNow = {}) => {
+        const picks = pick(['newest', 'oldest'])
+
+        const nextLevel:AnyObject = {}
+        Object.entries(info)
+            .filter(([, value]) => is(Object, value) && values(picks(value)).length > 0)
+            .forEach(([key, value]:[string, AnyForNow]) => {
+                nextLevel[key] = picks(value)
+            })
+
+        const infoPicks = picks(info)
+        return {
+            ...infoPicks,
+            ...nextLevel,
+        }
+    }
+
+    const usersData = formatUserData(includedPRs.concat(includedReviewedPRs), usersInfo)
+
+    const newReportData = {
+        pullRequests: includedPRs,
+        filteredPRs: newFilteredPRs,
+        reviewedPullRequests: includedReviewedPRs,
+        filteredReviewedPRs: newFilteredReviewedPRs,
+        itemsDateRange: dates,
+        usersData,
+        releases: includesReleases,
+        filteredReleases: newFilteredReleases,
+        issues: includedIssues,
+        filteredIssues: newFilteredIssues,
+    }
+
+    const newFetchInfo = {
+        ...fetchInfo,
+        reportType: reportType,
+        fetching: false,
+        fetchStatus: {},
+        prPagination: pageInfo(fetchInfo.prPagination),
+        usersReviewsPagination: pageInfo(fetchInfo.usersReviewsPagination),
+        releasesPagination: pageInfo(fetchInfo.releasesPagination),
+        issuesPagination: pageInfo(fetchInfo.issuesPagination),
+    }
+
+    return {
+        newReportData,
+        newFetchInfo,
+    }
+}
+
+const fetchGitHubDataUI = async (fetches: FetchInfo) => {
+    const report = useDataStore.getState()
     try {
-        throwIfNotValidArgs(fetches);
         setStateFetchStart()
         const {
-            // fetches,
-            filteredPRs = [],
-            pullRequests = [],
-            filteredReviewedPRs = [],
-            reviewedPullRequests = [],
-            issues = [],
-            filteredIssues = [],
-            releases = [],
-            filteredReleases = [],
-        } = useDataStore.getState();
-
-        const formUntilDate = getUntilDate(
-            fetches,
-            pullRequests,
-        )
-
-        const {
-            usersInfo,
-            reportType,
-            sortDirection = 'DESC',
-            userIds = [],
-        } = fetches
-
-        const untilDate = formUntilDate
-
-        const reportTypeMap: Record<ReportType, () => Promise<ApiResult>> = {
-            user: async () => getUserData({ fetchInfo: fetches as FetchInfoForUser, untilDate }),
-            team: async () => getUsersData({ fetchInfo: fetches as FetchInfoForTeam, untilDate }),
-            repo: async () => api({ fetchInfo: fetches as FetchInfoForRepo, queryInfo: batchedQuery(untilDate) }),
-            org: async () => getOrgData({ fetchInfo: fetches as FetchInfoForOrg, untilDate }),
-        }
-
-        const {
-            fetchInfo,
-            results = [],
-            reviewResults = [],
-        } = await reportTypeMap[reportType]()
-
-        const newPullRequests = formatPullRequests(fetches, results)
-        const filteredNewPullRequests = filterByUsersInfo(fetches, newPullRequests)
-        const allPullRequests = pullRequests.concat(filteredPRs).concat(filteredNewPullRequests)
-
-        const newestOldPR = pullRequests.at(-1)?.mergedAt?.slice(0, 10)
-        const oldestOldPR = pullRequests.at(0)?.mergedAt?.slice(0, 10)
-
-        const lastPRDate = newPullRequests.at(-1)?.mergedAt?.slice(0, 10)
-        const nowDate = new Date().toISOString().slice(0, 10)
-
-        const reportDates = sortDirection === 'DESC'
-            ? {
-                reportStartDate: untilDate || lastPRDate,
-                reportEndDate: newestOldPR || nowDate,
-            } : {
-                reportStartDate: oldestOldPR,
-                reportEndDate: untilDate || nowDate,
-            }
-
-        // Get all prs together so then can be cleanly filtered and sorted
-        const [includedPRs, newFilteredPRs] = filterSortPullRequests(fetches, reportDates, allPullRequests)
-
-        const newReviewedPullRequests = formatPullRequests(fetches, reviewResults)
-        const filteredNewReviewedPRs = newReviewedPullRequests
-            .filter(({ author = '', mergedAt = '' }) => mergedAt && author !== userIds[0])
-        const allReviewedPullRequests = reviewedPullRequests.concat(filteredReviewedPRs).concat(filteredNewReviewedPRs)
-        const [includedReviewedPRs = [], newFilteredReviewedPRs = []] = filterSortPullRequests(fetches, reportDates, allReviewedPullRequests)
-
-        const dates = getStartEndDates(includedPRs)
-
-        const newReleases = formatReleases(results)
-        const allReleases = formatReleaseData([
-            ...filteredReleases,
-            ...releases,
-            ...newReleases,
-        ])
-        const [includesReleases, newFilteredReleases] = filterSortReleases(reportDates, allReleases)
-
-        const newIssues = formatIssues(results)
-        const allIssues = issues.concat(filteredIssues).concat(newIssues)
-        const [includedIssues, newFilteredIssues] = filterSortIssues(reportDates, allIssues)
-
-        const pageInfo = (info:AnyForNow = {}) => {
-            const picks = pick(['newest', 'oldest'])
-
-            const nextLevel:AnyObject = {}
-            Object.entries(info)
-                .filter(([, value]) => is(Object, value) && values(picks(value)).length > 0)
-                .forEach(([key, value]:[string, AnyForNow]) => {
-                    nextLevel[key] = picks(value)
-                })
-
-            const infoPicks = picks(info)
-            return {
-                ...infoPicks,
-                ...nextLevel,
-            }
-        }
+            newReportData,
+            newFetchInfo,
+        } = await fetchGitHubData(fetches, report)
 
         useDataStore.setState((state) => ({
             ...state,
-            pullRequests: includedPRs,
-            filteredPRs: newFilteredPRs,
-            reviewedPullRequests: includedReviewedPRs,
-            filteredReviewedPRs: newFilteredReviewedPRs,
-            itemsDateRange: dates,
-            usersData: formatUserData(includedPRs.concat(includedReviewedPRs), usersInfo),
-            releases: includesReleases,
-            filteredReleases: newFilteredReleases,
-            issues: includedIssues,
-            filteredIssues: newFilteredIssues,
+            ...newReportData,
         }))
 
         useFetchStore.setState((state) => ({
             ...state,
-            ...fetchInfo,
-            reportType: reportType,
+            ...newFetchInfo,
             fetching: false,
             fetchStatus: {},
-            prPagination: pageInfo(fetchInfo.prPagination),
-            usersReviewsPagination: pageInfo(fetchInfo.usersReviewsPagination),
-            releasesPagination: pageInfo(fetchInfo.releasesPagination),
-            issuesPagination: pageInfo(fetchInfo.issuesPagination),
         }))
     } catch (err) {
         const error = err as ErrorUI
@@ -323,6 +348,20 @@ const getPreFetched = async ({
     }
 }
 
+const getReportData = (name: string) => pipe(
+    assoc('HOW_TO', '1: Add this file to ./src/myReports 2: Run the app. If you want multiple reports you will need to edit ./src/myReports/myReportsConfig.js.'),
+    pickAll(['fetches', 'pullRequests', 'filteredPRs', 'reviewedPullRequests', 'filteredReviewedPRs', 'userData', 'issues', 'filteredIssues', 'releases', 'teamName', 'chartConfig']),
+    dissocPath(['fetches', 'token']),
+    dissocPath(['fetches', 'sortDirection']),
+    dissocPath(['fetches', 'amountOfData']),
+    // TODO: strip hasNextPage from user's pagination data
+    dissocPath(['fetches', 'prPagination', 'hasNextPage']),
+    dissocPath(['fetches', 'issuesPagination', 'hasNextPage']),
+    dissocPath(['fetches', 'releasesPagination', 'hasNextPage']),
+    assoc('preFetchedName', name),
+    slimObject,
+)
+
 const getDownloadProps = () => {
     const data = useDataStore.getState()
     const fetches = useFetchStore.getState()
@@ -346,21 +385,7 @@ const getDownloadProps = () => {
         || user
         || `${org}${repo ? `-${repo}` : ''}`
 
-    const getReportData = pipe(
-        assoc('HOW_TO', '1: Add this file to ./src/myReports 2: Run the app. If you want multiple reports you will need to edit ./src/myReports/myReportsConfig.js.'),
-        pickAll(['fetches', 'pullRequests', 'filteredPRs', 'reviewedPullRequests', 'filteredReviewedPRs', 'userData', 'issues', 'filteredIssues', 'releases', 'teamName', 'chartConfig']),
-        dissocPath(['fetches', 'token']),
-        dissocPath(['fetches', 'sortDirection']),
-        dissocPath(['fetches', 'amountOfData']),
-        // TODO: strip hasNextPage from user's pagination data
-        dissocPath(['fetches', 'prPagination', 'hasNextPage']),
-        dissocPath(['fetches', 'issuesPagination', 'hasNextPage']),
-        dissocPath(['fetches', 'releasesPagination', 'hasNextPage']),
-        assoc('preFetchedName', name),
-        slimObject,
-    )
-
-    const reportData = getReportData(state)
+    const reportData = getReportData(name)(state)
     const json = JSON.stringify(reportData, null, 2)
     const blob = new Blob([json], { type: "application/json" })
     const href = URL.createObjectURL(blob)
@@ -372,7 +397,9 @@ const getDownloadProps = () => {
 }
 
 export {
+    fetchGitHubDataUI,
     fetchGitHubData,
     getPreFetched,
     getDownloadProps,
+    getReportData,
 }
