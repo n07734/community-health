@@ -43,6 +43,7 @@ const PullRequestTrendsTeam = ({ pullRequests = [] }:PullRequestTrendsTeamProps)
             <GraphsWrap>
                 <Line
                     title="Percentage spread within team for "
+                    combineTitles={true}
                     markers={markers}
                     data={[
                         {
